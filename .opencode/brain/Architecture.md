@@ -44,7 +44,7 @@ These align with the assumptions already captured in the product spec.
 - Local persistence: SQLite on device
 - Backend platform: Supabase
 - Primary database: PostgreSQL
-- Auth: Supabase Auth with email magic-link login
+- Auth: Supabase Auth with email/password login for manually provisioned users
 - Realtime: Supabase Realtime subscriptions
 - Server-side logic: TypeScript edge/server functions for snapshot generation, guarded mutations, and content version/bootstrap workflows
 

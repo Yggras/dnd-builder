@@ -11,7 +11,7 @@ This step intentionally excludes feature-complete flows such as character creati
 - Database: PostgreSQL in Supabase plus SQLite on device.
 - Integration style: typed client with React Query over Supabase-backed service boundaries.
 - Real-time method: Supabase Realtime.
-- Auth: Supabase Auth with magic-link sign-in.
+- Auth: Supabase Auth with email/password sign-in for manually provisioned users.
 - Permissions: DM is read-only over player characters in v1.
 - Rules baseline: 2024-first with legacy 2014 content allowed and labeled.
 

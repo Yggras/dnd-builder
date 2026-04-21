@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { ensureBundledContentReady } from '@/shared/content/bootstrap';
 import { initializeDatabase } from '@/shared/db/sqlite';
 import { mapError } from '@/shared/errors/map-error';
 import { logger } from '@/shared/logging/logger';
@@ -12,7 +13,18 @@ export function useAppBootstrap() {
     let isMounted = true;
 
     void initializeDatabase()
-      .then(() => {
+      .then(() => ensureBundledContentReady())
+      .then((contentBootstrap) => {
+        logger.info(
+          'app_bootstrap_completed',
+          contentBootstrap.contentVersion
+            ? {
+                seeded: contentBootstrap.seeded,
+                contentVersion: contentBootstrap.contentVersion,
+              }
+            : undefined,
+        );
+
         if (isMounted) {
           setIsReady(true);
         }

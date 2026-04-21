@@ -1,6 +1,9 @@
 export type CampaignRole = 'dm' | 'player';
 export type RulesEdition = '2014' | '2024';
 export type PendingMutationType = 'create' | 'update' | 'delete';
+export type ContentEntityType = 'species' | 'class' | 'subclass' | 'feat' | 'optionalfeature' | 'spell' | 'item';
+export type ChoiceGrantSourceType = 'class' | 'subclass' | 'feat' | 'optionalfeature';
+export type ChoiceGrantKind = 'feat' | 'optionalfeature';
 
 export interface Campaign {
   id: string;
@@ -81,12 +84,15 @@ export interface CharacterSnapshot {
 export interface CompendiumEntry {
   id: string;
   entryType: string;
+   entityId: string | null;
   name: string;
   slug: string;
   sourceCode: string;
   sourceName: string;
   rulesEdition: RulesEdition;
   isLegacy: boolean;
+   isPrimary2024: boolean;
+   isSelectableInBuilder: boolean;
   summary: string | null;
   text: string;
   searchText: string;
@@ -104,4 +110,40 @@ export interface PendingMutation {
   payload: Record<string, unknown>;
   createdAt: string;
   retryCount: number;
+}
+
+export interface ContentEntity {
+  id: string;
+  entityType: ContentEntityType;
+  parentEntityId: string | null;
+  name: string;
+  sourceCode: string;
+  sourceName: string;
+  rulesEdition: RulesEdition;
+  isLegacy: boolean;
+  isPrimary2024: boolean;
+  isSelectableInBuilder: boolean;
+  searchText: string;
+  summary: string | null;
+  categoryTags: string[];
+  metadata: Record<string, unknown>;
+  renderPayload: Record<string, unknown> | null;
+  updatedAt: string;
+}
+
+export interface ChoiceGrant {
+  id: string;
+  sourceType: ChoiceGrantSourceType;
+  sourceId: string;
+  sourceName: string;
+  atLevel: number;
+  chooseKind: ChoiceGrantKind;
+  categoryFilter: string[];
+  count: number;
+  visibility: 'builder' | 'compendium-only';
+}
+
+export interface ContentSeedState {
+  contentVersion: string;
+  seededAt: string;
 }

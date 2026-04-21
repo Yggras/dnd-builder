@@ -111,7 +111,7 @@ D&D groups often split character data, rules lookup, and session tracking across
 
 ## Assumptions
 - Recommended stack: Expo/React Native with TypeScript for client, Supabase for auth/database/realtime, and local SQLite-based caching for offline support.
-- Email magic-link authentication is sufficient for v1 unless stronger identity needs emerge.
+- Email/password authentication for manually provisioned users is sufficient for v1 unless stronger identity needs emerge.
 - The DM is the campaign owner and primary manager of campaign membership.
 - Curated rules content is prepared ahead of runtime and shipped as an app-managed dataset.
 - V1 focuses on player characters, not full NPC or monster management.

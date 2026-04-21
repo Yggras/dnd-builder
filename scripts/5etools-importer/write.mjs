@@ -10,6 +10,8 @@ import {
 } from './config.mjs';
 import { stableSortBy } from './utils.mjs';
 
+const GENERATED_REGISTRY_PATH = path.join(process.cwd(), 'src', 'shared', 'content', 'generated', '5etoolsRegistry.ts');
+
 function createChunk(entityType, chunkId, records, generatedAt) {
   return {
     schemaVersion: IMPORTER_SCHEMA_VERSION,
@@ -24,6 +26,38 @@ function createChunk(entityType, chunkId, records, generatedAt) {
 async function writeJson(filePath, payload) {
   await mkdir(path.dirname(filePath), { recursive: true });
   await writeFile(filePath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+}
+
+function toImportName(value) {
+  return value.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^([0-9])/, '_$1');
+}
+
+async function writeGeneratedRegistry(manifest) {
+  const importLines = [
+    `import bundledContentIndex from '../../../../generated/5etools/content-index.json';`,
+  ];
+
+  const registryEntries = [];
+
+  for (const chunk of manifest.chunks) {
+    const importName = toImportName(`${chunk.entityType}_${chunk.chunkId}`);
+    importLines.push(`import ${importName} from '../../../../${chunk.filePath}';`);
+    registryEntries.push(`  '${chunk.filePath}': ${importName},`);
+  }
+
+  const fileContents = [
+    ...importLines,
+    '',
+    'export const bundledContentManifest = bundledContentIndex;',
+    '',
+    'export const bundledContentChunks = {',
+    ...registryEntries,
+    '};',
+    '',
+  ].join('\n');
+
+  await mkdir(path.dirname(GENERATED_REGISTRY_PATH), { recursive: true });
+  await writeFile(GENERATED_REGISTRY_PATH, fileContents, 'utf8');
 }
 
 function splitByPredicate(records, predicate) {
@@ -222,6 +256,7 @@ export async function writeGeneratedContent(entityGroups) {
   };
 
   await writeJson(path.join(OUTPUT_ROOT, 'content-index.json'), manifest);
+  await writeGeneratedRegistry(manifest);
 
   return manifest;
 }
