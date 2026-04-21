@@ -35,11 +35,11 @@ export function SignInScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.hero}>
-        <Text style={styles.eyebrow}>Step 1 Scaffold</Text>
+        <Text style={styles.eyebrow}>Auth</Text>
         <Text style={styles.title}>Private D&D Party App</Text>
         <Text style={styles.description}>
-          This screen wires the auth boundary and session provider. The full login flow will be
-          refined in the first vertical slice.
+          Sign in with a magic link to enter the private campaign app. This keeps the login flow
+          light while the product surfaces are built out.
         </Text>
       </View>
 

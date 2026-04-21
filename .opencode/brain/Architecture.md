@@ -52,7 +52,7 @@ These align with the assumptions already captured in the product spec.
 ### Project Structure
 Feature-first.
 
-Reason: the domain is naturally segmented into auth, campaigns, characters, compendium, imports, and sync. This will scale better than separating files only by technical layer.
+Reason: the domain is naturally segmented into auth, campaigns, characters, compendium, content, and sync. This will scale better than separating files only by technical layer.
 
 ### Service Type
 Full-stack mobile app with managed backend services.
@@ -322,12 +322,16 @@ The system uses a preprocessed curated dataset derived from 5eTools-style source
 Minimum fields from the product spec:
 - `entry_type`
 - `name`
-- `source`
 - `slug`
+- `source_code`
+- `source_name`
+- `rules_edition`
+- `is_legacy`
+- `summary`
 - `text`
+- `search_text`
 - `metadata`
-- `raw_json`
-- `scope`
+- `render_payload`
 
 ### Search Approach
 Start with:

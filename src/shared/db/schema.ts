@@ -43,11 +43,17 @@ export const schemaStatements = [
     id TEXT PRIMARY KEY NOT NULL,
     entry_type TEXT NOT NULL,
     name TEXT NOT NULL,
+    slug TEXT NOT NULL,
     source_code TEXT NOT NULL,
+    source_name TEXT NOT NULL,
     rules_edition TEXT NOT NULL,
     is_legacy INTEGER NOT NULL DEFAULT 0,
+    summary TEXT,
+    text TEXT NOT NULL,
     search_text TEXT NOT NULL,
-    payload TEXT NOT NULL,
+    scope TEXT NOT NULL DEFAULT 'global',
+    metadata TEXT NOT NULL,
+    render_payload TEXT,
     updated_at TEXT NOT NULL
   )`,
   `CREATE TABLE IF NOT EXISTS pending_mutations (

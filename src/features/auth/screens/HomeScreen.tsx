@@ -36,11 +36,11 @@ export function HomeScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.eyebrow}>Project Scaffold</Text>
-        <Text style={styles.title}>D&D Builder Foundation</Text>
+        <Text style={styles.eyebrow}>Foundation</Text>
+        <Text style={styles.title}>Private D&D Party App</Text>
         <Text style={styles.description}>
-          The app shell, shared providers, and domain boundaries are wired. Feature routes below are
-          placeholders for the first vertical slice.
+          The app shell, shared providers, and scaffold boundaries are in place. The routes below are
+          the starting surfaces for the first implementation phase.
         </Text>
         <Text style={styles.sessionText}>
           {session?.user?.email ? `Signed in as ${session.user.email}` : 'No active session yet'}

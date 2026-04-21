@@ -35,6 +35,12 @@ export interface CharacterBuild {
   subclassId: string | null;
   speciesId: string | null;
   backgroundId: string | null;
+  abilityScores: Record<string, number>;
+  selectedProficiencies: string[];
+  selectedLanguages: string[];
+  selectedFeatIds: string[];
+  preparedSpellIds: string[];
+  inventoryItemIds: string[];
   notes: string | null;
   overrides: Record<string, unknown>;
   updatedAt: string;
@@ -46,9 +52,15 @@ export interface CharacterStatus {
   maxHp: number;
   temporaryHp: number;
   armorClass: number;
+  spellSlots: Record<string, { used: number; total: number }>;
   concentration: boolean;
   exhaustionLevel: number;
   activeConditions: string[];
+  deathSaves: {
+    successes: number;
+    failures: number;
+  };
+  notes: string | null;
   updatedAt: string;
 }
 
@@ -76,9 +88,12 @@ export interface CompendiumEntry {
   rulesEdition: RulesEdition;
   isLegacy: boolean;
   summary: string | null;
+  text: string;
   searchText: string;
+  scope: 'global';
   metadata: Record<string, unknown>;
   renderPayload: Record<string, unknown> | null;
+  updatedAt: string;
 }
 
 export interface PendingMutation {
