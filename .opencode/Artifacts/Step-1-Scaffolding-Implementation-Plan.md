@@ -28,9 +28,9 @@ Typed client plus React Query.
 Reason: the client needs clear server-state handling, optimistic updates, caching, and later offline coordination, while keeping transport details outside screens.
 
 ### Auth Strategy
-Supabase session auth using magic links.
+Supabase session auth using email and password for manually created users.
 
-Reason: it matches the product specification and avoids premature custom token infrastructure.
+Reason: it matches the private login-only access model while still using managed auth infrastructure.
 
 ### Real-Time Strategy
 Supabase Realtime subscriptions.

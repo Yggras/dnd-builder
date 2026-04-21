@@ -13,8 +13,8 @@ export class AuthService {
     return this.repository.onAuthStateChange(listener);
   }
 
-  signInWithMagicLink(email: string): Promise<void> {
-    return this.repository.signInWithMagicLink(email);
+  signInWithPassword(email: string, password: string): Promise<void> {
+    return this.repository.signInWithPassword(email, password);
   }
 
   signOut(): Promise<void> {

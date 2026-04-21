@@ -12,7 +12,7 @@ interface AuthContextValue {
   session: Session | null;
   user: User | null;
   isLoading: boolean;
-  signInWithMagicLink: (email: string) => Promise<void>;
+  signInWithPassword: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }
 
@@ -63,7 +63,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       session,
       user: session?.user ?? null,
       isLoading,
-      signInWithMagicLink: (email: string) => authService.signInWithMagicLink(email),
+      signInWithPassword: (email: string, password: string) =>
+        authService.signInWithPassword(email, password),
       signOut: () => authService.signOut(),
     }),
     [isLoading, session],

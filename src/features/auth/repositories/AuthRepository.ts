@@ -7,6 +7,6 @@ export interface AuthSessionSubscription {
 export interface AuthRepository {
   getSession: () => Promise<Session | null>;
   onAuthStateChange: (listener: (session: Session | null) => void) => AuthSessionSubscription;
-  signInWithMagicLink: (email: string) => Promise<void>;
+  signInWithPassword: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
 }

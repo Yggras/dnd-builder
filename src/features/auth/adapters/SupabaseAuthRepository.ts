@@ -26,12 +26,10 @@ export class SupabaseAuthRepository implements AuthRepository {
     };
   }
 
-  async signInWithMagicLink(email: string): Promise<void> {
-    const { error } = await supabase.auth.signInWithOtp({
+  async signInWithPassword(email: string, password: string): Promise<void> {
+    const { error } = await supabase.auth.signInWithPassword({
       email,
-      options: {
-        shouldCreateUser: false,
-      },
+      password,
     });
 
     if (error) {

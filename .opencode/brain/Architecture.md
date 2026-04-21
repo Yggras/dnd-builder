@@ -75,9 +75,9 @@ Supabase Realtime subscriptions.
 Reason: the DM dashboard and shared campaign state need near-live updates without building a custom WebSocket layer in v1.
 
 ### Auth Strategy
-Supabase session auth with magic link.
+Supabase session auth with email and password for manually provisioned users.
 
-Reason: the spec explicitly prefers a low-friction login flow and does not currently require a custom identity system.
+Reason: the app is private and admin-managed, so login-only email/password auth keeps access control simple without adding registration or email-link flows.
 
 ### Error Handling
 Typed domain errors plus consistent user-safe client error mapping.
