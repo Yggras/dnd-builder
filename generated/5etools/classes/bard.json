@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "bard",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "bard|xphb",
+      "kind": "class",
+      "name": "Bard",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Bard XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "college-of-creation|tce|subclass|bard|xphb",
+        "college-of-dance|xphb|subclass|bard|xphb",
+        "college-of-eloquence|tce|subclass|bard|xphb",
+        "college-of-glamour|xge|subclass|bard|xphb",
+        "college-of-glamour|xphb|subclass|bard|xphb",
+        "college-of-lore|phb|subclass|bard|xphb",
+        "college-of-lore|xphb|subclass|bard|xphb",
+        "college-of-spirits|vrgr|subclass|bard|xphb",
+        "college-of-swords|xge|subclass|bard|xphb",
+        "college-of-the-moon|frhof|subclass|bard|xphb",
+        "college-of-valor|phb|subclass|bard|xphb",
+        "college-of-valor|xphb|subclass|bard|xphb",
+        "college-of-whispers|xge|subclass|bard|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "cha": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "dex",
+          "cha"
+        ],
+        "spellcastingAbility": "cha",
+        "casterProgression": "full",
+        "cantripProgression": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "preparedSpellsProgression": [
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light"
+          ],
+          "weapons": [
+            "simple"
+          ],
+          "tools": [
+            "Choose three {@item Musical Instrument|XPHB|Musical Instruments}"
+          ],
+          "toolProficiencies": [
+            {
+              "anyMusicalInstrument": 3
+            }
+          ],
+          "skills": [
+            {
+              "any": 3
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "leather armor|xphb"
+                },
+                {
+                  "item": "dagger|xphb",
+                  "quantity": 2
+                },
+                {
+                  "equipmentType": "instrumentMusical"
+                },
+                {
+                  "item": "entertainer's pack|xphb"
+                },
+                {
+                  "value": 1900
+                }
+              ],
+              "B": [
+                {
+                  "value": 9000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB}, {@item Musical Instrument|XPHB} of your choice, {@item Entertainer's Pack|XPHB}, 19 GP; or (B) 90 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Bardic Inspiration|Bard|XPHB|1",
+          "Spellcasting|Bard|XPHB|1",
+          "Expertise|Bard|XPHB|2",
+          "Jack of All Trades|Bard|XPHB|2",
+          {
+            "classFeature": "Bard Subclass|Bard|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Bard|XPHB|4",
+          "Font of Inspiration|Bard|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Bard|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Countercharm|Bard|XPHB|7",
+          "Ability Score Improvement|Bard|XPHB|8",
+          "Expertise|Bard|XPHB|9",
+          "Magical Secrets|Bard|XPHB|10",
+          "Ability Score Improvement|Bard|XPHB|12",
+          {
+            "classFeature": "Subclass Feature|Bard|XPHB|14",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Bard|XPHB|16",
+          "Superior Inspiration|Bard|XPHB|18",
+          "Epic Boon|Bard|XPHB|19",
+          "Words of Creation|Bard|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "college-of-creation|tce|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Creation",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "College of Creation TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Creation",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Creation|Bard||Creation|TCE|3",
+            "Animating Performance|Bard||Creation|TCE|6",
+            "Creative Crescendo|Bard||Creation|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-dance|xphb|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Dance",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "College of Dance XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Dance",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Dance|Bard|XPHB|Dance|XPHB|3",
+            "Inspiring Movement|Bard|XPHB|Dance|XPHB|6",
+            "Tandem Footwork|Bard|XPHB|Dance|XPHB|6",
+            "Leading Evasion|Bard|XPHB|Dance|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-eloquence|tce|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Eloquence",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "College of Eloquence TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Eloquence",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Eloquence|Bard||Eloquence|TCE|3",
+            "Unfailing Inspiration|Bard||Eloquence|TCE|6",
+            "Universal Speech|Bard||Eloquence|TCE|6",
+            "Infectious Inspiration|Bard||Eloquence|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-glamour|xphb|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Glamour",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "College of Glamour XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Glamour",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Glamour|Bard|XPHB|Glamour|XPHB|3",
+            "Mantle of Majesty|Bard|XPHB|Glamour|XPHB|6",
+            "Unbreakable Majesty|Bard|XPHB|Glamour|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-lore|xphb|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Lore",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "College of Lore XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Lore",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Lore|Bard|XPHB|Lore|XPHB|3",
+            "Magical Discoveries|Bard|XPHB|Lore|XPHB|6",
+            "Peerless Skill|Bard|XPHB|Lore|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-spirits|vrgr|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Spirits",
+        "sourceCode": "VRGR",
+        "sourceName": "VRGR",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "College of Spirits VRGR",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Spirits",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Spirits|Bard||Spirits|VRGR|3",
+            "Spirit Session|Bard||Spirits|VRGR|6",
+            "Mystical Connection|Bard||Spirits|VRGR|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-swords|xge|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Swords",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "College of Swords XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Swords",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Swords|Bard||Swords|XGE|3",
+            "Extra Attack|Bard||Swords|XGE|6",
+            "Master's Flourish|Bard||Swords|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-the-moon|frhof|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of the Moon",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "College of the Moon FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Moon",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of the Moon|Bard|XPHB|Moon|FRHoF|3|FRHoF",
+            "Blessing of Moonlight|Bard|XPHB|Moon|FRHoF|6|FRHoF",
+            "Eventide's Splendor|Bard|XPHB|Moon|FRHoF|14|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-valor|xphb|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Valor",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "College of Valor XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Valor",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Valor|Bard|XPHB|Valor|XPHB|3",
+            "Extra Attack|Bard|XPHB|Valor|XPHB|6",
+            "Battle Magic|Bard|XPHB|Valor|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "college-of-whispers|xge|subclass|bard|xphb",
+        "kind": "subclass",
+        "name": "College of Whispers",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "College of Whispers XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "bard|xphb",
+        "metadata": {
+          "shortName": "Whispers",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "College of Whispers|Bard||Whispers|XGE|3",
+            "Mantle of Whispers|Bard||Whispers|XGE|6",
+            "Shadow Lore|Bard||Whispers|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "druid",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "druid|xphb",
+      "kind": "class",
+      "name": "Druid",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Druid XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "circle-of-dreams|xge|subclass|druid|xphb",
+        "circle-of-spores|tce|subclass|druid|xphb",
+        "circle-of-stars|tce|subclass|druid|xphb",
+        "circle-of-the-land|phb|subclass|druid|xphb",
+        "circle-of-the-land|xphb|subclass|druid|xphb",
+        "circle-of-the-moon|phb|subclass|druid|xphb",
+        "circle-of-the-moon|xphb|subclass|druid|xphb",
+        "circle-of-the-sea|xphb|subclass|druid|xphb",
+        "circle-of-the-shepherd|xge|subclass|druid|xphb",
+        "circle-of-the-stars|xphb|subclass|druid|xphb",
+        "circle-of-wildfire|tce|subclass|druid|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "wis": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "int",
+          "wis"
+        ],
+        "spellcastingAbility": "wis",
+        "casterProgression": "full",
+        "cantripProgression": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "preparedSpellsProgression": [
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "shield"
+          ],
+          "weapons": [
+            "simple"
+          ],
+          "tools": [
+            "{@item Herbalism Kit|XPHB}"
+          ],
+          "toolProficiencies": [
+            {
+              "herbalism kit": true
+            }
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "arcana",
+                  "animal handling",
+                  "insight",
+                  "medicine",
+                  "nature",
+                  "perception",
+                  "religion",
+                  "survival"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "leather armor|xphb"
+                },
+                {
+                  "item": "shield|xphb"
+                },
+                {
+                  "item": "sickle|xphb"
+                },
+                {
+                  "item": "druidic focus|xphb"
+                },
+                {
+                  "item": "explorer's pack|xphb"
+                },
+                {
+                  "item": "herbalism kit|xphb"
+                },
+                {
+                  "value": 900
+                }
+              ],
+              "B": [
+                {
+                  "value": 5000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, {@item Shield|XPHB}, {@item Sickle|XPHB}, {@item Druidic Focus|XPHB|Druidic Focus (Quarterstaff)}, {@item Explorer's Pack|XPHB}, {@item Herbalism kit|XPHB}, 9 GP; or (B) 50 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Druidic|Druid|XPHB|1",
+          "Primal Order|Druid|XPHB|1",
+          "Spellcasting|Druid|XPHB|1",
+          "Wild Companion|Druid|XPHB|2",
+          "Wild Shape|Druid|XPHB|2",
+          {
+            "classFeature": "Druid Subclass|Druid|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Druid|XPHB|4",
+          "Wild Resurgence|Druid|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Druid|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Elemental Fury|Druid|XPHB|7",
+          "Ability Score Improvement|Druid|XPHB|8",
+          {
+            "classFeature": "Subclass Feature|Druid|XPHB|10",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Druid|XPHB|12",
+          {
+            "classFeature": "Subclass Feature|Druid|XPHB|14",
+            "gainSubclassFeature": true
+          },
+          "Improved Elemental Fury|Druid|XPHB|15",
+          "Ability Score Improvement|Druid|XPHB|16",
+          "Beast Spells|Druid|XPHB|18",
+          "Epic Boon|Druid|XPHB|19",
+          "Archdruid|Druid|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "circle-of-dreams|xge|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of Dreams",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Circle of Dreams XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Dreams",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of Dreams|Druid|XPHB|Dreams|XGE|3",
+            "Hearth of Moonlight and Shadow|Druid||Dreams|XGE|6",
+            "Hidden Paths|Druid||Dreams|XGE|10",
+            "Walker in Dreams|Druid||Dreams|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-spores|tce|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of Spores",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Circle of Spores TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Spores",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of Spores|Druid|XPHB|Spores|TCE|3",
+            "Fungal Infestation|Druid||Spores|TCE|6",
+            "Spreading Spores|Druid||Spores|TCE|10",
+            "Fungal Body|Druid||Spores|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-stars|tce|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of Stars",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Circle of Stars TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Stars",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of Stars|Druid|XPHB|Stars|TCE|3",
+            "Cosmic Omen|Druid||Stars|TCE|6",
+            "Twinkling Constellations|Druid||Stars|TCE|10",
+            "Full of Stars|Druid||Stars|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-the-land|xphb|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of the Land",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Circle of the Land XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Land",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of the Land|Druid|XPHB|Land|XPHB|3",
+            "Natural Recovery|Druid|XPHB|Land|XPHB|6",
+            "Nature's Ward|Druid|XPHB|Land|XPHB|10",
+            "Nature's Sanctuary|Druid|XPHB|Land|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-the-moon|xphb|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of the Moon",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Circle of the Moon XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Moon",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of the Moon|Druid|XPHB|Moon|XPHB|3",
+            "Improved Circle Forms|Druid|XPHB|Moon|XPHB|6",
+            "Moonlight Step|Druid|XPHB|Moon|XPHB|10",
+            "Lunar Form|Druid|XPHB|Moon|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-the-sea|xphb|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of the Sea",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Circle of the Sea XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Sea",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of the Sea|Druid|XPHB|Sea|XPHB|3",
+            "Aquatic Affinity|Druid|XPHB|Sea|XPHB|6",
+            "Stormborn|Druid|XPHB|Sea|XPHB|10",
+            "Oceanic Gift|Druid|XPHB|Sea|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-the-shepherd|xge|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of the Shepherd",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Circle of the Shepherd XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Shepherd",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of the Shepherd|Druid|XPHB|Shepherd|XGE|3",
+            "Mighty Summoner|Druid||Shepherd|XGE|6",
+            "Guardian Spirit|Druid||Shepherd|XGE|10",
+            "Faithful Summons|Druid||Shepherd|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-the-stars|xphb|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of the Stars",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Circle of the Stars XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Stars",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of the Stars|Druid|XPHB|Stars|XPHB|3",
+            "Cosmic Omen|Druid|XPHB|Stars|XPHB|6",
+            "Twinkling Constellations|Druid|XPHB|Stars|XPHB|10",
+            "Full of Stars|Druid|XPHB|Stars|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "circle-of-wildfire|tce|subclass|druid|xphb",
+        "kind": "subclass",
+        "name": "Circle of Wildfire",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Circle of Wildfire TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "druid|xphb",
+        "metadata": {
+          "shortName": "Wildfire",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Circle of Wildfire|Druid|XPHB|Wildfire|TCE|3",
+            "Enhanced Bond|Druid||Wildfire|TCE|6",
+            "Cauterizing Flames|Druid||Wildfire|TCE|10",
+            "Blazing Revival|Druid||Wildfire|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "monk",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "monk|xphb",
+      "kind": "class",
+      "name": "Monk",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Monk XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "warrior-of-mercy|xphb|subclass|monk|xphb",
+        "warrior-of-shadow|xphb|subclass|monk|xphb",
+        "warrior-of-the-elements|xphb|subclass|monk|xphb",
+        "warrior-of-the-open-hand|xphb|subclass|monk|xphb",
+        "way-of-mercy|tce|subclass|monk|xphb",
+        "way-of-shadow|phb|subclass|monk|xphb",
+        "way-of-the-ascendant-dragon|ftd|subclass|monk|xphb",
+        "way-of-the-astral-self|tce|subclass|monk|xphb",
+        "way-of-the-drunken-master|xge|subclass|monk|xphb",
+        "way-of-the-four-elements|phb|subclass|monk|xphb",
+        "way-of-the-kensei|xge|subclass|monk|xphb",
+        "way-of-the-long-death|scag|subclass|monk|xphb",
+        "way-of-the-open-hand|phb|subclass|monk|xphb",
+        "way-of-the-sun-soul|xge|subclass|monk|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "dex": true,
+            "wis": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "str",
+          "dex"
+        ],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "weapons": [
+            "simple",
+            "Martial weapons that have the {@filter Light|items|type=martial weapon|property=light} property"
+          ],
+          "weaponProficiencies": [
+            {
+              "simple": true,
+              "all": {
+                "fromFilter": "type=martial weapon|property=light"
+              }
+            }
+          ],
+          "tools": [
+            "Choose one type of {@item Artisan's Tools|XPHB} or {@item Musical Instrument|XPHB}"
+          ],
+          "toolProficiencies": [
+            {
+              "anyArtisansTool": 1
+            },
+            {
+              "anyMusicalInstrument": 1
+            }
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "acrobatics",
+                  "athletics",
+                  "history",
+                  "insight",
+                  "religion",
+                  "stealth"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "spear|xphb"
+                },
+                {
+                  "item": "dagger|xphb",
+                  "quantity": 5
+                },
+                {
+                  "equipmentTypes": [
+                    "instrumentMusical",
+                    "toolArtisan"
+                  ]
+                },
+                {
+                  "item": "explorer's pack|xphb"
+                },
+                {
+                  "value": 1100
+                }
+              ],
+              "B": [
+                {
+                  "value": 5000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Spear|XPHB}, 5 {@item Dagger|XPHB|Daggers}, {@item Artisan's Tools|XPHB} or {@item Musical Instrument|XPHB} chosen for the tool proficiency above, {@item Explorer's Pack|XPHB}, and 11 GP; or (B) 50 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Martial Arts|Monk|XPHB|1",
+          "Unarmored Defense|Monk|XPHB|1",
+          "Monk's Focus|Monk|XPHB|2",
+          "Unarmored Movement|Monk|XPHB|2",
+          "Uncanny Metabolism|Monk|XPHB|2",
+          "Deflect Attacks|Monk|XPHB|3",
+          {
+            "classFeature": "Monk Subclass|Monk|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Monk|XPHB|4",
+          "Slow Fall|Monk|XPHB|4",
+          "Extra Attack|Monk|XPHB|5",
+          "Stunning Strike|Monk|XPHB|5",
+          "Empowered Strikes|Monk|XPHB|6",
+          {
+            "classFeature": "Subclass Feature|Monk|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Evasion|Monk|XPHB|7",
+          "Ability Score Improvement|Monk|XPHB|8",
+          "Acrobatic Movement|Monk|XPHB|9",
+          "Heightened Focus|Monk|XPHB|10",
+          "Self-Restoration|Monk|XPHB|10",
+          {
+            "classFeature": "Subclass Feature|Monk|XPHB|11",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Monk|XPHB|12",
+          "Deflect Energy|Monk|XPHB|13",
+          "Disciplined Survivor|Monk|XPHB|14",
+          "Perfect Focus|Monk|XPHB|15",
+          "Ability Score Improvement|Monk|XPHB|16",
+          {
+            "classFeature": "Subclass Feature|Monk|XPHB|17",
+            "gainSubclassFeature": true
+          },
+          "Superior Defense|Monk|XPHB|18",
+          "Epic Boon|Monk|XPHB|19",
+          "Body and Mind|Monk|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "warrior-of-mercy|xphb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Warrior of Mercy",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Warrior of Mercy XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Mercy",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Warrior of Mercy|Monk|XPHB|Mercy|XPHB|3",
+            "Physician's Touch|Monk|XPHB|Mercy|XPHB|6",
+            "Flurry of Healing and Harm|Monk|XPHB|Mercy|XPHB|11",
+            "Hand of Ultimate Mercy|Monk|XPHB|Mercy|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "warrior-of-shadow|xphb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Warrior of Shadow",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Warrior of Shadow XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Shadow",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Warrior of Shadow|Monk|XPHB|Shadow|XPHB|3",
+            "Shadow Step|Monk|XPHB|Shadow|XPHB|6",
+            "Improved Shadow Step|Monk|XPHB|Shadow|XPHB|11",
+            "Cloak of Shadows|Monk|XPHB|Shadow|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "warrior-of-the-elements|xphb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Warrior of the Elements",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Warrior of the Elements XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Elements",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Warrior of the Elements|Monk|XPHB|Elements|XPHB|3",
+            "Elemental Burst|Monk|XPHB|Elements|XPHB|6",
+            "Stride of the Elements|Monk|XPHB|Elements|XPHB|11",
+            "Elemental Epitome|Monk|XPHB|Elements|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "warrior-of-the-open-hand|xphb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Warrior of the Open Hand",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Warrior of the Open Hand XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Open Hand",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Warrior of the Open Hand|Monk|XPHB|Open Hand|XPHB|3",
+            "Wholeness of Body|Monk|XPHB|Open Hand|XPHB|6",
+            "Fleet Step|Monk|XPHB|Open Hand|XPHB|11",
+            "Quivering Palm|Monk|XPHB|Open Hand|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-mercy|tce|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of Mercy",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of Mercy TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Mercy",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of Mercy|Monk||Mercy|TCE|3",
+            "Physician's Touch|Monk||Mercy|TCE|6",
+            "Flurry of Healing and Harm|Monk||Mercy|TCE|11",
+            "Hand of Ultimate Mercy|Monk||Mercy|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-shadow|phb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of Shadow",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of Shadow PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Shadow",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of Shadow|Monk||Shadow||3",
+            "Shadow Step|Monk||Shadow||6",
+            "Cloak of Shadows|Monk||Shadow||11",
+            "Opportunist|Monk||Shadow||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-ascendant-dragon|ftd|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Ascendant Dragon",
+        "sourceCode": "FTD",
+        "sourceName": "FTD",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Ascendant Dragon FTD",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Ascendant Dragon",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Ascendant Dragon|Monk||Ascendant Dragon|FTD|3",
+            "Wings Unfurled|Monk||Ascendant Dragon|FTD|6",
+            "Aspect of the Wyrm|Monk||Ascendant Dragon|FTD|11",
+            "Ascendant Aspect|Monk||Ascendant Dragon|FTD|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-astral-self|tce|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Astral Self",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Astral Self TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Astral Self",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Astral Self|Monk||Astral Self|TCE|3",
+            "Visage of the Astral Self|Monk||Astral Self|TCE|6",
+            "Body of the Astral Self|Monk||Astral Self|TCE|11",
+            "Awakened Astral Self|Monk||Astral Self|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-drunken-master|xge|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Drunken Master",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Drunken Master XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Drunken Master",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Drunken Master|Monk||Drunken Master|XGE|3",
+            "Tipsy Sway|Monk||Drunken Master|XGE|6",
+            "Drunkard's Luck|Monk||Drunken Master|XGE|11",
+            "Intoxicated Frenzy|Monk||Drunken Master|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-four-elements|phb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Four Elements",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Four Elements PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Four Elements",
+          "spellcastingAbility": "wis",
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Four Elements|Monk||Four Elements||3",
+            "Extra Elemental Discipline|Monk||Four Elements||6",
+            "Extra Elemental Discipline|Monk||Four Elements||11",
+            "Extra Elemental Discipline|Monk||Four Elements||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-kensei|xge|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Kensei",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Kensei XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Kensei",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Kensei|Monk||Kensei|XGE|3",
+            "One with the Blade|Monk||Kensei|XGE|6",
+            "Sharpen the Blade|Monk||Kensei|XGE|11",
+            "Unerring Accuracy|Monk||Kensei|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-long-death|scag|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Long Death",
+        "sourceCode": "SCAG",
+        "sourceName": "SCAG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Long Death SCAG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Long Death",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Long Death|Monk||Long Death|SCAG|3",
+            "Hour of Reaping|Monk||Long Death|SCAG|6",
+            "Mastery of Death|Monk||Long Death|SCAG|11",
+            "Touch of the Long Death|Monk||Long Death|SCAG|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-open-hand|phb|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Open Hand",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Open Hand PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Open Hand",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Open Hand|Monk||Open Hand||3",
+            "Wholeness of Body|Monk||Open Hand||6",
+            "Tranquility|Monk||Open Hand||11",
+            "Quivering Palm|Monk||Open Hand||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "way-of-the-sun-soul|xge|subclass|monk|xphb",
+        "kind": "subclass",
+        "name": "Way of the Sun Soul",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Way of the Sun Soul XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "monk|xphb",
+        "metadata": {
+          "shortName": "Sun Soul",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Way of the Sun Soul|Monk||Sun Soul|XGE|3",
+            "Searing Arc Strike|Monk||Sun Soul|XGE|6",
+            "Searing Sunburst|Monk||Sun Soul|XGE|11",
+            "Sun Shield|Monk||Sun Soul|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

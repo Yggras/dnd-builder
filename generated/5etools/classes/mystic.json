@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "mystic",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "mystic|uathemysticclass",
+      "kind": "class",
+      "name": "Mystic",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "searchText": "Mystic UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "order-of-the-avatar|uathemysticclass|subclass|mystic|uathemysticclass",
+        "order-of-the-awakened|uathemysticclass|subclass|mystic|uathemysticclass",
+        "order-of-the-immortal|uathemysticclass|subclass|mystic|uathemysticclass",
+        "order-of-the-nomad|uathemysticclass|subclass|mystic|uathemysticclass",
+        "order-of-the-soul-knife|uathemysticclass|subclass|mystic|uathemysticclass",
+        "order-of-the-wu-jen|uathemysticclass|subclass|mystic|uathemysticclass"
+      ],
+      "metadata": {
+        "primaryAbility": [],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "int",
+          "wis"
+        ],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light"
+          ],
+          "weapons": [
+            "simple"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "arcana",
+                  "history",
+                  "insight",
+                  "medicine",
+                  "nature",
+                  "perception",
+                  "religion"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "default": [
+            "(a) a {@item spear|phb} or (b) a {@item mace|phb}",
+            "(a) {@item leather armor|phb} or (b) {@item studded leather armor|phb}",
+            "(a) a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts} or (b) any {@filter simple weapon|items|source=phb|category=basic|type=simple weapon}",
+            "(a) a {@item scholar's pack|phb} or (b) an {@item explorer's pack|phb}"
+          ],
+          "goldAlternative": "{@dice 5d4 × 10|5d4 × 10|Starting Gold}",
+          "defaultData": [
+            {
+              "a": [
+                "spear|phb"
+              ],
+              "b": [
+                "mace|phb"
+              ]
+            },
+            {
+              "a": [
+                "leather armor|phb"
+              ],
+              "b": [
+                "studded leather armor|phb"
+              ]
+            },
+            {
+              "a": [
+                "light crossbow|phb",
+                "crossbow bolts (20)|phb"
+              ],
+              "b": [
+                {
+                  "equipmentType": "weaponSimple"
+                }
+              ]
+            },
+            {
+              "a": [
+                "scholar's pack|phb"
+              ],
+              "b": [
+                "explorer's pack|phb"
+              ]
+            }
+          ]
+        },
+        "featProgression": [],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Psionics|Mystic|UATheMysticClass|1",
+          "Psionic Disciplines and Talents|Mystic|UATheMysticClass|1",
+          "Using a Discipline|Mystic|UATheMysticClass|1",
+          {
+            "classFeature": "Mystic Order|Mystic|UATheMysticClass|1",
+            "gainSubclassFeature": true
+          },
+          "Mystical Recovery|Mystic|UATheMysticClass|2",
+          "Telepathy|Mystic|UATheMysticClass|2",
+          {
+            "classFeature": "Mystic Order feature|Mystic|UATheMysticClass|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Mystic|UATheMysticClass|4",
+          "Strength of Mind|Mystic|UATheMysticClass|4",
+          {
+            "classFeature": "Mystic Order feature|Mystic|UATheMysticClass|6",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Mystic|UATheMysticClass|8",
+          "Potent Psionics (1d8)|Mystic|UATheMysticClass|8",
+          "Consumptive Power|Mystic|UATheMysticClass|10",
+          "Psionic Mastery (1/Day)|Mystic|UATheMysticClass|11",
+          "Ability Score Improvement|Mystic|UATheMysticClass|12",
+          "Psionic Mastery (2/Day)|Mystic|UATheMysticClass|13",
+          {
+            "classFeature": "Mystic Order feature|Mystic|UATheMysticClass|14",
+            "gainSubclassFeature": true
+          },
+          "Potent Psionics (2d8)|Mystic|UATheMysticClass|14",
+          "Psionic Mastery (3/Day)|Mystic|UATheMysticClass|15",
+          "Ability Score Improvement|Mystic|UATheMysticClass|16",
+          "Psionic Mastery (4/Day)|Mystic|UATheMysticClass|17",
+          "Ability Score Improvement|Mystic|UATheMysticClass|19",
+          "Psionic Body|Mystic|UATheMysticClass|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "order-of-the-avatar|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Avatar",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Avatar UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Avatar",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Avatar|Mystic|UATheMysticClass|Avatar|UATheMysticClass|1",
+            "Avatar of Battle|Mystic|UATheMysticClass|Avatar|UATheMysticClass|3",
+            "Avatar of Healing|Mystic|UATheMysticClass|Avatar|UATheMysticClass|6",
+            "Avatar of Speed|Mystic|UATheMysticClass|Avatar|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-the-awakened|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Awakened",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Awakened UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Awakened",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Awakened|Mystic|UATheMysticClass|Awakened|UATheMysticClass|1",
+            "Psionic Investigation|Mystic|UATheMysticClass|Awakened|UATheMysticClass|3",
+            "Psionic Surge|Mystic|UATheMysticClass|Awakened|UATheMysticClass|6",
+            "Spectral Form|Mystic|UATheMysticClass|Awakened|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-the-immortal|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Immortal",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Immortal UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Immortal",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Immortal|Mystic|UATheMysticClass|Immortal|UATheMysticClass|1",
+            "Psionic Resilience|Mystic|UATheMysticClass|Immortal|UATheMysticClass|3",
+            "Surge of Health|Mystic|UATheMysticClass|Immortal|UATheMysticClass|6",
+            "Immortal Will|Mystic|UATheMysticClass|Immortal|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-the-nomad|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Nomad",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Nomad UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Nomad",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Nomad|Mystic|UATheMysticClass|Nomad|UATheMysticClass|1",
+            "Memory of One Thousand Steps|Mystic|UATheMysticClass|Nomad|UATheMysticClass|3",
+            "Superior Teleportation|Mystic|UATheMysticClass|Nomad|UATheMysticClass|6",
+            "Effortless Journey|Mystic|UATheMysticClass|Nomad|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-the-soul-knife|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Soul Knife",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Soul Knife UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Soul Knife",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Soul Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|1",
+            "Hone the Blade|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|3",
+            "Consumptive Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|6",
+            "Phantom Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-the-wu-jen|uathemysticclass|subclass|mystic|uathemysticclass",
+        "kind": "subclass",
+        "name": "Order of the Wu Jen",
+        "sourceCode": "UATheMysticClass",
+        "sourceName": "UATheMysticClass",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of the Wu Jen UATheMysticClass",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "mystic|uathemysticclass",
+        "metadata": {
+          "shortName": "Wu Jen",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of the Wu Jen|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|1",
+            "Elemental Attunement|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|3",
+            "Arcane Dabbler|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|6",
+            "Elemental Mastery|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|14"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

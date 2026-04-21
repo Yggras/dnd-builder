@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "artificer",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "artificer|efa",
+      "kind": "class",
+      "name": "Artificer",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Artificer EFA",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "alchemist|efa|subclass|artificer|efa",
+        "alchemist|tce|subclass|artificer|efa",
+        "armorer|efa|subclass|artificer|efa",
+        "armorer|tce|subclass|artificer|efa",
+        "artillerist|efa|subclass|artificer|efa",
+        "artillerist|tce|subclass|artificer|efa",
+        "battle-smith|efa|subclass|artificer|efa",
+        "battle-smith|tce|subclass|artificer|efa",
+        "cartographer|efa|subclass|artificer|efa"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "int": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "con",
+          "int"
+        ],
+        "spellcastingAbility": "int",
+        "casterProgression": "artificer",
+        "cantripProgression": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "preparedSpellsProgression": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          6,
+          7,
+          7,
+          9,
+          9,
+          10,
+          10,
+          11,
+          11,
+          12,
+          12,
+          14,
+          14,
+          15,
+          15
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "medium",
+            "shield"
+          ],
+          "weapons": [
+            "simple"
+          ],
+          "tools": [
+            "{@item Thieves' Tools|XPHB}",
+            "{@item Tinker's Tools|XPHB}",
+            "one type of {@item Artisan's Tools|XPHB} of your choice"
+          ],
+          "toolProficiencies": [
+            {
+              "thieves' tools": true,
+              "tinker's tools": true,
+              "anyArtisansTool": 1
+            }
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "arcana",
+                  "history",
+                  "investigation",
+                  "medicine",
+                  "nature",
+                  "perception",
+                  "sleight of hand"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "studded leather armor|xphb"
+                },
+                {
+                  "item": "dagger|xphb"
+                },
+                {
+                  "item": "thieves' tools|xphb"
+                },
+                {
+                  "item": "tinker's tools|xphb"
+                },
+                {
+                  "item": "dungeoneer's pack|xphb"
+                },
+                {
+                  "value": 1600
+                }
+              ],
+              "B": [
+                {
+                  "value": 15000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Studded Leather Armor|XPHB}, {@item Dagger|XPHB}, {@item Thieves' Tools|XPHB}, {@item Tinker's Tools|XPHB}, {@item Dungeoneer's Pack|XPHB}, and 16 GP; or (B) 150 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Spellcasting|Artificer|EFA|1|EFA",
+          "Tinker's Magic|Artificer|EFA|1|EFA",
+          "Replicate Magic Item|Artificer|EFA|2|EFA",
+          {
+            "classFeature": "Artificer Subclass|Artificer|EFA|3|EFA",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Artificer|EFA|4|EFA",
+          {
+            "classFeature": "Subclass feature|Artificer|EFA|5|EFA",
+            "gainSubclassFeature": true
+          },
+          "Magic Item Tinker|Artificer|EFA|6|EFA",
+          "Flash of Genius|Artificer|EFA|7|EFA",
+          "Ability Score Improvement|Artificer|EFA|8|EFA",
+          {
+            "classFeature": "Subclass feature|Artificer|EFA|9|EFA",
+            "gainSubclassFeature": true
+          },
+          "Magic Item Adept|Artificer|EFA|10|EFA",
+          "Spell-Storing Item|Artificer|EFA|11|EFA",
+          "Ability Score Improvement|Artificer|EFA|12|EFA",
+          "Advanced Artifice|Artificer|EFA|14|EFA",
+          {
+            "classFeature": "Subclass Feature|Artificer|EFA|15|EFA",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Artificer|EFA|16|EFA",
+          "Magic Item Master|Artificer|EFA|18|EFA",
+          "Epic Boon|Artificer|EFA|19|EFA",
+          "Soul of Artifice|Artificer|EFA|20|EFA"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "alchemist|efa|subclass|artificer|efa",
+        "kind": "subclass",
+        "name": "Alchemist",
+        "sourceCode": "EFA",
+        "sourceName": "EFA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Alchemist EFA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "artificer|efa",
+        "metadata": {
+          "shortName": "Alchemist",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Alchemist|Artificer|EFA|Alchemist|EFA|3|EFA",
+            "Alchemical Savant|Artificer|EFA|Alchemist|EFA|5|EFA",
+            "Restorative Reagents|Artificer|EFA|Alchemist|EFA|9|EFA",
+            "Chemical Mastery|Artificer|EFA|Alchemist|EFA|15|EFA"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "armorer|efa|subclass|artificer|efa",
+        "kind": "subclass",
+        "name": "Armorer",
+        "sourceCode": "EFA",
+        "sourceName": "EFA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Armorer EFA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "artificer|efa",
+        "metadata": {
+          "shortName": "Armorer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Armorer|Artificer|EFA|Armorer|EFA|3|EFA",
+            "Extra Attack|Artificer|EFA|Armorer|EFA|5|EFA",
+            "Improved Armorer|Artificer|EFA|Armorer|EFA|9|EFA",
+            "Perfected Armor|Artificer|EFA|Armorer|EFA|15|EFA"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "artillerist|efa|subclass|artificer|efa",
+        "kind": "subclass",
+        "name": "Artillerist",
+        "sourceCode": "EFA",
+        "sourceName": "EFA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Artillerist EFA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "artificer|efa",
+        "metadata": {
+          "shortName": "Artillerist",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Artillerist|Artificer|EFA|Artillerist|EFA|3|EFA",
+            "Arcane Firearm|Artificer|EFA|Artillerist|EFA|5|EFA",
+            "Explosive Cannon|Artificer|EFA|Artillerist|EFA|9|EFA",
+            "Fortified Position|Artificer|EFA|Artillerist|EFA|15|EFA"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "battle-smith|efa|subclass|artificer|efa",
+        "kind": "subclass",
+        "name": "Battle Smith",
+        "sourceCode": "EFA",
+        "sourceName": "EFA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Battle Smith EFA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "artificer|efa",
+        "metadata": {
+          "shortName": "Battle Smith",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Battle Smith|Artificer|EFA|Battle Smith|EFA|3|EFA",
+            "Extra Attack|Artificer|EFA|Battle Smith|EFA|5|EFA",
+            "Arcane Jolt|Artificer|EFA|Battle Smith|EFA|9|EFA",
+            "Improved Defender|Artificer|EFA|Battle Smith|EFA|15|EFA"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "cartographer|efa|subclass|artificer|efa",
+        "kind": "subclass",
+        "name": "Cartographer",
+        "sourceCode": "EFA",
+        "sourceName": "EFA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Cartographer EFA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "artificer|efa",
+        "metadata": {
+          "shortName": "Cartographer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Cartographer|Artificer|EFA|Cartographer|EFA|3|EFA",
+            "Guided Precision|Artificer|EFA|Cartographer|EFA|5|EFA",
+            "Ingenious Movement|Artificer|EFA|Cartographer|EFA|9|EFA",
+            "Superior Atlas|Artificer|EFA|Cartographer|EFA|15|EFA"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

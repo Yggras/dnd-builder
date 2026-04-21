@@ -1,0 +1,1500 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "feats",
+  "chunkId": "origin",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "alert|xphb|feat",
+      "kind": "feat",
+      "name": "Alert",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Initiative Proficiency When you roll Initiative, you can add your Proficiency to the roll. Initiative Swap Immediately after you roll Initiative, you can swap your Initiative with the...",
+      "searchText": "Alert XPHB You gain the following benefits. Initiative Proficiency When you roll Initiative, you can add your Proficiency to the roll. Initiative Swap Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Initiative Proficiency",
+            "entries": [
+              "When you roll {@variantrule Initiative|XPHB}, you can add your {@variantrule Proficiency|XPHB|Proficiency Bonus} to the roll."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Initiative Swap",
+            "entries": [
+              "Immediately after you roll {@variantrule Initiative|XPHB}, you can swap your {@variantrule Initiative|XPHB} with the {@variantrule Initiative|XPHB} of one willing ally in the same combat. You can't make this swap if you or the ally has the {@condition Incapacitated|XPHB} condition."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Initiative Proficiency When you roll Initiative, you can add your Proficiency to the roll. Initiative Swap Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition."
+      }
+    },
+    {
+      "id": "child-of-the-sun|lfl|feat",
+      "kind": "feat",
+      "name": "Child of the Sun",
+      "sourceCode": "LFL",
+      "sourceName": "LFL",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Eyes of Eirdu You and allies within 10 feet of you have Advantage on saving throws made to avoid or end the Blinded condition. Faerie Fire You learn the Faerie Fire spell. Intelligence...",
+      "searchText": "Child of the Sun LFL You gain the following benefits. Eyes of Eirdu You and allies within 10 feet of you have Advantage on saving throws made to avoid or end the Blinded condition. Faerie Fire You learn the Faerie Fire spell. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. When you cast Faerie Fire without a spell slot using this benefit, taking damage can't break your Concentration on the spell.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Eyes of Eirdu",
+            "entries": [
+              "You and allies within 10 feet of you have {@variantrule Advantage|XPHB} on saving throws made to avoid or end the {@condition Blinded|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Faerie Fire",
+            "entries": [
+              "You learn the {@spell Faerie Fire|XPHB} spell. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have.",
+              "When you cast {@spell Faerie Fire|XPHB} without a spell slot using this benefit, taking damage can't break your {@status Concentration|XPHB} on the spell."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Eyes of Eirdu You and allies within 10 feet of you have Advantage on saving throws made to avoid or end the Blinded condition. Faerie Fire You learn the Faerie Fire spell. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. When you cast Faerie Fire without a spell slot using this benefit, taking damage can't break your Concentration on the spell."
+      }
+    },
+    {
+      "id": "crafter|xphb|feat",
+      "kind": "feat",
+      "name": "Crafter",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Tool Proficiency You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table. Discount Whenever you buy a nonmagical item, you receive a 20 pe...",
+      "searchText": "Crafter XPHB You gain the following benefits. Tool Proficiency You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table. Discount Whenever you buy a nonmagical item, you receive a 20 percent discount on it. Fast Crafting When you finish a Long Rest, you can craft one piece of gear from the Fast Crafting table, provided you have the Artisan's Tools associated with that item and have proficiency with those tools. The item lasts until you finish another Long Rest, at which point the item falls apart. Carpenter's Tools Ladder, Torch Leatherworker's Tools Crossbow Bolt Case, Map or Scroll Case, Pouch Mason's Tools Block and Tackle Potter's Tools Jug, Lamp Smith's Tools Ball Bearings, Bucket, Caltrops, Grappling Hook, Iron Pot Tinker's Tools Bell, Shovel, Tinderbox Weaver's Tools Basket, Rope, Net, Tent Woodcarver's Tools Club, Greatclub, Quarterstaff",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Tool Proficiency",
+            "entries": [
+              "You gain proficiency with three different {@item Artisan's Tools|XPHB} of your choice from the Fast Crafting table."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Discount",
+            "entries": [
+              "Whenever you buy a nonmagical item, you receive a 20 percent discount on it."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fast Crafting",
+            "entries": [
+              "When you finish a {@variantrule Long Rest|XPHB}, you can craft one piece of gear from the Fast Crafting table, provided you have the {@item Artisan's Tools|XPHB} associated with that item and have proficiency with those tools. The item lasts until you finish another {@variantrule Long Rest|XPHB}, at which point the item falls apart.",
+              {
+                "type": "table",
+                "caption": "Fast Crafting",
+                "colStyles": [
+                  "col-3",
+                  "col-9"
+                ],
+                "colLabels": [
+                  "Artisan's Tools",
+                  "Crafted Gear"
+                ],
+                "rows": [
+                  [
+                    "{@item Carpenter's Tools|XPHB}",
+                    "{@item Ladder|XPHB}, {@item Torch|XPHB}"
+                  ],
+                  [
+                    "{@item Leatherworker's Tools|XPHB}",
+                    "{@item Crossbow Bolt Case|XPHB}, {@item Map or Scroll Case|XPHB}, {@item Pouch|XPHB}"
+                  ],
+                  [
+                    "{@item Mason's Tools|XPHB}",
+                    "{@item Block and Tackle|XPHB}"
+                  ],
+                  [
+                    "{@item Potter's Tools|XPHB}",
+                    "{@item Jug|XPHB}, {@item Lamp|XPHB}"
+                  ],
+                  [
+                    "{@item Smith's Tools|XPHB}",
+                    "{@item Ball Bearings|XPHB}, {@item Bucket|XPHB}, {@item Caltrops|XPHB}, {@item Grappling Hook|XPHB}, {@item Iron Pot|XPHB}"
+                  ],
+                  [
+                    "{@item Tinker's Tools|XPHB}",
+                    "{@item Bell|XPHB}, {@item Shovel|XPHB}, {@item Tinderbox|XPHB}"
+                  ],
+                  [
+                    "{@item Weaver's Tools|XPHB}",
+                    "{@item Basket|XPHB}, {@item Rope|XPHB}, {@item Net|XPHB}, {@item Tent|XPHB}"
+                  ],
+                  [
+                    "{@item Woodcarver's Tools|XPHB}",
+                    "{@item Club|XPHB}, {@item Greatclub|XPHB}, {@item Quarterstaff|XPHB}"
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [
+            {
+              "choose": {
+                "from": [
+                  "carpenter's tools",
+                  "leatherworker's tools",
+                  "mason's tools",
+                  "potter's tools",
+                  "smith's tools",
+                  "tinker's tools",
+                  "weaver's tools",
+                  "woodcarver's tools"
+                ],
+                "count": 3
+              }
+            }
+          ],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Tool Proficiency You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table. Discount Whenever you buy a nonmagical item, you receive a 20 percent discount on it. Fast Crafting When you finish a Long Rest, you can craft one piece of gear from the Fast Crafting table, provided you have the Artisan's Tools associated with that item and have proficiency with those tools. The item lasts until you finish another Long Rest, at which point the item falls apart. Carpenter's Tools Ladder, Torch Leatherworker's Tools Crossbow Bolt Case, Map or Scroll Case, Pouch Mason's Tools Block and Tackle Potter's Tools Jug, Lamp Smith's Tools Ball Bearings, Bucket, Caltrops, Grappling Hook, Iron Pot Tinker's Tools Bell, Shovel, Tinderbox Weaver's Tools Basket, Rope, Net, Tent Woodcarver's Tools Club, Greatclub, Quarterstaff"
+      }
+    },
+    {
+      "id": "cult-of-the-dragon-initiate|frhof|feat",
+      "kind": "feat",
+      "name": "Cult of the Dragon Initiate",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Dragon's Tongue You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player's Handbo...",
+      "searchText": "Cult of the Dragon Initiate FRHoF You gain the following benefits. Dragon's Tongue You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player's Handbook or Chapter 2 of this book. Dragon's Terror You can take a Magic action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency) or have the Frightened condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours. Inspired by Fear When you cause a creature to have the Frightened condition and you are the source of its fear, you can gain Heroic Inspiration if you lack it. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Dragon's Tongue",
+            "entries": [
+              "You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player's Handbook or Chapter 2 of this book."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Dragon's Terror",
+            "entries": [
+              "You can take a {@action Magic|XPHB} action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Inspired by Fear",
+            "entries": [
+              "When you cause a creature to have the {@condition Frightened|XPHB} condition and you are the source of its fear, you can gain {@variantrule Heroic Inspiration|XPHB} if you lack it. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": [
+            {
+              "draconic": true
+            },
+            {
+              "any": 1
+            }
+          ]
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Dragon's Tongue You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player's Handbook or Chapter 2 of this book. Dragon's Terror You can take a Magic action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency) or have the Frightened condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours. Inspired by Fear When you cause a creature to have the Frightened condition and you are the source of its fear, you can gain Heroic Inspiration if you lack it. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest."
+      }
+    },
+    {
+      "id": "emerald-enclave-fledgling|frhof|feat",
+      "kind": "feat",
+      "name": "Emerald Enclave Fledgling",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Speak with Animals You always have the Speak with Animals spell prepared and can cast it with any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability f...",
+      "searchText": "Emerald Enclave Fledgling FRHoF You gain the following benefits. Speak with Animals You always have the Speak with Animals spell prepared and can cast it with any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). When you cast this spell as a Ritual, its duration is 8 hours. Tag Team When you take the Help action, you can switch places with a willing ally within 5 feet of yourself as part of that same action. This movement doesn't provoke Opportunity Attack. You can't use this benefit if the ally has the Incapacitated condition.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Speak with Animals",
+            "entries": [
+              "You always have the {@spell Speak with Animals|XPHB} spell prepared and can cast it with any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). When you cast this spell as a {@variantrule Ritual|XPHB}, its duration is 8 hours."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Tag Team",
+            "entries": [
+              "When you take the {@action Help|XPHB} action, you can switch places with a willing ally within 5 feet of yourself as part of that same action. This movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks}. You can't use this benefit if the ally has the {@condition Incapacitated|XPHB} condition."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Speak with Animals You always have the Speak with Animals spell prepared and can cast it with any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). When you cast this spell as a Ritual, its duration is 8 hours. Tag Team When you take the Help action, you can switch places with a willing ally within 5 feet of yourself as part of that same action. This movement doesn't provoke Opportunity Attack. You can't use this benefit if the ally has the Incapacitated condition."
+      }
+    },
+    {
+      "id": "harper-agent|frhof|feat",
+      "kind": "feat",
+      "name": "Harper Agent",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Thieves' Cant You know Thieves' Cant. Instrument Training You gain proficiency with a Musical Instrument of your choice. Distracting Melody When you take the Help action to assist an a...",
+      "searchText": "Harper Agent FRHoF You gain the following benefits. Thieves' Cant You know Thieves' Cant. Instrument Training You gain proficiency with a Musical Instrument of your choice. Distracting Melody When you take the Help action to assist an ally's attack roll, the enemy you're distracting can be within 30 feet of you, rather than within 5 feet of you, provided the enemy can see or hear you.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Thieves' Cant",
+            "entries": [
+              "You know Thieves' Cant."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Instrument Training",
+            "entries": [
+              "You gain proficiency with a {@item Musical Instrument|XPHB} of your choice."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Distracting Melody",
+            "entries": [
+              "When you take the {@action Help|XPHB} action to assist an ally's attack roll, the enemy you're distracting can be within 30 feet of you, rather than within 5 feet of you, provided the enemy can see or hear you."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [
+            {
+              "anyMusicalInstrument": 3
+            }
+          ],
+          "weapons": [],
+          "languages": [
+            {
+              "thieves' cant": true
+            }
+          ]
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Thieves' Cant You know Thieves' Cant. Instrument Training You gain proficiency with a Musical Instrument of your choice. Distracting Melody When you take the Help action to assist an ally's attack roll, the enemy you're distracting can be within 30 feet of you, rather than within 5 feet of you, provided the enemy can see or hear you."
+      }
+    },
+    {
+      "id": "healer|xphb|feat",
+      "kind": "feat",
+      "name": "Healer",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Battle Medic If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Poin...",
+      "searchText": "Healer XPHB You gain the following benefits. Battle Medic If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Point Dice, and you then roll that die. The creature regains a number of Hit Points equal to the roll plus your Proficiency. Healing Rerolls Whenever you roll a die to determine the number of Hit Points you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and you must use the new roll.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Battle Medic",
+            "entries": [
+              "If you have a {@item Healer's Kit|XPHB}, you can expend one use of it and tend to a creature within 5 feet of yourself as a {@action Utilize|XPHB} action. That creature can expend one of its {@variantrule Hit Point Dice|XPHB}, and you then roll that die. The creature regains a number of {@variantrule Hit Points|XPHB} equal to the roll plus your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Healing Rerolls",
+            "entries": [
+              "Whenever you roll a die to determine the number of {@variantrule Hit Points|XPHB} you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and you must use the new roll."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Battle Medic If you have a Healer's Kit, you can expend one use of it and tend to a creature within 5 feet of yourself as a Utilize action. That creature can expend one of its Hit Point Dice, and you then roll that die. The creature regains a number of Hit Points equal to the roll plus your Proficiency. Healing Rerolls Whenever you roll a die to determine the number of Hit Points you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and you must use the new roll."
+      }
+    },
+    {
+      "id": "lords-alliance-agent|frhof|feat",
+      "kind": "feat",
+      "name": "Lords' Alliance Agent",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Inspiring Strike Once per turn when you score a Critical Hit against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks Heroic Inspirat...",
+      "searchText": "Lords' Alliance Agent FRHoF You gain the following benefits. Inspiring Strike Once per turn when you score a Critical Hit against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks Heroic Inspiration. That ally gains Heroic Inspiration. Reassert Honor When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have Advantage on your next attack roll against that enemy before the end of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Inspiring Strike",
+            "entries": [
+              "Once per turn when you score a {@variantrule Critical Hit|XPHB} against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks {@variantrule Heroic Inspiration|XPHB}. That ally gains {@variantrule Heroic Inspiration|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Reassert Honor",
+            "entries": [
+              "When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have {@variantrule Advantage|XPHB} on your next attack roll against that enemy before the end of your next turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Inspiring Strike Once per turn when you score a Critical Hit against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks Heroic Inspiration. That ally gains Heroic Inspiration. Reassert Honor When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have Advantage on your next attack roll against that enemy before the end of your next turn."
+      }
+    },
+    {
+      "id": "lucky|xphb|feat",
+      "kind": "feat",
+      "name": "Lucky",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Luck Points You have a number of Luck Points equal to your Proficiency and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest....",
+      "searchText": "Lucky XPHB You gain the following benefits. Luck Points You have a number of Luck Points equal to your Proficiency and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest. Advantage When you roll a d20 for a D20 Test, you can spend 1 Luck Point to give yourself Advantage on the roll. Disadvantage When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Luck Points",
+            "entries": [
+              "You have a number of Luck Points equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} and can spend the points on the benefits below. You regain your expended Luck Points when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Advantage",
+            "entries": [
+              "When you roll a {@dice d20} for a {@variantrule D20 Test|XPHB}, you can spend 1 Luck Point to give yourself {@variantrule Advantage|XPHB} on the roll."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Disadvantage",
+            "entries": [
+              "When a creature rolls a {@dice d20} for an attack roll against you, you can spend 1 Luck Point to impose {@variantrule Disadvantage|XPHB} on that roll."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Luck Points You have a number of Luck Points equal to your Proficiency and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest. Advantage When you roll a d20 for a D20 Test, you can spend 1 Luck Point to give yourself Advantage on the roll. Disadvantage When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll."
+      }
+    },
+    {
+      "id": "magic-initiate|xphb|feat",
+      "kind": "feat",
+      "name": "Magic Initiate",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Two Cantrips You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (...",
+      "searchText": "Magic Initiate XPHB You gain the following benefits. Two Cantrips You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat). Level 1 Spell Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. Spell Change Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list. Repeatable You can take this feat more than once, but you must choose a different spell list each time.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Two Cantrips",
+            "entries": [
+              "You learn two cantrips of your choice from the {@filter Cleric|spells|level=0;1|class=Cleric}, {@filter Druid|spells|level=0;1|class=Druid}, or {@filter Wizard|spells|level=0;1|class=Wizard} spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Level 1 Spell",
+            "entries": [
+              "Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Spell Change",
+            "entries": [
+              "Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Repeatable",
+            "entries": [
+              "You can take this feat more than once, but you must choose a different spell list each time."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": true,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Two Cantrips You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat). Level 1 Spell Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. Spell Change Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list. Repeatable You can take this feat more than once, but you must choose a different spell list each time."
+      }
+    },
+    {
+      "id": "musician|xphb|feat",
+      "kind": "feat",
+      "name": "Musician",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Instrument Training You gain proficiency with three Musical Instruments of your choice. Encouraging Song As you finish a Short Rest or Long Rest, you can play a song on a Musical Instr...",
+      "searchText": "Musician XPHB You gain the following benefits. Instrument Training You gain proficiency with three Musical Instruments of your choice. Encouraging Song As you finish a Short Rest or Long Rest, you can play a song on a Musical Instrument with which you have proficiency and give Heroic Inspiration to allies who hear the song. The number of allies you can affect in this way equals your Proficiency.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Instrument Training",
+            "entries": [
+              "You gain proficiency with three Musical Instruments of your choice."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Encouraging Song",
+            "entries": [
+              "As you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}, you can play a song on a {@item Musical Instrument|XPHB} with which you have proficiency and give {@variantrule Heroic Inspiration|XPHB} to allies who hear the song. The number of allies you can affect in this way equals your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [
+            {
+              "anyMusicalInstrument": 3
+            }
+          ],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Instrument Training You gain proficiency with three Musical Instruments of your choice. Encouraging Song As you finish a Short Rest or Long Rest, you can play a song on a Musical Instrument with which you have proficiency and give Heroic Inspiration to allies who hear the song. The number of allies you can affect in this way equals your Proficiency."
+      }
+    },
+    {
+      "id": "purple-dragon-rook|frhof|feat",
+      "kind": "feat",
+      "name": "Purple Dragon Rook",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Entreat You gain proficiency in one of the following skills: Insight, Performance, or Persuasion. Rallying Cry When you roll Initiative and don't have the Incapacitated condition, you...",
+      "searchText": "Purple Dragon Rook FRHoF You gain the following benefits. Entreat You gain proficiency in one of the following skills: Insight, Performance, or Persuasion. Rallying Cry When you roll Initiative and don't have the Incapacitated condition, you can choose a number of creatures equal to your Proficiency that you can see within 30 feet of yourself. Those creatures gain Heroic Inspiration. Once you use this benefit, you can't do so again until you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Entreat",
+            "entries": [
+              "You gain proficiency in one of the following skills: {@skill Insight|XPHB}, {@skill Performance|XPHB}, or {@skill Persuasion|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Rallying Cry",
+            "entries": [
+              "When you roll {@variantrule Initiative|XPHB} and don't have the {@condition Incapacitated|XPHB} condition, you can choose a number of creatures equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} that you can see within 30 feet of yourself. Those creatures gain {@variantrule Heroic Inspiration|XPHB}.",
+              "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "insight",
+                  "performance",
+                  "persuasion"
+                ]
+              }
+            }
+          ],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Entreat You gain proficiency in one of the following skills: Insight, Performance, or Persuasion. Rallying Cry When you roll Initiative and don't have the Incapacitated condition, you can choose a number of creatures equal to your Proficiency that you can see within 30 feet of yourself. Those creatures gain Heroic Inspiration. Once you use this benefit, you can't do so again until you finish a Long Rest."
+      }
+    },
+    {
+      "id": "savage-attacker|xphb|feat",
+      "kind": "feat",
+      "name": "Savage Attacker",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target.",
+      "searchText": "Savage Attacker XPHB You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target.",
+      "renderPayload": {
+        "entries": [
+          "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target."
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target."
+      }
+    },
+    {
+      "id": "shadowmoor-hexer|lfl|feat",
+      "kind": "feat",
+      "name": "Shadowmoor Hexer",
+      "sourceCode": "LFL",
+      "sourceName": "LFL",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Hex You always have the Hex spell prepared. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once witho...",
+      "searchText": "Shadowmoor Hexer LFL You gain the following benefits. Hex You always have the Hex spell prepared. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. Curse Magic When a creature that you've cursed with Hex hits you with an attack roll, the creature takes Psychic damage equal to your Proficiency. A creature takes this damage only once per turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Hex",
+            "entries": [
+              "You always have the {@spell Hex|XPHB} spell prepared. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Curse Magic",
+            "entries": [
+              "When a creature that you've cursed with {@spell Hex|XPHB} hits you with an attack roll, the creature takes Psychic damage equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. A creature takes this damage only once per turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Hex You always have the Hex spell prepared. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have. Curse Magic When a creature that you've cursed with Hex hits you with an attack roll, the creature takes Psychic damage equal to your Proficiency. A creature takes this damage only once per turn."
+      }
+    },
+    {
+      "id": "skilled|xphb|feat",
+      "kind": "feat",
+      "name": "Skilled",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain proficiency in any combination of three or tools of your choice. Repeatable You can take this feat more than once.",
+      "searchText": "Skilled XPHB You gain proficiency in any combination of three or tools of your choice. Repeatable You can take this feat more than once.",
+      "renderPayload": {
+        "entries": [
+          "You gain proficiency in any combination of three {@table Skill List; Skills|XPHB|skills} or {@filter tools|items|type=tool;artisan's tools;instrument;gaming set} of your choice.",
+          {
+            "type": "entries",
+            "name": "Repeatable",
+            "entries": [
+              "You can take this feat more than once."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": true,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain proficiency in any combination of three or tools of your choice. Repeatable You can take this feat more than once."
+      }
+    },
+    {
+      "id": "spellfire-spark|frhof|feat",
+      "kind": "feat",
+      "name": "Spellfire Spark",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Magic Absorption Once per turn, when you take damage from a spell or magical effect, you reduce the total damage taken by 1d4. You can't use this benefit if you have the Incapacitated...",
+      "searchText": "Spellfire Spark FRHoF You gain the following benefits. Magic Absorption Once per turn, when you take damage from a spell or magical effect, you reduce the total damage taken by 1d4. You can't use this benefit if you have the Incapacitated condition. Spellfire Flame You learn the Sacred Flame cantrip. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can also cast this cantrip as a Bonus Action a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Magic Absorption",
+            "entries": [
+              "Once per turn, when you take damage from a spell or magical effect, you reduce the total damage taken by {@dice 1d4}. You can't use this benefit if you have the {@condition Incapacitated|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Spellfire Flame",
+            "entries": [
+              "You learn the {@spell Sacred Flame|XPHB} cantrip. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can also cast this cantrip as a {@variantrule Bonus Action|XPHB} a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Magic Absorption Once per turn, when you take damage from a spell or magical effect, you reduce the total damage taken by 1d4. You can't use this benefit if you have the Incapacitated condition. Spellfire Flame You learn the Sacred Flame cantrip. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can also cast this cantrip as a Bonus Action a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest."
+      }
+    },
+    {
+      "id": "tavern-brawler|xphb|feat",
+      "kind": "feat",
+      "name": "Tavern Brawler",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Enhanced Unarmed Strike When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d4 plus your Strength modifier instead of the normal damage of...",
+      "searchText": "Tavern Brawler XPHB You gain the following benefits. Enhanced Unarmed Strike When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d4 plus your Strength modifier instead of the normal damage of an Unarmed Strike. Damage Rerolls Whenever you roll a damage die for your Unarmed Strike, you can reroll the die if it rolls a 1, and you must use the new roll. Improvised Weaponry You have proficiency with improvised weapons. Push When you hit a creature with an Unarmed Strike as part of the Attack action on your turn, you can deal damage to the target and also push it 5 feet away from you. You can use this benefit only once per turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Enhanced Unarmed Strike",
+            "entries": [
+              "When you hit with your {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Bludgeoning damage equal to {@damage 1d4} plus your Strength modifier instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Damage Rerolls",
+            "entries": [
+              "Whenever you roll a damage die for your {@variantrule Unarmed Strike|XPHB}, you can reroll the die if it rolls a 1, and you must use the new roll."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Improvised Weaponry",
+            "entries": [
+              "You have proficiency with improvised weapons."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Push",
+            "entries": [
+              "When you hit a creature with an {@variantrule Unarmed Strike|XPHB} as part of the {@action Attack|XPHB} action on your turn, you can deal damage to the target and also push it 5 feet away from you. You can use this benefit only once per turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [
+            {
+              "improvised": true
+            }
+          ],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Enhanced Unarmed Strike When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d4 plus your Strength modifier instead of the normal damage of an Unarmed Strike. Damage Rerolls Whenever you roll a damage die for your Unarmed Strike, you can reroll the die if it rolls a 1, and you must use the new roll. Improvised Weaponry You have proficiency with improvised weapons. Push When you hit a creature with an Unarmed Strike as part of the Attack action on your turn, you can deal damage to the target and also push it 5 feet away from you. You can use this benefit only once per turn."
+      }
+    },
+    {
+      "id": "tireless-reveler|abh|feat",
+      "kind": "feat",
+      "name": "Tireless Reveler",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "When an ally you can see within 60 feet of yourself expends Heroic Inspiration, you can gain Heroic Inspiration if you lack it. You can use this benefit a number of times equal to your Proficiency, and you regain all...",
+      "searchText": "Tireless Reveler ABH When an ally you can see within 60 feet of yourself expends Heroic Inspiration, you can gain Heroic Inspiration if you lack it. You can use this benefit a number of times equal to your Proficiency, and you regain all expended uses when you finish a Short Rest or Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "When an ally you can see within 60 feet of yourself expends {@variantrule Heroic Inspiration|XPHB}, you can gain {@variantrule Heroic Inspiration|XPHB} if you lack it. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "When an ally you can see within 60 feet of yourself expends Heroic Inspiration, you can gain Heroic Inspiration if you lack it. You can use this benefit a number of times equal to your Proficiency, and you regain all expended uses when you finish a Short Rest or Long Rest."
+      }
+    },
+    {
+      "id": "tough|xphb|feat",
+      "kind": "feat",
+      "name": "Tough",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Your Hit Points maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Points maximum increases by an additional 2 Hit Points.",
+      "searchText": "Tough XPHB Your Hit Points maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Points maximum increases by an additional 2 Hit Points.",
+      "renderPayload": {
+        "entries": [
+          "Your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by an additional 2 {@variantrule Hit Points|XPHB}."
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "Your Hit Points maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Points maximum increases by an additional 2 Hit Points."
+      }
+    },
+    {
+      "id": "tyro-of-the-gauntlet|frhof|feat",
+      "kind": "feat",
+      "name": "Tyro of the Gauntlet",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Stand as One When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a Reaction to prevent that ally from being pushed or pulled. To receiv...",
+      "searchText": "Tyro of the Gauntlet FRHoF You gain the following benefits. Stand as One When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a Reaction to prevent that ally from being pushed or pulled. To receive this benefit, the ally can't have the Incapacitated condition. Vigilant When you take the Ready action, the next attack roll made against you has Disadvantage before the start of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Stand as One",
+            "entries": [
+              "When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a {@variantrule Reaction|XPHB} to prevent that ally from being pushed or pulled. To receive this benefit, the ally can't have the {@condition Incapacitated|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Vigilant",
+            "entries": [
+              "When you take the {@action Ready|XPHB} action, the next attack roll made against you has {@variantrule Disadvantage|XPHB} before the start of your next turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Stand as One When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a Reaction to prevent that ally from being pushed or pulled. To receive this benefit, the ally can't have the Incapacitated condition. Vigilant When you take the Ready action, the next attack roll made against you has Disadvantage before the start of your next turn."
+      }
+    },
+    {
+      "id": "vampire-hunter|abh|feat",
+      "kind": "feat",
+      "name": "Vampire Hunter",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Adroit Escape You have Advantage on checks to escape from nonmagical restraints or the Grappled condition. Vitality Ward When you take Necrotic damage, you can take a Reaction to mitig...",
+      "searchText": "Vampire Hunter ABH You gain the following benefits. Adroit Escape You have Advantage on checks to escape from nonmagical restraints or the Grappled condition. Vitality Ward When you take Necrotic damage, you can take a Reaction to mitigate the damage. Roll a number of d6s equal to your Proficiency, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Adroit Escape",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on checks to escape from nonmagical restraints or the {@condition Grappled|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Vitality Ward",
+            "entries": [
+              "When you take Necrotic damage, you can take a {@variantrule Reaction|XPHB} to mitigate the damage. Roll a number of d6s equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Adroit Escape You have Advantage on checks to escape from nonmagical restraints or the Grappled condition. Vitality Ward When you take Necrotic damage, you can take a Reaction to mitigate the damage. Roll a number of d6s equal to your Proficiency, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest."
+      }
+    },
+    {
+      "id": "vampire-s-plaything|abh|feat",
+      "kind": "feat",
+      "name": "Vampire's Plaything",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Decanting When you finish a Long Rest, you can create one Potion of Healing or an Antitoxin, as long as you have an empty vial or flask. These liquids evaporate when you finish another...",
+      "searchText": "Vampire's Plaything ABH You gain the following benefits. Decanting When you finish a Long Rest, you can create one Potion of Healing or an Antitoxin, as long as you have an empty vial or flask. These liquids evaporate when you finish another Long Rest. Timely Retreat You can take a Bonus Action to take the Dash action or the Disengage action. You can use this benefit a number of times equal to your Proficiency, and you recover all expended uses when you finish a Long Rest. Vampiric Connection The DM determines the fate of your former vampire master. While you and your former vampire master are on the same plane of existence, the vampire can communicate with you telepathically, and you can choose to allow the vampire to perceive through your senses.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Decanting",
+            "entries": [
+              "When you finish a {@variantrule Long Rest|XPHB}, you can create one {@item Potion of Healing|XDMG} or an {@item Antitoxin|XPHB}, as long as you have an empty {@item vial|XPHB} or {@item flask|XPHB}. These liquids evaporate when you finish another {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Timely Retreat",
+            "entries": [
+              "You can take a {@variantrule Bonus Action|XPHB} to take the {@action Dash|XPHB} action or the {@action Disengage|XPHB} action. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you recover all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Vampiric Connection",
+            "entries": [
+              "The DM determines the fate of your former vampire master. While you and your former vampire master are on the same plane of existence, the vampire can communicate with you telepathically, and you can choose to allow the vampire to perceive through your senses."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Decanting When you finish a Long Rest, you can create one Potion of Healing or an Antitoxin, as long as you have an empty vial or flask. These liquids evaporate when you finish another Long Rest. Timely Retreat You can take a Bonus Action to take the Dash action or the Disengage action. You can use this benefit a number of times equal to your Proficiency, and you recover all expended uses when you finish a Long Rest. Vampiric Connection The DM determines the fate of your former vampire master. While you and your former vampire master are on the same plane of existence, the vampire can communicate with you telepathically, and you can choose to allow the vampire to perceive through your senses."
+      }
+    },
+    {
+      "id": "zhentarim-ruffian|frhof|feat",
+      "kind": "feat",
+      "name": "Zhentarim Ruffian",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Exploit Opening When you roll damage for an Opportunity Attack, you can roll the damage dice twice and use either roll against the target. Family First If you have Heroic Inspiration w...",
+      "searchText": "Zhentarim Ruffian FRHoF You gain the following benefits. Exploit Opening When you roll damage for an Opportunity Attack, you can roll the damage dice twice and use either roll against the target. Family First If you have Heroic Inspiration when you roll Initiative, you can expend it to give yourself and your allies Advantage on that Initiative roll.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Exploit Opening",
+            "entries": [
+              "When you roll damage for an {@action Opportunity Attack|XPHB}, you can roll the damage dice twice and use either roll against the target."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Family First",
+            "entries": [
+              "If you have {@variantrule Heroic Inspiration|XPHB} when you roll {@variantrule Initiative|XPHB}, you can expend it to give yourself and your allies {@variantrule Advantage|XPHB} on that {@variantrule Initiative|XPHB} roll."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "O"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": []
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "O",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Exploit Opening When you roll damage for an Opportunity Attack, you can roll the damage dice twice and use either roll against the target. Family First If you have Heroic Inspiration when you roll Initiative, you can expend it to give yourself and your allies Advantage on that Initiative roll."
+      }
+    }
+  ]
+}

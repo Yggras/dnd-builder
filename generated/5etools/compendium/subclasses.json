@@ -1,0 +1,5679 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "compendium",
+  "chunkId": "subclasses",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "aberrant-mind-tce-subclass-sorcerer-phb|compendium",
+      "entityId": "aberrant-mind|tce|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Aberrant Mind",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Aberrant Mind TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "aberrant-mind-tce-subclass-sorcerer-xphb|compendium",
+      "entityId": "aberrant-mind|tce|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Aberrant Mind",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Aberrant Mind TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "aberrant-sorcery-xphb-subclass-sorcerer-xphb|compendium",
+      "entityId": "aberrant-sorcery|xphb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Aberrant Sorcery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Aberrant Sorcery XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "abjurer-xphb-subclass-wizard-xphb|compendium",
+      "entityId": "abjurer|xphb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Abjurer",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Abjurer XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "alchemist-efa-subclass-artificer-efa|compendium",
+      "entityId": "alchemist|efa|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Alchemist",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Alchemist EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "alchemist-tce-subclass-artificer-efa|compendium",
+      "entityId": "alchemist|tce|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Alchemist",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Alchemist TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "alchemist-tce-subclass-artificer-tce|compendium",
+      "entityId": "alchemist|tce|subclass|artificer|tce",
+      "entityType": "subclass",
+      "name": "Alchemist",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Alchemist TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "ambition-domain-psa-psa-subclass-cleric-phb|compendium",
+      "entityId": "ambition-domain-psa|psa|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Ambition Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Ambition Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "ambition-domain-psa-psa-subclass-cleric-xphb|compendium",
+      "entityId": "ambition-domain-psa|psa|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Ambition Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Ambition Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcana-domain-scag-subclass-cleric-phb|compendium",
+      "entityId": "arcana-domain|scag|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Arcana Domain",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcana Domain SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcana-domain-scag-subclass-cleric-xphb|compendium",
+      "entityId": "arcana-domain|scag|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Arcana Domain",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcana Domain SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcane-archer-xge-subclass-fighter-phb|compendium",
+      "entityId": "arcane-archer|xge|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Arcane Archer",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcane Archer XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcane-archer-xge-subclass-fighter-xphb|compendium",
+      "entityId": "arcane-archer|xge|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Arcane Archer",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcane Archer XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcane-trickster-phb-subclass-rogue-phb|compendium",
+      "entityId": "arcane-trickster|phb|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Arcane Trickster",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcane Trickster PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcane-trickster-phb-subclass-rogue-xphb|compendium",
+      "entityId": "arcane-trickster|phb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Arcane Trickster",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcane Trickster PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "arcane-trickster-xphb-subclass-rogue-xphb|compendium",
+      "entityId": "arcane-trickster|xphb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Arcane Trickster",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Arcane Trickster XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "archfey-patron-xphb-subclass-warlock-xphb|compendium",
+      "entityId": "archfey-patron|xphb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "Archfey Patron",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Archfey Patron XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "armorer-efa-subclass-artificer-efa|compendium",
+      "entityId": "armorer|efa|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Armorer",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Armorer EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "armorer-tce-subclass-artificer-efa|compendium",
+      "entityId": "armorer|tce|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Armorer",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Armorer TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "armorer-tce-subclass-artificer-tce|compendium",
+      "entityId": "armorer|tce|subclass|artificer|tce",
+      "entityType": "subclass",
+      "name": "Armorer",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Armorer TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "artillerist-efa-subclass-artificer-efa|compendium",
+      "entityId": "artillerist|efa|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Artillerist",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Artillerist EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "artillerist-tce-subclass-artificer-efa|compendium",
+      "entityId": "artillerist|tce|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Artillerist",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Artillerist TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "artillerist-tce-subclass-artificer-tce|compendium",
+      "entityId": "artillerist|tce|subclass|artificer|tce",
+      "entityType": "subclass",
+      "name": "Artillerist",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Artillerist TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "assassin-phb-subclass-rogue-phb|compendium",
+      "entityId": "assassin|phb|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Assassin",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Assassin PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "assassin-phb-subclass-rogue-xphb|compendium",
+      "entityId": "assassin|phb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Assassin",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Assassin PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "assassin-xphb-subclass-rogue-xphb|compendium",
+      "entityId": "assassin|xphb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Assassin",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Assassin XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "banneret-frhof-subclass-fighter-xphb|compendium",
+      "entityId": "banneret|frhof|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Banneret",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Banneret FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-master-phb-subclass-fighter-phb|compendium",
+      "entityId": "battle-master|phb|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Battle Master",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Master PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-master-phb-subclass-fighter-xphb|compendium",
+      "entityId": "battle-master|phb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Battle Master",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Master PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-master-xphb-subclass-fighter-xphb|compendium",
+      "entityId": "battle-master|xphb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Battle Master",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Master XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-smith-efa-subclass-artificer-efa|compendium",
+      "entityId": "battle-smith|efa|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Battle Smith",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Smith EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-smith-tce-subclass-artificer-efa|compendium",
+      "entityId": "battle-smith|tce|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Battle Smith",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Smith TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "battle-smith-tce-subclass-artificer-tce|compendium",
+      "entityId": "battle-smith|tce|subclass|artificer|tce",
+      "entityType": "subclass",
+      "name": "Battle Smith",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Battle Smith TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "beast-master-phb-subclass-ranger-phb|compendium",
+      "entityId": "beast-master|phb|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Beast Master",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Beast Master PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "beast-master-phb-subclass-ranger-xphb|compendium",
+      "entityId": "beast-master|phb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Beast Master",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Beast Master PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "beast-master-xphb-subclass-ranger-xphb|compendium",
+      "entityId": "beast-master|xphb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Beast Master",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Beast Master XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "bladesinger-frhof-subclass-wizard-xphb|compendium",
+      "entityId": "bladesinger|frhof|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Bladesinger",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Bladesinger FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "bladesinging-tce-subclass-wizard-phb|compendium",
+      "entityId": "bladesinging|tce|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "Bladesinging",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Bladesinging TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "bladesinging-tce-subclass-wizard-xphb|compendium",
+      "entityId": "bladesinging|tce|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Bladesinging",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Bladesinging TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "cartographer-efa-subclass-artificer-efa|compendium",
+      "entityId": "cartographer|efa|subclass|artificer|efa",
+      "entityType": "subclass",
+      "name": "Cartographer",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Cartographer EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "cavalier-xge-subclass-fighter-phb|compendium",
+      "entityId": "cavalier|xge|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Cavalier",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Cavalier XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "cavalier-xge-subclass-fighter-xphb|compendium",
+      "entityId": "cavalier|xge|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Cavalier",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Cavalier XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "celestial-patron-xphb-subclass-warlock-xphb|compendium",
+      "entityId": "celestial-patron|xphb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "Celestial Patron",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Celestial Patron XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "champion-phb-subclass-fighter-phb|compendium",
+      "entityId": "champion|phb|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Champion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Champion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "champion-phb-subclass-fighter-xphb|compendium",
+      "entityId": "champion|phb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Champion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Champion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "champion-xphb-subclass-fighter-xphb|compendium",
+      "entityId": "champion|xphb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Champion",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Champion XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "chronurgy-magic-egw-subclass-wizard-phb|compendium",
+      "entityId": "chronurgy-magic|egw|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "Chronurgy Magic",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Chronurgy Magic EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "chronurgy-magic-egw-subclass-wizard-xphb|compendium",
+      "entityId": "chronurgy-magic|egw|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Chronurgy Magic",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Chronurgy Magic EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-dreams-xge-subclass-druid-phb|compendium",
+      "entityId": "circle-of-dreams|xge|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of Dreams",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Dreams XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-dreams-xge-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-dreams|xge|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of Dreams",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Dreams XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-spores-tce-subclass-druid-phb|compendium",
+      "entityId": "circle-of-spores|tce|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of Spores",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Spores TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-spores-tce-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-spores|tce|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of Spores",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Spores TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-stars-tce-subclass-druid-phb|compendium",
+      "entityId": "circle-of-stars|tce|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of Stars",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Stars TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-stars-tce-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-stars|tce|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of Stars",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Stars TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-land-phb-subclass-druid-phb|compendium",
+      "entityId": "circle-of-the-land|phb|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of the Land",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Land PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-land-phb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-land|phb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Land",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Land PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-land-xphb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-land|xphb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Land",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Land XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-moon-phb-subclass-druid-phb|compendium",
+      "entityId": "circle-of-the-moon|phb|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of the Moon",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Moon PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-moon-phb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-moon|phb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Moon",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Moon PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-moon-xphb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-moon|xphb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Moon",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Moon XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-sea-xphb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-sea|xphb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Sea",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Sea XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-shepherd-xge-subclass-druid-phb|compendium",
+      "entityId": "circle-of-the-shepherd|xge|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of the Shepherd",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Shepherd XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-shepherd-xge-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-shepherd|xge|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Shepherd",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Shepherd XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-the-stars-xphb-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-the-stars|xphb|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of the Stars",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of the Stars XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-wildfire-tce-subclass-druid-phb|compendium",
+      "entityId": "circle-of-wildfire|tce|subclass|druid|phb",
+      "entityType": "subclass",
+      "name": "Circle of Wildfire",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Wildfire TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "circle-of-wildfire-tce-subclass-druid-xphb|compendium",
+      "entityId": "circle-of-wildfire|tce|subclass|druid|xphb",
+      "entityType": "subclass",
+      "name": "Circle of Wildfire",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Circle of Wildfire TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "clockwork-sorcery-xphb-subclass-sorcerer-xphb|compendium",
+      "entityId": "clockwork-sorcery|xphb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Clockwork Sorcery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Clockwork Sorcery XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "clockwork-soul-tce-subclass-sorcerer-phb|compendium",
+      "entityId": "clockwork-soul|tce|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Clockwork Soul",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Clockwork Soul TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "clockwork-soul-tce-subclass-sorcerer-xphb|compendium",
+      "entityId": "clockwork-soul|tce|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Clockwork Soul",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Clockwork Soul TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-creation-tce-subclass-bard-phb|compendium",
+      "entityId": "college-of-creation|tce|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Creation",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Creation TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-creation-tce-subclass-bard-xphb|compendium",
+      "entityId": "college-of-creation|tce|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Creation",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Creation TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-dance-xphb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-dance|xphb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Dance",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Dance XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-eloquence-tce-subclass-bard-phb|compendium",
+      "entityId": "college-of-eloquence|tce|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Eloquence",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Eloquence TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-eloquence-tce-subclass-bard-xphb|compendium",
+      "entityId": "college-of-eloquence|tce|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Eloquence",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Eloquence TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-glamour-xge-subclass-bard-phb|compendium",
+      "entityId": "college-of-glamour|xge|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Glamour",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Glamour XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-glamour-xge-subclass-bard-xphb|compendium",
+      "entityId": "college-of-glamour|xge|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Glamour",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Glamour XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-glamour-xphb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-glamour|xphb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Glamour",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Glamour XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-lore-phb-subclass-bard-phb|compendium",
+      "entityId": "college-of-lore|phb|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Lore",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Lore PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-lore-phb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-lore|phb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Lore",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Lore PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-lore-xphb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-lore|xphb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Lore",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Lore XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-spirits-vrgr-subclass-bard-phb|compendium",
+      "entityId": "college-of-spirits|vrgr|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Spirits",
+      "sourceCode": "VRGR",
+      "sourceName": "VRGR",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Spirits VRGR",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-spirits-vrgr-subclass-bard-xphb|compendium",
+      "entityId": "college-of-spirits|vrgr|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Spirits",
+      "sourceCode": "VRGR",
+      "sourceName": "VRGR",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Spirits VRGR",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-swords-xge-subclass-bard-phb|compendium",
+      "entityId": "college-of-swords|xge|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Swords",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Swords XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-swords-xge-subclass-bard-xphb|compendium",
+      "entityId": "college-of-swords|xge|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Swords",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Swords XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-the-moon-frhof-subclass-bard-xphb|compendium",
+      "entityId": "college-of-the-moon|frhof|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of the Moon",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "College of the Moon FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-valor-phb-subclass-bard-phb|compendium",
+      "entityId": "college-of-valor|phb|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Valor",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Valor PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-valor-phb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-valor|phb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Valor",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Valor PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-valor-xphb-subclass-bard-xphb|compendium",
+      "entityId": "college-of-valor|xphb|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Valor",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Valor XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-whispers-xge-subclass-bard-phb|compendium",
+      "entityId": "college-of-whispers|xge|subclass|bard|phb",
+      "entityType": "subclass",
+      "name": "College of Whispers",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Whispers XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "college-of-whispers-xge-subclass-bard-xphb|compendium",
+      "entityId": "college-of-whispers|xge|subclass|bard|xphb",
+      "entityType": "subclass",
+      "name": "College of Whispers",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "College of Whispers XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "death-domain-dmg-subclass-cleric-phb|compendium",
+      "entityId": "death-domain|dmg|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Death Domain",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Death Domain DMG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "death-domain-dmg-subclass-cleric-xphb|compendium",
+      "entityId": "death-domain|dmg|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Death Domain",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Death Domain DMG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "divine-soul-xge-subclass-sorcerer-phb|compendium",
+      "entityId": "divine-soul|xge|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Divine Soul",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Divine Soul XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "divine-soul-xge-subclass-sorcerer-xphb|compendium",
+      "entityId": "divine-soul|xge|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Divine Soul",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Divine Soul XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "diviner-xphb-subclass-wizard-xphb|compendium",
+      "entityId": "diviner|xphb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Diviner",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Diviner XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "draconic-bloodline-phb-subclass-sorcerer-phb|compendium",
+      "entityId": "draconic-bloodline|phb|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Draconic Bloodline",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Draconic Bloodline PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "draconic-bloodline-phb-subclass-sorcerer-xphb|compendium",
+      "entityId": "draconic-bloodline|phb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Draconic Bloodline",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Draconic Bloodline PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "draconic-sorcery-xphb-subclass-sorcerer-xphb|compendium",
+      "entityId": "draconic-sorcery|xphb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Draconic Sorcery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Draconic Sorcery XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "drakewarden-ftd-subclass-ranger-phb|compendium",
+      "entityId": "drakewarden|ftd|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Drakewarden",
+      "sourceCode": "FTD",
+      "sourceName": "FTD",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Drakewarden FTD",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "drakewarden-ftd-subclass-ranger-xphb|compendium",
+      "entityId": "drakewarden|ftd|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Drakewarden",
+      "sourceCode": "FTD",
+      "sourceName": "FTD",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Drakewarden FTD",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "echo-knight-egw-subclass-fighter-phb|compendium",
+      "entityId": "echo-knight|egw|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Echo Knight",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Echo Knight EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "echo-knight-egw-subclass-fighter-xphb|compendium",
+      "entityId": "echo-knight|egw|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Echo Knight",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Echo Knight EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "eldritch-knight-phb-subclass-fighter-phb|compendium",
+      "entityId": "eldritch-knight|phb|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Eldritch Knight",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Eldritch Knight PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "eldritch-knight-phb-subclass-fighter-xphb|compendium",
+      "entityId": "eldritch-knight|phb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Eldritch Knight",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Eldritch Knight PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "eldritch-knight-xphb-subclass-fighter-xphb|compendium",
+      "entityId": "eldritch-knight|xphb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Eldritch Knight",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Eldritch Knight XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "evoker-xphb-subclass-wizard-xphb|compendium",
+      "entityId": "evoker|xphb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Evoker",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Evoker XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fey-wanderer-tce-subclass-ranger-phb|compendium",
+      "entityId": "fey-wanderer|tce|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Fey Wanderer",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Fey Wanderer TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fey-wanderer-tce-subclass-ranger-xphb|compendium",
+      "entityId": "fey-wanderer|tce|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Fey Wanderer",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Fey Wanderer TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fey-wanderer-xphb-subclass-ranger-xphb|compendium",
+      "entityId": "fey-wanderer|xphb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Fey Wanderer",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Fey Wanderer XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fiend-patron-xphb-subclass-warlock-xphb|compendium",
+      "entityId": "fiend-patron|xphb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "Fiend Patron",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Fiend Patron XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "forge-domain-xge-subclass-cleric-phb|compendium",
+      "entityId": "forge-domain|xge|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Forge Domain",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Forge Domain XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "forge-domain-xge-subclass-cleric-xphb|compendium",
+      "entityId": "forge-domain|xge|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Forge Domain",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Forge Domain XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "gloom-stalker-xge-subclass-ranger-phb|compendium",
+      "entityId": "gloom-stalker|xge|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Gloom Stalker",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Gloom Stalker XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "gloom-stalker-xge-subclass-ranger-xphb|compendium",
+      "entityId": "gloom-stalker|xge|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Gloom Stalker",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Gloom Stalker XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "gloom-stalker-xphb-subclass-ranger-xphb|compendium",
+      "entityId": "gloom-stalker|xphb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Gloom Stalker",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Gloom Stalker XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "grave-domain-xge-subclass-cleric-phb|compendium",
+      "entityId": "grave-domain|xge|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Grave Domain",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Grave Domain XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "grave-domain-xge-subclass-cleric-xphb|compendium",
+      "entityId": "grave-domain|xge|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Grave Domain",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Grave Domain XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "graviturgy-magic-egw-subclass-wizard-phb|compendium",
+      "entityId": "graviturgy-magic|egw|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "Graviturgy Magic",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Graviturgy Magic EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "graviturgy-magic-egw-subclass-wizard-xphb|compendium",
+      "entityId": "graviturgy-magic|egw|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Graviturgy Magic",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Graviturgy Magic EGW",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "great-old-one-patron-xphb-subclass-warlock-xphb|compendium",
+      "entityId": "great-old-one-patron|xphb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "Great Old One Patron",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Great Old One Patron XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "horizon-walker-xge-subclass-ranger-phb|compendium",
+      "entityId": "horizon-walker|xge|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Horizon Walker",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Horizon Walker XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "horizon-walker-xge-subclass-ranger-xphb|compendium",
+      "entityId": "horizon-walker|xge|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Horizon Walker",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Horizon Walker XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "hunter-phb-subclass-ranger-phb|compendium",
+      "entityId": "hunter|phb|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Hunter",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Hunter PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "hunter-phb-subclass-ranger-xphb|compendium",
+      "entityId": "hunter|phb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Hunter",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Hunter PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "hunter-xphb-subclass-ranger-xphb|compendium",
+      "entityId": "hunter|xphb|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Hunter",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Hunter XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "illusionist-xphb-subclass-wizard-xphb|compendium",
+      "entityId": "illusionist|xphb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Illusionist",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Illusionist XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "inquisitive-xge-subclass-rogue-phb|compendium",
+      "entityId": "inquisitive|xge|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Inquisitive",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Inquisitive XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "inquisitive-xge-subclass-rogue-xphb|compendium",
+      "entityId": "inquisitive|xge|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Inquisitive",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Inquisitive XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "knowledge-domain-frhof-subclass-cleric-xphb|compendium",
+      "entityId": "knowledge-domain|frhof|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Knowledge Domain",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Knowledge Domain FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "knowledge-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "knowledge-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Knowledge Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Knowledge Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "knowledge-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "knowledge-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Knowledge Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Knowledge Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "knowledge-domain-psa-psa-subclass-cleric-phb|compendium",
+      "entityId": "knowledge-domain-psa|psa|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Knowledge Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Knowledge Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "knowledge-domain-psa-psa-subclass-cleric-xphb|compendium",
+      "entityId": "knowledge-domain-psa|psa|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Knowledge Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Knowledge Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "life-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "life-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Life Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Life Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "life-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "life-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Life Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Life Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "life-domain-xphb-subclass-cleric-xphb|compendium",
+      "entityId": "life-domain|xphb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Life Domain",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Life Domain XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "light-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "light-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Light Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Light Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "light-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "light-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Light Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Light Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "light-domain-xphb-subclass-cleric-xphb|compendium",
+      "entityId": "light-domain|xphb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Light Domain",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Light Domain XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "lunar-sorcery-dsotdq-subclass-sorcerer-phb|compendium",
+      "entityId": "lunar-sorcery|dsotdq|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Lunar Sorcery",
+      "sourceCode": "DSotDQ",
+      "sourceName": "DSotDQ",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Lunar Sorcery DSotDQ",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "lunar-sorcery-dsotdq-subclass-sorcerer-xphb|compendium",
+      "entityId": "lunar-sorcery|dsotdq|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Lunar Sorcery",
+      "sourceCode": "DSotDQ",
+      "sourceName": "DSotDQ",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Lunar Sorcery DSotDQ",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "mastermind-xge-subclass-rogue-phb|compendium",
+      "entityId": "mastermind|xge|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Mastermind",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Mastermind XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "mastermind-xge-subclass-rogue-xphb|compendium",
+      "entityId": "mastermind|xge|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Mastermind",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Mastermind XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "monster-slayer-xge-subclass-ranger-phb|compendium",
+      "entityId": "monster-slayer|xge|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Monster Slayer",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Monster Slayer XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "monster-slayer-xge-subclass-ranger-xphb|compendium",
+      "entityId": "monster-slayer|xge|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Monster Slayer",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Monster Slayer XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "nature-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "nature-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Nature Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Nature Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "nature-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "nature-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Nature Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Nature Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-conquest-xge-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-conquest|xge|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of Conquest",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Conquest XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-conquest-xge-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-conquest|xge|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Conquest",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Conquest XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-devotion-phb-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-devotion|phb|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of Devotion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Devotion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-devotion-phb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-devotion|phb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Devotion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Devotion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-devotion-xphb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-devotion|xphb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Devotion",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Devotion XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-glory-tce-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-glory|tce|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of Glory",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Glory TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-glory-tce-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-glory|tce|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Glory",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Glory TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-glory-xphb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-glory|xphb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Glory",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Glory XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-redemption-xge-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-redemption|xge|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of Redemption",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Redemption XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-redemption-xge-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-redemption|xge|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Redemption",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Redemption XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-ancients-phb-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-the-ancients|phb|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of the Ancients",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Ancients PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-ancients-phb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-the-ancients|phb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of the Ancients",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Ancients PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-ancients-xphb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-the-ancients|xphb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of the Ancients",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Ancients XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-crown-scag-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-the-crown|scag|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of the Crown",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Crown SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-crown-scag-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-the-crown|scag|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of the Crown",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Crown SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-noble-genies-frhof-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-the-noble-genies|frhof|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of the Noble Genies",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Noble Genies FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-watchers-tce-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-the-watchers|tce|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of the Watchers",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Watchers TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-the-watchers-tce-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-the-watchers|tce|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of the Watchers",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of the Watchers TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-vengeance-phb-subclass-paladin-phb|compendium",
+      "entityId": "oath-of-vengeance|phb|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oath of Vengeance",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Vengeance PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-vengeance-phb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-vengeance|phb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Vengeance",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Vengeance PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oath-of-vengeance-xphb-subclass-paladin-xphb|compendium",
+      "entityId": "oath-of-vengeance|xphb|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oath of Vengeance",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Oath of Vengeance XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oathbreaker-dmg-subclass-paladin-phb|compendium",
+      "entityId": "oathbreaker|dmg|subclass|paladin|phb",
+      "entityType": "subclass",
+      "name": "Oathbreaker",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oathbreaker DMG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "oathbreaker-dmg-subclass-paladin-xphb|compendium",
+      "entityId": "oathbreaker|dmg|subclass|paladin|xphb",
+      "entityType": "subclass",
+      "name": "Oathbreaker",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Oathbreaker DMG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-domain-tce-subclass-cleric-phb|compendium",
+      "entityId": "order-domain|tce|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Order Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-domain-tce-subclass-cleric-xphb|compendium",
+      "entityId": "order-domain|tce|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Order Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-scribes-tce-subclass-wizard-phb|compendium",
+      "entityId": "order-of-scribes|tce|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "Order of Scribes",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of Scribes TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-scribes-tce-subclass-wizard-xphb|compendium",
+      "entityId": "order-of-scribes|tce|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "Order of Scribes",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of Scribes TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-avatar-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-avatar|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Avatar",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Avatar UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-awakened-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-awakened|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Awakened",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Awakened UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-immortal-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-immortal|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Immortal",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Immortal UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-nomad-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-nomad|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Nomad",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Nomad UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-soul-knife-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-soul-knife|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Soul Knife",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Soul Knife UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "order-of-the-wu-jen-uathemysticclass-subclass-mystic-uathemysticclass|compendium",
+      "entityId": "order-of-the-wu-jen|uathemysticclass|subclass|mystic|uathemysticclass",
+      "entityType": "subclass",
+      "name": "Order of the Wu Jen",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Order of the Wu Jen UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-ancestral-guardian-xge-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-ancestral-guardian|xge|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Ancestral Guardian",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Ancestral Guardian XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-ancestral-guardian-xge-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-ancestral-guardian|xge|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Ancestral Guardian",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Ancestral Guardian XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-battlerager-scag-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-battlerager|scag|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Battlerager",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Battlerager SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-battlerager-scag-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-battlerager|scag|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Battlerager",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Battlerager SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-beast-tce-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-beast|tce|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Beast",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Beast TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-beast-tce-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-beast|tce|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Beast",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Beast TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-berserker-phb-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-berserker|phb|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Berserker",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Berserker PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-berserker-phb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-berserker|phb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Berserker",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Berserker PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-berserker-xphb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-berserker|xphb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Berserker",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Berserker XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-giant-bgg-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-giant|bgg|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Giant",
+      "sourceCode": "BGG",
+      "sourceName": "BGG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Giant BGG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-giant-bgg-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-giant|bgg|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Giant",
+      "sourceCode": "BGG",
+      "sourceName": "BGG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Giant BGG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-storm-herald-xge-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-storm-herald|xge|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Storm Herald",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Storm Herald XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-storm-herald-xge-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-storm-herald|xge|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Storm Herald",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Storm Herald XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-totem-warrior-phb-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-totem-warrior|phb|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Totem Warrior",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Totem Warrior PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-totem-warrior-phb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-totem-warrior|phb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Totem Warrior",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Totem Warrior PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-wild-heart-xphb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-wild-heart|xphb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Wild Heart",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Wild Heart XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-world-tree-xphb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-world-tree|xphb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the World Tree",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the World Tree XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-zealot-xge-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-the-zealot|xge|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of the Zealot",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Zealot XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-zealot-xge-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-zealot|xge|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Zealot",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Zealot XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-the-zealot-xphb-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-the-zealot|xphb|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of the Zealot",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of the Zealot XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-wild-magic-tce-subclass-barbarian-phb|compendium",
+      "entityId": "path-of-wild-magic|tce|subclass|barbarian|phb",
+      "entityType": "subclass",
+      "name": "Path of Wild Magic",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of Wild Magic TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "path-of-wild-magic-tce-subclass-barbarian-xphb|compendium",
+      "entityId": "path-of-wild-magic|tce|subclass|barbarian|xphb",
+      "entityType": "subclass",
+      "name": "Path of Wild Magic",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Path of Wild Magic TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "peace-domain-tce-subclass-cleric-phb|compendium",
+      "entityId": "peace-domain|tce|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Peace Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Peace Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "peace-domain-tce-subclass-cleric-xphb|compendium",
+      "entityId": "peace-domain|tce|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Peace Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Peace Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "phantom-tce-subclass-rogue-phb|compendium",
+      "entityId": "phantom|tce|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Phantom",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Phantom TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "phantom-tce-subclass-rogue-xphb|compendium",
+      "entityId": "phantom|tce|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Phantom",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Phantom TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "psi-warrior-tce-subclass-fighter-phb|compendium",
+      "entityId": "psi-warrior|tce|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Psi Warrior",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Psi Warrior TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "psi-warrior-tce-subclass-fighter-xphb|compendium",
+      "entityId": "psi-warrior|tce|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Psi Warrior",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Psi Warrior TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "psi-warrior-xphb-subclass-fighter-xphb|compendium",
+      "entityId": "psi-warrior|xphb|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Psi Warrior",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Psi Warrior XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "purple-dragon-knight-banneret-scag-subclass-fighter-phb|compendium",
+      "entityId": "purple-dragon-knight-banneret|scag|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Purple Dragon Knight (Banneret)",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Purple Dragon Knight (Banneret) SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "purple-dragon-knight-banneret-scag-subclass-fighter-xphb|compendium",
+      "entityId": "purple-dragon-knight-banneret|scag|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Purple Dragon Knight (Banneret)",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Purple Dragon Knight (Banneret) SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "pyromancer-psk-psk-subclass-sorcerer-phb|compendium",
+      "entityId": "pyromancer-psk|psk|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Pyromancer (PSK)",
+      "sourceCode": "PSK",
+      "sourceName": "PSK",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Pyromancer (PSK) PSK",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "pyromancer-psk-psk-subclass-sorcerer-xphb|compendium",
+      "entityId": "pyromancer-psk|psk|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Pyromancer (PSK)",
+      "sourceCode": "PSK",
+      "sourceName": "PSK",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Pyromancer (PSK) PSK",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "rune-knight-tce-subclass-fighter-phb|compendium",
+      "entityId": "rune-knight|tce|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Rune Knight",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Rune Knight TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "rune-knight-tce-subclass-fighter-xphb|compendium",
+      "entityId": "rune-knight|tce|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Rune Knight",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Rune Knight TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "samurai-xge-subclass-fighter-phb|compendium",
+      "entityId": "samurai|xge|subclass|fighter|phb",
+      "entityType": "subclass",
+      "name": "Samurai",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Samurai XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "samurai-xge-subclass-fighter-xphb|compendium",
+      "entityId": "samurai|xge|subclass|fighter|xphb",
+      "entityType": "subclass",
+      "name": "Samurai",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Samurai XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-abjuration-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-abjuration|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Abjuration",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Abjuration PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-abjuration-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-abjuration|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Abjuration",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Abjuration PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-conjuration-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-conjuration|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Conjuration",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Conjuration PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-conjuration-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-conjuration|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Conjuration",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Conjuration PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-divination-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-divination|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Divination",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Divination PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-divination-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-divination|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Divination",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Divination PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-enchantment-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-enchantment|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Enchantment",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Enchantment PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-enchantment-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-enchantment|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Enchantment",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Enchantment PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-evocation-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-evocation|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Evocation",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Evocation PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-evocation-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-evocation|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Evocation",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Evocation PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-illusion-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-illusion|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Illusion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Illusion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-illusion-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-illusion|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Illusion",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Illusion PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-necromancy-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-necromancy|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Necromancy",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Necromancy PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-necromancy-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-necromancy|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Necromancy",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Necromancy PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-transmutation-phb-subclass-wizard-phb|compendium",
+      "entityId": "school-of-transmutation|phb|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "School of Transmutation",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Transmutation PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "school-of-transmutation-phb-subclass-wizard-xphb|compendium",
+      "entityId": "school-of-transmutation|phb|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "School of Transmutation",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "School of Transmutation PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "scion-of-the-three-frhof-subclass-rogue-xphb|compendium",
+      "entityId": "scion-of-the-three|frhof|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Scion of the Three",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Scion of the Three FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "scout-xge-subclass-rogue-phb|compendium",
+      "entityId": "scout|xge|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Scout",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Scout XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "scout-xge-subclass-rogue-xphb|compendium",
+      "entityId": "scout|xge|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Scout",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Scout XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "shadow-magic-xge-subclass-sorcerer-phb|compendium",
+      "entityId": "shadow-magic|xge|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Shadow Magic",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Shadow Magic XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "shadow-magic-xge-subclass-sorcerer-xphb|compendium",
+      "entityId": "shadow-magic|xge|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Shadow Magic",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Shadow Magic XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "solidarity-domain-psa-psa-subclass-cleric-phb|compendium",
+      "entityId": "solidarity-domain-psa|psa|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Solidarity Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Solidarity Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "solidarity-domain-psa-psa-subclass-cleric-xphb|compendium",
+      "entityId": "solidarity-domain-psa|psa|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Solidarity Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Solidarity Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "soulknife-tce-subclass-rogue-phb|compendium",
+      "entityId": "soulknife|tce|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Soulknife",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Soulknife TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "soulknife-tce-subclass-rogue-xphb|compendium",
+      "entityId": "soulknife|tce|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Soulknife",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Soulknife TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "soulknife-xphb-subclass-rogue-xphb|compendium",
+      "entityId": "soulknife|xphb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Soulknife",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Soulknife XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "spellfire-sorcery-frhof-subclass-sorcerer-xphb|compendium",
+      "entityId": "spellfire-sorcery|frhof|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Spellfire Sorcery",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Spellfire Sorcery FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "storm-sorcery-xge-subclass-sorcerer-phb|compendium",
+      "entityId": "storm-sorcery|xge|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Storm Sorcery",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Storm Sorcery XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "storm-sorcery-xge-subclass-sorcerer-xphb|compendium",
+      "entityId": "storm-sorcery|xge|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Storm Sorcery",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Storm Sorcery XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "strength-domain-psa-psa-subclass-cleric-phb|compendium",
+      "entityId": "strength-domain-psa|psa|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Strength Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Strength Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "strength-domain-psa-psa-subclass-cleric-xphb|compendium",
+      "entityId": "strength-domain-psa|psa|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Strength Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Strength Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "swarmkeeper-tce-subclass-ranger-phb|compendium",
+      "entityId": "swarmkeeper|tce|subclass|ranger|phb",
+      "entityType": "subclass",
+      "name": "Swarmkeeper",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Swarmkeeper TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "swarmkeeper-tce-subclass-ranger-xphb|compendium",
+      "entityId": "swarmkeeper|tce|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Swarmkeeper",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Swarmkeeper TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "swashbuckler-xge-subclass-rogue-phb|compendium",
+      "entityId": "swashbuckler|xge|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Swashbuckler",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Swashbuckler XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "swashbuckler-xge-subclass-rogue-xphb|compendium",
+      "entityId": "swashbuckler|xge|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Swashbuckler",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Swashbuckler XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "tempest-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "tempest-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Tempest Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Tempest Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "tempest-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "tempest-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Tempest Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Tempest Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-archfey-phb-subclass-warlock-phb|compendium",
+      "entityId": "the-archfey|phb|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Archfey",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Archfey PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-archfey-phb-subclass-warlock-xphb|compendium",
+      "entityId": "the-archfey|phb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Archfey",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Archfey PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-celestial-xge-subclass-warlock-phb|compendium",
+      "entityId": "the-celestial|xge|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Celestial",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Celestial XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-celestial-xge-subclass-warlock-xphb|compendium",
+      "entityId": "the-celestial|xge|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Celestial",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Celestial XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-fathomless-tce-subclass-warlock-phb|compendium",
+      "entityId": "the-fathomless|tce|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Fathomless",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Fathomless TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-fathomless-tce-subclass-warlock-xphb|compendium",
+      "entityId": "the-fathomless|tce|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Fathomless",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Fathomless TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-fiend-phb-subclass-warlock-phb|compendium",
+      "entityId": "the-fiend|phb|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Fiend",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Fiend PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-fiend-phb-subclass-warlock-xphb|compendium",
+      "entityId": "the-fiend|phb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Fiend",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Fiend PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-genie-tce-subclass-warlock-phb|compendium",
+      "entityId": "the-genie|tce|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Genie",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Genie TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-genie-tce-subclass-warlock-xphb|compendium",
+      "entityId": "the-genie|tce|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Genie",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Genie TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-great-old-one-phb-subclass-warlock-phb|compendium",
+      "entityId": "the-great-old-one|phb|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Great Old One",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Great Old One PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-great-old-one-phb-subclass-warlock-xphb|compendium",
+      "entityId": "the-great-old-one|phb|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Great Old One",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Great Old One PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-hexblade-xge-subclass-warlock-phb|compendium",
+      "entityId": "the-hexblade|xge|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Hexblade",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Hexblade XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-hexblade-xge-subclass-warlock-xphb|compendium",
+      "entityId": "the-hexblade|xge|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Hexblade",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Hexblade XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-undead-vrgr-subclass-warlock-phb|compendium",
+      "entityId": "the-undead|vrgr|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Undead",
+      "sourceCode": "VRGR",
+      "sourceName": "VRGR",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Undead VRGR",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-undead-vrgr-subclass-warlock-xphb|compendium",
+      "entityId": "the-undead|vrgr|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Undead",
+      "sourceCode": "VRGR",
+      "sourceName": "VRGR",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Undead VRGR",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-undying-scag-subclass-warlock-phb|compendium",
+      "entityId": "the-undying|scag|subclass|warlock|phb",
+      "entityType": "subclass",
+      "name": "The Undying",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Undying SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "the-undying-scag-subclass-warlock-xphb|compendium",
+      "entityId": "the-undying|scag|subclass|warlock|xphb",
+      "entityType": "subclass",
+      "name": "The Undying",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "The Undying SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "thief-phb-subclass-rogue-phb|compendium",
+      "entityId": "thief|phb|subclass|rogue|phb",
+      "entityType": "subclass",
+      "name": "Thief",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Thief PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "thief-phb-subclass-rogue-xphb|compendium",
+      "entityId": "thief|phb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Thief",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Thief PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "thief-xphb-subclass-rogue-xphb|compendium",
+      "entityId": "thief|xphb|subclass|rogue|xphb",
+      "entityType": "subclass",
+      "name": "Thief",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Thief XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "trickery-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "trickery-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Trickery Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Trickery Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "trickery-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "trickery-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Trickery Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Trickery Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "trickery-domain-xphb-subclass-cleric-xphb|compendium",
+      "entityId": "trickery-domain|xphb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Trickery Domain",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Trickery Domain XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "twilight-domain-tce-subclass-cleric-phb|compendium",
+      "entityId": "twilight-domain|tce|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Twilight Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Twilight Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "twilight-domain-tce-subclass-cleric-xphb|compendium",
+      "entityId": "twilight-domain|tce|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Twilight Domain",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Twilight Domain TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "war-domain-phb-subclass-cleric-phb|compendium",
+      "entityId": "war-domain|phb|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "War Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "War Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "war-domain-phb-subclass-cleric-xphb|compendium",
+      "entityId": "war-domain|phb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "War Domain",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "War Domain PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "war-domain-xphb-subclass-cleric-xphb|compendium",
+      "entityId": "war-domain|xphb|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "War Domain",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "War Domain XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "war-magic-xge-subclass-wizard-phb|compendium",
+      "entityId": "war-magic|xge|subclass|wizard|phb",
+      "entityType": "subclass",
+      "name": "War Magic",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "War Magic XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "war-magic-xge-subclass-wizard-xphb|compendium",
+      "entityId": "war-magic|xge|subclass|wizard|xphb",
+      "entityType": "subclass",
+      "name": "War Magic",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "War Magic XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warrior-of-mercy-xphb-subclass-monk-xphb|compendium",
+      "entityId": "warrior-of-mercy|xphb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Warrior of Mercy",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Warrior of Mercy XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warrior-of-shadow-xphb-subclass-monk-xphb|compendium",
+      "entityId": "warrior-of-shadow|xphb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Warrior of Shadow",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Warrior of Shadow XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warrior-of-the-elements-xphb-subclass-monk-xphb|compendium",
+      "entityId": "warrior-of-the-elements|xphb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Warrior of the Elements",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Warrior of the Elements XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warrior-of-the-open-hand-xphb-subclass-monk-xphb|compendium",
+      "entityId": "warrior-of-the-open-hand|xphb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Warrior of the Open Hand",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Warrior of the Open Hand XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-mercy-tce-subclass-monk-phb|compendium",
+      "entityId": "way-of-mercy|tce|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of Mercy",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of Mercy TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-mercy-tce-subclass-monk-xphb|compendium",
+      "entityId": "way-of-mercy|tce|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of Mercy",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of Mercy TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-shadow-phb-subclass-monk-phb|compendium",
+      "entityId": "way-of-shadow|phb|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of Shadow",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of Shadow PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-shadow-phb-subclass-monk-xphb|compendium",
+      "entityId": "way-of-shadow|phb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of Shadow",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of Shadow PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-ascendant-dragon-ftd-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-ascendant-dragon|ftd|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Ascendant Dragon",
+      "sourceCode": "FTD",
+      "sourceName": "FTD",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Ascendant Dragon FTD",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-ascendant-dragon-ftd-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-ascendant-dragon|ftd|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Ascendant Dragon",
+      "sourceCode": "FTD",
+      "sourceName": "FTD",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Ascendant Dragon FTD",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-astral-self-tce-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-astral-self|tce|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Astral Self",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Astral Self TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-astral-self-tce-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-astral-self|tce|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Astral Self",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Astral Self TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-drunken-master-xge-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-drunken-master|xge|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Drunken Master",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Drunken Master XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-drunken-master-xge-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-drunken-master|xge|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Drunken Master",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Drunken Master XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-four-elements-phb-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-four-elements|phb|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Four Elements",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Four Elements PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-four-elements-phb-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-four-elements|phb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Four Elements",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Four Elements PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-kensei-xge-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-kensei|xge|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Kensei",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Kensei XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-kensei-xge-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-kensei|xge|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Kensei",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Kensei XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-long-death-scag-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-long-death|scag|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Long Death",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Long Death SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-long-death-scag-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-long-death|scag|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Long Death",
+      "sourceCode": "SCAG",
+      "sourceName": "SCAG",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Long Death SCAG",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-open-hand-phb-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-open-hand|phb|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Open Hand",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Open Hand PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-open-hand-phb-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-open-hand|phb|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Open Hand",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Open Hand PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-sun-soul-xge-subclass-monk-phb|compendium",
+      "entityId": "way-of-the-sun-soul|xge|subclass|monk|phb",
+      "entityType": "subclass",
+      "name": "Way of the Sun Soul",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Sun Soul XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "way-of-the-sun-soul-xge-subclass-monk-xphb|compendium",
+      "entityId": "way-of-the-sun-soul|xge|subclass|monk|xphb",
+      "entityType": "subclass",
+      "name": "Way of the Sun Soul",
+      "sourceCode": "XGE",
+      "sourceName": "XGE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Way of the Sun Soul XGE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "wild-magic-phb-subclass-sorcerer-phb|compendium",
+      "entityId": "wild-magic|phb|subclass|sorcerer|phb",
+      "entityType": "subclass",
+      "name": "Wild Magic",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Wild Magic PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "wild-magic-phb-subclass-sorcerer-xphb|compendium",
+      "entityId": "wild-magic|phb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Wild Magic",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Wild Magic PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "wild-magic-sorcery-xphb-subclass-sorcerer-xphb|compendium",
+      "entityId": "wild-magic-sorcery|xphb|subclass|sorcerer|xphb",
+      "entityType": "subclass",
+      "name": "Wild Magic Sorcery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Wild Magic Sorcery XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "winter-walker-frhof-subclass-ranger-xphb|compendium",
+      "entityId": "winter-walker|frhof|subclass|ranger|xphb",
+      "entityType": "subclass",
+      "name": "Winter Walker",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Winter Walker FRHoF",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "zeal-domain-psa-psa-subclass-cleric-phb|compendium",
+      "entityId": "zeal-domain-psa|psa|subclass|cleric|phb",
+      "entityType": "subclass",
+      "name": "Zeal Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Zeal Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "zeal-domain-psa-psa-subclass-cleric-xphb|compendium",
+      "entityId": "zeal-domain-psa|psa|subclass|cleric|xphb",
+      "entityType": "subclass",
+      "name": "Zeal Domain (PSA)",
+      "sourceCode": "PSA",
+      "sourceName": "PSA",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Zeal Domain (PSA) PSA",
+      "renderPayload": {
+        "entries": []
+      }
+    }
+  ]
+}

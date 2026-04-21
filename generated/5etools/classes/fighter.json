@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "fighter",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "fighter|xphb",
+      "kind": "class",
+      "name": "Fighter",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Fighter XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "arcane-archer|xge|subclass|fighter|xphb",
+        "banneret|frhof|subclass|fighter|xphb",
+        "battle-master|phb|subclass|fighter|xphb",
+        "battle-master|xphb|subclass|fighter|xphb",
+        "cavalier|xge|subclass|fighter|xphb",
+        "champion|phb|subclass|fighter|xphb",
+        "champion|xphb|subclass|fighter|xphb",
+        "echo-knight|egw|subclass|fighter|xphb",
+        "eldritch-knight|phb|subclass|fighter|xphb",
+        "eldritch-knight|xphb|subclass|fighter|xphb",
+        "psi-warrior|tce|subclass|fighter|xphb",
+        "psi-warrior|xphb|subclass|fighter|xphb",
+        "purple-dragon-knight-banneret|scag|subclass|fighter|xphb",
+        "rune-knight|tce|subclass|fighter|xphb",
+        "samurai|xge|subclass|fighter|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "str": true
+          },
+          {
+            "dex": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 10
+        },
+        "proficiency": [
+          "str",
+          "con"
+        ],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "medium",
+            "heavy",
+            "shield"
+          ],
+          "weapons": [
+            "simple",
+            "martial"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "acrobatics",
+                  "animal handling",
+                  "athletics",
+                  "history",
+                  "insight",
+                  "intimidation",
+                  "persuasion",
+                  "perception",
+                  "survival"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "chain mail|xphb"
+                },
+                {
+                  "item": "greatsword|xphb"
+                },
+                {
+                  "item": "flail|xphb"
+                },
+                {
+                  "item": "javelin|xphb",
+                  "quantity": 8
+                },
+                {
+                  "item": "dungeoneer's pack|xphb"
+                },
+                {
+                  "value": 400
+                }
+              ],
+              "B": [
+                {
+                  "item": "studded leather armor|xphb"
+                },
+                {
+                  "item": "scimitar|xphb"
+                },
+                {
+                  "item": "shortsword|xphb"
+                },
+                {
+                  "item": "longbow|xphb"
+                },
+                {
+                  "item": "arrows (20)|xphb"
+                },
+                {
+                  "item": "quiver|xphb"
+                },
+                {
+                  "item": "dungeoneer's pack|xphb"
+                },
+                {
+                  "value": 1100
+                }
+              ],
+              "C": [
+                {
+                  "value": 15500
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A, B, or C:} (A) {@item Chain Mail|XPHB}, {@item Greatsword|XPHB}, {@item Flail|XPHB}, 8 {@item Javelin|XPHB|Javelins}, {@item Dungeoneer's Pack|XPHB}, and 4 GP; (B) {@item Studded Leather Armor|XPHB}, {@item Scimitar|XPHB}, {@item Shortsword|XPHB}, {@item Longbow|XPHB}, {@item Arrows (20)|XPHB|20 Arrows}, {@item Quiver|XPHB}, {@item Dungeoneer's Pack|XPHB}, and 11 GP; or (C) 155 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Fighting Style",
+            "category": [
+              "FS"
+            ],
+            "progression": {
+              "1": 1
+            }
+          },
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Fighting Style|Fighter|XPHB|1",
+          "Second Wind|Fighter|XPHB|1",
+          "Weapon Mastery|Fighter|XPHB|1",
+          "Action Surge|Fighter|XPHB|2",
+          "Tactical Mind|Fighter|XPHB|2",
+          {
+            "classFeature": "Fighter Subclass|Fighter|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Fighter|XPHB|4",
+          "Extra Attack|Fighter|XPHB|5",
+          "Tactical Shift|Fighter|XPHB|5",
+          "Ability Score Improvement|Fighter|XPHB|6",
+          {
+            "classFeature": "Subclass Feature|Fighter|XPHB|7",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Fighter|XPHB|8",
+          "Indomitable|Fighter|XPHB|9",
+          "Tactical Master|Fighter|XPHB|9",
+          {
+            "classFeature": "Subclass Feature|Fighter|XPHB|10",
+            "gainSubclassFeature": true
+          },
+          "Two Extra Attacks|Fighter|XPHB|11",
+          "Ability Score Improvement|Fighter|XPHB|12",
+          "Indomitable|Fighter|XPHB|13",
+          "Studied Attacks|Fighter|XPHB|13",
+          "Ability Score Improvement|Fighter|XPHB|14",
+          {
+            "classFeature": "Subclass Feature|Fighter|XPHB|15",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Fighter|XPHB|16",
+          "Action Surge|Fighter|XPHB|17",
+          "Indomitable|Fighter|XPHB|17",
+          {
+            "classFeature": "Subclass Feature|Fighter|XPHB|18",
+            "gainSubclassFeature": true
+          },
+          "Epic Boon|Fighter|XPHB|19",
+          "Three Extra Attacks|Fighter|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "arcane-archer|xge|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Arcane Archer",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Arcane Archer XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Arcane Archer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Arcane Archer|Fighter||Arcane Archer|XGE|3",
+            "Magic Arrow|Fighter||Arcane Archer|XGE|7",
+            "Curving Shot|Fighter||Arcane Archer|XGE|7",
+            "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|7",
+            "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|10",
+            "Ever-Ready Shot|Fighter||Arcane Archer|XGE|15",
+            "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|15",
+            "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "banneret|frhof|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Banneret",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Banneret FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Banneret",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Banneret|Fighter|XPHB|Banneret|FRHoF|3|FRHoF",
+            "Team Tactics|Fighter|XPHB|Banneret|FRHoF|7|FRHoF",
+            "Rallying Surge|Fighter|XPHB|Banneret|FRHoF|10|FRHoF",
+            "Shared Resilience|Fighter|XPHB|Banneret|FRHoF|15|FRHoF",
+            "Inspiring Commander|Fighter|XPHB|Banneret|FRHoF|18|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "battle-master|xphb|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Battle Master",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Battle Master XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Battle Master",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Battle Master|Fighter|XPHB|Battle Master|XPHB|3",
+            "Know Your Enemy|Fighter|XPHB|Battle Master|XPHB|7",
+            "Improved Combat Superiority|Fighter|XPHB|Battle Master|XPHB|10",
+            "Relentless|Fighter|XPHB|Battle Master|XPHB|15",
+            "Ultimate Combat Superiority|Fighter|XPHB|Battle Master|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "cavalier|xge|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Cavalier",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Cavalier XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Cavalier",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Cavalier|Fighter||Cavalier|XGE|3",
+            "Warding Maneuver|Fighter||Cavalier|XGE|7",
+            "Hold the Line|Fighter||Cavalier|XGE|10",
+            "Ferocious Charger|Fighter||Cavalier|XGE|15",
+            "Vigilant Defender|Fighter||Cavalier|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "champion|xphb|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Champion",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Champion XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Champion",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Champion|Fighter|XPHB|Champion|XPHB|3",
+            "Additional Fighting Style|Fighter|XPHB|Champion|XPHB|7",
+            "Heroic Warrior|Fighter|XPHB|Champion|XPHB|10",
+            "Superior Critical|Fighter|XPHB|Champion|XPHB|15",
+            "Survivor|Fighter|XPHB|Champion|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "echo-knight|egw|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Echo Knight",
+        "sourceCode": "EGW",
+        "sourceName": "EGW",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Echo Knight EGW",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Echo Knight",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Echo Knight|Fighter||Echo Knight|EGW|3",
+            "Echo Avatar|Fighter||Echo Knight|EGW|7",
+            "Shadow Martyr|Fighter||Echo Knight|EGW|10",
+            "Reclaim Potential|Fighter||Echo Knight|EGW|15",
+            "Legion of One|Fighter||Echo Knight|EGW|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "eldritch-knight|xphb|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Eldritch Knight",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Eldritch Knight XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Eldritch Knight",
+          "spellcastingAbility": "int",
+          "casterProgression": "1/3",
+          "cantripProgression": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "preparedSpellsProgression": [
+            0,
+            0,
+            3,
+            4,
+            4,
+            4,
+            5,
+            6,
+            6,
+            7,
+            8,
+            8,
+            9,
+            10,
+            10,
+            11,
+            11,
+            11,
+            12,
+            13
+          ],
+          "subclassFeatures": [
+            "Eldritch Knight|Fighter|XPHB|Eldritch Knight|XPHB|3",
+            "War Magic|Fighter|XPHB|Eldritch Knight|XPHB|7",
+            "Eldritch Strike|Fighter|XPHB|Eldritch Knight|XPHB|10",
+            "Arcane Charge|Fighter|XPHB|Eldritch Knight|XPHB|15",
+            "Improved War Magic|Fighter|XPHB|Eldritch Knight|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "psi-warrior|xphb|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Psi Warrior",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Psi Warrior XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Psi Warrior",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Psi Warrior|Fighter|XPHB|Psi Warrior|XPHB|3",
+            "Telekinetic Adept|Fighter|XPHB|Psi Warrior|XPHB|7",
+            "Guarded Mind|Fighter|XPHB|Psi Warrior|XPHB|10",
+            "Bulwark of Force|Fighter|XPHB|Psi Warrior|XPHB|15",
+            "Telekinetic Master|Fighter|XPHB|Psi Warrior|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "purple-dragon-knight-banneret|scag|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Purple Dragon Knight (Banneret)",
+        "sourceCode": "SCAG",
+        "sourceName": "SCAG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Purple Dragon Knight (Banneret) SCAG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Purple Dragon Knight (Banneret)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Purple Dragon Knight (Banneret)|Fighter||Purple Dragon Knight (Banneret)|SCAG|3",
+            "Royal Envoy|Fighter||Purple Dragon Knight (Banneret)|SCAG|7",
+            "Inspiring Surge|Fighter||Purple Dragon Knight (Banneret)|SCAG|10",
+            "Bulwark|Fighter||Purple Dragon Knight (Banneret)|SCAG|15",
+            "Inspiring Surge|Fighter||Purple Dragon Knight (Banneret)|SCAG|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "rune-knight|tce|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Rune Knight",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Rune Knight TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Rune Knight",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Rune Knight|Fighter||Rune Knight|TCE|3",
+            "Runic Shield|Fighter||Rune Knight|TCE|7",
+            "Additional Rune Known|Fighter||Rune Knight|TCE|7",
+            "Great Stature|Fighter||Rune Knight|TCE|10",
+            "Additional Rune Known|Fighter||Rune Knight|TCE|10",
+            "Master of Runes|Fighter||Rune Knight|TCE|15",
+            "Additional Rune Known|Fighter||Rune Knight|TCE|15",
+            "Runic Juggernaut|Fighter||Rune Knight|TCE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "samurai|xge|subclass|fighter|xphb",
+        "kind": "subclass",
+        "name": "Samurai",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Samurai XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "fighter|xphb",
+        "metadata": {
+          "shortName": "Samurai",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Samurai|Fighter||Samurai|XGE|3",
+            "Elegant Courtier|Fighter||Samurai|XGE|7",
+            "Tireless Spirit|Fighter||Samurai|XGE|10",
+            "Rapid Strike|Fighter||Samurai|XGE|15",
+            "Strength before Death|Fighter||Samurai|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,549 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "compendium",
+  "chunkId": "classes",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "artificer-efa|compendium",
+      "entityId": "artificer|efa",
+      "entityType": "class",
+      "name": "Artificer",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Artificer EFA",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "artificer-tce|compendium",
+      "entityId": "artificer|tce",
+      "entityType": "class",
+      "name": "Artificer",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Artificer TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "barbarian-phb|compendium",
+      "entityId": "barbarian|phb",
+      "entityType": "class",
+      "name": "Barbarian",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Barbarian PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "barbarian-xphb|compendium",
+      "entityId": "barbarian|xphb",
+      "entityType": "class",
+      "name": "Barbarian",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Barbarian XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "bard-phb|compendium",
+      "entityId": "bard|phb",
+      "entityType": "class",
+      "name": "Bard",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Bard PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "bard-xphb|compendium",
+      "entityId": "bard|xphb",
+      "entityType": "class",
+      "name": "Bard",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Bard XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "cleric-phb|compendium",
+      "entityId": "cleric|phb",
+      "entityType": "class",
+      "name": "Cleric",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Cleric PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "cleric-xphb|compendium",
+      "entityId": "cleric|xphb",
+      "entityType": "class",
+      "name": "Cleric",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Cleric XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "druid-phb|compendium",
+      "entityId": "druid|phb",
+      "entityType": "class",
+      "name": "Druid",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Druid PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "druid-xphb|compendium",
+      "entityId": "druid|xphb",
+      "entityType": "class",
+      "name": "Druid",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Druid XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "expert-sidekick-tce|compendium",
+      "entityId": "expert-sidekick|tce",
+      "entityType": "class",
+      "name": "Expert Sidekick",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Expert Sidekick TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fighter-phb|compendium",
+      "entityId": "fighter|phb",
+      "entityType": "class",
+      "name": "Fighter",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Fighter PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "fighter-xphb|compendium",
+      "entityId": "fighter|xphb",
+      "entityType": "class",
+      "name": "Fighter",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Fighter XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "monk-phb|compendium",
+      "entityId": "monk|phb",
+      "entityType": "class",
+      "name": "Monk",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Monk PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "monk-xphb|compendium",
+      "entityId": "monk|xphb",
+      "entityType": "class",
+      "name": "Monk",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Monk XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "mystic-uathemysticclass|compendium",
+      "entityId": "mystic|uathemysticclass",
+      "entityType": "class",
+      "name": "Mystic",
+      "sourceCode": "UATheMysticClass",
+      "sourceName": "UATheMysticClass",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Mystic UATheMysticClass",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "paladin-phb|compendium",
+      "entityId": "paladin|phb",
+      "entityType": "class",
+      "name": "Paladin",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Paladin PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "paladin-xphb|compendium",
+      "entityId": "paladin|xphb",
+      "entityType": "class",
+      "name": "Paladin",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Paladin XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "ranger-phb|compendium",
+      "entityId": "ranger|phb",
+      "entityType": "class",
+      "name": "Ranger",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Ranger PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "ranger-xphb|compendium",
+      "entityId": "ranger|xphb",
+      "entityType": "class",
+      "name": "Ranger",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Ranger XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "rogue-phb|compendium",
+      "entityId": "rogue|phb",
+      "entityType": "class",
+      "name": "Rogue",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Rogue PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "rogue-xphb|compendium",
+      "entityId": "rogue|xphb",
+      "entityType": "class",
+      "name": "Rogue",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Rogue XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "sorcerer-phb|compendium",
+      "entityId": "sorcerer|phb",
+      "entityType": "class",
+      "name": "Sorcerer",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Sorcerer PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "sorcerer-xphb|compendium",
+      "entityId": "sorcerer|xphb",
+      "entityType": "class",
+      "name": "Sorcerer",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Sorcerer XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "spellcaster-sidekick-tce|compendium",
+      "entityId": "spellcaster-sidekick|tce",
+      "entityType": "class",
+      "name": "Spellcaster Sidekick",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Spellcaster Sidekick TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warlock-phb|compendium",
+      "entityId": "warlock|phb",
+      "entityType": "class",
+      "name": "Warlock",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Warlock PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warlock-xphb|compendium",
+      "entityId": "warlock|xphb",
+      "entityType": "class",
+      "name": "Warlock",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Warlock XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "warrior-sidekick-tce|compendium",
+      "entityId": "warrior-sidekick|tce",
+      "entityType": "class",
+      "name": "Warrior Sidekick",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Warrior Sidekick TCE",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "wizard-phb|compendium",
+      "entityId": "wizard|phb",
+      "entityType": "class",
+      "name": "Wizard",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "legacy",
+      "isLegacy": true,
+      "isPrimary2024": false,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "text": "",
+      "searchText": "Wizard PHB",
+      "renderPayload": {
+        "entries": []
+      }
+    },
+    {
+      "id": "wizard-xphb|compendium",
+      "entityId": "wizard|xphb",
+      "entityType": "class",
+      "name": "Wizard",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isLegacy": false,
+      "isPrimary2024": true,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "text": "",
+      "searchText": "Wizard XPHB",
+      "renderPayload": {
+        "entries": []
+      }
+    }
+  ]
+}

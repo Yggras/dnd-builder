@@ -1,0 +1,768 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "wizard",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "wizard|xphb",
+      "kind": "class",
+      "name": "Wizard",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Wizard XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "abjurer|xphb|subclass|wizard|xphb",
+        "bladesinger|frhof|subclass|wizard|xphb",
+        "bladesinging|tce|subclass|wizard|xphb",
+        "chronurgy-magic|egw|subclass|wizard|xphb",
+        "diviner|xphb|subclass|wizard|xphb",
+        "evoker|xphb|subclass|wizard|xphb",
+        "graviturgy-magic|egw|subclass|wizard|xphb",
+        "illusionist|xphb|subclass|wizard|xphb",
+        "order-of-scribes|tce|subclass|wizard|xphb",
+        "school-of-abjuration|phb|subclass|wizard|xphb",
+        "school-of-conjuration|phb|subclass|wizard|xphb",
+        "school-of-divination|phb|subclass|wizard|xphb",
+        "school-of-enchantment|phb|subclass|wizard|xphb",
+        "school-of-evocation|phb|subclass|wizard|xphb",
+        "school-of-illusion|phb|subclass|wizard|xphb",
+        "school-of-necromancy|phb|subclass|wizard|xphb",
+        "school-of-transmutation|phb|subclass|wizard|xphb",
+        "war-magic|xge|subclass|wizard|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "int": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 6
+        },
+        "proficiency": [
+          "int",
+          "wis"
+        ],
+        "spellcastingAbility": "int",
+        "casterProgression": "full",
+        "cantripProgression": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "preparedSpellsProgression": [
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          16,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "weapons": [
+            "simple"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "arcana",
+                  "history",
+                  "insight",
+                  "investigation",
+                  "medicine",
+                  "nature",
+                  "religion"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "dagger|xphb",
+                  "quantity": 2
+                },
+                {
+                  "item": "quarterstaff|xphb"
+                },
+                {
+                  "item": "robe|xphb"
+                },
+                {
+                  "special": "Spellbook"
+                },
+                {
+                  "item": "scholar's pack|xphb"
+                },
+                {
+                  "value": 500
+                }
+              ],
+              "B": [
+                {
+                  "value": 5500
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) 2 {@item Dagger|XPHB|Daggers}, {@item Arcane Focus|XPHB} ({@item Quarterstaff|XPHB}), {@item Robe|XPHB}, Spellbook, {@item Scholar's Pack|XPHB}, and 5 GP; or (B) 55 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Spellcasting|Wizard|XPHB|1",
+          "Ritual Adept|Wizard|XPHB|1",
+          "Arcane Recovery|Wizard|XPHB|1",
+          "Scholar|Wizard|XPHB|2",
+          {
+            "classFeature": "Wizard Subclass|Wizard|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Wizard|XPHB|4",
+          "Memorize Spell|Wizard|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Wizard|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Wizard|XPHB|8",
+          {
+            "classFeature": "Subclass Feature|Wizard|XPHB|10",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Wizard|XPHB|12",
+          {
+            "classFeature": "Subclass Feature|Wizard|XPHB|14",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Wizard|XPHB|16",
+          "Spell Mastery|Wizard|XPHB|18",
+          "Epic Boon|Wizard|XPHB|19",
+          "Signature Spells|Wizard|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "abjurer|xphb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Abjurer",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Abjurer XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Abjurer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Abjurer|Wizard|XPHB|Abjurer|XPHB|3",
+            "Projected Ward|Wizard|XPHB|Abjurer|XPHB|6",
+            "Spell Breaker|Wizard|XPHB|Abjurer|XPHB|10",
+            "Spell Resistance|Wizard|XPHB|Abjurer|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "bladesinger|frhof|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Bladesinger",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Bladesinger FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Bladesinger",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Bladesinger|Wizard|XPHB|Bladesinger|FRHoF|3|FRHoF",
+            "Extra Attack|Wizard|XPHB|Bladesinger|FRHoF|6|FRHoF",
+            "Song of Defense|Wizard|XPHB|Bladesinger|FRHoF|10|FRHoF",
+            "Song of Victory|Wizard|XPHB|Bladesinger|FRHoF|14|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "bladesinging|tce|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Bladesinging",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Bladesinging TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Bladesinging",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Bladesinging|Wizard|XPHB|Bladesinging|TCE|3",
+            "Extra Attack|Wizard||Bladesinging|TCE|6",
+            "Song of Defense|Wizard||Bladesinging|TCE|10",
+            "Song of Victory|Wizard||Bladesinging|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "chronurgy-magic|egw|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Chronurgy Magic",
+        "sourceCode": "EGW",
+        "sourceName": "EGW",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Chronurgy Magic EGW",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Chronurgy",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Chronurgy Magic|Wizard|XPHB|Chronurgy|EGW|3",
+            "Momentary Stasis|Wizard||Chronurgy|EGW|6",
+            "Arcane Abeyance|Wizard||Chronurgy|EGW|10",
+            "Convergent Future|Wizard||Chronurgy|EGW|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "diviner|xphb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Diviner",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Diviner XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Diviner",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Diviner|Wizard|XPHB|Diviner|XPHB|3",
+            "Expert Divination|Wizard|XPHB|Diviner|XPHB|6",
+            "The Third Eye|Wizard|XPHB|Diviner|XPHB|10",
+            "Greater Portent|Wizard|XPHB|Diviner|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "evoker|xphb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Evoker",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Evoker XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Evoker",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Evoker|Wizard|XPHB|Evoker|XPHB|3",
+            "Sculpt Spells|Wizard|XPHB|Evoker|XPHB|6",
+            "Empowered Evocation|Wizard|XPHB|Evoker|XPHB|10",
+            "Overchannel|Wizard|XPHB|Evoker|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "graviturgy-magic|egw|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Graviturgy Magic",
+        "sourceCode": "EGW",
+        "sourceName": "EGW",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Graviturgy Magic EGW",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Graviturgy",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Graviturgy Magic|Wizard|XPHB|Graviturgy|EGW|3",
+            "Gravity Well|Wizard||Graviturgy|EGW|6",
+            "Violent Attraction|Wizard||Graviturgy|EGW|10",
+            "Event Horizon|Wizard||Graviturgy|EGW|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "illusionist|xphb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Illusionist",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Illusionist XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Illusionist",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Illusionist|Wizard|XPHB|Illusionist|XPHB|3",
+            "Phantasmal Creatures|Wizard|XPHB|Illusionist|XPHB|6",
+            "Illusory Self|Wizard|XPHB|Illusionist|XPHB|10",
+            "Illusory Reality|Wizard|XPHB|Illusionist|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-of-scribes|tce|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "Order of Scribes",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order of Scribes TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Scribes",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order of Scribes|Wizard|XPHB|Scribes|TCE|3",
+            "Manifest Mind|Wizard||Scribes|TCE|6",
+            "Master Scrivener|Wizard||Scribes|TCE|10",
+            "One with the Word|Wizard||Scribes|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-abjuration|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Abjuration",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Abjuration PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Abjuration",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Abjuration|Wizard|XPHB|Abjuration||3",
+            "Projected Ward|Wizard||Abjuration||6",
+            "Improved Abjuration|Wizard||Abjuration||10",
+            "Spell Resistance|Wizard||Abjuration||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-conjuration|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Conjuration",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Conjuration PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Conjuration",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Conjuration|Wizard|XPHB|Conjuration||3",
+            "Benign Transposition|Wizard||Conjuration||6",
+            "Focused Conjuration|Wizard||Conjuration||10",
+            "Durable Summons|Wizard||Conjuration||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-divination|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Divination",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Divination PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Divination",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Divination|Wizard|XPHB|Divination||3",
+            "Expert Divination|Wizard||Divination||6",
+            "The Third Eye|Wizard||Divination||10",
+            "Greater Portent|Wizard||Divination||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-enchantment|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Enchantment",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Enchantment PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Enchantment",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Enchantment|Wizard|XPHB|Enchantment||3",
+            "Instinctive Charm|Wizard||Enchantment||6",
+            "Split Enchantment|Wizard||Enchantment||10",
+            "Alter Memories|Wizard||Enchantment||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-evocation|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Evocation",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Evocation PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Evocation",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Evocation|Wizard|XPHB|Evocation||3",
+            "Potent Cantrip|Wizard||Evocation||6",
+            "Empowered Evocation|Wizard||Evocation||10",
+            "Overchannel|Wizard||Evocation||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-illusion|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Illusion",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Illusion PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Illusion",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Illusion|Wizard|XPHB|Illusion||3",
+            "Malleable Illusions|Wizard||Illusion||6",
+            "Illusory Self|Wizard||Illusion||10",
+            "Illusory Reality|Wizard||Illusion||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-necromancy|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Necromancy",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Necromancy PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Necromancy",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Necromancy|Wizard|XPHB|Necromancy||3",
+            "Undead Thralls|Wizard||Necromancy||6",
+            "Inured to Undeath|Wizard||Necromancy||10",
+            "Command Undead|Wizard||Necromancy||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "school-of-transmutation|phb|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "School of Transmutation",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "School of Transmutation PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "Transmutation",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "School of Transmutation|Wizard|XPHB|Transmutation||3",
+            "Transmuter's Stone|Wizard||Transmutation||6",
+            "Shapechanger|Wizard||Transmutation||10",
+            "Master Transmuter|Wizard||Transmutation||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "war-magic|xge|subclass|wizard|xphb",
+        "kind": "subclass",
+        "name": "War Magic",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "War Magic XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "wizard|xphb",
+        "metadata": {
+          "shortName": "War",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "War Magic|Wizard|XPHB|War|XGE|3",
+            "Power Surge|Wizard||War|XGE|6",
+            "Durable Magic|Wizard||War|XGE|10",
+            "Deflecting Shroud|Wizard||War|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

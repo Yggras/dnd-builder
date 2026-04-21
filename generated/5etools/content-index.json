@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "sourceRepository": "5etools-mirror-3/5etools-src",
+  "sourceRef": "main",
+  "chunkCount": 46,
+  "entityCounts": {
+    "species": 157,
+    "classes": 30,
+    "subclasses": 315,
+    "feats": 265,
+    "optionalFeatures": 213,
+    "spells": 936,
+    "items": 2646,
+    "choiceGrants": 46,
+    "compendiumEntries": 4562
+  },
+  "chunks": [
+    {
+      "entityType": "classes",
+      "chunkId": "artificer",
+      "filePath": "generated/5etools/classes/artificer.json",
+      "recordCount": 6
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "barbarian",
+      "filePath": "generated/5etools/classes/barbarian.json",
+      "recordCount": 12
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "bard",
+      "filePath": "generated/5etools/classes/bard.json",
+      "recordCount": 11
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "cleric",
+      "filePath": "generated/5etools/classes/cleric.json",
+      "recordCount": 20
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "druid",
+      "filePath": "generated/5etools/classes/druid.json",
+      "recordCount": 10
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "expert-sidekick",
+      "filePath": "generated/5etools/classes/expert-sidekick.json",
+      "recordCount": 1
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "fighter",
+      "filePath": "generated/5etools/classes/fighter.json",
+      "recordCount": 12
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "monk",
+      "filePath": "generated/5etools/classes/monk.json",
+      "recordCount": 15
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "mystic",
+      "filePath": "generated/5etools/classes/mystic.json",
+      "recordCount": 7
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "paladin",
+      "filePath": "generated/5etools/classes/paladin.json",
+      "recordCount": 11
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "ranger",
+      "filePath": "generated/5etools/classes/ranger.json",
+      "recordCount": 10
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "rogue",
+      "filePath": "generated/5etools/classes/rogue.json",
+      "recordCount": 11
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "sorcerer",
+      "filePath": "generated/5etools/classes/sorcerer.json",
+      "recordCount": 15
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "spellcaster-sidekick",
+      "filePath": "generated/5etools/classes/spellcaster-sidekick.json",
+      "recordCount": 1
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "warlock",
+      "filePath": "generated/5etools/classes/warlock.json",
+      "recordCount": 14
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "warrior-sidekick",
+      "filePath": "generated/5etools/classes/warrior-sidekick.json",
+      "recordCount": 1
+    },
+    {
+      "entityType": "classes",
+      "chunkId": "wizard",
+      "filePath": "generated/5etools/classes/wizard.json",
+      "recordCount": 19
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "classes",
+      "filePath": "generated/5etools/compendium/classes.json",
+      "recordCount": 30
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "feats",
+      "filePath": "generated/5etools/compendium/feats.json",
+      "recordCount": 265
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "items",
+      "filePath": "generated/5etools/compendium/items.json",
+      "recordCount": 2646
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "optionalFeatures",
+      "filePath": "generated/5etools/compendium/optionalFeatures.json",
+      "recordCount": 213
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "species",
+      "filePath": "generated/5etools/compendium/species.json",
+      "recordCount": 157
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "spells",
+      "filePath": "generated/5etools/compendium/spells.json",
+      "recordCount": 936
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "subclasses",
+      "filePath": "generated/5etools/compendium/subclasses.json",
+      "recordCount": 315
+    },
+    {
+      "entityType": "feats",
+      "chunkId": "epicBoons",
+      "filePath": "generated/5etools/feats/epicBoons.json",
+      "recordCount": 29
+    },
+    {
+      "entityType": "feats",
+      "chunkId": "fightingStyles",
+      "filePath": "generated/5etools/feats/fightingStyles.json",
+      "recordCount": 12
+    },
+    {
+      "entityType": "feats",
+      "chunkId": "general",
+      "filePath": "generated/5etools/feats/general.json",
+      "recordCount": 80
+    },
+    {
+      "entityType": "feats",
+      "chunkId": "origin",
+      "filePath": "generated/5etools/feats/origin.json",
+      "recordCount": 23
+    },
+    {
+      "entityType": "feats",
+      "chunkId": "other",
+      "filePath": "generated/5etools/feats/other.json",
+      "recordCount": 121
+    },
+    {
+      "entityType": "grants",
+      "chunkId": "all",
+      "filePath": "generated/5etools/grants/all.json",
+      "recordCount": 46
+    },
+    {
+      "entityType": "items",
+      "chunkId": "magicItems",
+      "filePath": "generated/5etools/items/magicItems.json",
+      "recordCount": 1663
+    },
+    {
+      "entityType": "items",
+      "chunkId": "mundaneEquipment",
+      "filePath": "generated/5etools/items/mundaneEquipment.json",
+      "recordCount": 983
+    },
+    {
+      "entityType": "optional-features",
+      "chunkId": "eldritchInvocations",
+      "filePath": "generated/5etools/optional-features/eldritchInvocations.json",
+      "recordCount": 82
+    },
+    {
+      "entityType": "optional-features",
+      "chunkId": "other",
+      "filePath": "generated/5etools/optional-features/other.json",
+      "recordCount": 131
+    },
+    {
+      "entityType": "species",
+      "chunkId": "legacy",
+      "filePath": "generated/5etools/species/legacy.json",
+      "recordCount": 140
+    },
+    {
+      "entityType": "species",
+      "chunkId": "primary-2024",
+      "filePath": "generated/5etools/species/primary-2024.json",
+      "recordCount": 17
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-0",
+      "filePath": "generated/5etools/spells/level-0.json",
+      "recordCount": 80
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-1",
+      "filePath": "generated/5etools/spells/level-1.json",
+      "recordCount": 145
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-2",
+      "filePath": "generated/5etools/spells/level-2.json",
+      "recordCount": 155
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-3",
+      "filePath": "generated/5etools/spells/level-3.json",
+      "recordCount": 131
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-4",
+      "filePath": "generated/5etools/spells/level-4.json",
+      "recordCount": 97
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-5",
+      "filePath": "generated/5etools/spells/level-5.json",
+      "recordCount": 112
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-6",
+      "filePath": "generated/5etools/spells/level-6.json",
+      "recordCount": 84
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-7",
+      "filePath": "generated/5etools/spells/level-7.json",
+      "recordCount": 50
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-8",
+      "filePath": "generated/5etools/spells/level-8.json",
+      "recordCount": 43
+    },
+    {
+      "entityType": "spells",
+      "chunkId": "level-9",
+      "filePath": "generated/5etools/spells/level-9.json",
+      "recordCount": 39
+    }
+  ]
+}

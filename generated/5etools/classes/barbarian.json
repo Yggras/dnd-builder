@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "barbarian",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "barbarian|xphb",
+      "kind": "class",
+      "name": "Barbarian",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Barbarian XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "path-of-the-ancestral-guardian|xge|subclass|barbarian|xphb",
+        "path-of-the-battlerager|scag|subclass|barbarian|xphb",
+        "path-of-the-beast|tce|subclass|barbarian|xphb",
+        "path-of-the-berserker|phb|subclass|barbarian|xphb",
+        "path-of-the-berserker|xphb|subclass|barbarian|xphb",
+        "path-of-the-giant|bgg|subclass|barbarian|xphb",
+        "path-of-the-storm-herald|xge|subclass|barbarian|xphb",
+        "path-of-the-totem-warrior|phb|subclass|barbarian|xphb",
+        "path-of-the-wild-heart|xphb|subclass|barbarian|xphb",
+        "path-of-the-world-tree|xphb|subclass|barbarian|xphb",
+        "path-of-the-zealot|xge|subclass|barbarian|xphb",
+        "path-of-the-zealot|xphb|subclass|barbarian|xphb",
+        "path-of-wild-magic|tce|subclass|barbarian|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "str": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 12
+        },
+        "proficiency": [
+          "str",
+          "con"
+        ],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "medium",
+            "shield"
+          ],
+          "weapons": [
+            "simple",
+            "martial"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "animal handling",
+                  "athletics",
+                  "intimidation",
+                  "nature",
+                  "perception",
+                  "survival"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "greataxe|xphb"
+                },
+                {
+                  "item": "handaxe|xphb",
+                  "quantity": 4
+                },
+                {
+                  "item": "explorer's pack|xphb"
+                },
+                {
+                  "value": 1500
+                }
+              ],
+              "B": [
+                {
+                  "value": 7500
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Greataxe|XPHB}, 4 {@item Handaxe|XPHB|Handaxes}, {@item Explorer's Pack|XPHB}, and 15 GP; or (B) 75 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Rage|Barbarian|XPHB|1",
+          "Unarmored Defense|Barbarian|XPHB|1",
+          "Weapon Mastery|Barbarian|XPHB|1",
+          "Danger Sense|Barbarian|XPHB|2",
+          "Reckless Attack|Barbarian|XPHB|2",
+          {
+            "classFeature": "Barbarian Subclass|Barbarian|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Primal Knowledge|Barbarian|XPHB|3",
+          "Ability Score Improvement|Barbarian|XPHB|4",
+          "Extra Attack|Barbarian|XPHB|5",
+          "Fast Movement|Barbarian|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Barbarian|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Feral Instinct|Barbarian|XPHB|7",
+          "Instinctive Pounce|Barbarian|XPHB|7",
+          "Ability Score Improvement|Barbarian|XPHB|8",
+          "Brutal Strike|Barbarian|XPHB|9",
+          {
+            "classFeature": "Subclass Feature|Barbarian|XPHB|10",
+            "gainSubclassFeature": true
+          },
+          "Relentless Rage|Barbarian|XPHB|11",
+          "Ability Score Improvement|Barbarian|XPHB|12",
+          "Improved Brutal Strike|Barbarian|XPHB|13",
+          {
+            "classFeature": "Subclass Feature|Barbarian|XPHB|14",
+            "gainSubclassFeature": true
+          },
+          "Persistent Rage|Barbarian|XPHB|15",
+          "Ability Score Improvement|Barbarian|XPHB|16",
+          "Improved Brutal Strike|Barbarian|XPHB|17",
+          "Indomitable Might|Barbarian|XPHB|18",
+          "Epic Boon|Barbarian|XPHB|19",
+          "Primal Champion|Barbarian|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "path-of-the-ancestral-guardian|xge|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Ancestral Guardian",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Ancestral Guardian XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Ancestral Guardian",
+          "spellcastingAbility": "wis",
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Ancestral Guardian|Barbarian||Ancestral Guardian|XGE|3",
+            "Spirit Shield|Barbarian||Ancestral Guardian|XGE|6",
+            "Consult the Spirits|Barbarian||Ancestral Guardian|XGE|10",
+            "Vengeful Ancestors|Barbarian||Ancestral Guardian|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-battlerager|scag|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Battlerager",
+        "sourceCode": "SCAG",
+        "sourceName": "SCAG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Battlerager SCAG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Battlerager",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Battlerager|Barbarian||Battlerager|SCAG|3",
+            "Reckless Abandon|Barbarian||Battlerager|SCAG|6",
+            "Battlerager Charge|Barbarian||Battlerager|SCAG|10",
+            "Spiked Retribution|Barbarian||Battlerager|SCAG|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-beast|tce|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Beast",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Beast TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Beast",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Beast|Barbarian||Beast|TCE|3",
+            "Bestial Soul|Barbarian||Beast|TCE|6",
+            "Infectious Fury|Barbarian||Beast|TCE|10",
+            "Call the Hunt|Barbarian||Beast|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-berserker|xphb|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Berserker",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Path of the Berserker XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Berserker",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Berserker|Barbarian|XPHB|Berserker|XPHB|3",
+            "Mindless Rage|Barbarian|XPHB|Berserker|XPHB|6",
+            "Retaliation|Barbarian|XPHB|Berserker|XPHB|10",
+            "Intimidating Presence|Barbarian|XPHB|Berserker|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-giant|bgg|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Giant",
+        "sourceCode": "BGG",
+        "sourceName": "BGG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Giant BGG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Giant",
+          "spellcastingAbility": "wis",
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Giant|Barbarian||Giant|BGG|3",
+            "Elemental Cleaver|Barbarian||Giant|BGG|6",
+            "Mighty Impel|Barbarian||Giant|BGG|10",
+            "Demiurgic Colossus|Barbarian||Giant|BGG|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-storm-herald|xge|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Storm Herald",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Storm Herald XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Storm Herald",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Storm Herald|Barbarian||Storm Herald|XGE|3",
+            "Storm Soul|Barbarian||Storm Herald|XGE|6",
+            "Shielding Storm|Barbarian||Storm Herald|XGE|10",
+            "Raging Storm|Barbarian||Storm Herald|XGE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-totem-warrior|phb|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Totem Warrior",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of the Totem Warrior PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Totem Warrior",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Totem Warrior|Barbarian||Totem Warrior||3",
+            "Aspect of the Beast|Barbarian||Totem Warrior||6",
+            "Spirit Walker|Barbarian||Totem Warrior||10",
+            "Totemic Attunement|Barbarian||Totem Warrior||14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-wild-heart|xphb|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Wild Heart",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Path of the Wild Heart XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Wild Heart",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Wild Heart|Barbarian|XPHB|Wild Heart|XPHB|3",
+            "Aspect of the Wilds|Barbarian|XPHB|Wild Heart|XPHB|6",
+            "Nature Speaker|Barbarian|XPHB|Wild Heart|XPHB|10",
+            "Power of the Wilds|Barbarian|XPHB|Wild Heart|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-world-tree|xphb|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the World Tree",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Path of the World Tree XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "World Tree",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the World Tree|Barbarian|XPHB|World Tree|XPHB|3",
+            "Branches of the Tree|Barbarian|XPHB|World Tree|XPHB|6",
+            "Battering Roots|Barbarian|XPHB|World Tree|XPHB|10",
+            "Travel Along the Tree|Barbarian|XPHB|World Tree|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-the-zealot|xphb|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of the Zealot",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Path of the Zealot XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Zealot",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of the Zealot|Barbarian|XPHB|Zealot|XPHB|3",
+            "Fanatical Focus|Barbarian|XPHB|Zealot|XPHB|6",
+            "Zealous Presence|Barbarian|XPHB|Zealot|XPHB|10",
+            "Rage of the Gods|Barbarian|XPHB|Zealot|XPHB|14"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "path-of-wild-magic|tce|subclass|barbarian|xphb",
+        "kind": "subclass",
+        "name": "Path of Wild Magic",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Path of Wild Magic TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "barbarian|xphb",
+        "metadata": {
+          "shortName": "Wild Magic",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Path of Wild Magic|Barbarian||Wild Magic|TCE|3",
+            "Bolstering Magic|Barbarian||Wild Magic|TCE|6",
+            "Unstable Backlash|Barbarian||Wild Magic|TCE|10",
+            "Controlled Surge|Barbarian||Wild Magic|TCE|14"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

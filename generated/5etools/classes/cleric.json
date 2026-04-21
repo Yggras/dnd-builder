@@ -1,0 +1,799 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "cleric",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "cleric|xphb",
+      "kind": "class",
+      "name": "Cleric",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Cleric XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "ambition-domain-psa|psa|subclass|cleric|xphb",
+        "arcana-domain|scag|subclass|cleric|xphb",
+        "death-domain|dmg|subclass|cleric|xphb",
+        "forge-domain|xge|subclass|cleric|xphb",
+        "grave-domain|xge|subclass|cleric|xphb",
+        "knowledge-domain-psa|psa|subclass|cleric|xphb",
+        "knowledge-domain|frhof|subclass|cleric|xphb",
+        "knowledge-domain|phb|subclass|cleric|xphb",
+        "life-domain|phb|subclass|cleric|xphb",
+        "life-domain|xphb|subclass|cleric|xphb",
+        "light-domain|phb|subclass|cleric|xphb",
+        "light-domain|xphb|subclass|cleric|xphb",
+        "nature-domain|phb|subclass|cleric|xphb",
+        "order-domain|tce|subclass|cleric|xphb",
+        "peace-domain|tce|subclass|cleric|xphb",
+        "solidarity-domain-psa|psa|subclass|cleric|xphb",
+        "strength-domain-psa|psa|subclass|cleric|xphb",
+        "tempest-domain|phb|subclass|cleric|xphb",
+        "trickery-domain|phb|subclass|cleric|xphb",
+        "trickery-domain|xphb|subclass|cleric|xphb",
+        "twilight-domain|tce|subclass|cleric|xphb",
+        "war-domain|phb|subclass|cleric|xphb",
+        "war-domain|xphb|subclass|cleric|xphb",
+        "zeal-domain-psa|psa|subclass|cleric|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "wis": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "wis",
+          "cha"
+        ],
+        "spellcastingAbility": "wis",
+        "casterProgression": "full",
+        "cantripProgression": [
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "preparedSpellsProgression": [
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "medium",
+            "shield"
+          ],
+          "weapons": [
+            "simple"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "history",
+                  "insight",
+                  "medicine",
+                  "persuasion",
+                  "religion"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "chain shirt|xphb"
+                },
+                {
+                  "item": "shield|xphb"
+                },
+                {
+                  "item": "mace|xphb"
+                },
+                {
+                  "item": "holy symbol|xphb"
+                },
+                {
+                  "item": "priest's pack|xphb"
+                },
+                {
+                  "value": 7000
+                }
+              ],
+              "B": [
+                {
+                  "value": 11000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Chain Shirt|XPHB}, {@item Shield|XPHB}, {@item Mace|XPHB}, {@item Holy Symbol|XPHB}, {@item Priest's Pack|XPHB}, 7 GP; or (B) 110 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Spellcasting|Cleric|XPHB|1",
+          "Divine Order|Cleric|XPHB|1",
+          "Channel Divinity|Cleric|XPHB|2",
+          {
+            "classFeature": "Cleric Subclass|Cleric|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Cleric|XPHB|4",
+          "Sear Undead|Cleric|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Cleric|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Blessed Strikes|Cleric|XPHB|7",
+          "Ability Score Improvement|Cleric|XPHB|8",
+          "Divine Intervention|Cleric|XPHB|10",
+          "Ability Score Improvement|Cleric|XPHB|12",
+          "Improved Blessed Strikes|Cleric|XPHB|14",
+          "Ability Score Improvement|Cleric|XPHB|16",
+          {
+            "classFeature": "Subclass Feature|Cleric|XPHB|17",
+            "gainSubclassFeature": true
+          },
+          "Epic Boon|Cleric|XPHB|19",
+          "Greater Divine Intervention|Cleric|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "ambition-domain-psa|psa|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Ambition Domain (PSA)",
+        "sourceCode": "PSA",
+        "sourceName": "PSA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Ambition Domain (PSA) PSA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Ambition (PSA)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Ambition Domain (PSA)|Cleric|XPHB|Ambition (PSA)|PSA|3",
+            "Channel Divinity: Invoke Duplicity|Cleric|XPHB|Ambition (PSA)|PSA|3",
+            "Channel Divinity: Cloak of Shadows|Cleric||Ambition (PSA)|PSA|6",
+            "Improved Duplicity|Cleric||Ambition (PSA)|PSA|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "arcana-domain|scag|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Arcana Domain",
+        "sourceCode": "SCAG",
+        "sourceName": "SCAG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Arcana Domain SCAG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Arcana",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Arcana Domain|Cleric|XPHB|Arcana|SCAG|3",
+            "Channel Divinity: Arcane Abjuration|Cleric|XPHB|Arcana|SCAG|3",
+            "Spell Breaker|Cleric||Arcana|SCAG|6",
+            "Arcane Mastery|Cleric||Arcana|SCAG|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "death-domain|dmg|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Death Domain",
+        "sourceCode": "DMG",
+        "sourceName": "DMG",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Death Domain DMG",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Death",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Death Domain|Cleric|XPHB|Death|DMG|3",
+            "Channel Divinity: Touch of Death|Cleric|XPHB|Death|DMG|3",
+            "Inescapable Destruction|Cleric||Death|DMG|6",
+            "Improved Reaper|Cleric||Death|DMG|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "forge-domain|xge|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Forge Domain",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Forge Domain XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Forge",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Forge Domain|Cleric|XPHB|Forge|XGE|3",
+            "Channel Divinity: Artisan's Blessing|Cleric|XPHB|Forge|XGE|3",
+            "Soul of the Forge|Cleric||Forge|XGE|6",
+            "Saint of Forge and Fire|Cleric||Forge|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "grave-domain|xge|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Grave Domain",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Grave Domain XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Grave",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Grave Domain|Cleric|XPHB|Grave|XGE|3",
+            "Channel Divinity: Path to the Grave|Cleric|XPHB|Grave|XGE|3",
+            "Sentinel at Death's Door|Cleric||Grave|XGE|6",
+            "Keeper of Souls|Cleric||Grave|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "knowledge-domain-psa|psa|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Knowledge Domain (PSA)",
+        "sourceCode": "PSA",
+        "sourceName": "PSA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Knowledge Domain (PSA) PSA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Knowledge (PSA)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Knowledge Domain (PSA)|Cleric|XPHB|Knowledge (PSA)|PSA|3",
+            "Channel Divinity: Knowledge of the Ages|Cleric|XPHB|Knowledge||3",
+            "Channel Divinity: Read Thoughts|Cleric||Knowledge||6",
+            "Visions of the Past|Cleric||Knowledge||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "knowledge-domain|frhof|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Knowledge Domain",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Knowledge Domain FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Knowledge",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Knowledge Domain|Cleric|XPHB|Knowledge|FRHoF|3|FRHoF",
+            "Unfettered Mind|Cleric|XPHB|Knowledge|FRHoF|6|FRHoF",
+            "Divine Foreknowledge|Cleric|XPHB|Knowledge|FRHoF|17|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "life-domain|xphb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Life Domain",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Life Domain XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Life",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Life Domain|Cleric|XPHB|Life|XPHB|3",
+            "Blessed Healer|Cleric|XPHB|Life|XPHB|6",
+            "Supreme Healing|Cleric|XPHB|Life|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "light-domain|xphb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Light Domain",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Light Domain XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Light",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Light Domain|Cleric|XPHB|Light|XPHB|3",
+            "Improved Warding Flare|Cleric|XPHB|Light|XPHB|6",
+            "Corona of Light|Cleric|XPHB|Light|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "nature-domain|phb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Nature Domain",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Nature Domain PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Nature",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Nature Domain|Cleric|XPHB|Nature||3",
+            "Channel Divinity: Charm Animals and Plants|Cleric|XPHB|Nature||3",
+            "Dampen Elements|Cleric||Nature||6",
+            "Master of Nature|Cleric||Nature||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "order-domain|tce|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Order Domain",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Order Domain TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Order",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Order Domain|Cleric|XPHB|Order|TCE|3",
+            "Channel Divinity: Order's Demand|Cleric|XPHB|Order|TCE|3",
+            "Embodiment of the Law|Cleric||Order|TCE|6",
+            "Order's Wrath|Cleric||Order|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "peace-domain|tce|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Peace Domain",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Peace Domain TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Peace",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Peace Domain|Cleric|XPHB|Peace|TCE|3",
+            "Channel Divinity: Balm of Peace|Cleric|XPHB|Peace|TCE|3",
+            "Protective Bond|Cleric||Peace|TCE|6",
+            "Expansive Bond|Cleric||Peace|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "solidarity-domain-psa|psa|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Solidarity Domain (PSA)",
+        "sourceCode": "PSA",
+        "sourceName": "PSA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Solidarity Domain (PSA) PSA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Solidarity (PSA)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Solidarity Domain (PSA)|Cleric|XPHB|Solidarity (PSA)|PSA|3",
+            "Channel Divinity: Preserve Life|Cleric|XPHB|Solidarity (PSA)|PSA|3",
+            "Oketra's Blessing|Cleric||Solidarity (PSA)|PSA|6",
+            "Supreme Healing|Cleric||Solidarity (PSA)|PSA|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "strength-domain-psa|psa|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Strength Domain (PSA)",
+        "sourceCode": "PSA",
+        "sourceName": "PSA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Strength Domain (PSA) PSA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Strength (PSA)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Strength Domain (PSA)|Cleric|XPHB|Strength (PSA)|PSA|3",
+            "Channel Divinity: Feat of Strength|Cleric|XPHB|Strength (PSA)|PSA|3",
+            "Rhonas's Blessing|Cleric||Strength (PSA)|PSA|6",
+            "Avatar of Battle|Cleric||Strength (PSA)|PSA|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "tempest-domain|phb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Tempest Domain",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Tempest Domain PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Tempest",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Tempest Domain|Cleric|XPHB|Tempest||3",
+            "Channel Divinity: Destructive Wrath|Cleric|XPHB|Tempest||3",
+            "Thunderbolt Strike|Cleric||Tempest||6",
+            "Stormborn|Cleric||Tempest||17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "trickery-domain|xphb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Trickery Domain",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Trickery Domain XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Trickery",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Trickery Domain|Cleric|XPHB|Trickery|XPHB|3",
+            "Trickster's Transposition|Cleric|XPHB|Trickery|XPHB|6",
+            "Improved Duplicity|Cleric|XPHB|Trickery|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "twilight-domain|tce|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Twilight Domain",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Twilight Domain TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Twilight",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Twilight Domain|Cleric|XPHB|Twilight|TCE|3",
+            "Channel Divinity: Twilight Sanctuary|Cleric|XPHB|Twilight|TCE|3",
+            "Steps of Night|Cleric||Twilight|TCE|6",
+            "Twilight Shroud|Cleric||Twilight|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "war-domain|xphb|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "War Domain",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "War Domain XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "War",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "War Domain|Cleric|XPHB|War|XPHB|3",
+            "War God's Blessing|Cleric|XPHB|War|XPHB|6",
+            "Avatar of Battle|Cleric|XPHB|War|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "zeal-domain-psa|psa|subclass|cleric|xphb",
+        "kind": "subclass",
+        "name": "Zeal Domain (PSA)",
+        "sourceCode": "PSA",
+        "sourceName": "PSA",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Zeal Domain (PSA) PSA",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "cleric|xphb",
+        "metadata": {
+          "shortName": "Zeal (PSA)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Zeal Domain (PSA)|Cleric|XPHB|Zeal (PSA)|PSA|3",
+            "Channel Divinity: Consuming Fervor|Cleric|XPHB|Zeal (PSA)|PSA|3",
+            "Resounding Strike|Cleric||Zeal (PSA)|PSA|6",
+            "Blaze of Glory|Cleric||Zeal (PSA)|PSA|17"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

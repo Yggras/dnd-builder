@@ -1,0 +1,2221 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "feats",
+  "chunkId": "epicBoons",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "boon-of-blazing-dawn|abh|feat",
+      "kind": "feat",
+      "name": "Boon of Blazing Dawn",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Beloved of the Sun You have Immunity to Radiant damage. Blazing Strike When you hit a creature with a weapon attack, the damage can be Radiant or the weapon's normal damage type (your...",
+      "searchText": "Boon of Blazing Dawn ABH You gain the following benefits. Beloved of the Sun You have Immunity to Radiant damage. Blazing Strike When you hit a creature with a weapon attack, the damage can be Radiant or the weapon's normal damage type (your choice). Burst of Sunlight Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit Bright Light in a 30-foot radius from yourself and Dim Light for an additional 30 feet until the start of your next turn. This light is sunlight.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Beloved of the Sun",
+            "entries": [
+              "You have {@variantrule Immunity|XPHB} to Radiant damage."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Blazing Strike",
+            "entries": [
+              "When you hit a creature with a weapon attack, the damage can be Radiant or the weapon's normal damage type (your choice)."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Burst of Sunlight",
+            "entries": [
+              "Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit {@variantrule Bright Light|XPHB} in a 30-foot radius from yourself and {@variantrule Dim Light|XPHB} for an additional 30 feet until the start of your next turn. This light is sunlight."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Beloved of the Sun You have Immunity to Radiant damage. Blazing Strike When you hit a creature with a weapon attack, the damage can be Radiant or the weapon's normal damage type (your choice). Burst of Sunlight Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit Bright Light in a 30-foot radius from yourself and Dim Light for an additional 30 feet until the start of your next turn. This light is sunlight."
+      }
+    },
+    {
+      "id": "boon-of-bloodshed|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Bloodshed",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Killer's Fortune When an enemy you can see is reduced to 0 Hit Points, you gain Advantage on the next attack roll you make before the end of your next turn. Power from Pain Once per tu...",
+      "searchText": "Boon of Bloodshed FRHoF You gain the following benefits. Killer's Fortune When an enemy you can see is reduced to 0 Hit Points, you gain Advantage on the next attack roll you make before the end of your next turn. Power from Pain Once per turn, when you make an attack roll while Bloodied, you can deal extra damage to the target equal to your Proficiency. The extra damage's type is the same as the attack's type.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Killer's Fortune",
+            "entries": [
+              "When an enemy you can see is reduced to 0 {@variantrule Hit Points|XPHB}, you gain {@variantrule Advantage|XPHB} on the next attack roll you make before the end of your next turn."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Power from Pain",
+            "entries": [
+              "Once per turn, when you make an attack roll while {@status Bloodied|XPHB}, you can deal extra damage to the target equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. The extra damage's type is the same as the attack's type."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Killer's Fortune When an enemy you can see is reduced to 0 Hit Points, you gain Advantage on the next attack roll you make before the end of your next turn. Power from Pain Once per turn, when you make an attack roll while Bloodied, you can deal extra damage to the target equal to your Proficiency. The extra damage's type is the same as the attack's type."
+      }
+    },
+    {
+      "id": "boon-of-bountiful-health|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Bountiful Health",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Augmented Health When you gain Temporary Hit Points, increase the number of Temporary Hit Points you gain by 5. Superior Recuperation When you spend one or more Hit Point Dice to regai...",
+      "searchText": "Boon of Bountiful Health FRHoF You gain the following benefits. Augmented Health When you gain Temporary Hit Points, increase the number of Temporary Hit Points you gain by 5. Superior Recuperation When you spend one or more Hit Point Dice to regain Hit Points, you can instead use the highest number possible for each die.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Augmented Health",
+            "entries": [
+              "When you gain {@variantrule Temporary Hit Points|XPHB}, increase the number of {@variantrule Temporary Hit Points|XPHB} you gain by 5."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Superior Recuperation",
+            "entries": [
+              "When you spend one or more {@variantrule Hit Point Dice|XPHB} to regain {@variantrule Hit Points|XPHB}, you can instead use the highest number possible for each die."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Augmented Health When you gain Temporary Hit Points, increase the number of Temporary Hit Points you gain by 5. Superior Recuperation When you spend one or more Hit Point Dice to regain Hit Points, you can instead use the highest number possible for each die."
+      }
+    },
+    {
+      "id": "boon-of-combat-prowess|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Combat Prowess",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Peerless Aim When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn.",
+      "searchText": "Boon of Combat Prowess XPHB You gain the following benefits. Peerless Aim When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Peerless Aim",
+            "entries": [
+              "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Peerless Aim When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
+      }
+    },
+    {
+      "id": "boon-of-communication|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Communication",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Cunning Speaker You don't have Disadvantage on ability checks to influence Hostile [Attitude] creatures. Gifted Interpreter You understand the literal meaning of any language you hear...",
+      "searchText": "Boon of Communication FRHoF You gain the following benefits. Cunning Speaker You don't have Disadvantage on ability checks to influence Hostile [Attitude] creatures. Gifted Interpreter You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see. Mental Communication You gain telepathy with a range of 120 feet.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Cunning Speaker",
+            "entries": [
+              "You don't have {@variantrule Disadvantage|XPHB} on ability checks to influence {@variantrule Hostile [Attitude]|XPHB|Hostile} creatures."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Gifted Interpreter",
+            "entries": [
+              "You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Mental Communication",
+            "entries": [
+              "You gain telepathy with a range of 120 feet."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Cunning Speaker You don't have Disadvantage on ability checks to influence Hostile [Attitude] creatures. Gifted Interpreter You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see. Mental Communication You gain telepathy with a range of 120 feet."
+      }
+    },
+    {
+      "id": "boon-of-desperate-resilience|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Desperate Resilience",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Defense of Body and Mind While you are Bloodied, you have Resistance to every damage type except Force.",
+      "searchText": "Boon of Desperate Resilience FRHoF You gain the following benefits. Defense of Body and Mind While you are Bloodied, you have Resistance to every damage type except Force.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Defense of Body and Mind",
+            "entries": [
+              "While you are {@status Bloodied|XPHB}, you have {@variantrule Resistance|XPHB} to every damage type except Force."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "con"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Defense of Body and Mind While you are Bloodied, you have Resistance to every damage type except Force."
+      }
+    },
+    {
+      "id": "boon-of-dimensional-travel|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Dimensional Travel",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Blink Steps Immediately after you take the Attack action or the Magic action, you can teleport up to 30 feet to an unoccupied space you can see.",
+      "searchText": "Boon of Dimensional Travel XPHB You gain the following benefits. Blink Steps Immediately after you take the Attack action or the Magic action, you can teleport up to 30 feet to an unoccupied space you can see.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Blink Steps",
+            "entries": [
+              "Immediately after you take the {@action Attack|XPHB} action or the {@action Magic|XPHB} action, you can teleport up to 30 feet to an unoccupied space you can see."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Blink Steps Immediately after you take the Attack action or the Magic action, you can teleport up to 30 feet to an unoccupied space you can see."
+      }
+    },
+    {
+      "id": "boon-of-energy-resistance|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Energy Resistance",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Energy Resistances You gain Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you fi...",
+      "searchText": "Boon of Energy Resistance XPHB You gain the following benefits. Energy Resistances You gain Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a Long Rest, you can change your choices. Energy Redirection When you take damage of one of the types chosen for the Energy Resistances benefit, you can take a Reaction to direct damage of the same type toward another creature you can see within 60 feet of yourself that isn't behind Cover. If you do so, that creature must succeed on a Dexterity saving throw (8 plus your Constitution modifier and Proficiency) or take damage equal to 2d12 plus your Constitution modifier.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Energy Resistances",
+            "entries": [
+              "You gain {@variantrule Resistance|XPHB} to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a {@variantrule Long Rest|XPHB}, you can change your choices."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Energy Redirection",
+            "entries": [
+              "When you take damage of one of the types chosen for the Energy Resistances benefit, you can take a {@variantrule Reaction|XPHB} to direct damage of the same type toward another creature you can see within 60 feet of yourself that isn't behind {@variantrule Cover|XPHB|Total Cover}. If you do so, that creature must succeed on a Dexterity saving throw ({@dc 8} plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take damage equal to {@dice 2d12} plus your Constitution modifier."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Energy Resistances You gain Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a Long Rest, you can change your choices. Energy Redirection When you take damage of one of the types chosen for the Energy Resistances benefit, you can take a Reaction to direct damage of the same type toward another creature you can see within 60 feet of yourself that isn't behind Cover. If you do so, that creature must succeed on a Dexterity saving throw (8 plus your Constitution modifier and Proficiency) or take damage equal to 2d12 plus your Constitution modifier."
+      }
+    },
+    {
+      "id": "boon-of-exquisite-radiance|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Exquisite Radiance",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Eternal Rest Creatures you reduce to 0 Hit Points can't become Undead. Powerful Radiance When you make a damage roll that deals Radiant damage, you can instead use the highest number p...",
+      "searchText": "Boon of Exquisite Radiance FRHoF You gain the following benefits. Eternal Rest Creatures you reduce to 0 Hit Points can't become Undead. Powerful Radiance When you make a damage roll that deals Radiant damage, you can instead use the highest number possible for each damage die. Once you use this benefit, you can't do so again until you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Eternal Rest",
+            "entries": [
+              "Creatures you reduce to 0 {@variantrule Hit Points|XPHB} can't become Undead."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Powerful Radiance",
+            "entries": [
+              "When you make a damage roll that deals Radiant damage, you can instead use the highest number possible for each damage die. Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Eternal Rest Creatures you reduce to 0 Hit Points can't become Undead. Powerful Radiance When you make a damage roll that deals Radiant damage, you can instead use the highest number possible for each damage die. Once you use this benefit, you can't do so again until you finish a Long Rest."
+      }
+    },
+    {
+      "id": "boon-of-fate|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Fate",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Improve Fate When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once...",
+      "searchText": "Boon of Fate XPHB You gain the following benefits. Improve Fate When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can't use it again until you roll Initiative or finish a Short Rest or Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Improve Fate",
+            "entries": [
+              "When you or another creature within 60 feet of you succeeds on or fails a {@variantrule D20 Test|XPHB}, you can roll {@dice 2d4} and apply the total rolled as a bonus or penalty to the {@dice d20} roll. Once you use this benefit, you can't use it again until you roll {@variantrule Initiative|XPHB} or finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Improve Fate When you or another creature within 60 feet of you succeeds on or fails a D20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can't use it again until you roll Initiative or finish a Short Rest or Long Rest."
+      }
+    },
+    {
+      "id": "boon-of-fluid-forms|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Fluid Forms",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Shapechanger You can take a Magic action to shape-shift into a Beast, Humanoid, or Monstrosity with a Challenge Rating no higher than 10. When you shape-shift, you gain a number of Tem...",
+      "searchText": "Boon of Fluid Forms FRHoF You gain the following benefits. Shapechanger You can take a Magic action to shape-shift into a Beast, Humanoid, or Monstrosity with a Challenge Rating no higher than 10. When you shape-shift, you gain a number of Temporary Hit Points equal to the Hit Points of the form. The shape-shifting effect lasts for 1 hour, and it ends early if you have no Temporary Hit Points left or if you take a Magic action to return to your true form. Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; Hit Points; Hit Point Dice; proficiencies; and ability to communicate. If you have the Spellcasting or Pact Magic feature, you retain it too. Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it. Once you use this benefit, you can't do so again until you finish a Long Rest. Hardy Transformation When you gain Temporary Hit Points when you shape-shift, increase that number of Temporary Hit Points by 20.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Shapechanger",
+            "entries": [
+              "You can take a {@action Magic|XPHB} action to shape-shift into a Beast, Humanoid, or Monstrosity with a {@variantrule Challenge Rating|XPHB} no higher than 10. When you shape-shift, you gain a number of {@variantrule Temporary Hit Points|XPHB} equal to the {@variantrule Hit Points|XPHB} of the form. The shape-shifting effect lasts for 1 hour, and it ends early if you have no {@variantrule Temporary Hit Points|XPHB} left or if you take a {@action Magic|XPHB} action to return to your true form.",
+              "Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; {@variantrule Hit Points|XPHB}; {@variantrule Hit Point Dice|XPHB}; proficiencies; and ability to communicate. If you have the Spellcasting or Pact Magic feature, you retain it too. Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it.",
+              "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Hardy Transformation",
+            "entries": [
+              "When you gain {@variantrule Temporary Hit Points|XPHB} when you shape-shift, increase that number of {@variantrule Temporary Hit Points|XPHB} by 20."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Shapechanger You can take a Magic action to shape-shift into a Beast, Humanoid, or Monstrosity with a Challenge Rating no higher than 10. When you shape-shift, you gain a number of Temporary Hit Points equal to the Hit Points of the form. The shape-shifting effect lasts for 1 hour, and it ends early if you have no Temporary Hit Points left or if you take a Magic action to return to your true form. Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; Hit Points; Hit Point Dice; proficiencies; and ability to communicate. If you have the Spellcasting or Pact Magic feature, you retain it too. Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it. Once you use this benefit, you can't do so again until you finish a Long Rest. Hardy Transformation When you gain Temporary Hit Points when you shape-shift, increase that number of Temporary Hit Points by 20."
+      }
+    },
+    {
+      "id": "boon-of-fortitude|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Fortitude",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Fortified Health Your Hit Points maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once yo...",
+      "searchText": "Boon of Fortitude XPHB You gain the following benefits. Fortified Health Your Hit Points maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once you've regained these additional Hit Points, you can't do so again until the start of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Fortified Health",
+            "entries": [
+              "Your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by 40. In addition, whenever you regain {@variantrule Hit Points|XPHB}, you can regain additional {@variantrule Hit Points|XPHB} equal to your Constitution modifier. Once you've regained these additional {@variantrule Hit Points|XPHB}, you can't do so again until the start of your next turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Fortified Health Your Hit Points maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once you've regained these additional Hit Points, you can't do so again until the start of your next turn."
+      }
+    },
+    {
+      "id": "boon-of-fortune-s-favor|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Fortune's Favor",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Saving Throw Reroll When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can't do so again until the start of your next turn.",
+      "searchText": "Boon of Fortune's Favor FRHoF You gain the following benefits. Saving Throw Reroll When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can't do so again until the start of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Saving Throw Reroll",
+            "entries": [
+              "When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can't do so again until the start of your next turn."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Saving Throw Reroll When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can't do so again until the start of your next turn."
+      }
+    },
+    {
+      "id": "boon-of-irresistible-offense|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Irresistible Offense",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Overcome Defenses The Bludgeoning, Piercing, and Slashing damage you deal always ignores Resistance. Overwhelming Strike When you roll a 20 on the d20 for an attack roll, you can deal...",
+      "searchText": "Boon of Irresistible Offense XPHB You gain the following benefits. Overcome Defenses The Bludgeoning, Piercing, and Slashing damage you deal always ignores Resistance. Overwhelming Strike When you roll a 20 on the d20 for an attack roll, you can deal extra damage to the target equal to the ability score increased by this feat. The extra damage's type is the same as the attack's type.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Overcome Defenses",
+            "entries": [
+              "The Bludgeoning, Piercing, and Slashing damage you deal always ignores {@variantrule Resistance|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Overwhelming Strike",
+            "entries": [
+              "When you roll a 20 on the {@dice d20} for an attack roll, you can deal extra damage to the target equal to the ability score increased by this feat. The extra damage's type is the same as the attack's type."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Overcome Defenses The Bludgeoning, Piercing, and Slashing damage you deal always ignores Resistance. Overwhelming Strike When you roll a 20 on the d20 for an attack roll, you can deal extra damage to the target equal to the ability score increased by this feat. The extra damage's type is the same as the attack's type."
+      }
+    },
+    {
+      "id": "boon-of-looming-shadows|abh|feat",
+      "kind": "feat",
+      "name": "Boon of Looming Shadows",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Shadowy Stretch When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn. Dancing Silhouette You can take the Dodge act...",
+      "searchText": "Boon of Looming Shadows ABH You gain the following benefits. Shadowy Stretch When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn. Dancing Silhouette You can take the Dodge action as a Bonus Action.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Shadowy Stretch",
+            "entries": [
+              "When you take the {@action Attack|XPHB} action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Dancing Silhouette",
+            "entries": [
+              "You can take the {@action Dodge|XPHB} action as a {@variantrule Bonus Action|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Shadowy Stretch When you take the Attack action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn. Dancing Silhouette You can take the Dodge action as a Bonus Action."
+      }
+    },
+    {
+      "id": "boon-of-misty-escape|abh|feat",
+      "kind": "feat",
+      "name": "Boon of Misty Escape",
+      "sourceCode": "ABH",
+      "sourceName": "ABH",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Gaseous Form If you drop to 0 Hit Points but aren't killed outright, you can instead drop to 1 Hit Points and cast Gaseous Form without expending a spell slot (no action required). Whe...",
+      "searchText": "Boon of Misty Escape ABH You gain the following benefits. Gaseous Form If you drop to 0 Hit Points but aren't killed outright, you can instead drop to 1 Hit Points and cast Gaseous Form without expending a spell slot (no action required). When you cast this spell this way, you can target only yourself, your Fly Speed is 20 feet, and you regain 10 Hit Points at the start of each of your turns for the spell's duration. The spell's spellcasting ability is the ability increased by this feat. Once you use this benefit, you can't do so again until you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Gaseous Form",
+            "entries": [
+              "If you drop to 0 {@variantrule Hit Points|XPHB} but aren't killed outright, you can instead drop to 1 {@variantrule Hit Points|XPHB|Hit Point} and cast {@spell Gaseous Form|XPHB} without expending a spell slot (no action required). When you cast this spell this way, you can target only yourself, your {@variantrule Fly Speed|XPHB} is 20 feet, and you regain 10 {@variantrule Hit Points|XPHB} at the start of each of your turns for the spell's duration. The spell's spellcasting ability is the ability increased by this feat.",
+              "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Gaseous Form If you drop to 0 Hit Points but aren't killed outright, you can instead drop to 1 Hit Points and cast Gaseous Form without expending a spell slot (no action required). When you cast this spell this way, you can target only yourself, your Fly Speed is 20 feet, and you regain 10 Hit Points at the start of each of your turns for the spell's duration. The spell's spellcasting ability is the ability increased by this feat. Once you use this benefit, you can't do so again until you finish a Long Rest."
+      }
+    },
+    {
+      "id": "boon-of-poison-mastery|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Poison Mastery",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Antitoxic You have Immunity to Poison damage and the Poisoned condition. Perfect Poisoner Once per turn, when you roll dice to determine Poison damage a creature takes from your attack...",
+      "searchText": "Boon of Poison Mastery FRHoF You gain the following benefits. Antitoxic You have Immunity to Poison damage and the Poisoned condition. Perfect Poisoner Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Antitoxic",
+            "entries": [
+              "You have {@variantrule Immunity|XPHB} to Poison damage and the {@condition Poisoned|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Perfect Poisoner",
+            "entries": [
+              "Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Antitoxic You have Immunity to Poison damage and the Poisoned condition. Perfect Poisoner Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die."
+      }
+    },
+    {
+      "id": "boon-of-recovery|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Recovery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Last Stand When you would be reduced to 0 Hit Points, you can drop to 1 Hit Points instead and regain a number of Hit Points equal to half your Hit Points maximum. Once you use this be...",
+      "searchText": "Boon of Recovery XPHB You gain the following benefits. Last Stand When you would be reduced to 0 Hit Points, you can drop to 1 Hit Points instead and regain a number of Hit Points equal to half your Hit Points maximum. Once you use this benefit, you can't use it again until you finish a Long Rest. Recover Vitality You have a pool of ten d10s. As a Bonus Action, you can expend dice from the pool, roll those dice, and regain a number of Hit Points equal to the roll's total. You regain all the expended dice when you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Last Stand",
+            "entries": [
+              "When you would be reduced to 0 {@variantrule Hit Points|XPHB}, you can drop to 1 {@variantrule Hit Points|XPHB|Hit Point} instead and regain a number of {@variantrule Hit Points|XPHB} equal to half your {@variantrule Hit Points|XPHB|Hit Point} maximum. Once you use this benefit, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Recover Vitality",
+            "entries": [
+              "You have a pool of ten d10s. As a {@variantrule Bonus Action|XPHB}, you can expend dice from the pool, roll those dice, and regain a number of {@variantrule Hit Points|XPHB} equal to the roll's total. You regain all the expended dice when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Last Stand When you would be reduced to 0 Hit Points, you can drop to 1 Hit Points instead and regain a number of Hit Points equal to half your Hit Points maximum. Once you use this benefit, you can't use it again until you finish a Long Rest. Recover Vitality You have a pool of ten d10s. As a Bonus Action, you can expend dice from the pool, roll those dice, and regain a number of Hit Points equal to the roll's total. You regain all the expended dice when you finish a Long Rest."
+      }
+    },
+    {
+      "id": "boon-of-revelry|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Revelry",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Inspire Dance You always have the Otto's Irresistible Dance spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it that way when you finish a...",
+      "searchText": "Boon of Revelry FRHoF You gain the following benefits. Inspire Dance You always have the Otto's Irresistible Dance spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. When you cast the spell, it requires no spell components, and taking damage doesn't break your Concentration on it. Sing Out While a creature that failed its saving throw against your Otto's Irresistible Dance has the Charmed condition from that spell, it can't cast spells with Verbal components, and it sings delightful nonsense if it can sing.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Inspire Dance",
+            "entries": [
+              "You always have the {@spell Otto's Irresistible Dance|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+              "When you cast the spell, it requires no spell components, and taking damage doesn't break your {@status Concentration|XPHB} on it."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Sing Out",
+            "entries": [
+              "While a creature that failed its saving throw against your {@spell Otto's Irresistible Dance|XPHB} has the {@condition Charmed|XPHB} condition from that spell, it can't cast spells with Verbal components, and it sings delightful nonsense if it can sing."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Inspire Dance You always have the Otto's Irresistible Dance spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. When you cast the spell, it requires no spell components, and taking damage doesn't break your Concentration on it. Sing Out While a creature that failed its saving throw against your Otto's Irresistible Dance has the Charmed condition from that spell, it can't cast spells with Verbal components, and it sings delightful nonsense if it can sing."
+      }
+    },
+    {
+      "id": "boon-of-siberys|efa|feat",
+      "kind": "feat",
+      "name": "Boon of Siberys",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Aberrant Magic Choose a level 8 or lower spell from the Sorcerer spell list or a spell from the Siberys Dragonmark Spells table (the table includes dragonmark suggestions if you'd like...",
+      "searchText": "Boon of Siberys EFA You gain the following benefits. Aberrant Magic Choose a level 8 or lower spell from the Sorcerer spell list or a spell from the Siberys Dragonmark Spells table (the table includes dragonmark suggestions if you'd like to associate a spell with one of the marks). You always have that spell prepared. You can cast it once without a spell slot or spell components, and you regain the ability to cast it in that way when you finish a Short Rest or Long Rest. You can also cast this spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you gain this feat). Animal Shapes Handling Control Weather Storm Demiplane Making Heroes' Feast Hospitality Maze Warding Mind Blank Sentinel Plane Shift Passage Project Image Shadow Regenerate Healing Symbol Scribing Teleport Finding True Seeing Detection",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Aberrant Magic",
+            "entries": [
+              "Choose a level 8 or lower spell from the {@filter Sorcerer spell list|spells|class=Sorcerer|level=0;1;2;3;4;5;6;7;8} or a spell from the Siberys Dragonmark Spells table (the table includes dragonmark suggestions if you'd like to associate a spell with one of the marks). You always have that spell prepared. You can cast it once without a spell slot or spell components, and you regain the ability to cast it in that way when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}. You can also cast this spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you gain this feat).",
+              {
+                "type": "table",
+                "caption": "Siberys Dragonmark Seplls",
+                "colStyles": [
+                  "col-6",
+                  "col-6"
+                ],
+                "colLabels": [
+                  "Spell",
+                  "Suggested Dragonmark"
+                ],
+                "rows": [
+                  [
+                    "{@spell Animal Shapes|XPHB}",
+                    "Handling"
+                  ],
+                  [
+                    "{@spell Control Weather|XPHB}",
+                    "Storm"
+                  ],
+                  [
+                    "{@spell Demiplane|XPHB}",
+                    "Making"
+                  ],
+                  [
+                    "{@spell Heroes' Feast|XPHB}",
+                    "Hospitality"
+                  ],
+                  [
+                    "{@spell Maze|XPHB}",
+                    "Warding"
+                  ],
+                  [
+                    "{@spell Mind Blank|XPHB}",
+                    "Sentinel"
+                  ],
+                  [
+                    "{@spell Plane Shift|XPHB}",
+                    "Passage"
+                  ],
+                  [
+                    "{@spell Project Image|XPHB}",
+                    "Shadow"
+                  ],
+                  [
+                    "{@spell Regenerate|XPHB}",
+                    "Healing"
+                  ],
+                  [
+                    "{@spell Symbol|XPHB}",
+                    "Scribing"
+                  ],
+                  [
+                    "{@spell Teleport|XPHB}",
+                    "Finding"
+                  ],
+                  [
+                    "{@spell True Seeing|XPHB}",
+                    "Detection"
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Aberrant Magic Choose a level 8 or lower spell from the Sorcerer spell list or a spell from the Siberys Dragonmark Spells table (the table includes dragonmark suggestions if you'd like to associate a spell with one of the marks). You always have that spell prepared. You can cast it once without a spell slot or spell components, and you regain the ability to cast it in that way when you finish a Short Rest or Long Rest. You can also cast this spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you gain this feat). Animal Shapes Handling Control Weather Storm Demiplane Making Heroes' Feast Hospitality Maze Warding Mind Blank Sentinel Plane Shift Passage Project Image Shadow Regenerate Healing Symbol Scribing Teleport Finding True Seeing Detection"
+      }
+    },
+    {
+      "id": "boon-of-skill|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Skill",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. All-Around Adept You gain proficiency in all skills. Expertise Choose one skill in which you lack Expertise. You gain Expertise in that skill.",
+      "searchText": "Boon of Skill XPHB You gain the following benefits. All-Around Adept You gain proficiency in all skills. Expertise Choose one skill in which you lack Expertise. You gain Expertise in that skill.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "All-Around Adept",
+            "entries": [
+              "You gain proficiency in all skills."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Expertise",
+            "entries": [
+              "Choose one skill in which you lack {@variantrule Expertise|XPHB}. You gain {@variantrule Expertise|XPHB} in that skill."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [
+            {
+              "athletics": true,
+              "acrobatics": true,
+              "sleight of hand": true,
+              "stealth": true,
+              "arcana": true,
+              "history": true,
+              "investigation": true,
+              "nature": true,
+              "religion": true,
+              "animal handling": true,
+              "insight": true,
+              "medicine": true,
+              "perception": true,
+              "survival": true,
+              "deception": true,
+              "intimidation": true,
+              "performance": true,
+              "persuasion": true
+            }
+          ],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. All-Around Adept You gain proficiency in all skills. Expertise Choose one skill in which you lack Expertise. You gain Expertise in that skill."
+      }
+    },
+    {
+      "id": "boon-of-speed|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Speed",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Escape Artist As a Bonus Action, you can take the Disengage action, which also ends the Grappled condition on you. Quickness Your Speed increases by 30 feet.",
+      "searchText": "Boon of Speed XPHB You gain the following benefits. Escape Artist As a Bonus Action, you can take the Disengage action, which also ends the Grappled condition on you. Quickness Your Speed increases by 30 feet.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Escape Artist",
+            "entries": [
+              "As a {@variantrule Bonus Action|XPHB}, you can take the {@action Disengage|XPHB} action, which also ends the {@condition Grappled|XPHB} condition on you."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Quickness",
+            "entries": [
+              "Your {@variantrule Speed|XPHB} increases by 30 feet."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Escape Artist As a Bonus Action, you can take the Disengage action, which also ends the Grappled condition on you. Quickness Your Speed increases by 30 feet."
+      }
+    },
+    {
+      "id": "boon-of-spell-recall|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Spell Recall",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Free Casting Whenever you cast a spell with a level 1-4 spell slot, roll 1d4. If the number you roll is the same as the slot's level, the slot isn't expended.",
+      "searchText": "Boon of Spell Recall XPHB You gain the following benefits. Free Casting Whenever you cast a spell with a level 1-4 spell slot, roll 1d4. If the number you roll is the same as the slot's level, the slot isn't expended.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Free Casting",
+            "entries": [
+              "Whenever you cast a spell with a level 1-4 spell slot, roll {@dice 1d4}. If the number you roll is the same as the slot's level, the slot isn't expended."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Free Casting Whenever you cast a spell with a level 1-4 spell slot, roll 1d4. If the number you roll is the same as the slot's level, the slot isn't expended."
+      }
+    },
+    {
+      "id": "boon-of-terror|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of Terror",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Fearless You have Immunity to the Frightened condition. Flee, Fools! When a creature with the Frightened condition starts its turn within 60 feet of you, you can take a Reaction to sto...",
+      "searchText": "Boon of Terror FRHoF You gain the following benefits. Fearless You have Immunity to the Frightened condition. Flee, Fools! When a creature with the Frightened condition starts its turn within 60 feet of you, you can take a Reaction to stoke its terror, provided you can see the creature and it isn't behind Cover. If you do so, the creature must succeed on a Wisdom saving throw (DC 8 plus your Charisma modifier and your Proficiency) or spend its turn moving away from you by the fastest available means. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest. Intimidating You gain Proficiency in the Intimidation skill if you don't already have it. You also gain Expertise in Intimidation.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Fearless",
+            "entries": [
+              "You have {@variantrule Immunity|XPHB} to the {@condition Frightened|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Flee, Fools!",
+            "entries": [
+              "When a creature with the {@condition Frightened|XPHB} condition starts its turn within 60 feet of you, you can take a {@variantrule Reaction|XPHB} to stoke its terror, provided you can see the creature and it isn't behind {@variantrule Cover|XPHB|Total Cover}. If you do so, the creature must succeed on a Wisdom saving throw (DC 8 plus your Charisma modifier and your {@variantrule Proficiency|XPHB|Proficiency Bonus}) or spend its turn moving away from you by the fastest available means. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Intimidating",
+            "entries": [
+              "You gain {@variantrule Proficiency|XPHB} in the {@skill Intimidation|XPHB} skill if you don't already have it. You also gain {@variantrule Expertise|XPHB} in {@skill Intimidation|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [
+            {
+              "intimidation": true
+            }
+          ],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "cha": 1,
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Fearless You have Immunity to the Frightened condition. Flee, Fools! When a creature with the Frightened condition starts its turn within 60 feet of you, you can take a Reaction to stoke its terror, provided you can see the creature and it isn't behind Cover. If you do so, the creature must succeed on a Wisdom saving throw (DC 8 plus your Charisma modifier and your Proficiency) or spend its turn moving away from you by the fastest available means. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest. Intimidating You gain Proficiency in the Intimidation skill if you don't already have it. You also gain Expertise in Intimidation."
+      }
+    },
+    {
+      "id": "boon-of-the-bright-sun|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of the Bright Sun",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Daylight Presence As a Bonus Action, you radiate a 30-foot Emanation [Area of Effect] of Bright Light that is sunlight. If any of the Emanation [Area of Effect]'s area overlaps with an...",
+      "searchText": "Boon of the Bright Sun FRHoF You gain the following benefits. Daylight Presence As a Bonus Action, you radiate a 30-foot Emanation [Area of Effect] of Bright Light that is sunlight. If any of the Emanation [Area of Effect]'s area overlaps with an area of Darkness created by a spell, that spell is dispelled. The Emanation [Area of Effect] lasts until you dismiss it (no action required), die, or have the Incapacitated condition. Fortifying Light When your Daylight Presence is active, at the start of each of your turns, you and allies you can see in your Daylight Presence gain 10 Temporary Hit Points.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Daylight Presence",
+            "entries": [
+              "As a {@variantrule Bonus Action|XPHB}, you radiate a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} of {@variantrule Bright Light|XPHB} that is sunlight. If any of the {@variantrule Emanation [Area of Effect]|XPHB|Emanation}'s area overlaps with an area of {@spell Darkness|XPHB} created by a spell, that spell is dispelled. The {@variantrule Emanation [Area of Effect]|XPHB|Emanation} lasts until you dismiss it (no action required), die, or have the {@condition Incapacitated|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fortifying Light",
+            "entries": [
+              "When your Daylight Presence is active, at the start of each of your turns, you and allies you can see in your Daylight Presence gain 10 {@variantrule Temporary Hit Points|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "con",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Daylight Presence As a Bonus Action, you radiate a 30-foot Emanation [Area of Effect] of Bright Light that is sunlight. If any of the Emanation [Area of Effect]'s area overlaps with an area of Darkness created by a spell, that spell is dispelled. The Emanation [Area of Effect] lasts until you dismiss it (no action required), die, or have the Incapacitated condition. Fortifying Light When your Daylight Presence is active, at the start of each of your turns, you and allies you can see in your Daylight Presence gain 10 Temporary Hit Points."
+      }
+    },
+    {
+      "id": "boon-of-the-furious-storm|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of the Furious Storm",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Eye of the Storm You have Resistance to Lightning and Thunder damage. While you are Bloodied, you have Immunity to Lightning and Thunder damage. Storm's Strength Creatures have Disadva...",
+      "searchText": "Boon of the Furious Storm FRHoF You gain the following benefits. Eye of the Storm You have Resistance to Lightning and Thunder damage. While you are Bloodied, you have Immunity to Lightning and Thunder damage. Storm's Strength Creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Eye of the Storm",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Lightning and Thunder damage. While you are {@status Bloodied|XPHB}, you have {@variantrule Immunity|XPHB} to Lightning and Thunder damage."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Storm's Strength",
+            "entries": [
+              "Creatures have {@variantrule Disadvantage|XPHB} on saving throws against your spells that deal Lightning or Thunder damage."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Eye of the Storm You have Resistance to Lightning and Thunder damage. While you are Bloodied, you have Immunity to Lightning and Thunder damage. Storm's Strength Creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage."
+      }
+    },
+    {
+      "id": "boon-of-the-night-spirit|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of the Night Spirit",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Merge with Shadows While within Dim Light or Darkness, you can give yourself the Invisible condition as a Bonus Action. The condition ends on you immediately after you take an action,...",
+      "searchText": "Boon of the Night Spirit XPHB You gain the following benefits. Merge with Shadows While within Dim Light or Darkness, you can give yourself the Invisible condition as a Bonus Action. The condition ends on you immediately after you take an action, a Bonus Action, or a Reaction. Shadowy Form While within Dim Light or Darkness, you have Resistance to all damage except Psychic and Radiant.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Merge with Shadows",
+            "entries": [
+              "While within {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you can give yourself the {@condition Invisible|XPHB} condition as a {@variantrule Bonus Action|XPHB}. The condition ends on you immediately after you take an action, a {@variantrule Bonus Action|XPHB}, or a {@variantrule Reaction|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shadowy Form",
+            "entries": [
+              "While within {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you have {@variantrule Resistance|XPHB} to all damage except Psychic and Radiant."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Merge with Shadows While within Dim Light or Darkness, you can give yourself the Invisible condition as a Bonus Action. The condition ends on you immediately after you take an action, a Bonus Action, or a Reaction. Shadowy Form While within Dim Light or Darkness, you have Resistance to all damage except Psychic and Radiant."
+      }
+    },
+    {
+      "id": "boon-of-the-soul-drinker|frhof|feat",
+      "kind": "feat",
+      "name": "Boon of the Soul Drinker",
+      "sourceCode": "FRHoF",
+      "sourceName": "FRHoF",
+      "rulesEdition": "legacy",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "You gain the following benefits. Grave Resistance You have Resistance to Cold damage and Necrotic damage. Siphon Life When an enemy within 120 feet of you is reduced to 0 Hit Points, you can take a Reaction to regain...",
+      "searchText": "Boon of the Soul Drinker FRHoF You gain the following benefits. Grave Resistance You have Resistance to Cold damage and Necrotic damage. Siphon Life When an enemy within 120 feet of you is reduced to 0 Hit Points, you can take a Reaction to regain 50 Hit Points. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Grave Resistance",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Cold damage and Necrotic damage."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Siphon Life",
+            "entries": [
+              "When an enemy within 120 feet of you is reduced to 0 {@variantrule Hit Points|XPHB}, you can take a {@variantrule Reaction|XPHB} to regain 50 {@variantrule Hit Points|XPHB}. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Grave Resistance You have Resistance to Cold damage and Necrotic damage. Siphon Life When an enemy within 120 feet of you is reduced to 0 Hit Points, you can take a Reaction to regain 50 Hit Points. Once you use this benefit, you can't use it again until you finish a Short Rest or Long Rest."
+      }
+    },
+    {
+      "id": "boon-of-truesight|xphb|feat",
+      "kind": "feat",
+      "name": "Boon of Truesight",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain the following benefits. Truesight You have Truesight with a range of 60 feet.",
+      "searchText": "Boon of Truesight XPHB You gain the following benefits. Truesight You have Truesight with a range of 60 feet.",
+      "renderPayload": {
+        "entries": [
+          "You gain the following benefits.",
+          {
+            "type": "entries",
+            "name": "Truesight",
+            "entries": [
+              "You have {@sense Truesight|XPHB} with a range of 60 feet."
+            ]
+          }
+        ]
+      },
+      "categoryTags": [
+        "EB"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Level 19"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [
+          {
+            "truesight": 60
+          }
+        ],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [
+          {
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha"
+              ]
+            },
+            "max": 30
+          }
+        ],
+        "category": "EB",
+        "featureType": [],
+        "entriesText": "You gain the following benefits. Truesight You have Truesight with a range of 60 feet."
+      }
+    }
+  ]
+}

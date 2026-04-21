@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "ranger",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "ranger|xphb",
+      "kind": "class",
+      "name": "Ranger",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Ranger XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "beast-master|phb|subclass|ranger|xphb",
+        "beast-master|xphb|subclass|ranger|xphb",
+        "drakewarden|ftd|subclass|ranger|xphb",
+        "fey-wanderer|tce|subclass|ranger|xphb",
+        "fey-wanderer|xphb|subclass|ranger|xphb",
+        "gloom-stalker|xge|subclass|ranger|xphb",
+        "gloom-stalker|xphb|subclass|ranger|xphb",
+        "horizon-walker|xge|subclass|ranger|xphb",
+        "hunter|phb|subclass|ranger|xphb",
+        "hunter|xphb|subclass|ranger|xphb",
+        "monster-slayer|xge|subclass|ranger|xphb",
+        "swarmkeeper|tce|subclass|ranger|xphb",
+        "winter-walker|frhof|subclass|ranger|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "dex": true,
+            "wis": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 10
+        },
+        "proficiency": [
+          "str",
+          "dex"
+        ],
+        "spellcastingAbility": "wis",
+        "casterProgression": "artificer",
+        "cantripProgression": [],
+        "preparedSpellsProgression": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          6,
+          7,
+          7,
+          9,
+          9,
+          10,
+          10,
+          11,
+          11,
+          12,
+          12,
+          14,
+          14,
+          15,
+          15
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light",
+            "medium",
+            "shield"
+          ],
+          "weapons": [
+            "simple",
+            "martial"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "animal handling",
+                  "athletics",
+                  "insight",
+                  "investigation",
+                  "nature",
+                  "perception",
+                  "stealth",
+                  "survival"
+                ],
+                "count": 3
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "studded leather armor|xphb"
+                },
+                {
+                  "item": "scimitar|xphb"
+                },
+                {
+                  "item": "shortsword|xphb"
+                },
+                {
+                  "item": "longbow|xphb"
+                },
+                {
+                  "item": "arrows (20)|xphb"
+                },
+                {
+                  "item": "quiver|xphb"
+                },
+                {
+                  "item": "sprig of mistletoe|xphb"
+                },
+                {
+                  "item": "explorer's pack|xphb"
+                },
+                {
+                  "value": 700
+                }
+              ],
+              "B": [
+                {
+                  "value": 15000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Studded Leather Armor|XPHB}, {@item Scimitar|XPHB}, {@item Shortsword|XPHB}, {@item Longbow|XPHB}, {@item Arrows (20)|XPHB|20 Arrows}, {@item Quiver|XPHB}, {@item Druidic Focus|XPHB} ({@item sprig of mistletoe|XPHB}), {@item Explorer's Pack|XPHB}, and 7 GP; or (B) 150 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Fighting Style",
+            "category": [
+              "FS",
+              "FS:R"
+            ],
+            "progression": {
+              "2": 1
+            }
+          },
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Spellcasting|Ranger|XPHB|1",
+          "Favored Enemy|Ranger|XPHB|1",
+          "Weapon Mastery|Ranger|XPHB|1",
+          "Deft Explorer|Ranger|XPHB|2",
+          "Fighting Style|Ranger|XPHB|2",
+          {
+            "classFeature": "Ranger Subclass|Ranger|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Ranger|XPHB|4",
+          "Extra Attack|Ranger|XPHB|5",
+          "Roving|Ranger|XPHB|6",
+          {
+            "classFeature": "Subclass Feature|Ranger|XPHB|7",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Ranger|XPHB|8",
+          "Expertise|Ranger|XPHB|9",
+          "Tireless|Ranger|XPHB|10",
+          {
+            "classFeature": "Subclass Feature|Ranger|XPHB|11",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Ranger|XPHB|12",
+          "Relentless Hunter|Ranger|XPHB|13",
+          "Nature's Veil|Ranger|XPHB|14",
+          {
+            "classFeature": "Subclass Feature|Ranger|XPHB|15",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Ranger|XPHB|16",
+          "Precise Hunter|Ranger|XPHB|17",
+          "Feral Senses|Ranger|XPHB|18",
+          "Epic Boon|Ranger|XPHB|19",
+          "Foe Slayer|Ranger|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "beast-master|xphb|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Beast Master",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Beast Master XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Beast Master",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Beast Master|Ranger|XPHB|Beast Master|XPHB|3",
+            "Exceptional Training|Ranger|XPHB|Beast Master|XPHB|7",
+            "Bestial Fury|Ranger|XPHB|Beast Master|XPHB|11",
+            "Share Spells|Ranger|XPHB|Beast Master|XPHB|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "drakewarden|ftd|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Drakewarden",
+        "sourceCode": "FTD",
+        "sourceName": "FTD",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Drakewarden FTD",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Drakewarden",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Drakewarden|Ranger||Drakewarden|FTD|3",
+            "Bond of Fang and Scale|Ranger||Drakewarden|FTD|7",
+            "Drake's Breath|Ranger||Drakewarden|FTD|11",
+            "Perfected Bond|Ranger||Drakewarden|FTD|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "fey-wanderer|xphb|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Fey Wanderer",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Fey Wanderer XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Fey Wanderer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Fey Wanderer|Ranger|XPHB|Fey Wanderer|XPHB|3",
+            "Beguiling Twist|Ranger|XPHB|Fey Wanderer|XPHB|7",
+            "Fey Reinforcements|Ranger|XPHB|Fey Wanderer|XPHB|11",
+            "Misty Wanderer|Ranger|XPHB|Fey Wanderer|XPHB|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "gloom-stalker|xphb|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Gloom Stalker",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Gloom Stalker XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Gloom Stalker",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Gloom Stalker|Ranger|XPHB|Gloom Stalker|XPHB|3",
+            "Iron Mind|Ranger|XPHB|Gloom Stalker|XPHB|7",
+            "Stalker's Flurry|Ranger|XPHB|Gloom Stalker|XPHB|11",
+            "Shadowy Dodge|Ranger|XPHB|Gloom Stalker|XPHB|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "horizon-walker|xge|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Horizon Walker",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Horizon Walker XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Horizon Walker",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Horizon Walker|Ranger||Horizon Walker|XGE|3",
+            "Ethereal Step|Ranger||Horizon Walker|XGE|7",
+            "Distant Strike|Ranger||Horizon Walker|XGE|11",
+            "Spectral Defense|Ranger||Horizon Walker|XGE|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "hunter|xphb|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Hunter",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Hunter XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Hunter",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Hunter|Ranger|XPHB|Hunter|XPHB|3",
+            "Defensive Tactics|Ranger|XPHB|Hunter|XPHB|7",
+            "Superior Hunter's Prey|Ranger|XPHB|Hunter|XPHB|11",
+            "Superior Hunter's Defense|Ranger|XPHB|Hunter|XPHB|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "monster-slayer|xge|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Monster Slayer",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Monster Slayer XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Monster Slayer",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Monster Slayer|Ranger||Monster Slayer|XGE|3",
+            "Supernatural Defense|Ranger||Monster Slayer|XGE|7",
+            "Magic-User's Nemesis|Ranger||Monster Slayer|XGE|11",
+            "Slayer's Counter|Ranger||Monster Slayer|XGE|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "swarmkeeper|tce|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Swarmkeeper",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Swarmkeeper TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Swarmkeeper",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Swarmkeeper|Ranger||Swarmkeeper|TCE|3",
+            "Writhing Tide|Ranger||Swarmkeeper|TCE|7",
+            "Mighty Swarm|Ranger||Swarmkeeper|TCE|11",
+            "Swarming Dispersal|Ranger||Swarmkeeper|TCE|15"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "winter-walker|frhof|subclass|ranger|xphb",
+        "kind": "subclass",
+        "name": "Winter Walker",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Winter Walker FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "ranger|xphb",
+        "metadata": {
+          "shortName": "Winter Walker",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Winter Walker|Ranger|XPHB|Winter Walker|FRHoF|3|FRHoF",
+            "Fortifying Soul|Ranger|XPHB|Winter Walker|FRHoF|7|FRHoF",
+            "Chilling Retribution|Ranger|XPHB|Winter Walker|FRHoF|11|FRHoF",
+            "Frozen Haunt|Ranger|XPHB|Winter Walker|FRHoF|15|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

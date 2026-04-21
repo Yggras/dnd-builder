@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "sorcerer",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "sorcerer|xphb",
+      "kind": "class",
+      "name": "Sorcerer",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Sorcerer XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "aberrant-mind|tce|subclass|sorcerer|xphb",
+        "aberrant-sorcery|xphb|subclass|sorcerer|xphb",
+        "clockwork-sorcery|xphb|subclass|sorcerer|xphb",
+        "clockwork-soul|tce|subclass|sorcerer|xphb",
+        "divine-soul|xge|subclass|sorcerer|xphb",
+        "draconic-bloodline|phb|subclass|sorcerer|xphb",
+        "draconic-sorcery|xphb|subclass|sorcerer|xphb",
+        "lunar-sorcery|dsotdq|subclass|sorcerer|xphb",
+        "pyromancer-psk|psk|subclass|sorcerer|xphb",
+        "shadow-magic|xge|subclass|sorcerer|xphb",
+        "spellfire-sorcery|frhof|subclass|sorcerer|xphb",
+        "storm-sorcery|xge|subclass|sorcerer|xphb",
+        "wild-magic-sorcery|xphb|subclass|sorcerer|xphb",
+        "wild-magic|phb|subclass|sorcerer|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "cha": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 6
+        },
+        "proficiency": [
+          "con",
+          "cha"
+        ],
+        "spellcastingAbility": "cha",
+        "casterProgression": "full",
+        "cantripProgression": [
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "preparedSpellsProgression": [
+          2,
+          4,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "weapons": [
+            "simple"
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "arcana",
+                  "deception",
+                  "insight",
+                  "intimidation",
+                  "persuasion",
+                  "religion"
+                ],
+                "count": 2
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "spear|xphb"
+                },
+                {
+                  "item": "dagger|xphb",
+                  "quantity": 2
+                },
+                {
+                  "item": "crystal|xphb"
+                },
+                {
+                  "item": "dungeoneer's pack|xphb"
+                },
+                {
+                  "value": 2800
+                }
+              ],
+              "B": [
+                {
+                  "value": 5000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Spear|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Arcane Focus|XPHB} ({@item crystal|XPHB}), {@item Dungeoneer's Pack|XPHB}, and 28 GP; or (B) 50 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [
+          {
+            "name": "Metamagic",
+            "featureType": [
+              "MM"
+            ],
+            "progression": {
+              "2": 2,
+              "10": 4,
+              "17": 6
+            }
+          }
+        ],
+        "classFeatures": [
+          "Spellcasting|Sorcerer|XPHB|1",
+          "Innate Sorcery|Sorcerer|XPHB|1",
+          "Font of Magic|Sorcerer|XPHB|2",
+          "Metamagic|Sorcerer|XPHB|2",
+          "Metamagic Options|Sorcerer|XPHB|2",
+          {
+            "classFeature": "Sorcerer Subclass|Sorcerer|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Sorcerer|XPHB|4",
+          "Sorcerous Restoration|Sorcerer|XPHB|5",
+          {
+            "classFeature": "Subclass Feature|Sorcerer|XPHB|6",
+            "gainSubclassFeature": true
+          },
+          "Sorcery Incarnate|Sorcerer|XPHB|7",
+          "Ability Score Improvement|Sorcerer|XPHB|8",
+          "Metamagic|Sorcerer|XPHB|10",
+          "Ability Score Improvement|Sorcerer|XPHB|12",
+          {
+            "classFeature": "Subclass Feature|Sorcerer|XPHB|14",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Sorcerer|XPHB|16",
+          "Metamagic|Sorcerer|XPHB|17",
+          {
+            "classFeature": "Subclass Feature|Sorcerer|XPHB|18",
+            "gainSubclassFeature": true
+          },
+          "Epic Boon|Sorcerer|XPHB|19",
+          "Arcane Apotheosis|Sorcerer|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "aberrant-mind|tce|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Aberrant Mind",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Aberrant Mind TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Aberrant Mind",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Aberrant Mind|Sorcerer|XPHB|Aberrant Mind|TCE|3",
+            "Psionic Sorcery|Sorcerer||Aberrant Mind|TCE|6",
+            "Psychic Defenses|Sorcerer||Aberrant Mind|TCE|6",
+            "Revelation in Flesh|Sorcerer||Aberrant Mind|TCE|14",
+            "Warping Implosion|Sorcerer||Aberrant Mind|TCE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "aberrant-sorcery|xphb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Aberrant Sorcery",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Aberrant Sorcery XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Aberrant",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Aberrant Sorcery|Sorcerer|XPHB|Aberrant|XPHB|3",
+            "Psionic Sorcery|Sorcerer|XPHB|Aberrant|XPHB|6",
+            "Psychic Defenses|Sorcerer|XPHB|Aberrant|XPHB|6",
+            "Revelation in Flesh|Sorcerer|XPHB|Aberrant|XPHB|14",
+            "Warping Implosion|Sorcerer|XPHB|Aberrant|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "clockwork-sorcery|xphb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Clockwork Sorcery",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Clockwork Sorcery XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Clockwork",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Clockwork Sorcery|Sorcerer|XPHB|Clockwork|XPHB|3",
+            "Bastion of Law|Sorcerer|XPHB|Clockwork|XPHB|6",
+            "Trance of Order|Sorcerer|XPHB|Clockwork|XPHB|14",
+            "Clockwork Cavalcade|Sorcerer|XPHB|Clockwork|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "clockwork-soul|tce|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Clockwork Soul",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Clockwork Soul TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Clockwork Soul",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Clockwork Soul|Sorcerer|XPHB|Clockwork Soul|TCE|3",
+            "Bastion of Law|Sorcerer||Clockwork Soul|TCE|6",
+            "Trance of Order|Sorcerer||Clockwork Soul|TCE|14",
+            "Clockwork Cavalcade|Sorcerer||Clockwork Soul|TCE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "divine-soul|xge|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Divine Soul",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Divine Soul XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Divine Soul",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Divine Soul|Sorcerer|XPHB|Divine Soul|XGE|3",
+            "Empowered Healing|Sorcerer||Divine Soul|XGE|6",
+            "Otherworldly Wings|Sorcerer||Divine Soul|XGE|14",
+            "Unearthly Recovery|Sorcerer||Divine Soul|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "draconic-bloodline|phb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Draconic Bloodline",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Draconic Bloodline PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Draconic",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Draconic Bloodline|Sorcerer|XPHB|Draconic||3",
+            "Elemental Affinity|Sorcerer||Draconic||6",
+            "Dragon Wings|Sorcerer||Draconic||14",
+            "Draconic Presence|Sorcerer||Draconic||18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "draconic-sorcery|xphb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Draconic Sorcery",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Draconic Sorcery XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Draconic",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Draconic Sorcery|Sorcerer|XPHB|Draconic|XPHB|3",
+            "Elemental Affinity|Sorcerer|XPHB|Draconic|XPHB|6",
+            "Dragon Wings|Sorcerer|XPHB|Draconic|XPHB|14",
+            "Dragon Companion|Sorcerer|XPHB|Draconic|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "lunar-sorcery|dsotdq|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Lunar Sorcery",
+        "sourceCode": "DSotDQ",
+        "sourceName": "DSotDQ",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Lunar Sorcery DSotDQ",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Lunar",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Lunar Sorcery|Sorcerer|XPHB|Lunar|DSotDQ|3",
+            "Lunar Boons|Sorcerer||Lunar|DSotDQ|6",
+            "Waxing and Waning|Sorcerer||Lunar|DSotDQ|6",
+            "Lunar Empowerment|Sorcerer||Lunar|DSotDQ|14",
+            "Lunar Phenomenon|Sorcerer||Lunar|DSotDQ|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "pyromancer-psk|psk|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Pyromancer (PSK)",
+        "sourceCode": "PSK",
+        "sourceName": "PSK",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Pyromancer (PSK) PSK",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Pyromancer (PSK)",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Pyromancer (PSK)|Sorcerer|XPHB|Pyromancer (PSK)|PSK|3",
+            "Fire in the Veins|Sorcerer||Pyromancer (PSK)|PSK|6",
+            "Pyromancer's Fury|Sorcerer||Pyromancer (PSK)|PSK|14",
+            "Fiery Soul|Sorcerer||Pyromancer (PSK)|PSK|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "shadow-magic|xge|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Shadow Magic",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Shadow Magic XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Shadow",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Shadow Magic|Sorcerer|XPHB|Shadow|XGE|3",
+            "Hound of Ill Omen|Sorcerer||Shadow|XGE|6",
+            "Shadow Walk|Sorcerer||Shadow|XGE|14",
+            "Umbral Form|Sorcerer||Shadow|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "spellfire-sorcery|frhof|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Spellfire Sorcery",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Spellfire Sorcery FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Spellfire",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Spellfire Sorcery|Sorcerer|XPHB|Spellfire|FRHoF|3|FRHoF",
+            "Absorb Spells|Sorcerer|XPHB|Spellfire|FRHoF|6|FRHoF",
+            "Honed Spellfire|Sorcerer|XPHB|Spellfire|FRHoF|14|FRHoF",
+            "Crown of Spellfire|Sorcerer|XPHB|Spellfire|FRHoF|18|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "storm-sorcery|xge|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Storm Sorcery",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Storm Sorcery XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Storm",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Storm Sorcery|Sorcerer|XPHB|Storm|XGE|3",
+            "Heart of the Storm|Sorcerer||Storm|XGE|6",
+            "Storm Guide|Sorcerer||Storm|XGE|6",
+            "Storm's Fury|Sorcerer||Storm|XGE|14",
+            "Wind Soul|Sorcerer||Storm|XGE|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "wild-magic-sorcery|xphb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Wild Magic Sorcery",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Wild Magic Sorcery XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Wild Magic",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Wild Magic Sorcery|Sorcerer|XPHB|Wild Magic|XPHB|3",
+            "Bend Luck|Sorcerer|XPHB|Wild Magic|XPHB|6",
+            "Controlled Chaos|Sorcerer|XPHB|Wild Magic|XPHB|14",
+            "Tamed Surge|Sorcerer|XPHB|Wild Magic|XPHB|18"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "wild-magic|phb|subclass|sorcerer|xphb",
+        "kind": "subclass",
+        "name": "Wild Magic",
+        "sourceCode": "PHB",
+        "sourceName": "PHB",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Wild Magic PHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "sorcerer|xphb",
+        "metadata": {
+          "shortName": "Wild",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Wild Magic|Sorcerer|XPHB|Wild||3",
+            "Bend Luck|Sorcerer||Wild||6",
+            "Controlled Chaos|Sorcerer||Wild||14",
+            "Spell Bombardment|Sorcerer||Wild||18"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

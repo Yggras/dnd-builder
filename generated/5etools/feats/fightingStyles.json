@@ -1,0 +1,590 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "feats",
+  "chunkId": "fightingStyles",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "archery|xphb|feat",
+      "kind": "feat",
+      "name": "Archery",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You gain a +2 bonus to attack rolls you make with Ranged weapons.",
+      "searchText": "Archery XPHB You gain a +2 bonus to attack rolls you make with Ranged weapons.",
+      "renderPayload": {
+        "entries": [
+          "You gain a +2 bonus to attack rolls you make with Ranged weapons."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "You gain a +2 bonus to attack rolls you make with Ranged weapons."
+      }
+    },
+    {
+      "id": "blessed-warrior|xphb|feat",
+      "kind": "feat",
+      "name": "Blessed Warrior",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You learn two Cleric cantrips of your choice. Guidance and Sacred Flame are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Pal...",
+      "searchText": "Blessed Warrior XPHB You learn two Cleric cantrips of your choice. Guidance and Sacred Flame are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip.",
+      "renderPayload": {
+        "entries": [
+          "You learn two {@filter Cleric cantrips|spells|level=0|class=Cleric} of your choice. {@spell Guidance|XPHB} and {@spell Sacred Flame|XPHB} are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip."
+        ]
+      },
+      "categoryTags": [
+        "FS:P"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Special"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS:P",
+        "featureType": [],
+        "entriesText": "You learn two Cleric cantrips of your choice. Guidance and Sacred Flame are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip."
+      }
+    },
+    {
+      "id": "blind-fighting|xphb|feat",
+      "kind": "feat",
+      "name": "Blind Fighting",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You have Blindsight with a range of 10 feet.",
+      "searchText": "Blind Fighting XPHB You have Blindsight with a range of 10 feet.",
+      "renderPayload": {
+        "entries": [
+          "You have {@sense Blindsight|XPHB} with a range of 10 feet."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [
+          {
+            "blindsight": 10
+          }
+        ],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "You have Blindsight with a range of 10 feet."
+      }
+    },
+    {
+      "id": "defense|xphb|feat",
+      "kind": "feat",
+      "name": "Defense",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.",
+      "searchText": "Defense XPHB While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.",
+      "renderPayload": {
+        "entries": [
+          "While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to {@variantrule Armor Class|XPHB}."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class."
+      }
+    },
+    {
+      "id": "druidic-warrior|xphb|feat",
+      "kind": "feat",
+      "name": "Druidic Warrior",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "You learn two Druid cantrips of your choice. Guidance and Starry Wisp are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger l...",
+      "searchText": "Druidic Warrior XPHB You learn two Druid cantrips of your choice. Guidance and Starry Wisp are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another Druid cantrip.",
+      "renderPayload": {
+        "entries": [
+          "You learn two {@filter Druid cantrips|spells|level=0|class=druid} of your choice. {@spell Guidance|XPHB} and {@spell Starry Wisp|XPHB} are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another Druid cantrip."
+        ]
+      },
+      "categoryTags": [
+        "FS:R"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Special"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS:R",
+        "featureType": [],
+        "entriesText": "You learn two Druid cantrips of your choice. Guidance and Starry Wisp are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another Druid cantrip."
+      }
+    },
+    {
+      "id": "dueling|xphb|feat",
+      "kind": "feat",
+      "name": "Dueling",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
+      "searchText": "Dueling XPHB When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
+      "renderPayload": {
+        "entries": [
+          "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+      }
+    },
+    {
+      "id": "great-weapon-fighting|xphb|feat",
+      "kind": "feat",
+      "name": "Great Weapon Fighting",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the 2h or V property to gain this benefit.",
+      "searchText": "Great Weapon Fighting XPHB When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the 2h or V property to gain this benefit.",
+      "renderPayload": {
+        "entries": [
+          "When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the {@itemProperty 2h|XPHB|Two-Handed} or {@itemProperty V|XPHB|Versatile} property to gain this benefit."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the 2h or V property to gain this benefit."
+      }
+    },
+    {
+      "id": "interception|xphb|feat",
+      "kind": "feat",
+      "name": "Interception",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency. You must be holding a Shield...",
+      "searchText": "Interception XPHB When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency. You must be holding a Shield or a Simple or Martial weapon to use this Reaction.",
+      "renderPayload": {
+        "entries": [
+          "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a {@variantrule Reaction|XPHB} to reduce the damage dealt to the target by {@dice 1d10} plus your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You must be holding a {@item Shield|XPHB} or a Simple or Martial weapon to use this {@variantrule Reaction|XPHB}."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a Reaction to reduce the damage dealt to the target by 1d10 plus your Proficiency. You must be holding a Shield or a Simple or Martial weapon to use this Reaction."
+      }
+    },
+    {
+      "id": "protection|xphb|feat",
+      "kind": "feat",
+      "name": "Protection",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll a...",
+      "searchText": "Protection XPHB When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target.",
+      "renderPayload": {
+        "entries": [
+          "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a {@variantrule Reaction|XPHB} to interpose your {@item Shield|XPHB} if you're holding one. You impose {@variantrule Disadvantage|XPHB} on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a Reaction to interpose your Shield if you're holding one. You impose Disadvantage on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target."
+      }
+    },
+    {
+      "id": "thrown-weapon-fighting|xphb|feat",
+      "kind": "feat",
+      "name": "Thrown Weapon Fighting",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When you hit with a ranged attack roll using a weapon that has the T property, you gain a +2 bonus to the damage roll.",
+      "searchText": "Thrown Weapon Fighting XPHB When you hit with a ranged attack roll using a weapon that has the T property, you gain a +2 bonus to the damage roll.",
+      "renderPayload": {
+        "entries": [
+          "When you hit with a ranged attack roll using a weapon that has the {@itemProperty T|XPHB|Thrown} property, you gain a +2 bonus to the damage roll."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When you hit with a ranged attack roll using a weapon that has the T property, you gain a +2 bonus to the damage roll."
+      }
+    },
+    {
+      "id": "two-weapon-fighting|xphb|feat",
+      "kind": "feat",
+      "name": "Two-Weapon Fighting",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When you make an extra attack as a result of using a weapon that has the L property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage.",
+      "searchText": "Two-Weapon Fighting XPHB When you make an extra attack as a result of using a weapon that has the L property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage.",
+      "renderPayload": {
+        "entries": [
+          "When you make an extra attack as a result of using a weapon that has the {@itemProperty L|XPHB|Light} property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When you make an extra attack as a result of using a weapon that has the L property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage."
+      }
+    },
+    {
+      "id": "unarmed-fighting|xphb|feat",
+      "kind": "feat",
+      "name": "Unarmed Fighting",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a...",
+      "searchText": "Unarmed Fighting XPHB When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a Shield when you make the attack roll, the d6 becomes a d8. At the start of each of your turns, you can deal 1d4 Bludgeoning damage to one creature Grappled by you.",
+      "renderPayload": {
+        "entries": [
+          "When you hit with your {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Bludgeoning damage equal to {@damage 1d6} plus your Strength modifier instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}. If you aren't holding any weapons or a {@item Shield|XPHB} when you make the attack roll, the {@dice d6} becomes a {@dice d8}.",
+          "At the start of each of your turns, you can deal {@damage 1d4} Bludgeoning damage to one creature {@condition Grappled|XPHB} by you."
+        ]
+      },
+      "categoryTags": [
+        "FS"
+      ],
+      "repeatable": false,
+      "prerequisitesText": null,
+      "prerequisitesNormalized": {
+        "minClassLevel": null,
+        "requiredFeatureIds": [],
+        "requiredFeatIds": [],
+        "requiredSpellIds": [],
+        "textOnly": [
+          "Fighting Style"
+        ]
+      },
+      "grants": {
+        "spellIds": [],
+        "senses": [],
+        "proficiencies": {
+          "skills": [],
+          "tools": [],
+          "weapons": [],
+          "languages": []
+        }
+      },
+      "metadata": {
+        "ability": [],
+        "category": "FS",
+        "featureType": [],
+        "entriesText": "When you hit with your Unarmed Strike and deal damage, you can deal Bludgeoning damage equal to 1d6 plus your Strength modifier instead of the normal damage of an Unarmed Strike. If you aren't holding any weapons or a Shield when you make the attack roll, the d6 becomes a d8. At the start of each of your turns, you can deal 1d4 Bludgeoning damage to one creature Grappled by you."
+      }
+    }
+  ]
+}

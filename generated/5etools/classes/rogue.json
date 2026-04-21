@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "classes",
+  "chunkId": "rogue",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": {
+    "class": {
+      "id": "rogue|xphb",
+      "kind": "class",
+      "name": "Rogue",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Rogue XPHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [
+        "arcane-trickster|phb|subclass|rogue|xphb",
+        "arcane-trickster|xphb|subclass|rogue|xphb",
+        "assassin|phb|subclass|rogue|xphb",
+        "assassin|xphb|subclass|rogue|xphb",
+        "inquisitive|xge|subclass|rogue|xphb",
+        "mastermind|xge|subclass|rogue|xphb",
+        "phantom|tce|subclass|rogue|xphb",
+        "scion-of-the-three|frhof|subclass|rogue|xphb",
+        "scout|xge|subclass|rogue|xphb",
+        "soulknife|tce|subclass|rogue|xphb",
+        "soulknife|xphb|subclass|rogue|xphb",
+        "swashbuckler|xge|subclass|rogue|xphb",
+        "thief|phb|subclass|rogue|xphb",
+        "thief|xphb|subclass|rogue|xphb"
+      ],
+      "metadata": {
+        "primaryAbility": [
+          {
+            "dex": true
+          }
+        ],
+        "hitDie": {
+          "number": 1,
+          "faces": 8
+        },
+        "proficiency": [
+          "dex",
+          "int"
+        ],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {
+          "armor": [
+            "light"
+          ],
+          "weapons": [
+            "simple",
+            "Martial weapons that have the {@filter Finesse or Light|items|type=martial weapon|property=finesse;light} property"
+          ],
+          "weaponProficiencies": [
+            {
+              "simple": true,
+              "all": {
+                "fromFilter": "type=martial weapon|property=light;finesse"
+              }
+            }
+          ],
+          "tools": [
+            "{@item Thieves' Tools|XPHB}"
+          ],
+          "toolProficiencies": [
+            {
+              "thieves' tools": true
+            }
+          ],
+          "skills": [
+            {
+              "choose": {
+                "from": [
+                  "acrobatics",
+                  "athletics",
+                  "deception",
+                  "insight",
+                  "intimidation",
+                  "investigation",
+                  "perception",
+                  "persuasion",
+                  "sleight of hand",
+                  "stealth"
+                ],
+                "count": 4
+              }
+            }
+          ]
+        },
+        "startingEquipment": {
+          "additionalFromBackground": true,
+          "defaultData": [
+            {
+              "A": [
+                {
+                  "item": "leather armor|xphb"
+                },
+                {
+                  "item": "dagger|xphb",
+                  "quantity": 2
+                },
+                {
+                  "item": "shortsword|xphb"
+                },
+                {
+                  "item": "shortbow|xphb"
+                },
+                {
+                  "item": "arrows (20)|xphb"
+                },
+                {
+                  "item": "quiver|xphb"
+                },
+                {
+                  "item": "thieves' tools|xphb"
+                },
+                {
+                  "item": "burglar's pack|xphb"
+                },
+                {
+                  "value": 800
+                }
+              ],
+              "B": [
+                {
+                  "value": 10000
+                }
+              ]
+            }
+          ],
+          "entries": [
+            "{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Shortsword|XPHB}, {@item Shortbow|XPHB}, {@item Arrows (20)|XPHB|20 Arrows}, {@item Quiver|XPHB}, {@item Thieves' Tools|XPHB}, {@item Burglar's Pack|XPHB}, and 8 GP; or (B) 100 GP"
+          ]
+        },
+        "featProgression": [
+          {
+            "name": "Epic Boon",
+            "category": [
+              "EB"
+            ],
+            "progression": {
+              "19": 1
+            }
+          }
+        ],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Expertise|Rogue|XPHB|1",
+          "Sneak Attack|Rogue|XPHB|1",
+          "Thieves' Cant|Rogue|XPHB|1",
+          "Weapon Mastery|Rogue|XPHB|1",
+          "Cunning Action|Rogue|XPHB|2",
+          {
+            "classFeature": "Rogue Subclass|Rogue|XPHB|3",
+            "gainSubclassFeature": true
+          },
+          "Steady Aim|Rogue|XPHB|3",
+          "Ability Score Improvement|Rogue|XPHB|4",
+          "Cunning Strike|Rogue|XPHB|5",
+          "Uncanny Dodge|Rogue|XPHB|5",
+          "Expertise|Rogue|XPHB|6",
+          "Evasion|Rogue|XPHB|7",
+          "Reliable Talent|Rogue|XPHB|7",
+          "Ability Score Improvement|Rogue|XPHB|8",
+          {
+            "classFeature": "Subclass Feature|Rogue|XPHB|9",
+            "gainSubclassFeature": true
+          },
+          "Ability Score Improvement|Rogue|XPHB|10",
+          "Improved Cunning Strike|Rogue|XPHB|11",
+          "Ability Score Improvement|Rogue|XPHB|12",
+          {
+            "classFeature": "Subclass Feature|Rogue|XPHB|13",
+            "gainSubclassFeature": true
+          },
+          "Devious Strikes|Rogue|XPHB|14",
+          "Slippery Mind|Rogue|XPHB|15",
+          "Ability Score Improvement|Rogue|XPHB|16",
+          {
+            "classFeature": "Subclass Feature|Rogue|XPHB|17",
+            "gainSubclassFeature": true
+          },
+          "Elusive|Rogue|XPHB|18",
+          "Epic Boon|Rogue|XPHB|19",
+          "Stroke of Luck|Rogue|XPHB|20"
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": [
+      {
+        "id": "arcane-trickster|xphb|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Arcane Trickster",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Arcane Trickster XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Arcane Trickster",
+          "spellcastingAbility": "int",
+          "casterProgression": "1/3",
+          "cantripProgression": [
+            0,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "preparedSpellsProgression": [
+            0,
+            0,
+            3,
+            4,
+            4,
+            4,
+            5,
+            6,
+            6,
+            7,
+            8,
+            8,
+            9,
+            10,
+            10,
+            11,
+            11,
+            11,
+            12,
+            13
+          ],
+          "subclassFeatures": [
+            "Arcane Trickster|Rogue|XPHB|Arcane Trickster|XPHB|3",
+            "Magical Ambush|Rogue|XPHB|Arcane Trickster|XPHB|9",
+            "Versatile Trickster|Rogue|XPHB|Arcane Trickster|XPHB|13",
+            "Spell Thief|Rogue|XPHB|Arcane Trickster|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "assassin|xphb|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Assassin",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Assassin XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Assassin",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Assassin|Rogue|XPHB|Assassin|XPHB|3",
+            "Infiltration Expertise|Rogue|XPHB|Assassin|XPHB|9",
+            "Envenom Weapons|Rogue|XPHB|Assassin|XPHB|13",
+            "Death Strike|Rogue|XPHB|Assassin|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "inquisitive|xge|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Inquisitive",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Inquisitive XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Inquisitive",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Inquisitive|Rogue||Inquisitive|XGE|3",
+            "Steady Eye|Rogue||Inquisitive|XGE|9",
+            "Unerring Eye|Rogue||Inquisitive|XGE|13",
+            "Eye for Weakness|Rogue||Inquisitive|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "mastermind|xge|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Mastermind",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Mastermind XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Mastermind",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Mastermind|Rogue||Mastermind|XGE|3",
+            "Insightful Manipulator|Rogue||Mastermind|XGE|9",
+            "Misdirection|Rogue||Mastermind|XGE|13",
+            "Soul of Deceit|Rogue||Mastermind|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "phantom|tce|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Phantom",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Phantom TCE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Phantom",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Phantom|Rogue||Phantom|TCE|3",
+            "Tokens of the Departed|Rogue||Phantom|TCE|9",
+            "Ghost Walk|Rogue||Phantom|TCE|13",
+            "Death's Friend|Rogue||Phantom|TCE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "scion-of-the-three|frhof|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Scion of the Three",
+        "sourceCode": "FRHoF",
+        "sourceName": "FRHoF",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Scion of the Three FRHoF",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Scion of the Three",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Scion of the Three|Rogue|XPHB|Scion of the Three|FRHoF|3|FRHoF",
+            "Strike Fear|Rogue|XPHB|Scion of the Three|FRHoF|9|FRHoF",
+            "Aura of Malevolence|Rogue|XPHB|Scion of the Three|FRHoF|13|FRHoF",
+            "Dread Incarnate|Rogue|XPHB|Scion of the Three|FRHoF|17|FRHoF"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "scout|xge|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Scout",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Scout XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Scout",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Scout|Rogue||Scout|XGE|3",
+            "Superior Mobility|Rogue||Scout|XGE|9",
+            "Ambush Master|Rogue||Scout|XGE|13",
+            "Sudden Strike|Rogue||Scout|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "soulknife|xphb|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Soulknife",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Soulknife XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Soulknife",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Soulknife|Rogue|XPHB|Soulknife|XPHB|3",
+            "Soul Blades|Rogue|XPHB|Soulknife|XPHB|9",
+            "Psychic Veil|Rogue|XPHB|Soulknife|XPHB|13",
+            "Rend Mind|Rogue|XPHB|Soulknife|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "swashbuckler|xge|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Swashbuckler",
+        "sourceCode": "XGE",
+        "sourceName": "XGE",
+        "rulesEdition": "legacy",
+        "isPrimary2024": false,
+        "isLegacy": true,
+        "isSelectableInBuilder": false,
+        "summary": null,
+        "searchText": "Swashbuckler XGE",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Swashbuckler",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Swashbuckler|Rogue||Swashbuckler|XGE|3",
+            "Panache|Rogue||Swashbuckler|XGE|9",
+            "Elegant Maneuver|Rogue||Swashbuckler|XGE|13",
+            "Master Duelist|Rogue||Swashbuckler|XGE|17"
+          ],
+          "additionalSpellIds": []
+        }
+      },
+      {
+        "id": "thief|xphb|subclass|rogue|xphb",
+        "kind": "subclass",
+        "name": "Thief",
+        "sourceCode": "XPHB",
+        "sourceName": "XPHB",
+        "rulesEdition": "2024",
+        "isPrimary2024": true,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
+        "summary": null,
+        "searchText": "Thief XPHB",
+        "renderPayload": {
+          "entries": []
+        },
+        "classId": "rogue|xphb",
+        "metadata": {
+          "shortName": "Thief",
+          "spellcastingAbility": null,
+          "casterProgression": null,
+          "cantripProgression": [],
+          "preparedSpellsProgression": [],
+          "subclassFeatures": [
+            "Thief|Rogue|XPHB|Thief|XPHB|3",
+            "Supreme Sneak|Rogue|XPHB|Thief|XPHB|9",
+            "Use Magic Device|Rogue|XPHB|Thief|XPHB|13",
+            "Thief's Reflexes|Rogue|XPHB|Thief|XPHB|17"
+          ],
+          "additionalSpellIds": []
+        }
+      }
+    ]
+  }
+}

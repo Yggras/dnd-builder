@@ -1,0 +1,1361 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "species",
+  "chunkId": "primary-2024",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "aasimar|xphb|species",
+      "kind": "species",
+      "name": "Aasimar",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Celestial Resistance You have Resistance to Necrotic damage and Radiant damage. Darkvision You have Darkvision with a range of 60 feet. Healing Hands As a Magic action, you touch a creature and roll a number of d4s eq...",
+      "searchText": "Aasimar XPHB Celestial Resistance You have Resistance to Necrotic damage and Radiant damage. Darkvision You have Darkvision with a range of 60 feet. Healing Hands As a Magic action, you touch a creature and roll a number of d4s equal to your Proficiency. The creature regains a number of Hit Points equal to the total rolled. Once you use this trait, you can't use it again until you finish a Long Rest. Light Bearer You know the Light cantrip. Charisma is your spellcasting ability for it. Celestial Revelation When you reach character level 3, you can transform as a Bonus Action using one of the options below (choose the option each time you transform). The transformation lasts for 1 minute or until you end it (no action required). Once you transform, you can't do so again until you finish a Long Rest. Once on each of your turns before the transformation ends, you can deal extra damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your Proficiency, and the extra damage's type is either Necrotic for Necrotic Shroud or Radiant for Heavenly Wings and Inner Radiance. Here are the transformation options: Heavenly Wings Two spectral wings sprout from your back temporarily. Until the transformation ends, you have a Fly Speed equal to your Speed. Inner Radiance Searing light temporarily radiates from your eyes and mouth. For the duration, you shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, and at the end of each of your turns, each creature within 10 feet of you takes Radiant damage equal to your Proficiency. Necrotic Shroud Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw (8 plus your Charisma modifier and Proficiency) or have the Frightened condition until the end of your next turn.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Celestial Resistance",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Necrotic damage and Radiant damage."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Healing Hands",
+            "entries": [
+              "As a {@action Magic|XPHB} action, you touch a creature and roll a number of d4s equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. The creature regains a number of {@variantrule Hit Points|XPHB} equal to the total rolled. Once you use this trait, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Light Bearer",
+            "entries": [
+              "You know the {@spell Light|XPHB} cantrip. Charisma is your spellcasting ability for it."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Celestial Revelation",
+            "entries": [
+              "When you reach character level 3, you can transform as a {@variantrule Bonus Action|XPHB} using one of the options below (choose the option each time you transform). The transformation lasts for 1 minute or until you end it (no action required). Once you transform, you can't do so again until you finish a {@variantrule Long Rest|XPHB}.",
+              "Once on each of your turns before the transformation ends, you can deal extra damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and the extra damage's type is either Necrotic for Necrotic Shroud or Radiant for Heavenly Wings and Inner Radiance.",
+              "Here are the transformation options:",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Heavenly Wings",
+                    "entries": [
+                      "Two spectral wings sprout from your back temporarily. Until the transformation ends, you have a {@variantrule Fly Speed|XPHB} equal to your {@variantrule Speed|XPHB}."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Inner Radiance",
+                    "entries": [
+                      "Searing light temporarily radiates from your eyes and mouth. For the duration, you shed {@variantrule Bright Light|XPHB} in a 10-foot radius and {@variantrule Dim Light|XPHB} for an additional 10 feet, and at the end of each of your turns, each creature within 10 feet of you takes Radiant damage equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Necrotic Shroud",
+                    "entries": [
+                      "Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw ({@dc 8} plus your Charisma modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the end of your next turn."
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Celestial Resistance You have Resistance to Necrotic damage and Radiant damage. Darkvision You have Darkvision with a range of 60 feet. Healing Hands As a Magic action, you touch a creature and roll a number of d4s equal to your Proficiency. The creature regains a number of Hit Points equal to the total rolled. Once you use this trait, you can't use it again until you finish a Long Rest. Light Bearer You know the Light cantrip. Charisma is your spellcasting ability for it. Celestial Revelation When you reach character level 3, you can transform as a Bonus Action using one of the options below (choose the option each time you transform). The transformation lasts for 1 minute or until you end it (no action required). Once you transform, you can't do so again until you finish a Long Rest. Once on each of your turns before the transformation ends, you can deal extra damage to one target when you deal damage to it with an attack or a spell. The extra damage equals your Proficiency, and the extra damage's type is either Necrotic for Necrotic Shroud or Radiant for Heavenly Wings and Inner Radiance. Here are the transformation options: Heavenly Wings Two spectral wings sprout from your back temporarily. Until the transformation ends, you have a Fly Speed equal to your Speed. Inner Radiance Searing light temporarily radiates from your eyes and mouth. For the duration, you shed Bright Light in a 10-foot radius and Dim Light for an additional 10 feet, and at the end of each of your turns, each creature within 10 feet of you takes Radiant damage equal to your Proficiency. Necrotic Shroud Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw (8 plus your Charisma modifier and Proficiency) or have the Frightened condition until the end of your next turn."
+      }
+    },
+    {
+      "id": "changeling|efa|species",
+      "kind": "species",
+      "name": "Changeling",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Changeling Instincts Thanks to your connection to the fey realm, you gain proficiency in two of the following skills of your choice: Deception, Insight, Intimidation, Performance, or Persuasion. Shape-Shifter As an ac...",
+      "searchText": "Changeling EFA Changeling Instincts Thanks to your connection to the fey realm, you gain proficiency in two of the following skills of your choice: Deception, Insight, Intimidation, Performance, or Persuasion. Shape-Shifter As an action, you can shape-shift to change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight and can change your size between Medium and Small. You can make yourself appear as a member of another playable species, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. This trait doesn't change your clothing and equipment. While shape-shifted with this trait, you have Advantage on Charisma checks. You stay in the new form until you take an action to revert to your true form.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Changeling Instincts",
+            "entries": [
+              "Thanks to your connection to the fey realm, you gain proficiency in two of the following skills of your choice: {@skill Deception|XPHB}, {@skill Insight|XPHB}, {@skill Intimidation|XPHB}, {@skill Performance|XPHB}, or {@skill Persuasion|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shape-Shifter",
+            "entries": [
+              "As an action, you can shape-shift to change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight and can change your size between Medium and Small. You can make yourself appear as a member of another playable species, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. This trait doesn't change your clothing and equipment.",
+              "While shape-shifted with this trait, you have {@variantrule Advantage|XPHB} on Charisma checks.",
+              "You stay in the new form until you take an action to revert to your true form."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "fey"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Changeling Instincts Thanks to your connection to the fey realm, you gain proficiency in two of the following skills of your choice: Deception, Insight, Intimidation, Performance, or Persuasion. Shape-Shifter As an action, you can shape-shift to change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight and can change your size between Medium and Small. You can make yourself appear as a member of another playable species, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. This trait doesn't change your clothing and equipment. While shape-shifted with this trait, you have Advantage on Charisma checks. You stay in the new form until you take an action to revert to your true form."
+      }
+    },
+    {
+      "id": "dragonborn|xphb|species",
+      "kind": "species",
+      "name": "Dragonborn",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Draconic Ancestry Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and Damage Resistance traits as well as your appearanc...",
+      "searchText": "Dragonborn XPHB Draconic Ancestry Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and Damage Resistance traits as well as your appearance. Black Acid Blue Lightning Brass Fire Bronze Lightning Copper Acid Gold Fire Green Poison Red Fire Silver Cold White Cold Breath Weapon When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone [Area of Effect] or a 30-foot Line [Area of Effect] that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (8 plus your Constitution modifier and Proficiency). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10). You can use this Breath Weapon a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. Damage Resistance You have Resistance to the damage type determined by your Draconic Ancestry trait. Darkvision You have Darkvision with a range of 60 feet. Draconic Flight When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Draconic Ancestry",
+            "entries": [
+              "Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and {@variantrule Damage|XPHB} {@variantrule Resistance|XPHB} traits as well as your appearance.",
+              {
+                "type": "table",
+                "caption": "Draconic Ancestors",
+                "colLabels": [
+                  "Dragon",
+                  "Damage Type"
+                ],
+                "colStyles": [
+                  "col-6",
+                  "col-6"
+                ],
+                "rows": [
+                  [
+                    "Black",
+                    "Acid"
+                  ],
+                  [
+                    "Blue",
+                    "Lightning"
+                  ],
+                  [
+                    "Brass",
+                    "Fire"
+                  ],
+                  [
+                    "Bronze",
+                    "Lightning"
+                  ],
+                  [
+                    "Copper",
+                    "Acid"
+                  ],
+                  [
+                    "Gold",
+                    "Fire"
+                  ],
+                  [
+                    "Green",
+                    "Poison"
+                  ],
+                  [
+                    "Red",
+                    "Fire"
+                  ],
+                  [
+                    "Silver",
+                    "Cold"
+                  ],
+                  [
+                    "White",
+                    "Cold"
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Breath Weapon",
+            "entries": [
+              "When you take the {@action Attack|XPHB} action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} or a 30-foot {@variantrule Line [Area of Effect]|XPHB|Line} that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw ({@dc 8} plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, a creature takes {@damage 1d10} damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by {@damage 1d10} when you reach character levels 5 ({@damage 2d10}), 11 ({@damage 3d10}), and 17 ({@damage 4d10}).",
+              "You can use this Breath Weapon a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Damage Resistance",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to the damage type determined by your Draconic Ancestry trait."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Draconic Flight",
+            "entries": [
+              "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a {@variantrule Bonus Action|XPHB}, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the {@condition Incapacitated|XPHB} condition. During that time, you have a {@variantrule Fly Speed|XPHB} equal to your {@variantrule Speed|XPHB}. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Draconic Ancestry Your lineage stems from a dragon progenitor. Choose the kind of dragon from the Draconic Ancestors table. Your choice affects your Breath Weapon and Damage Resistance traits as well as your appearance. Black Acid Blue Lightning Brass Fire Bronze Lightning Copper Acid Gold Fire Green Poison Red Fire Silver Cold White Cold Breath Weapon When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone [Area of Effect] or a 30-foot Line [Area of Effect] that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (8 plus your Constitution modifier and Proficiency). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10). You can use this Breath Weapon a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. Damage Resistance You have Resistance to the damage type determined by your Draconic Ancestry trait. Darkvision You have Darkvision with a range of 60 feet. Draconic Flight When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest."
+      }
+    },
+    {
+      "id": "dwarf|xphb|species",
+      "kind": "species",
+      "name": "Dwarf",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Darkvision You have Darkvision with a range of 120 feet. Dwarven Resilience You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition. Dwarven Tough...",
+      "searchText": "Dwarf XPHB Darkvision You have Darkvision with a range of 120 feet. Dwarven Resilience You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition. Dwarven Toughness Your Hit Points maximum increases by 1, and it increases by 1 again whenever you gain a level. Stonecunning As a Bonus Action, you gain Tremorsense with a range of 60 feet for 10 minutes. You must be on a stone surface or touching a stone surface to use this Tremorsense. The stone can be natural or worked. You can use this Bonus Action a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 120 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Dwarven Resilience",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Poison damage. You also have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Poisoned|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Dwarven Toughness",
+            "entries": [
+              "Your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by 1, and it increases by 1 again whenever you gain a level."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Stonecunning",
+            "entries": [
+              "As a {@variantrule Bonus Action|XPHB}, you gain {@sense Tremorsense|XPHB} with a range of 60 feet for 10 minutes. You must be on a stone surface or touching a stone surface to use this {@sense Tremorsense|XPHB}. The stone can be natural or worked.",
+              "You can use this {@variantrule Bonus Action|XPHB} a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 120,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 120 feet. Dwarven Resilience You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition. Dwarven Toughness Your Hit Points maximum increases by 1, and it increases by 1 again whenever you gain a level. Stonecunning As a Bonus Action, you gain Tremorsense with a range of 60 feet for 10 minutes. You must be on a stone surface or touching a stone surface to use this Tremorsense. The stone can be natural or worked. You can use this Bonus Action a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest."
+      }
+    },
+    {
+      "id": "elf|lfl|species",
+      "kind": "species",
+      "name": "Elf",
+      "sourceCode": "LFL",
+      "sourceName": "LFL",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of t...",
+      "searchText": "Elf LFL Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage). Lorwyn You know the Thorn Whip cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Druid spell list. Command Silence Shadowmoor The range of your Darkvision increases to 120 feet. You also know the Starry Wisp cantrip. Heroism Gentle Repose Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Keen Senses You have proficiency in the Insight, Perception, or Survival skill. Trance You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Elven Lineage",
+            "entries": [
+              "You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage.",
+              "When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+              "Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage).",
+              {
+                "type": "table",
+                "caption": "Elven Lineages",
+                "colLabels": [
+                  "Lineage",
+                  "Level 1",
+                  "Level 3",
+                  "Level 5"
+                ],
+                "colStyles": [
+                  "col-2",
+                  "col-6",
+                  "col-2",
+                  "col-2"
+                ],
+                "rows": [
+                  [
+                    "Lorwyn",
+                    "You know the {@spell Thorn Whip|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different cantrip from the {@filter Druid spell list|spells|class=druid}.",
+                    "{@spell Command|XPHB}",
+                    "{@spell Silence|XPHB}"
+                  ],
+                  [
+                    "Shadowmoor",
+                    "The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Starry Wisp|XPHB} cantrip.",
+                    "{@spell Heroism|XPHB}",
+                    "{@spell Gentle Repose|XPHB}"
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fey Ancestry",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Charmed|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Keen Senses",
+            "entries": [
+              "You have proficiency in the {@skill Insight|XPHB}, {@skill Perception|XPHB}, or {@skill Survival|XPHB} skill."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Trance",
+            "entries": [
+              "You don't need to sleep, and magic can't put you to sleep. You can finish a {@variantrule Long Rest|XPHB} in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [
+          "Improved Resting"
+        ],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage). Lorwyn You know the Thorn Whip cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Druid spell list. Command Silence Shadowmoor The range of your Darkvision increases to 120 feet. You also know the Starry Wisp cantrip. Heroism Gentle Repose Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Keen Senses You have proficiency in the Insight, Perception, or Survival skill. Trance You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness."
+      }
+    },
+    {
+      "id": "elf|xphb|species",
+      "kind": "species",
+      "name": "Elf",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of t...",
+      "searchText": "Elf XPHB Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage). Drow The range of your Darkvision increases to 120 feet. You also know the Dancing Lights cantrip. Faerie Fire Darkness High Elf You know the Prestidigitation cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Wizard spell list. Detect Magic Misty Step Wood Elf Your Speed increases to 35 feet. You also know the Druidcraft cantrip. Longstrider Pass without Trace Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Keen Senses You have proficiency in the Insight, Perception, or Survival skill. Trance You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Elven Lineage",
+            "entries": [
+              "You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage.",
+              "When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+              "Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage).",
+              {
+                "type": "table",
+                "caption": "Elven Lineages",
+                "colLabels": [
+                  "Lineage",
+                  "Level 1",
+                  "Level 3",
+                  "Level 5"
+                ],
+                "colStyles": [
+                  "col-2",
+                  "col-6",
+                  "col-2",
+                  "col-2"
+                ],
+                "rows": [
+                  [
+                    "Drow",
+                    "The range of your {@sense Darkvision|XPHB} increases to 120 feet. You also know the {@spell Dancing Lights|XPHB} cantrip.",
+                    "{@spell Faerie Fire|XPHB}",
+                    "{@spell Darkness|XPHB}"
+                  ],
+                  [
+                    "High Elf",
+                    "You know the {@spell Prestidigitation|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
+                    "{@spell Detect Magic|XPHB}",
+                    "{@spell Misty Step|XPHB}"
+                  ],
+                  [
+                    "Wood Elf",
+                    "Your {@variantrule Speed|XPHB} increases to 35 feet. You also know the {@spell Druidcraft|XPHB} cantrip.",
+                    "{@spell Longstrider|XPHB}",
+                    "{@spell Pass without Trace|XPHB}"
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fey Ancestry",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Charmed|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Keen Senses",
+            "entries": [
+              "You have proficiency in the {@skill Insight|XPHB}, {@skill Perception|XPHB}, or {@skill Survival|XPHB} skill."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Trance",
+            "entries": [
+              "You don't need to sleep, and magic can't put you to sleep. You can finish a {@variantrule Long Rest|XPHB} in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [
+          "Improved Resting"
+        ],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 60 feet. Elven Lineage You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage). Drow The range of your Darkvision increases to 120 feet. You also know the Dancing Lights cantrip. Faerie Fire Darkness High Elf You know the Prestidigitation cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Wizard spell list. Detect Magic Misty Step Wood Elf Your Speed increases to 35 feet. You also know the Druidcraft cantrip. Longstrider Pass without Trace Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Keen Senses You have proficiency in the Insight, Perception, or Survival skill. Trance You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness."
+      }
+    },
+    {
+      "id": "gnome|xphb|species",
+      "kind": "species",
+      "name": "Gnome",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Darkvision You have Darkvision with a range of 60 feet. Gnomish Cunning You have Advantage on Intelligence, Wisdom, and Charisma saving throws. Gnomish Lineage You are part of a lineage that grants you supernatural ab...",
+      "searchText": "Gnome XPHB Darkvision You have Darkvision with a range of 60 feet. Gnomish Cunning You have Advantage on Intelligence, Wisdom, and Charisma saving throws. Gnomish Lineage You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage): Forest Gnome You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell. Rock Gnome You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Gnomish Cunning",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on Intelligence, Wisdom, and Charisma saving throws."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Gnomish Lineage",
+            "entries": [
+              "You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage):",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Forest Gnome",
+                    "entries": [
+                      "You know the {@spell Minor Illusion|XPHB} cantrip. You also always have the {@spell Speak with Animals|XPHB} spell prepared. You can cast it without a spell slot a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}. You can also use any spell slots you have to cast the spell."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Rock Gnome",
+                    "entries": [
+                      "You know the {@spell Mending|XPHB} and {@spell Prestidigitation|XPHB} cantrips. In addition, you can spend 10 minutes casting {@spell Prestidigitation|XPHB} to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from {@spell Prestidigitation|XPHB}; the device produces that effect whenever you or another creature takes a {@variantrule Bonus Action|XPHB} to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a {@action Utilize|XPHB} action."
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 60 feet. Gnomish Cunning You have Advantage on Intelligence, Wisdom, and Charisma saving throws. Gnomish Lineage You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage): Forest Gnome You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell. Rock Gnome You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action."
+      }
+    },
+    {
+      "id": "goliath|xphb|species",
+      "kind": "species",
+      "name": "Goliath",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Giant Ancestry You are descended from Giants. Choose one of the following benefits—a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your Proficiency, and you regain all...",
+      "searchText": "Goliath XPHB Giant Ancestry You are descended from Giants. Choose one of the following benefits—a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest: Cloud's Jaunt (Cloud Giant) As a Bonus Action, you magically teleport up to 30 feet to an unoccupied space you can see. Fire's Burn (Fire Giant) When you hit a target with an attack roll and deal damage to it, you can also deal 1d10 Fire damage to that target. Frost's Chill (Frost Giant) When you hit a target with an attack roll and deal damage to it, you can also deal 1d6 Cold damage to that target and reduce its Speed by 10 feet until the start of your next turn. Hill's Tumble (Hill Giant) When you hit a Large or smaller creature with an attack roll and deal damage to it, you can give that target the Prone condition. Stone's Endurance (Stone Giant) When you take damage, you can take a Reaction to roll 1d12. Add your Constitution modifier to the number rolled and reduce the damage by that total. Storm's Thunder (Storm Giant) When you take damage from a creature within 60 feet of you, you can take a Reaction to deal 1d8 Thunder damage to that creature. Large Form Starting at character level 5, you can change your size to Large as a Bonus Action if you're in a big enough space. This transformation lasts for 10 minutes or until you end it (no action required). For that duration, you have Advantage on Strength checks, and your Speed increases by 10 feet. Once you use this trait, you can't use it again until you finish a Long Rest. Powerful Build You have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Giant Ancestry",
+            "entries": [
+              "You are descended from Giants. Choose one of the following benefits—a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}:",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Cloud's Jaunt (Cloud Giant)",
+                    "entries": [
+                      "As a {@variantrule Bonus Action|XPHB}, you magically teleport up to 30 feet to an unoccupied space you can see."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Fire's Burn (Fire Giant)",
+                    "entries": [
+                      "When you hit a target with an attack roll and deal damage to it, you can also deal {@damage 1d10} Fire damage to that target."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Frost's Chill (Frost Giant)",
+                    "entries": [
+                      "When you hit a target with an attack roll and deal damage to it, you can also deal {@damage 1d6} Cold damage to that target and reduce its {@variantrule Speed|XPHB} by 10 feet until the start of your next turn."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Hill's Tumble (Hill Giant)",
+                    "entries": [
+                      "When you hit a Large or smaller creature with an attack roll and deal damage to it, you can give that target the {@condition Prone|XPHB} condition."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Stone's Endurance (Stone Giant)",
+                    "entries": [
+                      "When you take damage, you can take a {@variantrule Reaction|XPHB} to roll {@dice 1d12}. Add your Constitution modifier to the number rolled and reduce the damage by that total."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Storm's Thunder (Storm Giant)",
+                    "entries": [
+                      "When you take damage from a creature within 60 feet of you, you can take a {@variantrule Reaction|XPHB} to deal {@damage 1d8} Thunder damage to that creature."
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Large Form",
+            "entries": [
+              "Starting at character level 5, you can change your size to Large as a {@variantrule Bonus Action|XPHB} if you're in a big enough space. This transformation lasts for 10 minutes or until you end it (no action required). For that duration, you have {@variantrule Advantage|XPHB} on Strength checks, and your {@variantrule Speed|XPHB} increases by 10 feet. Once you use this trait, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Powerful Build",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on any ability check you make to end the {@condition Grappled|XPHB} condition. You also count as one size larger when determining your carrying capacity."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 35,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [
+          "Powerful Build"
+        ],
+        "ability": [],
+        "entriesText": "Giant Ancestry You are descended from Giants. Choose one of the following benefits—a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest: Cloud's Jaunt (Cloud Giant) As a Bonus Action, you magically teleport up to 30 feet to an unoccupied space you can see. Fire's Burn (Fire Giant) When you hit a target with an attack roll and deal damage to it, you can also deal 1d10 Fire damage to that target. Frost's Chill (Frost Giant) When you hit a target with an attack roll and deal damage to it, you can also deal 1d6 Cold damage to that target and reduce its Speed by 10 feet until the start of your next turn. Hill's Tumble (Hill Giant) When you hit a Large or smaller creature with an attack roll and deal damage to it, you can give that target the Prone condition. Stone's Endurance (Stone Giant) When you take damage, you can take a Reaction to roll 1d12. Add your Constitution modifier to the number rolled and reduce the damage by that total. Storm's Thunder (Storm Giant) When you take damage from a creature within 60 feet of you, you can take a Reaction to deal 1d8 Thunder damage to that creature. Large Form Starting at character level 5, you can change your size to Large as a Bonus Action if you're in a big enough space. This transformation lasts for 10 minutes or until you end it (no action required). For that duration, you have Advantage on Strength checks, and your Speed increases by 10 feet. Once you use this trait, you can't use it again until you finish a Long Rest. Powerful Build You have Advantage on any ability check you make to end the Grappled condition. You also count as one size larger when determining your carrying capacity."
+      }
+    },
+    {
+      "id": "halfling|xphb|species",
+      "kind": "species",
+      "name": "Halfling",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the...",
+      "searchText": "Halfling XPHB Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the same space. Luck When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll. Naturally Stealthy You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Brave",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Frightened|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Halfling Nimbleness",
+            "entries": [
+              "You can move through the space of any creature that is a size larger than you, but you can't stop in the same space."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Luck",
+            "entries": [
+              "When you roll a 1 on the {@dice d20} of a {@variantrule D20 Test|XPHB}, you can reroll the die, and you must use the new roll."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Naturally Stealthy",
+            "entries": [
+              "You can take the {@action Hide|XPHB} action even when you are obscured only by a creature that is at least one size larger than you."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the same space. Luck When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll. Naturally Stealthy You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    },
+    {
+      "id": "human|xphb|species",
+      "kind": "species",
+      "name": "Human",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Resourceful You gain Heroic Inspiration whenever you finish a Long Rest. Skillful You gain proficiency in one skill of your choice. Versatile You gain an Origin feat of your choice.",
+      "searchText": "Human XPHB Resourceful You gain Heroic Inspiration whenever you finish a Long Rest. Skillful You gain proficiency in one skill of your choice. Versatile You gain an Origin feat of your choice.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Resourceful",
+            "entries": [
+              "You gain {@variantrule Heroic Inspiration|XPHB} whenever you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Skillful",
+            "entries": [
+              "You gain proficiency in one skill of your choice."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Versatile",
+            "entries": [
+              "You gain an {@filter Origin feat|feats|category=o} of your choice."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Resourceful You gain Heroic Inspiration whenever you finish a Long Rest. Skillful You gain proficiency in one skill of your choice. Versatile You gain an Origin feat of your choice."
+      }
+    },
+    {
+      "id": "kalashtar|efa|species",
+      "kind": "species",
+      "name": "Kalashtar",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Dual Mind You have Advantage on Wisdom and Charisma saving throws. Mental Discipline You have Resistance to Psychic damage. Mind Link You have telepathy with a range in feet equal to 10 times your level. When you're u...",
+      "searchText": "Kalashtar EFA Dual Mind You have Advantage on Wisdom and Charisma saving throws. Mental Discipline You have Resistance to Psychic damage. Mind Link You have telepathy with a range in feet equal to 10 times your level. When you're using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1 hour or until you take another Magic action to end this effect. Severed from Dreams You can't be the target of the Dream spell. In addition, when you finish a Long Rest, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another Long Rest.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Dual Mind",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on Wisdom and Charisma saving throws."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Mental Discipline",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Psychic damage."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Mind Link",
+            "entries": [
+              "You have telepathy with a range in feet equal to 10 times your level. When you're using this trait to speak telepathically to a creature, you can take a {@action Magic|XPHB} action to give that creature the ability to speak telepathically with you for 1 hour or until you take another {@action Magic|XPHB} action to end this effect."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Severed from Dreams",
+            "entries": [
+              "You can't be the target of the {@spell Dream|XPHB} spell. In addition, when you finish a {@variantrule Long Rest|XPHB}, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "aberration"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [
+          "Skill Proficiency"
+        ],
+        "ability": [],
+        "entriesText": "Dual Mind You have Advantage on Wisdom and Charisma saving throws. Mental Discipline You have Resistance to Psychic damage. Mind Link You have telepathy with a range in feet equal to 10 times your level. When you're using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1 hour or until you take another Magic action to end this effect. Severed from Dreams You can't be the target of the Dream spell. In addition, when you finish a Long Rest, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another Long Rest."
+      }
+    },
+    {
+      "id": "khoravar|efa|species",
+      "kind": "species",
+      "name": "Khoravar",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Darkvision You have Darkvision with a range of 60 feet. Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Fey Gift You know the Friends cantrip. Whenever you finish a Lon...",
+      "searchText": "Khoravar EFA Darkvision You have Darkvision with a range of 60 feet. Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Fey Gift You know the Friends cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose the ability when you select this species). Lethargy Resilience When you fail a saving throw to avoid or end the Unconscious condition, you can succeed instead. Once you use this trait, you can't do so again until you finish 1d4 Long Rest. Skill Versatility You gain proficiency in one skill or with one tool of your choice. Whenever you finish a Long Rest, you can replace it with another skill or tool proficiency.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fey Ancestry",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Charmed|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fey Gift",
+            "entries": [
+              "You know the {@spell Friends|XPHB} cantrip. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace that cantrip with a different cantrip from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose the ability when you select this species)."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Lethargy Resilience",
+            "entries": [
+              "When you fail a saving throw to avoid or end the {@condition Unconscious|XPHB} condition, you can succeed instead. Once you use this trait, you can't do so again until you finish {@dice 1d4} {@variantrule Long Rest|XPHB|Long Rests}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Skill Versatility",
+            "entries": [
+              "You gain proficiency in one skill or with one tool of your choice. Whenever you finish a {@variantrule Long Rest|XPHB}, you can replace it with another skill or tool proficiency."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [
+          "Skill Proficiency",
+          "Tool Proficiency"
+        ],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 60 feet. Fey Ancestry You have Advantage on saving throws you make to avoid or end the Charmed condition. Fey Gift You know the Friends cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for it (choose the ability when you select this species). Lethargy Resilience When you fail a saving throw to avoid or end the Unconscious condition, you can succeed instead. Once you use this trait, you can't do so again until you finish 1d4 Long Rest. Skill Versatility You gain proficiency in one skill or with one tool of your choice. Whenever you finish a Long Rest, you can replace it with another skill or tool proficiency."
+      }
+    },
+    {
+      "id": "kithkin|lfl|species",
+      "kind": "species",
+      "name": "Kithkin",
+      "sourceCode": "LFL",
+      "sourceName": "LFL",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the...",
+      "searchText": "Kithkin LFL Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the same space. Luck When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll. Naturally Stealthy You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you. Kithkin Lineage As a native of either Lorwyn and Shadowmoor, you may gain additional traits. Lorwyn You do not gain any additional traits. Shadowmoor You have Darkvision with a range of 120 feet.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Brave",
+            "entries": [
+              "You have {@variantrule Advantage|XPHB} on saving throws you make to avoid or end the {@condition Frightened|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Halfling Nimbleness",
+            "entries": [
+              "You can move through the space of any creature that is a size larger than you, but you can't stop in the same space."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Luck",
+            "entries": [
+              "When you roll a 1 on the {@dice d20} of a {@variantrule D20 Test|XPHB}, you can reroll the die, and you must use the new roll."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Naturally Stealthy",
+            "entries": [
+              "You can take the {@action Hide|XPHB} action even when you are obscured only by a creature that is at least one size larger than you."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Kithkin Lineage",
+            "entries": [
+              "As a native of either Lorwyn and Shadowmoor, you may gain additional traits.",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Lorwyn",
+                    "entries": [
+                      "You do not gain any additional traits."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Shadowmoor",
+                    "entries": [
+                      "You have {@sense Darkvision|XPHB} with a range of 120 feet."
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 120,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Brave You have Advantage on saving throws you make to avoid or end the Frightened condition. Halfling Nimbleness You can move through the space of any creature that is a size larger than you, but you can't stop in the same space. Luck When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll. Naturally Stealthy You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you. Kithkin Lineage As a native of either Lorwyn and Shadowmoor, you may gain additional traits. Lorwyn You do not gain any additional traits. Shadowmoor You have Darkvision with a range of 120 feet."
+      }
+    },
+    {
+      "id": "orc|xphb|species",
+      "kind": "species",
+      "name": "Orc",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Adrenaline Rush You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency. You can use this trait a number of times equal to your Proficiency,...",
+      "searchText": "Orc XPHB Adrenaline Rush You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency. You can use this trait a number of times equal to your Proficiency, and you regain all expended uses when you finish a Short Rest or Long Rest. Darkvision You have Darkvision with a range of 120 feet. Relentless Endurance When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Points instead. Once you use this trait, you can't do so again until you finish a Long Rest.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Adrenaline Rush",
+            "entries": [
+              "You can take the {@action Dash|XPHB} action as a {@variantrule Bonus Action|XPHB}. When you do so, you gain a number of {@variantrule Temporary Hit Points|XPHB} equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}.",
+              "You can use this trait a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 120 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Relentless Endurance",
+            "entries": [
+              "When you are reduced to 0 {@variantrule Hit Points|XPHB} but not killed outright, you can drop to 1 {@variantrule Hit Points|XPHB|Hit Point} instead. Once you use this trait, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 120,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Adrenaline Rush You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency. You can use this trait a number of times equal to your Proficiency, and you regain all expended uses when you finish a Short Rest or Long Rest. Darkvision You have Darkvision with a range of 120 feet. Relentless Endurance When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Points instead. Once you use this trait, you can't do so again until you finish a Long Rest."
+      }
+    },
+    {
+      "id": "shifter|efa|species",
+      "kind": "species",
+      "name": "Shifter",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Bestial Instincts Channeling the beast within, you gain proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision You have Darkvision with a range of 60 fe...",
+      "searchText": "Shifter EFA Bestial Instincts Channeling the beast within, you gain proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision You have Darkvision with a range of 60 feet. Shifting As a Bonus Action, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a Bonus Action. When you shift, you gain Temporary Hit Points equal to 2 times your Proficiency. You can shift a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. Whenever you shift, you gain the benefit of one of the following options (choose when you select this species) Beasthide You gain 1d6 additional Temporary Hit Points. While shifted, you have a +1 bonus to your Armor Class. Longtooth When you shift and as a Bonus Action on your other turns while shifted, you can use your elongated fangs to make an Unarmed Strike. If you hit with this Unarmed Strike and deal damage, you can deal Piercing damage equal to 1d6 plus your Strength modifier, instead of the normal damage of an Unarmed Strike. Swiftstride While you are shifted, your Speed increases by 10 feet. Additionally, you can move up to 10 feet as a Reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke Opportunity Attack. Wildhunt While shifted, you have Advantage on Wisdom checks. Additionally, no creature within 30 feet of you can have Advantage on an attack roll against you unless you have the Incapacitated condition.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bestial Instincts",
+            "entries": [
+              "Channeling the beast within, you gain proficiency in one of the following skills of your choice: {@skill Acrobatics|XPHB}, {@skill Athletics|XPHB}, {@skill Intimidation|XPHB}, or {@skill Survival|XPHB}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shifting",
+            "entries": [
+              "As a {@variantrule Bonus Action|XPHB}, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a {@variantrule Bonus Action|XPHB}. When you shift, you gain {@variantrule Temporary Hit Points|XPHB} equal to 2 times your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You can shift a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+              "Whenever you shift, you gain the benefit of one of the following options (choose when you select this species)",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Beasthide",
+                    "entries": [
+                      "You gain {@dice 1d6} additional {@variantrule Temporary Hit Points|XPHB}. While shifted, you have a +1 bonus to your {@variantrule Armor Class|XPHB}."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Longtooth",
+                    "entries": [
+                      "When you shift and as a {@variantrule Bonus Action|XPHB} on your other turns while shifted, you can use your elongated fangs to make an {@variantrule Unarmed Strike|XPHB}. If you hit with this {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Piercing damage equal to {@dice 1d6} plus your Strength modifier, instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Swiftstride",
+                    "entries": [
+                      "While you are shifted, your {@variantrule Speed|XPHB} increases by 10 feet. Additionally, you can move up to 10 feet as a {@variantrule Reaction|XPHB} when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks}."
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "name": "Wildhunt",
+                    "entries": [
+                      "While shifted, you have {@variantrule Advantage|XPHB} on Wisdom checks. Additionally, no creature within 30 feet of you can have {@variantrule Advantage|XPHB} on an attack roll against you unless you have the {@condition Incapacitated|XPHB} condition."
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Bestial Instincts Channeling the beast within, you gain proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision You have Darkvision with a range of 60 feet. Shifting As a Bonus Action, you can shape-shift to assume a more bestial appearance. This transformation lasts for 1 minute or until you revert to your normal appearance as a Bonus Action. When you shift, you gain Temporary Hit Points equal to 2 times your Proficiency. You can shift a number of times equal to your Proficiency, and you regain all expended uses when you finish a Long Rest. Whenever you shift, you gain the benefit of one of the following options (choose when you select this species) Beasthide You gain 1d6 additional Temporary Hit Points. While shifted, you have a +1 bonus to your Armor Class. Longtooth When you shift and as a Bonus Action on your other turns while shifted, you can use your elongated fangs to make an Unarmed Strike. If you hit with this Unarmed Strike and deal damage, you can deal Piercing damage equal to 1d6 plus your Strength modifier, instead of the normal damage of an Unarmed Strike. Swiftstride While you are shifted, your Speed increases by 10 feet. Additionally, you can move up to 10 feet as a Reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke Opportunity Attack. Wildhunt While shifted, you have Advantage on Wisdom checks. Additionally, no creature within 30 feet of you can have Advantage on an attack roll against you unless you have the Incapacitated condition."
+      }
+    },
+    {
+      "id": "tiefling|xphb|species",
+      "kind": "species",
+      "name": "Tiefling",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Darkvision You have Darkvision with a range of 60 feet. Fiendish Legacy You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1...",
+      "searchText": "Tiefling XPHB Darkvision You have Darkvision with a range of 60 feet. Fiendish Legacy You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy). Abyssal You have Resistance to Poison damage. You also know the Poison Spray cantrip. Ray of Sickness Hold Person Chthonic You have Resistance to Necrotic damage. You also know the Chill Touch cantrip. False Life Ray of Enfeeblement Infernal You have Resistance to Fire damage. You also know the Fire Bolt cantrip. Hellish Rebuke Darkness Otherworldly Presence You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy Trait.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have {@sense Darkvision|XPHB} with a range of 60 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Fiendish Legacy",
+            "entries": [
+              "You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy.",
+              "When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy).",
+              {
+                "type": "table",
+                "caption": "Fiendish Legacies",
+                "colLabels": [
+                  "Legacy",
+                  "Level 1",
+                  "Level 3",
+                  "Level 5"
+                ],
+                "colStyles": [
+                  "col-2",
+                  "col-6",
+                  "col-2",
+                  "col-2"
+                ],
+                "rows": [
+                  [
+                    "Abyssal",
+                    "You have {@variantrule Resistance|XPHB} to Poison damage. You also know the {@spell Poison Spray|XPHB} cantrip.",
+                    "{@spell Ray of Sickness|XPHB}",
+                    "{@spell Hold Person|XPHB}"
+                  ],
+                  [
+                    "Chthonic",
+                    "You have {@variantrule Resistance|XPHB} to Necrotic damage. You also know the {@spell Chill Touch|XPHB} cantrip.",
+                    "{@spell False Life|XPHB}",
+                    "{@spell Ray of Enfeeblement|XPHB}"
+                  ],
+                  [
+                    "Infernal",
+                    "You have {@variantrule Resistance|XPHB} to Fire damage. You also know the {@spell Fire Bolt|XPHB} cantrip.",
+                    "{@spell Hellish Rebuke|XPHB}",
+                    "{@spell Darkness|XPHB}"
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Otherworldly Presence",
+            "entries": [
+              "You know the {@spell Thaumaturgy|XPHB} cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy Trait."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "humanoid"
+        ],
+        "lineage": null,
+        "darkvision": 60,
+        "languages": [],
+        "traits": [],
+        "ability": [],
+        "entriesText": "Darkvision You have Darkvision with a range of 60 feet. Fiendish Legacy You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy. When you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy). Abyssal You have Resistance to Poison damage. You also know the Poison Spray cantrip. Ray of Sickness Hold Person Chthonic You have Resistance to Necrotic damage. You also know the Chill Touch cantrip. False Life Ray of Enfeeblement Infernal You have Resistance to Fire damage. You also know the Fire Bolt cantrip. Hellish Rebuke Darkness Otherworldly Presence You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy Trait."
+      }
+    },
+    {
+      "id": "warforged|efa|species",
+      "kind": "species",
+      "name": "Warforged",
+      "sourceCode": "EFA",
+      "sourceName": "EFA",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": "Construct Resilience You have Resistance to Poison damage. You also have Advantage on saving throws to avoid or end the Poisoned condition. Integrated Protection You gain a +1 bonus to your Armor Class. In addition, a...",
+      "searchText": "Warforged EFA Construct Resilience You have Resistance to Poison damage. You also have Advantage on saving throws to avoid or end the Poisoned condition. Integrated Protection You gain a +1 bonus to your Armor Class. In addition, armor you have donned can't be removed against your will while you're alive. Sentry's Rest You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 6 hours if you spend those hours in an inactive, motionless state. During this time, you appear inert but remain conscious. Specialized Design You gain one skill proficiency and one tool proficiency of your choice. Tireless You don't gain Exhaustion levels from dehydration, malnutrition, or suffocation.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Construct Resilience",
+            "entries": [
+              "You have {@variantrule Resistance|XPHB} to Poison damage. You also have {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Poisoned|XPHB} condition."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Integrated Protection",
+            "entries": [
+              "You gain a +1 bonus to your {@variantrule Armor Class|XPHB}. In addition, armor you have donned can't be removed against your will while you're alive."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Sentry's Rest",
+            "entries": [
+              "You don't need to sleep, and magic can't put you to sleep. You can finish a {@variantrule Long Rest|XPHB} in 6 hours if you spend those hours in an inactive, motionless state. During this time, you appear inert but remain conscious."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Specialized Design",
+            "entries": [
+              "You gain one skill proficiency and one tool proficiency of your choice."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Tireless",
+            "entries": [
+              "You don't gain {@condition Exhaustion|XPHB} levels from dehydration, malnutrition, or suffocation."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "size": [
+          "S",
+          "M"
+        ],
+        "speed": 30,
+        "creatureTypes": [
+          "construct"
+        ],
+        "lineage": null,
+        "darkvision": null,
+        "languages": [],
+        "traits": [
+          "Improved Resting",
+          "Natural Armor"
+        ],
+        "ability": [],
+        "entriesText": "Construct Resilience You have Resistance to Poison damage. You also have Advantage on saving throws to avoid or end the Poisoned condition. Integrated Protection You gain a +1 bonus to your Armor Class. In addition, armor you have donned can't be removed against your will while you're alive. Sentry's Rest You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 6 hours if you spend those hours in an inactive, motionless state. During this time, you appear inert but remain conscious. Specialized Design You gain one skill proficiency and one tool proficiency of your choice. Tireless You don't gain Exhaustion levels from dehydration, malnutrition, or suffocation."
+      }
+    }
+  ]
+}

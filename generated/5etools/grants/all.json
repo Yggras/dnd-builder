@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-04-21-step-3",
+  "entityType": "grants",
+  "chunkId": "all",
+  "generatedAt": "2026-04-21T19:22:13.839Z",
+  "records": [
+    {
+      "id": "artificer-efa|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "artificer|efa",
+      "sourceName": "Artificer",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "artificer-tce|infusions|optionalfeature|10",
+      "sourceType": "class",
+      "sourceId": "artificer|tce",
+      "sourceName": "Artificer",
+      "atLevel": 10,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "AI"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "artificer-tce|infusions|optionalfeature|14",
+      "sourceType": "class",
+      "sourceId": "artificer|tce",
+      "sourceName": "Artificer",
+      "atLevel": 14,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "AI"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "artificer-tce|infusions|optionalfeature|18",
+      "sourceType": "class",
+      "sourceId": "artificer|tce",
+      "sourceName": "Artificer",
+      "atLevel": 18,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "AI"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "artificer-tce|infusions|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "artificer|tce",
+      "sourceName": "Artificer",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "AI"
+      ],
+      "count": 4,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "artificer-tce|infusions|optionalfeature|6",
+      "sourceType": "class",
+      "sourceId": "artificer|tce",
+      "sourceName": "Artificer",
+      "atLevel": 6,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "AI"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "barbarian-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "barbarian|xphb",
+      "sourceName": "Barbarian",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "bard-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "bard|xphb",
+      "sourceName": "Bard",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "cleric-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "cleric|xphb",
+      "sourceName": "Cleric",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "druid-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "druid|xphb",
+      "sourceName": "Druid",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "fighter-phb|fighting-style|optionalfeature|1",
+      "sourceType": "class",
+      "sourceId": "fighter|phb",
+      "sourceName": "Fighter",
+      "atLevel": 1,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "FS:F"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "fighter-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "fighter|xphb",
+      "sourceName": "Fighter",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "fighter-xphb|fighting-style|feat|1",
+      "sourceType": "class",
+      "sourceId": "fighter|xphb",
+      "sourceName": "Fighter",
+      "atLevel": 1,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "FS"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "monk-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "monk|xphb",
+      "sourceName": "Monk",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "paladin-phb|fighting-style|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "paladin|phb",
+      "sourceName": "Paladin",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "FS:P"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "paladin-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "paladin|xphb",
+      "sourceName": "Paladin",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "paladin-xphb|fighting-style|feat|2",
+      "sourceType": "class",
+      "sourceId": "paladin|xphb",
+      "sourceName": "Paladin",
+      "atLevel": 2,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "FS",
+        "FS:P"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "ranger-phb|fighting-style|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "ranger|phb",
+      "sourceName": "Ranger",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "FS:R"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "ranger-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "ranger|xphb",
+      "sourceName": "Ranger",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "ranger-xphb|fighting-style|feat|2",
+      "sourceType": "class",
+      "sourceId": "ranger|xphb",
+      "sourceName": "Ranger",
+      "atLevel": 2,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "FS",
+        "FS:R"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "rogue-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "rogue|xphb",
+      "sourceName": "Rogue",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "sorcerer-phb|metamagic|optionalfeature|10",
+      "sourceType": "class",
+      "sourceId": "sorcerer|phb",
+      "sourceName": "Sorcerer",
+      "atLevel": 10,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 3,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "sorcerer-phb|metamagic|optionalfeature|17",
+      "sourceType": "class",
+      "sourceId": "sorcerer|phb",
+      "sourceName": "Sorcerer",
+      "atLevel": 17,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 4,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "sorcerer-phb|metamagic|optionalfeature|3",
+      "sourceType": "class",
+      "sourceId": "sorcerer|phb",
+      "sourceName": "Sorcerer",
+      "atLevel": 3,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "sorcerer-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "sorcerer|xphb",
+      "sourceName": "Sorcerer",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "sorcerer-xphb|metamagic|optionalfeature|10",
+      "sourceType": "class",
+      "sourceId": "sorcerer|xphb",
+      "sourceName": "Sorcerer",
+      "atLevel": 10,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 4,
+      "visibility": "builder"
+    },
+    {
+      "id": "sorcerer-xphb|metamagic|optionalfeature|17",
+      "sourceType": "class",
+      "sourceId": "sorcerer|xphb",
+      "sourceName": "Sorcerer",
+      "atLevel": 17,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 6,
+      "visibility": "builder"
+    },
+    {
+      "id": "sorcerer-xphb|metamagic|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "sorcerer|xphb",
+      "sourceName": "Sorcerer",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "MM"
+      ],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|12",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 12,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|15",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 15,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|18",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 18,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|5",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 5,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|7",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 7,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|eldritch-invocations|optionalfeature|9",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 9,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-phb|pact-boon|optionalfeature|3",
+      "sourceType": "class",
+      "sourceId": "warlock|phb",
+      "sourceName": "Warlock",
+      "atLevel": 3,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "PB"
+      ],
+      "count": 1,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|1",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 1,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|12",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 12,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|15",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 15,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|18",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 18,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|2",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 2,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|5",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 5,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|7",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 7,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|eldritch-invocations|optionalfeature|9",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 9,
+      "chooseKind": "optionalfeature",
+      "categoryFilter": [
+        "EI"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "warlock-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "warlock|xphb",
+      "sourceName": "Warlock",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "wizard-xphb|epic-boon|feat|19",
+      "sourceType": "class",
+      "sourceId": "wizard|xphb",
+      "sourceName": "Wizard",
+      "atLevel": 19,
+      "chooseKind": "feat",
+      "categoryFilter": [
+        "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    }
+  ]
+}
