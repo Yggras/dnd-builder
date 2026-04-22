@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026-04-21-step-3",
+  "contentVersion": "schema1-cd21eebed140d1ae",
   "entityType": "classes",
   "chunkId": "expert-sidekick",
-  "generatedAt": "2026-04-22T06:19:01.943Z",
+  "generatedAt": "2026-04-22T06:29:02.359Z",
   "records": {
     "class": {
       "id": "expert-sidekick|tce",

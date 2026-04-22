@@ -1,8 +1,8 @@
+import { createHash } from 'node:crypto';
 import { mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import {
-  CONTENT_VERSION,
   IMPORTER_SCHEMA_VERSION,
   OUTPUT_ROOT,
   SOURCE_REF,
@@ -12,10 +12,10 @@ import { stableSortBy } from './utils.mjs';
 
 const GENERATED_REGISTRY_PATH = path.join(process.cwd(), 'src', 'shared', 'content', 'generated', '5etoolsRegistry.ts');
 
-function createChunk(entityType, chunkId, records, generatedAt) {
+function createChunk(entityType, chunkId, records, generatedAt, contentVersion) {
   return {
     schemaVersion: IMPORTER_SCHEMA_VERSION,
-    contentVersion: CONTENT_VERSION,
+    contentVersion,
     entityType,
     chunkId,
     generatedAt,
@@ -156,9 +156,30 @@ function chunkItems(records) {
   };
 }
 
+function stableSerialize(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((entry) => stableSerialize(entry)).join(',')}]`;
+  }
+
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort((left, right) => left.localeCompare(right))
+      .map((key) => `${JSON.stringify(key)}:${stableSerialize(value[key])}`)
+      .join(',')}}`;
+  }
+
+  return JSON.stringify(value);
+}
+
+function createDerivedContentVersion(versionInput) {
+  const hash = createHash('sha256').update(stableSerialize(versionInput)).digest('hex').slice(0, 16);
+  return `schema${IMPORTER_SCHEMA_VERSION}-${hash}`;
+}
+
 export async function writeGeneratedContent(entityGroups) {
   const generatedAt = new Date().toISOString();
   const manifestChunks = [];
+  const pendingChunkFiles = [];
 
   await rm(OUTPUT_ROOT, { recursive: true, force: true });
 
@@ -222,8 +243,7 @@ export async function writeGeneratedContent(entityGroups) {
   for (const [entityType, chunkMap] of chunkGroups) {
     for (const [chunkId, records] of Object.entries(chunkMap)) {
       const filePath = path.join(OUTPUT_ROOT, entityType, `${chunkId}.json`);
-      const payload = createChunk(entityType, chunkId, records, generatedAt);
-      await writeJson(filePath, payload);
+      pendingChunkFiles.push({ entityType, chunkId, filePath, records });
 
       manifestChunks.push({
         entityType,
@@ -234,9 +254,40 @@ export async function writeGeneratedContent(entityGroups) {
     }
   }
 
+  const sortedManifestChunks = stableSortBy(manifestChunks, (record) => `${record.entityType}/${record.chunkId}`);
+  const contentVersion = createDerivedContentVersion({
+    schemaVersion: IMPORTER_SCHEMA_VERSION,
+    sourceRepository: SOURCE_REPOSITORY,
+    sourceRef: SOURCE_REF,
+    entityCounts: {
+      species: entityGroups.species.length,
+      classes: entityGroups.classes.length,
+      subclasses: entityGroups.subclasses.length,
+      feats: entityGroups.feats.length,
+      optionalFeatures: entityGroups.optionalFeatures.length,
+      spells: entityGroups.spells.length,
+      items: entityGroups.items.length,
+      choiceGrants: entityGroups.choiceGrants.length,
+      compendiumEntries: entityGroups.compendiumEntries.length,
+    },
+    chunks: stableSortBy(
+      pendingChunkFiles.map((chunk) => ({
+        entityType: chunk.entityType,
+        chunkId: chunk.chunkId,
+        filePath: chunk.filePath,
+        records: chunk.records,
+      })),
+      (record) => `${record.entityType}/${record.chunkId}`,
+    ),
+  });
+
+  for (const chunk of pendingChunkFiles) {
+    await writeJson(chunk.filePath, createChunk(chunk.entityType, chunk.chunkId, chunk.records, generatedAt, contentVersion));
+  }
+
   const manifest = {
     schemaVersion: IMPORTER_SCHEMA_VERSION,
-    contentVersion: CONTENT_VERSION,
+    contentVersion,
     generatedAt,
     sourceRepository: SOURCE_REPOSITORY,
     sourceRef: SOURCE_REF,
@@ -252,7 +303,7 @@ export async function writeGeneratedContent(entityGroups) {
       choiceGrants: entityGroups.choiceGrants.length,
       compendiumEntries: entityGroups.compendiumEntries.length,
     },
-    chunks: stableSortBy(manifestChunks, (record) => `${record.entityType}/${record.chunkId}`),
+    chunks: sortedManifestChunks,
   };
 
   await writeJson(path.join(OUTPUT_ROOT, 'content-index.json'), manifest);
