@@ -3,7 +3,7 @@ import type { CharacterRepository } from '@/features/characters/repositories/Cha
 export class CharacterService {
   constructor(private readonly repository: CharacterRepository) {}
 
-  listCharacters(campaignId: string) {
-    return this.repository.listCharacters(campaignId);
+  listCharacters() {
+    return this.repository.listCharacters();
   }
 }

@@ -1,6 +1,6 @@
-import type { CharacterStatus } from '@/shared/types/domain';
+import type { CampaignCharacterStatus } from '@/shared/types/domain';
 
 export interface StatusRepository {
-  getStatus: (characterId: string) => Promise<CharacterStatus | null>;
-  updateStatus: (status: CharacterStatus) => Promise<void>;
+  getStatus: (campaignCharacterId: string) => Promise<CampaignCharacterStatus | null>;
+  updateStatus: (status: CampaignCharacterStatus) => Promise<void>;
 }

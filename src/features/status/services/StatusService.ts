@@ -3,7 +3,7 @@ import type { StatusRepository } from '@/features/status/repositories/StatusRepo
 export class StatusService {
   constructor(private readonly repository: StatusRepository) {}
 
-  getStatus(characterId: string) {
-    return this.repository.getStatus(characterId);
+  getStatus(campaignCharacterId: string) {
+    return this.repository.getStatus(campaignCharacterId);
   }
 }

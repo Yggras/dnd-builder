@@ -1,1 +1,1 @@
-export type { Campaign, CampaignMember } from '@/shared/types/domain';
+export type { Campaign, CampaignCharacter, CampaignMember } from '@/shared/types/domain';

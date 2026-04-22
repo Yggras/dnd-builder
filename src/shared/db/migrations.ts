@@ -45,6 +45,53 @@ const migrations: Migration[] = [
       });
     },
   },
+  {
+    version: 2,
+    name: 'globalize_characters_and_assignment_state',
+    migrate: async (database) => {
+      await database.withExclusiveTransactionAsync(async (transaction) => {
+        await transaction.execAsync('DROP TABLE IF EXISTS campaign_character_snapshots;');
+        await transaction.execAsync('DROP TABLE IF EXISTS campaign_character_statuses;');
+        await transaction.execAsync('DROP TABLE IF EXISTS campaign_characters;');
+        await transaction.execAsync('DROP TABLE IF EXISTS character_snapshots;');
+        await transaction.execAsync('DROP TABLE IF EXISTS character_statuses;');
+        await transaction.execAsync('DROP TABLE IF EXISTS characters;');
+        await transaction.execAsync(`CREATE TABLE IF NOT EXISTS characters (
+          id TEXT PRIMARY KEY NOT NULL,
+          owner_user_id TEXT NOT NULL,
+          name TEXT NOT NULL,
+          level INTEGER NOT NULL,
+          created_at TEXT NOT NULL,
+          updated_at TEXT NOT NULL
+        );`);
+        await transaction.execAsync(`CREATE TABLE IF NOT EXISTS campaign_characters (
+          id TEXT PRIMARY KEY NOT NULL,
+          campaign_id TEXT NOT NULL,
+          character_id TEXT NOT NULL,
+          added_by_user_id TEXT NOT NULL,
+          created_at TEXT NOT NULL,
+          updated_at TEXT NOT NULL,
+          UNIQUE(campaign_id, character_id)
+        );`);
+        await transaction.execAsync(`CREATE TABLE IF NOT EXISTS campaign_character_statuses (
+          campaign_character_id TEXT PRIMARY KEY NOT NULL,
+          payload TEXT NOT NULL,
+          updated_at TEXT NOT NULL
+        );`);
+        await transaction.execAsync(`CREATE TABLE IF NOT EXISTS campaign_character_snapshots (
+          campaign_character_id TEXT PRIMARY KEY NOT NULL,
+          payload TEXT NOT NULL,
+          updated_at TEXT NOT NULL
+        );`);
+        await transaction.execAsync(
+          'CREATE INDEX IF NOT EXISTS idx_campaign_characters_campaign ON campaign_characters(campaign_id);',
+        );
+        await transaction.execAsync(
+          'CREATE INDEX IF NOT EXISTS idx_campaign_characters_character ON campaign_characters(character_id);',
+        );
+      });
+    },
+  },
 ];
 
 export async function runLocalMigrations(database: SQLite.SQLiteDatabase) {

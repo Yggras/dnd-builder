@@ -1,1 +1,1 @@
-export type { Character, CharacterBuild, CharacterSnapshot } from '@/shared/types/domain';
+export type { CampaignCharacterSnapshot, Character, CharacterBuild } from '@/shared/types/domain';

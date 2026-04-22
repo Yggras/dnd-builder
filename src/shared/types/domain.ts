@@ -24,10 +24,18 @@ export interface CampaignMember {
 
 export interface Character {
   id: string;
-  campaignId: string;
   ownerUserId: string;
   name: string;
   level: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CampaignCharacter {
+  id: string;
+  campaignId: string;
+  characterId: string;
+  addedByUserId: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -49,8 +57,8 @@ export interface CharacterBuild {
   updatedAt: string;
 }
 
-export interface CharacterStatus {
-  characterId: string;
+export interface CampaignCharacterStatus {
+  campaignCharacterId: string;
   currentHp: number;
   maxHp: number;
   temporaryHp: number;
@@ -67,9 +75,10 @@ export interface CharacterStatus {
   updatedAt: string;
 }
 
-export interface CharacterSnapshot {
-  characterId: string;
+export interface CampaignCharacterSnapshot {
+  campaignCharacterId: string;
   campaignId: string;
+  characterId: string;
   name: string;
   level: number;
   classLabel: string;

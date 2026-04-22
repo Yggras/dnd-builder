@@ -1,7 +1,7 @@
-import type { Character, CharacterBuild, CharacterSnapshot } from '@/shared/types/domain';
+import type { Character, CharacterBuild } from '@/shared/types/domain';
 
 export interface CharacterRepository {
-  listCharacters: (campaignId: string) => Promise<Character[]>;
+  listCharacters: () => Promise<Character[]>;
+  getCharacter: (characterId: string) => Promise<Character | null>;
   getBuild: (characterId: string) => Promise<CharacterBuild | null>;
-  getSnapshot: (characterId: string) => Promise<CharacterSnapshot | null>;
 }

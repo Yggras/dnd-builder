@@ -6,4 +6,8 @@ export class CampaignService {
   listCampaigns() {
     return this.repository.listCampaigns();
   }
+
+  listCampaignCharacters(campaignId: string) {
+    return this.repository.listCampaignCharacters(campaignId);
+  }
 }

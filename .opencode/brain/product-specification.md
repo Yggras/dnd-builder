@@ -29,21 +29,26 @@ D&D groups often split character data, rules lookup, and session tracking across
 ## Resolved Decisions
 - Platform: iOS and Android mobile app.
 - Collaboration model: shared sync is required.
-- Permissions: players edit their own characters; DM has read-only access to all characters.
+- Permissions: players edit their own characters; DM has read-only access to characters assigned to their campaign.
 - Builder depth: guided and validated, but flexible with manual overrides.
 - DM overview: includes live session status, not just static sheets.
 - Offline support: offline-first for core use.
 - Content model: private app for the group, with a preloaded curated dataset derived from 5etools-style source data.
 - Homebrew model: all homebrew and user import workflows are deferred beyond v1.
+- Character ownership model: characters are global player-owned records that can be assigned to campaigns.
+- Assignment model: one `(campaign_id, character_id)` assignment may exist at most once.
+- State model: character build data is shared per character, while live status is isolated per campaign assignment.
 
 ## Requirements and Approach
 - Create a private campaign model with DM ownership and player membership.
 - Support invite-based campaign joining.
 - Authenticate users with a low-friction login flow.
-- Store character build data separately from live character status.
+- Let players create and own characters independently of campaigns.
+- Allow campaigns to assign existing player-owned characters.
+- Store character build data separately from campaign-assigned live character status.
 - Represent build data for class, subclass, level progression, abilities, proficiencies, feats, spells, inventory, notes, and overrides.
-- Represent live status for HP, temporary HP, AC, spell slots, conditions, exhaustion, concentration, death saves, and similar session state.
-- Generate a derived character snapshot for fast rendering in character and DM views.
+- Represent assignment-scoped live status for HP, temporary HP, AC, spell slots, conditions, exhaustion, concentration, death saves, and similar session state.
+- Generate a derived campaign character snapshot for fast rendering in character and DM views.
 - Provide a step-based builder flow with validation, prerequisite warnings, and override paths.
 - Provide a live character screen optimized for quick updates during play.
 - Provide a DM dashboard listing all party members with current status summaries and drill-down access.
@@ -55,7 +60,7 @@ D&D groups often split character data, rules lookup, and session tracking across
 
 ## Public Interfaces and Data Shapes
 - Roles: `dm`, `player`
-- Core entities: `campaign`, `campaign_member`, `campaign_invite`, `character`, `character_build`, `character_status`, `character_snapshot`, `content_bundle`, `content_version`, `compendium_entry`
+- Core entities: `campaign`, `campaign_member`, `campaign_invite`, `character`, `character_build`, `campaign_character`, `campaign_character_status`, `campaign_character_snapshot`, `content_bundle`, `content_version`, `compendium_entry`
 - Compendium entry minimum shape:
   - `entry_type`
   - `name`
@@ -95,7 +100,7 @@ D&D groups often split character data, rules lookup, and session tracking across
 
 ## Delivery Plan
 1. Set up mobile app foundation, auth, campaign membership, and invite flow.
-2. Build backend schema and sync model for characters, status, and campaigns.
+2. Build backend schema and sync model for characters, campaign assignments, status, and campaigns.
 3. Implement content bundle bootstrap and mobile compendium search experience.
 4. Implement character domain model and guided builder flow.
 5. Implement live character screen for session updates.
@@ -112,7 +117,7 @@ D&D groups often split character data, rules lookup, and session tracking across
 ## Assumptions
 - Recommended stack: Expo/React Native with TypeScript for client, Supabase for auth/database/realtime, and local SQLite-based caching for offline support.
 - Email/password authentication for manually provisioned users is sufficient for v1 unless stronger identity needs emerge.
-- The DM is the campaign owner and primary manager of campaign membership.
+- The DM is the campaign owner and primary manager of campaign membership and character assignments.
 - Curated rules content is prepared ahead of runtime and shipped as an app-managed dataset.
 - V1 focuses on player characters, not full NPC or monster management.
 

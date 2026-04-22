@@ -4,10 +4,11 @@ export function CampaignsScreen() {
   return (
     <FeaturePlaceholder
       title="Campaigns"
-      summary="Campaign creation, invites, and membership will land in the first vertical slice."
+      summary="Campaign creation, invites, membership, and character assignment will land in the first campaign slice."
       bullets={[
         'Campaign list and active campaign selection boundary',
         'Invite flow surface for player onboarding',
+        'Assign existing characters to a campaign without changing ownership',
         'Membership sync and DM ownership rules',
       ]}
     />

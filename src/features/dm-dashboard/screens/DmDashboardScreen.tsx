@@ -4,10 +4,10 @@ export function DmDashboardScreen() {
   return (
     <FeaturePlaceholder
       title="DM Dashboard"
-      summary="The dashboard route is ready for the first read-only party overview backed by snapshots and live status."
+      summary="The dashboard route is ready for the first read-only party overview backed by campaign-assigned snapshots and live status."
       bullets={[
         'Read-only DM access boundary for v1',
-        'Party snapshot list surface for live session monitoring',
+        'Campaign-assigned party snapshot list surface for live session monitoring',
         'Future realtime subscription hooks at campaign scope',
       ]}
     />

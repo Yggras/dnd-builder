@@ -15,13 +15,12 @@ export const schemaStatements = [
     updated_at TEXT NOT NULL
   )`,
   `CREATE TABLE IF NOT EXISTS characters (
-    id TEXT PRIMARY KEY NOT NULL,
-    campaign_id TEXT NOT NULL,
-    owner_user_id TEXT NOT NULL,
-    name TEXT NOT NULL,
-    level INTEGER NOT NULL,
-    created_at TEXT NOT NULL,
-    updated_at TEXT NOT NULL
+     id TEXT PRIMARY KEY NOT NULL,
+     owner_user_id TEXT NOT NULL,
+     name TEXT NOT NULL,
+     level INTEGER NOT NULL,
+     created_at TEXT NOT NULL,
+     updated_at TEXT NOT NULL
   )`,
   `CREATE TABLE IF NOT EXISTS character_builds (
     character_id TEXT PRIMARY KEY NOT NULL,
@@ -29,16 +28,25 @@ export const schemaStatements = [
     revision INTEGER NOT NULL DEFAULT 1,
     updated_at TEXT NOT NULL
   )`,
-  `CREATE TABLE IF NOT EXISTS character_statuses (
-    character_id TEXT PRIMARY KEY NOT NULL,
-    payload TEXT NOT NULL,
-    updated_at TEXT NOT NULL
-  )`,
-  `CREATE TABLE IF NOT EXISTS character_snapshots (
-    character_id TEXT PRIMARY KEY NOT NULL,
-    payload TEXT NOT NULL,
-    updated_at TEXT NOT NULL
-  )`,
+  `CREATE TABLE IF NOT EXISTS campaign_characters (
+     id TEXT PRIMARY KEY NOT NULL,
+     campaign_id TEXT NOT NULL,
+     character_id TEXT NOT NULL,
+     added_by_user_id TEXT NOT NULL,
+     created_at TEXT NOT NULL,
+     updated_at TEXT NOT NULL,
+     UNIQUE(campaign_id, character_id)
+   )`,
+  `CREATE TABLE IF NOT EXISTS campaign_character_statuses (
+     campaign_character_id TEXT PRIMARY KEY NOT NULL,
+     payload TEXT NOT NULL,
+     updated_at TEXT NOT NULL
+   )`,
+  `CREATE TABLE IF NOT EXISTS campaign_character_snapshots (
+     campaign_character_id TEXT PRIMARY KEY NOT NULL,
+     payload TEXT NOT NULL,
+     updated_at TEXT NOT NULL
+   )`,
   `CREATE TABLE IF NOT EXISTS compendium_entries (
      id TEXT PRIMARY KEY NOT NULL,
      entry_type TEXT NOT NULL,
@@ -110,6 +118,8 @@ export const schemaStatements = [
   `CREATE INDEX IF NOT EXISTS idx_content_entities_type ON content_entities(entity_type)`,
   `CREATE INDEX IF NOT EXISTS idx_content_entities_parent ON content_entities(parent_entity_id)`,
   `CREATE INDEX IF NOT EXISTS idx_content_entities_builder ON content_entities(entity_type, is_selectable_in_builder, is_primary_2024)`,
+  `CREATE INDEX IF NOT EXISTS idx_campaign_characters_campaign ON campaign_characters(campaign_id)`,
+  `CREATE INDEX IF NOT EXISTS idx_campaign_characters_character ON campaign_characters(character_id)`,
   `CREATE INDEX IF NOT EXISTS idx_choice_grants_source ON choice_grants(source_id, at_level)`,
   `CREATE INDEX IF NOT EXISTS idx_compendium_entries_type ON compendium_entries(entry_type)`,
 ];

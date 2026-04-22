@@ -1,1 +1,1 @@
-export type { CharacterStatus } from '@/shared/types/domain';
+export type { CampaignCharacterStatus } from '@/shared/types/domain';

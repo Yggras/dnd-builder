@@ -28,10 +28,11 @@ The most important architectural requirement is the combination of offline-first
 
 ## Inferred Product and Technical Requirements
 - The product is a private mobile app, not a public rules distribution platform.
-- The DM owns campaigns and has read-only visibility into all party characters in v1.
+- The DM owns campaigns and has read-only visibility into characters assigned to their campaign in v1.
 - Players edit only their own characters.
-- Character build data must be stored separately from live status data.
-- A derived snapshot is needed for fast rendering in player and DM views.
+- Characters are player-owned global records that can be assigned to multiple campaigns.
+- Character build data must be stored separately from assignment-scoped live status data.
+- A derived assignment snapshot is needed for fast rendering in player and DM views.
 - Content is prepared ahead of time from 5eTools-style source data and shipped as a curated preloaded dataset.
 - Offline reads and writes are required for core table workflows.
 - Remote changes must flow back to devices in near real time when online.
@@ -98,7 +99,7 @@ High-level flow:
 3. Local writes update the UI immediately and are added to a pending mutation queue.
 4. The sync layer replays queued mutations when connectivity is available.
 5. Realtime subscriptions patch shared campaign data into the local cache.
-6. The server regenerates character snapshots after relevant build or status changes.
+6. The server regenerates campaign character snapshots after relevant build or status changes.
 
 ## Domain Model
 Core entities from the product spec:
@@ -106,8 +107,9 @@ Core entities from the product spec:
 - `campaign_member`
 - `character`
 - `character_build`
-- `character_status`
-- `character_snapshot`
+- `campaign_character`
+- `campaign_character_status`
+- `campaign_character_snapshot`
 - `compendium_entry`
 
 Additional supporting entities recommended for implementation:
@@ -122,10 +124,10 @@ Additional supporting entities recommended for implementation:
 The separation between build, status, and snapshot should remain a central design decision.
 
 - `character_build`: long-lived progression and configuration choices
-- `character_status`: fast-changing session state such as HP, slots, conditions, concentration, death saves
-- `character_snapshot`: a derived, read-optimized projection used by the live character screen and DM dashboard
+- `campaign_character_status`: fast-changing session state such as HP, slots, conditions, concentration, death saves for one campaign assignment
+- `campaign_character_snapshot`: a derived, read-optimized projection used by the live character screen and DM dashboard within one campaign
 
-This keeps high-frequency session updates from being entangled with builder workflows.
+This keeps high-frequency session updates from being entangled with builder workflows and prevents live state from leaking across campaigns.
 
 ## Data Storage Design
 ### Server-Side PostgreSQL
@@ -136,8 +138,9 @@ Suggested tables:
 - `campaign_invites`
 - `characters`
 - `character_builds`
-- `character_statuses`
-- `character_snapshots`
+- `campaign_characters`
+- `campaign_character_statuses`
+- `campaign_character_snapshots`
 - `content_bundles`
 - `content_versions`
 - `compendium_entries`
@@ -154,8 +157,9 @@ Suggested local tables:
 - `campaign_members`
 - `characters`
 - `character_builds`
-- `character_statuses`
-- `character_snapshots`
+- `campaign_characters`
+- `campaign_character_statuses`
+- `campaign_character_snapshots`
 - `compendium_entries`
 - `pending_mutations`
 - `sync_metadata`
@@ -172,10 +176,10 @@ Roles:
 
 Access rules:
 - the DM owns a campaign
-- the DM can view all characters in their campaign
+- the DM can view all characters assigned to their campaign
 - players can only create and edit their own characters
 - v1 rules content is globally available to authenticated users as a preloaded dataset
-- the DM is read-only over player characters in v1
+- the DM is read-only over player characters assigned to their campaign in v1
 
 This access model should be enforced in the database and not trusted to the client alone.
 
@@ -204,7 +208,7 @@ Recommended client layering inside each feature:
 ## Backend Responsibilities
 Even with Supabase as the platform, some server-owned logic is still needed:
 - campaign invite issuance and acceptance rules
-- guarded character mutations
+- guarded character mutations and campaign assignment rules
 - content bootstrap and version negotiation
 - normalization pipeline execution outside runtime app flows
 - snapshot generation after build or status changes
@@ -229,8 +233,9 @@ Representative endpoints or service operations:
 - `POST /invites/accept`
 - `GET /campaigns/:id/bootstrap`
 - `GET /campaigns/:id/characters`
+- `POST /campaigns/:id/characters`
 - `PUT /characters/:id/build`
-- `PATCH /characters/:id/status`
+- `PATCH /campaign-characters/:id/status`
 - `GET /compendium/search`
 - `GET /content/bootstrap`
 - `GET /content/version`
@@ -252,9 +257,9 @@ Representative endpoints or service operations:
 Use simple versioning or timestamps as described in the product spec.
 
 Recommended approach:
-- `character_status`: last-write-wins with version or `updated_at`
+- `campaign_character_status`: last-write-wins with version or `updated_at`
 - `character_build`: reject stale writes and ask client to refresh before retrying
-- `character_snapshot`: always regenerated from canonical server state
+- `campaign_character_snapshot`: always regenerated from canonical server state
 
 This keeps conflict handling predictable and narrow in v1.
 
