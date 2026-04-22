@@ -22,11 +22,20 @@ const entryTypeOptions: { label: string; value: CompendiumEntryTypeFilter }[] = 
   { label: 'Species', value: 'species' },
   { label: 'Classes', value: 'class' },
   { label: 'Subclasses', value: 'subclass' },
+  { label: 'Backgrounds', value: 'background' },
   { label: 'Feats', value: 'feat' },
   { label: 'Options', value: 'optionalfeature' },
   { label: 'Spells', value: 'spell' },
-  { label: 'Items', value: 'item' },
+  { label: 'Equipment', value: 'equipment' },
+  { label: 'Magic Items', value: 'magicitem' },
 ];
+
+function isEquipmentEntry(metadata: Record<string, unknown>) {
+  const category = typeof metadata.category === 'string' ? metadata.category.toLowerCase() : null;
+  const rarity = typeof metadata.rarity === 'string' ? metadata.rarity.toLowerCase() : null;
+
+  return category === 'basic' || rarity == null || rarity === 'none';
+}
 
 function getEditionLabel(rulesEdition: string, isLegacy: boolean) {
   if (isLegacy || rulesEdition === '2014') {
@@ -36,8 +45,12 @@ function getEditionLabel(rulesEdition: string, isLegacy: boolean) {
   return '2024';
 }
 
-function getEntryTypeLabel(entryType: string) {
+function getEntryTypeLabel(entryType: string, metadata: Record<string, unknown>) {
   switch (entryType) {
+    case 'background':
+      return 'Background';
+    case 'item':
+      return isEquipmentEntry(metadata) ? 'Equipment' : 'Magic Item';
     case 'optionalfeature':
       return 'Option';
     case 'subclass':
@@ -82,15 +95,15 @@ export function CompendiumScreen() {
         ListHeaderComponent={
           <View style={styles.stickyHeader}>
             <View style={styles.searchRow}>
-              <TextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                onChangeText={setQuery}
-                placeholder="Search spells, feats, species, items..."
-                placeholderTextColor={theme.colors.textFaint}
-                returnKeyType="search"
-                style={styles.searchInput}
-                value={query}
+                <TextInput
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  onChangeText={setQuery}
+                  placeholder="Search backgrounds, spells, equipment..."
+                  placeholderTextColor={theme.colors.textFaint}
+                  returnKeyType="search"
+                  style={styles.searchInput}
+                  value={query}
               />
 
               {query ? (
@@ -125,7 +138,7 @@ export function CompendiumScreen() {
 
               <View style={styles.badges}>
                 <View style={styles.typeBadge}>
-                  <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType)}</Text>
+                  <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType, entry.metadata)}</Text>
                 </View>
                 <View style={[styles.editionBadge, entry.isLegacy && styles.legacyBadge]}>
                   <Text style={[styles.editionBadgeLabel, entry.isLegacy && styles.legacyBadgeLabel]}>

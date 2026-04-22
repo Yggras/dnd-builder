@@ -47,6 +47,7 @@ interface GeneratedCompendiumEntryRecord {
   summary: string | null;
   text: string;
   searchText: string;
+  metadata?: Record<string, unknown>;
   renderPayload: Record<string, unknown> | null;
 }
 
@@ -183,7 +184,7 @@ async function insertCompendiumEntry(
     record.text,
     record.searchText,
     'global',
-    JSON.stringify({}),
+    JSON.stringify(record.metadata ?? {}),
     JSON.stringify(record.renderPayload ?? null),
     updatedAt,
   );

@@ -1,4 +1,5 @@
 import bundledContentIndex from '../../../../generated/5etools/content-index.json';
+import backgrounds_all from '../../../../generated/5etools/backgrounds/all.json';
 import classes_artificer from '../../../../generated/5etools/classes/artificer.json';
 import classes_barbarian from '../../../../generated/5etools/classes/barbarian.json';
 import classes_bard from '../../../../generated/5etools/classes/bard.json';
@@ -16,6 +17,7 @@ import classes_spellcaster_sidekick from '../../../../generated/5etools/classes/
 import classes_warlock from '../../../../generated/5etools/classes/warlock.json';
 import classes_warrior_sidekick from '../../../../generated/5etools/classes/warrior-sidekick.json';
 import classes_wizard from '../../../../generated/5etools/classes/wizard.json';
+import compendium_backgrounds from '../../../../generated/5etools/compendium/backgrounds.json';
 import compendium_classes from '../../../../generated/5etools/compendium/classes.json';
 import compendium_feats from '../../../../generated/5etools/compendium/feats.json';
 import compendium_items from '../../../../generated/5etools/compendium/items.json';
@@ -49,6 +51,7 @@ import spells_level_9 from '../../../../generated/5etools/spells/level-9.json';
 export const bundledContentManifest = bundledContentIndex;
 
 export const bundledContentChunks = {
+  'generated/5etools/backgrounds/all.json': backgrounds_all,
   'generated/5etools/classes/artificer.json': classes_artificer,
   'generated/5etools/classes/barbarian.json': classes_barbarian,
   'generated/5etools/classes/bard.json': classes_bard,
@@ -66,6 +69,7 @@ export const bundledContentChunks = {
   'generated/5etools/classes/warlock.json': classes_warlock,
   'generated/5etools/classes/warrior-sidekick.json': classes_warrior_sidekick,
   'generated/5etools/classes/wizard.json': classes_wizard,
+  'generated/5etools/compendium/backgrounds.json': compendium_backgrounds,
   'generated/5etools/compendium/classes.json': compendium_classes,
   'generated/5etools/compendium/feats.json': compendium_feats,
   'generated/5etools/compendium/items.json': compendium_items,

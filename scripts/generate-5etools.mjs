@@ -1,6 +1,7 @@
 import { SOURCE_FILES } from './5etools-importer/config.mjs';
 import { fetchJson, fetchJsonMap } from './5etools-importer/fetch.mjs';
 import {
+  normalizeBackgrounds,
   normalizeChoiceGrants,
   normalizeClasses,
   normalizeCompendiumEntries,
@@ -46,9 +47,10 @@ function validateGrants(choiceGrants) {
 }
 
 async function loadRawSources() {
-  const [races, classIndex, feats, optionalFeatures, spellsIndex, itemsBase, items] = await Promise.all([
+  const [races, classIndex, backgrounds, feats, optionalFeatures, spellsIndex, itemsBase, items] = await Promise.all([
     fetchJson(SOURCE_FILES.races),
     fetchJson(SOURCE_FILES.classIndex),
+    fetchJson(SOURCE_FILES.backgrounds),
     fetchJson(SOURCE_FILES.feats),
     fetchJson(SOURCE_FILES.optionalFeatures),
     fetchJson(SOURCE_FILES.spellsIndex),
@@ -62,6 +64,7 @@ async function loadRawSources() {
   return {
     races,
     classFiles,
+    backgrounds,
     feats,
     optionalFeatures,
     spellFiles,
@@ -78,6 +81,7 @@ async function main() {
   const rawSubclasses = Object.values(rawSources.classFiles).flatMap((file) => file.subclass ?? []);
   const resolvedClasses = resolveCollection(rawClasses, selectCopyKey);
   const resolvedSubclasses = resolveCollection(rawSubclasses, selectCopyKey);
+  const resolvedBackgrounds = resolveCollection(rawSources.backgrounds.background ?? [], selectCopyKey);
   const resolvedFeats = resolveCollection(rawSources.feats.feat ?? [], selectCopyKey);
   const resolvedOptionalFeatures = resolveCollection(rawSources.optionalFeatures.optionalfeature ?? [], selectCopyKey);
   const resolvedSpells = flattenSpellFiles(rawSources.spellFiles);
@@ -85,6 +89,7 @@ async function main() {
 
   const species = normalizeSpecies(resolvedSpecies);
   const { classes, subclasses } = normalizeClasses(resolvedClasses, resolvedSubclasses);
+  const backgrounds = normalizeBackgrounds(resolvedBackgrounds);
   const feats = normalizeFeats(resolvedFeats);
   const optionalFeatures = normalizeOptionalFeatures(resolvedOptionalFeatures);
   const spells = normalizeSpells(resolvedSpells);
@@ -94,6 +99,7 @@ async function main() {
     species,
     class: classes,
     subclass: subclasses,
+    background: backgrounds,
     feat: feats,
     optionalfeature: optionalFeatures,
     spell: spells,
@@ -103,6 +109,7 @@ async function main() {
   validateUnique(species, 'species');
   validateUnique(classes, 'class');
   validateUnique(subclasses, 'subclass');
+  validateUnique(backgrounds, 'background');
   validateUnique(feats, 'feat');
   validateUnique(optionalFeatures, 'optionalfeature');
   validateUnique(spells, 'spell');
@@ -115,6 +122,7 @@ async function main() {
     species,
     classes,
     subclasses,
+    backgrounds,
     feats,
     optionalFeatures,
     spells,

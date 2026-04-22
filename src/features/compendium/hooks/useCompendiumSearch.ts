@@ -13,10 +13,12 @@ export type CompendiumEntryTypeFilter =
   | 'species'
   | 'class'
   | 'subclass'
+  | 'background'
   | 'feat'
   | 'optionalfeature'
   | 'spell'
-  | 'item';
+  | 'equipment'
+  | 'magicitem';
 
 export function useCompendiumSearch() {
   const [query, setQuery] = useState('');

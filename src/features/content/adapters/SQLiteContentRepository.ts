@@ -57,6 +57,13 @@ interface ChoiceGrantRow {
 
 const SEARCH_RESULT_LIMIT = 100;
 
+function isEquipmentMetadata(metadata: Record<string, unknown>) {
+  const category = typeof metadata.category === 'string' ? metadata.category.toLowerCase() : null;
+  const rarity = typeof metadata.rarity === 'string' ? metadata.rarity.toLowerCase() : null;
+
+  return category === 'basic' || rarity == null || rarity === 'none';
+}
+
 function parseJson<T>(value: string | null, fallback: T): T {
   if (!value) {
     return fallback;
@@ -234,22 +241,68 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
   async searchCompendiumEntries(query: string, entryType?: string) {
     const database = await getDatabase();
     const normalizedQuery = `%${query.trim().toLowerCase()}%`;
-    const rows = await database.getAllAsync<CompendiumEntryRow>(
-      entryType
-        ? `SELECT *
-           FROM compendium_entries
-           WHERE entry_type = ? AND LOWER(search_text) LIKE ?
-           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
-           LIMIT ${SEARCH_RESULT_LIMIT}`
-        : `SELECT *
-           FROM compendium_entries
-           WHERE LOWER(search_text) LIKE ?
-           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
-           LIMIT ${SEARCH_RESULT_LIMIT}`,
-      ...(entryType ? [entryType, normalizedQuery] : [normalizedQuery]),
-    );
+    let rows: CompendiumEntryRow[];
 
-    return rows.map(mapCompendiumEntry);
+    if (entryType === 'equipment') {
+      rows = await database.getAllAsync<CompendiumEntryRow>(
+        `SELECT *
+         FROM compendium_entries
+         WHERE entry_type = 'item'
+           AND LOWER(search_text) LIKE ?
+           AND (
+             LOWER(COALESCE(json_extract(metadata, '$.category'), '')) = 'basic'
+             OR json_extract(metadata, '$.rarity') IS NULL
+             OR LOWER(COALESCE(json_extract(metadata, '$.rarity'), '')) = 'none'
+           )
+         ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+         LIMIT ${SEARCH_RESULT_LIMIT}`,
+        normalizedQuery,
+      );
+    } else if (entryType === 'magicitem') {
+      rows = await database.getAllAsync<CompendiumEntryRow>(
+        `SELECT *
+         FROM compendium_entries
+         WHERE entry_type = 'item'
+           AND LOWER(search_text) LIKE ?
+           AND NOT (
+             LOWER(COALESCE(json_extract(metadata, '$.category'), '')) = 'basic'
+             OR json_extract(metadata, '$.rarity') IS NULL
+             OR LOWER(COALESCE(json_extract(metadata, '$.rarity'), '')) = 'none'
+           )
+         ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+         LIMIT ${SEARCH_RESULT_LIMIT}`,
+        normalizedQuery,
+      );
+    } else {
+      rows = await database.getAllAsync<CompendiumEntryRow>(
+        entryType
+          ? `SELECT *
+             FROM compendium_entries
+             WHERE entry_type = ? AND LOWER(search_text) LIKE ?
+             ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+             LIMIT ${SEARCH_RESULT_LIMIT}`
+          : `SELECT *
+             FROM compendium_entries
+             WHERE LOWER(search_text) LIKE ?
+             ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+             LIMIT ${SEARCH_RESULT_LIMIT}`,
+        ...(entryType ? [entryType, normalizedQuery] : [normalizedQuery]),
+      );
+    }
+
+    return rows
+      .map(mapCompendiumEntry)
+      .filter((entry) => {
+        if (entryType === 'equipment') {
+          return entry.entryType === 'item' && isEquipmentMetadata(entry.metadata);
+        }
+
+        if (entryType === 'magicitem') {
+          return entry.entryType === 'item' && !isEquipmentMetadata(entry.metadata);
+        }
+
+        return true;
+      });
   }
 
   searchEntries(query: string, entryType?: string) {

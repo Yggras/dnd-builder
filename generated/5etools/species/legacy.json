@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-cd21eebed140d1ae",
+  "contentVersion": "schema1-9b7a4f4e208eb877",
   "entityType": "species",
   "chunkId": "legacy",
-  "generatedAt": "2026-04-22T06:29:02.359Z",
+  "generatedAt": "2026-04-22T20:46:18.722Z",
   "records": [
     {
       "id": "aarakocra|dmg|species",

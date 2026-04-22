@@ -215,11 +215,15 @@ export async function writeGeneratedContent(entityGroups) {
     }),
   );
   const featChunks = chunkFeats(entityGroups.feats);
+  const backgroundChunks = {
+    all: entityGroups.backgrounds,
+  };
   const optionalFeatureChunks = chunkOptionalFeatures(entityGroups.optionalFeatures);
   const spellChunks = chunkSpells(entityGroups.spells);
   const itemChunks = chunkItems(entityGroups.items);
   const grantChunks = { all: entityGroups.choiceGrants };
   const compendiumChunks = {
+    backgrounds: entityGroups.compendiumEntries.filter((record) => record.entityType === 'background'),
     species: entityGroups.compendiumEntries.filter((record) => record.entityType === 'species'),
     classes: entityGroups.compendiumEntries.filter((record) => record.entityType === 'class'),
     subclasses: entityGroups.compendiumEntries.filter((record) => record.entityType === 'subclass'),
@@ -232,6 +236,7 @@ export async function writeGeneratedContent(entityGroups) {
   const chunkGroups = [
     ['species', speciesChunks],
     ['classes', classChunks],
+    ['backgrounds', backgroundChunks],
     ['feats', featChunks],
     ['optional-features', optionalFeatureChunks],
     ['spells', spellChunks],
@@ -263,6 +268,7 @@ export async function writeGeneratedContent(entityGroups) {
       species: entityGroups.species.length,
       classes: entityGroups.classes.length,
       subclasses: entityGroups.subclasses.length,
+      backgrounds: entityGroups.backgrounds.length,
       feats: entityGroups.feats.length,
       optionalFeatures: entityGroups.optionalFeatures.length,
       spells: entityGroups.spells.length,
@@ -296,6 +302,7 @@ export async function writeGeneratedContent(entityGroups) {
       species: entityGroups.species.length,
       classes: entityGroups.classes.length,
       subclasses: entityGroups.subclasses.length,
+      backgrounds: entityGroups.backgrounds.length,
       feats: entityGroups.feats.length,
       optionalFeatures: entityGroups.optionalFeatures.length,
       spells: entityGroups.spells.length,

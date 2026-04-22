@@ -15,8 +15,19 @@ function getEditionLabel(rulesEdition: string, isLegacy: boolean) {
   return '2024';
 }
 
-function getEntryTypeLabel(entryType: string) {
+function isEquipmentEntry(metadata: Record<string, unknown>) {
+  const category = typeof metadata.category === 'string' ? metadata.category.toLowerCase() : null;
+  const rarity = typeof metadata.rarity === 'string' ? metadata.rarity.toLowerCase() : null;
+
+  return category === 'basic' || rarity == null || rarity === 'none';
+}
+
+function getEntryTypeLabel(entryType: string, metadata: Record<string, unknown>) {
   switch (entryType) {
+    case 'background':
+      return 'Background';
+    case 'item':
+      return isEquipmentEntry(metadata) ? 'Equipment' : 'Magic Item';
     case 'optionalfeature':
       return 'Option';
     case 'subclass':
@@ -80,7 +91,7 @@ export function CompendiumDetailScreen() {
         <Text style={styles.sourceText}>{entry.sourceName}</Text>
         <View style={styles.metaRow}>
           <View style={styles.typeBadge}>
-            <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType)}</Text>
+            <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType, entry.metadata)}</Text>
           </View>
           <View style={[styles.editionBadge, entry.isLegacy && styles.legacyBadge]}>
             <Text style={[styles.editionBadgeLabel, entry.isLegacy && styles.legacyBadgeLabel]}>

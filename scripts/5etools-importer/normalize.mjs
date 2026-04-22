@@ -15,6 +15,37 @@ import {
   unique,
 } from './utils.mjs';
 
+function extractBackgroundFeatIds(feats) {
+  return unique(
+    ensureArray(feats).flatMap((featRecord) => {
+      if (!featRecord || typeof featRecord !== 'object') {
+        return [];
+      }
+
+      return Object.entries(featRecord)
+        .filter(([, enabled]) => Boolean(enabled))
+        .map(([uid]) => featIdFromUid(uid))
+        .filter(Boolean);
+    }),
+  );
+}
+
+function extractBackgroundEquipmentSummary(entries) {
+  for (const entry of ensureArray(entries)) {
+    if (entry?.type !== 'list' || !Array.isArray(entry.items)) {
+      continue;
+    }
+
+    for (const item of entry.items) {
+      if (typeof item?.name === 'string' && item.name.toLowerCase() === 'equipment:' && typeof item.entry === 'string') {
+        return item.entry;
+      }
+    }
+  }
+
+  return null;
+}
+
 function createBaseRecord(kind, record, id) {
   const text = extractText(record.entries ?? record.entry ?? []);
   const searchText = [record.name, record.source, text].filter(Boolean).join(' ');
@@ -312,6 +343,32 @@ export function normalizeFeats(records) {
   );
 }
 
+export function normalizeBackgrounds(records) {
+  return stableSortBy(
+    records.map((record) => {
+      const id = canonicalId([record.name, record.source, 'background']);
+      const featIds = extractBackgroundFeatIds(record.feats);
+
+      return {
+        ...createBaseRecord('background', record, id),
+        metadata: {
+          ability: record.ability ?? [],
+          featIds,
+          feats: record.feats ?? [],
+          skillProficiencies: record.skillProficiencies ?? [],
+          toolProficiencies: record.toolProficiencies ?? [],
+          languageProficiencies: record.languageProficiencies ?? [],
+          startingEquipment: record.startingEquipment ?? [],
+          equipmentSummary: extractBackgroundEquipmentSummary(record.entries),
+          fromFeature: record.fromFeature ?? null,
+          entriesText: extractText(record.entries ?? []),
+        },
+      };
+    }),
+    (record) => record.id,
+  );
+}
+
 export function normalizeOptionalFeatures(records) {
   return stableSortBy(
     records.map((record) => {
@@ -427,6 +484,7 @@ export function normalizeCompendiumEntries(entityGroups) {
         summary: record.summary,
         text: extractText(record.renderPayload?.entries ?? []),
         searchText: record.searchText,
+        metadata: record.metadata ?? {},
         renderPayload: record.renderPayload,
       });
     }

@@ -1,22 +1,29 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-cd21eebed140d1ae",
-  "generatedAt": "2026-04-22T06:29:02.359Z",
+  "contentVersion": "schema1-9b7a4f4e208eb877",
+  "generatedAt": "2026-04-22T20:46:18.722Z",
   "sourceRepository": "5etools-mirror-3/5etools-src",
   "sourceRef": "main",
-  "chunkCount": 46,
+  "chunkCount": 48,
   "entityCounts": {
     "species": 157,
     "classes": 30,
     "subclasses": 315,
+    "backgrounds": 157,
     "feats": 265,
     "optionalFeatures": 213,
     "spells": 936,
     "items": 2646,
     "choiceGrants": 46,
-    "compendiumEntries": 4562
+    "compendiumEntries": 4719
   },
   "chunks": [
+    {
+      "entityType": "backgrounds",
+      "chunkId": "all",
+      "filePath": "generated/5etools/backgrounds/all.json",
+      "recordCount": 157
+    },
     {
       "entityType": "classes",
       "chunkId": "artificer",
@@ -118,6 +125,12 @@
       "chunkId": "wizard",
       "filePath": "generated/5etools/classes/wizard.json",
       "recordCount": 19
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "backgrounds",
+      "filePath": "generated/5etools/compendium/backgrounds.json",
+      "recordCount": 157
     },
     {
       "entityType": "compendium",
