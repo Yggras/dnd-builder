@@ -1,13 +1,24 @@
+import { useMemo, useState } from 'react';
+import {
+  FlatList,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { useCompendiumSearch, type CompendiumEntryTypeFilter } from '@/features/compendium/hooks/useCompendiumSearch';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
-import { Screen } from '@/shared/ui/Screen';
+import { theme, typography } from '@/shared/ui/theme';
 
 const entryTypeOptions: { label: string; value: CompendiumEntryTypeFilter }[] = [
-  { label: 'All', value: 'all' },
+  { label: 'All entries', value: 'all' },
   { label: 'Species', value: 'species' },
   { label: 'Classes', value: 'class' },
   { label: 'Subclasses', value: 'subclass' },
@@ -39,6 +50,7 @@ function getEntryTypeLabel(entryType: string) {
 export function CompendiumScreen() {
   const router = useRouter();
   const { data, error, isLoading, isFetching, query, setQuery, entryType, setEntryType } = useCompendiumSearch();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   if (isLoading && !data) {
     return <LoadingState label="Loading local compendium..." />;
@@ -49,268 +61,361 @@ export function CompendiumScreen() {
   }
 
   const entries = data ?? [];
+  const activeFilterLabel = useMemo(
+    () => entryTypeOptions.find((option) => option.value === entryType)?.label ?? 'All entries',
+    [entryType],
+  );
 
   return (
-    <Screen contentContainerStyle={styles.container}>
-      <View style={styles.hero}>
-        <Text style={styles.eyebrow}>Compendium</Text>
-        <Text style={styles.title}>Search the local rules library</Text>
-        <Text style={styles.description}>
-          Browse seeded 5e content offline. Results favor 2024-first entries and show the first 100 matches.
-        </Text>
-      </View>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.safeArea}>
+      <View pointerEvents="none" style={styles.backdrop} />
 
-      <View style={styles.searchPanel}>
-        <Text style={styles.label}>Search entries</Text>
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={setQuery}
-          placeholder="Search spells, feats, species, items..."
-          placeholderTextColor="#64748B"
-          style={styles.searchInput}
-          value={query}
-        />
+      <FlatList
+        contentContainerStyle={styles.content}
+        data={entries}
+        keyExtractor={(entry) => entry.id}
+        keyboardDismissMode="on-drag"
+        keyboardShouldPersistTaps="handled"
+        ListEmptyComponent={
+          <View style={styles.emptyState}>
+            <Text style={styles.emptyTitle}>No entries matched</Text>
+            <Text style={styles.emptyMessage}>Try a different search or switch the filter.</Text>
+          </View>
+        }
+        ListHeaderComponent={
+          <View style={styles.stickyHeader}>
+            <View style={styles.searchRow}>
+              <TextInput
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={setQuery}
+                placeholder="Search spells, feats, species, items..."
+                placeholderTextColor={theme.colors.textFaint}
+                returnKeyType="search"
+                style={styles.searchInput}
+                value={query}
+              />
 
-        <View style={styles.filters}>
-          {entryTypeOptions.map((option) => {
-            const isActive = option.value === entryType;
+              {query ? (
+                <Pressable accessibilityRole="button" onPress={() => setQuery('')} style={({ pressed }) => [styles.utilityButton, pressed && styles.utilityButtonPressed]}>
+                  <Text style={styles.utilityButtonLabel}>Clear</Text>
+                </Pressable>
+              ) : null}
 
-            return (
-              <Pressable
-                key={option.value}
-                onPress={() => setEntryType(option.value)}
-                style={({ pressed }) => [styles.filterChip, isActive && styles.filterChipActive, pressed && styles.filterChipPressed]}
-              >
-                <Text style={[styles.filterChipLabel, isActive && styles.filterChipLabelActive]}>{option.label}</Text>
+              <Pressable accessibilityRole="button" onPress={() => setIsFilterOpen(true)} style={({ pressed }) => [styles.utilityButton, styles.filterButton, pressed && styles.utilityButtonPressed]}>
+                <Text style={styles.filterButtonLabel}>{entryType === 'all' ? 'Filter' : activeFilterLabel}</Text>
               </Pressable>
-            );
-          })}
-        </View>
-      </View>
+            </View>
 
-      <View style={styles.resultsHeader}>
-        <Text style={styles.resultsTitle}>Results</Text>
-        <Text style={styles.resultsMeta}>
-          {entries.length} shown{isFetching ? ' • Updating...' : ''}
-        </Text>
-      </View>
+            <View style={styles.summaryRow}>
+              <Text style={styles.summaryText}>
+                {activeFilterLabel} • {entries.length} shown
+              </Text>
+              {isFetching ? <Text style={styles.updatingText}>Updating...</Text> : null}
+            </View>
+          </View>
+        }
+        renderItem={({ item: entry }) => (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push(`/(app)/compendium/${encodeURIComponent(entry.id)}`)}
+            style={({ pressed }) => [styles.resultRow, pressed && styles.resultRowPressed]}
+          >
+            <View style={styles.resultTopRow}>
+              <Text numberOfLines={1} style={styles.resultTitle}>
+                {entry.name}
+              </Text>
 
-      {entries.length ? (
-        <View style={styles.resultsList}>
-          {entries.map((entry) => (
-            <Pressable
-              key={entry.id}
-              onPress={() => router.push(`/(app)/compendium/${encodeURIComponent(entry.id)}`)}
-              style={({ pressed }) => [styles.resultCard, pressed && styles.resultCardPressed]}
-            >
-              <View style={styles.resultHeader}>
-                <Text style={styles.resultTitle}>{entry.name}</Text>
-                <View style={styles.badges}>
-                  <View style={styles.typeBadge}>
-                    <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType)}</Text>
-                  </View>
-                  <View style={[styles.editionBadge, entry.isLegacy && styles.legacyBadge]}>
-                    <Text style={[styles.editionBadgeLabel, entry.isLegacy && styles.legacyBadgeLabel]}>
-                      {getEditionLabel(entry.rulesEdition, entry.isLegacy)}
-                    </Text>
-                  </View>
+              <View style={styles.badges}>
+                <View style={styles.typeBadge}>
+                  <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType)}</Text>
+                </View>
+                <View style={[styles.editionBadge, entry.isLegacy && styles.legacyBadge]}>
+                  <Text style={[styles.editionBadgeLabel, entry.isLegacy && styles.legacyBadgeLabel]}>
+                    {getEditionLabel(entry.rulesEdition, entry.isLegacy)}
+                  </Text>
                 </View>
               </View>
+            </View>
 
-              <Text style={styles.resultMetaText}>
-                {entry.sourceCode} • {entry.sourceName}
-              </Text>
-              <Text numberOfLines={3} style={styles.resultSummary}>
-                {entry.summary || entry.text || 'No summary available.'}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-      ) : (
-        <View style={styles.emptyState}>
-          <Text style={styles.emptyTitle}>No entries matched</Text>
-          <Text style={styles.emptyMessage}>Try a different search term or switch the type filter.</Text>
-        </View>
-      )}
-    </Screen>
+            <Text numberOfLines={1} style={styles.resultMetaText}>
+              {entry.sourceCode} • {entry.sourceName}
+            </Text>
+
+            <Text numberOfLines={1} style={styles.resultSummary}>
+              {entry.summary || entry.text || 'No summary available.'}
+            </Text>
+          </Pressable>
+        )}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[0]}
+      />
+
+      <Modal animationType="slide" onRequestClose={() => setIsFilterOpen(false)} transparent visible={isFilterOpen}>
+        <Pressable onPress={() => setIsFilterOpen(false)} style={styles.modalBackdrop}>
+          <Pressable onPress={() => undefined} style={styles.sheet}>
+            <View style={styles.sheetHandle} />
+            <View style={styles.sheetHeader}>
+              <Text style={styles.sheetTitle}>Filter entries</Text>
+              <Pressable accessibilityRole="button" onPress={() => setIsFilterOpen(false)} style={({ pressed }) => [styles.sheetCloseButton, pressed && styles.utilityButtonPressed]}>
+                <Text style={styles.sheetCloseLabel}>Done</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.sheetOptions}>
+              {entryTypeOptions.map((option) => {
+                const isActive = option.value === entryType;
+
+                return (
+                  <Pressable
+                    accessibilityRole="button"
+                    key={option.value}
+                    onPress={() => {
+                      setEntryType(option.value);
+                      setIsFilterOpen(false);
+                    }}
+                    style={({ pressed }) => [styles.sheetOption, isActive && styles.sheetOptionActive, pressed && styles.sheetOptionPressed]}
+                  >
+                    <Text style={[styles.sheetOptionLabel, isActive && styles.sheetOptionLabelActive]}>{option.label}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    gap: 20,
-    paddingBottom: 32,
+  safeArea: {
+    backgroundColor: theme.colors.background,
+    flex: 1,
   },
-  hero: {
-    gap: 10,
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: theme.colors.backgroundDeep,
   },
-  eyebrow: {
-    color: '#8B5CF6',
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
+  content: {
+    paddingBottom: theme.spacing.xxl,
   },
-  title: {
-    color: '#F8FAFC',
-    fontSize: 30,
-    fontWeight: '700',
+  stickyHeader: {
+    backgroundColor: theme.colors.background,
+    borderBottomColor: theme.colors.borderSubtle,
+    borderBottomWidth: 1,
+    gap: theme.spacing.sm,
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.sm,
+    paddingBottom: theme.spacing.md,
   },
-  description: {
-    color: '#CBD5E1',
-    fontSize: 15,
-    lineHeight: 22,
-  },
-  searchPanel: {
-    backgroundColor: '#0F172A',
-    borderColor: '#1E293B',
-    borderRadius: 20,
-    borderWidth: 1,
-    gap: 14,
-    padding: 18,
-  },
-  label: {
-    color: '#E2E8F0',
-    fontSize: 14,
-    fontWeight: '600',
+  searchRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
   },
   searchInput: {
-    backgroundColor: '#020617',
-    borderColor: '#334155',
-    borderRadius: 14,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
     borderWidth: 1,
-    color: '#F8FAFC',
+    color: theme.colors.textPrimary,
+    flex: 1,
     fontSize: 16,
-    minHeight: 52,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
+    minHeight: 48,
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: 12,
   },
-  filters: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  filterChip: {
-    backgroundColor: '#1E293B',
-    borderColor: '#334155',
-    borderRadius: 999,
+  utilityButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
     borderWidth: 1,
-    minHeight: 44,
     justifyContent: 'center',
+    minHeight: 48,
     paddingHorizontal: 14,
   },
-  filterChipActive: {
-    backgroundColor: '#312E81',
-    borderColor: '#8B5CF6',
+  filterButton: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderAccent,
+    maxWidth: 140,
   },
-  filterChipPressed: {
-    opacity: 0.92,
+  utilityButtonPressed: {
+    borderColor: theme.colors.accentPrimary,
   },
-  filterChipLabel: {
-    color: '#CBD5E1',
+  utilityButtonLabel: {
+    color: theme.colors.textSecondary,
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '700',
   },
-  filterChipLabelActive: {
-    color: '#F5F3FF',
+  filterButtonLabel: {
+    color: theme.colors.accentPrimarySoft,
+    fontSize: 13,
+    fontWeight: '700',
   },
-  resultsHeader: {
+  summaryRow: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: theme.spacing.sm,
   },
-  resultsTitle: {
-    color: '#F8FAFC',
-    fontSize: 18,
+  summaryText: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
+  updatingText: {
+    color: theme.colors.accentSuccessSoft,
+    ...typography.meta,
     fontWeight: '700',
   },
-  resultsMeta: {
-    color: '#94A3B8',
-    fontSize: 13,
+  resultRow: {
+    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.borderSubtle,
+    borderBottomWidth: 1,
+    gap: 6,
+    paddingHorizontal: theme.spacing.lg,
+    paddingVertical: theme.spacing.md,
   },
-  resultsList: {
-    gap: 12,
+  resultRowPressed: {
+    backgroundColor: theme.colors.surfaceElevated,
   },
-  resultCard: {
-    backgroundColor: '#0F172A',
-    borderColor: '#1E293B',
-    borderRadius: 18,
-    borderWidth: 1,
-    gap: 10,
-    padding: 16,
-  },
-  resultCardPressed: {
-    borderColor: '#8B5CF6',
-  },
-  resultHeader: {
-    gap: 10,
+  resultTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'space-between',
   },
   resultTitle: {
-    color: '#F8FAFC',
-    fontSize: 17,
+    color: theme.colors.textPrimary,
+    flex: 1,
+    fontSize: 16,
     fontWeight: '700',
   },
   badges: {
+    alignItems: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+    flexShrink: 0,
+    gap: 6,
   },
   typeBadge: {
-    backgroundColor: '#1E293B',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    backgroundColor: theme.colors.surfaceElevated,
+    borderRadius: theme.radii.pill,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   typeBadgeLabel: {
-    color: '#CBD5E1',
-    fontFamily: 'monospace',
-    fontSize: 12,
+    color: theme.colors.textSecondary,
+    fontSize: 11,
     fontWeight: '700',
+    letterSpacing: 0.3,
   },
   editionBadge: {
-    backgroundColor: '#312E81',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderRadius: theme.radii.pill,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   editionBadgeLabel: {
-    color: '#EDE9FE',
-    fontFamily: 'monospace',
-    fontSize: 12,
+    color: theme.colors.accentPrimarySoft,
+    fontSize: 11,
     fontWeight: '700',
+    letterSpacing: 0.3,
   },
   legacyBadge: {
-    backgroundColor: '#78350F',
+    backgroundColor: theme.colors.accentLegacy,
   },
   legacyBadgeLabel: {
-    color: '#FDE68A',
+    color: theme.colors.accentLegacySoft,
   },
   resultMetaText: {
-    color: '#94A3B8',
-    fontSize: 13,
+    color: theme.colors.textMuted,
+    ...typography.meta,
   },
   resultSummary: {
-    color: '#CBD5E1',
-    fontSize: 14,
-    lineHeight: 21,
+    color: theme.colors.textSecondary,
+    fontSize: 13,
+    lineHeight: 18,
   },
   emptyState: {
-    backgroundColor: '#0F172A',
-    borderColor: '#1E293B',
-    borderRadius: 20,
-    borderWidth: 1,
-    gap: 8,
-    padding: 20,
+    gap: theme.spacing.xs,
+    paddingHorizontal: theme.spacing.lg,
+    paddingVertical: theme.spacing.xl,
   },
   emptyTitle: {
-    color: '#F8FAFC',
-    fontSize: 18,
+    color: theme.colors.textPrimary,
+    fontSize: 16,
     fontWeight: '700',
   },
   emptyMessage: {
-    color: '#CBD5E1',
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  modalBackdrop: {
+    backgroundColor: theme.colors.overlay,
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  sheet: {
+    backgroundColor: theme.colors.surface,
+    borderTopLeftRadius: theme.radii.lg,
+    borderTopRightRadius: theme.radii.lg,
+    gap: theme.spacing.md,
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.sm,
+    paddingBottom: theme.spacing.xl,
+  },
+  sheetHandle: {
+    alignSelf: 'center',
+    backgroundColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.pill,
+    height: 4,
+    width: 40,
+  },
+  sheetHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: theme.spacing.sm,
+  },
+  sheetTitle: {
+    color: theme.colors.textPrimary,
+    ...typography.sectionTitle,
+  },
+  sheetCloseButton: {
+    paddingHorizontal: 4,
+    paddingVertical: 4,
+  },
+  sheetCloseLabel: {
+    color: theme.colors.accentPrimarySoft,
     fontSize: 14,
-    lineHeight: 21,
+    fontWeight: '700',
+  },
+  sheetOptions: {
+    gap: theme.spacing.sm,
+  },
+  sheetOption: {
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    minHeight: 48,
+    justifyContent: 'center',
+    paddingHorizontal: theme.spacing.md,
+  },
+  sheetOptionActive: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderColor: theme.colors.accentPrimary,
+  },
+  sheetOptionPressed: {
+    borderColor: theme.colors.accentPrimarySoft,
+  },
+  sheetOptionLabel: {
+    color: theme.colors.textSecondary,
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  sheetOptionLabelActive: {
+    color: theme.colors.textPrimary,
   },
 });

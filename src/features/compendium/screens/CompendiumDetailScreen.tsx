@@ -5,6 +5,7 @@ import { useCompendiumEntry } from '@/features/compendium/hooks/useCompendiumEnt
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import { Screen } from '@/shared/ui/Screen';
+import { theme, typography } from '@/shared/ui/theme';
 
 function getEditionLabel(rulesEdition: string, isLegacy: boolean) {
   if (isLegacy || rulesEdition === '2014') {
@@ -74,7 +75,9 @@ export function CompendiumDetailScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.header}>
+        <Text style={styles.eyebrow}>Compendium Entry</Text>
         <Text style={styles.title}>{entry.name}</Text>
+        <Text style={styles.sourceText}>{entry.sourceName}</Text>
         <View style={styles.metaRow}>
           <View style={styles.typeBadge}>
             <Text style={styles.typeBadgeLabel}>{getEntryTypeLabel(entry.entryType)}</Text>
@@ -88,7 +91,6 @@ export function CompendiumDetailScreen() {
             <Text style={styles.sourceBadgeLabel}>{entry.sourceCode}</Text>
           </View>
         </View>
-        <Text style={styles.sourceText}>{entry.sourceName}</Text>
       </View>
 
       {entry.summary ? (
@@ -108,107 +110,104 @@ export function CompendiumDetailScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 20,
-    paddingBottom: 32,
+    gap: theme.spacing.lg,
+    paddingBottom: theme.spacing.xxl,
   },
   header: {
-    gap: 10,
+    gap: theme.spacing.sm,
+  },
+  eyebrow: {
+    color: theme.colors.accentPrimarySoft,
+    ...typography.eyebrow,
   },
   title: {
-    color: '#F8FAFC',
-    fontSize: 30,
-    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    ...typography.titleLg,
   },
   metaRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    gap: theme.spacing.sm,
   },
   typeBadge: {
-    backgroundColor: '#1E293B',
-    borderRadius: 999,
+    backgroundColor: theme.colors.surfaceElevated,
+    borderRadius: theme.radii.pill,
     paddingHorizontal: 10,
     paddingVertical: 6,
   },
   typeBadgeLabel: {
-    color: '#CBD5E1',
-    fontFamily: 'monospace',
+    color: theme.colors.textSecondary,
     fontSize: 12,
     fontWeight: '700',
+    letterSpacing: 0.4,
   },
   editionBadge: {
-    backgroundColor: '#312E81',
-    borderRadius: 999,
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderRadius: theme.radii.pill,
     paddingHorizontal: 10,
     paddingVertical: 6,
   },
   editionBadgeLabel: {
-    color: '#EDE9FE',
-    fontFamily: 'monospace',
+    color: theme.colors.accentPrimarySoft,
     fontSize: 12,
     fontWeight: '700',
+    letterSpacing: 0.4,
   },
   legacyBadge: {
-    backgroundColor: '#78350F',
+    backgroundColor: theme.colors.accentLegacy,
   },
   legacyBadgeLabel: {
-    color: '#FDE68A',
+    color: theme.colors.accentLegacySoft,
   },
   sourceBadge: {
-    backgroundColor: '#0F172A',
-    borderColor: '#334155',
-    borderRadius: 999,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.pill,
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 6,
   },
   sourceBadgeLabel: {
-    color: '#93C5FD',
-    fontFamily: 'monospace',
+    color: theme.colors.accentSuccessSoft,
     fontSize: 12,
     fontWeight: '700',
+    letterSpacing: 0.4,
   },
   sourceText: {
-    color: '#94A3B8',
+    color: theme.colors.textMuted,
     fontSize: 14,
   },
   summaryPanel: {
-    backgroundColor: '#0F172A',
-    borderColor: '#1E293B',
-    borderRadius: 20,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.lg,
     borderWidth: 1,
-    gap: 10,
-    padding: 18,
+    gap: theme.spacing.sm,
+    padding: theme.spacing.lg,
   },
   summaryLabel: {
-    color: '#C4B5FD',
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 1.1,
-    textTransform: 'uppercase',
+    color: theme.colors.accentPrimarySoft,
+    ...typography.eyebrow,
   },
   summaryText: {
-    color: '#E2E8F0',
+    color: theme.colors.textSecondary,
     fontSize: 15,
     lineHeight: 23,
   },
   bodyPanel: {
-    backgroundColor: '#0F172A',
-    borderColor: '#1E293B',
-    borderRadius: 20,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.lg,
     borderWidth: 1,
-    gap: 12,
-    padding: 18,
+    gap: theme.spacing.sm,
+    padding: theme.spacing.lg,
   },
   bodyLabel: {
-    color: '#C4B5FD',
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 1.1,
-    textTransform: 'uppercase',
+    color: theme.colors.accentPrimarySoft,
+    ...typography.eyebrow,
   },
   bodyText: {
-    color: '#CBD5E1',
+    color: theme.colors.textSecondary,
     fontSize: 15,
     lineHeight: 24,
   },

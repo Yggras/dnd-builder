@@ -1,6 +1,6 @@
 import { useDeferredValue, useState } from 'react';
 
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { CompendiumService } from '@/features/compendium/services/CompendiumService';
@@ -26,6 +26,7 @@ export function useCompendiumSearch() {
   const resultsQuery = useQuery({
     queryKey: queryKeys.compendiumSearch(deferredQuery, entryType),
     queryFn: () => compendiumService.searchEntries(deferredQuery, entryType === 'all' ? undefined : entryType),
+    placeholderData: keepPreviousData,
   });
 
   return {

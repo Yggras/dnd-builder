@@ -3,6 +3,8 @@ import type { ScrollViewProps, StyleProp, ViewStyle } from 'react-native';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { theme } from '@/shared/ui/theme';
+
 interface ScreenProps extends PropsWithChildren {
   contentContainerStyle?: StyleProp<ViewStyle>;
   scrollProps?: Omit<ScrollViewProps, 'contentContainerStyle'>;
@@ -11,12 +13,13 @@ interface ScreenProps extends PropsWithChildren {
 export function Screen({ children, contentContainerStyle, scrollProps }: ScreenProps) {
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.safeArea}>
+      <View pointerEvents="none" style={styles.backdrop} />
       <ScrollView
         contentContainerStyle={[styles.content, contentContainerStyle]}
         contentInsetAdjustmentBehavior="automatic"
         {...scrollProps}
       >
-        <View>{children}</View>
+        <View style={styles.inner}>{children}</View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -24,11 +27,20 @@ export function Screen({ children, contentContainerStyle, scrollProps }: ScreenP
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#020617',
+    backgroundColor: theme.colors.background,
     flex: 1,
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: theme.colors.backgroundDeep,
   },
   content: {
     flexGrow: 1,
-    padding: 20,
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.xl,
+    paddingBottom: theme.spacing.xxl,
+  },
+  inner: {
+    gap: theme.spacing.lg,
   },
 });

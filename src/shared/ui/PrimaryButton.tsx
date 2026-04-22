@@ -1,5 +1,7 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+import { theme } from '@/shared/ui/theme';
+
 interface PrimaryButtonProps {
   label: string;
   onPress: () => void;
@@ -8,7 +10,12 @@ interface PrimaryButtonProps {
 
 export function PrimaryButton({ label, onPress, disabled = false }: PrimaryButtonProps) {
   return (
-    <Pressable disabled={disabled} onPress={onPress} style={({ pressed }) => [styles.button, pressed && styles.buttonPressed, disabled && styles.buttonDisabled]}>
+    <Pressable
+      accessibilityRole="button"
+      disabled={disabled}
+      onPress={onPress}
+      style={({ pressed }) => [styles.button, pressed && styles.buttonPressed, disabled && styles.buttonDisabled]}
+    >
       <Text style={styles.label}>{label}</Text>
     </Pressable>
   );
@@ -17,21 +24,25 @@ export function PrimaryButton({ label, onPress, disabled = false }: PrimaryButto
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#7C3AED',
-    borderRadius: 14,
+    backgroundColor: theme.colors.accentPrimary,
+    borderColor: theme.colors.accentPrimarySoft,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
     justifyContent: 'center',
     minHeight: 52,
-    paddingHorizontal: 16,
+    paddingHorizontal: theme.spacing.md,
   },
   buttonPressed: {
-    opacity: 0.9,
+    backgroundColor: theme.colors.borderAccent,
   },
   buttonDisabled: {
-    backgroundColor: '#475569',
+    backgroundColor: theme.colors.borderStrong,
+    borderColor: theme.colors.borderStrong,
   },
   label: {
-    color: '#F8FAFC',
+    color: theme.colors.textPrimary,
     fontSize: 16,
     fontWeight: '700',
+    letterSpacing: 0.2,
   },
 });

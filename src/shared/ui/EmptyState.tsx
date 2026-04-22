@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Screen } from '@/shared/ui/Screen';
+import { theme, typography } from '@/shared/ui/theme';
 
 interface EmptyStateProps {
   title: string;
@@ -25,22 +26,22 @@ const styles = StyleSheet.create({
     minHeight: '100%',
   },
   panel: {
-    backgroundColor: '#111827',
-    borderColor: '#1F2937',
-    borderRadius: 20,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.lg,
     borderWidth: 1,
-    gap: 10,
+    gap: theme.spacing.sm,
     maxWidth: 480,
-    padding: 24,
+    padding: theme.spacing.xl,
     width: '100%',
   },
   title: {
-    color: '#F8FAFC',
+    color: theme.colors.textPrimary,
+    ...typography.sectionTitle,
     fontSize: 22,
-    fontWeight: '700',
   },
   message: {
-    color: '#CBD5E1',
+    color: theme.colors.textSecondary,
     fontSize: 15,
     lineHeight: 22,
   },

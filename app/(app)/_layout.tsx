@@ -2,6 +2,7 @@ import { Redirect, Stack } from 'expo-router';
 
 import { useSession } from '@/features/auth/hooks/useSession';
 import { appRoutes } from '@/shared/constants/routes';
+import { theme } from '@/shared/ui/theme';
 
 export default function AppLayout() {
   const { session, isLoading } = useSession();
@@ -18,6 +19,19 @@ export default function AppLayout() {
     <Stack
       screenOptions={{
         headerBackTitle: 'Back',
+        headerShadowVisible: false,
+        headerStyle: {
+          backgroundColor: theme.colors.background,
+        },
+        headerTintColor: theme.colors.accentPrimarySoft,
+        headerTitleStyle: {
+          color: theme.colors.textPrimary,
+          fontWeight: '700',
+        },
+        headerBackButtonDisplayMode: 'minimal',
+        contentStyle: {
+          backgroundColor: theme.colors.background,
+        },
       }}
     >
       <Stack.Screen name="index" options={{ title: 'D&D Builder' }} />

@@ -1,5 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { theme, typography } from '@/shared/ui/theme';
+
 interface SurfaceCardProps {
   title: string;
   description: string;
@@ -8,9 +10,10 @@ interface SurfaceCardProps {
 
 export function SurfaceCard({ title, description, onPress }: SurfaceCardProps) {
   return (
-    <Pressable onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}>
+    <Pressable accessibilityRole="button" onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}>
       <View style={styles.header}>
         <Text style={styles.title}>{title}</Text>
+        <Text style={styles.action}>Open</Text>
       </View>
       <Text style={styles.description}>{description}</Text>
     </Pressable>
@@ -19,28 +22,34 @@ export function SurfaceCard({ title, description, onPress }: SurfaceCardProps) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#111827',
-    borderColor: '#1F2937',
-    borderRadius: 18,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
     borderWidth: 1,
-    gap: 10,
-    padding: 18,
+    gap: theme.spacing.sm,
+    padding: theme.spacing.lg,
   },
   cardPressed: {
-    opacity: 0.92,
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.accentPrimary,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: theme.spacing.sm,
   },
   title: {
-    color: '#F8FAFC',
-    fontSize: 18,
-    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    ...typography.sectionTitle,
   },
   description: {
-    color: '#94A3B8',
-    fontSize: 14,
-    lineHeight: 20,
+    color: theme.colors.textMuted,
+    ...typography.bodySm,
+  },
+  action: {
+    color: theme.colors.accentPrimarySoft,
+    ...typography.meta,
+    fontWeight: '700',
+    textTransform: 'uppercase',
   },
 });

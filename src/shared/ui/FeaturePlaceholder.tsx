@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Screen } from '@/shared/ui/Screen';
+import { theme, typography } from '@/shared/ui/theme';
 
 interface FeaturePlaceholderProps {
   title: string;
@@ -11,14 +12,19 @@ interface FeaturePlaceholderProps {
 export function FeaturePlaceholder({ title, summary, bullets }: FeaturePlaceholderProps) {
   return (
     <Screen contentContainerStyle={styles.container}>
+      <View style={styles.hero}>
+        <Text style={styles.eyebrow}>Future Surface</Text>
+        <Text style={styles.kicker}>Prepared for the next campaign system milestone.</Text>
+      </View>
       <View style={styles.panel}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.summary}>{summary}</Text>
         <View style={styles.bullets}>
           {bullets.map((bullet) => (
-            <Text key={bullet} style={styles.bullet}>
-              - {bullet}
-            </Text>
+            <View key={bullet} style={styles.bulletRow}>
+              <View style={styles.bulletDot} />
+              <Text style={styles.bullet}>{bullet}</Text>
+            </View>
           ))}
         </View>
       </View>
@@ -31,29 +37,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: '100%',
   },
+  hero: {
+    gap: theme.spacing.xs,
+  },
   panel: {
-    backgroundColor: '#111827',
-    borderColor: '#1F2937',
-    borderRadius: 20,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.lg,
     borderWidth: 1,
-    gap: 16,
-    padding: 24,
+    gap: theme.spacing.md,
+    padding: theme.spacing.xl,
+  },
+  eyebrow: {
+    color: theme.colors.accentPrimarySoft,
+    ...typography.eyebrow,
+  },
+  kicker: {
+    color: theme.colors.textMuted,
+    ...typography.bodySm,
   },
   title: {
-    color: '#F8FAFC',
-    fontSize: 28,
-    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    ...typography.titleMd,
   },
   summary: {
-    color: '#CBD5E1',
-    fontSize: 16,
-    lineHeight: 24,
+    color: theme.colors.textSecondary,
+    ...typography.body,
   },
   bullets: {
-    gap: 10,
+    gap: theme.spacing.sm,
+  },
+  bulletRow: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+  },
+  bulletDot: {
+    backgroundColor: theme.colors.accentPrimary,
+    borderRadius: theme.radii.pill,
+    height: 8,
+    marginTop: 7,
+    width: 8,
   },
   bullet: {
-    color: '#94A3B8',
+    color: theme.colors.textMuted,
+    flex: 1,
     fontSize: 15,
     lineHeight: 22,
   },

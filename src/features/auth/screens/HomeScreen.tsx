@@ -5,6 +5,7 @@ import { useSession } from '@/features/auth/hooks/useSession';
 import { PrimaryButton } from '@/shared/ui/PrimaryButton';
 import { Screen } from '@/shared/ui/Screen';
 import { SurfaceCard } from '@/shared/ui/SurfaceCard';
+import { theme, typography } from '@/shared/ui/theme';
 
 const SURFACES = [
   {
@@ -36,15 +37,24 @@ export function HomeScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.eyebrow}>Foundation</Text>
+        <Text style={styles.eyebrow}>Command Center</Text>
         <Text style={styles.title}>Private D&D Party App</Text>
         <Text style={styles.description}>
-          The app shell, shared providers, and scaffold boundaries are in place. The routes below are
-          the starting surfaces for the first implementation phase.
+          The shared shell is online. Move between campaign operations, character records, compendium
+          lookup, and the DM overview from one central hub.
         </Text>
-        <Text style={styles.sessionText}>
-          {session?.user?.email ? `Signed in as ${session.user.email}` : 'No active session yet'}
-        </Text>
+        <View style={styles.identityPanel}>
+          <Text style={styles.identityLabel}>Current session</Text>
+          <Text style={styles.sessionText}>
+            {session?.user?.email ? session.user.email : 'No active session yet'}
+          </Text>
+          <Text style={styles.identityHint}>Authenticated access to private campaign data and local rules content.</Text>
+        </View>
+      </View>
+
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionTitle}>Operational Surfaces</Text>
+        <Text style={styles.sectionMeta}>4 routes ready</Text>
       </View>
 
       <View style={styles.grid}>
@@ -65,33 +75,61 @@ export function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 24,
+    gap: theme.spacing.xl,
   },
   header: {
-    gap: 10,
+    gap: theme.spacing.sm,
   },
   eyebrow: {
-    color: '#8B5CF6',
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
+    color: theme.colors.accentPrimarySoft,
+    ...typography.eyebrow,
   },
   title: {
-    color: '#F8FAFC',
-    fontSize: 28,
-    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    ...typography.titleMd,
   },
   description: {
-    color: '#CBD5E1',
-    fontSize: 16,
-    lineHeight: 22,
+    color: theme.colors.textSecondary,
+    ...typography.body,
+  },
+  identityPanel: {
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    gap: theme.spacing.xs,
+    marginTop: theme.spacing.sm,
+    padding: theme.spacing.lg,
+  },
+  identityLabel: {
+    color: theme.colors.textMuted,
+    ...typography.eyebrow,
   },
   sessionText: {
-    color: '#94A3B8',
+    color: theme.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  identityHint: {
+    color: theme.colors.textMuted,
     fontSize: 14,
+    lineHeight: 20,
+  },
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  sectionTitle: {
+    color: theme.colors.textPrimary,
+    ...typography.sectionTitle,
+  },
+  sectionMeta: {
+    color: theme.colors.accentSuccessSoft,
+    ...typography.meta,
+    fontWeight: '700',
   },
   grid: {
-    gap: 16,
+    gap: theme.spacing.md,
   },
 });
