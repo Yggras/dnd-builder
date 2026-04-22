@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import {
   FlatList,
   Modal,
@@ -61,10 +61,7 @@ export function CompendiumScreen() {
   }
 
   const entries = data ?? [];
-  const activeFilterLabel = useMemo(
-    () => entryTypeOptions.find((option) => option.value === entryType)?.label ?? 'All entries',
-    [entryType],
-  );
+  const activeFilterLabel = entryTypeOptions.find((option) => option.value === entryType)?.label ?? 'All entries';
 
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.safeArea}>
