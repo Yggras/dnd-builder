@@ -55,6 +55,8 @@ interface ChoiceGrantRow {
   visibility: ChoiceGrant['visibility'];
 }
 
+const SEARCH_RESULT_LIMIT = 100;
+
 function parseJson<T>(value: string | null, fallback: T): T {
   if (!value) {
     return fallback;
@@ -237,18 +239,32 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
         ? `SELECT *
            FROM compendium_entries
            WHERE entry_type = ? AND LOWER(search_text) LIKE ?
-           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC`
+           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+           LIMIT ${SEARCH_RESULT_LIMIT}`
         : `SELECT *
            FROM compendium_entries
            WHERE LOWER(search_text) LIKE ?
-           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC`,
+           ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC
+           LIMIT ${SEARCH_RESULT_LIMIT}`,
       ...(entryType ? [entryType, normalizedQuery] : [normalizedQuery]),
     );
 
     return rows.map(mapCompendiumEntry);
   }
 
-  searchEntries(query: string) {
-    return this.searchCompendiumEntries(query);
+  searchEntries(query: string, entryType?: string) {
+    return this.searchCompendiumEntries(query, entryType);
+  }
+
+  async getEntryById(id: string) {
+    const database = await getDatabase();
+    const row = await database.getFirstAsync<CompendiumEntryRow>(
+      `SELECT *
+       FROM compendium_entries
+       WHERE id = ?`,
+      id,
+    );
+
+    return row ? mapCompendiumEntry(row) : null;
   }
 }

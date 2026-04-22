@@ -24,6 +24,7 @@ export default function AppLayout() {
       <Stack.Screen name="campaigns/index" options={{ title: 'Campaigns' }} />
       <Stack.Screen name="characters/index" options={{ title: 'Characters' }} />
       <Stack.Screen name="compendium/index" options={{ title: 'Compendium' }} />
+      <Stack.Screen name="compendium/[entryId]" options={{ title: 'Compendium Entry' }} />
       <Stack.Screen name="dm/index" options={{ title: 'DM Dashboard' }} />
     </Stack>
   );
