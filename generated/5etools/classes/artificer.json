@@ -3,7 +3,7 @@
   "contentVersion": "2026-04-21-step-3",
   "entityType": "classes",
   "chunkId": "artificer",
-  "generatedAt": "2026-04-21T19:56:11.378Z",
+  "generatedAt": "2026-04-22T06:19:01.943Z",
   "records": {
     "class": {
       "id": "artificer|efa",
@@ -216,17 +216,17 @@
     },
     "subclasses": [
       {
-        "id": "alchemist|efa|subclass|artificer|efa",
+        "id": "alchemist|tce|subclass|artificer|efa",
         "kind": "subclass",
         "name": "Alchemist",
-        "sourceCode": "EFA",
-        "sourceName": "EFA",
-        "rulesEdition": "legacy",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "2024",
         "isPrimary2024": false,
-        "isLegacy": true,
-        "isSelectableInBuilder": false,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
         "summary": null,
-        "searchText": "Alchemist EFA",
+        "searchText": "Alchemist TCE",
         "renderPayload": {
           "entries": []
         },
@@ -238,26 +238,26 @@
           "cantripProgression": [],
           "preparedSpellsProgression": [],
           "subclassFeatures": [
-            "Alchemist|Artificer|EFA|Alchemist|EFA|3|EFA",
-            "Alchemical Savant|Artificer|EFA|Alchemist|EFA|5|EFA",
-            "Restorative Reagents|Artificer|EFA|Alchemist|EFA|9|EFA",
-            "Chemical Mastery|Artificer|EFA|Alchemist|EFA|15|EFA"
+            "Alchemist|Artificer|TCE|Alchemist|TCE|3",
+            "Alchemical Savant|Artificer|TCE|Alchemist|TCE|5",
+            "Restorative Reagents|Artificer|TCE|Alchemist|TCE|9",
+            "Chemical Mastery|Artificer|TCE|Alchemist|TCE|15"
           ],
           "additionalSpellIds": []
         }
       },
       {
-        "id": "armorer|efa|subclass|artificer|efa",
+        "id": "armorer|tce|subclass|artificer|efa",
         "kind": "subclass",
         "name": "Armorer",
-        "sourceCode": "EFA",
-        "sourceName": "EFA",
-        "rulesEdition": "legacy",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "2024",
         "isPrimary2024": false,
-        "isLegacy": true,
-        "isSelectableInBuilder": false,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
         "summary": null,
-        "searchText": "Armorer EFA",
+        "searchText": "Armorer TCE",
         "renderPayload": {
           "entries": []
         },
@@ -269,26 +269,26 @@
           "cantripProgression": [],
           "preparedSpellsProgression": [],
           "subclassFeatures": [
-            "Armorer|Artificer|EFA|Armorer|EFA|3|EFA",
-            "Extra Attack|Artificer|EFA|Armorer|EFA|5|EFA",
-            "Improved Armorer|Artificer|EFA|Armorer|EFA|9|EFA",
-            "Perfected Armor|Artificer|EFA|Armorer|EFA|15|EFA"
+            "Armorer|Artificer|TCE|Armorer|TCE|3",
+            "Extra Attack|Artificer|TCE|Armorer|TCE|5",
+            "Armor Modifications|Artificer|TCE|Armorer|TCE|9",
+            "Perfected Armor|Artificer|TCE|Armorer|TCE|15"
           ],
           "additionalSpellIds": []
         }
       },
       {
-        "id": "artillerist|efa|subclass|artificer|efa",
+        "id": "artillerist|tce|subclass|artificer|efa",
         "kind": "subclass",
         "name": "Artillerist",
-        "sourceCode": "EFA",
-        "sourceName": "EFA",
-        "rulesEdition": "legacy",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "2024",
         "isPrimary2024": false,
-        "isLegacy": true,
-        "isSelectableInBuilder": false,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
         "summary": null,
-        "searchText": "Artillerist EFA",
+        "searchText": "Artillerist TCE",
         "renderPayload": {
           "entries": []
         },
@@ -300,26 +300,26 @@
           "cantripProgression": [],
           "preparedSpellsProgression": [],
           "subclassFeatures": [
-            "Artillerist|Artificer|EFA|Artillerist|EFA|3|EFA",
-            "Arcane Firearm|Artificer|EFA|Artillerist|EFA|5|EFA",
-            "Explosive Cannon|Artificer|EFA|Artillerist|EFA|9|EFA",
-            "Fortified Position|Artificer|EFA|Artillerist|EFA|15|EFA"
+            "Artillerist|Artificer|TCE|Artillerist|TCE|3",
+            "Arcane Firearm|Artificer|TCE|Artillerist|TCE|5",
+            "Explosive Cannon|Artificer|TCE|Artillerist|TCE|9",
+            "Fortified Position|Artificer|TCE|Artillerist|TCE|15"
           ],
           "additionalSpellIds": []
         }
       },
       {
-        "id": "battle-smith|efa|subclass|artificer|efa",
+        "id": "battle-smith|tce|subclass|artificer|efa",
         "kind": "subclass",
         "name": "Battle Smith",
-        "sourceCode": "EFA",
-        "sourceName": "EFA",
-        "rulesEdition": "legacy",
+        "sourceCode": "TCE",
+        "sourceName": "TCE",
+        "rulesEdition": "2024",
         "isPrimary2024": false,
-        "isLegacy": true,
-        "isSelectableInBuilder": false,
+        "isLegacy": false,
+        "isSelectableInBuilder": true,
         "summary": null,
-        "searchText": "Battle Smith EFA",
+        "searchText": "Battle Smith TCE",
         "renderPayload": {
           "entries": []
         },
@@ -331,10 +331,10 @@
           "cantripProgression": [],
           "preparedSpellsProgression": [],
           "subclassFeatures": [
-            "Battle Smith|Artificer|EFA|Battle Smith|EFA|3|EFA",
-            "Extra Attack|Artificer|EFA|Battle Smith|EFA|5|EFA",
-            "Arcane Jolt|Artificer|EFA|Battle Smith|EFA|9|EFA",
-            "Improved Defender|Artificer|EFA|Battle Smith|EFA|15|EFA"
+            "Battle Smith|Artificer|TCE|Battle Smith|TCE|3",
+            "Extra Attack|Artificer|TCE|Battle Smith|TCE|5",
+            "Arcane Jolt|Artificer|TCE|Battle Smith|TCE|9",
+            "Improved Defender|Artificer|TCE|Battle Smith|TCE|15"
           ],
           "additionalSpellIds": []
         }

@@ -114,12 +114,19 @@ export function getSourceName(sourceCode) {
   return sourceCode ?? 'Unknown';
 }
 
+export function isExplicit2024Record(record) {
+  return Boolean(record?.edition === 'one' || record?.basicRules2024 || record?.srd52);
+}
+
 export function isPrimary2024Record(record, primary2024Sources) {
+  return Boolean(isExplicit2024Record(record) || primary2024Sources.has(record?.source));
+}
+
+export function is2024CompatibleRecord(record, primary2024Sources, compatible2024Sources) {
   return Boolean(
-    record?.edition === 'one' ||
-      record?.basicRules2024 ||
-      record?.srd52 ||
-      primary2024Sources.has(record?.source),
+    isExplicit2024Record(record) ||
+      primary2024Sources.has(record?.source) ||
+      compatible2024Sources.has(record?.source),
   );
 }
 

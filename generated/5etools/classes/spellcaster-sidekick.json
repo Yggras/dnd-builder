@@ -3,7 +3,7 @@
   "contentVersion": "2026-04-21-step-3",
   "entityType": "classes",
   "chunkId": "spellcaster-sidekick",
-  "generatedAt": "2026-04-21T19:56:11.378Z",
+  "generatedAt": "2026-04-22T06:19:01.943Z",
   "records": {
     "class": {
       "id": "spellcaster-sidekick|tce",
@@ -11,10 +11,10 @@
       "name": "Spellcaster Sidekick",
       "sourceCode": "TCE",
       "sourceName": "TCE",
-      "rulesEdition": "legacy",
+      "rulesEdition": "2024",
       "isPrimary2024": false,
-      "isLegacy": true,
-      "isSelectableInBuilder": false,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
       "summary": null,
       "searchText": "Spellcaster Sidekick TCE",
       "renderPayload": {

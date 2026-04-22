@@ -1,10 +1,11 @@
-import { PRIMARY_2024_SOURCES } from './config.mjs';
+import { COMPATIBLE_2024_SOURCES, PRIMARY_2024_SOURCES } from './config.mjs';
 import {
   canonicalId,
   ensureArray,
   extractText,
   featIdFromUid,
   getSourceName,
+  is2024CompatibleRecord,
   isPrimary2024Record,
   optionalFeatureIdFromUid,
   progressionToLevelCounts,
@@ -18,6 +19,7 @@ function createBaseRecord(kind, record, id) {
   const text = extractText(record.entries ?? record.entry ?? []);
   const searchText = [record.name, record.source, text].filter(Boolean).join(' ');
   const isPrimary2024 = isPrimary2024Record(record, PRIMARY_2024_SOURCES);
+  const is2024Compatible = is2024CompatibleRecord(record, PRIMARY_2024_SOURCES, COMPATIBLE_2024_SOURCES);
 
   return {
     id,
@@ -25,10 +27,10 @@ function createBaseRecord(kind, record, id) {
     name: record.name,
     sourceCode: record.source,
     sourceName: getSourceName(record.source),
-    rulesEdition: isPrimary2024 ? '2024' : 'legacy',
+    rulesEdition: is2024Compatible ? '2024' : 'legacy',
     isPrimary2024,
-    isLegacy: !isPrimary2024,
-    isSelectableInBuilder: isPrimary2024,
+    isLegacy: !is2024Compatible,
+    isSelectableInBuilder: is2024Compatible,
     summary: summarizeText(text),
     searchText,
     renderPayload: {

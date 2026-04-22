@@ -3,7 +3,7 @@
   "contentVersion": "2026-04-21-step-3",
   "entityType": "grants",
   "chunkId": "all",
-  "generatedAt": "2026-04-21T19:56:11.378Z",
+  "generatedAt": "2026-04-22T06:19:01.943Z",
   "records": [
     {
       "id": "artificer-efa|epic-boon|feat|19",
@@ -29,7 +29,7 @@
         "AI"
       ],
       "count": 2,
-      "visibility": "compendium-only"
+      "visibility": "builder"
     },
     {
       "id": "artificer-tce|infusions|optionalfeature|14",
@@ -42,7 +42,7 @@
         "AI"
       ],
       "count": 2,
-      "visibility": "compendium-only"
+      "visibility": "builder"
     },
     {
       "id": "artificer-tce|infusions|optionalfeature|18",
@@ -55,7 +55,7 @@
         "AI"
       ],
       "count": 2,
-      "visibility": "compendium-only"
+      "visibility": "builder"
     },
     {
       "id": "artificer-tce|infusions|optionalfeature|2",
@@ -68,7 +68,7 @@
         "AI"
       ],
       "count": 4,
-      "visibility": "compendium-only"
+      "visibility": "builder"
     },
     {
       "id": "artificer-tce|infusions|optionalfeature|6",
@@ -81,7 +81,7 @@
         "AI"
       ],
       "count": 2,
-      "visibility": "compendium-only"
+      "visibility": "builder"
     },
     {
       "id": "barbarian-xphb|epic-boon|feat|19",
