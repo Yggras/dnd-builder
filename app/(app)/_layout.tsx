@@ -39,6 +39,7 @@ export default function AppLayout() {
       <Stack.Screen name="characters/index" options={{ title: 'Characters' }} />
       <Stack.Screen name="characters/new" options={{ title: 'New Character' }} />
       <Stack.Screen name="characters/[characterId]/builder" options={{ title: 'Character Builder' }} />
+      <Stack.Screen name="characters/[characterId]/preview" options={{ title: 'Character Preview' }} />
       <Stack.Screen name="compendium/index" options={{ title: 'Compendium' }} />
       <Stack.Screen name="compendium/[entryId]" options={{ title: 'Compendium Entry' }} />
       <Stack.Screen name="dm/index" options={{ title: 'DM Dashboard' }} />

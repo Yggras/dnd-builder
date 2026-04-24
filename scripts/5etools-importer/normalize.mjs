@@ -133,6 +133,78 @@ function normalizeSpellRefsFromAdditionalSpells(additionalSpells) {
   return unique(spellIds);
 }
 
+function normalizeLookupKey(value) {
+  return String(value ?? '').trim().toLowerCase();
+}
+
+function buildSpellApplicabilityMetadata(record, { classes, subclasses, spellSourceLookup }) {
+  const classIdLookup = new Map(
+    classes.map((classRecord) => [
+      `${normalizeLookupKey(classRecord.sourceCode)}::${normalizeLookupKey(classRecord.name)}`,
+      classRecord.id,
+    ]),
+  );
+  const subclassIdLookup = new Map(
+    subclasses.map((subclassRecord) => {
+      const classRecord = classes.find((candidate) => candidate.id === subclassRecord.classId);
+      return [
+        `${normalizeLookupKey(classRecord?.sourceCode)}::${normalizeLookupKey(classRecord?.name)}::${normalizeLookupKey(subclassRecord.sourceCode)}::${normalizeLookupKey(subclassRecord.name)}`,
+        subclassRecord.id,
+      ];
+    }),
+  );
+
+  const spellSourceBucket = spellSourceLookup?.[normalizeLookupKey(record.source)] ?? null;
+  const lookupEntry = spellSourceBucket?.[normalizeLookupKey(record.name)] ?? null;
+  const classIds = [];
+  const subclassIds = [];
+
+  for (const [classSource, classMap] of Object.entries(lookupEntry?.class ?? {})) {
+    if (!classMap || typeof classMap !== 'object') {
+      continue;
+    }
+
+    for (const className of Object.keys(classMap)) {
+      const classId = classIdLookup.get(`${normalizeLookupKey(classSource)}::${normalizeLookupKey(className)}`);
+      if (classId) {
+        classIds.push(classId);
+      }
+    }
+  }
+
+  for (const [classSource, classMap] of Object.entries(lookupEntry?.subclass ?? {})) {
+    if (!classMap || typeof classMap !== 'object') {
+      continue;
+    }
+
+    for (const [className, subclassSourceMap] of Object.entries(classMap)) {
+      if (!subclassSourceMap || typeof subclassSourceMap !== 'object') {
+        continue;
+      }
+
+      for (const [subclassSource, subclassMap] of Object.entries(subclassSourceMap)) {
+        if (!subclassMap || typeof subclassMap !== 'object') {
+          continue;
+        }
+
+        for (const subclassName of Object.keys(subclassMap)) {
+          const subclassId = subclassIdLookup.get(
+            `${normalizeLookupKey(classSource)}::${normalizeLookupKey(className)}::${normalizeLookupKey(subclassSource)}::${normalizeLookupKey(subclassName)}`,
+          );
+          if (subclassId) {
+            subclassIds.push(subclassId);
+          }
+        }
+      }
+    }
+  }
+
+  return {
+    classIds: unique(classIds),
+    subclassIds: unique(subclassIds),
+  };
+}
+
 function normalizePrerequisites(prerequisites) {
   const normalized = {
     minClassLevel: null,
@@ -379,16 +451,19 @@ export function normalizeOptionalFeatures(records) {
   );
 }
 
-export function normalizeSpells(records) {
+export function normalizeSpells(records, context) {
   return stableSortBy(
     records.map((record) => {
       const id = canonicalId([record.name, record.source, 'spell']);
+      const applicability = buildSpellApplicabilityMetadata(record, context);
       return {
         ...createBaseRecord('spell', record, id),
         metadata: {
           level: record.level ?? 0,
           school: record.school ?? null,
           classes: record.classes ?? {},
+          classIds: applicability.classIds,
+          subclassIds: applicability.subclassIds,
           duration: record.duration ?? [],
           range: record.range ?? null,
           components: record.components ?? {},

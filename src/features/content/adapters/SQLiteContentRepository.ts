@@ -139,13 +139,17 @@ function matchesSelectableFilter(entity: ContentEntity, onlySelectableInBuilder:
 }
 
 function spellMatchesClassFilter(entity: ContentEntity, classId?: string) {
-  if (!classId) {
-    return true;
-  }
+  const classIds = Array.isArray(entity.metadata.classIds)
+    ? entity.metadata.classIds.filter((value): value is string => typeof value === 'string')
+    : [];
+  return !classId || classIds.includes(classId);
+}
 
-  const metadataValue = JSON.stringify(entity.metadata).toLowerCase();
-  const className = classId.split('|')[0]?.replace(/-/g, ' ').toLowerCase();
-  return className ? metadataValue.includes(className) : true;
+function spellMatchesSubclassFilter(entity: ContentEntity, subclassId?: string) {
+  const subclassIds = Array.isArray(entity.metadata.subclassIds)
+    ? entity.metadata.subclassIds.filter((value): value is string => typeof value === 'string')
+    : [];
+  return !subclassId || subclassIds.includes(subclassId);
 }
 
 export class SQLiteContentRepository implements ContentRepository, CompendiumRepository {
@@ -214,6 +218,7 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
       .filter((entity) => matchesSelectableFilter(entity, options.onlySelectableInBuilder ?? true))
       .filter((entity) => (options.level == null ? true : Number(entity.metadata.level ?? -1) === options.level))
       .filter((entity) => spellMatchesClassFilter(entity, options.classId))
+      .filter((entity) => spellMatchesSubclassFilter(entity, options.subclassId))
       .filter((entity) =>
         options.query ? entity.searchText.toLowerCase().includes(options.query.trim().toLowerCase()) : true,
       );

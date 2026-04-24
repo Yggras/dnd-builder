@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useQueries, useQuery } from '@tanstack/react-query';
 
@@ -19,6 +19,7 @@ import {
   reconcileOriginAndAbilitiesPayload,
 } from '@/features/builder/utils/originAndAbilities';
 import { getStartingEquipmentOptionGroups, seedStartingEquipment } from '@/features/builder/utils/inventory';
+import { deriveSourceSummary, mergeReviewIssues, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { ContentService } from '@/features/content/services/ContentService';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
@@ -47,6 +48,7 @@ function formatStepLabel(step: BuilderStep) {
 }
 
 export function CharacterBuilderScreen() {
+  const router = useRouter();
   const params = useLocalSearchParams<{ characterId?: string | string[] }>();
   const characterId = Array.isArray(params.characterId) ? params.characterId[0] : params.characterId ?? '';
   const { data, error, isLoading } = useCharacterRecord(characterId);
@@ -58,6 +60,8 @@ export function CharacterBuilderScreen() {
   const [originImpactSummary, setOriginImpactSummary] = useState<string | null>(null);
   const [inventoryImpactSummary, setInventoryImpactSummary] = useState<string | null>(null);
   const [inventorySearch, setInventorySearch] = useState('');
+  const [spellSearch, setSpellSearch] = useState('');
+  const [completionMessage, setCompletionMessage] = useState<string | null>(null);
 
   const classesQuery = useQuery({
     queryKey: ['builder', 'classes'],
@@ -83,6 +87,10 @@ export function CharacterBuilderScreen() {
     queryKey: ['builder', 'items', 'search', inventorySearch.trim()],
     queryFn: () => contentService.listItems({ query: inventorySearch.trim() }),
     enabled: inventorySearch.trim().length > 0,
+  });
+  const allSpellsQuery = useQuery({
+    queryKey: ['builder', 'spells', 'all'],
+    queryFn: () => contentService.listSpells({ query: '' }),
   });
 
   const selectedClassIds = useMemo(() => {
@@ -128,6 +136,10 @@ export function CharacterBuilderScreen() {
   const itemEntitiesById = useMemo(
     () => Object.fromEntries((allItemsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
     [allItemsQuery.data],
+  );
+  const spellEntitiesById = useMemo(
+    () => Object.fromEntries((allSpellsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [allSpellsQuery.data],
   );
 
   const subclassesByClassId = useMemo(() => {
@@ -349,6 +361,10 @@ export function CharacterBuilderScreen() {
     return <LoadingState label="Loading inventory options..." />;
   }
 
+  if (allSpellsQuery.isLoading) {
+    return <LoadingState label="Loading spell options..." />;
+  }
+
   if (error) {
     return <ErrorState title="Builder unavailable" message={error instanceof Error ? error.message : 'Failed to load builder draft.'} />;
   }
@@ -369,6 +385,10 @@ export function CharacterBuilderScreen() {
 
   if (allItemsQuery.error) {
     return <ErrorState title="Inventory content unavailable" message={allItemsQuery.error instanceof Error ? allItemsQuery.error.message : 'Failed to load inventory content.'} />;
+  }
+
+  if (allSpellsQuery.error) {
+    return <ErrorState title="Spell content unavailable" message={allSpellsQuery.error instanceof Error ? allSpellsQuery.error.message : 'Failed to load spell content.'} />;
   }
 
   if (!data?.character || !data.build || !draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
@@ -529,6 +549,60 @@ export function CharacterBuilderScreen() {
   const spentAsiPoints = payload.abilityPointsStep.bonusSelections
     .filter((selection) => selection.sourceType === 'asi')
     .reduce((sum, selection) => sum + selection.amount, 0);
+  const spellSummary = summarizeSpellcasting(payload, classEntitiesById, spellEntitiesById);
+  const visibleSpellResults = Object.values(spellEntitiesById)
+    .filter((spell) => spellSummary.applicableSpellIds.includes(spell.id))
+    .filter((spell) => Number(spell.metadata.level ?? 0) <= spellSummary.maxSpellLevel)
+    .filter((spell) => (spellSearch.trim() ? spell.searchText.toLowerCase().includes(spellSearch.trim().toLowerCase()) : true))
+    .slice(0, 18);
+  const allEntitiesById = {
+    ...classEntitiesById,
+    ...speciesEntitiesById,
+    ...backgroundEntitiesById,
+    ...featEntitiesById,
+    ...itemEntitiesById,
+    ...spellEntitiesById,
+    ...Object.fromEntries(Object.values(subclassesByClassId).flat().map((entity) => [entity.id, entity])),
+    ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
+  } satisfies Record<string, ContentEntity>;
+
+  useEffect(() => {
+    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || allSpellsQuery.isLoading) {
+      return;
+    }
+
+    const nextIssues = mergeReviewIssues(draftBuild.payload, spellSummary.issues);
+    const nextSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
+    const issuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
+    const nextIssuesSnapshot = JSON.stringify(nextIssues);
+    const sourceSummarySnapshot = JSON.stringify(draftBuild.payload.review.sourceSummary);
+    const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
+
+    if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
+      if (draftBuild.buildState === 'complete' && builderService.canComplete(draftBuild.payload.review.issues) === false) {
+        setDraftBuild({
+          ...draftBuild,
+          buildState: 'draft',
+        });
+      }
+
+      return;
+    }
+
+    const nextPayload: BuilderDraftPayload = {
+      ...draftBuild.payload,
+      review: {
+        issues: nextIssues,
+        sourceSummary: nextSourceSummary,
+      },
+    };
+
+    setDraftBuild({
+      ...draftBuild,
+      buildState: draftBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
+      payload: nextPayload,
+    });
+  }, [draftBuild, allSpellsQuery.isLoading, spellSummary, allEntitiesById]);
 
   const updateOriginAbilitySelection = (
     sourceType: 'species' | 'background',
@@ -742,6 +816,68 @@ export function CharacterBuilderScreen() {
         },
       },
     });
+  };
+
+  const updateSpellSelection = (spellId: string) => {
+    const isSelected = payload.spellsStep.selectedSpellIds.includes(spellId);
+    const nextSelectedSpellIds = isSelected
+      ? payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
+      : [...payload.spellsStep.selectedSpellIds, spellId];
+
+    setDraftBuild({
+      ...draftBuild,
+      currentStep: 'spells',
+      buildState: 'draft',
+      payload: {
+        ...payload,
+        spellsStep: {
+          ...payload.spellsStep,
+          selectedSpellIds: nextSelectedSpellIds,
+        },
+      },
+    });
+  };
+
+  const updateSpellExceptionNotes = (notes: string) => {
+    setDraftBuild({
+      ...draftBuild,
+      currentStep: 'spells',
+      buildState: 'draft',
+      payload: {
+        ...payload,
+        spellsStep: {
+          ...payload.spellsStep,
+          manualExceptionNotes: notes
+            .split('\n')
+            .map((entry) => entry.trim())
+            .filter(Boolean),
+        },
+      },
+    });
+  };
+
+  const completeBuild = () => {
+    if (!validationSummary?.canComplete) {
+      setCompletionMessage('Resolve all blockers and checklist items before completing the build.');
+      return;
+    }
+
+    const completedBuild: CharacterBuild = {
+      ...draftBuild,
+      buildState: 'complete',
+      currentStep: 'review',
+      payload: {
+        ...payload,
+        review: {
+          ...payload.review,
+          sourceSummary: deriveSourceSummary(payload, allEntitiesById),
+        },
+      },
+    };
+
+    setDraftBuild(completedBuild);
+    setCompletionMessage(null);
+    router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
   };
 
   return (
@@ -1267,6 +1403,60 @@ export function CharacterBuilderScreen() {
       </View>
 
       <View style={styles.section}>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Spells</Text>
+          <Text style={styles.sectionMeta}>{spellSummary.isCaster ? `Cantrips ${payload.spellsStep.selectedSpellIds.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 99) === 0).length}/${spellSummary.cantripLimit}` : 'No spellcasting'}</Text>
+        </View>
+
+        {spellSummary.isCaster ? (
+          <>
+            <Text style={styles.sectionBodyText}>
+              Select spells from the structured class and subclass spell lists. Current maximum spell level: {spellSummary.maxSpellLevel}. Leveled spells selected: {payload.spellsStep.selectedSpellIds.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0).length}/{spellSummary.spellLimit}.
+            </Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={setSpellSearch}
+              placeholder="Search applicable spells"
+              placeholderTextColor={theme.colors.textFaint}
+              style={styles.input}
+              value={spellSearch}
+            />
+            <View style={styles.searchResults}>
+              {visibleSpellResults.map((spell) => {
+                const isSelected = payload.spellsStep.selectedSpellIds.includes(spell.id);
+                return (
+                  <Pressable
+                    accessibilityRole="button"
+                    key={spell.id}
+                    onPress={() => updateSpellSelection(spell.id)}
+                    style={({ pressed }) => [styles.searchResultRow, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                  >
+                    <Text style={[styles.searchResultTitle, isSelected && styles.optionChipLabelActive]}>{spell.name}</Text>
+                    <Text style={styles.searchResultMeta}>Level {String(spell.metadata.level ?? 0)} • {spell.sourceCode}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            <View style={styles.fieldGroup}>
+              <Text style={styles.fieldLabel}>Spell exceptions</Text>
+              <TextInput
+                multiline
+                onChangeText={updateSpellExceptionNotes}
+                placeholder="Optional edge-case notes, one per line."
+                placeholderTextColor={theme.colors.textFaint}
+                style={[styles.input, styles.notesInput]}
+                textAlignVertical="top"
+                value={payload.spellsStep.manualExceptionNotes.join('\n')}
+              />
+            </View>
+          </>
+        ) : (
+          <Text style={styles.sectionBodyText}>This build does not currently require spell selection.</Text>
+        )}
+      </View>
+
+      <View style={styles.section}>
         <Text style={styles.sectionTitle}>Draft basics</Text>
         <View style={styles.fieldGroup}>
           <Text style={styles.fieldLabel}>Character name</Text>
@@ -1296,7 +1486,10 @@ export function CharacterBuilderScreen() {
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Validation contract</Text>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Review</Text>
+          <Text style={styles.sectionMeta}>{validationSummary?.canComplete ? 'Ready' : 'In progress'}</Text>
+        </View>
         <View style={styles.validationGrid}>
           <View style={styles.validationCard}>
             <Text style={styles.validationLabel}>Blockers</Text>
@@ -1318,6 +1511,38 @@ export function CharacterBuilderScreen() {
         <Text style={styles.validationHint}>
           Completion is currently contract-driven: a character can complete only when no unresolved blockers or checklist items remain.
         </Text>
+
+        {payload.review.sourceSummary.sourceCodes.length > 0 ? (
+          <View style={styles.reviewPanel}>
+            <Text style={styles.reviewTitle}>Source summary</Text>
+            <Text style={styles.reviewText}>Sources: {payload.review.sourceSummary.sourceCodes.join(', ')}</Text>
+            <Text style={styles.reviewText}>Editions: {payload.review.sourceSummary.editionsUsed.join(', ') || 'None yet'}</Text>
+            <Text style={styles.reviewText}>{payload.review.sourceSummary.usesLegacyContent ? 'Legacy content is in use.' : 'No legacy content selected.'}</Text>
+          </View>
+        ) : null}
+
+        {payload.review.issues.length > 0 ? (
+          <View style={styles.issueList}>
+            {payload.review.issues.map((issue) => (
+              <View key={issue.id} style={styles.issueCard}>
+                <Text style={styles.issueTitle}>{issue.summary}</Text>
+                <Text style={styles.issueMeta}>{formatStepLabel(issue.step)} • {issue.category}</Text>
+                <Text style={styles.issueDetail}>{issue.detail}</Text>
+              </View>
+            ))}
+          </View>
+        ) : null}
+
+        {completionMessage ? <Text style={styles.emptyHint}>{completionMessage}</Text> : null}
+
+        <Pressable
+          accessibilityRole="button"
+          disabled={!validationSummary?.canComplete}
+          onPress={completeBuild}
+          style={({ pressed }) => [styles.completeButton, pressed && styles.addClassButtonPressed, !validationSummary?.canComplete && styles.addClassButtonDisabled]}
+        >
+          <Text style={styles.addClassButtonLabel}>Complete Character</Text>
+        </Pressable>
       </View>
     </Screen>
   );
@@ -1734,6 +1959,58 @@ const styles = StyleSheet.create({
   inventoryMeta: {
     color: theme.colors.textMuted,
     ...typography.meta,
+  },
+  reviewPanel: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    gap: theme.spacing.xs,
+    padding: theme.spacing.md,
+  },
+  reviewTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  reviewText: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  issueList: {
+    gap: theme.spacing.sm,
+  },
+  issueCard: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: 4,
+    padding: theme.spacing.sm,
+  },
+  issueTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  issueMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+    textTransform: 'uppercase',
+  },
+  issueDetail: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  completeButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.accentSuccess,
+    borderColor: theme.colors.accentSuccessSoft,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 48,
+    paddingHorizontal: theme.spacing.lg,
   },
   stepGrid: {
     flexDirection: 'row',

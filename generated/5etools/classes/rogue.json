@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-9b7a4f4e208eb877",
+  "contentVersion": "schema1-3d4a12cebc29cbed",
   "entityType": "classes",
   "chunkId": "rogue",
-  "generatedAt": "2026-04-24T07:15:43.746Z",
+  "generatedAt": "2026-04-24T14:01:24.070Z",
   "records": {
     "class": {
       "id": "rogue|xphb",

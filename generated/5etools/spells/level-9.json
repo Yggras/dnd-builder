@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-9b7a4f4e208eb877",
+  "contentVersion": "schema1-3d4a12cebc29cbed",
   "entityType": "spells",
   "chunkId": "level-9",
-  "generatedAt": "2026-04-24T07:15:43.746Z",
+  "generatedAt": "2026-04-24T14:01:24.070Z",
   "records": [
     {
       "id": "astral-projection|phb|spell",
@@ -31,6 +31,16 @@
         "level": 9,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "warlock|phb",
+          "wizard|phb",
+          "monk|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "special"
@@ -81,6 +91,15 @@
         "level": 9,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -132,6 +151,12 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -180,6 +205,8 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -227,6 +254,15 @@
         "level": 9,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "druid|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "diviner|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -272,6 +308,15 @@
         "level": 9,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "druid|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "diviner|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -320,6 +365,15 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -373,6 +427,16 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -473,6 +537,13 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "abjurer|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -571,6 +642,13 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "abjurer|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -619,6 +697,10 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "abjurer|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -669,6 +751,13 @@
         "level": 9,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "cleric|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -710,6 +799,13 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -755,6 +851,8 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -803,6 +901,13 @@
         "level": 9,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "evoker|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -845,6 +950,13 @@
         "level": 9,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "evoker|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -886,6 +998,13 @@
         "level": 9,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "bard|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -926,6 +1045,14 @@
         "level": 9,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -967,6 +1094,13 @@
         "level": 9,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1007,6 +1141,13 @@
         "level": 9,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1100,6 +1241,12 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "abjurer|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1190,6 +1337,13 @@
         "level": 9,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "abjurer|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1237,6 +1391,8 @@
         "level": 9,
         "school": "E",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1279,6 +1435,8 @@
         "level": 9,
         "school": "V",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1331,6 +1489,11 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "druid|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1383,6 +1546,11 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1461,6 +1629,10 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1535,6 +1707,10 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1581,6 +1757,8 @@
         "level": 9,
         "school": "N",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1628,6 +1806,11 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1668,6 +1851,11 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -1733,6 +1921,12 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1806,6 +2000,12 @@
         "level": 9,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1855,6 +2055,14 @@
         "level": 9,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "druid|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1902,6 +2110,14 @@
         "level": 9,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1947,6 +2163,12 @@
         "level": 9,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "illusionist|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1994,6 +2216,13 @@
         "level": 9,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "illusionist|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2053,6 +2282,11 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -2150,6 +2384,11 @@
         "level": 9,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"

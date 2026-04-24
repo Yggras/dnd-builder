@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-9b7a4f4e208eb877",
+  "contentVersion": "schema1-3d4a12cebc29cbed",
   "entityType": "spells",
   "chunkId": "level-3",
-  "generatedAt": "2026-04-24T07:15:43.746Z",
+  "generatedAt": "2026-04-24T14:01:24.070Z",
   "records": [
     {
       "id": "animate-dead|phb|spell",
@@ -28,6 +28,20 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "oathbreaker|dmg|subclass|paladin|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "oathbreaker|dmg|subclass|paladin|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -72,6 +86,20 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "oathbreaker|dmg|subclass|paladin|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "oathbreaker|dmg|subclass|paladin|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -114,6 +142,13 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -157,6 +192,13 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -202,6 +244,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "paladin|phb"
+        ],
+        "subclassIds": [
+          "battle-smith|tce|subclass|artificer|tce",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -247,6 +297,17 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "paladin|xphb"
+        ],
+        "subclassIds": [
+          "battle-smith|tce|subclass|artificer|tce",
+          "battle-smith|efa|subclass|artificer|efa",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -292,6 +353,13 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -338,6 +406,13 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -394,6 +469,21 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "oathbreaker|dmg|subclass|paladin|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "oathbreaker|dmg|subclass|paladin|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -448,6 +538,21 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "oathbreaker|dmg|subclass|paladin|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "oathbreaker|dmg|subclass|paladin|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -494,6 +599,10 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "paladin|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -538,6 +647,10 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "paladin|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -582,6 +695,17 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -627,6 +751,17 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -672,6 +807,18 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -720,6 +867,10 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -769,6 +920,12 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb"
+        ],
+        "subclassIds": [
+          "cartographer|efa|subclass|artificer|efa"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -815,6 +972,13 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -862,6 +1026,21 @@
         "level": 3,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "diviner|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -914,6 +1093,22 @@
         "level": 3,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "cartographer|efa|subclass|artificer|efa",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "diviner|xphb|subclass|wizard|xphb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -976,6 +1171,11 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|phb",
+          "ranger|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1024,6 +1224,11 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "ranger|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1070,6 +1275,12 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "ranger|phb"
+        ],
+        "subclassIds": [
+          "battle-smith|tce|subclass|artificer|tce"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1112,6 +1323,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "ranger|xphb"
+        ],
+        "subclassIds": [
+          "battle-smith|tce|subclass|artificer|tce",
+          "battle-smith|efa|subclass|artificer|efa"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1178,6 +1396,15 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1225,6 +1452,18 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1265,6 +1504,18 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1305,6 +1556,15 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "paladin|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1346,6 +1606,15 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "paladin|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1387,6 +1656,10 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "paladin|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1432,6 +1705,10 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "paladin|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1479,6 +1756,17 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "druid|phb",
+          "paladin|phb",
+          "ranger|phb",
+          "sorcerer|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1526,6 +1814,17 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb",
+          "sorcerer|xphb",
+          "paladin|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1571,6 +1870,27 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "druid|phb",
+          "paladin|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "fey-wanderer|tce|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "clockwork-soul|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1612,6 +1932,28 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb",
+          "paladin|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "fey-wanderer|tce|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "clockwork-soul|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1653,6 +1995,11 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "paladin|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1698,6 +2045,13 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "ranger|xphb",
+          "paladin|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -1744,6 +2098,13 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1790,6 +2151,13 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1834,6 +2202,22 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "wizard|phb",
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1880,6 +2264,20 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "gloom-stalker|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1928,6 +2326,21 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "gloom-stalker|xphb|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "gloom-stalker|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1976,6 +2389,20 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "druid|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2023,6 +2450,20 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "druid|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2069,6 +2510,18 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "artillerist|tce|subclass|artificer|tce",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2112,6 +2565,19 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "artillerist|tce|subclass|artificer|tce",
+          "artillerist|efa|subclass|artificer|efa",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2154,6 +2620,13 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2199,6 +2672,18 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2245,6 +2730,18 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2305,6 +2802,11 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "wizard|phb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -2353,6 +2855,20 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "alchemist|tce|subclass|artificer|tce",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "swarmkeeper|tce|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "swarmkeeper|tce|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2401,6 +2917,21 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "alchemist|tce|subclass|artificer|tce",
+          "alchemist|efa|subclass|artificer|efa",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "swarmkeeper|tce|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "swarmkeeper|tce|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2465,6 +2996,21 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -2539,6 +3085,21 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -2589,6 +3150,19 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "horizon-walker|xge|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "horizon-walker|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2637,6 +3211,19 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "horizon-walker|xge|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "horizon-walker|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2685,6 +3272,12 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "warlock|phb"
+        ],
+        "subclassIds": [
+          "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2733,6 +3326,12 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "warlock|xphb"
+        ],
+        "subclassIds": [
+          "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2781,6 +3380,20 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "armorer|tce|subclass|artificer|tce",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2828,6 +3441,21 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "armorer|tce|subclass|artificer|tce",
+          "armorer|efa|subclass|artificer|efa",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2875,6 +3503,22 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "wizard|phb",
+          "warlock|phb",
+          "cleric|xphb",
+          "wizard|xphb",
+          "warlock|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2925,6 +3569,17 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "artificer|tce",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2970,6 +3625,20 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3017,6 +3686,17 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3066,6 +3746,17 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3112,6 +3803,15 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3155,6 +3855,10 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "ranger|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -3201,6 +3905,10 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "ranger|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -3242,6 +3950,18 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "armorer|tce|subclass|artificer|tce",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3284,6 +4004,19 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "armorer|tce|subclass|artificer|tce",
+          "armorer|efa|subclass|artificer|efa",
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3344,6 +4077,17 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "wizard|phb",
+          "artificer|tce",
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "permanent",
@@ -3403,6 +4147,23 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "paladin|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "monster-slayer|xge|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "monster-slayer|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3463,6 +4224,23 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "warlock|xphb",
+          "wizard|xphb",
+          "paladin|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "monster-slayer|xge|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "monster-slayer|xge|subclass|ranger|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3515,6 +4293,19 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3564,6 +4355,19 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3611,6 +4415,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "cleric|phb"
+        ],
+        "subclassIds": [
+          "alchemist|tce|subclass|artificer|tce",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3651,6 +4463,16 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "alchemist|tce|subclass|artificer|tce",
+          "alchemist|efa|subclass|artificer|efa",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3693,6 +4515,14 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "druid|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3739,6 +4569,15 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3783,6 +4622,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3836,6 +4683,16 @@
         "level": 3,
         "school": "E",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "bard|xphb",
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3880,6 +4737,18 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "ranger|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3929,6 +4798,18 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "ranger|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3979,6 +4860,16 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4025,6 +4916,16 @@
         "level": 3,
         "school": "I",
         "classes": {},
+        "classIds": [
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4073,6 +4974,12 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "druid|phb",
+          "ranger|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -4128,6 +5035,12 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "druid|xphb",
+          "ranger|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -4169,6 +5082,24 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "druid|phb",
+          "ranger|phb",
+          "sorcerer|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "clockwork-soul|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4214,6 +5145,24 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "clockwork-soul|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4260,6 +5209,8 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [],
         "duration": [
           {
             "type": "instant"
@@ -4301,6 +5252,21 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "paladin|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4341,6 +5307,22 @@
         "level": 3,
         "school": "A",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "warlock|xphb",
+          "wizard|xphb",
+          "paladin|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "winter-walker|frhof|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "abjurer|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4381,6 +5363,15 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "paladin|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4426,6 +5417,17 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb",
+          "paladin|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4472,6 +5474,21 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4519,6 +5536,21 @@
         "level": 3,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "diviner|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb",
+          "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4562,6 +5594,17 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|phb",
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4610,6 +5653,17 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4660,6 +5714,16 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4709,6 +5773,17 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4757,6 +5832,18 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4804,6 +5891,19 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4854,6 +5954,12 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "druid|phb",
+          "ranger|phb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -4902,6 +6008,12 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "druid|xphb",
+          "ranger|xphb"
+        ],
+        "subclassIds": [],
         "duration": [
           {
             "type": "timed",
@@ -4948,6 +6060,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|phb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4996,6 +6115,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "cleric|xphb"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5045,6 +6171,15 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5092,6 +6227,17 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "sorcerer|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5140,6 +6286,17 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5188,6 +6345,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5239,6 +6403,20 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "ranger|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "fey-wanderer|xphb|subclass|ranger|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "illusionist|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5335,6 +6513,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5386,6 +6571,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5437,6 +6629,13 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5488,6 +6687,16 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5559,6 +6768,16 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5605,6 +6824,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5645,6 +6871,13 @@
         "level": 3,
         "school": "C",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5689,6 +6922,13 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5733,6 +6973,22 @@
         "level": 3,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|phb",
+          "cleric|phb",
+          "sorcerer|phb",
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "diviner|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5777,6 +7033,22 @@
         "level": 3,
         "school": "D",
         "classes": {},
+        "classIds": [
+          "bard|xphb",
+          "cleric|xphb",
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "diviner|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5821,6 +7093,16 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "warlock|phb",
+          "wizard|phb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5867,6 +7149,17 @@
         "level": 3,
         "school": "N",
         "classes": {},
+        "classIds": [
+          "sorcerer|xphb",
+          "warlock|xphb",
+          "wizard|xphb"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5912,6 +7205,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5960,6 +7261,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "evoker|xphb|subclass|wizard|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6007,6 +7316,19 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "druid|phb",
+          "ranger|phb",
+          "sorcerer|phb",
+          "wizard|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6053,6 +7375,19 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "ranger|xphb",
+          "sorcerer|xphb",
+          "wizard|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "eldritch-knight|xphb|subclass|fighter|xphb",
+          "arcane-trickster|xphb|subclass|rogue|xphb",
+          "eldritch-knight|phb|subclass|fighter|phb",
+          "arcane-trickster|phb|subclass|rogue|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6100,6 +7435,17 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "cleric|phb",
+          "druid|phb",
+          "ranger|phb",
+          "sorcerer|phb",
+          "artificer|tce"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6147,6 +7493,17 @@
         "level": 3,
         "school": "T",
         "classes": {},
+        "classIds": [
+          "cleric|xphb",
+          "druid|xphb",
+          "ranger|xphb",
+          "sorcerer|xphb",
+          "artificer|efa"
+        ],
+        "subclassIds": [
+          "divine-soul|xge|subclass|sorcerer|xphb",
+          "divine-soul|xge|subclass|sorcerer|phb"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6195,6 +7552,13 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "druid|phb",
+          "ranger|phb"
+        ],
+        "subclassIds": [
+          "artillerist|tce|subclass|artificer|tce"
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6244,6 +7608,14 @@
         "level": 3,
         "school": "V",
         "classes": {},
+        "classIds": [
+          "druid|xphb",
+          "ranger|xphb"
+        ],
+        "subclassIds": [
+          "artillerist|tce|subclass|artificer|tce",
+          "artillerist|efa|subclass|artificer|efa"
+        ],
         "duration": [
           {
             "type": "timed",

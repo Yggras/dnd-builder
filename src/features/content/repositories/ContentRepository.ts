@@ -2,6 +2,7 @@ import type { ChoiceGrant, CompendiumEntry, ContentEntity } from '@/shared/types
 
 export interface SpellQueryOptions {
   classId?: string;
+  subclassId?: string;
   level?: number;
   query?: string;
   onlySelectableInBuilder?: boolean;

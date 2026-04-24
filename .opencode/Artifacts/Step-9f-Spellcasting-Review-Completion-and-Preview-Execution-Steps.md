@@ -5,9 +5,10 @@ Execute the final builder launch phase so spellcasting, review, completion, and 
 
 ## Execution Rules
 - Do not weaken spell rules just to ship the builder faster.
+- Do not rely on text matching to determine spell applicability when structured metadata can be imported or normalized instead.
 - Keep review focused on validation summary and completion.
 - Do not allow unresolved blockers or checklist items to slip through completion.
-- Let explicit overrides resolve supported cases intentionally and visibly.
+- Let explicit overrides resolve supported cases intentionally and visibly, but do not use them to bypass missing required steps or broken internal state.
 
 ## Step-By-Step Execution Sequence
 
@@ -20,17 +21,25 @@ Execute the final builder launch phase so spellcasting, review, completion, and 
 Output:
 - stable spell and completion contract.
 
-### 2. Implement Spell Support
+### 2. Implement The Spell Applicability Data Prerequisite
+- Import upstream spell source lookup data.
+- Normalize structured `classIds` and `subclassIds` into spell metadata.
+- Replace app-side spell filtering heuristics with structured metadata filtering.
+
+Output:
+- trustworthy builder-facing spell applicability data.
+
+### 3. Implement Spell Support
 - Add spell step UI.
 - Add strict counts.
 - Add multiclass spellcasting behavior.
-- Add manual exception handling for supported edge cases.
+- Add manual exception handling for supported edge cases only.
 - Keep detailed spell-selection state in `character_builds.payload`.
 
 Output:
 - real spellcasting support.
 
-### 3. Implement Review Summary
+### 4. Implement Review Summary
 - Summarize blockers.
 - Summarize checklist items.
 - Summarize informational notices.
@@ -40,7 +49,7 @@ Output:
 Output:
 - trustworthy review step.
 
-### 4. Implement Completion State Transitions
+### 5. Implement Completion State Transitions
 - Add explicit completion action.
 - Mark eligible builds complete.
 - Regress complete builds to draft after invalidating edits.
@@ -49,13 +58,16 @@ Output:
 Output:
 - working draft/complete lifecycle.
 
-### 5. Add Lightweight Preview
+### 6. Add Lightweight Preview
 - Open a lightweight preview after successful completion.
+- Keep it summary-oriented rather than turning it into a full live sheet.
+- Include class, origin, ability, feat, spell, inventory, and source summary information.
 
 Output:
 - meaningful post-completion destination.
 
-### 6. Verify End-To-End Builder Behavior
+### 7. Verify End-To-End Builder Behavior
+- Verify spell filtering works from structured metadata rather than text matching.
 - Build at least one non-caster.
 - Build at least one spellcaster.
 - Build at least one multiclass spellcaster.

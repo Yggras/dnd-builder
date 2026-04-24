@@ -12,6 +12,7 @@ export const SOURCE_FILES = {
   feats: 'data/feats.json',
   optionalFeatures: 'data/optionalfeatures.json',
   spellsIndex: 'data/spells/index.json',
+  spellSourceLookup: 'data/generated/gendata-spell-source-lookup.json',
   itemsBase: 'data/items-base.json',
   items: 'data/items.json',
 };

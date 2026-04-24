@@ -47,13 +47,14 @@ function validateGrants(choiceGrants) {
 }
 
 async function loadRawSources() {
-  const [races, classIndex, backgrounds, feats, optionalFeatures, spellsIndex, itemsBase, items] = await Promise.all([
+  const [races, classIndex, backgrounds, feats, optionalFeatures, spellsIndex, spellSourceLookup, itemsBase, items] = await Promise.all([
     fetchJson(SOURCE_FILES.races),
     fetchJson(SOURCE_FILES.classIndex),
     fetchJson(SOURCE_FILES.backgrounds),
     fetchJson(SOURCE_FILES.feats),
     fetchJson(SOURCE_FILES.optionalFeatures),
     fetchJson(SOURCE_FILES.spellsIndex),
+    fetchJson(SOURCE_FILES.spellSourceLookup),
     fetchJson(SOURCE_FILES.itemsBase),
     fetchJson(SOURCE_FILES.items),
   ]);
@@ -68,6 +69,7 @@ async function loadRawSources() {
     feats,
     optionalFeatures,
     spellFiles,
+    spellSourceLookup,
     itemsBase,
     items,
   };
@@ -92,7 +94,11 @@ async function main() {
   const backgrounds = normalizeBackgrounds(resolvedBackgrounds);
   const feats = normalizeFeats(resolvedFeats);
   const optionalFeatures = normalizeOptionalFeatures(resolvedOptionalFeatures);
-  const spells = normalizeSpells(resolvedSpells);
+  const spells = normalizeSpells(resolvedSpells, {
+    classes,
+    subclasses,
+    spellSourceLookup: rawSources.spellSourceLookup,
+  });
   const items = normalizeItems(resolvedItems);
   const choiceGrants = normalizeChoiceGrants({ classes, subclasses, feats, optionalFeatures });
   const compendiumEntries = normalizeCompendiumEntries({
