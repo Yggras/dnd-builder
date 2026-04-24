@@ -93,6 +93,7 @@ export interface BuilderSourceSummary {
 }
 
 export interface BuilderDraftPayload {
+  [key: string]: unknown;
   version: 1;
   classStep: {
     allocations: BuilderClassAllocation[];

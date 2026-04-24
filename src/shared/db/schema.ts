@@ -119,7 +119,6 @@ export const schemaStatements = [
      updated_at TEXT NOT NULL
    )`,
   `CREATE INDEX IF NOT EXISTS idx_content_entities_type ON content_entities(entity_type)`,
-  `CREATE INDEX IF NOT EXISTS idx_character_builds_progress ON character_builds(build_state, current_step)`,
   `CREATE INDEX IF NOT EXISTS idx_content_entities_parent ON content_entities(parent_entity_id)`,
   `CREATE INDEX IF NOT EXISTS idx_content_entities_builder ON content_entities(entity_type, is_selectable_in_builder, is_primary_2024)`,
   `CREATE INDEX IF NOT EXISTS idx_campaign_characters_campaign ON campaign_characters(campaign_id)`,
