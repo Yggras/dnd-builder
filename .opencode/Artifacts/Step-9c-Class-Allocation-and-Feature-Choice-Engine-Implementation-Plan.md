@@ -13,6 +13,7 @@ This step is where the builder moves from shell to actual build logic.
 - Invalid multiclass prerequisites block multiclass.
 - Subclass selection is only available when the class level qualifies.
 - Fighting styles, invocations, maneuvers, and similar choices live inside the class step.
+- Detailed class allocations and selections live in `character_builds.payload`; step progress continues to flow through the Step 9a explicit-column contract.
 
 ## Product Boundary
 
@@ -41,6 +42,9 @@ This step is where the builder moves from shell to actual build logic.
 ### 1. Class Allocation Model
 Represent classes and levels as a structured allocation table.
 
+Persistence note:
+- keep the full class allocation table inside `character_builds.payload` rather than trying to split it into first-class columns in this phase
+
 ### 2. Validation Layer
 Implement:
 - multiclass prerequisite checks
@@ -59,6 +63,7 @@ When class changes affect later build state, show an impact summary and route th
 - Invalid multiclassing is blocked.
 - Subclasses only appear when qualified.
 - Supported feature choices appear in-class-step.
+- The class step updates progress state without requiring class-allocation details to be flattened out of payload storage.
 
 ## Risks And Mitigations
 

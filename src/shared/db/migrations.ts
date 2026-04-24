@@ -92,6 +92,27 @@ const migrations: Migration[] = [
       });
     },
   },
+  {
+    version: 3,
+    name: 'add_builder_progress_columns',
+    migrate: async (database) => {
+      await database.withExclusiveTransactionAsync(async (transaction) => {
+        await transaction.execAsync('DROP TABLE IF EXISTS character_builds;');
+        await transaction.execAsync(`CREATE TABLE IF NOT EXISTS character_builds (
+          character_id TEXT PRIMARY KEY NOT NULL,
+          build_state TEXT NOT NULL DEFAULT 'draft',
+          current_step TEXT NOT NULL DEFAULT 'class',
+          payload TEXT NOT NULL,
+          revision INTEGER NOT NULL DEFAULT 1,
+          completion_updated_at TEXT,
+          updated_at TEXT NOT NULL
+        );`);
+        await transaction.execAsync(
+          'CREATE INDEX IF NOT EXISTS idx_character_builds_progress ON character_builds(build_state, current_step);',
+        );
+      });
+    },
+  },
 ];
 
 export async function runLocalMigrations(database: SQLite.SQLiteDatabase) {

@@ -12,6 +12,7 @@ This step should establish the product's first real character-management vertica
 - Name is required up front.
 - The roster should show name, level, class, species, and draft/complete state.
 - Completion should be visibly reflected in the roster.
+- Builder persistence follows the Step 9a hybrid model: roster-friendly progress fields are explicit columns, while detailed builder state lives in `character_builds.payload`.
 
 ## Product Boundary
 
@@ -44,6 +45,7 @@ Implement local reads/writes for:
 - get one character
 - create blank character
 - read and write character build
+- persist and read minimal explicit builder progress fields needed by roster and resume flows
 
 ### 2. Query And Hook Layer
 Add hooks for:
@@ -69,11 +71,13 @@ Responsibilities:
 - load saved draft
 - autosave draft changes
 - support resume behavior
+- update explicit progress columns without flattening the full builder model into top-level tables
 
 ## Verification
 - The roster lists only the signed-in user's characters.
 - New character creation creates a blank draft and opens the builder.
 - Returning to the roster shows the created draft.
+- The roster can render draft/complete state and current progress without parsing the full builder payload.
 - Reloading the app preserves the draft.
 
 ## Risks And Mitigations
@@ -92,4 +96,5 @@ Step 9b is complete when:
 - new draft creation works
 - builder entry routes exist
 - draft persistence works
+- explicit builder progress columns support roster and resume behavior
 - the builder shell can resume saved work

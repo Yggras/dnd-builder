@@ -14,6 +14,7 @@ This step is the launch gate for the full builder because the user explicitly re
 - Completion requires no unresolved blockers or checklist items.
 - Overrides can intentionally resolve invalidity and still permit completion.
 - Finishing the builder should open a lightweight preview.
+- Detailed spell selections, review state, and override summaries live in `character_builds.payload`; the resulting draft/complete state continues to surface through explicit progress columns.
 
 ## Product Boundary
 
@@ -44,6 +45,9 @@ Implement strict spell selection rules, including multiclass spellcasting suppor
 ### 2. Review Model
 Summarize blockers, checklist items, informational notices, and overrides.
 
+Persistence note:
+- keep detailed review summaries and override records in `character_builds.payload`, while exposing the high-level completion state through explicit columns
+
 ### 3. Completion Engine
 Implement:
 - complete-state eligibility
@@ -59,6 +63,7 @@ Build a lightweight post-completion preview destination.
 - Review summarizes the build accurately.
 - Completion succeeds only when allowed.
 - Invalidating later edits can return the character to draft.
+- Roster-visible completion state remains queryable without parsing the full review payload.
 
 ## Risks And Mitigations
 

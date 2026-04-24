@@ -9,6 +9,7 @@ Implement the species, background, and ability score portions of the builder so 
 - Granted feats should trigger separate follow-up handling.
 - Ability scores are handled manually with rules enforcement.
 - ASIs and feats are guided but editable.
+- Origin selections, granted-feat follow-up, and ability-score detail stay in `character_builds.payload`, while step progress remains visible through explicit builder progress columns.
 
 ## Product Boundary
 
@@ -45,12 +46,16 @@ Surface feat-granting origin decisions as explicit follow-up choices.
 ### 4. Ability And ASI Engine
 Support manual allocation plus legal ASI handling with validation.
 
+Persistence note:
+- store detailed species, background, granted-feat, and ability-allocation state inside `character_builds.payload`
+
 ## Verification
 - Species can be selected.
 - Backgrounds can be selected and are required.
 - Deterministic benefits apply where reliable.
 - Granted-feat follow-up appears when needed.
 - Ability scores and ASIs validate correctly.
+- The builder can resume origin and ability work without expanding the explicit-column surface beyond progress metadata.
 
 ## Risks And Mitigations
 

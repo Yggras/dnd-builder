@@ -22,12 +22,14 @@ Output:
 ### 2. Model Starting Equipment Choices
 - Represent supported starting equipment bundles.
 - Map supported choices to canonical items.
+- Keep bundle-choice detail inside `character_builds.payload`.
 
 Output:
 - starting gear seed model.
 
 ### 3. Implement Inventory Seeding
 - Apply selected starting gear into build inventory.
+- Store seeded inventory state in `character_builds.payload`.
 
 Output:
 - guided starting equipment behavior.
@@ -35,6 +37,7 @@ Output:
 ### 4. Implement Inventory Editing
 - Add and remove canonical items.
 - Preserve seeded items as normal editable entries.
+- Keep inventory detail payload-owned while preserving step progress through explicit columns.
 
 Output:
 - usable inventory editing flow.

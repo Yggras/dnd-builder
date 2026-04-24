@@ -8,6 +8,7 @@ Implement the inventory step so characters can receive guided starting equipment
 - No custom items in the first serious builder.
 - Starting equipment bundles seed inventory rather than locking it permanently.
 - Large lists should support search and filters within the step.
+- Inventory contents and starting-equipment choices live in `character_builds.payload`, while step progress remains queryable through explicit builder progress columns.
 
 ## Product Boundary
 
@@ -37,6 +38,9 @@ Represent guided starting gear choices and their resulting canonical items.
 ### 2. Inventory Seed Flow
 Seed selected items into the character build inventory.
 
+Persistence note:
+- seeded inventory entries and bundle-choice detail remain payload-owned builder state rather than new first-class relational tables in this phase
+
 ### 3. Editable Inventory UI
 Allow the user to add/remove canonical items after seeding.
 
@@ -48,6 +52,7 @@ Provide mobile-friendly search/filter behavior for item-heavy flows.
 - Seeded items can be edited afterward.
 - Only canonical items are selectable.
 - Search/filter works for large item lists.
+- Inventory progress remains resumable without broadening the explicit-column contract beyond roster/resume metadata.
 
 ## Risks And Mitigations
 

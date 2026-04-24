@@ -25,6 +25,7 @@ Output:
 - Add strict counts.
 - Add multiclass spellcasting behavior.
 - Add manual exception handling for supported edge cases.
+- Keep detailed spell-selection state in `character_builds.payload`.
 
 Output:
 - real spellcasting support.
@@ -34,6 +35,7 @@ Output:
 - Summarize checklist items.
 - Summarize informational notices.
 - Summarize overrides and mixed-edition state.
+- Keep detailed review output in `character_builds.payload`.
 
 Output:
 - trustworthy review step.
@@ -42,6 +44,7 @@ Output:
 - Add explicit completion action.
 - Mark eligible builds complete.
 - Regress complete builds to draft after invalidating edits.
+- Update explicit builder progress columns when completion state changes.
 
 Output:
 - working draft/complete lifecycle.

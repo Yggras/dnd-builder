@@ -22,6 +22,7 @@ Output:
 ### 2. Implement Character Repository Foundations
 - Add local list/get/create/save behavior.
 - Read and write `characters` and `character_builds`.
+- Persist and read the minimal explicit builder progress columns defined in Step 9a.
 
 Output:
 - working local character persistence boundary.
@@ -37,6 +38,7 @@ Output:
 - Build the real `My Characters` screen.
 - Add empty, loading, and error states.
 - Show draft/complete identity cards.
+- Read roster-visible progress directly from explicit columns, not by parsing the full builder payload.
 
 Output:
 - usable owned-character roster.
@@ -53,6 +55,7 @@ Output:
 - Load draft state.
 - Render step navigation scaffolding.
 - Enable autosave-compatible shell state.
+- Keep detailed state in `character_builds.payload` while updating explicit progress fields for resume behavior.
 
 Output:
 - resumable builder shell.

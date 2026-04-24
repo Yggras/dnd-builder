@@ -29,6 +29,14 @@ Output:
 Output:
 - builder lifecycle model.
 
+### 2a. Define The Persistence Boundary
+- Define which builder progress fields must be queryable directly for roster and resume flows.
+- Define which fields live as explicit columns and which remain inside `character_builds.payload`.
+- Keep the explicit-column contract intentionally small.
+
+Output:
+- validated persistence contract for builder state.
+
 ### 3. Define Validation Categories
 - Define blocking invalidity.
 - Define unresolved checklist items.
@@ -66,6 +74,7 @@ Output:
 
 ### 7. Run Technical Verification
 - Ensure the resulting contract aligns with the current domain model.
+- Ensure roster and builder-shell queries can rely on explicit progress columns without parsing the full payload.
 - Ensure later implementation steps can reference the output without reinterpretation.
 
 Output:
@@ -76,5 +85,6 @@ Step 9a is complete when:
 - the builder lifecycle is defined
 - validation categories are explicit
 - step ownership is explicit
+- the explicit-column versus payload boundary is explicit
 - content/runtime capability support is audited
 - launch blockers are clearly identified

@@ -22,6 +22,7 @@ Output:
 ### 2. Build The Class Allocation Model
 - Add builder state for class allocations.
 - Support add/remove/update class rows.
+- Keep class-allocation details inside `character_builds.payload`.
 
 Output:
 - multiclass-capable class model.
@@ -51,6 +52,7 @@ Output:
 - Test single-class and multiclass builds.
 - Test subclass availability.
 - Test invalid multiclass blocking.
+- Test that class-step progress still flows through the explicit progress-column contract defined in Step 9a.
 
 Output:
 - validated class-engine baseline.

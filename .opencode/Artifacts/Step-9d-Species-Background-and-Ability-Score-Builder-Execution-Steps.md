@@ -29,6 +29,7 @@ Output:
 ### 3. Implement Species Step
 - Add species selection.
 - Apply deterministic species effects where reliable.
+- Keep detailed species-step state in `character_builds.payload`.
 
 Output:
 - usable species step.
@@ -36,6 +37,7 @@ Output:
 ### 4. Implement Background Step
 - Add background selection.
 - Apply deterministic background effects where reliable.
+- Keep detailed background-step state in `character_builds.payload`.
 
 Output:
 - usable required background step.
@@ -50,6 +52,7 @@ Output:
 ### 6. Implement Ability And ASI Handling
 - Add manual ability score allocation.
 - Add ASI handling with rules enforcement.
+- Keep detailed allocation state in `character_builds.payload` while preserving resumable step progress through explicit columns.
 
 Output:
 - ability-score baseline.

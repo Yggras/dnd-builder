@@ -2,7 +2,7 @@ import type * as SQLite from 'expo-sqlite';
 
 const LOCAL_SCHEMA_VERSION_KEY = 'local_schema_version';
 
-export const LATEST_LOCAL_SCHEMA_VERSION = 2;
+export const LATEST_LOCAL_SCHEMA_VERSION = 3;
 
 interface MetadataRow {
   value: string;

@@ -4,6 +4,17 @@ export type PendingMutationType = 'create' | 'update' | 'delete';
 export type ContentEntityType = 'species' | 'class' | 'subclass' | 'background' | 'feat' | 'optionalfeature' | 'spell' | 'item';
 export type ChoiceGrantSourceType = 'class' | 'subclass' | 'feat' | 'optionalfeature';
 export type ChoiceGrantKind = 'feat' | 'optionalfeature';
+export type BuilderState = 'draft' | 'complete';
+export type BuilderStep =
+  | 'class'
+  | 'spells'
+  | 'species'
+  | 'background'
+  | 'ability-points'
+  | 'inventory'
+  | 'characteristics'
+  | 'notes'
+  | 'review';
 
 export interface Campaign {
   id: string;
@@ -42,18 +53,11 @@ export interface CampaignCharacter {
 
 export interface CharacterBuild {
   characterId: string;
-  classId: string | null;
-  subclassId: string | null;
-  speciesId: string | null;
-  backgroundId: string | null;
-  abilityScores: Record<string, number>;
-  selectedProficiencies: string[];
-  selectedLanguages: string[];
-  selectedFeatIds: string[];
-  preparedSpellIds: string[];
-  inventoryItemIds: string[];
-  notes: string | null;
-  overrides: Record<string, unknown>;
+  buildState: BuilderState;
+  currentStep: BuilderStep;
+  payload: Record<string, unknown>;
+  revision: number;
+  completionUpdatedAt: string | null;
   updatedAt: string;
 }
 

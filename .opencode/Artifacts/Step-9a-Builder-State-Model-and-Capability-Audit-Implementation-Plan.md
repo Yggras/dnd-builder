@@ -10,6 +10,7 @@ This step is the contract phase for the builder system. Its purpose is to preven
 - It produces only `character` and `character_build` output.
 - Characters begin as drafts and may become complete.
 - A complete character may fall back to draft after invalidating edits.
+- Builder persistence uses a hybrid model: high-value progress fields live in explicit columns, while the evolving builder model lives in `character_builds.payload`.
 - Backgrounds are required and now exist in generated content.
 - Deep spell support is a required launch condition for the full builder.
 - Overrides may intentionally resolve otherwise invalid or unsupported cases and still permit completion.
@@ -48,6 +49,8 @@ Responsibilities:
 - define what makes a step complete
 - define how a complete build falls back to draft
 - define autosave-compatible partial progress behavior
+- define which builder progress fields must be queryable without parsing the full payload
+- define the persistence split between first-class columns and `character_builds.payload`
 
 ### 2. Validation Contract
 Define the categories of builder feedback.
@@ -89,6 +92,8 @@ Primary areas:
 - builder state terminology and lifecycle
 - builder validation model
 - per-step responsibility matrix
+- minimal schema contract for builder progress columns such as `build_state` and `current_step`
+- canonical JSON payload contract for the evolving builder model stored in `character_builds.payload`
 - capability support matrix with statuses such as:
   - supported
   - partially supported
@@ -98,6 +103,8 @@ Primary areas:
 ## Verification
 - The builder behavior spec can be mapped to explicit state categories.
 - Each wizard step has a clear scope.
+- Roster and builder-shell progress can be queried without parsing the full builder payload.
+- Most builder structure remains flexible inside `character_builds.payload`.
 - The team can identify what must be built before the builder can launch.
 - No builder UI implementation depends on unspecified behavior after this step.
 
@@ -120,5 +127,6 @@ Step 9a is complete when:
 - builder state terminology is defined
 - validation categories are defined
 - step ownership is defined
+- the persistence boundary between explicit progress columns and payload state is defined
 - current content/runtime capability gaps are audited
 - launch-blocking dependencies for the builder are explicit
