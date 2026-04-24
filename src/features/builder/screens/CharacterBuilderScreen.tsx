@@ -18,6 +18,7 @@ import {
   normalizeAbilityChoices,
   reconcileOriginAndAbilitiesPayload,
 } from '@/features/builder/utils/originAndAbilities';
+import { getStartingEquipmentOptionGroups, seedStartingEquipment } from '@/features/builder/utils/inventory';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { ContentService } from '@/features/content/services/ContentService';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
@@ -55,6 +56,8 @@ export function CharacterBuilderScreen() {
   const [showClassPicker, setShowClassPicker] = useState(false);
   const [classImpactSummary, setClassImpactSummary] = useState<string | null>(null);
   const [originImpactSummary, setOriginImpactSummary] = useState<string | null>(null);
+  const [inventoryImpactSummary, setInventoryImpactSummary] = useState<string | null>(null);
+  const [inventorySearch, setInventorySearch] = useState('');
 
   const classesQuery = useQuery({
     queryKey: ['builder', 'classes'],
@@ -71,6 +74,15 @@ export function CharacterBuilderScreen() {
   const featsQuery = useQuery({
     queryKey: ['builder', 'feats', 'all'],
     queryFn: () => contentService.listFeats(undefined),
+  });
+  const allItemsQuery = useQuery({
+    queryKey: ['builder', 'items', 'all'],
+    queryFn: () => contentService.listItems({ query: '' }),
+  });
+  const itemSearchQuery = useQuery({
+    queryKey: ['builder', 'items', 'search', inventorySearch.trim()],
+    queryFn: () => contentService.listItems({ query: inventorySearch.trim() }),
+    enabled: inventorySearch.trim().length > 0,
   });
 
   const selectedClassIds = useMemo(() => {
@@ -112,6 +124,10 @@ export function CharacterBuilderScreen() {
   const featEntitiesById = useMemo(
     () => Object.fromEntries((featsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
     [featsQuery.data],
+  );
+  const itemEntitiesById = useMemo(
+    () => Object.fromEntries((allItemsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [allItemsQuery.data],
   );
 
   const subclassesByClassId = useMemo(() => {
@@ -329,6 +345,10 @@ export function CharacterBuilderScreen() {
     return <LoadingState label="Loading origin and feat options..." />;
   }
 
+  if (allItemsQuery.isLoading) {
+    return <LoadingState label="Loading inventory options..." />;
+  }
+
   if (error) {
     return <ErrorState title="Builder unavailable" message={error instanceof Error ? error.message : 'Failed to load builder draft.'} />;
   }
@@ -345,6 +365,10 @@ export function CharacterBuilderScreen() {
   if (speciesQuery.error || backgroundsQuery.error || featsQuery.error) {
     const firstError = speciesQuery.error ?? backgroundsQuery.error ?? featsQuery.error;
     return <ErrorState title="Origin content unavailable" message={firstError instanceof Error ? firstError.message : 'Failed to load origin content.'} />;
+  }
+
+  if (allItemsQuery.error) {
+    return <ErrorState title="Inventory content unavailable" message={allItemsQuery.error instanceof Error ? allItemsQuery.error.message : 'Failed to load inventory content.'} />;
   }
 
   if (!data?.character || !data.build || !draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
@@ -617,6 +641,109 @@ export function CharacterBuilderScreen() {
     });
   };
 
+  const startingEquipmentOptionGroups = getStartingEquipmentOptionGroups(payload, classEntitiesById, backgroundEntitiesById);
+  const itemSearchResults = inventorySearch.trim().length > 0 ? itemSearchQuery.data ?? [] : [];
+
+  const updateStartingEquipmentChoice = (
+    sourceType: 'class' | 'background',
+    sourceId: string,
+    bundleIndex: number,
+    optionKey: string,
+  ) => {
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+        return currentBuild;
+      }
+
+      const nextPayload: BuilderDraftPayload = {
+        ...currentBuild.payload,
+        inventoryStep: {
+          ...currentBuild.payload.inventoryStep,
+          selectedStartingEquipment: [
+            ...currentBuild.payload.inventoryStep.selectedStartingEquipment.filter(
+              (selection) =>
+                !(
+                  selection.sourceType === sourceType &&
+                  selection.sourceId === sourceId &&
+                  selection.bundleIndex === bundleIndex
+                ),
+            ),
+            { sourceType, sourceId, bundleIndex, optionKey },
+          ],
+        },
+      };
+
+      return {
+        ...currentBuild,
+        currentStep: 'inventory',
+        payload: nextPayload,
+      };
+    });
+  };
+
+  const applyInventorySeed = () => {
+    const { payload: seededPayload, summary } = seedStartingEquipment(payload, classEntitiesById, backgroundEntitiesById, itemEntitiesById);
+    setDraftBuild({
+      ...draftBuild,
+      currentStep: 'inventory',
+      payload: seededPayload,
+    });
+    setInventoryImpactSummary(summary);
+  };
+
+  const addManualItem = (itemId: string) => {
+    const existingManualEntry = payload.inventoryStep.entries.find((entry) => entry.itemId === itemId && entry.source === 'manual-selection');
+    const nextEntries = existingManualEntry
+      ? payload.inventoryStep.entries.map((entry) =>
+          entry.itemId === itemId && entry.source === 'manual-selection'
+            ? { ...entry, quantity: entry.quantity + 1 }
+            : entry,
+        )
+      : [
+          ...payload.inventoryStep.entries,
+          {
+            itemId,
+            quantity: 1,
+            equipped: false,
+            attuned: false,
+            source: 'manual-selection' as const,
+          },
+        ];
+
+    setDraftBuild({
+      ...draftBuild,
+      currentStep: 'inventory',
+      payload: {
+        ...payload,
+        inventoryStep: {
+          ...payload.inventoryStep,
+          entries: nextEntries,
+        },
+      },
+    });
+  };
+
+  const updateInventoryEntry = (itemId: string, source: 'starting-equipment' | 'manual-selection', updater: (entry: typeof payload.inventoryStep.entries[number]) => typeof payload.inventoryStep.entries[number] | null) => {
+    setDraftBuild({
+      ...draftBuild,
+      currentStep: 'inventory',
+      payload: {
+        ...payload,
+        inventoryStep: {
+          ...payload.inventoryStep,
+          entries: payload.inventoryStep.entries.flatMap((entry) => {
+            if (!(entry.itemId === itemId && entry.source === source)) {
+              return [entry];
+            }
+
+            const updatedEntry = updater(entry);
+            return updatedEntry ? [updatedEntry] : [];
+          }),
+        },
+      },
+    });
+  };
+
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.headerCard}>
@@ -835,6 +962,134 @@ export function CharacterBuilderScreen() {
             </View>
           ) : null,
         )}
+      </View>
+
+      <View style={styles.section}>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Inventory</Text>
+          <Text style={styles.sectionMeta}>Seed and edit gear</Text>
+        </View>
+
+        {inventoryImpactSummary ? <Text style={styles.impactBanner}>{inventoryImpactSummary}</Text> : null}
+
+        {startingEquipmentOptionGroups.map((group) => {
+          const selectedOption = payload.inventoryStep.selectedStartingEquipment.find(
+            (selection) => selection.sourceType === group.sourceType && selection.sourceId === group.sourceId && selection.bundleIndex === group.bundleIndex,
+          )?.optionKey;
+
+          return (
+            <View key={`${group.sourceType}-${group.sourceId}-${group.bundleIndex}`} style={styles.optionBlock}>
+              <Text style={styles.optionBlockLabel}>{group.title}</Text>
+              <View style={styles.optionChipWrap}>
+                {group.choices.map((choice) => {
+                  const isSelected = (selectedOption ?? group.choices[0]?.optionKey) === choice.optionKey;
+                  return (
+                    <Pressable
+                      accessibilityRole="button"
+                      key={choice.optionKey}
+                      onPress={() => updateStartingEquipmentChoice(group.sourceType, group.sourceId, group.bundleIndex, choice.optionKey)}
+                      style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                    >
+                      <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{choice.label}</Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </View>
+          );
+        })}
+
+        <Pressable accessibilityRole="button" onPress={applyInventorySeed} style={({ pressed }) => [styles.addClassButton, pressed && styles.addClassButtonPressed]}>
+          <Text style={styles.addClassButtonLabel}>{payload.inventoryStep.entries.some((entry) => entry.source === 'starting-equipment') ? 'Reseed Starting Equipment' : 'Seed Starting Equipment'}</Text>
+        </Pressable>
+
+        <View style={styles.currencyRow}>
+          <Text style={styles.optionBlockLabel}>Starting currency</Text>
+          <Text style={styles.currencyValue}>
+            {payload.inventoryStep.startingCurrency.gp} gp, {payload.inventoryStep.startingCurrency.sp} sp, {payload.inventoryStep.startingCurrency.cp} cp
+          </Text>
+        </View>
+
+        {payload.inventoryStep.unresolvedStartingGear.length > 0 ? (
+          <View style={styles.unresolvedPanel}>
+            <Text style={styles.unresolvedTitle}>Unresolved starting gear</Text>
+            {payload.inventoryStep.unresolvedStartingGear.map((entry) => (
+              <Text key={entry} style={styles.unresolvedItem}>
+                {entry}
+              </Text>
+            ))}
+          </View>
+        ) : null}
+
+        <View style={styles.optionBlock}>
+          <Text style={styles.optionBlockLabel}>Add canonical items</Text>
+          <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={setInventorySearch}
+            placeholder="Search equipment or magic items"
+            placeholderTextColor={theme.colors.textFaint}
+            style={styles.input}
+            value={inventorySearch}
+          />
+          {inventorySearch.trim().length > 0 ? (
+            <View style={styles.searchResults}>
+              {itemSearchResults.slice(0, 12).map((item) => (
+                <Pressable
+                  accessibilityRole="button"
+                  key={item.id}
+                  onPress={() => addManualItem(item.id)}
+                  style={({ pressed }) => [styles.searchResultRow, pressed && styles.optionChipPressed]}
+                >
+                  <Text style={styles.searchResultTitle}>{item.name}</Text>
+                  <Text style={styles.searchResultMeta}>{item.sourceCode}</Text>
+                </Pressable>
+              ))}
+            </View>
+          ) : null}
+        </View>
+
+        <View style={styles.inventoryList}>
+          {payload.inventoryStep.entries.map((entry) => {
+            const item = itemEntitiesById[entry.itemId];
+            return (
+              <View key={`${entry.itemId}-${entry.source}`} style={styles.inventoryCard}>
+                <View style={styles.inventoryHeader}>
+                  <View style={styles.inventoryHeading}>
+                    <Text style={styles.inventoryTitle}>{item?.name ?? entry.itemId}</Text>
+                    <Text style={styles.inventoryMeta}>{entry.source === 'starting-equipment' ? 'Seeded gear' : 'Manual add'}</Text>
+                  </View>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => updateInventoryEntry(entry.itemId, entry.source, () => null)}
+                    style={({ pressed }) => [styles.removeButton, pressed && styles.removeButtonPressed]}
+                  >
+                    <Text style={styles.removeButtonLabel}>Remove</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.levelControls}>
+                  <Pressable accessibilityRole="button" onPress={() => updateInventoryEntry(entry.itemId, entry.source, (current) => ({ ...current, quantity: Math.max(1, current.quantity - 1) }))} style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed]}>
+                    <Text style={styles.levelButtonLabel}>-</Text>
+                  </Pressable>
+                  <View style={styles.levelBadge}>
+                    <Text style={styles.levelBadgeLabel}>Qty {entry.quantity}</Text>
+                  </View>
+                  <Pressable accessibilityRole="button" onPress={() => updateInventoryEntry(entry.itemId, entry.source, (current) => ({ ...current, quantity: current.quantity + 1 }))} style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed]}>
+                    <Text style={styles.levelButtonLabel}>+</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.optionChipWrap}>
+                  <Pressable accessibilityRole="button" onPress={() => updateInventoryEntry(entry.itemId, entry.source, (current) => ({ ...current, equipped: !current.equipped }))} style={({ pressed }) => [styles.optionChip, entry.equipped && styles.optionChipActive, pressed && styles.optionChipPressed]}>
+                    <Text style={[styles.optionChipLabel, entry.equipped && styles.optionChipLabelActive]}>Equipped</Text>
+                  </Pressable>
+                  <Pressable accessibilityRole="button" onPress={() => updateInventoryEntry(entry.itemId, entry.source, (current) => ({ ...current, attuned: !current.attuned }))} style={({ pressed }) => [styles.optionChip, entry.attuned && styles.optionChipActive, pressed && styles.optionChipPressed]}>
+                    <Text style={[styles.optionChipLabel, entry.attuned && styles.optionChipLabelActive]}>Attuned</Text>
+                  </Pressable>
+                </View>
+              </View>
+            );
+          })}
+        </View>
       </View>
 
       <View style={styles.section}>
@@ -1404,6 +1659,81 @@ const styles = StyleSheet.create({
     color: theme.colors.accentLegacySoft,
     fontSize: 13,
     lineHeight: 18,
+  },
+  currencyRow: {
+    gap: 4,
+  },
+  currencyValue: {
+    color: theme.colors.textPrimary,
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  unresolvedPanel: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderAccent,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    gap: theme.spacing.xs,
+    padding: theme.spacing.md,
+  },
+  unresolvedTitle: {
+    color: theme.colors.accentLegacySoft,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  unresolvedItem: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  searchResults: {
+    gap: theme.spacing.sm,
+  },
+  searchResultRow: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: 4,
+    padding: theme.spacing.sm,
+  },
+  searchResultTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  searchResultMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
+  inventoryList: {
+    gap: theme.spacing.md,
+  },
+  inventoryCard: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    gap: theme.spacing.md,
+    padding: theme.spacing.md,
+  },
+  inventoryHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: theme.spacing.md,
+    justifyContent: 'space-between',
+  },
+  inventoryHeading: {
+    flex: 1,
+    gap: 4,
+  },
+  inventoryTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  inventoryMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
   },
   stepGrid: {
     flexDirection: 'row',

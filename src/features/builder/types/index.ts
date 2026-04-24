@@ -63,6 +63,19 @@ export interface BuilderInventoryEntry {
   source: 'starting-equipment' | 'manual-selection';
 }
 
+export interface BuilderCurrencyState {
+  cp: number;
+  sp: number;
+  gp: number;
+}
+
+export interface BuilderStartingEquipmentChoice {
+  sourceType: 'class' | 'background';
+  sourceId: string;
+  bundleIndex: number;
+  optionKey: string;
+}
+
 export interface BuilderCharacteristicsState {
   name: string;
   age: string | null;
@@ -122,7 +135,9 @@ export interface BuilderDraftPayload {
   abilityPointsStep: BuilderAbilityScoreState;
   inventoryStep: {
     entries: BuilderInventoryEntry[];
-    selectedStartingEquipment: Array<Record<string, unknown>>;
+    selectedStartingEquipment: BuilderStartingEquipmentChoice[];
+    startingCurrency: BuilderCurrencyState;
+    unresolvedStartingGear: string[];
   };
   characteristicsStep: BuilderCharacteristicsState;
   notesStep: {
@@ -249,6 +264,12 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
     inventoryStep: {
       entries: [],
       selectedStartingEquipment: [],
+      startingCurrency: {
+        cp: 0,
+        sp: 0,
+        gp: 0,
+      },
+      unresolvedStartingGear: [],
     },
     characteristicsStep: {
       name: characterName,
@@ -328,8 +349,8 @@ export const builderCapabilityAuditBaseline: readonly BuilderCapabilityAuditEntr
   {
     capability: 'starting-equipment-seeding',
     step: 'inventory',
-    status: 'partially-supported',
-    summary: 'Class and background starting-equipment data exists, but no builder seeding flow or editable inventory model exists yet.',
+    status: 'supported',
+    summary: 'Class and background starting-equipment data now seeds canonical inventory entries, tracks currency, and flags unresolved special outputs.',
   },
   {
     capability: 'canonical-item-inventory',
