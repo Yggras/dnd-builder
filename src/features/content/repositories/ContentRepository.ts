@@ -14,6 +14,7 @@ export interface ItemQueryOptions {
 
 export interface ContentRepository {
   listSpecies: (onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
+  listBackgrounds: (onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
   listClasses: (onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
   listSubclasses: (classId: string, onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
   listFeats: (categoryTag?: string, onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;

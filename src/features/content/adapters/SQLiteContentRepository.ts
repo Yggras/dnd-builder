@@ -165,6 +165,11 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
     return rows.map(mapContentEntity).filter((entity) => matchesSelectableFilter(entity, onlySelectableInBuilder));
   }
 
+  async listBackgrounds(onlySelectableInBuilder: boolean = true) {
+    const rows = await this.getContentRows('background');
+    return rows.map(mapContentEntity).filter((entity) => matchesSelectableFilter(entity, onlySelectableInBuilder));
+  }
+
   async listClasses(onlySelectableInBuilder: boolean = true) {
     const rows = await this.getContentRows('class');
     return rows.map(mapContentEntity).filter((entity) => matchesSelectableFilter(entity, onlySelectableInBuilder));

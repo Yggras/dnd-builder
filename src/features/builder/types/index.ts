@@ -41,8 +41,17 @@ export interface BuilderGrantedFeatSelection {
   selectedFeatId: string | null;
 }
 
+export interface BuilderAbilityBonusSelection {
+  sourceType: 'species' | 'background' | 'asi';
+  sourceId: string;
+  ability: string;
+  amount: number;
+}
+
 export interface BuilderAbilityScoreState {
+  baseScores: Record<string, number>;
   scores: Record<string, number>;
+  bonusSelections: BuilderAbilityBonusSelection[];
   asiSelections: Array<Record<string, unknown>>;
 }
 
@@ -103,10 +112,12 @@ export interface BuilderDraftPayload {
   speciesStep: {
     speciesId: string | null;
     grantedFeatSelections: BuilderGrantedFeatSelection[];
+    appliedSummary: string[];
   };
   backgroundStep: {
     backgroundId: string | null;
     grantedFeatSelections: BuilderGrantedFeatSelection[];
+    appliedSummary: string[];
   };
   abilityPointsStep: BuilderAbilityScoreState;
   inventoryStep: {
@@ -222,13 +233,17 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
     speciesStep: {
       speciesId: null,
       grantedFeatSelections: [],
+      appliedSummary: [],
     },
     backgroundStep: {
       backgroundId: null,
       grantedFeatSelections: [],
+      appliedSummary: [],
     },
     abilityPointsStep: {
+      baseScores: {},
       scores: {},
+      bonusSelections: [],
       asiSelections: [],
     },
     inventoryStep: {

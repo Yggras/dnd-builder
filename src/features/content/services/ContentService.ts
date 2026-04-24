@@ -7,6 +7,10 @@ export class ContentService {
     return this.repository.listSpecies(true);
   }
 
+  listBackgrounds() {
+    return this.repository.listBackgrounds(true);
+  }
+
   listClasses() {
     return this.repository.listClasses(true);
   }

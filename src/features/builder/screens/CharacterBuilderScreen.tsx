@@ -13,6 +13,11 @@ import {
   getSubclassUnlockLabel,
   reconcileClassStepPayload,
 } from '@/features/builder/utils/classStep';
+import {
+  countAvailableAsiPoints,
+  normalizeAbilityChoices,
+  reconcileOriginAndAbilitiesPayload,
+} from '@/features/builder/utils/originAndAbilities';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { ContentService } from '@/features/content/services/ContentService';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
@@ -49,10 +54,23 @@ export function CharacterBuilderScreen() {
   const lastSavedSnapshot = useRef<string | null>(null);
   const [showClassPicker, setShowClassPicker] = useState(false);
   const [classImpactSummary, setClassImpactSummary] = useState<string | null>(null);
+  const [originImpactSummary, setOriginImpactSummary] = useState<string | null>(null);
 
   const classesQuery = useQuery({
     queryKey: ['builder', 'classes'],
     queryFn: () => contentService.listClasses(),
+  });
+  const speciesQuery = useQuery({
+    queryKey: ['builder', 'species'],
+    queryFn: () => contentService.listSpecies(),
+  });
+  const backgroundsQuery = useQuery({
+    queryKey: ['builder', 'backgrounds'],
+    queryFn: () => contentService.listBackgrounds(),
+  });
+  const featsQuery = useQuery({
+    queryKey: ['builder', 'feats', 'all'],
+    queryFn: () => contentService.listFeats(undefined),
   });
 
   const selectedClassIds = useMemo(() => {
@@ -82,6 +100,18 @@ export function CharacterBuilderScreen() {
   const classEntitiesById = useMemo(
     () => Object.fromEntries((classesQuery.data ?? []).map((classEntity) => [classEntity.id, classEntity])) as Record<string, ContentEntity>,
     [classesQuery.data],
+  );
+  const speciesEntitiesById = useMemo(
+    () => Object.fromEntries((speciesQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [speciesQuery.data],
+  );
+  const backgroundEntitiesById = useMemo(
+    () => Object.fromEntries((backgroundsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [backgroundsQuery.data],
+  );
+  const featEntitiesById = useMemo(
+    () => Object.fromEntries((featsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [featsQuery.data],
   );
 
   const subclassesByClassId = useMemo(() => {
@@ -225,6 +255,60 @@ export function CharacterBuilderScreen() {
     });
   }, [draftBuild, classesQuery.isLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId]);
 
+  useEffect(() => {
+    if (
+      !draftBuild ||
+      !isBuilderDraftPayload(draftBuild.payload) ||
+      classesQuery.isLoading ||
+      speciesQuery.isLoading ||
+      backgroundsQuery.isLoading ||
+      featsQuery.isLoading
+    ) {
+      return;
+    }
+
+    const { payload: reconciledPayload } = reconcileOriginAndAbilitiesPayload({
+      payload: draftBuild.payload,
+      classEntitiesById,
+      speciesEntitiesById,
+      backgroundEntitiesById,
+      featEntitiesById,
+    });
+
+    const currentIssuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
+    const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
+    const currentAbilitySnapshot = JSON.stringify(draftBuild.payload.abilityPointsStep);
+    const nextAbilitySnapshot = JSON.stringify(reconciledPayload.abilityPointsStep);
+    const currentSpeciesSnapshot = JSON.stringify(draftBuild.payload.speciesStep);
+    const nextSpeciesSnapshot = JSON.stringify(reconciledPayload.speciesStep);
+    const currentBackgroundSnapshot = JSON.stringify(draftBuild.payload.backgroundStep);
+    const nextBackgroundSnapshot = JSON.stringify(reconciledPayload.backgroundStep);
+
+    if (
+      currentIssuesSnapshot === nextIssuesSnapshot &&
+      currentAbilitySnapshot === nextAbilitySnapshot &&
+      currentSpeciesSnapshot === nextSpeciesSnapshot &&
+      currentBackgroundSnapshot === nextBackgroundSnapshot
+    ) {
+      return;
+    }
+
+    setDraftBuild({
+      ...draftBuild,
+      payload: reconciledPayload,
+    });
+  }, [
+    draftBuild,
+    classesQuery.isLoading,
+    speciesQuery.isLoading,
+    backgroundsQuery.isLoading,
+    featsQuery.isLoading,
+    classEntitiesById,
+    speciesEntitiesById,
+    backgroundEntitiesById,
+    featEntitiesById,
+  ]);
+
   const validationSummary = useMemo(() => {
     if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
       return null;
@@ -241,6 +325,10 @@ export function CharacterBuilderScreen() {
     return <LoadingState label="Loading builder class options..." />;
   }
 
+  if (speciesQuery.isLoading || backgroundsQuery.isLoading || featsQuery.isLoading) {
+    return <LoadingState label="Loading origin and feat options..." />;
+  }
+
   if (error) {
     return <ErrorState title="Builder unavailable" message={error instanceof Error ? error.message : 'Failed to load builder draft.'} />;
   }
@@ -252,6 +340,11 @@ export function CharacterBuilderScreen() {
         message={classesQuery.error instanceof Error ? classesQuery.error.message : 'Failed to load class content.'}
       />
     );
+  }
+
+  if (speciesQuery.error || backgroundsQuery.error || featsQuery.error) {
+    const firstError = speciesQuery.error ?? backgroundsQuery.error ?? featsQuery.error;
+    return <ErrorState title="Origin content unavailable" message={firstError instanceof Error ? firstError.message : 'Failed to load origin content.'} />;
   }
 
   if (!data?.character || !data.build || !draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
@@ -278,6 +371,22 @@ export function CharacterBuilderScreen() {
 
   const updateCurrentStep = (step: BuilderStep) => {
     setDraftBuild((currentBuild) => (currentBuild ? { ...currentBuild, currentStep: step } : currentBuild));
+  };
+
+  const applyOriginPayloadChange = (nextPayload: BuilderDraftPayload) => {
+    const { payload: reconciledPayload, impactSummary } = reconcileOriginAndAbilitiesPayload({
+      payload: nextPayload,
+      classEntitiesById,
+      speciesEntitiesById,
+      backgroundEntitiesById,
+      featEntitiesById,
+    });
+
+    setDraftBuild({
+      ...draftBuild,
+      payload: reconciledPayload,
+    });
+    setOriginImpactSummary(impactSummary);
   };
 
   const updateCharacterName = (name: string) => {
@@ -384,6 +493,129 @@ export function CharacterBuilderScreen() {
   const availableClasses = (classesQuery.data ?? []).filter(
     (classEntity) => !payload.classStep.allocations.some((allocation) => allocation.classId === classEntity.id),
   );
+  const selectedSpecies = payload.speciesStep.speciesId ? speciesEntitiesById[payload.speciesStep.speciesId] : null;
+  const selectedBackground = payload.backgroundStep.backgroundId ? backgroundEntitiesById[payload.backgroundStep.backgroundId] : null;
+  const speciesAbilityRequirements = selectedSpecies
+    ? normalizeAbilityChoices('species', selectedSpecies.id, selectedSpecies.metadata.ability)
+    : null;
+  const backgroundAbilityRequirements = selectedBackground
+    ? normalizeAbilityChoices('background', selectedBackground.id, selectedBackground.metadata.ability)
+    : null;
+  const availableAsiPoints = countAvailableAsiPoints(payload, classEntitiesById);
+  const spentAsiPoints = payload.abilityPointsStep.bonusSelections
+    .filter((selection) => selection.sourceType === 'asi')
+    .reduce((sum, selection) => sum + selection.amount, 0);
+
+  const updateOriginAbilitySelection = (
+    sourceType: 'species' | 'background',
+    sourceId: string,
+    ability: string,
+    amount: number,
+    allowMultiple: boolean,
+  ) => {
+    const existingSelections = payload.abilityPointsStep.bonusSelections.filter(
+      (selection) => !(selection.sourceType === sourceType && selection.sourceId === sourceId && selection.amount === amount),
+    );
+    const currentlySelected = payload.abilityPointsStep.bonusSelections.some(
+      (selection) =>
+        selection.sourceType === sourceType && selection.sourceId === sourceId && selection.amount === amount && selection.ability === ability,
+    );
+
+    applyOriginPayloadChange({
+      ...payload,
+      currentStep: payload.currentStep,
+      abilityPointsStep: {
+        ...payload.abilityPointsStep,
+        bonusSelections: currentlySelected
+          ? existingSelections
+          : [
+              ...existingSelections,
+              ...(allowMultiple
+                ? [
+                    {
+                      sourceType,
+                      sourceId,
+                      ability,
+                      amount,
+                    },
+                  ]
+                : [
+                    {
+                      sourceType,
+                      sourceId,
+                      ability,
+                      amount,
+                    },
+                  ]),
+            ],
+      },
+    });
+  };
+
+  const updateGrantedFeatSelection = (sourceKey: 'speciesStep' | 'backgroundStep', sourceId: string, featId: string) => {
+    applyOriginPayloadChange({
+      ...payload,
+      [sourceKey]: {
+        ...payload[sourceKey],
+        grantedFeatSelections: [{ sourceId, selectedFeatId: featId }],
+      },
+    } as BuilderDraftPayload);
+  };
+
+  const updateBaseAbilityScore = (ability: string, value: string) => {
+    const parsedValue = Number.parseInt(value, 10);
+    applyOriginPayloadChange({
+      ...payload,
+      abilityPointsStep: {
+        ...payload.abilityPointsStep,
+        baseScores: {
+          ...payload.abilityPointsStep.baseScores,
+          [ability]: Number.isFinite(parsedValue) ? parsedValue : 0,
+        },
+      },
+    });
+  };
+
+  const updateAsiPoint = (ability: string, delta: number) => {
+    const currentPoints = payload.abilityPointsStep.bonusSelections.filter(
+      (selection) => selection.sourceType === 'asi' && selection.ability === ability,
+    ).length;
+
+    if (delta > 0 && spentAsiPoints >= availableAsiPoints) {
+      return;
+    }
+
+    const retainedSelections = payload.abilityPointsStep.bonusSelections.filter(
+      (selection, index, selections) =>
+        !(
+          selection.sourceType === 'asi' &&
+          selection.ability === ability &&
+          delta < 0 &&
+          index === selections.findIndex((candidate) => candidate.sourceType === 'asi' && candidate.ability === ability)
+        ),
+    );
+
+    applyOriginPayloadChange({
+      ...payload,
+      abilityPointsStep: {
+        ...payload.abilityPointsStep,
+        bonusSelections:
+          delta > 0
+            ? [
+                ...payload.abilityPointsStep.bonusSelections,
+                {
+                  sourceType: 'asi',
+                  sourceId: 'asi',
+                  ability,
+                  amount: 1,
+                },
+              ]
+            : currentPoints > 0
+              ? retainedSelections
+              : payload.abilityPointsStep.bonusSelections,
+      },
+    });
+  };
 
   return (
     <Screen contentContainerStyle={styles.container}>
@@ -402,6 +634,207 @@ export function CharacterBuilderScreen() {
           </View>
           <Text style={styles.statusText}>{saveBuildMutation.isPending ? 'Saving...' : 'Autosave ready'}</Text>
         </View>
+      </View>
+
+      <View style={styles.section}>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Species and background</Text>
+          <Text style={styles.sectionMeta}>Origin steps</Text>
+        </View>
+
+        {originImpactSummary ? <Text style={styles.impactBanner}>{originImpactSummary}</Text> : null}
+
+        <View style={styles.optionBlock}>
+          <Text style={styles.optionBlockLabel}>Species</Text>
+          <View style={styles.optionChipWrap}>
+            {(speciesQuery.data ?? []).map((species) => {
+              const isSelected = payload.speciesStep.speciesId === species.id;
+              return (
+                <Pressable
+                  accessibilityRole="button"
+                  key={species.id}
+                  onPress={() =>
+                    applyOriginPayloadChange({
+                      ...payload,
+                      speciesStep: {
+                        ...payload.speciesStep,
+                        speciesId: isSelected ? null : species.id,
+                      },
+                    })
+                  }
+                  style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                >
+                  <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{species.name}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+          {selectedSpecies ? (
+            <View style={styles.summaryList}>
+              {payload.speciesStep.appliedSummary.map((summaryEntry) => (
+                <Text key={summaryEntry} style={styles.summaryListItem}>
+                  {summaryEntry}
+                </Text>
+              ))}
+            </View>
+          ) : null}
+        </View>
+
+        <View style={styles.optionBlock}>
+          <Text style={styles.optionBlockLabel}>Background</Text>
+          <View style={styles.optionChipWrap}>
+            {(backgroundsQuery.data ?? []).map((background) => {
+              const isSelected = payload.backgroundStep.backgroundId === background.id;
+              return (
+                <Pressable
+                  accessibilityRole="button"
+                  key={background.id}
+                  onPress={() =>
+                    applyOriginPayloadChange({
+                      ...payload,
+                      backgroundStep: {
+                        ...payload.backgroundStep,
+                        backgroundId: isSelected ? null : background.id,
+                      },
+                    })
+                  }
+                  style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                >
+                  <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{background.name}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+          {selectedBackground ? (
+            <View style={styles.summaryList}>
+              {payload.backgroundStep.appliedSummary.map((summaryEntry) => (
+                <Text key={summaryEntry} style={styles.summaryListItem}>
+                  {summaryEntry}
+                </Text>
+              ))}
+            </View>
+          ) : null}
+        </View>
+
+        {selectedSpecies && payload.speciesStep.grantedFeatSelections.some((selection) => selection.selectedFeatId == null) ? (
+          <View style={styles.optionBlock}>
+            <Text style={styles.optionBlockLabel}>Species granted feat</Text>
+            <View style={styles.optionChipWrap}>
+              {((selectedSpecies.metadata.featIds as string[] | undefined) ?? []).filter((featId) => featEntitiesById[featId]).map((featId) => {
+                const feat = featEntitiesById[featId];
+                const isSelected = payload.speciesStep.grantedFeatSelections.some((selection) => selection.selectedFeatId === featId);
+                return (
+                  <Pressable
+                    accessibilityRole="button"
+                    key={featId}
+                    onPress={() => updateGrantedFeatSelection('speciesStep', selectedSpecies.id, featId)}
+                    style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                  >
+                    <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{feat?.name ?? featId}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        ) : null}
+
+        {selectedBackground && payload.backgroundStep.grantedFeatSelections.some((selection) => selection.selectedFeatId == null) ? (
+          <View style={styles.optionBlock}>
+            <Text style={styles.optionBlockLabel}>Background granted feat</Text>
+            <View style={styles.optionChipWrap}>
+              {((selectedBackground.metadata.featIds as string[] | undefined) ?? []).filter((featId) => featEntitiesById[featId]).map((featId) => {
+                const feat = featEntitiesById[featId];
+                const isSelected = payload.backgroundStep.grantedFeatSelections.some((selection) => selection.selectedFeatId === featId);
+                return (
+                  <Pressable
+                    accessibilityRole="button"
+                    key={featId}
+                    onPress={() => updateGrantedFeatSelection('backgroundStep', selectedBackground.id, featId)}
+                    style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                  >
+                    <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{feat?.name ?? featId}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        ) : null}
+      </View>
+
+      <View style={styles.section}>
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Ability points</Text>
+          <Text style={styles.sectionMeta}>Base + guided bonuses</Text>
+        </View>
+
+        <View style={styles.abilityGrid}>
+          {['str', 'dex', 'con', 'int', 'wis', 'cha'].map((ability) => (
+            <View key={ability} style={styles.abilityCard}>
+              <Text style={styles.abilityLabel}>{ability.toUpperCase()}</Text>
+              <TextInput
+                keyboardType="number-pad"
+                onChangeText={(value) => updateBaseAbilityScore(ability, value)}
+                style={styles.abilityInput}
+                value={String(payload.abilityPointsStep.baseScores[ability] ?? '')}
+              />
+              <Text style={styles.abilityMeta}>Final {payload.abilityPointsStep.scores[ability] ?? payload.abilityPointsStep.baseScores[ability] ?? 0}</Text>
+              <View style={styles.asiControls}>
+                <Pressable accessibilityRole="button" onPress={() => updateAsiPoint(ability, -1)} style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed]}>
+                  <Text style={styles.levelButtonLabel}>-</Text>
+                </Pressable>
+                <Text style={styles.asiCounter}>
+                  +{payload.abilityPointsStep.bonusSelections.filter((selection) => selection.sourceType === 'asi' && selection.ability === ability).length}
+                </Text>
+                <Pressable accessibilityRole="button" onPress={() => updateAsiPoint(ability, 1)} style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed, spentAsiPoints >= availableAsiPoints && styles.levelButtonDisabled]}>
+                  <Text style={styles.levelButtonLabel}>+</Text>
+                </Pressable>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        <Text style={styles.validationHint}>ASI points available: {availableAsiPoints}. Spent: {spentAsiPoints}.</Text>
+
+        {[speciesAbilityRequirements, backgroundAbilityRequirements].filter(Boolean).map((requirement) =>
+          requirement && requirement.choices.length > 0 ? (
+            <View key={`${requirement.sourceType}-${requirement.sourceId}`} style={styles.optionBlock}>
+              <Text style={styles.optionBlockLabel}>
+                {requirement.sourceType === 'species' ? 'Species' : 'Background'} ability bonuses
+              </Text>
+              {requirement.choices.map((choice, index) => {
+                const matchingSelections = payload.abilityPointsStep.bonusSelections.filter(
+                  (selection) =>
+                    selection.sourceType === requirement.sourceType &&
+                    selection.sourceId === requirement.sourceId &&
+                    selection.amount === choice.amount,
+                );
+
+                return (
+                  <View key={`${requirement.sourceId}-${choice.amount}-${index}`} style={styles.choiceGroup}>
+                    <Text style={styles.choiceGroupLabel}>
+                      Choose {choice.count} ability{choice.count === 1 ? '' : ' abilities'} for +{choice.amount}
+                    </Text>
+                    <View style={styles.optionChipWrap}>
+                      {choice.options.map((ability) => {
+                        const isSelected = matchingSelections.some((selection) => selection.ability === ability);
+                        return (
+                          <Pressable
+                            accessibilityRole="button"
+                            key={`${requirement.sourceId}-${choice.amount}-${ability}`}
+                            onPress={() => updateOriginAbilitySelection(requirement.sourceType, requirement.sourceId, ability, choice.amount, choice.count > 1)}
+                            style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                          >
+                            <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{ability.toUpperCase()}</Text>
+                          </Pressable>
+                        );
+                      })}
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+          ) : null,
+        )}
       </View>
 
       <View style={styles.section}>
@@ -858,6 +1291,68 @@ const styles = StyleSheet.create({
   lockedHint: {
     color: theme.colors.textMuted,
     ...typography.meta,
+  },
+  summaryList: {
+    gap: 6,
+  },
+  summaryListItem: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  abilityGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  abilityCard: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    gap: theme.spacing.sm,
+    minWidth: '30%',
+    padding: theme.spacing.sm,
+  },
+  abilityLabel: {
+    color: theme.colors.textPrimary,
+    fontSize: 13,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+  },
+  abilityInput: {
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    color: theme.colors.textPrimary,
+    fontSize: 16,
+    minHeight: 44,
+    paddingHorizontal: theme.spacing.sm,
+    paddingVertical: 10,
+  },
+  abilityMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
+  asiControls: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+  },
+  asiCounter: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
+    minWidth: 36,
+    textAlign: 'center',
+  },
+  choiceGroup: {
+    gap: theme.spacing.sm,
+  },
+  choiceGroupLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '700',
   },
   addClassArea: {
     gap: theme.spacing.sm,

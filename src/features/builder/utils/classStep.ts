@@ -129,6 +129,11 @@ function buildMulticlassIssue(classEntity: ContentEntity, summary: string): Buil
   };
 }
 
+function mergeStepIssues(payload: BuilderDraftPayload, nextIssues: BuilderIssue[]) {
+  const preservedIssues = payload.review.issues.filter((issue) => issue.step !== 'class');
+  return [...preservedIssues, ...nextIssues];
+}
+
 export function reconcileClassStepPayload({
   payload,
   classEntitiesById,
@@ -355,7 +360,7 @@ export function reconcileClassStepPayload({
 
   nextPayload.review = {
     ...nextPayload.review,
-    issues,
+    issues: mergeStepIssues(nextPayload, issues),
   };
 
   const impactParts = [
