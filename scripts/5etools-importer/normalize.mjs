@@ -133,6 +133,45 @@ function normalizeSpellRefsFromAdditionalSpells(additionalSpells) {
   return unique(spellIds);
 }
 
+function deriveSpellRoleTags(record) {
+  const text = extractText(record.entries ?? []).toLowerCase();
+  const tags = new Set();
+
+  if (/damage|attack|saving throw|cone|line|sphere|radius/.test(text)) {
+    tags.add('Combat');
+  }
+
+  if (/regain hit points|healing|temporary hit points|restore hit points|revive|resurrection/.test(text)) {
+    tags.add('Healing');
+  }
+
+  if (/you gain|target gains|ally gains|bonus to|advantage on|resistance to/.test(text)) {
+    tags.add('Buff');
+  }
+
+  if (/disadvantage|frightened|charmed|blinded|poisoned|paralyzed|restrained|stunned|incapacitated/.test(text)) {
+    tags.add('Debuff');
+  }
+
+  if (/difficult terrain|can't move|wall of|banish|teleport|forced movement|area/.test(text)) {
+    tags.add('Control');
+  }
+
+  if (/summon|conjure|familiar|appears in an unoccupied space|you call forth/.test(text)) {
+    tags.add('Summoning');
+  }
+
+  if (/ac increases|bonus to ac|ward|shield|protective|immune to/.test(text)) {
+    tags.add('Defense');
+  }
+
+  if (tags.size === 0 || /ritual|detect|identify|comprehend|locate|travel|disguise|invisibility|message/.test(text)) {
+    tags.add('Utility');
+  }
+
+  return [...tags].sort();
+}
+
 function normalizeLookupKey(value) {
   return String(value ?? '').trim().toLowerCase();
 }
@@ -468,6 +507,8 @@ export function normalizeSpells(records, context) {
           range: record.range ?? null,
           components: record.components ?? {},
           ritual: Boolean(record.meta?.ritual),
+          concentration: ensureArray(record.duration).some((duration) => Boolean(duration?.concentration)),
+          roleTags: deriveSpellRoleTags(record),
           entriesText: extractText(record.entries ?? []),
         },
       };

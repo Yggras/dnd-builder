@@ -1,3 +1,3 @@
-import { CompendiumScreen } from '@/features/compendium/screens/CompendiumScreen';
+import { CompendiumHomeScreen } from '@/features/compendium/screens/CompendiumHomeScreen';
 
-export default CompendiumScreen;
+export default CompendiumHomeScreen;

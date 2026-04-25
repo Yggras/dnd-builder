@@ -7,6 +7,7 @@ This step is a hardening phase, not a new product-surface phase. It focuses on c
 
 ## Confirmed Decisions
 - This phase builds on the existing `9f` baseline rather than replacing it.
+- This phase also absorbs the remaining `9f` closure items discovered after the baseline implementation review.
 - Spell-to-class and spell-to-subclass linkage should continue to rely on normalized builder-facing content, not UI-side text heuristics.
 - The priority is correctness first, polish second.
 - Overrides remain limited to unsupported-content gaps, edge-case spell situations, and explicit visible rule/count bypasses.
@@ -17,6 +18,7 @@ This step is a hardening phase, not a new product-surface phase. It focuses on c
 
 ### Included In Step 10
 - Tighten spell rules accuracy for supported caster classes.
+- Close the remaining `9f` correctness gaps in spellcasting, completion flow, and preview behavior.
 - Improve review semantics and issue presentation.
 - Improve completion and regression behavior where needed.
 - Polish the lightweight completion preview.
@@ -46,6 +48,9 @@ Primary responsibilities:
 - distinguish prepared versus known behavior where the current class metadata supports it
 - tighten multiclass spellcasting progression handling
 - account for pact magic separately where needed
+- incorporate subclass-driven spellcasting behavior rather than reading class metadata alone
+- support `1/3` caster progression explicitly where subclass metadata requires it
+- include subclass spellcasting metadata in cantrip, known/prepared, and max-level validation
 - reduce false-positive and false-negative validation outcomes
 
 ### 2. Spell State Model Refinement
@@ -54,8 +59,10 @@ Refine `spellsStep` so the payload structure better reflects actual spell workfl
 Primary responsibilities:
 - represent cantrips distinctly if needed
 - separate selected spells from prepared spells where needed
+- put `preparedSpellIds` into active use rather than keeping it as dead payload state
 - preserve visible override-backed spell exceptions cleanly
 - avoid relying on freeform exception notes for everything
+- keep known/selected spells, prepared spells, cantrips, and override-backed exceptions visibly distinct
 
 ### 3. Review Semantics Tightening
 Improve the review layer so the validation contract is easier to read and trust.
@@ -71,6 +78,7 @@ Tighten state transitions so builder completion remains stable under edits.
 Primary responsibilities:
 - reduce inconsistent transitions between `draft` and `complete`
 - ensure invalidating edits reliably regress complete builds to draft
+- wait for successful persistence before navigating into the completion preview
 - preserve explicit progress-column behavior while keeping detailed reasoning in payload
 
 ### 5. Preview Polish
@@ -87,6 +95,10 @@ Recommended contents:
 - source and edition summary
 - visible completion state context
 
+Hardening responsibilities:
+- prevent draft builds from rendering as completed preview
+- align preview contents with the agreed builder completion summary contract
+
 ### 6. Verification Matrix
 Use representative build types to harden the implementation.
 
@@ -95,8 +107,12 @@ Recommended verification set:
 - full prepared caster
 - full spontaneous/known-style caster where supported by current metadata
 - pact caster
+- subclass-only caster or `1/3` caster
 - multiclass caster
+- multiclass caster with subclass spellcasting contribution
 - mixed-edition build
+- completion-save-success preview transition
+- draft preview rejection or redirect behavior
 
 ## Verification
 - Supported casters validate with class-appropriate spell behavior.
@@ -125,7 +141,9 @@ Mitigation:
 ## Exit Criteria
 Step 10 is complete when:
 - spell rules are materially tighter for supported caster types
+- subclass-aware spellcasting and `1/3` progression are handled correctly for supported cases
+- prepared-versus-known spell behavior is enforced where the metadata supports it
 - review semantics are clearer and easier to trust
-- completion and regression behavior are stable
-- the preview is polished and informative
+- completion and regression behavior are stable, including save-to-preview flow
+- the preview is polished, informative, and completion-gated
 - representative manual verification scenarios pass

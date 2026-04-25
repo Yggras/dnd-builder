@@ -42,4 +42,32 @@ export class ContentService {
   searchCompendiumEntries(query: string, entryType?: string) {
     return this.repository.searchCompendiumEntries(query, entryType);
   }
+
+  browseSpecies() {
+    return this.repository.listSpecies(false);
+  }
+
+  browseBackgrounds() {
+    return this.repository.listBackgrounds(false);
+  }
+
+  browseClasses() {
+    return this.repository.listClasses(false);
+  }
+
+  browseSubclasses(classId: string) {
+    return this.repository.listSubclasses(classId, false);
+  }
+
+  browseFeats() {
+    return this.repository.listFeats(undefined, false);
+  }
+
+  browseItems() {
+    return this.repository.listItems({ onlySelectableInBuilder: false });
+  }
+
+  browseSpells() {
+    return this.repository.listSpells({ onlySelectableInBuilder: false });
+  }
 }
