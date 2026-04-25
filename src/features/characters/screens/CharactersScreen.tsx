@@ -3,7 +3,6 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useOwnedCharacters } from '@/features/characters/hooks/useOwnedCharacters';
 import { appRoutes } from '@/shared/constants/routes';
-import { EmptyState } from '@/shared/ui/EmptyState';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import { Screen } from '@/shared/ui/Screen';
@@ -24,7 +23,25 @@ export function CharactersScreen() {
   const characters = data ?? [];
 
   if (characters.length === 0) {
-    return <EmptyState title="No characters yet" message="Create your first draft character to start the guided builder and keep it ready for future campaigns." />;
+    return (
+      <Screen contentContainerStyle={styles.emptyContainer}>
+        <View style={styles.emptyPanel}>
+          <Text style={styles.eyebrow}>My Characters</Text>
+          <Text style={styles.title}>No characters yet</Text>
+          <Text style={styles.subtitle}>
+            Create your first draft character to start the guided builder and keep it ready for future campaigns.
+          </Text>
+
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push(appRoutes.newCharacter as never)}
+            style={({ pressed }) => [styles.newButton, pressed && styles.newButtonPressed]}
+          >
+            <Text style={styles.newButtonLabel}>Create New Character</Text>
+          </Pressable>
+        </View>
+      </Screen>
+    );
   }
 
   return (
@@ -95,6 +112,21 @@ export function CharactersScreen() {
 const styles = StyleSheet.create({
   container: {
     gap: theme.spacing.xl,
+  },
+  emptyContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100%',
+  },
+  emptyPanel: {
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.lg,
+    borderWidth: 1,
+    gap: theme.spacing.lg,
+    maxWidth: 480,
+    padding: theme.spacing.xl,
+    width: '100%',
   },
   header: {
     backgroundColor: theme.colors.surface,

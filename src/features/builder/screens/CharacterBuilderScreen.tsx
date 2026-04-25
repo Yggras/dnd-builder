@@ -16,6 +16,7 @@ import {
 import {
   countAvailableAsiPoints,
   normalizeAbilityChoices,
+  type NormalizedAbilityRequirement,
   reconcileOriginAndAbilitiesPayload,
 } from '@/features/builder/utils/originAndAbilities';
 import { getStartingEquipmentOptionGroups, seedStartingEquipment } from '@/features/builder/utils/inventory';
@@ -45,6 +46,21 @@ function isBuilderDraftPayload(value: Record<string, unknown>): value is Builder
 
 function formatStepLabel(step: BuilderStep) {
   return step.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function getSelectedOriginPackageId(
+  requirement: NormalizedAbilityRequirement,
+  packageSelections: BuilderDraftPayload['abilityPointsStep']['originAbilityPackageSelections'],
+) {
+  if (requirement.packages.length === 1) {
+    return requirement.packages[0]?.id ?? null;
+  }
+
+  return (
+    packageSelections.find(
+      (selection) => selection.sourceType === requirement.sourceType && selection.sourceId === requirement.sourceId,
+    )?.packageId ?? null
+  );
 }
 
 export function CharacterBuilderScreen() {
@@ -354,6 +370,71 @@ export function CharacterBuilderScreen() {
     return builderService.summarizeIssues(draftBuild.payload.review.issues);
   }, [draftBuild]);
 
+  useEffect(() => {
+    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || allSpellsQuery.isLoading) {
+      return;
+    }
+
+    const spellSummary = summarizeSpellcasting(
+      draftBuild.payload,
+      classEntitiesById,
+      subclassEntitiesById,
+      spellEntitiesById,
+    );
+    const allEntitiesById = {
+      ...classEntitiesById,
+      ...speciesEntitiesById,
+      ...backgroundEntitiesById,
+      ...featEntitiesById,
+      ...itemEntitiesById,
+      ...spellEntitiesById,
+      ...subclassEntitiesById,
+      ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
+    } satisfies Record<string, ContentEntity>;
+    const nextIssues = mergeReviewIssues(draftBuild.payload, spellSummary.issues);
+    const nextSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
+    const issuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
+    const nextIssuesSnapshot = JSON.stringify(nextIssues);
+    const sourceSummarySnapshot = JSON.stringify(draftBuild.payload.review.sourceSummary);
+    const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
+
+    if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
+      if (draftBuild.buildState === 'complete' && builderService.canComplete(draftBuild.payload.review.issues) === false) {
+        setDraftBuild({
+          ...draftBuild,
+          buildState: 'draft',
+        });
+      }
+
+      return;
+    }
+
+    const nextPayload: BuilderDraftPayload = {
+      ...draftBuild.payload,
+      review: {
+        issues: nextIssues,
+        sourceSummary: nextSourceSummary,
+      },
+    };
+
+    setDraftBuild({
+      ...draftBuild,
+      buildState: draftBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
+      payload: nextPayload,
+    });
+  }, [
+    allSpellsQuery.isLoading,
+    backgroundEntitiesById,
+    classEntitiesById,
+    draftBuild,
+    featEntitiesById,
+    grantOptionsByGrantId,
+    itemEntitiesById,
+    spellEntitiesById,
+    speciesEntitiesById,
+    subclassEntitiesById,
+  ]);
+
   if (isLoading) {
     return <LoadingState label="Loading builder draft..." />;
   }
@@ -554,6 +635,10 @@ export function CharacterBuilderScreen() {
   const backgroundAbilityRequirements = selectedBackground
     ? normalizeAbilityChoices('background', selectedBackground.id, selectedBackground.metadata.ability)
     : null;
+  const originAbilityPackageSelections = payload.abilityPointsStep.originAbilityPackageSelections ?? [];
+  const originAbilityRequirements = [speciesAbilityRequirements, backgroundAbilityRequirements].filter(
+    (requirement): requirement is NormalizedAbilityRequirement => Boolean(requirement),
+  );
   const availableAsiPoints = countAvailableAsiPoints(payload, classEntitiesById);
   const spentAsiPoints = payload.abilityPointsStep.bonusSelections
     .filter((selection) => selection.sourceType === 'asi')
@@ -584,86 +669,79 @@ export function CharacterBuilderScreen() {
     ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
   } satisfies Record<string, ContentEntity>;
 
-  useEffect(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || allSpellsQuery.isLoading) {
-      return;
-    }
-
-    const nextIssues = mergeReviewIssues(draftBuild.payload, spellSummary.issues);
-    const nextSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
-    const issuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(nextIssues);
-    const sourceSummarySnapshot = JSON.stringify(draftBuild.payload.review.sourceSummary);
-    const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
-
-    if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
-      if (draftBuild.buildState === 'complete' && builderService.canComplete(draftBuild.payload.review.issues) === false) {
-        setDraftBuild({
-          ...draftBuild,
-          buildState: 'draft',
-        });
-      }
-
-      return;
-    }
-
-    const nextPayload: BuilderDraftPayload = {
-      ...draftBuild.payload,
-      review: {
-        issues: nextIssues,
-        sourceSummary: nextSourceSummary,
-      },
-    };
-
-    setDraftBuild({
-      ...draftBuild,
-      buildState: draftBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
-      payload: nextPayload,
-    });
-  }, [draftBuild, allSpellsQuery.isLoading, spellSummary, allEntitiesById]);
-
   const updateOriginAbilitySelection = (
     sourceType: 'species' | 'background',
     sourceId: string,
+    packageId: string,
+    choiceGroupId: string,
     ability: string,
     amount: number,
-    allowMultiple: boolean,
+    maxSelections: number,
   ) => {
-    const existingSelections = payload.abilityPointsStep.bonusSelections.filter(
-      (selection) => !(selection.sourceType === sourceType && selection.sourceId === sourceId && selection.amount === amount),
-    );
-    const currentlySelected = payload.abilityPointsStep.bonusSelections.some(
+    const groupSelections = payload.abilityPointsStep.bonusSelections.filter(
       (selection) =>
-        selection.sourceType === sourceType && selection.sourceId === sourceId && selection.amount === amount && selection.ability === ability,
+        selection.sourceType === sourceType &&
+        selection.sourceId === sourceId &&
+        selection.packageId === packageId &&
+        selection.choiceGroupId === choiceGroupId,
     );
+    const nonGroupSelections = payload.abilityPointsStep.bonusSelections.filter(
+      (selection) =>
+        !(
+          selection.sourceType === sourceType &&
+          selection.sourceId === sourceId &&
+          selection.packageId === packageId &&
+          selection.choiceGroupId === choiceGroupId
+        ),
+    );
+    const currentlySelected = groupSelections.some((selection) => selection.ability === ability);
+    const nextGroupSelections = currentlySelected
+      ? groupSelections.filter((selection) => selection.ability !== ability)
+      : [
+          ...groupSelections,
+          {
+            sourceType,
+            sourceId,
+            ability,
+            amount,
+            packageId,
+            choiceGroupId,
+          },
+        ].slice(0, maxSelections);
 
     applyOriginPayloadChange({
       ...payload,
       currentStep: payload.currentStep,
       abilityPointsStep: {
         ...payload.abilityPointsStep,
-        bonusSelections: currentlySelected
-          ? existingSelections
-          : [
-              ...existingSelections,
-              ...(allowMultiple
-                ? [
-                    {
-                      sourceType,
-                      sourceId,
-                      ability,
-                      amount,
-                    },
-                  ]
-                : [
-                    {
-                      sourceType,
-                      sourceId,
-                      ability,
-                      amount,
-                    },
-                  ]),
-            ],
+        bonusSelections: [...nonGroupSelections, ...nextGroupSelections],
+      },
+    });
+  };
+
+  const updateOriginAbilityPackageSelection = (
+    sourceType: 'species' | 'background',
+    sourceId: string,
+    packageId: string,
+  ) => {
+    applyOriginPayloadChange({
+      ...payload,
+      currentStep: payload.currentStep,
+      abilityPointsStep: {
+        ...payload.abilityPointsStep,
+        bonusSelections: payload.abilityPointsStep.bonusSelections.filter(
+          (selection) => !(selection.sourceType === sourceType && selection.sourceId === sourceId),
+        ),
+        originAbilityPackageSelections: [
+          ...originAbilityPackageSelections.filter(
+            (selection) => !(selection.sourceType === sourceType && selection.sourceId === sourceId),
+          ),
+          {
+            sourceType,
+            sourceId,
+            packageId,
+          },
+        ],
       },
     });
   };
@@ -1141,36 +1219,100 @@ export function CharacterBuilderScreen() {
 
         <Text style={styles.validationHint}>ASI points available: {availableAsiPoints}. Spent: {spentAsiPoints}.</Text>
 
-        {[speciesAbilityRequirements, backgroundAbilityRequirements].filter(Boolean).map((requirement) =>
-          requirement && requirement.choices.length > 0 ? (
+        {originAbilityRequirements.map((requirement) => {
+          if (requirement.packages.length === 0) {
+            return null;
+          }
+
+          const selectedPackageId = getSelectedOriginPackageId(
+            requirement,
+            originAbilityPackageSelections,
+          );
+          const activePackage = requirement.packages.find((abilityPackage) => abilityPackage.id === selectedPackageId) ?? null;
+
+          return (
             <View key={`${requirement.sourceType}-${requirement.sourceId}`} style={styles.optionBlock}>
               <Text style={styles.optionBlockLabel}>
                 {requirement.sourceType === 'species' ? 'Species' : 'Background'} ability bonuses
               </Text>
-              {requirement.choices.map((choice, index) => {
+
+              {requirement.packages.length > 1 ? (
+                <View style={styles.fieldGroup}>
+                  <Text style={styles.choiceGroupLabel}>Choose a bonus package</Text>
+                  <View style={styles.optionChipWrap}>
+                    {requirement.packages.map((abilityPackage) => {
+                      const isSelected = selectedPackageId === abilityPackage.id;
+
+                      return (
+                        <Pressable
+                          accessibilityRole="button"
+                          key={abilityPackage.id}
+                          onPress={() =>
+                            updateOriginAbilityPackageSelection(
+                              requirement.sourceType,
+                              requirement.sourceId,
+                              abilityPackage.id,
+                            )
+                          }
+                          style={({ pressed }) => [
+                            styles.optionChip,
+                            isSelected && styles.optionChipActive,
+                            pressed && styles.optionChipPressed,
+                          ]}
+                        >
+                          <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>
+                            {abilityPackage.label}
+                          </Text>
+                        </Pressable>
+                      );
+                    })}
+                  </View>
+                </View>
+              ) : null}
+
+              {activePackage?.choices.map((choice, index) => {
                 const matchingSelections = payload.abilityPointsStep.bonusSelections.filter(
                   (selection) =>
                     selection.sourceType === requirement.sourceType &&
                     selection.sourceId === requirement.sourceId &&
+                    selection.packageId === activePackage.id &&
+                    selection.choiceGroupId === choice.id &&
                     selection.amount === choice.amount,
                 );
 
                 return (
-                  <View key={`${requirement.sourceId}-${choice.amount}-${index}`} style={styles.choiceGroup}>
+                  <View key={`${activePackage.id}-${choice.id}-${index}`} style={styles.choiceGroup}>
                     <Text style={styles.choiceGroupLabel}>
                       Choose {choice.count} ability{choice.count === 1 ? '' : ' abilities'} for +{choice.amount}
                     </Text>
                     <View style={styles.optionChipWrap}>
                       {choice.options.map((ability) => {
                         const isSelected = matchingSelections.some((selection) => selection.ability === ability);
+
                         return (
                           <Pressable
                             accessibilityRole="button"
-                            key={`${requirement.sourceId}-${choice.amount}-${ability}`}
-                            onPress={() => updateOriginAbilitySelection(requirement.sourceType, requirement.sourceId, ability, choice.amount, choice.count > 1)}
-                            style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                            key={`${choice.id}-${ability}`}
+                            onPress={() =>
+                              updateOriginAbilitySelection(
+                                requirement.sourceType,
+                                requirement.sourceId,
+                                activePackage.id,
+                                choice.id,
+                                ability,
+                                choice.amount,
+                                choice.count,
+                              )
+                            }
+                            style={({ pressed }) => [
+                              styles.optionChip,
+                              isSelected && styles.optionChipActive,
+                              pressed && styles.optionChipPressed,
+                            ]}
                           >
-                            <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{ability.toUpperCase()}</Text>
+                            <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>
+                              {ability.toUpperCase()}
+                            </Text>
                           </Pressable>
                         );
                       })}
@@ -1179,8 +1321,8 @@ export function CharacterBuilderScreen() {
                 );
               })}
             </View>
-          ) : null,
-        )}
+          );
+        })}
       </View>
 
       <View style={styles.section}>
@@ -1647,8 +1789,8 @@ export function CharacterBuilderScreen() {
 
         {payload.review.issues.length > 0 ? (
           <View style={styles.issueList}>
-            {payload.review.issues.map((issue) => (
-              <View key={issue.id} style={styles.issueCard}>
+            {payload.review.issues.map((issue, index) => (
+              <View key={`${issue.id}-${index}`} style={styles.issueCard}>
                 <Text style={styles.issueTitle}>{issue.summary}</Text>
                 <Text style={styles.issueMeta}>{formatStepLabel(issue.step)} • {issue.category}</Text>
                 <Text style={styles.issueDetail}>{issue.detail}</Text>

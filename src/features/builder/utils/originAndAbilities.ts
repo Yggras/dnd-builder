@@ -3,16 +3,30 @@ import type {
   BuilderDraftPayload,
   BuilderGrantedFeatSelection,
   BuilderIssue,
+  BuilderOriginAbilityPackageSelection,
 } from '@/features/builder/types';
 import type { ContentEntity } from '@/shared/types/domain';
 
 type AbilityKey = 'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha';
 
-type AbilityRequirement = {
+export type AbilityChoiceGroup = {
+  id: string;
+  amount: number;
+  count: number;
+  options: AbilityKey[];
+};
+
+export type AbilityChoicePackage = {
+  id: string;
+  label: string;
+  choices: AbilityChoiceGroup[];
+  deterministicBonuses: BuilderAbilityBonusSelection[];
+};
+
+export type NormalizedAbilityRequirement = {
   sourceType: 'species' | 'background';
   sourceId: string;
-  choices: Array<{ amount: number; count: number; options: AbilityKey[] }>;
-  deterministicBonuses: BuilderAbilityBonusSelection[];
+  packages: AbilityChoicePackage[];
 };
 
 interface ReconcileOriginAndAbilitiesOptions {
@@ -30,72 +44,160 @@ interface ReconcileOriginAndAbilitiesResult {
 
 const ABILITY_KEYS: AbilityKey[] = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 
-export function normalizeAbilityChoices(
-  sourceType: 'species' | 'background',
-  sourceId: string,
-  metadataValue: unknown,
-): AbilityRequirement {
-  if (!Array.isArray(metadataValue)) {
-    return {
-      sourceType,
-      sourceId,
-      choices: [],
-      deterministicBonuses: [],
-    };
+function getChoiceOptions(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [] as AbilityKey[];
   }
 
-  const requirement: AbilityRequirement = {
-    sourceType,
-    sourceId,
+  return value.filter((candidate): candidate is AbilityKey => typeof candidate === 'string' && ABILITY_KEYS.includes(candidate as AbilityKey));
+}
+
+function createAbilityChoicePackage(sourceType: 'species' | 'background', sourceId: string, packageIndex: number): AbilityChoicePackage {
+  return {
+    id: `${sourceType}-${sourceId}-package-${packageIndex}`,
+    label: '',
     choices: [],
     deterministicBonuses: [],
   };
+}
 
-  for (const entry of metadataValue) {
-    if (!entry || typeof entry !== 'object') {
-      continue;
-    }
+function finalizeAbilityChoicePackage(abilityPackage: AbilityChoicePackage) {
+  return {
+    ...abilityPackage,
+    label:
+      abilityPackage.choices.length > 0
+        ? abilityPackage.choices.map((choice) => `+${choice.amount}`).join('/')
+        : 'Fixed bonuses',
+  } satisfies AbilityChoicePackage;
+}
 
-    const maybeChoose = (entry as { choose?: unknown }).choose;
+function parseAbilityEntry(
+  sourceType: 'species' | 'background',
+  sourceId: string,
+  packageIndex: number,
+  entry: Record<string, unknown>,
+) {
+  const abilityPackage = createAbilityChoicePackage(sourceType, sourceId, packageIndex);
+  const maybeChoose = entry.choose;
 
-    if (maybeChoose && typeof maybeChoose === 'object') {
-      const weighted = (maybeChoose as { weighted?: unknown }).weighted;
+  if (maybeChoose && typeof maybeChoose === 'object') {
+    const weighted = (maybeChoose as { weighted?: unknown }).weighted;
 
-      if (weighted && typeof weighted === 'object') {
-        const options = Array.isArray((weighted as { from?: unknown }).from)
-          ? ((weighted as { from: unknown[] }).from.filter(
-              (value): value is AbilityKey => typeof value === 'string' && ABILITY_KEYS.includes(value as AbilityKey),
-            ) as AbilityKey[])
-          : [];
-        const weights = Array.isArray((weighted as { weights?: unknown }).weights)
-          ? ((weighted as { weights: unknown[] }).weights.filter((value): value is number => typeof value === 'number'))
-          : [];
+    if (weighted && typeof weighted === 'object') {
+      const options = getChoiceOptions((weighted as { from?: unknown }).from);
+      const weights = Array.isArray((weighted as { weights?: unknown }).weights)
+        ? (weighted as { weights: unknown[] }).weights.filter((value): value is number => typeof value === 'number')
+        : [];
 
-        for (const weight of weights) {
-          requirement.choices.push({
-            amount: weight,
-            count: 1,
-            options,
-          });
-        }
+      for (const [weightIndex, weight] of weights.entries()) {
+        abilityPackage.choices.push({
+          id: `${abilityPackage.id}-choice-${weightIndex}`,
+          amount: weight,
+          count: 1,
+          options,
+        });
       }
+    } else {
+      const options = getChoiceOptions((maybeChoose as { from?: unknown }).from);
+      const count = typeof (maybeChoose as { count?: unknown }).count === 'number' ? (maybeChoose as { count: number }).count : 1;
+      const amount = typeof (maybeChoose as { amount?: unknown }).amount === 'number' ? (maybeChoose as { amount: number }).amount : 1;
 
-      continue;
-    }
-
-    for (const [ability, amount] of Object.entries(entry)) {
-      if (ABILITY_KEYS.includes(ability as AbilityKey) && typeof amount === 'number' && amount > 0) {
-        requirement.deterministicBonuses.push({
-          sourceType,
-          sourceId,
-          ability,
+      if (options.length > 0 && count > 0) {
+        abilityPackage.choices.push({
+          id: `${abilityPackage.id}-choice-0`,
           amount,
+          count,
+          options,
         });
       }
     }
   }
 
-  return requirement;
+  for (const [ability, amount] of Object.entries(entry)) {
+    if (ability === 'choose') {
+      continue;
+    }
+
+    if (ABILITY_KEYS.includes(ability as AbilityKey) && typeof amount === 'number' && amount > 0) {
+      abilityPackage.deterministicBonuses.push({
+        sourceType,
+        sourceId,
+        ability,
+        amount,
+        packageId: abilityPackage.id,
+        choiceGroupId: null,
+      });
+    }
+  }
+
+  return finalizeAbilityChoicePackage(abilityPackage);
+}
+
+function getSelectedOriginAbilityPackageId(
+  sourceType: 'species' | 'background',
+  sourceId: string,
+  packages: AbilityChoicePackage[],
+  packageSelections: BuilderOriginAbilityPackageSelection[],
+) {
+  if (packages.length === 0) {
+    return null;
+  }
+
+  if (packages.length === 1) {
+    return packages[0]?.id ?? null;
+  }
+
+  const explicitSelection = packageSelections.find(
+    (selection) => selection.sourceType === sourceType && selection.sourceId === sourceId,
+  )?.packageId;
+
+  return packages.some((abilityPackage) => abilityPackage.id === explicitSelection) ? explicitSelection ?? null : null;
+}
+
+export function normalizeAbilityChoices(
+  sourceType: 'species' | 'background',
+  sourceId: string,
+  metadataValue: unknown,
+): NormalizedAbilityRequirement {
+  if (!Array.isArray(metadataValue)) {
+    return {
+      sourceType,
+      sourceId,
+      packages: [],
+    };
+  }
+
+  const validEntries = metadataValue.filter((entry): entry is Record<string, unknown> => Boolean(entry) && typeof entry === 'object');
+  const weightedEntries = validEntries.filter((entry) => {
+    const maybeChoose = entry.choose;
+    return Boolean(maybeChoose && typeof maybeChoose === 'object' && (maybeChoose as { weighted?: unknown }).weighted);
+  });
+  const packages =
+    weightedEntries.length === validEntries.length && validEntries.length > 1
+      ? validEntries.map((entry, index) => parseAbilityEntry(sourceType, sourceId, index, entry))
+      : [
+          finalizeAbilityChoicePackage(
+            validEntries.reduce<AbilityChoicePackage>((combinedPackage, entry) => {
+              const parsedPackage = parseAbilityEntry(sourceType, sourceId, 0, entry);
+              combinedPackage.choices.push(
+                ...parsedPackage.choices.map((choice, choiceIndex) => ({
+                  ...choice,
+                  id: `${combinedPackage.id}-choice-${combinedPackage.choices.length + choiceIndex}`,
+                })),
+              );
+              combinedPackage.deterministicBonuses.push(
+                ...parsedPackage.deterministicBonuses.map((bonus) => ({ ...bonus, packageId: combinedPackage.id })),
+              );
+              return combinedPackage;
+            }, createAbilityChoicePackage(sourceType, sourceId, 0)),
+          ),
+        ];
+
+  return {
+    sourceType,
+    sourceId,
+    packages: packages.filter((abilityPackage) => abilityPackage.choices.length > 0 || abilityPackage.deterministicBonuses.length > 0),
+  };
 }
 
 function summarizeOriginEntity(entity: ContentEntity) {
@@ -268,6 +370,7 @@ export function reconcileOriginAndAbilitiesPayload({
       baseScores: { ...payload.abilityPointsStep.baseScores },
       scores: {},
       bonusSelections: payload.abilityPointsStep.bonusSelections.filter((selection) => selection.sourceType === 'asi'),
+      originAbilityPackageSelections: [...(payload.abilityPointsStep.originAbilityPackageSelections ?? [])],
     },
   };
 
@@ -308,27 +411,70 @@ export function reconcileOriginAndAbilitiesPayload({
   const originRequirements = [
     speciesEntity
       ? normalizeAbilityChoices('species', speciesEntity.id, speciesEntity.metadata.ability)
-      : { sourceType: 'species' as const, sourceId: 'species', choices: [], deterministicBonuses: [] },
+      : { sourceType: 'species' as const, sourceId: 'species', packages: [] },
     backgroundEntity
       ? normalizeAbilityChoices('background', backgroundEntity.id, backgroundEntity.metadata.ability)
-      : { sourceType: 'background' as const, sourceId: 'background', choices: [], deterministicBonuses: [] },
+      : { sourceType: 'background' as const, sourceId: 'background', packages: [] },
   ];
 
   for (const requirement of originRequirements) {
-    nextPayload.abilityPointsStep.bonusSelections.push(...requirement.deterministicBonuses);
+    const previousSelections = payload.abilityPointsStep.bonusSelections.filter(
+      (selection) => selection.sourceType === requirement.sourceType && selection.sourceId === requirement.sourceId,
+    );
+    const selectedPackageId = getSelectedOriginAbilityPackageId(
+      requirement.sourceType,
+      requirement.sourceId,
+      requirement.packages,
+      nextPayload.abilityPointsStep.originAbilityPackageSelections,
+    );
 
-    for (const choice of requirement.choices) {
-      const matchingSelections = nextPayload.abilityPointsStep.bonusSelections.filter(
-        (selection) =>
-          selection.sourceId === requirement.sourceId &&
+    nextPayload.abilityPointsStep.originAbilityPackageSelections = nextPayload.abilityPointsStep.originAbilityPackageSelections.filter(
+      (selection) =>
+        !(
           selection.sourceType === requirement.sourceType &&
-          selection.amount === choice.amount &&
-          choice.options.includes(selection.ability as AbilityKey),
-      );
+          selection.sourceId === requirement.sourceId &&
+          !requirement.packages.some((abilityPackage) => abilityPackage.id === selection.packageId)
+        ),
+    );
+
+    if (requirement.packages.length > 1 && !selectedPackageId) {
+      issues.push({
+        id: `origin-ability-package-${requirement.sourceId}`,
+        category: 'checklist',
+        step: requirement.sourceType === 'species' ? 'species' : 'background',
+        summary: 'An origin ability bonus package still needs to be selected.',
+        detail: 'Choose whether this origin grants a +2/+1 package or a +1/+1/+1 package before assigning abilities.',
+        affectsCompletion: true,
+        resolvedByOverride: false,
+      });
+      impactChanges += previousSelections.length;
+      continue;
+    }
+
+    const selectedPackage = requirement.packages.find((abilityPackage) => abilityPackage.id === selectedPackageId) ?? null;
+
+    if (!selectedPackage) {
+      continue;
+    }
+
+    nextPayload.abilityPointsStep.bonusSelections.push(...selectedPackage.deterministicBonuses);
+
+    for (const [choiceIndex, choice] of selectedPackage.choices.entries()) {
+      const matchingSelections = previousSelections
+        .filter(
+          (selection) =>
+            selection.packageId === selectedPackage.id &&
+            selection.choiceGroupId === choice.id &&
+            selection.amount === choice.amount &&
+            choice.options.includes(selection.ability as AbilityKey),
+        )
+        .slice(0, choice.count);
+
+      nextPayload.abilityPointsStep.bonusSelections.push(...matchingSelections);
 
       if (matchingSelections.length < choice.count) {
         issues.push({
-          id: `origin-ability-${requirement.sourceId}-${choice.amount}-${choice.count}`,
+          id: `origin-ability-${requirement.sourceId}-${choiceIndex}-${choice.amount}-${choice.count}`,
           category: 'checklist',
           step: requirement.sourceType === 'species' ? 'species' : 'background',
           summary: 'Origin ability bonuses still need to be assigned.',
@@ -338,6 +484,8 @@ export function reconcileOriginAndAbilitiesPayload({
         });
       }
     }
+
+    impactChanges += previousSelections.filter((selection) => selection.packageId && selection.packageId !== selectedPackage.id).length;
   }
 
   if (speciesEntity) {

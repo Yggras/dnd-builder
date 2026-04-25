@@ -46,12 +46,21 @@ export interface BuilderAbilityBonusSelection {
   sourceId: string;
   ability: string;
   amount: number;
+  packageId?: string | null;
+  choiceGroupId?: string | null;
+}
+
+export interface BuilderOriginAbilityPackageSelection {
+  sourceType: 'species' | 'background';
+  sourceId: string;
+  packageId: string;
 }
 
 export interface BuilderAbilityScoreState {
   baseScores: Record<string, number>;
   scores: Record<string, number>;
   bonusSelections: BuilderAbilityBonusSelection[];
+  originAbilityPackageSelections: BuilderOriginAbilityPackageSelection[];
   asiSelections: Array<Record<string, unknown>>;
 }
 
@@ -259,6 +268,7 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
       baseScores: {},
       scores: {},
       bonusSelections: [],
+      originAbilityPackageSelections: [],
       asiSelections: [],
     },
     inventoryStep: {

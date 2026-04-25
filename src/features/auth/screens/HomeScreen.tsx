@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useSession } from '@/features/auth/hooks/useSession';
+import { appRoutes } from '@/shared/constants/routes';
 import { Screen } from '@/shared/ui/Screen';
 import { SurfaceCard } from '@/shared/ui/SurfaceCard';
 import { theme, typography } from '@/shared/ui/theme';
@@ -47,9 +48,9 @@ const SURFACES = [
 ] as const;
 
 const QUICK_ACTIONS = [
-  { label: 'New Character', icon: 'account-plus', href: '/(app)/characters' },
-  { label: 'Join Campaign', icon: 'account-group', href: '/(app)/campaigns' },
-  { label: 'Search Rules', icon: 'magnify', href: '/(app)/compendium' },
+  { label: 'New Character', icon: 'account-plus', href: appRoutes.newCharacter },
+  { label: 'Join Campaign', icon: 'account-group', href: appRoutes.campaigns },
+  { label: 'Search Rules', icon: 'magnify', href: appRoutes.compendium },
 ] as const;
 
 export function HomeScreen() {
