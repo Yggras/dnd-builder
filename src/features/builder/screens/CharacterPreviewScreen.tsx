@@ -16,6 +16,14 @@ function formatEntityLabel(entityId: string | null | undefined, fallback: string
   return slug ? slug.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase()) : fallback;
 }
 
+function formatEntityLabels(entityIds: Array<string | null | undefined>, fallback: string) {
+  const labels = entityIds
+    .map((entityId) => formatEntityLabel(entityId, ''))
+    .filter((label) => label.length > 0);
+
+  return labels.length > 0 ? labels.join(', ') : fallback;
+}
+
 export function CharacterPreviewScreen() {
   const params = useLocalSearchParams<{ characterId?: string | string[] }>();
   const characterId = Array.isArray(params.characterId) ? params.characterId[0] : params.characterId ?? '';
@@ -33,7 +41,37 @@ export function CharacterPreviewScreen() {
     return <ErrorState title="Preview unavailable" message="The requested character preview could not be loaded." />;
   }
 
+  if (data.build.buildState !== 'complete') {
+    return <ErrorState title="Preview unavailable" message="Complete the builder review step before opening the character preview." />;
+  }
+
   const payload = data.build.payload as Record<string, any>;
+  const classAllocations = Array.isArray(payload.classStep?.allocations) ? payload.classStep.allocations : [];
+  const classSummary = classAllocations.length
+    ? classAllocations
+        .map((allocation: { classId?: string; subclassId?: string | null; level?: number }) => {
+          const classLabel = formatEntityLabel(allocation.classId, 'Unknown class');
+          const subclassLabel = allocation.subclassId ? ` (${formatEntityLabel(allocation.subclassId, 'Unknown subclass')})` : '';
+          const levelLabel = typeof allocation.level === 'number' ? ` ${allocation.level}` : '';
+          return `${classLabel}${subclassLabel}${levelLabel}`;
+        })
+        .join(', ')
+    : 'No class yet';
+  const featSummary = formatEntityLabels(
+    [
+      ...(Array.isArray(payload.speciesStep?.grantedFeatSelections)
+        ? payload.speciesStep.grantedFeatSelections.map((selection: { selectedFeatId?: string | null }) => selection.selectedFeatId)
+        : []),
+      ...(Array.isArray(payload.backgroundStep?.grantedFeatSelections)
+        ? payload.backgroundStep.grantedFeatSelections.map((selection: { selectedFeatId?: string | null }) => selection.selectedFeatId)
+        : []),
+      ...(Array.isArray(payload.classStep?.featureChoices)
+        ? payload.classStep.featureChoices.flatMap((selection: { selectedOptionIds?: string[] }) => selection.selectedOptionIds ?? [])
+        : []),
+    ],
+    'None selected',
+  );
+  const preparedSpellCount = Array.isArray(payload.spellsStep?.preparedSpellIds) ? payload.spellsStep.preparedSpellIds.length : 0;
 
   return (
     <Screen contentContainerStyle={styles.container}>
@@ -47,6 +85,7 @@ export function CharacterPreviewScreen() {
         <View style={styles.panel}>
           <Text style={styles.panelTitle}>Identity</Text>
           <Text style={styles.panelText}>Level {data.character.level}</Text>
+          <Text style={styles.panelText}>Classes: {classSummary}</Text>
           <Text style={styles.panelText}>Species: {formatEntityLabel(payload.speciesStep?.speciesId, 'Unselected')}</Text>
           <Text style={styles.panelText}>Background: {formatEntityLabel(payload.backgroundStep?.backgroundId, 'Unselected')}</Text>
         </View>
@@ -61,8 +100,14 @@ export function CharacterPreviewScreen() {
         </View>
 
         <View style={styles.panel}>
+          <Text style={styles.panelTitle}>Feats And Features</Text>
+          <Text style={styles.panelText}>{featSummary}</Text>
+        </View>
+
+        <View style={styles.panel}>
           <Text style={styles.panelTitle}>Spells</Text>
           <Text style={styles.panelText}>Selected spells: {(payload.spellsStep?.selectedSpellIds ?? []).length}</Text>
+          <Text style={styles.panelText}>Prepared spells: {preparedSpellCount}</Text>
           <Text style={styles.panelText}>Spell notes: {(payload.spellsStep?.manualExceptionNotes ?? []).length}</Text>
         </View>
 
@@ -74,6 +119,7 @@ export function CharacterPreviewScreen() {
 
         <View style={styles.panel}>
           <Text style={styles.panelTitle}>Sources</Text>
+          <Text style={styles.panelText}>Completion state: {data.build.buildState}</Text>
           <Text style={styles.panelText}>Sources: {(payload.review?.sourceSummary?.sourceCodes ?? []).join(', ') || 'None'}</Text>
           <Text style={styles.panelText}>Editions: {(payload.review?.sourceSummary?.editionsUsed ?? []).join(', ') || 'None'}</Text>
         </View>

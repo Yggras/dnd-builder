@@ -62,6 +62,7 @@ export function CharacterBuilderScreen() {
   const [inventorySearch, setInventorySearch] = useState('');
   const [spellSearch, setSpellSearch] = useState('');
   const [completionMessage, setCompletionMessage] = useState<string | null>(null);
+  const [isCompletingBuild, setIsCompletingBuild] = useState(false);
 
   const classesQuery = useQuery({
     queryKey: ['builder', 'classes'],
@@ -147,6 +148,14 @@ export function CharacterBuilderScreen() {
       selectedClassIds.map((classId, index) => [classId, subclassesQueries[index]?.data ?? []]),
     ) as Record<string, ContentEntity[]>;
   }, [selectedClassIds, subclassesQueries]);
+  const subclassEntitiesById = useMemo(
+    () =>
+      Object.fromEntries(Object.values(subclassesByClassId).flat().map((entity) => [entity.id, entity])) as Record<
+        string,
+        ContentEntity
+      >,
+    [subclassesByClassId],
+  );
 
   const grantsByClassId = useMemo(() => {
     return Object.fromEntries(selectedClassIds.map((classId, index) => [classId, grantsQueries[index]?.data ?? []])) as Record<
@@ -236,7 +245,7 @@ export function CharacterBuilderScreen() {
   }, [data]);
 
   useEffect(() => {
-    if (!draftBuild) {
+    if (!draftBuild || isCompletingBuild) {
       return;
     }
 
@@ -256,7 +265,7 @@ export function CharacterBuilderScreen() {
     }, 400);
 
     return () => clearTimeout(timeoutId);
-  }, [draftBuild, saveBuildMutation]);
+  }, [draftBuild, isCompletingBuild, saveBuildMutation]);
 
   useEffect(() => {
     if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || classesQuery.isLoading) {
@@ -549,7 +558,16 @@ export function CharacterBuilderScreen() {
   const spentAsiPoints = payload.abilityPointsStep.bonusSelections
     .filter((selection) => selection.sourceType === 'asi')
     .reduce((sum, selection) => sum + selection.amount, 0);
-  const spellSummary = summarizeSpellcasting(payload, classEntitiesById, spellEntitiesById);
+  const spellSummary = summarizeSpellcasting(payload, classEntitiesById, subclassEntitiesById, spellEntitiesById);
+  const selectedCantripCount = payload.spellsStep.selectedSpellIds.filter(
+    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 99) === 0,
+  ).length;
+  const selectedKnownLeveledCount = payload.spellsStep.selectedSpellIds.filter(
+    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0,
+  ).length;
+  const selectedPreparedCount = payload.spellsStep.preparedSpellIds.filter(
+    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0,
+  ).length;
   const visibleSpellResults = Object.values(spellEntitiesById)
     .filter((spell) => spellSummary.applicableSpellIds.includes(spell.id))
     .filter((spell) => Number(spell.metadata.level ?? 0) <= spellSummary.maxSpellLevel)
@@ -562,7 +580,7 @@ export function CharacterBuilderScreen() {
     ...featEntitiesById,
     ...itemEntitiesById,
     ...spellEntitiesById,
-    ...Object.fromEntries(Object.values(subclassesByClassId).flat().map((entity) => [entity.id, entity])),
+    ...subclassEntitiesById,
     ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
   } satisfies Record<string, ContentEntity>;
 
@@ -818,23 +836,70 @@ export function CharacterBuilderScreen() {
     });
   };
 
-  const updateSpellSelection = (spellId: string) => {
-    const isSelected = payload.spellsStep.selectedSpellIds.includes(spellId);
-    const nextSelectedSpellIds = isSelected
-      ? payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
-      : [...payload.spellsStep.selectedSpellIds, spellId];
+  const updateKnownSpellSelection = (spellId: string) => {
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+        return currentBuild;
+      }
 
-    setDraftBuild({
-      ...draftBuild,
-      currentStep: 'spells',
-      buildState: 'draft',
-      payload: {
-        ...payload,
-        spellsStep: {
-          ...payload.spellsStep,
-          selectedSpellIds: nextSelectedSpellIds,
+      const isSelected = currentBuild.payload.spellsStep.selectedSpellIds.includes(spellId);
+      const nextSelectedSpellIds = isSelected
+        ? currentBuild.payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
+        : [...currentBuild.payload.spellsStep.selectedSpellIds, spellId];
+      const spellLevel = Number(spellEntitiesById[spellId]?.metadata.level ?? 0);
+
+      return {
+        ...currentBuild,
+        currentStep: 'spells',
+        buildState: 'draft',
+        payload: {
+          ...currentBuild.payload,
+          spellsStep: {
+            ...currentBuild.payload.spellsStep,
+            selectedSpellIds: nextSelectedSpellIds,
+            preparedSpellIds:
+              spellLevel > 0 && isSelected
+                ? currentBuild.payload.spellsStep.preparedSpellIds.filter((preparedSpellId) => preparedSpellId !== spellId)
+                : currentBuild.payload.spellsStep.preparedSpellIds,
+          },
         },
-      },
+      };
+    });
+  };
+
+  const updatePreparedSpellSelection = (spellId: string) => {
+    if (Number(spellEntitiesById[spellId]?.metadata.level ?? 0) === 0) {
+      return;
+    }
+
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+        return currentBuild;
+      }
+
+      const isPrepared = currentBuild.payload.spellsStep.preparedSpellIds.includes(spellId);
+      const nextPreparedSpellIds = isPrepared
+        ? currentBuild.payload.spellsStep.preparedSpellIds.filter((preparedSpellId) => preparedSpellId !== spellId)
+        : [...currentBuild.payload.spellsStep.preparedSpellIds, spellId];
+      const nextSelectedSpellIds = isPrepared
+        ? spellSummary.usesKnownSpells
+          ? currentBuild.payload.spellsStep.selectedSpellIds
+          : currentBuild.payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
+        : Array.from(new Set([...currentBuild.payload.spellsStep.selectedSpellIds, spellId]));
+
+      return {
+        ...currentBuild,
+        currentStep: 'spells',
+        buildState: 'draft',
+        payload: {
+          ...currentBuild.payload,
+          spellsStep: {
+            ...currentBuild.payload.spellsStep,
+            selectedSpellIds: nextSelectedSpellIds,
+            preparedSpellIds: nextPreparedSpellIds,
+          },
+        },
+      };
     });
   };
 
@@ -862,6 +927,11 @@ export function CharacterBuilderScreen() {
       return;
     }
 
+    if (saveBuildMutation.isPending) {
+      setCompletionMessage('Wait for the current save to finish before completing the build.');
+      return;
+    }
+
     const completedBuild: CharacterBuild = {
       ...draftBuild,
       buildState: 'complete',
@@ -875,9 +945,22 @@ export function CharacterBuilderScreen() {
       },
     };
 
+    const completedSnapshot = JSON.stringify(completedBuild);
+    lastSavedSnapshot.current = completedSnapshot;
+    setIsCompletingBuild(true);
     setDraftBuild(completedBuild);
     setCompletionMessage(null);
-    router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
+    saveBuildMutation.mutate(completedBuild, {
+      onSuccess: () => {
+        setIsCompletingBuild(false);
+        router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
+      },
+      onError: () => {
+        lastSavedSnapshot.current = null;
+        setIsCompletingBuild(false);
+        setCompletionMessage('Unable to save the completed build. Resolve the save issue and try again.');
+      },
+    });
   };
 
   return (
@@ -895,7 +978,7 @@ export function CharacterBuilderScreen() {
               {draftBuild.buildState === 'complete' ? 'Complete' : 'Draft'}
             </Text>
           </View>
-          <Text style={styles.statusText}>{saveBuildMutation.isPending ? 'Saving...' : 'Autosave ready'}</Text>
+          <Text style={styles.statusText}>{isCompletingBuild || saveBuildMutation.isPending ? 'Saving...' : 'Autosave ready'}</Text>
         </View>
       </View>
 
@@ -1405,13 +1488,23 @@ export function CharacterBuilderScreen() {
       <View style={styles.section}>
         <View style={styles.sectionHeaderRow}>
           <Text style={styles.sectionTitle}>Spells</Text>
-          <Text style={styles.sectionMeta}>{spellSummary.isCaster ? `Cantrips ${payload.spellsStep.selectedSpellIds.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 99) === 0).length}/${spellSummary.cantripLimit}` : 'No spellcasting'}</Text>
+          <Text style={styles.sectionMeta}>
+            {spellSummary.isCaster
+              ? [
+                  `Cantrips ${selectedCantripCount}/${spellSummary.cantripLimit}`,
+                  spellSummary.usesKnownSpells ? `Known ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}` : null,
+                  spellSummary.usesPreparedSpells ? `Prepared ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}` : null,
+                ]
+                  .filter(Boolean)
+                  .join(' • ')
+              : 'No spellcasting'}
+          </Text>
         </View>
 
         {spellSummary.isCaster ? (
           <>
             <Text style={styles.sectionBodyText}>
-              Select spells from the structured class and subclass spell lists. Current maximum spell level: {spellSummary.maxSpellLevel}. Leveled spells selected: {payload.spellsStep.selectedSpellIds.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0).length}/{spellSummary.spellLimit}.
+              Select spells from the structured class and subclass spell lists. Current maximum spell level: {spellSummary.maxSpellLevel}. {spellSummary.usesKnownSpells ? `Known leveled spells ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}. ` : ''}{spellSummary.usesPreparedSpells ? `Prepared spells ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}.` : ''}
             </Text>
             <TextInput
               autoCapitalize="none"
@@ -1425,16 +1518,47 @@ export function CharacterBuilderScreen() {
             <View style={styles.searchResults}>
               {visibleSpellResults.map((spell) => {
                 const isSelected = payload.spellsStep.selectedSpellIds.includes(spell.id);
+                const isPrepared = payload.spellsStep.preparedSpellIds.includes(spell.id);
+                const spellLevel = Number(spell.metadata.level ?? 0);
                 return (
-                  <Pressable
-                    accessibilityRole="button"
-                    key={spell.id}
-                    onPress={() => updateSpellSelection(spell.id)}
-                    style={({ pressed }) => [styles.searchResultRow, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                  >
-                    <Text style={[styles.searchResultTitle, isSelected && styles.optionChipLabelActive]}>{spell.name}</Text>
-                    <Text style={styles.searchResultMeta}>Level {String(spell.metadata.level ?? 0)} • {spell.sourceCode}</Text>
-                  </Pressable>
+                  <View key={spell.id} style={[styles.searchResultRow, (isSelected || isPrepared) && styles.optionChipActive]}>
+                    <View style={styles.spellResultHeader}>
+                      <View style={styles.spellResultHeading}>
+                        <Text style={[styles.searchResultTitle, (isSelected || isPrepared) && styles.optionChipLabelActive]}>
+                          {spell.name}
+                        </Text>
+                        <Text style={styles.searchResultMeta}>Level {String(spell.metadata.level ?? 0)} • {spell.sourceCode}</Text>
+                      </View>
+                      <View style={styles.spellActionRow}>
+                        <Pressable
+                          accessibilityRole="button"
+                          onPress={() => updateKnownSpellSelection(spell.id)}
+                          style={({ pressed }) => [
+                            styles.spellActionButton,
+                            isSelected && styles.spellActionButtonActive,
+                            pressed && styles.optionChipPressed,
+                          ]}
+                        >
+                          <Text style={[styles.spellActionLabel, isSelected && styles.spellActionLabelActive]}>
+                            {spellLevel === 0 ? 'Cantrip' : spellSummary.usesKnownSpells ? 'Known' : 'Track'}
+                          </Text>
+                        </Pressable>
+                        {spellLevel > 0 && spellSummary.usesPreparedSpells ? (
+                          <Pressable
+                            accessibilityRole="button"
+                            onPress={() => updatePreparedSpellSelection(spell.id)}
+                            style={({ pressed }) => [
+                              styles.spellActionButton,
+                              isPrepared && styles.spellActionButtonActive,
+                              pressed && styles.optionChipPressed,
+                            ]}
+                          >
+                            <Text style={[styles.spellActionLabel, isPrepared && styles.spellActionLabelActive]}>Prepared</Text>
+                          </Pressable>
+                        ) : null}
+                      </View>
+                    </View>
+                  </View>
                 );
               })}
             </View>
@@ -1537,11 +1661,15 @@ export function CharacterBuilderScreen() {
 
         <Pressable
           accessibilityRole="button"
-          disabled={!validationSummary?.canComplete}
+          disabled={!validationSummary?.canComplete || isCompletingBuild || saveBuildMutation.isPending}
           onPress={completeBuild}
-          style={({ pressed }) => [styles.completeButton, pressed && styles.addClassButtonPressed, !validationSummary?.canComplete && styles.addClassButtonDisabled]}
+          style={({ pressed }) => [
+            styles.completeButton,
+            pressed && styles.addClassButtonPressed,
+            (!validationSummary?.canComplete || isCompletingBuild || saveBuildMutation.isPending) && styles.addClassButtonDisabled,
+          ]}
         >
-          <Text style={styles.addClassButtonLabel}>Complete Character</Text>
+          <Text style={styles.addClassButtonLabel}>{isCompletingBuild ? 'Completing...' : 'Complete Character'}</Text>
         </Pressable>
       </View>
     </Screen>
@@ -1920,6 +2048,44 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     gap: 4,
     padding: theme.spacing.sm,
+  },
+  spellResultHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'space-between',
+  },
+  spellResultHeading: {
+    flex: 1,
+    gap: 4,
+  },
+  spellActionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.xs,
+    justifyContent: 'flex-end',
+  },
+  spellActionButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.pill,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 32,
+    paddingHorizontal: theme.spacing.sm,
+  },
+  spellActionButtonActive: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderColor: theme.colors.accentPrimary,
+  },
+  spellActionLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '700',
+  },
+  spellActionLabelActive: {
+    color: theme.colors.accentPrimarySoft,
   },
   searchResultTitle: {
     color: theme.colors.textPrimary,
