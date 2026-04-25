@@ -55,7 +55,7 @@ export interface CharacterBuild {
   characterId: string;
   buildState: BuilderState;
   currentStep: BuilderStep;
-  payload: Record<string, unknown>;
+  payload: object;
   revision: number;
   completionUpdatedAt: string | null;
   updatedAt: string;

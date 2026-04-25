@@ -1,11 +1,14 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useQueries, useQuery } from '@tanstack/react-query';
-
 import { BuilderService } from '@/features/builder/services/BuilderService';
-import type { BuilderDraftPayload } from '@/features/builder/types';
+import { BuilderReviewSection } from '@/features/builder/components/BuilderReviewSection';
+import { BuilderSpellsSection } from '@/features/builder/components/BuilderSpellsSection';
+import { useBuilderReconciliation } from '@/features/builder/hooks/useBuilderReconciliation';
+import { useBuilderDraftState } from '@/features/builder/hooks/useBuilderDraftState';
+import { useCharacterBuilderContent } from '@/features/builder/hooks/useCharacterBuilderContent';
+import type { BuilderCharacterBuild, BuilderDraftPayload } from '@/features/builder/types';
 import {
   getGrantSelectionCount,
   getGrantTitle,
@@ -20,28 +23,22 @@ import {
   reconcileOriginAndAbilitiesPayload,
 } from '@/features/builder/utils/originAndAbilities';
 import { getStartingEquipmentOptionGroups, seedStartingEquipment } from '@/features/builder/utils/inventory';
-import { deriveSourceSummary, mergeReviewIssues, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
-import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
-import { ContentService } from '@/features/content/services/ContentService';
+import { getBuilderIssueGroups } from '@/features/builder/utils/review';
+import { deriveSourceSummary, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
 import { useSaveCharacterBuild } from '@/features/characters/hooks/useSaveCharacterBuild';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import { Screen } from '@/shared/ui/Screen';
-import type { ChoiceGrant, ContentEntity, BuilderStep, CharacterBuild } from '@/shared/types/domain';
+import type { BuilderStep } from '@/shared/types/domain';
 import { theme, typography } from '@/shared/ui/theme';
 
 const builderService = new BuilderService();
-const contentService = new ContentService(new SQLiteContentRepository());
 
 function buildClassAllocationId() {
   return typeof crypto !== 'undefined' && 'randomUUID' in crypto
     ? crypto.randomUUID()
     : `allocation-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function isBuilderDraftPayload(value: Record<string, unknown>): value is BuilderDraftPayload {
-  return typeof value.version === 'number' && value.version === 1;
 }
 
 function formatStepLabel(step: BuilderStep) {
@@ -69,8 +66,6 @@ export function CharacterBuilderScreen() {
   const characterId = Array.isArray(params.characterId) ? params.characterId[0] : params.characterId ?? '';
   const { data, error, isLoading } = useCharacterRecord(characterId);
   const saveBuildMutation = useSaveCharacterBuild();
-  const [draftBuild, setDraftBuild] = useState<CharacterBuild | null>(null);
-  const lastSavedSnapshot = useRef<string | null>(null);
   const [showClassPicker, setShowClassPicker] = useState(false);
   const [classImpactSummary, setClassImpactSummary] = useState<string | null>(null);
   const [originImpactSummary, setOriginImpactSummary] = useState<string | null>(null);
@@ -78,362 +73,52 @@ export function CharacterBuilderScreen() {
   const [inventorySearch, setInventorySearch] = useState('');
   const [spellSearch, setSpellSearch] = useState('');
   const [completionMessage, setCompletionMessage] = useState<string | null>(null);
-  const [isCompletingBuild, setIsCompletingBuild] = useState(false);
-
-  const classesQuery = useQuery({
-    queryKey: ['builder', 'classes'],
-    queryFn: () => contentService.listClasses(),
-  });
-  const speciesQuery = useQuery({
-    queryKey: ['builder', 'species'],
-    queryFn: () => contentService.listSpecies(),
-  });
-  const backgroundsQuery = useQuery({
-    queryKey: ['builder', 'backgrounds'],
-    queryFn: () => contentService.listBackgrounds(),
-  });
-  const featsQuery = useQuery({
-    queryKey: ['builder', 'feats', 'all'],
-    queryFn: () => contentService.listFeats(undefined),
-  });
-  const allItemsQuery = useQuery({
-    queryKey: ['builder', 'items', 'all'],
-    queryFn: () => contentService.listItems({ query: '' }),
-  });
-  const itemSearchQuery = useQuery({
-    queryKey: ['builder', 'items', 'search', inventorySearch.trim()],
-    queryFn: () => contentService.listItems({ query: inventorySearch.trim() }),
-    enabled: inventorySearch.trim().length > 0,
-  });
-  const allSpellsQuery = useQuery({
-    queryKey: ['builder', 'spells', 'all'],
-    queryFn: () => contentService.listSpells({ query: '' }),
-  });
-
-  const selectedClassIds = useMemo(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
-      return [] as string[];
-    }
-
-    return draftBuild.payload.classStep.allocations.map((allocation) => allocation.classId).filter(Boolean);
-  }, [draftBuild]);
-
-  const subclassesQueries = useQueries({
-    queries: selectedClassIds.map((classId) => ({
-      queryKey: ['builder', 'subclasses', classId],
-      queryFn: () => contentService.listSubclasses(classId),
-      enabled: Boolean(classId),
-    })),
-  });
-
-  const grantsQueries = useQueries({
-    queries: selectedClassIds.map((classId) => ({
-      queryKey: ['builder', 'grants', classId],
-      queryFn: () => contentService.listChoiceGrants(classId),
-      enabled: Boolean(classId),
-    })),
-  });
-
-  const classEntitiesById = useMemo(
-    () => Object.fromEntries((classesQuery.data ?? []).map((classEntity) => [classEntity.id, classEntity])) as Record<string, ContentEntity>,
-    [classesQuery.data],
-  );
-  const speciesEntitiesById = useMemo(
-    () => Object.fromEntries((speciesQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
-    [speciesQuery.data],
-  );
-  const backgroundEntitiesById = useMemo(
-    () => Object.fromEntries((backgroundsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
-    [backgroundsQuery.data],
-  );
-  const featEntitiesById = useMemo(
-    () => Object.fromEntries((featsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
-    [featsQuery.data],
-  );
-  const itemEntitiesById = useMemo(
-    () => Object.fromEntries((allItemsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
-    [allItemsQuery.data],
-  );
-  const spellEntitiesById = useMemo(
-    () => Object.fromEntries((allSpellsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
-    [allSpellsQuery.data],
-  );
-
-  const subclassesByClassId = useMemo(() => {
-    return Object.fromEntries(
-      selectedClassIds.map((classId, index) => [classId, subclassesQueries[index]?.data ?? []]),
-    ) as Record<string, ContentEntity[]>;
-  }, [selectedClassIds, subclassesQueries]);
-  const subclassEntitiesById = useMemo(
-    () =>
-      Object.fromEntries(Object.values(subclassesByClassId).flat().map((entity) => [entity.id, entity])) as Record<
-        string,
-        ContentEntity
-      >,
-    [subclassesByClassId],
-  );
-
-  const grantsByClassId = useMemo(() => {
-    return Object.fromEntries(selectedClassIds.map((classId, index) => [classId, grantsQueries[index]?.data ?? []])) as Record<
-      string,
-      ChoiceGrant[]
-    >;
-  }, [selectedClassIds, grantsQueries]);
-
-  const applicableGrants = useMemo(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
-      return [] as ChoiceGrant[];
-    }
-
-    return draftBuild.payload.classStep.allocations.flatMap((allocation) => {
-      if (!allocation.classId) {
-        return [] as ChoiceGrant[];
-      }
-
-      return (grantsByClassId[allocation.classId] ?? []).filter(
-        (grant) => grant.visibility === 'builder' && grant.atLevel <= allocation.level,
-      );
-    });
-  }, [draftBuild, grantsByClassId]);
-
-  const featCategoryQueries = useQueries({
-    queries: Array.from(
-      new Set(applicableGrants.filter((grant) => grant.chooseKind === 'feat').flatMap((grant) => grant.categoryFilter)),
-    ).map((categoryTag) => ({
-      queryKey: ['builder', 'grant-options', 'feat', categoryTag],
-      queryFn: () => contentService.listFeats(categoryTag),
-    })),
-  });
-
-  const optionalFeatureCategoryQueries = useQueries({
-    queries: Array.from(
-      new Set(applicableGrants.filter((grant) => grant.chooseKind === 'optionalfeature').flatMap((grant) => grant.categoryFilter)),
-    ).map((categoryTag) => ({
-      queryKey: ['builder', 'grant-options', 'optionalfeature', categoryTag],
-      queryFn: () => contentService.listOptionalFeatures(categoryTag),
-    })),
-  });
-
-  const featOptionsByCategory = useMemo(() => {
-    const categories = Array.from(
-      new Set(applicableGrants.filter((grant) => grant.chooseKind === 'feat').flatMap((grant) => grant.categoryFilter)),
-    );
-    return Object.fromEntries(categories.map((category, index) => [category, featCategoryQueries[index]?.data ?? []])) as Record<
-      string,
-      ContentEntity[]
-    >;
-  }, [applicableGrants, featCategoryQueries]);
-
-  const optionalFeatureOptionsByCategory = useMemo(() => {
-    const categories = Array.from(
-      new Set(applicableGrants.filter((grant) => grant.chooseKind === 'optionalfeature').flatMap((grant) => grant.categoryFilter)),
-    );
-    return Object.fromEntries(
-      categories.map((category, index) => [category, optionalFeatureCategoryQueries[index]?.data ?? []]),
-    ) as Record<string, ContentEntity[]>;
-  }, [applicableGrants, optionalFeatureCategoryQueries]);
-
-  const grantOptionsByGrantId = useMemo(() => {
-    return Object.fromEntries(
-      applicableGrants.map((grant) => {
-        const sourceMap = grant.chooseKind === 'feat' ? featOptionsByCategory : optionalFeatureOptionsByCategory;
-        const options = grant.categoryFilter.flatMap((categoryFilter) => sourceMap[categoryFilter] ?? []);
-        const dedupedOptions = Array.from(new Map(options.map((option) => [option.id, option])).values());
-        return [grant.id, dedupedOptions];
-      }),
-    ) as Record<string, ContentEntity[]>;
-  }, [applicableGrants, featOptionsByCategory, optionalFeatureOptionsByCategory]);
-
-  useEffect(() => {
-    if (!data?.character || !data.build) {
-      return;
-    }
-
-    const syncedBuild = {
-      ...data.build,
-      payload: isBuilderDraftPayload(data.build.payload)
-        ? data.build.payload
-        : builderService.createEmptyDraftPayload(data.character.name),
-    } satisfies CharacterBuild;
-
-    setDraftBuild(syncedBuild);
-    lastSavedSnapshot.current = JSON.stringify(syncedBuild);
-  }, [data]);
-
-  useEffect(() => {
-    if (!draftBuild || isCompletingBuild) {
-      return;
-    }
-
-    const nextSnapshot = JSON.stringify(draftBuild);
-
-    if (nextSnapshot === lastSavedSnapshot.current) {
-      return;
-    }
-
-    const timeoutId = setTimeout(() => {
-      lastSavedSnapshot.current = nextSnapshot;
-      saveBuildMutation.mutate(draftBuild, {
-        onError: () => {
-          lastSavedSnapshot.current = null;
-        },
-      });
-    }, 400);
-
-    return () => clearTimeout(timeoutId);
-  }, [draftBuild, isCompletingBuild, saveBuildMutation]);
-
-  useEffect(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || classesQuery.isLoading) {
-      return;
-    }
-
-    const { payload: reconciledPayload } = reconcileClassStepPayload({
-      payload: draftBuild.payload,
-      classEntitiesById,
-      grantsByClassId,
-      grantOptionsByGrantId,
-    });
-
-    const currentIssuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
-
-    if (currentIssuesSnapshot === nextIssuesSnapshot) {
-      return;
-    }
-
-    setDraftBuild({
-      ...draftBuild,
-      payload: reconciledPayload,
-    });
-  }, [draftBuild, classesQuery.isLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId]);
-
-  useEffect(() => {
-    if (
-      !draftBuild ||
-      !isBuilderDraftPayload(draftBuild.payload) ||
-      classesQuery.isLoading ||
-      speciesQuery.isLoading ||
-      backgroundsQuery.isLoading ||
-      featsQuery.isLoading
-    ) {
-      return;
-    }
-
-    const { payload: reconciledPayload } = reconcileOriginAndAbilitiesPayload({
-      payload: draftBuild.payload,
-      classEntitiesById,
-      speciesEntitiesById,
-      backgroundEntitiesById,
-      featEntitiesById,
-    });
-
-    const currentIssuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
-    const currentAbilitySnapshot = JSON.stringify(draftBuild.payload.abilityPointsStep);
-    const nextAbilitySnapshot = JSON.stringify(reconciledPayload.abilityPointsStep);
-    const currentSpeciesSnapshot = JSON.stringify(draftBuild.payload.speciesStep);
-    const nextSpeciesSnapshot = JSON.stringify(reconciledPayload.speciesStep);
-    const currentBackgroundSnapshot = JSON.stringify(draftBuild.payload.backgroundStep);
-    const nextBackgroundSnapshot = JSON.stringify(reconciledPayload.backgroundStep);
-
-    if (
-      currentIssuesSnapshot === nextIssuesSnapshot &&
-      currentAbilitySnapshot === nextAbilitySnapshot &&
-      currentSpeciesSnapshot === nextSpeciesSnapshot &&
-      currentBackgroundSnapshot === nextBackgroundSnapshot
-    ) {
-      return;
-    }
-
-    setDraftBuild({
-      ...draftBuild,
-      payload: reconciledPayload,
-    });
-  }, [
+  const {
     draftBuild,
-    classesQuery.isLoading,
-    speciesQuery.isLoading,
-    backgroundsQuery.isLoading,
-    featsQuery.isLoading,
-    classEntitiesById,
-    speciesEntitiesById,
+    isCompletingBuild,
+    lastSavedSnapshot,
+    setDraftBuild,
+    setIsCompletingBuild,
+  } = useBuilderDraftState({ data, saveBuildMutation });
+  const {
+    allItemsQuery,
+    allSpellsQuery,
+    allEntitiesById,
+    applicableGrants,
     backgroundEntitiesById,
-    featEntitiesById,
-  ]);
-
-  const validationSummary = useMemo(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
-      return null;
-    }
-
-    return builderService.summarizeIssues(draftBuild.payload.review.issues);
-  }, [draftBuild]);
-
-  useEffect(() => {
-    if (!draftBuild || !isBuilderDraftPayload(draftBuild.payload) || allSpellsQuery.isLoading) {
-      return;
-    }
-
-    const spellSummary = summarizeSpellcasting(
-      draftBuild.payload,
-      classEntitiesById,
-      subclassEntitiesById,
-      spellEntitiesById,
-    );
-    const allEntitiesById = {
-      ...classEntitiesById,
-      ...speciesEntitiesById,
-      ...backgroundEntitiesById,
-      ...featEntitiesById,
-      ...itemEntitiesById,
-      ...spellEntitiesById,
-      ...subclassEntitiesById,
-      ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
-    } satisfies Record<string, ContentEntity>;
-    const nextIssues = mergeReviewIssues(draftBuild.payload, spellSummary.issues);
-    const nextSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
-    const issuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(nextIssues);
-    const sourceSummarySnapshot = JSON.stringify(draftBuild.payload.review.sourceSummary);
-    const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
-
-    if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
-      if (draftBuild.buildState === 'complete' && builderService.canComplete(draftBuild.payload.review.issues) === false) {
-        setDraftBuild({
-          ...draftBuild,
-          buildState: 'draft',
-        });
-      }
-
-      return;
-    }
-
-    const nextPayload: BuilderDraftPayload = {
-      ...draftBuild.payload,
-      review: {
-        issues: nextIssues,
-        sourceSummary: nextSourceSummary,
-      },
-    };
-
-    setDraftBuild({
-      ...draftBuild,
-      buildState: draftBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
-      payload: nextPayload,
-    });
-  }, [
-    allSpellsQuery.isLoading,
-    backgroundEntitiesById,
+    backgroundsQuery,
     classEntitiesById,
-    draftBuild,
+    classesQuery,
     featEntitiesById,
+    featsQuery,
     grantOptionsByGrantId,
+    grantsByClassId,
     itemEntitiesById,
-    spellEntitiesById,
+    itemSearchQuery,
     speciesEntitiesById,
+    speciesQuery,
+    spellEntitiesById,
     subclassEntitiesById,
-  ]);
+    subclassesByClassId,
+  } = useCharacterBuilderContent({ draftBuild, inventorySearch });
+  const validationSummary = useBuilderReconciliation({
+    allEntitiesById,
+    allSpellsLoading: allSpellsQuery.isLoading,
+    backgroundEntitiesById,
+    backgroundsLoading: backgroundsQuery.isLoading,
+    classEntitiesById,
+    classesLoading: classesQuery.isLoading,
+    draftBuild,
+    featEntitiesById,
+    featsLoading: featsQuery.isLoading,
+    grantOptionsByGrantId,
+    grantsByClassId,
+    setDraftBuild,
+    speciesEntitiesById,
+    speciesLoading: speciesQuery.isLoading,
+    spellEntitiesById,
+    subclassEntitiesById,
+  });
 
   if (isLoading) {
     return <LoadingState label="Loading builder draft..." />;
@@ -481,7 +166,7 @@ export function CharacterBuilderScreen() {
     return <ErrorState title="Spell content unavailable" message={allSpellsQuery.error instanceof Error ? allSpellsQuery.error.message : 'Failed to load spell content.'} />;
   }
 
-  if (!data?.character || !data.build || !draftBuild || !isBuilderDraftPayload(draftBuild.payload)) {
+  if (!data?.character || !data.build || !draftBuild) {
     return <ErrorState title="Draft unavailable" message="The requested character draft could not be loaded from the local roster." />;
   }
 
@@ -525,7 +210,7 @@ export function CharacterBuilderScreen() {
 
   const updateCharacterName = (name: string) => {
     setDraftBuild((currentBuild) => {
-      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+      if (!currentBuild) {
         return currentBuild;
       }
 
@@ -544,7 +229,7 @@ export function CharacterBuilderScreen() {
 
   const updateNotes = (notes: string) => {
     setDraftBuild((currentBuild) => {
-      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+      if (!currentBuild) {
         return currentBuild;
       }
 
@@ -658,16 +343,7 @@ export function CharacterBuilderScreen() {
     .filter((spell) => Number(spell.metadata.level ?? 0) <= spellSummary.maxSpellLevel)
     .filter((spell) => (spellSearch.trim() ? spell.searchText.toLowerCase().includes(spellSearch.trim().toLowerCase()) : true))
     .slice(0, 18);
-  const allEntitiesById = {
-    ...classEntitiesById,
-    ...speciesEntitiesById,
-    ...backgroundEntitiesById,
-    ...featEntitiesById,
-    ...itemEntitiesById,
-    ...spellEntitiesById,
-    ...subclassEntitiesById,
-    ...Object.fromEntries(Object.values(grantOptionsByGrantId).flat().map((entity) => [entity.id, entity])),
-  } satisfies Record<string, ContentEntity>;
+  const reviewIssueGroups = getBuilderIssueGroups(payload.review.issues);
 
   const updateOriginAbilitySelection = (
     sourceType: 'species' | 'background',
@@ -711,7 +387,6 @@ export function CharacterBuilderScreen() {
 
     applyOriginPayloadChange({
       ...payload,
-      currentStep: payload.currentStep,
       abilityPointsStep: {
         ...payload.abilityPointsStep,
         bonusSelections: [...nonGroupSelections, ...nextGroupSelections],
@@ -726,7 +401,6 @@ export function CharacterBuilderScreen() {
   ) => {
     applyOriginPayloadChange({
       ...payload,
-      currentStep: payload.currentStep,
       abilityPointsStep: {
         ...payload.abilityPointsStep,
         bonusSelections: payload.abilityPointsStep.bonusSelections.filter(
@@ -747,13 +421,24 @@ export function CharacterBuilderScreen() {
   };
 
   const updateGrantedFeatSelection = (sourceKey: 'speciesStep' | 'backgroundStep', sourceId: string, featId: string) => {
+    if (sourceKey === 'speciesStep') {
+      applyOriginPayloadChange({
+        ...payload,
+        speciesStep: {
+          ...payload.speciesStep,
+          grantedFeatSelections: [{ sourceId, selectedFeatId: featId }],
+        },
+      });
+      return;
+    }
+
     applyOriginPayloadChange({
       ...payload,
-      [sourceKey]: {
-        ...payload[sourceKey],
+      backgroundStep: {
+        ...payload.backgroundStep,
         grantedFeatSelections: [{ sourceId, selectedFeatId: featId }],
       },
-    } as BuilderDraftPayload);
+    });
   };
 
   const updateBaseAbilityScore = (ability: string, value: string) => {
@@ -821,7 +506,7 @@ export function CharacterBuilderScreen() {
     optionKey: string,
   ) => {
     setDraftBuild((currentBuild) => {
-      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+      if (!currentBuild) {
         return currentBuild;
       }
 
@@ -916,7 +601,7 @@ export function CharacterBuilderScreen() {
 
   const updateKnownSpellSelection = (spellId: string) => {
     setDraftBuild((currentBuild) => {
-      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+      if (!currentBuild) {
         return currentBuild;
       }
 
@@ -951,7 +636,7 @@ export function CharacterBuilderScreen() {
     }
 
     setDraftBuild((currentBuild) => {
-      if (!currentBuild || !isBuilderDraftPayload(currentBuild.payload)) {
+      if (!currentBuild) {
         return currentBuild;
       }
 
@@ -1010,7 +695,7 @@ export function CharacterBuilderScreen() {
       return;
     }
 
-    const completedBuild: CharacterBuild = {
+    const completedBuild: BuilderCharacterBuild = {
       ...draftBuild,
       buildState: 'complete',
       currentStep: 'review',
@@ -1044,10 +729,10 @@ export function CharacterBuilderScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.headerCard}>
-        <Text style={styles.eyebrow}>Builder Shell</Text>
+        <Text style={styles.eyebrow}>Character Builder</Text>
         <Text style={styles.title}>{payload.characteristicsStep.name || data.character.name}</Text>
         <Text style={styles.subtitle}>
-          This shell loads and resumes the draft, autosaves changes locally, and keeps the step flow aligned with the `9a` contract while deeper step logic lands in later slices.
+          This guided draft wizard resumes saved progress, autosaves locally, and keeps class, spells, origin, inventory, and review state aligned as the build evolves.
         </Text>
 
         <View style={styles.statusRow}>
@@ -1627,100 +1312,19 @@ export function CharacterBuilderScreen() {
         </View>
       </View>
 
-      <View style={styles.section}>
-        <View style={styles.sectionHeaderRow}>
-          <Text style={styles.sectionTitle}>Spells</Text>
-          <Text style={styles.sectionMeta}>
-            {spellSummary.isCaster
-              ? [
-                  `Cantrips ${selectedCantripCount}/${spellSummary.cantripLimit}`,
-                  spellSummary.usesKnownSpells ? `Known ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}` : null,
-                  spellSummary.usesPreparedSpells ? `Prepared ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}` : null,
-                ]
-                  .filter(Boolean)
-                  .join(' • ')
-              : 'No spellcasting'}
-          </Text>
-        </View>
-
-        {spellSummary.isCaster ? (
-          <>
-            <Text style={styles.sectionBodyText}>
-              Select spells from the structured class and subclass spell lists. Current maximum spell level: {spellSummary.maxSpellLevel}. {spellSummary.usesKnownSpells ? `Known leveled spells ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}. ` : ''}{spellSummary.usesPreparedSpells ? `Prepared spells ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}.` : ''}
-            </Text>
-            <TextInput
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={setSpellSearch}
-              placeholder="Search applicable spells"
-              placeholderTextColor={theme.colors.textFaint}
-              style={styles.input}
-              value={spellSearch}
-            />
-            <View style={styles.searchResults}>
-              {visibleSpellResults.map((spell) => {
-                const isSelected = payload.spellsStep.selectedSpellIds.includes(spell.id);
-                const isPrepared = payload.spellsStep.preparedSpellIds.includes(spell.id);
-                const spellLevel = Number(spell.metadata.level ?? 0);
-                return (
-                  <View key={spell.id} style={[styles.searchResultRow, (isSelected || isPrepared) && styles.optionChipActive]}>
-                    <View style={styles.spellResultHeader}>
-                      <View style={styles.spellResultHeading}>
-                        <Text style={[styles.searchResultTitle, (isSelected || isPrepared) && styles.optionChipLabelActive]}>
-                          {spell.name}
-                        </Text>
-                        <Text style={styles.searchResultMeta}>Level {String(spell.metadata.level ?? 0)} • {spell.sourceCode}</Text>
-                      </View>
-                      <View style={styles.spellActionRow}>
-                        <Pressable
-                          accessibilityRole="button"
-                          onPress={() => updateKnownSpellSelection(spell.id)}
-                          style={({ pressed }) => [
-                            styles.spellActionButton,
-                            isSelected && styles.spellActionButtonActive,
-                            pressed && styles.optionChipPressed,
-                          ]}
-                        >
-                          <Text style={[styles.spellActionLabel, isSelected && styles.spellActionLabelActive]}>
-                            {spellLevel === 0 ? 'Cantrip' : spellSummary.usesKnownSpells ? 'Known' : 'Track'}
-                          </Text>
-                        </Pressable>
-                        {spellLevel > 0 && spellSummary.usesPreparedSpells ? (
-                          <Pressable
-                            accessibilityRole="button"
-                            onPress={() => updatePreparedSpellSelection(spell.id)}
-                            style={({ pressed }) => [
-                              styles.spellActionButton,
-                              isPrepared && styles.spellActionButtonActive,
-                              pressed && styles.optionChipPressed,
-                            ]}
-                          >
-                            <Text style={[styles.spellActionLabel, isPrepared && styles.spellActionLabelActive]}>Prepared</Text>
-                          </Pressable>
-                        ) : null}
-                      </View>
-                    </View>
-                  </View>
-                );
-              })}
-            </View>
-            <View style={styles.fieldGroup}>
-              <Text style={styles.fieldLabel}>Spell exceptions</Text>
-              <TextInput
-                multiline
-                onChangeText={updateSpellExceptionNotes}
-                placeholder="Optional edge-case notes, one per line."
-                placeholderTextColor={theme.colors.textFaint}
-                style={[styles.input, styles.notesInput]}
-                textAlignVertical="top"
-                value={payload.spellsStep.manualExceptionNotes.join('\n')}
-              />
-            </View>
-          </>
-        ) : (
-          <Text style={styles.sectionBodyText}>This build does not currently require spell selection.</Text>
-        )}
-      </View>
+      <BuilderSpellsSection
+        onSpellSearchChange={setSpellSearch}
+        payload={payload}
+        selectedCantripCount={selectedCantripCount}
+        selectedKnownLeveledCount={selectedKnownLeveledCount}
+        selectedPreparedCount={selectedPreparedCount}
+        spellSearch={spellSearch}
+        spellSummary={spellSummary}
+        updateKnownSpellSelection={updateKnownSpellSelection}
+        updatePreparedSpellSelection={updatePreparedSpellSelection}
+        updateSpellExceptionNotes={updateSpellExceptionNotes}
+        visibleSpellResults={visibleSpellResults}
+      />
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Draft basics</Text>
@@ -1751,69 +1355,16 @@ export function CharacterBuilderScreen() {
         </View>
       </View>
 
-      <View style={styles.section}>
-        <View style={styles.sectionHeaderRow}>
-          <Text style={styles.sectionTitle}>Review</Text>
-          <Text style={styles.sectionMeta}>{validationSummary?.canComplete ? 'Ready' : 'In progress'}</Text>
-        </View>
-        <View style={styles.validationGrid}>
-          <View style={styles.validationCard}>
-            <Text style={styles.validationLabel}>Blockers</Text>
-            <Text style={styles.validationValue}>{validationSummary?.blockers.length ?? 0}</Text>
-          </View>
-          <View style={styles.validationCard}>
-            <Text style={styles.validationLabel}>Checklist</Text>
-            <Text style={styles.validationValue}>{validationSummary?.checklistItems.length ?? 0}</Text>
-          </View>
-          <View style={styles.validationCard}>
-            <Text style={styles.validationLabel}>Notices</Text>
-            <Text style={styles.validationValue}>{validationSummary?.notices.length ?? 0}</Text>
-          </View>
-          <View style={styles.validationCard}>
-            <Text style={styles.validationLabel}>Overrides</Text>
-            <Text style={styles.validationValue}>{validationSummary?.overrides.length ?? 0}</Text>
-          </View>
-        </View>
-        <Text style={styles.validationHint}>
-          Completion is currently contract-driven: a character can complete only when no unresolved blockers or checklist items remain.
-        </Text>
-
-        {payload.review.sourceSummary.sourceCodes.length > 0 ? (
-          <View style={styles.reviewPanel}>
-            <Text style={styles.reviewTitle}>Source summary</Text>
-            <Text style={styles.reviewText}>Sources: {payload.review.sourceSummary.sourceCodes.join(', ')}</Text>
-            <Text style={styles.reviewText}>Editions: {payload.review.sourceSummary.editionsUsed.join(', ') || 'None yet'}</Text>
-            <Text style={styles.reviewText}>{payload.review.sourceSummary.usesLegacyContent ? 'Legacy content is in use.' : 'No legacy content selected.'}</Text>
-          </View>
-        ) : null}
-
-        {payload.review.issues.length > 0 ? (
-          <View style={styles.issueList}>
-            {payload.review.issues.map((issue, index) => (
-              <View key={`${issue.id}-${index}`} style={styles.issueCard}>
-                <Text style={styles.issueTitle}>{issue.summary}</Text>
-                <Text style={styles.issueMeta}>{formatStepLabel(issue.step)} • {issue.category}</Text>
-                <Text style={styles.issueDetail}>{issue.detail}</Text>
-              </View>
-            ))}
-          </View>
-        ) : null}
-
-        {completionMessage ? <Text style={styles.emptyHint}>{completionMessage}</Text> : null}
-
-        <Pressable
-          accessibilityRole="button"
-          disabled={!validationSummary?.canComplete || isCompletingBuild || saveBuildMutation.isPending}
-          onPress={completeBuild}
-          style={({ pressed }) => [
-            styles.completeButton,
-            pressed && styles.addClassButtonPressed,
-            (!validationSummary?.canComplete || isCompletingBuild || saveBuildMutation.isPending) && styles.addClassButtonDisabled,
-          ]}
-        >
-          <Text style={styles.addClassButtonLabel}>{isCompletingBuild ? 'Completing...' : 'Complete Character'}</Text>
-        </Pressable>
-      </View>
+      <BuilderReviewSection
+        completionMessage={completionMessage}
+        formatStepLabel={formatStepLabel}
+        isCompletingBuild={isCompletingBuild}
+        onCompleteBuild={completeBuild}
+        payload={payload}
+        reviewIssueGroups={reviewIssueGroups}
+        saveIsPending={saveBuildMutation.isPending}
+        validationSummary={validationSummary}
+      />
     </Screen>
   );
 }

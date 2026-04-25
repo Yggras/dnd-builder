@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { isBuilderDraftPayload, type BuilderDraftPayload } from '@/features/builder/types';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
@@ -45,7 +46,11 @@ export function CharacterPreviewScreen() {
     return <ErrorState title="Preview unavailable" message="Complete the builder review step before opening the character preview." />;
   }
 
-  const payload = data.build.payload as Record<string, any>;
+  if (!isBuilderDraftPayload(data.build.payload)) {
+    return <ErrorState title="Preview unavailable" message="The saved builder payload is not in the expected format." />;
+  }
+
+  const payload: BuilderDraftPayload = data.build.payload;
   const classAllocations = Array.isArray(payload.classStep?.allocations) ? payload.classStep.allocations : [];
   const classSummary = classAllocations.length
     ? classAllocations
@@ -71,14 +76,23 @@ export function CharacterPreviewScreen() {
     ],
     'None selected',
   );
+  const inventoryEntries = Array.isArray(payload.inventoryStep?.entries) ? payload.inventoryStep.entries : [];
   const preparedSpellCount = Array.isArray(payload.spellsStep?.preparedSpellIds) ? payload.spellsStep.preparedSpellIds.length : 0;
+  const selectedSpellCount = Array.isArray(payload.spellsStep?.selectedSpellIds) ? payload.spellsStep.selectedSpellIds.length : 0;
+  const spellExceptionCount = Array.isArray(payload.spellsStep?.manualExceptionNotes) ? payload.spellsStep.manualExceptionNotes.length : 0;
+  const equippedItemCount = inventoryEntries.filter((entry: { equipped?: unknown }) => entry.equipped === true).length;
+  const attunedItemCount = inventoryEntries.filter((entry: { attuned?: unknown }) => entry.attuned === true).length;
+  const completionUpdatedAt = data.build.completionUpdatedAt
+    ? new Date(data.build.completionUpdatedAt).toLocaleString()
+    : 'Unknown';
 
   return (
     <Screen contentContainerStyle={styles.container}>
       <View style={styles.heroCard}>
         <Text style={styles.eyebrow}>Completed Build</Text>
         <Text style={styles.title}>{payload.characteristicsStep?.name || data.character.name}</Text>
-        <Text style={styles.subtitle}>This lightweight preview confirms the build is complete and summarizes the current character configuration.</Text>
+        <Text style={styles.subtitle}>This lightweight preview confirms the build passed the current completion gate and summarizes the saved character configuration.</Text>
+        <Text style={styles.meta}>Completed: {completionUpdatedAt}</Text>
       </View>
 
       <View style={styles.summaryGrid}>
@@ -106,14 +120,16 @@ export function CharacterPreviewScreen() {
 
         <View style={styles.panel}>
           <Text style={styles.panelTitle}>Spells</Text>
-          <Text style={styles.panelText}>Selected spells: {(payload.spellsStep?.selectedSpellIds ?? []).length}</Text>
+          <Text style={styles.panelText}>Tracked spells: {selectedSpellCount}</Text>
           <Text style={styles.panelText}>Prepared spells: {preparedSpellCount}</Text>
-          <Text style={styles.panelText}>Spell notes: {(payload.spellsStep?.manualExceptionNotes ?? []).length}</Text>
+          <Text style={styles.panelText}>Spell exceptions: {spellExceptionCount}</Text>
         </View>
 
         <View style={styles.panel}>
           <Text style={styles.panelTitle}>Inventory</Text>
-          <Text style={styles.panelText}>Items: {(payload.inventoryStep?.entries ?? []).length}</Text>
+          <Text style={styles.panelText}>Items: {inventoryEntries.length}</Text>
+          <Text style={styles.panelText}>Equipped: {equippedItemCount}</Text>
+          <Text style={styles.panelText}>Attuned: {attunedItemCount}</Text>
           <Text style={styles.panelText}>Currency: {payload.inventoryStep?.startingCurrency?.gp ?? 0} gp / {payload.inventoryStep?.startingCurrency?.sp ?? 0} sp / {payload.inventoryStep?.startingCurrency?.cp ?? 0} cp</Text>
         </View>
 
@@ -151,6 +167,10 @@ const styles = StyleSheet.create({
   subtitle: {
     color: theme.colors.textSecondary,
     ...typography.bodySm,
+  },
+  meta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
   },
   summaryGrid: {
     gap: theme.spacing.md,

@@ -70,7 +70,8 @@ function mapCharacterBuild(row: CharacterBuildRow): CharacterBuild {
 }
 
 function deriveCharacterName(build: CharacterBuild, fallbackName: string) {
-  const characteristicsStep = build.payload.characteristicsStep;
+  const payload = build.payload as Record<string, unknown>;
+  const characteristicsStep = payload.characteristicsStep;
 
   if (characteristicsStep && typeof characteristicsStep === 'object') {
     const name = (characteristicsStep as { name?: unknown }).name;
@@ -84,7 +85,8 @@ function deriveCharacterName(build: CharacterBuild, fallbackName: string) {
 }
 
 function deriveCharacterLevel(build: CharacterBuild, fallbackLevel: number) {
-  const classStep = build.payload.classStep;
+  const payload = build.payload as Record<string, unknown>;
+  const classStep = payload.classStep;
 
   if (classStep && typeof classStep === 'object') {
     const allocations = (classStep as { allocations?: unknown }).allocations;

@@ -4,12 +4,12 @@ import type { ContentEntity } from '@/shared/types/domain';
 interface SpellcastingSummary {
   isCaster: boolean;
   cantripLimit: number;
-   knownSpellLimit: number;
-   preparedSpellLimit: number;
+  knownSpellLimit: number;
+  preparedSpellLimit: number;
   maxSpellLevel: number;
   applicableSpellIds: string[];
-   usesKnownSpells: boolean;
-   usesPreparedSpells: boolean;
+  usesKnownSpells: boolean;
+  usesPreparedSpells: boolean;
   issues: BuilderIssue[];
 }
 
@@ -44,6 +44,23 @@ function hasSpellcastingProfile(profile: SpellcastingProfile) {
   return Boolean(profile.spellcastingAbility) || Boolean(profile.casterProgression) || profile.cantripProgression.length > 0;
 }
 
+function mergeSpellcastingProfiles(baseProfile: SpellcastingProfile, overrideProfile: SpellcastingProfile): SpellcastingProfile {
+  return {
+    spellcastingAbility: overrideProfile.spellcastingAbility ?? baseProfile.spellcastingAbility,
+    casterProgression: overrideProfile.casterProgression ?? baseProfile.casterProgression,
+    cantripProgression:
+      overrideProfile.cantripProgression.length > 0 ? overrideProfile.cantripProgression : baseProfile.cantripProgression,
+    preparedSpellsProgression:
+      overrideProfile.preparedSpellsProgression.length > 0
+        ? overrideProfile.preparedSpellsProgression
+        : baseProfile.preparedSpellsProgression,
+    spellsKnownProgression:
+      overrideProfile.spellsKnownProgression.length > 0
+        ? overrideProfile.spellsKnownProgression
+        : baseProfile.spellsKnownProgression,
+  };
+}
+
 function createSpellcastingProfile(entity?: ContentEntity | null): SpellcastingProfile {
   return {
     spellcastingAbility: typeof entity?.metadata.spellcastingAbility === 'string' ? entity.metadata.spellcastingAbility : null,
@@ -64,7 +81,9 @@ function getAllocationSpellcastingProfile(
     allocation.subclassId ? subclassEntitiesById[allocation.subclassId] : null,
   );
 
-  return hasSpellcastingProfile(subclassProfile) ? subclassProfile : classProfile;
+  return hasSpellcastingProfile(subclassProfile)
+    ? mergeSpellcastingProfiles(classProfile, subclassProfile)
+    : classProfile;
 }
 
 function getEffectiveCasterLevel(
@@ -144,23 +163,27 @@ export function summarizeSpellcasting(
   const usesKnownSpells = knownSpellLimit > 0;
   const usesPreparedSpells = preparedSpellLimit > 0;
 
-  const applicableSpellIds = Object.values(spellEntitiesById)
-    .filter((spell) => {
-      const spellClassIds = Array.isArray(spell.metadata.classIds) ? spell.metadata.classIds : [];
-      const spellSubclassIds = Array.isArray(spell.metadata.subclassIds) ? spell.metadata.subclassIds : [];
-      return (
-        classIds.some((classId) => spellClassIds.includes(classId)) ||
-        subclassIds.some((subclassId) => spellSubclassIds.includes(subclassId))
-      );
-    })
-    .map((spell) => spell.id);
+  const applicableSpellIds = Array.from(
+    new Set(
+      Object.values(spellEntitiesById)
+        .filter((spell) => {
+          const spellClassIds = Array.isArray(spell.metadata.classIds) ? spell.metadata.classIds : [];
+          const spellSubclassIds = Array.isArray(spell.metadata.subclassIds) ? spell.metadata.subclassIds : [];
+          return (
+            classIds.some((classId) => spellClassIds.includes(classId)) ||
+            subclassIds.some((subclassId) => spellSubclassIds.includes(subclassId))
+          );
+        })
+        .map((spell) => spell.id),
+    ),
+  );
 
   const selectedSpells = payload.spellsStep.selectedSpellIds.filter((spellId) => applicableSpellIds.includes(spellId));
   const selectedCantrips = selectedSpells.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? -1) === 0);
   const selectedLeveledSpells = selectedSpells.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? -1) > 0);
   const preparedSpells = payload.spellsStep.preparedSpellIds.filter((spellId) => applicableSpellIds.includes(spellId));
   const preparedLeveledSpells = preparedSpells.filter((spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? -1) > 0);
-  const activeLeveledSpells = usesKnownSpells ? selectedLeveledSpells : preparedLeveledSpells;
+  const activeLeveledSpells = Array.from(new Set([...selectedLeveledSpells, ...preparedLeveledSpells]));
 
   if (selectedCantrips.length > cantripLimit) {
     issues.push({

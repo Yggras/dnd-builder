@@ -1,4 +1,4 @@
-import type { BuilderState, BuilderStep, RulesEdition } from '@/shared/types/domain';
+import type { BuilderState, BuilderStep, CharacterBuild, RulesEdition } from '@/shared/types/domain';
 
 export type BuilderIssueCategory = 'blocker' | 'checklist' | 'notice' | 'override';
 export type BuilderCapabilityStatus = 'supported' | 'partially-supported' | 'missing' | 'launch-blocking';
@@ -124,7 +124,6 @@ export interface BuilderSourceSummary {
 }
 
 export interface BuilderDraftPayload {
-  [key: string]: unknown;
   version: 1;
   classStep: {
     allocations: BuilderClassAllocation[];
@@ -157,6 +156,18 @@ export interface BuilderDraftPayload {
     sourceSummary: BuilderSourceSummary;
   };
 }
+
+export function isBuilderDraftPayload(value: unknown): value is BuilderDraftPayload {
+  if (!value || typeof value !== 'object') {
+    return false;
+  }
+
+  return 'version' in value && (value as { version?: unknown }).version === 1;
+}
+
+export type BuilderCharacterBuild = Omit<CharacterBuild, 'payload'> & {
+  payload: BuilderDraftPayload;
+};
 
 export interface BuilderCapabilityAuditEntry {
   capability: string;
