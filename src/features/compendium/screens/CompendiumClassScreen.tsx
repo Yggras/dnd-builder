@@ -3,8 +3,18 @@ import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-na
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
+import { DetailFactGrid } from '@/features/compendium/components/DetailFactGrid';
+import { DetailSection } from '@/features/compendium/components/DetailSection';
+import { FeatureProgressionList } from '@/features/compendium/components/FeatureProgressionList';
+import { RichTextLine } from '@/features/compendium/components/RichTextLine';
 import { useCompendiumClassDetails } from '@/features/compendium/hooks/useCompendiumClassDetails';
 import { getCompendiumEntryIdFromEntityId, getEditionLabel } from '@/features/compendium/utils/catalog';
+import {
+  buildClassFacts,
+  buildClassFeatureRows,
+  buildClassProficiencyFacts,
+  buildStartingEquipmentLines,
+} from '@/features/compendium/utils/classDetails';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import { Screen } from '@/shared/ui/Screen';
@@ -34,6 +44,9 @@ export function CompendiumClassScreen() {
     return <ErrorState title="Class not found" message="The requested class is not available in the local compendium." />;
   }
 
+  const startingEquipmentLines = buildStartingEquipmentLines(classEntity);
+  const proficiencyFacts = buildClassProficiencyFacts(classEntity);
+
   return (
     <Screen contentContainerStyle={styles.contentContainer}>
       <View style={styles.header}>
@@ -50,19 +63,36 @@ export function CompendiumClassScreen() {
           </View>
           <Text style={styles.subclassCount}>{subclasses.length} subclasses</Text>
         </View>
-        <Text style={styles.summary}>{classEntity.summary || 'Browse the class entry and then drill into its subclasses.'}</Text>
-        <Pressable
-          accessibilityRole="button"
-          onPress={() => router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(classEntity.id))}`)}
-          style={({ pressed }) => [styles.entryButton, pressed && styles.entryButtonPressed]}
-        >
-          <Text style={styles.entryButtonLabel}>Open class entry</Text>
-        </Pressable>
+        <Text style={styles.summary}>{classEntity.summary || 'Class progression, proficiencies, equipment, and subclasses from the local rules library.'}</Text>
       </View>
 
-      <View style={styles.subclassPanel}>
+      <DetailSection title="Class Facts">
+        <DetailFactGrid facts={buildClassFacts(classEntity)} />
+      </DetailSection>
+
+      {proficiencyFacts.length > 0 ? (
+        <DetailSection title="Proficiencies">
+          <DetailFactGrid facts={proficiencyFacts} />
+        </DetailSection>
+      ) : null}
+
+      <DetailSection title="Feature Progression">
+        <FeatureProgressionList rows={buildClassFeatureRows(classEntity)} />
+      </DetailSection>
+
+      {startingEquipmentLines.length > 0 ? (
+        <DetailSection title="Starting Equipment">
+          <View style={styles.equipmentLines}>
+            {startingEquipmentLines.map((tokens, index) => (
+              <RichTextLine key={`equipment-${index}`} tokens={tokens} />
+            ))}
+          </View>
+        </DetailSection>
+      ) : null}
+
+      <DetailSection title="Subclasses">
         <View style={styles.subclassHeader}>
-          <Text style={styles.sectionTitle}>Subclasses</Text>
+          <Text style={styles.sectionSubtext}>Browse subclass options for {classEntity.name}.</Text>
           {isFetching ? <Text style={styles.refreshLabel}>Updating...</Text> : null}
         </View>
         <TextInput
@@ -96,7 +126,7 @@ export function CompendiumClassScreen() {
               </View>
               <Text style={styles.resultMeta}>{entry.sourceCode} • {entry.sourceName}</Text>
               <Text numberOfLines={2} style={styles.resultSummary}>
-                {entry.summary || 'Open the subclass entry for details.'}
+                {entry.summary || 'Open the subclass entry for feature progression and details.'}
               </Text>
             </Pressable>
           )}
@@ -108,7 +138,7 @@ export function CompendiumClassScreen() {
           }
           scrollEnabled={false}
         />
-      </View>
+      </DetailSection>
     </Screen>
   );
 }
@@ -172,34 +202,19 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     ...typography.body,
   },
-  entryButton: {
-    alignSelf: 'flex-start',
-    backgroundColor: theme.colors.surfaceAccent,
-    borderColor: theme.colors.borderAccent,
-    borderRadius: theme.radii.sm,
-    borderWidth: 1,
-    paddingHorizontal: theme.spacing.md,
-    paddingVertical: theme.spacing.sm,
-  },
-  entryButtonPressed: {
-    borderColor: theme.colors.accentPrimarySoft,
-  },
-  entryButtonLabel: {
-    color: theme.colors.accentPrimarySoft,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  subclassPanel: {
-    gap: theme.spacing.md,
+  equipmentLines: {
+    gap: theme.spacing.sm,
   },
   subclassHeader: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: theme.spacing.md,
   },
-  sectionTitle: {
-    color: theme.colors.textPrimary,
-    ...typography.sectionTitle,
+  sectionSubtext: {
+    color: theme.colors.textMuted,
+    flex: 1,
+    ...typography.meta,
   },
   refreshLabel: {
     color: theme.colors.accentSuccessSoft,
@@ -207,7 +222,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   searchInput: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.surfaceElevated,
     borderColor: theme.colors.borderStrong,
     borderRadius: theme.radii.sm,
     borderWidth: 1,
@@ -218,7 +233,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   resultRow: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.surfaceElevated,
     borderColor: theme.colors.borderSubtle,
     borderRadius: theme.radii.md,
     borderWidth: 1,
@@ -227,7 +242,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
   },
   resultRowPressed: {
-    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderAccent,
   },
   resultTopRow: {
     alignItems: 'center',

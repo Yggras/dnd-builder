@@ -3,6 +3,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { GenericCompendiumDetailView } from '@/features/compendium/components/GenericCompendiumDetailView';
 import { ItemDetailView } from '@/features/compendium/components/ItemDetailView';
 import { SpellDetailView } from '@/features/compendium/components/SpellDetailView';
+import { SubclassDetailView } from '@/features/compendium/components/SubclassDetailView';
 import { useCompendiumEntry } from '@/features/compendium/hooks/useCompendiumEntry';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
@@ -29,7 +30,8 @@ export function CompendiumDetailScreen() {
     <Screen>
       {entry.entryType === 'spell' ? <SpellDetailView entry={entry} /> : null}
       {entry.entryType === 'item' ? <ItemDetailView entry={entry} /> : null}
-      {entry.entryType !== 'spell' && entry.entryType !== 'item' ? <GenericCompendiumDetailView entry={entry} /> : null}
+      {entry.entryType === 'subclass' ? <SubclassDetailView entry={entry} /> : null}
+      {entry.entryType !== 'spell' && entry.entryType !== 'item' && entry.entryType !== 'subclass' ? <GenericCompendiumDetailView entry={entry} /> : null}
     </Screen>
   );
 }

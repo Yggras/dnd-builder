@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { useQuery } from '@tanstack/react-query';
 
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
@@ -11,7 +9,7 @@ const contentService = new ContentService(new SQLiteContentRepository());
 export function useCompendiumClassDetails(classId: string) {
   const classesQuery = useQuery({
     queryKey: queryKeys.compendiumClass(classId),
-    queryFn: () => contentService.browseClasses(),
+    queryFn: () => contentService.getContentEntitiesByIds([classId]),
     enabled: Boolean(classId),
   });
 
@@ -21,10 +19,8 @@ export function useCompendiumClassDetails(classId: string) {
     enabled: Boolean(classId),
   });
 
-  const classEntity = useMemo(() => (classesQuery.data ?? []).find((entity) => entity.id === classId) ?? null, [classId, classesQuery.data]);
-
   return {
-    classEntity,
+    classEntity: classesQuery.data?.[0] ?? null,
     subclasses: subclassesQuery.data ?? [],
     isLoading: classesQuery.isLoading || subclassesQuery.isLoading,
     isFetching: classesQuery.isFetching || subclassesQuery.isFetching,
