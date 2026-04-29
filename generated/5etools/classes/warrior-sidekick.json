@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-3d4a12cebc29cbed",
+  "contentVersion": "schema1-95363784833b901a",
   "entityType": "classes",
   "chunkId": "warrior-sidekick",
-  "generatedAt": "2026-04-24T14:01:24.070Z",
+  "generatedAt": "2026-04-29T20:01:41.163Z",
   "records": {
     "class": {
       "id": "warrior-sidekick|tce",
@@ -54,6 +54,218 @@
           "Indomitable Improvement|Warrior Sidekick|TCE|18",
           "Ability Score Improvement|Warrior Sidekick|TCE|19",
           "Second Wind Improvement|Warrior Sidekick|TCE|20"
+        ],
+        "classFeatureDetails": [
+          {
+            "name": "Sidekick Class",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@note Note: this class is intended for NPC {@variantrule sidekicks|tce}.}"
+            ]
+          },
+          {
+            "name": "Bonus Proficiencies",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 1st-level Warrior feature}",
+              "The sidekick gains proficiency in one saving throw of your choice: Strength, Dexterity, or Constitution.",
+              "In addition, the sidekick gains proficiency in two skills of your choice from the following list: {@skill Acrobatics}, {@skill Animal Handling}, {@skill Athletics}, {@skill Intimidation}, {@skill Nature}, {@skill Perception}, and {@skill Survival}.",
+              "The sidekick gains proficiency with all armor, and if it is a humanoid or has a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} in its stat block, it gains proficiency with shields and all simple and martial weapons."
+            ]
+          },
+          {
+            "name": "Martial Role",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 1st-level Warrior feature}",
+              "Each warrior focuses on offense or defense in their training. Choose one of the following options:",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Attacker",
+                    "entry": "The sidekick gains a +2 bonus to all attack rolls."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Defender",
+                    "entry": "The sidekick can use its reaction to impose disadvantage on the attack roll of a creature within 5 feet of it whose target isn't the sidekick, provided the sidekick can see the attacker."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Second Wind",
+            "level": 2,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 2nd-level Warrior feature}",
+              "The sidekick can use a bonus action on its turn to regain hit points equal to {@dice 1d10} + its level in this class. Once it uses this feature, it must finish a short or long rest before it can use it again.",
+              "The sidekick can use this feature twice between rests starting at 20th level."
+            ]
+          },
+          {
+            "name": "Improved Critical",
+            "level": 3,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 3rd-level Warrior feature}",
+              "The sidekick's attack rolls score a critical hit on a roll of 19 or 20 on the {@dice d20}."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 4,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 4th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Extra Attack",
+            "level": 6,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 6th-level Warrior feature}",
+              "The sidekick can attack twice, instead of once, whenever it takes the {@action Attack} action on its turn.",
+              "The number of attacks increases to three when the sidekick reaches 15th level.",
+              "If the sidekick has the Multiattack action, it can use Extra Attack or Multiattack on a turn, not both."
+            ]
+          },
+          {
+            "name": "Battle Readiness",
+            "level": 7,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 7th-level Warrior feature}",
+              "The sidekick has advantage on initiative rolls."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 8,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 8th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Improved Defense",
+            "level": 10,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 10th-level Warrior feature}",
+              "The sidekick's Armor Class increases by 1."
+            ]
+          },
+          {
+            "name": "Indomitable",
+            "level": 11,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 11th-level Warrior feature}",
+              "The sidekick can reroll a saving throw that it fails, but it must use the new roll. When it uses this feature, it can't use the feature again until it finishes a long rest.",
+              "The sidekick can use this feature twice between long rests starting at 18th level."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 12,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 12th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 14,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 14th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Extra Attack Improvement",
+            "level": 15,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 15th-level Warrior feature}",
+              "The sidekick can attack twice, instead of once, whenever it takes the {@action Attack} action on its turn.",
+              "The number of attacks increases to three when the sidekick reaches 15th level.",
+              "If the sidekick has the Multiattack action, it can use Extra Attack or Multiattack on a turn, not both."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 16,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 16th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Indomitable Improvement",
+            "level": 18,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 18th-level Warrior feature}",
+              "The sidekick can reroll a saving throw that it fails, but it must use the new roll. When it uses this feature, it can't use the feature again until it finishes a long rest.",
+              "The sidekick can use this feature twice between long rests starting at 18th level."
+            ]
+          },
+          {
+            "name": "Ability Score Improvement",
+            "level": 19,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 19th-level Warrior feature}",
+              "At 4th level and again at 8th, 12th, 14th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "name": "Second Wind Improvement",
+            "level": 20,
+            "sourceCode": "TCE",
+            "page": 146,
+            "entries": [
+              "{@i 20th-level Warrior feature}",
+              "The sidekick can use their Second Wind feature twice between rests."
+            ]
+          }
         ],
         "additionalSpellIds": []
       }

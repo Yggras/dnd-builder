@@ -18,6 +18,20 @@ function selectCopyKey(record) {
   return [record.name, record.source, record.className, record.classSource].filter(Boolean).join('::');
 }
 
+function selectFeatureCopyKey(record) {
+  return [
+    record.name,
+    record.source,
+    record.className,
+    record.classSource,
+    record.subclassShortName,
+    record.subclassSource,
+    record.level,
+  ]
+    .filter((part) => part != null && part !== '')
+    .join('::');
+}
+
 function flattenSpellFiles(spellFileMap) {
   return Object.values(spellFileMap).flatMap((file) => file.spell ?? []);
 }
@@ -81,8 +95,12 @@ async function main() {
   const resolvedSpecies = resolveCollection(rawSources.races.race ?? [], selectCopyKey);
   const rawClasses = Object.values(rawSources.classFiles).flatMap((file) => file.class ?? []);
   const rawSubclasses = Object.values(rawSources.classFiles).flatMap((file) => file.subclass ?? []);
+  const rawClassFeatures = Object.values(rawSources.classFiles).flatMap((file) => file.classFeature ?? []);
+  const rawSubclassFeatures = Object.values(rawSources.classFiles).flatMap((file) => file.subclassFeature ?? []);
   const resolvedClasses = resolveCollection(rawClasses, selectCopyKey);
   const resolvedSubclasses = resolveCollection(rawSubclasses, selectCopyKey);
+  const resolvedClassFeatures = resolveCollection(rawClassFeatures, selectFeatureCopyKey);
+  const resolvedSubclassFeatures = resolveCollection(rawSubclassFeatures, selectFeatureCopyKey);
   const resolvedBackgrounds = resolveCollection(rawSources.backgrounds.background ?? [], selectCopyKey);
   const resolvedFeats = resolveCollection(rawSources.feats.feat ?? [], selectCopyKey);
   const resolvedOptionalFeatures = resolveCollection(rawSources.optionalFeatures.optionalfeature ?? [], selectCopyKey);
@@ -90,7 +108,10 @@ async function main() {
   const resolvedItems = resolveCollection(flattenItemFiles(rawSources.itemsBase, rawSources.items), selectCopyKey);
 
   const species = normalizeSpecies(resolvedSpecies);
-  const { classes, subclasses } = normalizeClasses(resolvedClasses, resolvedSubclasses);
+  const { classes, subclasses } = normalizeClasses(resolvedClasses, resolvedSubclasses, {
+    classFeatures: resolvedClassFeatures,
+    subclassFeatures: resolvedSubclassFeatures,
+  });
   const backgrounds = normalizeBackgrounds(resolvedBackgrounds);
   const feats = normalizeFeats(resolvedFeats);
   const optionalFeatures = normalizeOptionalFeatures(resolvedOptionalFeatures);

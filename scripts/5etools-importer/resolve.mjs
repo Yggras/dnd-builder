@@ -61,26 +61,19 @@ export function createRecordIndex(records, selectKey) {
   return new Map(records.map((record) => [selectKey(record), record]));
 }
 
-export function resolveRecord(record, recordIndex) {
+export function resolveRecord(record, recordIndex, selectKey) {
   if (!record || !record._copy) {
     return deepClone(record);
   }
 
-  const copyKey = [
-    record._copy.name,
-    record._copy.source,
-    record._copy.className,
-    record._copy.classSource,
-  ]
-    .filter(Boolean)
-    .join('::');
+  const copyKey = selectKey(record._copy);
 
   const baseRecord = recordIndex.get(copyKey);
   if (!baseRecord) {
     return deepClone(record);
   }
 
-  const resolvedBase = resolveRecord(baseRecord, recordIndex);
+  const resolvedBase = resolveRecord(baseRecord, recordIndex, selectKey);
   const merged = mergePreserving(resolvedBase, record, record._copy._preserve);
 
   delete merged._copy;
@@ -94,5 +87,5 @@ export function resolveRecord(record, recordIndex) {
 
 export function resolveCollection(records, selectKey) {
   const recordIndex = createRecordIndex(records, selectKey);
-  return records.map((record) => resolveRecord(record, recordIndex));
+  return records.map((record) => resolveRecord(record, recordIndex, selectKey));
 }

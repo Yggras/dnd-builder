@@ -176,6 +176,183 @@ function normalizeLookupKey(value) {
   return String(value ?? '').trim().toLowerCase();
 }
 
+function splitUidParts(value) {
+  return String(value ?? '')
+    .split('|')
+    .map((part) => part.trim());
+}
+
+function featureLookupKey(parts) {
+  return [parts.name, parts.className, parts.classSource, parts.subclassShortName, parts.subclassSource, parts.level, parts.source]
+    .map(normalizeLookupKey)
+    .join('::');
+}
+
+function getClassFeatureLookupParts(record) {
+  return {
+    name: record.name,
+    className: record.className,
+    classSource: record.classSource,
+    subclassShortName: null,
+    subclassSource: null,
+    level: record.level,
+    source: record.source,
+  };
+}
+
+function getSubclassFeatureLookupParts(record) {
+  return {
+    name: record.name,
+    className: record.className,
+    classSource: record.classSource,
+    subclassShortName: record.subclassShortName,
+    subclassSource: record.subclassSource,
+    level: record.level,
+    source: record.source,
+  };
+}
+
+function parseClassFeatureRef(uid, ownerRecord) {
+  const [name, className, classSourceRaw, level, sourceRaw] = splitUidParts(uid);
+  const classSource = classSourceRaw || ownerRecord?.source || 'PHB';
+
+  if (!name || !className || !classSource || !level) {
+    return null;
+  }
+
+  return featureLookupKey({
+    name,
+    className,
+    classSource,
+    subclassShortName: null,
+    subclassSource: null,
+    level,
+    source: sourceRaw || classSource,
+  });
+}
+
+function parseSubclassFeatureRef(uid, ownerRecord) {
+  const [name, className, classSourceRaw, subclassShortName, subclassSourceRaw, level, sourceRaw] = splitUidParts(uid);
+  const classSource = classSourceRaw || 'PHB';
+  const subclassSource = subclassSourceRaw || ownerRecord?.subclassSource || ownerRecord?.source;
+
+  if (!name || !className || !classSource || !subclassShortName || !subclassSource || !level) {
+    return null;
+  }
+
+  return featureLookupKey({
+    name,
+    className,
+    classSource,
+    subclassShortName,
+    subclassSource,
+    level,
+    source: sourceRaw || subclassSource,
+  });
+}
+
+function createFeatureLookups(classFeatureRecords, subclassFeatureRecords) {
+  return {
+    classFeatures: new Map(classFeatureRecords.map((record) => [featureLookupKey(getClassFeatureLookupParts(record)), record])),
+    subclassFeatures: new Map(subclassFeatureRecords.map((record) => [featureLookupKey(getSubclassFeatureLookupParts(record)), record])),
+  };
+}
+
+function isSourceRecord(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function getReferencedFeatureRecord(record, lookups, ownerRecord) {
+  if (typeof record.classFeature === 'string') {
+    const key = parseClassFeatureRef(record.classFeature, ownerRecord);
+    return key ? lookups.classFeatures.get(key) ?? null : null;
+  }
+
+  if (typeof record.subclassFeature === 'string') {
+    const key = parseSubclassFeatureRef(record.subclassFeature, ownerRecord);
+    return key ? lookups.subclassFeatures.get(key) ?? null : null;
+  }
+
+  return null;
+}
+
+function expandFeatureEntryRefs(value, lookups, ownerRecord, depth = 0) {
+  if (depth > 4) {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((entry) => expandFeatureEntryRefs(entry, lookups, ownerRecord, depth));
+  }
+
+  if (!isSourceRecord(value)) {
+    return value;
+  }
+
+  const referencedFeature = getReferencedFeatureRecord(value, lookups, ownerRecord);
+  if (referencedFeature && referencedFeature !== ownerRecord) {
+    return {
+      type: 'entries',
+      name: referencedFeature.name,
+      entries: expandFeatureEntryRefs(referencedFeature.entries ?? [], lookups, referencedFeature, depth + 1),
+    };
+  }
+
+  const nextRecord = { ...value };
+  if (Array.isArray(nextRecord.entries)) {
+    nextRecord.entries = expandFeatureEntryRefs(nextRecord.entries, lookups, ownerRecord, depth);
+  }
+  if (Array.isArray(nextRecord.items)) {
+    nextRecord.items = expandFeatureEntryRefs(nextRecord.items, lookups, ownerRecord, depth);
+  }
+
+  return nextRecord;
+}
+
+function normalizeFeatureDetail(record, lookups) {
+  return {
+    name: record.name,
+    level: record.level ?? null,
+    sourceCode: record.source ?? null,
+    page: record.page ?? null,
+    entries: expandFeatureEntryRefs(record.entries ?? [], lookups, record),
+  };
+}
+
+function parseFeatureValue(value) {
+  if (typeof value === 'string') {
+    return value;
+  }
+
+  if (!isSourceRecord(value)) {
+    return null;
+  }
+
+  return typeof value.classFeature === 'string'
+    ? value.classFeature
+    : typeof value.subclassFeature === 'string'
+      ? value.subclassFeature
+      : null;
+}
+
+function attachClassFeatureDetails(featureRefs, ownerRecord, lookups) {
+  return ensureArray(featureRefs).map((featureRef) => {
+    const rawRef = parseFeatureValue(featureRef);
+    const key = rawRef ? parseClassFeatureRef(rawRef, ownerRecord) : null;
+    const record = key ? lookups.classFeatures.get(key) : null;
+    return record ? normalizeFeatureDetail(record, lookups) : null;
+  });
+}
+
+function attachSubclassFeatureDetails(featureRefs, ownerRecord, lookups) {
+  return ensureArray(featureRefs).map((featureRef) => {
+    const rawRef = parseFeatureValue(featureRef);
+    const key = rawRef ? parseSubclassFeatureRef(rawRef, ownerRecord) : null;
+    const record = key ? lookups.subclassFeatures.get(key) : null;
+    return record ? normalizeFeatureDetail(record, lookups) : null;
+  });
+}
+
 function buildSpellApplicabilityMetadata(record, { classes, subclasses, spellSourceLookup }) {
   const classIdLookup = new Map(
     classes.map((classRecord) => [
@@ -379,7 +556,8 @@ export function normalizeSpecies(records) {
   return stableSortBy(normalizedRecords, (record) => record.id);
 }
 
-export function normalizeClasses(classRecords, subclassRecords) {
+export function normalizeClasses(classRecords, subclassRecords, featureRecords = {}) {
+  const featureLookups = createFeatureLookups(featureRecords.classFeatures ?? [], featureRecords.subclassFeatures ?? []);
   const normalizedSubclasses = stableSortBy(
     subclassRecords.map((record) => {
       const id = canonicalId([record.name, record.source, 'subclass', record.className, record.classSource]);
@@ -393,6 +571,7 @@ export function normalizeClasses(classRecords, subclassRecords) {
           cantripProgression: record.cantripProgression ?? [],
           preparedSpellsProgression: record.preparedSpellsProgression ?? [],
           subclassFeatures: record.subclassFeatures ?? [],
+          subclassFeatureDetails: attachSubclassFeatureDetails(record.subclassFeatures, record, featureLookups),
           additionalSpellIds: normalizeSpellRefsFromAdditionalSpells(record.additionalSpells),
         },
       };
@@ -430,6 +609,7 @@ export function normalizeClasses(classRecords, subclassRecords) {
           featProgression: record.featProgression ?? [],
           optionalfeatureProgression: record.optionalfeatureProgression ?? [],
           classFeatures: record.classFeatures ?? [],
+          classFeatureDetails: attachClassFeatureDetails(record.classFeatures, record, featureLookups),
           additionalSpellIds: normalizeSpellRefsFromAdditionalSpells(record.additionalSpells),
         },
       };

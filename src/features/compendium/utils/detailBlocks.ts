@@ -32,6 +32,14 @@ function primitiveToText(value: unknown) {
   return '';
 }
 
+function uidToDisplayName(value: unknown) {
+  if (typeof value !== 'string') {
+    return '';
+  }
+
+  return cleanInlineText(value.split('|')[0] ?? '').trim();
+}
+
 export function extractReadableText(value: unknown): string {
   if (value == null) {
     return '';
@@ -58,6 +66,13 @@ export function extractReadableText(value: unknown): string {
 
   if (typeof value.entry === 'string') {
     parts.push(cleanInlineText(value.entry));
+  }
+
+  for (const key of ['classFeature', 'subclassFeature', 'optionalfeature', 'feat', 'spell']) {
+    const label = uidToDisplayName(value[key]);
+    if (label) {
+      parts.push(label);
+    }
   }
 
   for (const key of ['entries', 'items', 'rows', 'tables']) {
@@ -128,6 +143,14 @@ function parseRecord(record: SourceRecord): DetailRenderBlock[] {
     return listBlock ? [listBlock] : [];
   }
 
+  if (type === 'options' && Array.isArray(record.entries)) {
+    const items = record.entries
+      .map((entry) => parseInlineText(extractReadableText(entry)))
+      .filter((tokens) => tokens.length > 0);
+
+    return items.length > 0 ? [{ kind: 'list', items }] : [];
+  }
+
   if (type === 'table') {
     const tableBlock = parseTable(record);
     return tableBlock ? [tableBlock] : [];
@@ -184,9 +207,13 @@ function parseEntries(entries: unknown[]) {
   return entries.flatMap(parseEntry);
 }
 
+export function buildRenderBlocksFromEntries(entries: unknown[]): DetailRenderBlock[] {
+  return parseEntries(entries);
+}
+
 export function buildRenderBlocks(entry: CompendiumEntry): DetailRenderBlock[] {
   const entries = getEntriesFromPayload(entry);
-  const blocks = entries ? parseEntries(entries) : [];
+  const blocks = entries ? buildRenderBlocksFromEntries(entries) : [];
 
   if (blocks.length > 0) {
     return blocks;

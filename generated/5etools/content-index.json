@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-3d4a12cebc29cbed",
-  "generatedAt": "2026-04-24T14:01:24.070Z",
+  "contentVersion": "schema1-95363784833b901a",
+  "generatedAt": "2026-04-29T20:01:41.163Z",
   "sourceRepository": "5etools-mirror-3/5etools-src",
   "sourceRef": "main",
   "chunkCount": 48,
@@ -13,9 +13,9 @@
     "feats": 265,
     "optionalFeatures": 213,
     "spells": 936,
-    "items": 2646,
+    "items": 2647,
     "choiceGrants": 46,
-    "compendiumEntries": 4719
+    "compendiumEntries": 4720
   },
   "chunks": [
     {
@@ -148,7 +148,7 @@
       "entityType": "compendium",
       "chunkId": "items",
       "filePath": "generated/5etools/compendium/items.json",
-      "recordCount": 2646
+      "recordCount": 2647
     },
     {
       "entityType": "compendium",
@@ -214,7 +214,7 @@
       "entityType": "items",
       "chunkId": "magicItems",
       "filePath": "generated/5etools/items/magicItems.json",
-      "recordCount": 1663
+      "recordCount": 1664
     },
     {
       "entityType": "items",
