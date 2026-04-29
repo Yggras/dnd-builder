@@ -23,5 +23,6 @@ export interface ContentRepository {
   listSpells: (options?: SpellQueryOptions) => Promise<ContentEntity[]>;
   listItems: (options?: ItemQueryOptions) => Promise<ContentEntity[]>;
   listChoiceGrants: (sourceId: string) => Promise<ChoiceGrant[]>;
+  getContentEntitiesByIds: (ids: string[]) => Promise<ContentEntity[]>;
   searchCompendiumEntries: (query: string, entryType?: string) => Promise<CompendiumEntry[]>;
 }

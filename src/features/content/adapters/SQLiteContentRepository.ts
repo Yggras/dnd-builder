@@ -248,6 +248,25 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
     return rows.map(mapChoiceGrant);
   }
 
+  async getContentEntitiesByIds(ids: string[]) {
+    const uniqueIds = Array.from(new Set(ids.filter(Boolean)));
+    if (uniqueIds.length === 0) {
+      return [];
+    }
+
+    const database = await getDatabase();
+    const placeholders = uniqueIds.map(() => '?').join(', ');
+    const rows = await database.getAllAsync<ContentEntityRow>(
+      `SELECT *
+       FROM content_entities
+       WHERE id IN (${placeholders})
+       ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC`,
+      ...uniqueIds,
+    );
+
+    return rows.map(mapContentEntity);
+  }
+
   async searchCompendiumEntries(query: string, entryType?: string) {
     const database = await getDatabase();
     const normalizedQuery = `%${query.trim().toLowerCase()}%`;

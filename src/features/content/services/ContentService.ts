@@ -39,6 +39,10 @@ export class ContentService {
     return this.repository.listChoiceGrants(sourceId);
   }
 
+  getContentEntitiesByIds(ids: string[]) {
+    return this.repository.getContentEntitiesByIds(ids);
+  }
+
   searchCompendiumEntries(query: string, entryType?: string) {
     return this.repository.searchCompendiumEntries(query, entryType);
   }
