@@ -18,7 +18,7 @@ export function FeatDetailView({ entry }: FeatDetailViewProps) {
         <DetailFactGrid facts={buildFeatFacts(entry)} />
       </DetailSection>
       <DetailSection title="Details">
-        <RenderBlockList blocks={buildRenderBlocks(entry)} />
+        <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
     </>
   );

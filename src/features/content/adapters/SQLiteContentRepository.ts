@@ -1,5 +1,5 @@
 import type { CompendiumRepository } from '@/features/compendium/repositories/CompendiumRepository';
-import type { ContentRepository, ItemQueryOptions, SpellQueryOptions } from '@/features/content/repositories/ContentRepository';
+import type { ContentReferenceLookup, ContentRepository, ItemQueryOptions, SpellQueryOptions } from '@/features/content/repositories/ContentRepository';
 import { getDatabase } from '@/shared/db/sqlite.native';
 import type { ChoiceGrant, CompendiumEntry, ContentEntity, RulesEdition } from '@/shared/types/domain';
 
@@ -262,6 +262,33 @@ export class SQLiteContentRepository implements ContentRepository, CompendiumRep
        WHERE id IN (${placeholders})
        ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC`,
       ...uniqueIds,
+    );
+
+    return rows.map(mapContentEntity);
+  }
+
+  async getContentEntitiesByReferences(references: ContentReferenceLookup[]) {
+    const uniqueReferences = Array.from(
+      new Map(
+        references
+          .filter((reference) => reference.name.trim().length > 0)
+          .map((reference) => [`${reference.entityType}:${reference.name.trim().toLowerCase()}`, reference]),
+      ).values(),
+    );
+
+    if (uniqueReferences.length === 0) {
+      return [];
+    }
+
+    const database = await getDatabase();
+    const clauses = uniqueReferences.map(() => `(entity_type = ? AND LOWER(name) = ?)`).join(' OR ');
+    const params = uniqueReferences.flatMap((reference) => [reference.entityType, reference.name.trim().toLowerCase()]);
+    const rows = await database.getAllAsync<ContentEntityRow>(
+      `SELECT *
+       FROM content_entities
+       WHERE ${clauses}
+       ORDER BY is_primary_2024 DESC, is_selectable_in_builder DESC, name ASC, source_code ASC`,
+      ...params,
     );
 
     return rows.map(mapContentEntity);

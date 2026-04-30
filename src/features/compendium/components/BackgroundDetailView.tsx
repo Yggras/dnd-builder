@@ -11,6 +11,7 @@ import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteConte
 import { ContentService } from '@/features/content/services/ContentService';
 import { buildRenderBlocks } from '@/features/compendium/utils/detailBlocks';
 import { buildBackgroundFacts, getEntityIdsFromMetadata, sortEntityNames } from '@/features/compendium/utils/detailFacts';
+import { useInlineTokenReferenceTargets } from '@/features/compendium/utils/inlineReferences';
 import { parseInlineText } from '@/features/compendium/utils/inlineText';
 import { queryKeys } from '@/shared/query/keys';
 import type { CompendiumEntry } from '@/shared/types/domain';
@@ -31,6 +32,8 @@ export function BackgroundDetailView({ entry }: BackgroundDetailViewProps) {
   const resolvedFeatNames = sortEntityNames(featsQuery.data?.filter((entity) => entity.entityType === 'feat') ?? [])
     .map((entity) => `${entity.name} (${entity.sourceCode})`);
   const equipmentSummary = typeof entry.metadata.equipmentSummary === 'string' ? entry.metadata.equipmentSummary : null;
+  const equipmentTokens = useMemo(() => (equipmentSummary ? parseInlineText(equipmentSummary) : []), [equipmentSummary]);
+  const equipmentReferenceTargets = useInlineTokenReferenceTargets(equipmentTokens.length > 0 ? [equipmentTokens] : [], { sourceCode: entry.sourceCode });
 
   return (
     <>
@@ -40,11 +43,11 @@ export function BackgroundDetailView({ entry }: BackgroundDetailViewProps) {
       </DetailSection>
       {equipmentSummary ? (
         <DetailSection title="Starting Equipment">
-          <RichTextLine tokens={parseInlineText(equipmentSummary)} />
+          <RichTextLine referenceTargets={equipmentReferenceTargets} tokens={equipmentTokens} />
         </DetailSection>
       ) : null}
       <DetailSection title="Details">
-        <RenderBlockList blocks={buildRenderBlocks(entry)} />
+        <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
     </>
   );

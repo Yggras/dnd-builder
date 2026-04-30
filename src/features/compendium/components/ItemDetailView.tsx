@@ -21,7 +21,7 @@ export function ItemDetailView({ entry }: ItemDetailViewProps) {
         <DetailFactGrid facts={[...itemFacts, ...sourceFacts]} />
       </DetailSection>
       <DetailSection title="Details">
-        <RenderBlockList blocks={buildRenderBlocks(entry)} />
+        <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
     </>
   );

@@ -3,14 +3,18 @@ import { StyleSheet, Text, View } from 'react-native';
 import { BasicTableBlock } from '@/features/compendium/components/BasicTableBlock';
 import { RichTextLine } from '@/features/compendium/components/RichTextLine';
 import type { DetailRenderBlock } from '@/features/compendium/utils/detailBlocks';
+import { type InlineReferenceContext, useInlineReferenceTargets } from '@/features/compendium/utils/inlineReferences';
 import { parseInlineText } from '@/features/compendium/utils/inlineText';
 import { theme, typography } from '@/shared/ui/theme';
 
 interface RenderBlockListProps {
   blocks: DetailRenderBlock[];
+  referenceContext?: InlineReferenceContext;
 }
 
-export function RenderBlockList({ blocks }: RenderBlockListProps) {
+export function RenderBlockList({ blocks, referenceContext }: RenderBlockListProps) {
+  const referenceTargets = useInlineReferenceTargets(blocks, referenceContext);
+
   if (blocks.length === 0) {
     return (
       <Text style={styles.emptyText}>No detail text is available for this entry yet.</Text>
@@ -24,9 +28,9 @@ export function RenderBlockList({ blocks }: RenderBlockListProps) {
           case 'heading':
             return <Text key={`heading-${index}`} style={styles.heading}>{block.text}</Text>;
           case 'paragraph':
-            return <RichTextLine key={`paragraph-${index}`} tokens={block.tokens} />;
+            return <RichTextLine key={`paragraph-${index}`} referenceTargets={referenceTargets} tokens={block.tokens} />;
           case 'fallbackText':
-            return <RichTextLine key={`fallback-${index}`} tokens={parseInlineText(block.text)} />;
+            return <RichTextLine key={`fallback-${index}`} referenceTargets={referenceTargets} tokens={parseInlineText(block.text)} />;
           case 'list':
             return (
               <View key={`list-${index}`} style={styles.list}>
@@ -34,14 +38,14 @@ export function RenderBlockList({ blocks }: RenderBlockListProps) {
                   <View key={`list-item-${index}-${itemIndex}`} style={styles.listItem}>
                     <Text style={styles.bullet}>•</Text>
                     <View style={styles.listItemText}>
-                      <RichTextLine tokens={item} />
+                      <RichTextLine referenceTargets={referenceTargets} tokens={item} />
                     </View>
                   </View>
                 ))}
               </View>
             );
           case 'table':
-            return <BasicTableBlock key={`table-${index}`} headers={block.headers} rows={block.rows} />;
+            return <BasicTableBlock key={`table-${index}`} headers={block.headers} referenceTargets={referenceTargets} rows={block.rows} />;
         }
       })}
     </View>

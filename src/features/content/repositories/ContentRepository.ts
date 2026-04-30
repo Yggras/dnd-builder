@@ -13,6 +13,11 @@ export interface ItemQueryOptions {
   onlySelectableInBuilder?: boolean;
 }
 
+export interface ContentReferenceLookup {
+  entityType: ContentEntity['entityType'];
+  name: string;
+}
+
 export interface ContentRepository {
   listSpecies: (onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
   listBackgrounds: (onlySelectableInBuilder?: boolean) => Promise<ContentEntity[]>;
@@ -24,5 +29,6 @@ export interface ContentRepository {
   listItems: (options?: ItemQueryOptions) => Promise<ContentEntity[]>;
   listChoiceGrants: (sourceId: string) => Promise<ChoiceGrant[]>;
   getContentEntitiesByIds: (ids: string[]) => Promise<ContentEntity[]>;
+  getContentEntitiesByReferences: (references: ContentReferenceLookup[]) => Promise<ContentEntity[]>;
   searchCompendiumEntries: (query: string, entryType?: string) => Promise<CompendiumEntry[]>;
 }

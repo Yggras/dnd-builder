@@ -60,7 +60,7 @@ export function SpellDetailView({ entry }: SpellDetailViewProps) {
         </DetailSection>
       ) : null}
       <DetailSection title="Details">
-        <RenderBlockList blocks={buildRenderBlocks(entry)} />
+        <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
     </>
   );

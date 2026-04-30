@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { RenderBlockList } from '@/features/compendium/components/RenderBlockList';
+import type { InlineReferenceContext } from '@/features/compendium/utils/inlineReferences';
 import type { FeatureProgressionRow } from '@/features/compendium/utils/classDetails';
 import { buildRenderBlocksFromEntries } from '@/features/compendium/utils/detailBlocks';
 import { theme } from '@/shared/ui/theme';
@@ -9,9 +10,10 @@ import { theme } from '@/shared/ui/theme';
 interface FeatureProgressionListProps {
   rows: FeatureProgressionRow[];
   emptyLabel?: string;
+  referenceContext?: InlineReferenceContext;
 }
 
-export function FeatureProgressionList({ rows, emptyLabel = 'No feature progression is available for this entry yet.' }: FeatureProgressionListProps) {
+export function FeatureProgressionList({ rows, emptyLabel = 'No feature progression is available for this entry yet.', referenceContext }: FeatureProgressionListProps) {
   const [expandedKeys, setExpandedKeys] = useState<Set<string>>(() => new Set());
 
   if (rows.length === 0) {
@@ -67,7 +69,7 @@ export function FeatureProgressionList({ rows, emptyLabel = 'No feature progress
 
             {isExpanded ? (
               <View style={styles.detailPanel}>
-                <RenderBlockList blocks={buildRenderBlocksFromEntries(row.detailEntries)} />
+                <RenderBlockList blocks={buildRenderBlocksFromEntries(row.detailEntries)} referenceContext={referenceContext} />
               </View>
             ) : null}
           </Pressable>

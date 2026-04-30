@@ -1,15 +1,17 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { RichTextLine } from '@/features/compendium/components/RichTextLine';
+import type { InlineReferenceTargets } from '@/features/compendium/utils/inlineReferences';
 import type { InlineTextToken } from '@/features/compendium/utils/inlineText';
 import { theme } from '@/shared/ui/theme';
 
 interface BasicTableBlockProps {
   headers: InlineTextToken[][];
+  referenceTargets?: InlineReferenceTargets;
   rows: InlineTextToken[][][];
 }
 
-export function BasicTableBlock({ headers, rows }: BasicTableBlockProps) {
+export function BasicTableBlock({ headers, referenceTargets, rows }: BasicTableBlockProps) {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       <View style={styles.table}>
@@ -24,7 +26,7 @@ export function BasicTableBlock({ headers, rows }: BasicTableBlockProps) {
           <View key={`row-${rowIndex}`} style={styles.row}>
             {row.map((cell, cellIndex) => (
               <View key={`cell-${rowIndex}-${cellIndex}`} style={styles.cell}>
-                <RichTextLine tokens={cell} variant="table" />
+                <RichTextLine referenceTargets={referenceTargets} tokens={cell} variant="table" />
               </View>
             ))}
           </View>

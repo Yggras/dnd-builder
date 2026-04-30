@@ -10,6 +10,7 @@ export const queryKeys = {
   compendiumClass: (classId: string) => ['compendium', 'class', classId] as const,
   compendiumSubclasses: (classId: string) => ['compendium', 'class', classId, 'subclasses'] as const,
   compendiumContentEntities: (ids: string[]) => ['compendium', 'content-entities', [...ids].sort().join('|')] as const,
+  compendiumInlineReferences: (referencesKey: string, sourceCode: string) => ['compendium', 'inline-references', referencesKey, sourceCode] as const,
   compendiumSearch: (query: string, entryType: string) => ['compendium', 'search', query, entryType] as const,
   compendiumEntry: (entryId: string) => ['compendium', 'entry', entryId] as const,
   pendingMutations: ['pending-mutations'] as const,

@@ -52,7 +52,7 @@ export function SubclassDetailView({ entry }: SubclassDetailViewProps) {
         <DetailFactGrid facts={buildSubclassFacts(entry, parentClass)} />
       </DetailSection>
       <DetailSection title="Feature Progression">
-        <FeatureProgressionList rows={buildSubclassFeatureRows(entry)} />
+        <FeatureProgressionList referenceContext={{ sourceCode: entry.sourceCode }} rows={buildSubclassFeatureRows(entry)} />
       </DetailSection>
       {additionalSpells.length > 0 ? (
         <DetailSection title="Additional Spells">
@@ -68,7 +68,7 @@ export function SubclassDetailView({ entry }: SubclassDetailViewProps) {
       ) : null}
       {renderBlocks.length > 0 ? (
         <DetailSection title="Details">
-          <RenderBlockList blocks={renderBlocks} />
+          <RenderBlockList blocks={renderBlocks} referenceContext={{ sourceCode: entry.sourceCode }} />
         </DetailSection>
       ) : null}
     </>

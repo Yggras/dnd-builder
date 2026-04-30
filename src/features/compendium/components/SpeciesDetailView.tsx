@@ -18,7 +18,7 @@ export function SpeciesDetailView({ entry }: SpeciesDetailViewProps) {
         <DetailFactGrid facts={buildSpeciesFacts(entry)} />
       </DetailSection>
       <DetailSection title="Traits">
-        <RenderBlockList blocks={buildRenderBlocks(entry)} />
+        <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
     </>
   );

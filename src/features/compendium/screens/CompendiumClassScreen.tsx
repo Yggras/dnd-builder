@@ -15,10 +15,29 @@ import {
   buildClassProficiencyFacts,
   buildStartingEquipmentLines,
 } from '@/features/compendium/utils/classDetails';
+import { useInlineTokenReferenceTargets } from '@/features/compendium/utils/inlineReferences';
+import type { InlineTextToken } from '@/features/compendium/utils/inlineText';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import { Screen } from '@/shared/ui/Screen';
 import { theme, typography } from '@/shared/ui/theme';
+
+interface StartingEquipmentLinesProps {
+  lines: InlineTextToken[][];
+  sourceCode: string;
+}
+
+function StartingEquipmentLines({ lines, sourceCode }: StartingEquipmentLinesProps) {
+  const referenceTargets = useInlineTokenReferenceTargets(lines, { sourceCode });
+
+  return (
+    <View style={styles.equipmentLines}>
+      {lines.map((tokens, index) => (
+        <RichTextLine key={`equipment-${index}`} referenceTargets={referenceTargets} tokens={tokens} />
+      ))}
+    </View>
+  );
+}
 
 export function CompendiumClassScreen() {
   const router = useRouter();
@@ -77,16 +96,12 @@ export function CompendiumClassScreen() {
       ) : null}
 
       <DetailSection title="Feature Progression">
-        <FeatureProgressionList rows={buildClassFeatureRows(classEntity)} />
+        <FeatureProgressionList referenceContext={{ sourceCode: classEntity.sourceCode }} rows={buildClassFeatureRows(classEntity)} />
       </DetailSection>
 
       {startingEquipmentLines.length > 0 ? (
         <DetailSection title="Starting Equipment">
-          <View style={styles.equipmentLines}>
-            {startingEquipmentLines.map((tokens, index) => (
-              <RichTextLine key={`equipment-${index}`} tokens={tokens} />
-            ))}
-          </View>
+          <StartingEquipmentLines lines={startingEquipmentLines} sourceCode={classEntity.sourceCode} />
         </DetailSection>
       ) : null}
 

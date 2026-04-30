@@ -1,6 +1,17 @@
+export type InlineReferenceEntityType = 'spell' | 'item' | 'feat' | 'optionalfeature';
+
+export type InlineReference = {
+  key: string;
+  tag: string;
+  name: string;
+  sourceCode: string | null;
+  entityType: InlineReferenceEntityType;
+};
+
 export type InlineTextToken = {
   kind: 'text' | 'reference' | 'dice' | 'emphasis' | 'strong';
   text: string;
+  reference?: InlineReference;
 };
 
 const REFERENCE_TAGS = new Set([
@@ -26,6 +37,13 @@ const REFERENCE_TAGS = new Set([
 
 const DICE_TAGS = new Set(['chance', 'damage', 'dc', 'dice']);
 
+const NAVIGABLE_REFERENCE_TAGS: Record<string, InlineReferenceEntityType> = {
+  feat: 'feat',
+  item: 'item',
+  optfeature: 'optionalfeature',
+  spell: 'spell',
+};
+
 function normalizeWhitespace(value: string) {
   return value.replace(/\s+/g, ' ').trim();
 }
@@ -38,6 +56,33 @@ function getTaggedDisplayText(tagName: string, payload: string) {
   return normalizeWhitespace(payload.split('|')[0] ?? '');
 }
 
+function createReferenceKey(entityType: InlineReferenceEntityType, name: string, sourceCode: string | null) {
+  return `${entityType}:${name.trim().toLowerCase()}:${sourceCode?.trim().toLowerCase() ?? ''}`;
+}
+
+function createInlineReference(tagName: string, payload: string): InlineReference | undefined {
+  const normalizedTag = tagName.toLowerCase();
+  const entityType = NAVIGABLE_REFERENCE_TAGS[normalizedTag];
+  if (!entityType) {
+    return undefined;
+  }
+
+  const [rawName, rawSource] = payload.split('|').map((part) => normalizeWhitespace(part));
+  const name = rawName ?? '';
+  const sourceCode = rawSource || null;
+  if (!name) {
+    return undefined;
+  }
+
+  return {
+    key: createReferenceKey(entityType, name, sourceCode),
+    tag: normalizedTag,
+    name,
+    sourceCode,
+    entityType,
+  };
+}
+
 function createTaggedToken(tagName: string, payload: string): InlineTextToken | null {
   const normalizedTag = tagName.toLowerCase();
   const displayText = getTaggedDisplayText(tagName, payload);
@@ -47,7 +92,7 @@ function createTaggedToken(tagName: string, payload: string): InlineTextToken | 
   }
 
   if (REFERENCE_TAGS.has(normalizedTag)) {
-    return { kind: 'reference', text: displayText };
+    return { kind: 'reference', text: displayText, reference: createInlineReference(tagName, payload) };
   }
 
   if (DICE_TAGS.has(normalizedTag)) {

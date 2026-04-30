@@ -1,4 +1,4 @@
-import type { ContentRepository, ItemQueryOptions, SpellQueryOptions } from '@/features/content/repositories/ContentRepository';
+import type { ContentReferenceLookup, ContentRepository, ItemQueryOptions, SpellQueryOptions } from '@/features/content/repositories/ContentRepository';
 
 export class ContentService {
   constructor(private readonly repository: ContentRepository) {}
@@ -41,6 +41,10 @@ export class ContentService {
 
   getContentEntitiesByIds(ids: string[]) {
     return this.repository.getContentEntitiesByIds(ids);
+  }
+
+  getContentEntitiesByReferences(references: ContentReferenceLookup[]) {
+    return this.repository.getContentEntitiesByReferences(references);
   }
 
   searchCompendiumEntries(query: string, entryType?: string) {
