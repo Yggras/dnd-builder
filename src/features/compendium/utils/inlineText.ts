@@ -1,4 +1,11 @@
-export type InlineReferenceEntityType = 'spell' | 'item' | 'feat' | 'optionalfeature';
+export type InlineReferenceEntityType =
+  | 'spell'
+  | 'item'
+  | 'feat'
+  | 'optionalfeature'
+  | 'condition'
+  | 'action'
+  | 'variantrule';
 
 export type InlineReference = {
   key: string;
@@ -38,10 +45,13 @@ const REFERENCE_TAGS = new Set([
 const DICE_TAGS = new Set(['chance', 'damage', 'dc', 'dice']);
 
 const NAVIGABLE_REFERENCE_TAGS: Record<string, InlineReferenceEntityType> = {
+  action: 'action',
+  condition: 'condition',
   feat: 'feat',
   item: 'item',
   optfeature: 'optionalfeature',
   spell: 'spell',
+  variantrule: 'variantrule',
 };
 
 function normalizeWhitespace(value: string) {

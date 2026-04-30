@@ -15,6 +15,9 @@ export const SOURCE_FILES = {
   spellSourceLookup: 'data/generated/gendata-spell-source-lookup.json',
   itemsBase: 'data/items-base.json',
   items: 'data/items.json',
+  conditionsDiseases: 'data/conditionsdiseases.json',
+  actions: 'data/actions.json',
+  variantRules: 'data/variantrules.json',
 };
 
 export const PRIMARY_2024_SOURCES = new Set(['XPHB']);
@@ -30,4 +33,7 @@ export const COMPENDIUM_ENTITY_ORDER = [
   'optionalfeature',
   'spell',
   'item',
+  'condition',
+  'action',
+  'variantrule',
 ];

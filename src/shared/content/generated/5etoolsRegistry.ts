@@ -1,4 +1,5 @@
 import bundledContentIndex from '../../../../generated/5etools/content-index.json';
+import actions_all from '../../../../generated/5etools/actions/all.json';
 import backgrounds_all from '../../../../generated/5etools/backgrounds/all.json';
 import classes_artificer from '../../../../generated/5etools/classes/artificer.json';
 import classes_barbarian from '../../../../generated/5etools/classes/barbarian.json';
@@ -17,14 +18,18 @@ import classes_spellcaster_sidekick from '../../../../generated/5etools/classes/
 import classes_warlock from '../../../../generated/5etools/classes/warlock.json';
 import classes_warrior_sidekick from '../../../../generated/5etools/classes/warrior-sidekick.json';
 import classes_wizard from '../../../../generated/5etools/classes/wizard.json';
+import compendium_actions from '../../../../generated/5etools/compendium/actions.json';
 import compendium_backgrounds from '../../../../generated/5etools/compendium/backgrounds.json';
 import compendium_classes from '../../../../generated/5etools/compendium/classes.json';
+import compendium_conditions from '../../../../generated/5etools/compendium/conditions.json';
 import compendium_feats from '../../../../generated/5etools/compendium/feats.json';
 import compendium_items from '../../../../generated/5etools/compendium/items.json';
 import compendium_optionalFeatures from '../../../../generated/5etools/compendium/optionalFeatures.json';
 import compendium_species from '../../../../generated/5etools/compendium/species.json';
 import compendium_spells from '../../../../generated/5etools/compendium/spells.json';
 import compendium_subclasses from '../../../../generated/5etools/compendium/subclasses.json';
+import compendium_variantRules from '../../../../generated/5etools/compendium/variantRules.json';
+import conditions_all from '../../../../generated/5etools/conditions/all.json';
 import feats_epicBoons from '../../../../generated/5etools/feats/epicBoons.json';
 import feats_fightingStyles from '../../../../generated/5etools/feats/fightingStyles.json';
 import feats_general from '../../../../generated/5etools/feats/general.json';
@@ -47,10 +52,12 @@ import spells_level_6 from '../../../../generated/5etools/spells/level-6.json';
 import spells_level_7 from '../../../../generated/5etools/spells/level-7.json';
 import spells_level_8 from '../../../../generated/5etools/spells/level-8.json';
 import spells_level_9 from '../../../../generated/5etools/spells/level-9.json';
+import variant_rules_all from '../../../../generated/5etools/variant-rules/all.json';
 
 export const bundledContentManifest = bundledContentIndex;
 
 export const bundledContentChunks = {
+  'generated/5etools/actions/all.json': actions_all,
   'generated/5etools/backgrounds/all.json': backgrounds_all,
   'generated/5etools/classes/artificer.json': classes_artificer,
   'generated/5etools/classes/barbarian.json': classes_barbarian,
@@ -69,14 +76,18 @@ export const bundledContentChunks = {
   'generated/5etools/classes/warlock.json': classes_warlock,
   'generated/5etools/classes/warrior-sidekick.json': classes_warrior_sidekick,
   'generated/5etools/classes/wizard.json': classes_wizard,
+  'generated/5etools/compendium/actions.json': compendium_actions,
   'generated/5etools/compendium/backgrounds.json': compendium_backgrounds,
   'generated/5etools/compendium/classes.json': compendium_classes,
+  'generated/5etools/compendium/conditions.json': compendium_conditions,
   'generated/5etools/compendium/feats.json': compendium_feats,
   'generated/5etools/compendium/items.json': compendium_items,
   'generated/5etools/compendium/optionalFeatures.json': compendium_optionalFeatures,
   'generated/5etools/compendium/species.json': compendium_species,
   'generated/5etools/compendium/spells.json': compendium_spells,
   'generated/5etools/compendium/subclasses.json': compendium_subclasses,
+  'generated/5etools/compendium/variantRules.json': compendium_variantRules,
+  'generated/5etools/conditions/all.json': conditions_all,
   'generated/5etools/feats/epicBoons.json': feats_epicBoons,
   'generated/5etools/feats/fightingStyles.json': feats_fightingStyles,
   'generated/5etools/feats/general.json': feats_general,
@@ -99,4 +110,5 @@ export const bundledContentChunks = {
   'generated/5etools/spells/level-7.json': spells_level_7,
   'generated/5etools/spells/level-8.json': spells_level_8,
   'generated/5etools/spells/level-9.json': spells_level_9,
+  'generated/5etools/variant-rules/all.json': variant_rules_all,
 };

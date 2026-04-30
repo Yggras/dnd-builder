@@ -522,6 +522,8 @@ export function getCompendiumTypeLabel(entry: Pick<CompendiumEntry, 'entryType' 
       return 'Option';
     case 'subclass':
       return 'Subclass';
+    case 'variantrule':
+      return 'Variant Rule';
     default:
       return entry.entryType.charAt(0).toUpperCase() + entry.entryType.slice(1);
   }

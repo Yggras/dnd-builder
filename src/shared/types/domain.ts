@@ -1,7 +1,18 @@
 export type CampaignRole = 'dm' | 'player';
 export type RulesEdition = '2014' | '2024';
 export type PendingMutationType = 'create' | 'update' | 'delete';
-export type ContentEntityType = 'species' | 'class' | 'subclass' | 'background' | 'feat' | 'optionalfeature' | 'spell' | 'item';
+export type ContentEntityType =
+  | 'species'
+  | 'class'
+  | 'subclass'
+  | 'background'
+  | 'feat'
+  | 'optionalfeature'
+  | 'spell'
+  | 'item'
+  | 'condition'
+  | 'action'
+  | 'variantrule';
 export type ChoiceGrantSourceType = 'class' | 'subclass' | 'feat' | 'optionalfeature';
 export type ChoiceGrantKind = 'feat' | 'optionalfeature';
 export type BuilderState = 'draft' | 'complete';

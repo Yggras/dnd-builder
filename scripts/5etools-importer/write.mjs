@@ -221,6 +221,9 @@ export async function writeGeneratedContent(entityGroups) {
   const optionalFeatureChunks = chunkOptionalFeatures(entityGroups.optionalFeatures);
   const spellChunks = chunkSpells(entityGroups.spells);
   const itemChunks = chunkItems(entityGroups.items);
+  const conditionChunks = { all: entityGroups.conditions };
+  const actionChunks = { all: entityGroups.actions };
+  const variantRuleChunks = { all: entityGroups.variantRules };
   const grantChunks = { all: entityGroups.choiceGrants };
   const compendiumChunks = {
     backgrounds: entityGroups.compendiumEntries.filter((record) => record.entityType === 'background'),
@@ -231,6 +234,9 @@ export async function writeGeneratedContent(entityGroups) {
     optionalFeatures: entityGroups.compendiumEntries.filter((record) => record.entityType === 'optionalfeature'),
     spells: entityGroups.compendiumEntries.filter((record) => record.entityType === 'spell'),
     items: entityGroups.compendiumEntries.filter((record) => record.entityType === 'item'),
+    conditions: entityGroups.compendiumEntries.filter((record) => record.entityType === 'condition'),
+    actions: entityGroups.compendiumEntries.filter((record) => record.entityType === 'action'),
+    variantRules: entityGroups.compendiumEntries.filter((record) => record.entityType === 'variantrule'),
   };
 
   const chunkGroups = [
@@ -241,6 +247,9 @@ export async function writeGeneratedContent(entityGroups) {
     ['optional-features', optionalFeatureChunks],
     ['spells', spellChunks],
     ['items', itemChunks],
+    ['conditions', conditionChunks],
+    ['actions', actionChunks],
+    ['variant-rules', variantRuleChunks],
     ['grants', grantChunks],
     ['compendium', compendiumChunks],
   ];
@@ -273,6 +282,9 @@ export async function writeGeneratedContent(entityGroups) {
       optionalFeatures: entityGroups.optionalFeatures.length,
       spells: entityGroups.spells.length,
       items: entityGroups.items.length,
+      conditions: entityGroups.conditions.length,
+      actions: entityGroups.actions.length,
+      variantRules: entityGroups.variantRules.length,
       choiceGrants: entityGroups.choiceGrants.length,
       compendiumEntries: entityGroups.compendiumEntries.length,
     },
@@ -307,6 +319,9 @@ export async function writeGeneratedContent(entityGroups) {
       optionalFeatures: entityGroups.optionalFeatures.length,
       spells: entityGroups.spells.length,
       items: entityGroups.items.length,
+      conditions: entityGroups.conditions.length,
+      actions: entityGroups.actions.length,
+      variantRules: entityGroups.variantRules.length,
       choiceGrants: entityGroups.choiceGrants.length,
       compendiumEntries: entityGroups.compendiumEntries.length,
     },

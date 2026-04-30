@@ -787,6 +787,30 @@ export function normalizeItems(records) {
   );
 }
 
+function normalizeReferenceOnlyRecord(kind, record) {
+  const normalized = {
+    ...createBaseRecord(kind, record, canonicalId([record.name, record.source, kind])),
+    isSelectableInBuilder: false,
+    metadata: {
+      entriesText: extractText(record.entries ?? []),
+    },
+  };
+
+  return normalized;
+}
+
+export function normalizeConditions(records) {
+  return stableSortBy(records.map((record) => normalizeReferenceOnlyRecord('condition', record)), (record) => record.id);
+}
+
+export function normalizeActions(records) {
+  return stableSortBy(records.map((record) => normalizeReferenceOnlyRecord('action', record)), (record) => record.id);
+}
+
+export function normalizeVariantRules(records) {
+  return stableSortBy(records.map((record) => normalizeReferenceOnlyRecord('variantrule', record)), (record) => record.id);
+}
+
 function extractProgressionGrants(records, sourceType, fieldName, chooseKind, categoryField) {
   const grants = [];
 

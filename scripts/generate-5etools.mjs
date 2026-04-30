@@ -1,15 +1,18 @@
 import { SOURCE_FILES } from './5etools-importer/config.mjs';
 import { fetchJson, fetchJsonMap } from './5etools-importer/fetch.mjs';
 import {
+  normalizeActions,
   normalizeBackgrounds,
   normalizeChoiceGrants,
   normalizeClasses,
   normalizeCompendiumEntries,
+  normalizeConditions,
   normalizeFeats,
   normalizeItems,
   normalizeOptionalFeatures,
   normalizeSpecies,
   normalizeSpells,
+  normalizeVariantRules,
 } from './5etools-importer/normalize.mjs';
 import { resolveCollection } from './5etools-importer/resolve.mjs';
 import { writeGeneratedContent } from './5etools-importer/write.mjs';
@@ -61,7 +64,20 @@ function validateGrants(choiceGrants) {
 }
 
 async function loadRawSources() {
-  const [races, classIndex, backgrounds, feats, optionalFeatures, spellsIndex, spellSourceLookup, itemsBase, items] = await Promise.all([
+  const [
+    races,
+    classIndex,
+    backgrounds,
+    feats,
+    optionalFeatures,
+    spellsIndex,
+    spellSourceLookup,
+    itemsBase,
+    items,
+    conditionsDiseases,
+    actions,
+    variantRules,
+  ] = await Promise.all([
     fetchJson(SOURCE_FILES.races),
     fetchJson(SOURCE_FILES.classIndex),
     fetchJson(SOURCE_FILES.backgrounds),
@@ -71,6 +87,9 @@ async function loadRawSources() {
     fetchJson(SOURCE_FILES.spellSourceLookup),
     fetchJson(SOURCE_FILES.itemsBase),
     fetchJson(SOURCE_FILES.items),
+    fetchJson(SOURCE_FILES.conditionsDiseases),
+    fetchJson(SOURCE_FILES.actions),
+    fetchJson(SOURCE_FILES.variantRules),
   ]);
 
   const classFiles = await fetchJsonMap(Object.values(classIndex).map((value) => `data/class/${value}`));
@@ -86,6 +105,9 @@ async function loadRawSources() {
     spellSourceLookup,
     itemsBase,
     items,
+    conditionsDiseases,
+    actions,
+    variantRules,
   };
 }
 
@@ -106,6 +128,9 @@ async function main() {
   const resolvedOptionalFeatures = resolveCollection(rawSources.optionalFeatures.optionalfeature ?? [], selectCopyKey);
   const resolvedSpells = flattenSpellFiles(rawSources.spellFiles);
   const resolvedItems = resolveCollection(flattenItemFiles(rawSources.itemsBase, rawSources.items), selectCopyKey);
+  const resolvedConditions = resolveCollection(rawSources.conditionsDiseases.condition ?? [], selectCopyKey);
+  const resolvedActions = resolveCollection(rawSources.actions.action ?? [], selectCopyKey);
+  const resolvedVariantRules = resolveCollection(rawSources.variantRules.variantrule ?? [], selectCopyKey);
 
   const species = normalizeSpecies(resolvedSpecies);
   const { classes, subclasses } = normalizeClasses(resolvedClasses, resolvedSubclasses, {
@@ -121,6 +146,9 @@ async function main() {
     spellSourceLookup: rawSources.spellSourceLookup,
   });
   const items = normalizeItems(resolvedItems);
+  const conditions = normalizeConditions(resolvedConditions);
+  const actions = normalizeActions(resolvedActions);
+  const variantRules = normalizeVariantRules(resolvedVariantRules);
   const choiceGrants = normalizeChoiceGrants({ classes, subclasses, feats, optionalFeatures });
   const compendiumEntries = normalizeCompendiumEntries({
     species,
@@ -131,6 +159,9 @@ async function main() {
     optionalfeature: optionalFeatures,
     spell: spells,
     item: items,
+    condition: conditions,
+    action: actions,
+    variantrule: variantRules,
   });
 
   validateUnique(species, 'species');
@@ -141,6 +172,9 @@ async function main() {
   validateUnique(optionalFeatures, 'optionalfeature');
   validateUnique(spells, 'spell');
   validateUnique(items, 'item');
+  validateUnique(conditions, 'condition');
+  validateUnique(actions, 'action');
+  validateUnique(variantRules, 'variantrule');
   validateUnique(choiceGrants, 'choice grant');
   validateUnique(compendiumEntries, 'compendium entry');
   validateGrants(choiceGrants);
@@ -154,6 +188,9 @@ async function main() {
     optionalFeatures,
     spells,
     items,
+    conditions,
+    actions,
+    variantRules,
     choiceGrants,
     compendiumEntries,
   });

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-8154637255b870fa",
-  "generatedAt": "2026-04-30T17:15:06.986Z",
+  "contentVersion": "schema1-d6fa7fe3677ed3de",
+  "generatedAt": "2026-04-30T18:32:59.057Z",
   "sourceRepository": "5etools-mirror-3/5etools-src",
   "sourceRef": "main",
-  "chunkCount": 48,
+  "chunkCount": 54,
   "entityCounts": {
     "species": 157,
     "classes": 30,
@@ -14,10 +14,19 @@
     "optionalFeatures": 213,
     "spells": 936,
     "items": 2647,
+    "conditions": 30,
+    "actions": 48,
+    "variantRules": 230,
     "choiceGrants": 46,
-    "compendiumEntries": 4720
+    "compendiumEntries": 5028
   },
   "chunks": [
+    {
+      "entityType": "actions",
+      "chunkId": "all",
+      "filePath": "generated/5etools/actions/all.json",
+      "recordCount": 48
+    },
     {
       "entityType": "backgrounds",
       "chunkId": "all",
@@ -128,6 +137,12 @@
     },
     {
       "entityType": "compendium",
+      "chunkId": "actions",
+      "filePath": "generated/5etools/compendium/actions.json",
+      "recordCount": 48
+    },
+    {
+      "entityType": "compendium",
       "chunkId": "backgrounds",
       "filePath": "generated/5etools/compendium/backgrounds.json",
       "recordCount": 157
@@ -136,6 +151,12 @@
       "entityType": "compendium",
       "chunkId": "classes",
       "filePath": "generated/5etools/compendium/classes.json",
+      "recordCount": 30
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "conditions",
+      "filePath": "generated/5etools/compendium/conditions.json",
       "recordCount": 30
     },
     {
@@ -173,6 +194,18 @@
       "chunkId": "subclasses",
       "filePath": "generated/5etools/compendium/subclasses.json",
       "recordCount": 315
+    },
+    {
+      "entityType": "compendium",
+      "chunkId": "variantRules",
+      "filePath": "generated/5etools/compendium/variantRules.json",
+      "recordCount": 230
+    },
+    {
+      "entityType": "conditions",
+      "chunkId": "all",
+      "filePath": "generated/5etools/conditions/all.json",
+      "recordCount": 30
     },
     {
       "entityType": "feats",
@@ -305,6 +338,12 @@
       "chunkId": "level-9",
       "filePath": "generated/5etools/spells/level-9.json",
       "recordCount": 39
+    },
+    {
+      "entityType": "variant-rules",
+      "chunkId": "all",
+      "filePath": "generated/5etools/variant-rules/all.json",
+      "recordCount": 230
     }
   ]
 }
