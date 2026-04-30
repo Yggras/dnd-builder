@@ -6,7 +6,6 @@ import { useQuery } from '@tanstack/react-query';
 import { CompendiumDetailHeader } from '@/features/compendium/components/CompendiumDetailHeader';
 import { DetailFactGrid } from '@/features/compendium/components/DetailFactGrid';
 import { DetailSection } from '@/features/compendium/components/DetailSection';
-import { DetailSummarySection } from '@/features/compendium/components/DetailSummarySection';
 import { FeatureProgressionList } from '@/features/compendium/components/FeatureProgressionList';
 import { RenderBlockList } from '@/features/compendium/components/RenderBlockList';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
@@ -67,7 +66,6 @@ export function SubclassDetailView({ entry }: SubclassDetailViewProps) {
           </View>
         </DetailSection>
       ) : null}
-      <DetailSummarySection summary={entry.summary} />
       {renderBlocks.length > 0 ? (
         <DetailSection title="Details">
           <RenderBlockList blocks={renderBlocks} />

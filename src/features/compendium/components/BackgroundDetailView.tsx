@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query';
 import { CompendiumDetailHeader } from '@/features/compendium/components/CompendiumDetailHeader';
 import { DetailFactGrid } from '@/features/compendium/components/DetailFactGrid';
 import { DetailSection } from '@/features/compendium/components/DetailSection';
-import { DetailSummarySection } from '@/features/compendium/components/DetailSummarySection';
 import { RenderBlockList } from '@/features/compendium/components/RenderBlockList';
 import { RichTextLine } from '@/features/compendium/components/RichTextLine';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
@@ -44,7 +43,6 @@ export function BackgroundDetailView({ entry }: BackgroundDetailViewProps) {
           <RichTextLine tokens={parseInlineText(equipmentSummary)} />
         </DetailSection>
       ) : null}
-      <DetailSummarySection summary={entry.summary} />
       <DetailSection title="Details">
         <RenderBlockList blocks={buildRenderBlocks(entry)} />
       </DetailSection>
