@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "wizard",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "wizard|xphb",
@@ -203,6 +203,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Wizard|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -293,6 +294,7 @@
             ]
           },
           {
+            "ref": "Ritual Adept|Wizard|XPHB|1",
             "name": "Ritual Adept",
             "level": 1,
             "sourceCode": "XPHB",
@@ -302,6 +304,7 @@
             ]
           },
           {
+            "ref": "Arcane Recovery|Wizard|XPHB|1",
             "name": "Arcane Recovery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -312,6 +315,7 @@
             ]
           },
           {
+            "ref": "Scholar|Wizard|XPHB|2",
             "name": "Scholar",
             "level": 2,
             "sourceCode": "XPHB",
@@ -321,6 +325,7 @@
             ]
           },
           {
+            "ref": "Wizard Subclass|Wizard|XPHB|3",
             "name": "Wizard Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -330,6 +335,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -339,6 +345,7 @@
             ]
           },
           {
+            "ref": "Memorize Spell|Wizard|XPHB|5",
             "name": "Memorize Spell",
             "level": 5,
             "sourceCode": "XPHB",
@@ -348,6 +355,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -357,6 +365,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -366,6 +375,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -375,6 +385,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -384,6 +395,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -393,6 +405,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -402,6 +415,7 @@
             ]
           },
           {
+            "ref": "Spell Mastery|Wizard|XPHB|18",
             "name": "Spell Mastery",
             "level": 18,
             "sourceCode": "XPHB",
@@ -412,6 +426,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Wizard|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -421,6 +436,7 @@
             ]
           },
           {
+            "ref": "Signature Spells|Wizard|XPHB|20",
             "name": "Signature Spells",
             "level": 20,
             "sourceCode": "XPHB",
@@ -464,6 +480,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Abjurer|Wizard|XPHB|Abjurer|XPHB|3",
               "name": "Abjurer",
               "level": 3,
               "sourceCode": "XPHB",
@@ -491,6 +508,7 @@
               ]
             },
             {
+              "ref": "Projected Ward|Wizard|XPHB|Abjurer|XPHB|6",
               "name": "Projected Ward",
               "level": 6,
               "sourceCode": "XPHB",
@@ -500,6 +518,7 @@
               ]
             },
             {
+              "ref": "Spell Breaker|Wizard|XPHB|Abjurer|XPHB|10",
               "name": "Spell Breaker",
               "level": 10,
               "sourceCode": "XPHB",
@@ -510,6 +529,7 @@
               ]
             },
             {
+              "ref": "Spell Resistance|Wizard|XPHB|Abjurer|XPHB|14",
               "name": "Spell Resistance",
               "level": 14,
               "sourceCode": "XPHB",
@@ -552,6 +572,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Bladesinger|Wizard|XPHB|Bladesinger|FRHoF|3|FRHoF",
               "name": "Bladesinger",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -601,6 +622,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Wizard|XPHB|Bladesinger|FRHoF|6|FRHoF",
               "name": "Extra Attack",
               "level": 6,
               "sourceCode": "FRHoF",
@@ -610,6 +632,7 @@
               ]
             },
             {
+              "ref": "Song of Defense|Wizard|XPHB|Bladesinger|FRHoF|10|FRHoF",
               "name": "Song of Defense",
               "level": 10,
               "sourceCode": "FRHoF",
@@ -619,6 +642,7 @@
               ]
             },
             {
+              "ref": "Song of Victory|Wizard|XPHB|Bladesinger|FRHoF|14|FRHoF",
               "name": "Song of Victory",
               "level": 14,
               "sourceCode": "FRHoF",
@@ -661,6 +685,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Bladesinging|Wizard|XPHB|Bladesinging|TCE|3",
               "name": "Bladesinging",
               "level": 3,
               "sourceCode": "TCE",
@@ -727,6 +752,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Wizard||Bladesinging|TCE|6",
               "name": "Extra Attack",
               "level": 6,
               "sourceCode": "TCE",
@@ -736,6 +762,7 @@
               ]
             },
             {
+              "ref": "Song of Defense|Wizard||Bladesinging|TCE|10",
               "name": "Song of Defense",
               "level": 10,
               "sourceCode": "TCE",
@@ -745,6 +772,7 @@
               ]
             },
             {
+              "ref": "Song of Victory|Wizard||Bladesinging|TCE|14",
               "name": "Song of Victory",
               "level": 14,
               "sourceCode": "TCE",
@@ -787,6 +815,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Chronurgy Magic|Wizard|XPHB|Chronurgy|EGW|3",
               "name": "Chronurgy Magic",
               "level": 3,
               "sourceCode": "EGW",
@@ -814,6 +843,7 @@
               ]
             },
             {
+              "ref": "Momentary Stasis|Wizard||Chronurgy|EGW|6",
               "name": "Momentary Stasis",
               "level": 6,
               "sourceCode": "EGW",
@@ -825,6 +855,7 @@
               ]
             },
             {
+              "ref": "Arcane Abeyance|Wizard||Chronurgy|EGW|10",
               "name": "Arcane Abeyance",
               "level": 10,
               "sourceCode": "EGW",
@@ -837,6 +868,7 @@
               ]
             },
             {
+              "ref": "Convergent Future|Wizard||Chronurgy|EGW|14",
               "name": "Convergent Future",
               "level": 14,
               "sourceCode": "EGW",
@@ -881,6 +913,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Diviner|Wizard|XPHB|Diviner|XPHB|3",
               "name": "Diviner",
               "level": 3,
               "sourceCode": "XPHB",
@@ -907,6 +940,7 @@
               ]
             },
             {
+              "ref": "Expert Divination|Wizard|XPHB|Diviner|XPHB|6",
               "name": "Expert Divination",
               "level": 6,
               "sourceCode": "XPHB",
@@ -916,6 +950,7 @@
               ]
             },
             {
+              "ref": "The Third Eye|Wizard|XPHB|Diviner|XPHB|10",
               "name": "The Third Eye",
               "level": 10,
               "sourceCode": "XPHB",
@@ -951,6 +986,7 @@
               ]
             },
             {
+              "ref": "Greater Portent|Wizard|XPHB|Diviner|XPHB|14",
               "name": "Greater Portent",
               "level": 14,
               "sourceCode": "XPHB",
@@ -993,6 +1029,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Evoker|Wizard|XPHB|Evoker|XPHB|3",
               "name": "Evoker",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1018,6 +1055,7 @@
               ]
             },
             {
+              "ref": "Sculpt Spells|Wizard|XPHB|Evoker|XPHB|6",
               "name": "Sculpt Spells",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1027,6 +1065,7 @@
               ]
             },
             {
+              "ref": "Empowered Evocation|Wizard|XPHB|Evoker|XPHB|10",
               "name": "Empowered Evocation",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1036,6 +1075,7 @@
               ]
             },
             {
+              "ref": "Overchannel|Wizard|XPHB|Evoker|XPHB|14",
               "name": "Overchannel",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1080,6 +1120,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Graviturgy Magic|Wizard|XPHB|Graviturgy|EGW|3",
               "name": "Graviturgy Magic",
               "level": 3,
               "sourceCode": "EGW",
@@ -1100,6 +1141,7 @@
               ]
             },
             {
+              "ref": "Gravity Well|Wizard||Graviturgy|EGW|6",
               "name": "Gravity Well",
               "level": 6,
               "sourceCode": "EGW",
@@ -1110,6 +1152,7 @@
               ]
             },
             {
+              "ref": "Violent Attraction|Wizard||Graviturgy|EGW|10",
               "name": "Violent Attraction",
               "level": 10,
               "sourceCode": "EGW",
@@ -1122,6 +1165,7 @@
               ]
             },
             {
+              "ref": "Event Horizon|Wizard||Graviturgy|EGW|14",
               "name": "Event Horizon",
               "level": 14,
               "sourceCode": "EGW",
@@ -1166,6 +1210,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Illusionist|Wizard|XPHB|Illusionist|XPHB|3",
               "name": "Illusionist",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1192,6 +1237,7 @@
               ]
             },
             {
+              "ref": "Phantasmal Creatures|Wizard|XPHB|Illusionist|XPHB|6",
               "name": "Phantasmal Creatures",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1201,6 +1247,7 @@
               ]
             },
             {
+              "ref": "Illusory Self|Wizard|XPHB|Illusionist|XPHB|10",
               "name": "Illusory Self",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1211,6 +1258,7 @@
               ]
             },
             {
+              "ref": "Illusory Reality|Wizard|XPHB|Illusionist|XPHB|14",
               "name": "Illusory Reality",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1253,6 +1301,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of Scribes|Wizard|XPHB|Scribes|TCE|3",
               "name": "Order of Scribes",
               "level": 3,
               "sourceCode": "TCE",
@@ -1298,6 +1347,7 @@
               ]
             },
             {
+              "ref": "Manifest Mind|Wizard||Scribes|TCE|6",
               "name": "Manifest Mind",
               "level": 6,
               "sourceCode": "TCE",
@@ -1313,6 +1363,7 @@
               ]
             },
             {
+              "ref": "Master Scrivener|Wizard||Scribes|TCE|10",
               "name": "Master Scrivener",
               "level": 10,
               "sourceCode": "TCE",
@@ -1325,6 +1376,7 @@
               ]
             },
             {
+              "ref": "One with the Word|Wizard||Scribes|TCE|14",
               "name": "One with the Word",
               "level": 14,
               "sourceCode": "TCE",
@@ -1371,6 +1423,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Abjuration|Wizard|XPHB|Abjuration||3",
               "name": "School of Abjuration",
               "level": 3,
               "sourceCode": "PHB",
@@ -1397,6 +1450,7 @@
               ]
             },
             {
+              "ref": "Projected Ward|Wizard||Abjuration||6",
               "name": "Projected Ward",
               "level": 6,
               "sourceCode": "PHB",
@@ -1406,6 +1460,7 @@
               ]
             },
             {
+              "ref": "Improved Abjuration|Wizard||Abjuration||10",
               "name": "Improved Abjuration",
               "level": 10,
               "sourceCode": "PHB",
@@ -1415,6 +1470,7 @@
               ]
             },
             {
+              "ref": "Spell Resistance|Wizard||Abjuration||14",
               "name": "Spell Resistance",
               "level": 14,
               "sourceCode": "PHB",
@@ -1458,6 +1514,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Conjuration|Wizard|XPHB|Conjuration||3",
               "name": "School of Conjuration",
               "level": 3,
               "sourceCode": "PHB",
@@ -1482,6 +1539,7 @@
               ]
             },
             {
+              "ref": "Benign Transposition|Wizard||Conjuration||6",
               "name": "Benign Transposition",
               "level": 6,
               "sourceCode": "PHB",
@@ -1492,6 +1550,7 @@
               ]
             },
             {
+              "ref": "Focused Conjuration|Wizard||Conjuration||10",
               "name": "Focused Conjuration",
               "level": 10,
               "sourceCode": "PHB",
@@ -1501,6 +1560,7 @@
               ]
             },
             {
+              "ref": "Durable Summons|Wizard||Conjuration||14",
               "name": "Durable Summons",
               "level": 14,
               "sourceCode": "PHB",
@@ -1543,6 +1603,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Divination|Wizard|XPHB|Divination||3",
               "name": "School of Divination",
               "level": 3,
               "sourceCode": "PHB",
@@ -1567,6 +1628,7 @@
               ]
             },
             {
+              "ref": "Expert Divination|Wizard||Divination||6",
               "name": "Expert Divination",
               "level": 6,
               "sourceCode": "PHB",
@@ -1576,6 +1638,7 @@
               ]
             },
             {
+              "ref": "The Third Eye|Wizard||Divination||10",
               "name": "The Third Eye",
               "level": 10,
               "sourceCode": "PHB",
@@ -1618,6 +1681,7 @@
               ]
             },
             {
+              "ref": "Greater Portent|Wizard||Divination||14",
               "name": "Greater Portent",
               "level": 14,
               "sourceCode": "PHB",
@@ -1660,6 +1724,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Enchantment|Wizard|XPHB|Enchantment||3",
               "name": "School of Enchantment",
               "level": 3,
               "sourceCode": "PHB",
@@ -1685,6 +1750,7 @@
               ]
             },
             {
+              "ref": "Instinctive Charm|Wizard||Enchantment||6",
               "name": "Instinctive Charm",
               "level": 6,
               "sourceCode": "PHB",
@@ -1695,6 +1761,7 @@
               ]
             },
             {
+              "ref": "Split Enchantment|Wizard||Enchantment||10",
               "name": "Split Enchantment",
               "level": 10,
               "sourceCode": "PHB",
@@ -1704,6 +1771,7 @@
               ]
             },
             {
+              "ref": "Alter Memories|Wizard||Enchantment||14",
               "name": "Alter Memories",
               "level": 14,
               "sourceCode": "PHB",
@@ -1747,6 +1815,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Evocation|Wizard|XPHB|Evocation||3",
               "name": "School of Evocation",
               "level": 3,
               "sourceCode": "PHB",
@@ -1770,6 +1839,7 @@
               ]
             },
             {
+              "ref": "Potent Cantrip|Wizard||Evocation||6",
               "name": "Potent Cantrip",
               "level": 6,
               "sourceCode": "PHB",
@@ -1779,6 +1849,7 @@
               ]
             },
             {
+              "ref": "Empowered Evocation|Wizard||Evocation||10",
               "name": "Empowered Evocation",
               "level": 10,
               "sourceCode": "PHB",
@@ -1788,6 +1859,7 @@
               ]
             },
             {
+              "ref": "Overchannel|Wizard||Evocation||14",
               "name": "Overchannel",
               "level": 14,
               "sourceCode": "PHB",
@@ -1831,6 +1903,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Illusion|Wizard|XPHB|Illusion||3",
               "name": "School of Illusion",
               "level": 3,
               "sourceCode": "PHB",
@@ -1855,6 +1928,7 @@
               ]
             },
             {
+              "ref": "Malleable Illusions|Wizard||Illusion||6",
               "name": "Malleable Illusions",
               "level": 6,
               "sourceCode": "PHB",
@@ -1864,6 +1938,7 @@
               ]
             },
             {
+              "ref": "Illusory Self|Wizard||Illusion||10",
               "name": "Illusory Self",
               "level": 10,
               "sourceCode": "PHB",
@@ -1874,6 +1949,7 @@
               ]
             },
             {
+              "ref": "Illusory Reality|Wizard||Illusion||14",
               "name": "Illusory Reality",
               "level": 14,
               "sourceCode": "PHB",
@@ -1917,6 +1993,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Necromancy|Wizard|XPHB|Necromancy||3",
               "name": "School of Necromancy",
               "level": 3,
               "sourceCode": "PHB",
@@ -1941,6 +2018,7 @@
               ]
             },
             {
+              "ref": "Undead Thralls|Wizard||Necromancy||6",
               "name": "Undead Thralls",
               "level": 6,
               "sourceCode": "PHB",
@@ -1958,6 +2036,7 @@
               ]
             },
             {
+              "ref": "Inured to Undeath|Wizard||Necromancy||10",
               "name": "Inured to Undeath",
               "level": 10,
               "sourceCode": "PHB",
@@ -1967,6 +2046,7 @@
               ]
             },
             {
+              "ref": "Command Undead|Wizard||Necromancy||14",
               "name": "Command Undead",
               "level": 14,
               "sourceCode": "PHB",
@@ -2010,6 +2090,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "School of Transmutation|Wizard|XPHB|Transmutation||3",
               "name": "School of Transmutation",
               "level": 3,
               "sourceCode": "PHB",
@@ -2034,6 +2115,7 @@
               ]
             },
             {
+              "ref": "Transmuter's Stone|Wizard||Transmutation||6",
               "name": "Transmuter's Stone",
               "level": 6,
               "sourceCode": "PHB",
@@ -2054,6 +2136,7 @@
               ]
             },
             {
+              "ref": "Shapechanger|Wizard||Transmutation||10",
               "name": "Shapechanger",
               "level": 10,
               "sourceCode": "PHB",
@@ -2064,6 +2147,7 @@
               ]
             },
             {
+              "ref": "Master Transmuter|Wizard||Transmutation||14",
               "name": "Master Transmuter",
               "level": 14,
               "sourceCode": "PHB",
@@ -2139,6 +2223,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "War Magic|Wizard|XPHB|War|XGE|3",
               "name": "War Magic",
               "level": 3,
               "sourceCode": "XGE",
@@ -2165,6 +2250,7 @@
               ]
             },
             {
+              "ref": "Power Surge|Wizard||War|XGE|6",
               "name": "Power Surge",
               "level": 6,
               "sourceCode": "XGE",
@@ -2176,6 +2262,7 @@
               ]
             },
             {
+              "ref": "Durable Magic|Wizard||War|XGE|10",
               "name": "Durable Magic",
               "level": 10,
               "sourceCode": "XGE",
@@ -2185,6 +2272,7 @@
               ]
             },
             {
+              "ref": "Deflecting Shroud|Wizard||War|XGE|14",
               "name": "Deflecting Shroud",
               "level": 14,
               "sourceCode": "XGE",

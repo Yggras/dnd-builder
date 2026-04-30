@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "mystic",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "mystic|uathemysticclass",
@@ -156,6 +156,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Psionics|Mystic|UATheMysticClass|1",
             "name": "Psionics",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -225,6 +226,7 @@
             ]
           },
           {
+            "ref": "Psionic Disciplines and Talents|Mystic|UATheMysticClass|1",
             "name": "Psionic Disciplines and Talents",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -235,6 +237,7 @@
             ]
           },
           {
+            "ref": "Using a Discipline|Mystic|UATheMysticClass|1",
             "name": "Using a Discipline",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -313,6 +316,7 @@
             ]
           },
           {
+            "ref": "Mystic Order|Mystic|UATheMysticClass|1",
             "name": "Mystic Order",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -323,6 +327,7 @@
             ]
           },
           {
+            "ref": "Mystical Recovery|Mystic|UATheMysticClass|2",
             "name": "Mystical Recovery",
             "level": 2,
             "sourceCode": "UATheMysticClass",
@@ -333,6 +338,7 @@
             ]
           },
           {
+            "ref": "Telepathy|Mystic|UATheMysticClass|2",
             "name": "Telepathy",
             "level": 2,
             "sourceCode": "UATheMysticClass",
@@ -342,6 +348,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|3",
             "name": "Mystic Order feature",
             "level": 3,
             "sourceCode": "UATheMysticClass",
@@ -351,6 +358,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "UATheMysticClass",
@@ -360,6 +368,7 @@
             ]
           },
           {
+            "ref": "Strength of Mind|Mystic|UATheMysticClass|4",
             "name": "Strength of Mind",
             "level": 4,
             "sourceCode": "UATheMysticClass",
@@ -370,6 +379,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|6",
             "name": "Mystic Order feature",
             "level": 6,
             "sourceCode": "UATheMysticClass",
@@ -379,6 +389,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "UATheMysticClass",
@@ -388,6 +399,7 @@
             ]
           },
           {
+            "ref": "Potent Psionics (1d8)|Mystic|UATheMysticClass|8",
             "name": "Potent Psionics (1d8)",
             "level": 8,
             "sourceCode": "UATheMysticClass",
@@ -398,6 +410,7 @@
             ]
           },
           {
+            "ref": "Consumptive Power|Mystic|UATheMysticClass|10",
             "name": "Consumptive Power",
             "level": 10,
             "sourceCode": "UATheMysticClass",
@@ -408,6 +421,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (1/Day)|Mystic|UATheMysticClass|11",
             "name": "Psionic Mastery (1/Day)",
             "level": 11,
             "sourceCode": "UATheMysticClass",
@@ -420,6 +434,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "UATheMysticClass",
@@ -429,6 +444,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (2/Day)|Mystic|UATheMysticClass|13",
             "name": "Psionic Mastery (2/Day)",
             "level": 13,
             "sourceCode": "UATheMysticClass",
@@ -438,6 +454,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|14",
             "name": "Mystic Order feature",
             "level": 14,
             "sourceCode": "UATheMysticClass",
@@ -447,6 +464,7 @@
             ]
           },
           {
+            "ref": "Potent Psionics (2d8)|Mystic|UATheMysticClass|14",
             "name": "Potent Psionics (2d8)",
             "level": 14,
             "sourceCode": "UATheMysticClass",
@@ -456,6 +474,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (3/Day)|Mystic|UATheMysticClass|15",
             "name": "Psionic Mastery (3/Day)",
             "level": 15,
             "sourceCode": "UATheMysticClass",
@@ -465,6 +484,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "UATheMysticClass",
@@ -474,6 +494,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (4/Day)|Mystic|UATheMysticClass|17",
             "name": "Psionic Mastery (4/Day)",
             "level": 17,
             "sourceCode": "UATheMysticClass",
@@ -483,6 +504,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "UATheMysticClass",
@@ -492,6 +514,7 @@
             ]
           },
           {
+            "ref": "Psionic Body|Mystic|UATheMysticClass|20",
             "name": "Psionic Body",
             "level": 20,
             "sourceCode": "UATheMysticClass",
@@ -544,6 +567,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Avatar|Mystic|UATheMysticClass|Avatar|UATheMysticClass|1",
               "name": "Order of the Avatar",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -568,6 +592,7 @@
               ]
             },
             {
+              "ref": "Avatar of Battle|Mystic|UATheMysticClass|Avatar|UATheMysticClass|3",
               "name": "Avatar of Battle",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -577,6 +602,7 @@
               ]
             },
             {
+              "ref": "Avatar of Healing|Mystic|UATheMysticClass|Avatar|UATheMysticClass|6",
               "name": "Avatar of Healing",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -586,6 +612,7 @@
               ]
             },
             {
+              "ref": "Avatar of Speed|Mystic|UATheMysticClass|Avatar|UATheMysticClass|14",
               "name": "Avatar of Speed",
               "level": 14,
               "sourceCode": "UATheMysticClass",
@@ -628,6 +655,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Awakened|Mystic|UATheMysticClass|Awakened|UATheMysticClass|1",
               "name": "Order of the Awakened",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -652,6 +680,7 @@
               ]
             },
             {
+              "ref": "Psionic Investigation|Mystic|UATheMysticClass|Awakened|UATheMysticClass|3",
               "name": "Psionic Investigation",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -664,6 +693,7 @@
               ]
             },
             {
+              "ref": "Psionic Surge|Mystic|UATheMysticClass|Awakened|UATheMysticClass|6",
               "name": "Psionic Surge",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -674,6 +704,7 @@
               ]
             },
             {
+              "ref": "Spectral Form|Mystic|UATheMysticClass|Awakened|UATheMysticClass|14",
               "name": "Spectral Form",
               "level": 14,
               "sourceCode": "UATheMysticClass",
@@ -717,6 +748,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Immortal|Mystic|UATheMysticClass|Immortal|UATheMysticClass|1",
               "name": "Order of the Immortal",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -742,6 +774,7 @@
               ]
             },
             {
+              "ref": "Psionic Resilience|Mystic|UATheMysticClass|Immortal|UATheMysticClass|3",
               "name": "Psionic Resilience",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -751,6 +784,7 @@
               ]
             },
             {
+              "ref": "Surge of Health|Mystic|UATheMysticClass|Immortal|UATheMysticClass|6",
               "name": "Surge of Health",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -761,6 +795,7 @@
               ]
             },
             {
+              "ref": "Immortal Will|Mystic|UATheMysticClass|Immortal|UATheMysticClass|14",
               "name": "Immortal Will",
               "level": 14,
               "sourceCode": "UATheMysticClass",
@@ -803,6 +838,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Nomad|Mystic|UATheMysticClass|Nomad|UATheMysticClass|1",
               "name": "Order of the Nomad",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -827,6 +863,7 @@
               ]
             },
             {
+              "ref": "Memory of One Thousand Steps|Mystic|UATheMysticClass|Nomad|UATheMysticClass|3",
               "name": "Memory of One Thousand Steps",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -836,6 +873,7 @@
               ]
             },
             {
+              "ref": "Superior Teleportation|Mystic|UATheMysticClass|Nomad|UATheMysticClass|6",
               "name": "Superior Teleportation",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -845,6 +883,7 @@
               ]
             },
             {
+              "ref": "Effortless Journey|Mystic|UATheMysticClass|Nomad|UATheMysticClass|14",
               "name": "Effortless Journey",
               "level": 14,
               "sourceCode": "UATheMysticClass",
@@ -887,6 +926,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Soul Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|1",
               "name": "Order of the Soul Knife",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -913,6 +953,7 @@
               ]
             },
             {
+              "ref": "Hone the Blade|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|3",
               "name": "Hone the Blade",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -947,6 +988,7 @@
               ]
             },
             {
+              "ref": "Consumptive Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|6",
               "name": "Consumptive Knife",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -956,6 +998,7 @@
               ]
             },
             {
+              "ref": "Phantom Knife|Mystic|UATheMysticClass|Soul Knife|UATheMysticClass|14",
               "name": "Phantom Knife",
               "level": 14,
               "sourceCode": "UATheMysticClass",
@@ -998,6 +1041,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Order of the Wu Jen|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|1",
               "name": "Order of the Wu Jen",
               "level": 1,
               "sourceCode": "UATheMysticClass",
@@ -1022,6 +1066,7 @@
               ]
             },
             {
+              "ref": "Elemental Attunement|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|3",
               "name": "Elemental Attunement",
               "level": 3,
               "sourceCode": "UATheMysticClass",
@@ -1031,6 +1076,7 @@
               ]
             },
             {
+              "ref": "Arcane Dabbler|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|6",
               "name": "Arcane Dabbler",
               "level": 6,
               "sourceCode": "UATheMysticClass",
@@ -1076,6 +1122,7 @@
               ]
             },
             {
+              "ref": "Elemental Mastery|Mystic|UATheMysticClass|Wu Jen|UATheMysticClass|14",
               "name": "Elemental Mastery",
               "level": 14,
               "sourceCode": "UATheMysticClass",

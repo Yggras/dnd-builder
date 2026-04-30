@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "artificer",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "artificer|efa",
@@ -213,6 +213,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Artificer|EFA|1|EFA",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "EFA",
@@ -273,6 +274,7 @@
             ]
           },
           {
+            "ref": "Tinker's Magic|Artificer|EFA|1|EFA",
             "name": "Tinker's Magic",
             "level": 1,
             "sourceCode": "EFA",
@@ -323,6 +325,7 @@
             ]
           },
           {
+            "ref": "Replicate Magic Item|Artificer|EFA|2|EFA",
             "name": "Replicate Magic Item",
             "level": 2,
             "sourceCode": "EFA",
@@ -667,6 +670,7 @@
             ]
           },
           {
+            "ref": "Artificer Subclass|Artificer|EFA|3|EFA",
             "name": "Artificer Subclass",
             "level": 3,
             "sourceCode": "EFA",
@@ -676,6 +680,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|4|EFA",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "EFA",
@@ -685,6 +690,7 @@
             ]
           },
           {
+            "ref": "Subclass feature|Artificer|EFA|5|EFA",
             "name": "Subclass feature",
             "level": 5,
             "sourceCode": "EFA",
@@ -694,6 +700,7 @@
             ]
           },
           {
+            "ref": "Magic Item Tinker|Artificer|EFA|6|EFA",
             "name": "Magic Item Tinker",
             "level": 6,
             "sourceCode": "EFA",
@@ -729,6 +736,7 @@
             ]
           },
           {
+            "ref": "Flash of Genius|Artificer|EFA|7|EFA",
             "name": "Flash of Genius",
             "level": 7,
             "sourceCode": "EFA",
@@ -739,6 +747,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|8|EFA",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "EFA",
@@ -748,6 +757,7 @@
             ]
           },
           {
+            "ref": "Subclass feature|Artificer|EFA|9|EFA",
             "name": "Subclass feature",
             "level": 9,
             "sourceCode": "EFA",
@@ -757,6 +767,7 @@
             ]
           },
           {
+            "ref": "Magic Item Adept|Artificer|EFA|10|EFA",
             "name": "Magic Item Adept",
             "level": 10,
             "sourceCode": "EFA",
@@ -766,6 +777,7 @@
             ]
           },
           {
+            "ref": "Spell-Storing Item|Artificer|EFA|11|EFA",
             "name": "Spell-Storing Item",
             "level": 11,
             "sourceCode": "EFA",
@@ -777,6 +789,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|12|EFA",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "EFA",
@@ -786,6 +799,7 @@
             ]
           },
           {
+            "ref": "Advanced Artifice|Artificer|EFA|14|EFA",
             "name": "Advanced Artifice",
             "level": 14,
             "sourceCode": "EFA",
@@ -814,6 +828,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Artificer|EFA|15|EFA",
             "name": "Subclass feature",
             "level": 15,
             "sourceCode": "EFA",
@@ -823,6 +838,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|16|EFA",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "EFA",
@@ -832,6 +848,7 @@
             ]
           },
           {
+            "ref": "Magic Item Master|Artificer|EFA|18|EFA",
             "name": "Magic Item Master",
             "level": 18,
             "sourceCode": "EFA",
@@ -841,6 +858,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Artificer|EFA|19|EFA",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "EFA",
@@ -850,6 +868,7 @@
             ]
           },
           {
+            "ref": "Soul of Artifice|Artificer|EFA|20|EFA",
             "name": "Soul of Artifice",
             "level": 20,
             "sourceCode": "EFA",
@@ -912,6 +931,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Alchemist|Artificer|TCE|Alchemist|TCE|3",
               "name": "Alchemist",
               "level": 3,
               "sourceCode": "TCE",
@@ -1017,6 +1037,7 @@
               ]
             },
             {
+              "ref": "Alchemical Savant|Artificer|TCE|Alchemist|TCE|5",
               "name": "Alchemical Savant",
               "level": 5,
               "sourceCode": "TCE",
@@ -1026,6 +1047,7 @@
               ]
             },
             {
+              "ref": "Restorative Reagents|Artificer|TCE|Alchemist|TCE|9",
               "name": "Restorative Reagents",
               "level": 9,
               "sourceCode": "TCE",
@@ -1042,6 +1064,7 @@
               ]
             },
             {
+              "ref": "Chemical Mastery|Artificer|TCE|Alchemist|TCE|15",
               "name": "Chemical Mastery",
               "level": 15,
               "sourceCode": "TCE",
@@ -1091,6 +1114,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Armorer|Artificer|TCE|Armorer|TCE|3",
               "name": "Armorer",
               "level": 3,
               "sourceCode": "TCE",
@@ -1244,6 +1268,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Artificer|TCE|Armorer|TCE|5",
               "name": "Extra Attack",
               "level": 5,
               "sourceCode": "TCE",
@@ -1254,6 +1279,7 @@
               ]
             },
             {
+              "ref": "Armor Modifications|Artificer|TCE|Armorer|TCE|9",
               "name": "Armor Modifications",
               "level": 9,
               "sourceCode": "TCE",
@@ -1264,6 +1290,7 @@
               ]
             },
             {
+              "ref": "Perfected Armor|Artificer|TCE|Armorer|TCE|15",
               "name": "Perfected Armor",
               "level": 15,
               "sourceCode": "TCE",
@@ -1322,6 +1349,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Artillerist|Artificer|TCE|Artillerist|TCE|3",
               "name": "Artillerist",
               "level": 3,
               "sourceCode": "TCE",
@@ -1416,6 +1444,7 @@
               ]
             },
             {
+              "ref": "Arcane Firearm|Artificer|TCE|Artillerist|TCE|5",
               "name": "Arcane Firearm",
               "level": 5,
               "sourceCode": "TCE",
@@ -1426,6 +1455,7 @@
               ]
             },
             {
+              "ref": "Explosive Cannon|Artificer|TCE|Artillerist|TCE|9",
               "name": "Explosive Cannon",
               "level": 9,
               "sourceCode": "TCE",
@@ -1442,6 +1472,7 @@
               ]
             },
             {
+              "ref": "Fortified Position|Artificer|TCE|Artillerist|TCE|15",
               "name": "Fortified Position",
               "level": 15,
               "sourceCode": "TCE",
@@ -1491,6 +1522,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Battle Smith|Artificer|TCE|Battle Smith|TCE|3",
               "name": "Battle Smith",
               "level": 3,
               "sourceCode": "TCE",
@@ -1573,6 +1605,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Artificer|TCE|Battle Smith|TCE|5",
               "name": "Extra Attack",
               "level": 5,
               "sourceCode": "TCE",
@@ -1582,6 +1615,7 @@
               ]
             },
             {
+              "ref": "Arcane Jolt|Artificer|TCE|Battle Smith|TCE|9",
               "name": "Arcane Jolt",
               "level": 9,
               "sourceCode": "TCE",
@@ -1599,6 +1633,7 @@
               ]
             },
             {
+              "ref": "Improved Defender|Artificer|TCE|Battle Smith|TCE|15",
               "name": "Improved Defender",
               "level": 15,
               "sourceCode": "TCE",
@@ -1649,6 +1684,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Cartographer|Artificer|EFA|Cartographer|EFA|3|EFA",
               "name": "Cartographer",
               "level": 3,
               "sourceCode": "EFA",
@@ -1765,6 +1801,7 @@
               ]
             },
             {
+              "ref": "Guided Precision|Artificer|EFA|Cartographer|EFA|5|EFA",
               "name": "Guided Precision",
               "level": 5,
               "sourceCode": "EFA",
@@ -1775,6 +1812,7 @@
               ]
             },
             {
+              "ref": "Ingenious Movement|Artificer|EFA|Cartographer|EFA|9|EFA",
               "name": "Ingenious Movement",
               "level": 9,
               "sourceCode": "EFA",
@@ -1784,6 +1822,7 @@
               ]
             },
             {
+              "ref": "Superior Atlas|Artificer|EFA|Cartographer|EFA|15|EFA",
               "name": "Superior Atlas",
               "level": 15,
               "sourceCode": "EFA",

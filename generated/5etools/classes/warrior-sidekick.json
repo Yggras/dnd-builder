@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "warrior-sidekick",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "warrior-sidekick|tce",
@@ -57,6 +57,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Warrior Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -66,6 +67,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Warrior Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -78,6 +80,7 @@
             ]
           },
           {
+            "ref": "Martial Role|Warrior Sidekick|TCE|1",
             "name": "Martial Role",
             "level": 1,
             "sourceCode": "TCE",
@@ -104,6 +107,7 @@
             ]
           },
           {
+            "ref": "Second Wind|Warrior Sidekick|TCE|2",
             "name": "Second Wind",
             "level": 2,
             "sourceCode": "TCE",
@@ -115,6 +119,7 @@
             ]
           },
           {
+            "ref": "Improved Critical|Warrior Sidekick|TCE|3",
             "name": "Improved Critical",
             "level": 3,
             "sourceCode": "TCE",
@@ -125,6 +130,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -136,6 +142,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Warrior Sidekick|TCE|6",
             "name": "Extra Attack",
             "level": 6,
             "sourceCode": "TCE",
@@ -148,6 +155,7 @@
             ]
           },
           {
+            "ref": "Battle Readiness|Warrior Sidekick|TCE|7",
             "name": "Battle Readiness",
             "level": 7,
             "sourceCode": "TCE",
@@ -158,6 +166,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -169,6 +178,7 @@
             ]
           },
           {
+            "ref": "Improved Defense|Warrior Sidekick|TCE|10",
             "name": "Improved Defense",
             "level": 10,
             "sourceCode": "TCE",
@@ -179,6 +189,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Warrior Sidekick|TCE|11",
             "name": "Indomitable",
             "level": 11,
             "sourceCode": "TCE",
@@ -190,6 +201,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -201,6 +213,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|14",
             "name": "Ability Score Improvement",
             "level": 14,
             "sourceCode": "TCE",
@@ -212,6 +225,7 @@
             ]
           },
           {
+            "ref": "Extra Attack Improvement|Warrior Sidekick|TCE|15",
             "name": "Extra Attack Improvement",
             "level": 15,
             "sourceCode": "TCE",
@@ -224,6 +238,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -235,6 +250,7 @@
             ]
           },
           {
+            "ref": "Indomitable Improvement|Warrior Sidekick|TCE|18",
             "name": "Indomitable Improvement",
             "level": 18,
             "sourceCode": "TCE",
@@ -246,6 +262,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "TCE",
@@ -257,6 +274,7 @@
             ]
           },
           {
+            "ref": "Second Wind Improvement|Warrior Sidekick|TCE|20",
             "name": "Second Wind Improvement",
             "level": 20,
             "sourceCode": "TCE",

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "compendium",
   "chunkId": "classes",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": [
     {
       "id": "artificer-efa|compendium",
@@ -201,6 +201,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Artificer|EFA|1|EFA",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "EFA",
@@ -261,6 +262,7 @@
             ]
           },
           {
+            "ref": "Tinker's Magic|Artificer|EFA|1|EFA",
             "name": "Tinker's Magic",
             "level": 1,
             "sourceCode": "EFA",
@@ -311,6 +313,7 @@
             ]
           },
           {
+            "ref": "Replicate Magic Item|Artificer|EFA|2|EFA",
             "name": "Replicate Magic Item",
             "level": 2,
             "sourceCode": "EFA",
@@ -655,6 +658,7 @@
             ]
           },
           {
+            "ref": "Artificer Subclass|Artificer|EFA|3|EFA",
             "name": "Artificer Subclass",
             "level": 3,
             "sourceCode": "EFA",
@@ -664,6 +668,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|4|EFA",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "EFA",
@@ -673,6 +678,7 @@
             ]
           },
           {
+            "ref": "Subclass feature|Artificer|EFA|5|EFA",
             "name": "Subclass feature",
             "level": 5,
             "sourceCode": "EFA",
@@ -682,6 +688,7 @@
             ]
           },
           {
+            "ref": "Magic Item Tinker|Artificer|EFA|6|EFA",
             "name": "Magic Item Tinker",
             "level": 6,
             "sourceCode": "EFA",
@@ -717,6 +724,7 @@
             ]
           },
           {
+            "ref": "Flash of Genius|Artificer|EFA|7|EFA",
             "name": "Flash of Genius",
             "level": 7,
             "sourceCode": "EFA",
@@ -727,6 +735,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|8|EFA",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "EFA",
@@ -736,6 +745,7 @@
             ]
           },
           {
+            "ref": "Subclass feature|Artificer|EFA|9|EFA",
             "name": "Subclass feature",
             "level": 9,
             "sourceCode": "EFA",
@@ -745,6 +755,7 @@
             ]
           },
           {
+            "ref": "Magic Item Adept|Artificer|EFA|10|EFA",
             "name": "Magic Item Adept",
             "level": 10,
             "sourceCode": "EFA",
@@ -754,6 +765,7 @@
             ]
           },
           {
+            "ref": "Spell-Storing Item|Artificer|EFA|11|EFA",
             "name": "Spell-Storing Item",
             "level": 11,
             "sourceCode": "EFA",
@@ -765,6 +777,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|12|EFA",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "EFA",
@@ -774,6 +787,7 @@
             ]
           },
           {
+            "ref": "Advanced Artifice|Artificer|EFA|14|EFA",
             "name": "Advanced Artifice",
             "level": 14,
             "sourceCode": "EFA",
@@ -802,6 +816,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Artificer|EFA|15|EFA",
             "name": "Subclass feature",
             "level": 15,
             "sourceCode": "EFA",
@@ -811,6 +826,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|EFA|16|EFA",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "EFA",
@@ -820,6 +836,7 @@
             ]
           },
           {
+            "ref": "Magic Item Master|Artificer|EFA|18|EFA",
             "name": "Magic Item Master",
             "level": 18,
             "sourceCode": "EFA",
@@ -829,6 +846,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Artificer|EFA|19|EFA",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "EFA",
@@ -838,6 +856,7 @@
             ]
           },
           {
+            "ref": "Soul of Artifice|Artificer|EFA|20|EFA",
             "name": "Soul of Artifice",
             "level": 20,
             "sourceCode": "EFA",
@@ -1073,6 +1092,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Optional Rule: Firearm Proficiency|Artificer|TCE|1",
             "name": "Optional Rule: Firearm Proficiency",
             "level": 1,
             "sourceCode": "TCE",
@@ -1082,6 +1102,7 @@
             ]
           },
           {
+            "ref": "Magical Tinkering|Artificer|TCE|1",
             "name": "Magical Tinkering",
             "level": 1,
             "sourceCode": "TCE",
@@ -1103,6 +1124,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Artificer|TCE|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "TCE",
@@ -1176,6 +1198,7 @@
             ]
           },
           {
+            "ref": "Infuse Item|Artificer|TCE|2",
             "name": "Infuse Item",
             "level": 2,
             "sourceCode": "TCE",
@@ -1214,6 +1237,7 @@
             ]
           },
           {
+            "ref": "Artificer Specialist|Artificer|TCE|3",
             "name": "Artificer Specialist",
             "level": 3,
             "sourceCode": "TCE",
@@ -1224,6 +1248,7 @@
             ]
           },
           {
+            "ref": "The Right Tool for the Job|Artificer|TCE|3",
             "name": "The Right Tool for the Job",
             "level": 3,
             "sourceCode": "TCE",
@@ -1234,6 +1259,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -1245,6 +1271,7 @@
             ]
           },
           {
+            "ref": "Artificer Specialist Feature|Artificer|TCE|5",
             "name": "Artificer Specialist Feature",
             "level": 5,
             "sourceCode": "TCE",
@@ -1255,6 +1282,7 @@
             ]
           },
           {
+            "ref": "Tool Expertise|Artificer|TCE|6",
             "name": "Tool Expertise",
             "level": 6,
             "sourceCode": "TCE",
@@ -1265,6 +1293,7 @@
             ]
           },
           {
+            "ref": "Flash of Genius|Artificer|TCE|7",
             "name": "Flash of Genius",
             "level": 7,
             "sourceCode": "TCE",
@@ -1276,6 +1305,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -1287,6 +1317,7 @@
             ]
           },
           {
+            "ref": "Artificer Specialist Feature|Artificer|TCE|9",
             "name": "Artificer Specialist Feature",
             "level": 9,
             "sourceCode": "TCE",
@@ -1297,6 +1328,7 @@
             ]
           },
           {
+            "ref": "Magic Item Adept|Artificer|TCE|10",
             "name": "Magic Item Adept",
             "level": 10,
             "sourceCode": "TCE",
@@ -1314,6 +1346,7 @@
             ]
           },
           {
+            "ref": "Spell-Storing Item|Artificer|TCE|11",
             "name": "Spell-Storing Item",
             "level": 11,
             "sourceCode": "TCE",
@@ -1325,6 +1358,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -1336,6 +1370,7 @@
             ]
           },
           {
+            "ref": "Magic Item Savant|Artificer|TCE|14",
             "name": "Magic Item Savant",
             "level": 14,
             "sourceCode": "TCE",
@@ -1353,6 +1388,7 @@
             ]
           },
           {
+            "ref": "Artificer Specialist Feature|Artificer|TCE|15",
             "name": "Artificer Specialist Feature",
             "level": 15,
             "sourceCode": "TCE",
@@ -1363,6 +1399,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -1374,6 +1411,7 @@
             ]
           },
           {
+            "ref": "Magic Item Master|Artificer|TCE|18",
             "name": "Magic Item Master",
             "level": 18,
             "sourceCode": "TCE",
@@ -1384,6 +1422,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Artificer|TCE|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "TCE",
@@ -1395,6 +1434,7 @@
             ]
           },
           {
+            "ref": "Soul of Artifice|Artificer|TCE|20",
             "name": "Soul of Artifice",
             "level": 20,
             "sourceCode": "TCE",
@@ -1560,6 +1600,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Rage|Barbarian||1",
             "name": "Rage",
             "level": 1,
             "sourceCode": "PHB",
@@ -1581,6 +1622,7 @@
             ]
           },
           {
+            "ref": "Unarmored Defense|Barbarian||1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "PHB",
@@ -1590,6 +1632,7 @@
             ]
           },
           {
+            "ref": "Danger Sense|Barbarian||2",
             "name": "Danger Sense",
             "level": 2,
             "sourceCode": "PHB",
@@ -1599,6 +1642,7 @@
             ]
           },
           {
+            "ref": "Reckless Attack|Barbarian||2",
             "name": "Reckless Attack",
             "level": 2,
             "sourceCode": "PHB",
@@ -1608,6 +1652,7 @@
             ]
           },
           {
+            "ref": "Primal Path|Barbarian||3",
             "name": "Primal Path",
             "level": 3,
             "sourceCode": "PHB",
@@ -1617,6 +1662,7 @@
             ]
           },
           {
+            "ref": "Primal Knowledge|Barbarian||3|TCE",
             "name": "Primal Knowledge",
             "level": 3,
             "sourceCode": "TCE",
@@ -1627,6 +1673,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -1637,6 +1684,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Barbarian||5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "PHB",
@@ -1646,6 +1694,7 @@
             ]
           },
           {
+            "ref": "Fast Movement|Barbarian||5",
             "name": "Fast Movement",
             "level": 5,
             "sourceCode": "PHB",
@@ -1655,6 +1704,7 @@
             ]
           },
           {
+            "ref": "Path Feature|Barbarian||6",
             "name": "Path Feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -1664,6 +1714,7 @@
             ]
           },
           {
+            "ref": "Feral Instinct|Barbarian||7",
             "name": "Feral Instinct",
             "level": 7,
             "sourceCode": "PHB",
@@ -1674,6 +1725,7 @@
             ]
           },
           {
+            "ref": "Instinctive Pounce|Barbarian||7|TCE",
             "name": "Instinctive Pounce",
             "level": 7,
             "sourceCode": "TCE",
@@ -1684,6 +1736,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -1694,6 +1747,7 @@
             ]
           },
           {
+            "ref": "Brutal Critical (1 die)|Barbarian||9",
             "name": "Brutal Critical (1 die)",
             "level": 9,
             "sourceCode": "PHB",
@@ -1704,6 +1758,7 @@
             ]
           },
           {
+            "ref": "Path feature|Barbarian||10",
             "name": "Path feature",
             "level": 10,
             "sourceCode": "PHB",
@@ -1713,6 +1768,7 @@
             ]
           },
           {
+            "ref": "Relentless Rage|Barbarian||11",
             "name": "Relentless Rage",
             "level": 11,
             "sourceCode": "PHB",
@@ -1723,6 +1779,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -1733,6 +1790,7 @@
             ]
           },
           {
+            "ref": "Brutal Critical (2 dice)|Barbarian||13",
             "name": "Brutal Critical (2 dice)",
             "level": 13,
             "sourceCode": "PHB",
@@ -1743,6 +1801,7 @@
             ]
           },
           {
+            "ref": "Path feature|Barbarian||14",
             "name": "Path feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -1752,6 +1811,7 @@
             ]
           },
           {
+            "ref": "Persistent Rage|Barbarian||15",
             "name": "Persistent Rage",
             "level": 15,
             "sourceCode": "PHB",
@@ -1761,6 +1821,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -1771,6 +1832,7 @@
             ]
           },
           {
+            "ref": "Brutal Critical (3 dice)|Barbarian||17",
             "name": "Brutal Critical (3 dice)",
             "level": 17,
             "sourceCode": "PHB",
@@ -1780,6 +1842,7 @@
             ]
           },
           {
+            "ref": "Indomitable Might|Barbarian||18",
             "name": "Indomitable Might",
             "level": 18,
             "sourceCode": "PHB",
@@ -1789,6 +1852,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -1799,6 +1863,7 @@
             ]
           },
           {
+            "ref": "Primal Champion|Barbarian||20",
             "name": "Primal Champion",
             "level": 20,
             "sourceCode": "PHB",
@@ -1958,6 +2023,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Rage|Barbarian|XPHB|1",
             "name": "Rage",
             "level": 1,
             "sourceCode": "XPHB",
@@ -2018,6 +2084,7 @@
             ]
           },
           {
+            "ref": "Unarmored Defense|Barbarian|XPHB|1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "XPHB",
@@ -2027,6 +2094,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Barbarian|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -2037,6 +2105,7 @@
             ]
           },
           {
+            "ref": "Danger Sense|Barbarian|XPHB|2",
             "name": "Danger Sense",
             "level": 2,
             "sourceCode": "XPHB",
@@ -2046,6 +2115,7 @@
             ]
           },
           {
+            "ref": "Reckless Attack|Barbarian|XPHB|2",
             "name": "Reckless Attack",
             "level": 2,
             "sourceCode": "XPHB",
@@ -2055,6 +2125,7 @@
             ]
           },
           {
+            "ref": "Barbarian Subclass|Barbarian|XPHB|3",
             "name": "Barbarian Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -2064,6 +2135,7 @@
             ]
           },
           {
+            "ref": "Primal Knowledge|Barbarian|XPHB|3",
             "name": "Primal Knowledge",
             "level": 3,
             "sourceCode": "XPHB",
@@ -2074,6 +2146,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -2083,6 +2156,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Barbarian|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -2092,6 +2166,7 @@
             ]
           },
           {
+            "ref": "Fast Movement|Barbarian|XPHB|5",
             "name": "Fast Movement",
             "level": 5,
             "sourceCode": "XPHB",
@@ -2101,6 +2176,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -2110,6 +2186,7 @@
             ]
           },
           {
+            "ref": "Feral Instinct|Barbarian|XPHB|7",
             "name": "Feral Instinct",
             "level": 7,
             "sourceCode": "XPHB",
@@ -2119,6 +2196,7 @@
             ]
           },
           {
+            "ref": "Instinctive Pounce|Barbarian|XPHB|7",
             "name": "Instinctive Pounce",
             "level": 7,
             "sourceCode": "XPHB",
@@ -2128,6 +2206,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -2137,6 +2216,7 @@
             ]
           },
           {
+            "ref": "Brutal Strike|Barbarian|XPHB|9",
             "name": "Brutal Strike",
             "level": 9,
             "sourceCode": "XPHB",
@@ -2165,6 +2245,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -2174,6 +2255,7 @@
             ]
           },
           {
+            "ref": "Relentless Rage|Barbarian|XPHB|11",
             "name": "Relentless Rage",
             "level": 11,
             "sourceCode": "XPHB",
@@ -2184,6 +2266,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -2193,6 +2276,7 @@
             ]
           },
           {
+            "ref": "Improved Brutal Strike|Barbarian|XPHB|13",
             "name": "Improved Brutal Strike",
             "level": 13,
             "sourceCode": "XPHB",
@@ -2221,6 +2305,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -2230,6 +2315,7 @@
             ]
           },
           {
+            "ref": "Persistent Rage|Barbarian|XPHB|15",
             "name": "Persistent Rage",
             "level": 15,
             "sourceCode": "XPHB",
@@ -2240,6 +2326,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -2249,6 +2336,7 @@
             ]
           },
           {
+            "ref": "Improved Brutal Strike|Barbarian|XPHB|17",
             "name": "Improved Brutal Strike",
             "level": 17,
             "sourceCode": "XPHB",
@@ -2258,6 +2346,7 @@
             ]
           },
           {
+            "ref": "Indomitable Might|Barbarian|XPHB|18",
             "name": "Indomitable Might",
             "level": 18,
             "sourceCode": "XPHB",
@@ -2267,6 +2356,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Barbarian|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -2276,6 +2366,7 @@
             ]
           },
           {
+            "ref": "Primal Champion|Barbarian|XPHB|20",
             "name": "Primal Champion",
             "level": 20,
             "sourceCode": "XPHB",
@@ -2480,6 +2571,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Bardic Inspiration|Bard||1",
             "name": "Bardic Inspiration",
             "level": 1,
             "sourceCode": "PHB",
@@ -2492,6 +2584,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Bard||1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "PHB",
@@ -2560,6 +2653,7 @@
             ]
           },
           {
+            "ref": "Jack of All Trades|Bard||2",
             "name": "Jack of All Trades",
             "level": 2,
             "sourceCode": "PHB",
@@ -2569,6 +2663,7 @@
             ]
           },
           {
+            "ref": "Song of Rest (d6)|Bard||2",
             "name": "Song of Rest (d6)",
             "level": 2,
             "sourceCode": "PHB",
@@ -2579,6 +2674,7 @@
             ]
           },
           {
+            "ref": "Magical Inspiration|Bard||2|TCE",
             "name": "Magical Inspiration",
             "level": 2,
             "sourceCode": "TCE",
@@ -2589,6 +2685,7 @@
             ]
           },
           {
+            "ref": "Bard College|Bard||3",
             "name": "Bard College",
             "level": 3,
             "sourceCode": "PHB",
@@ -2598,6 +2695,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard||3",
             "name": "Expertise",
             "level": 3,
             "sourceCode": "PHB",
@@ -2608,6 +2706,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -2618,6 +2717,7 @@
             ]
           },
           {
+            "ref": "Bardic Versatility|Bard||4|TCE",
             "name": "Bardic Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -2635,6 +2735,7 @@
             ]
           },
           {
+            "ref": "Bardic Inspiration (d8)|Bard||5",
             "name": "Bardic Inspiration (d8)",
             "level": 5,
             "sourceCode": "PHB",
@@ -2644,6 +2745,7 @@
             ]
           },
           {
+            "ref": "Font of Inspiration|Bard||5",
             "name": "Font of Inspiration",
             "level": 5,
             "sourceCode": "PHB",
@@ -2653,6 +2755,7 @@
             ]
           },
           {
+            "ref": "Countercharm|Bard||6",
             "name": "Countercharm",
             "level": 6,
             "sourceCode": "PHB",
@@ -2662,6 +2765,7 @@
             ]
           },
           {
+            "ref": "Bard College feature|Bard||6",
             "name": "Bard College feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -2671,6 +2775,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -2681,6 +2786,7 @@
             ]
           },
           {
+            "ref": "Song of Rest (d8)|Bard||9",
             "name": "Song of Rest (d8)",
             "level": 9,
             "sourceCode": "PHB",
@@ -2690,6 +2796,7 @@
             ]
           },
           {
+            "ref": "Bardic Inspiration (d10)|Bard||10",
             "name": "Bardic Inspiration (d10)",
             "level": 10,
             "sourceCode": "PHB",
@@ -2699,6 +2806,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard||10",
             "name": "Expertise",
             "level": 10,
             "sourceCode": "PHB",
@@ -2708,6 +2816,7 @@
             ]
           },
           {
+            "ref": "Magical Secrets|Bard||10",
             "name": "Magical Secrets",
             "level": 10,
             "sourceCode": "PHB",
@@ -2719,6 +2828,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -2729,6 +2839,7 @@
             ]
           },
           {
+            "ref": "Song of Rest (d10)|Bard||13",
             "name": "Song of Rest (d10)",
             "level": 13,
             "sourceCode": "PHB",
@@ -2738,6 +2849,7 @@
             ]
           },
           {
+            "ref": "Magical Secrets|Bard||14",
             "name": "Magical Secrets",
             "level": 14,
             "sourceCode": "PHB",
@@ -2748,6 +2860,7 @@
             ]
           },
           {
+            "ref": "Bard College feature|Bard||14",
             "name": "Bard College feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -2757,6 +2870,7 @@
             ]
           },
           {
+            "ref": "Bardic Inspiration (d12)|Bard||15",
             "name": "Bardic Inspiration (d12)",
             "level": 15,
             "sourceCode": "PHB",
@@ -2766,6 +2880,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -2776,6 +2891,7 @@
             ]
           },
           {
+            "ref": "Song of Rest (d12)|Bard||17",
             "name": "Song of Rest (d12)",
             "level": 17,
             "sourceCode": "PHB",
@@ -2785,6 +2901,7 @@
             ]
           },
           {
+            "ref": "Magical Secrets|Bard||18",
             "name": "Magical Secrets",
             "level": 18,
             "sourceCode": "PHB",
@@ -2795,6 +2912,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -2805,6 +2923,7 @@
             ]
           },
           {
+            "ref": "Superior Inspiration|Bard||20",
             "name": "Superior Inspiration",
             "level": 20,
             "sourceCode": "PHB",
@@ -2993,6 +3112,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Bardic Inspiration|Bard|XPHB|1",
             "name": "Bardic Inspiration",
             "level": 1,
             "sourceCode": "XPHB",
@@ -3029,6 +3149,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Bard|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -3089,6 +3210,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard|XPHB|2",
             "name": "Expertise",
             "level": 2,
             "sourceCode": "XPHB",
@@ -3099,6 +3221,7 @@
             ]
           },
           {
+            "ref": "Jack of All Trades|Bard|XPHB|2",
             "name": "Jack of All Trades",
             "level": 2,
             "sourceCode": "XPHB",
@@ -3117,6 +3240,7 @@
             ]
           },
           {
+            "ref": "Bard Subclass|Bard|XPHB|3",
             "name": "Bard Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -3126,6 +3250,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -3135,6 +3260,7 @@
             ]
           },
           {
+            "ref": "Font of Inspiration|Bard|XPHB|5",
             "name": "Font of Inspiration",
             "level": 5,
             "sourceCode": "XPHB",
@@ -3145,6 +3271,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Bard|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -3154,6 +3281,7 @@
             ]
           },
           {
+            "ref": "Countercharm|Bard|XPHB|7",
             "name": "Countercharm",
             "level": 7,
             "sourceCode": "XPHB",
@@ -3163,6 +3291,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -3172,6 +3301,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard|XPHB|9",
             "name": "Expertise",
             "level": 9,
             "sourceCode": "XPHB",
@@ -3181,6 +3311,7 @@
             ]
           },
           {
+            "ref": "Magical Secrets|Bard|XPHB|10",
             "name": "Magical Secrets",
             "level": 10,
             "sourceCode": "XPHB",
@@ -3190,6 +3321,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -3199,6 +3331,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Bard|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -3208,6 +3341,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -3217,6 +3351,7 @@
             ]
           },
           {
+            "ref": "Superior Inspiration|Bard|XPHB|18",
             "name": "Superior Inspiration",
             "level": 18,
             "sourceCode": "XPHB",
@@ -3226,6 +3361,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Bard|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -3235,6 +3371,7 @@
             ]
           },
           {
+            "ref": "Words of Creation|Bard|XPHB|20",
             "name": "Words of Creation",
             "level": 20,
             "sourceCode": "XPHB",
@@ -3437,6 +3574,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Cleric||1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "PHB",
@@ -3498,6 +3636,7 @@
             ]
           },
           {
+            "ref": "Divine Domain|Cleric||1",
             "name": "Divine Domain",
             "level": 1,
             "sourceCode": "PHB",
@@ -3515,6 +3654,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Cleric||2",
             "name": "Channel Divinity",
             "level": 2,
             "sourceCode": "PHB",
@@ -3535,6 +3675,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity: Harness Divine Power|Cleric||2|TCE",
             "name": "Channel Divinity: Harness Divine Power",
             "level": 2,
             "sourceCode": "TCE",
@@ -3545,6 +3686,7 @@
             ]
           },
           {
+            "ref": "Divine Domain feature|Cleric||2",
             "name": "Divine Domain feature",
             "level": 2,
             "sourceCode": "PHB",
@@ -3554,6 +3696,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -3564,6 +3707,7 @@
             ]
           },
           {
+            "ref": "Cantrip Versatility|Cleric||4|TCE",
             "name": "Cantrip Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -3574,6 +3718,7 @@
             ]
           },
           {
+            "ref": "Destroy Undead (CR 1/2)|Cleric||5",
             "name": "Destroy Undead (CR 1/2)",
             "level": 5,
             "sourceCode": "PHB",
@@ -3583,6 +3728,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Cleric||6",
             "name": "Channel Divinity",
             "level": 6,
             "sourceCode": "PHB",
@@ -3592,6 +3738,7 @@
             ]
           },
           {
+            "ref": "Divine Domain feature|Cleric||6",
             "name": "Divine Domain feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -3601,6 +3748,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -3611,6 +3759,7 @@
             ]
           },
           {
+            "ref": "Destroy Undead (CR 1)|Cleric||8",
             "name": "Destroy Undead (CR 1)",
             "level": 8,
             "sourceCode": "PHB",
@@ -3620,6 +3769,7 @@
             ]
           },
           {
+            "ref": "Divine Domain feature|Cleric||8",
             "name": "Divine Domain feature",
             "level": 8,
             "sourceCode": "PHB",
@@ -3629,6 +3779,7 @@
             ]
           },
           {
+            "ref": "Divine Intervention|Cleric||10",
             "name": "Divine Intervention",
             "level": 10,
             "sourceCode": "PHB",
@@ -3640,6 +3791,7 @@
             ]
           },
           {
+            "ref": "Destroy Undead (CR 2)|Cleric||11",
             "name": "Destroy Undead (CR 2)",
             "level": 11,
             "sourceCode": "PHB",
@@ -3649,6 +3801,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -3659,6 +3812,7 @@
             ]
           },
           {
+            "ref": "Destroy Undead (CR 3)|Cleric||14",
             "name": "Destroy Undead (CR 3)",
             "level": 14,
             "sourceCode": "PHB",
@@ -3668,6 +3822,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -3678,6 +3833,7 @@
             ]
           },
           {
+            "ref": "Destroy Undead (CR 4)|Cleric||17",
             "name": "Destroy Undead (CR 4)",
             "level": 17,
             "sourceCode": "PHB",
@@ -3687,6 +3843,7 @@
             ]
           },
           {
+            "ref": "Divine Domain feature|Cleric||17",
             "name": "Divine Domain feature",
             "level": 17,
             "sourceCode": "PHB",
@@ -3696,6 +3853,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Cleric||18",
             "name": "Channel Divinity",
             "level": 18,
             "sourceCode": "PHB",
@@ -3705,6 +3863,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -3715,6 +3874,7 @@
             ]
           },
           {
+            "ref": "Divine Intervention Improvement|Cleric||20",
             "name": "Divine Intervention Improvement",
             "level": 20,
             "sourceCode": "PHB",
@@ -3906,6 +4066,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Cleric|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -3966,6 +4127,7 @@
             ]
           },
           {
+            "ref": "Divine Order|Cleric|XPHB|1",
             "name": "Divine Order",
             "level": 1,
             "sourceCode": "XPHB",
@@ -4000,6 +4162,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Cleric|XPHB|2",
             "name": "Channel Divinity",
             "level": 2,
             "sourceCode": "XPHB",
@@ -4031,6 +4194,7 @@
             ]
           },
           {
+            "ref": "Cleric Subclass|Cleric|XPHB|3",
             "name": "Cleric Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -4040,6 +4204,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -4049,6 +4214,7 @@
             ]
           },
           {
+            "ref": "Sear Undead|Cleric|XPHB|5",
             "name": "Sear Undead",
             "level": 5,
             "sourceCode": "XPHB",
@@ -4058,6 +4224,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Cleric|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -4067,6 +4234,7 @@
             ]
           },
           {
+            "ref": "Blessed Strikes|Cleric|XPHB|7",
             "name": "Blessed Strikes",
             "level": 7,
             "sourceCode": "XPHB",
@@ -4095,6 +4263,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -4104,6 +4273,7 @@
             ]
           },
           {
+            "ref": "Divine Intervention|Cleric|XPHB|10",
             "name": "Divine Intervention",
             "level": 10,
             "sourceCode": "XPHB",
@@ -4113,6 +4283,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -4122,6 +4293,7 @@
             ]
           },
           {
+            "ref": "Improved Blessed Strikes|Cleric|XPHB|14",
             "name": "Improved Blessed Strikes",
             "level": 14,
             "sourceCode": "XPHB",
@@ -4150,6 +4322,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Cleric|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -4159,6 +4332,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Cleric|XPHB|17",
             "name": "Subclass Feature",
             "level": 17,
             "sourceCode": "XPHB",
@@ -4168,6 +4342,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Cleric|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -4177,6 +4352,7 @@
             ]
           },
           {
+            "ref": "Greater Divine Intervention|Cleric|XPHB|20",
             "name": "Greater Divine Intervention",
             "level": 20,
             "sourceCode": "XPHB",
@@ -4367,6 +4543,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Druidic|Druid||1",
             "name": "Druidic",
             "level": 1,
             "sourceCode": "PHB",
@@ -4376,6 +4553,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Druid||1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "PHB",
@@ -4437,6 +4615,7 @@
             ]
           },
           {
+            "ref": "Wild Shape|Druid||2",
             "name": "Wild Shape",
             "level": 2,
             "sourceCode": "PHB",
@@ -4495,6 +4674,7 @@
             ]
           },
           {
+            "ref": "Wild Companion|Druid||2|TCE",
             "name": "Wild Companion",
             "level": 2,
             "sourceCode": "TCE",
@@ -4506,6 +4686,7 @@
             ]
           },
           {
+            "ref": "Druid Circle|Druid||2",
             "name": "Druid Circle",
             "level": 2,
             "sourceCode": "PHB",
@@ -4515,6 +4696,7 @@
             ]
           },
           {
+            "ref": "Wild Shape Improvement|Druid||4",
             "name": "Wild Shape Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -4524,6 +4706,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -4534,6 +4717,7 @@
             ]
           },
           {
+            "ref": "Cantrip Versatility|Druid||4|TCE",
             "name": "Cantrip Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -4544,6 +4728,7 @@
             ]
           },
           {
+            "ref": "Druid Circle feature|Druid||6",
             "name": "Druid Circle feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -4553,6 +4738,7 @@
             ]
           },
           {
+            "ref": "Wild Shape Improvement|Druid||8",
             "name": "Wild Shape Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -4562,6 +4748,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -4572,6 +4759,7 @@
             ]
           },
           {
+            "ref": "Druid Circle feature|Druid||10",
             "name": "Druid Circle feature",
             "level": 10,
             "sourceCode": "PHB",
@@ -4581,6 +4769,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -4591,6 +4780,7 @@
             ]
           },
           {
+            "ref": "Druid Circle feature|Druid||14",
             "name": "Druid Circle feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -4600,6 +4790,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -4610,6 +4801,7 @@
             ]
           },
           {
+            "ref": "Timeless Body|Druid||18",
             "name": "Timeless Body",
             "level": 18,
             "sourceCode": "PHB",
@@ -4619,6 +4811,7 @@
             ]
           },
           {
+            "ref": "Beast Spells|Druid||18",
             "name": "Beast Spells",
             "level": 18,
             "sourceCode": "PHB",
@@ -4628,6 +4821,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -4638,6 +4832,7 @@
             ]
           },
           {
+            "ref": "Archdruid|Druid||20",
             "name": "Archdruid",
             "level": 20,
             "sourceCode": "PHB",
@@ -4849,6 +5044,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Druidic|Druid|XPHB|1",
             "name": "Druidic",
             "level": 1,
             "sourceCode": "XPHB",
@@ -4859,6 +5055,7 @@
             ]
           },
           {
+            "ref": "Primal Order|Druid|XPHB|1",
             "name": "Primal Order",
             "level": 1,
             "sourceCode": "XPHB",
@@ -4893,6 +5090,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Druid|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -4953,6 +5151,7 @@
             ]
           },
           {
+            "ref": "Wild Companion|Druid|XPHB|2",
             "name": "Wild Companion",
             "level": 2,
             "sourceCode": "XPHB",
@@ -4963,6 +5162,7 @@
             ]
           },
           {
+            "ref": "Wild Shape|Druid|XPHB|2",
             "name": "Wild Shape",
             "level": 2,
             "sourceCode": "XPHB",
@@ -5070,6 +5270,7 @@
             ]
           },
           {
+            "ref": "Druid Subclass|Druid|XPHB|3",
             "name": "Druid Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -5079,6 +5280,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -5088,6 +5290,7 @@
             ]
           },
           {
+            "ref": "Wild Resurgence|Druid|XPHB|5",
             "name": "Wild Resurgence",
             "level": 5,
             "sourceCode": "XPHB",
@@ -5098,6 +5301,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -5107,6 +5311,7 @@
             ]
           },
           {
+            "ref": "Elemental Fury|Druid|XPHB|7",
             "name": "Elemental Fury",
             "level": 7,
             "sourceCode": "XPHB",
@@ -5141,6 +5346,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -5150,6 +5356,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -5159,6 +5366,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -5168,6 +5376,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -5177,6 +5386,7 @@
             ]
           },
           {
+            "ref": "Improved Elemental Fury|Druid|XPHB|15",
             "name": "Improved Elemental Fury",
             "level": 15,
             "sourceCode": "XPHB",
@@ -5205,6 +5415,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -5214,6 +5425,7 @@
             ]
           },
           {
+            "ref": "Beast Spells|Druid|XPHB|18",
             "name": "Beast Spells",
             "level": 18,
             "sourceCode": "XPHB",
@@ -5223,6 +5435,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Druid|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -5232,6 +5445,7 @@
             ]
           },
           {
+            "ref": "Archdruid|Druid|XPHB|20",
             "name": "Archdruid",
             "level": 20,
             "sourceCode": "XPHB",
@@ -5323,6 +5537,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Expert Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -5333,6 +5548,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Expert Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -5344,6 +5560,7 @@
             ]
           },
           {
+            "ref": "Helpful|Expert Sidekick|TCE|1",
             "name": "Helpful",
             "level": 1,
             "sourceCode": "TCE",
@@ -5354,6 +5571,7 @@
             ]
           },
           {
+            "ref": "Cunning Action|Expert Sidekick|TCE|2",
             "name": "Cunning Action",
             "level": 2,
             "sourceCode": "TCE",
@@ -5364,6 +5582,7 @@
             ]
           },
           {
+            "ref": "Expertise|Expert Sidekick|TCE|3",
             "name": "Expertise",
             "level": 3,
             "sourceCode": "TCE",
@@ -5375,6 +5594,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -5386,6 +5606,7 @@
             ]
           },
           {
+            "ref": "Coordinated Strike|Expert Sidekick|TCE|6",
             "name": "Coordinated Strike",
             "level": 6,
             "sourceCode": "TCE",
@@ -5396,6 +5617,7 @@
             ]
           },
           {
+            "ref": "Evasion|Expert Sidekick|TCE|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "TCE",
@@ -5406,6 +5628,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -5417,6 +5640,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|10",
             "name": "Ability Score Improvement",
             "level": 10,
             "sourceCode": "TCE",
@@ -5428,6 +5652,7 @@
             ]
           },
           {
+            "ref": "Inspiring Help|Expert Sidekick|TCE|11",
             "name": "Inspiring Help",
             "level": 11,
             "sourceCode": "TCE",
@@ -5439,6 +5664,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -5450,6 +5676,7 @@
             ]
           },
           {
+            "ref": "Reliable Talent|Expert Sidekick|TCE|14",
             "name": "Reliable Talent",
             "level": 14,
             "sourceCode": "TCE",
@@ -5460,6 +5687,7 @@
             ]
           },
           {
+            "ref": "Expertise|Expert Sidekick|TCE|15",
             "name": "Expertise",
             "level": 15,
             "sourceCode": "TCE",
@@ -5470,6 +5698,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -5481,6 +5710,7 @@
             ]
           },
           {
+            "ref": "Sharp Mind|Expert Sidekick|TCE|18",
             "name": "Sharp Mind",
             "level": 18,
             "sourceCode": "TCE",
@@ -5491,6 +5721,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "TCE",
@@ -5502,6 +5733,7 @@
             ]
           },
           {
+            "ref": "Inspiring Help Improvement|Expert Sidekick|TCE|20",
             "name": "Inspiring Help Improvement",
             "level": 20,
             "sourceCode": "TCE",
@@ -5687,6 +5919,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Fighting Style|Fighter||1",
             "name": "Fighting Style",
             "level": 1,
             "sourceCode": "PHB",
@@ -5746,6 +5979,7 @@
             ]
           },
           {
+            "ref": "Second Wind|Fighter||1",
             "name": "Second Wind",
             "level": 1,
             "sourceCode": "PHB",
@@ -5756,6 +5990,7 @@
             ]
           },
           {
+            "ref": "Action Surge|Fighter||2",
             "name": "Action Surge",
             "level": 2,
             "sourceCode": "PHB",
@@ -5766,6 +6001,7 @@
             ]
           },
           {
+            "ref": "Martial Archetype|Fighter||3",
             "name": "Martial Archetype",
             "level": 3,
             "sourceCode": "PHB",
@@ -5775,6 +6011,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -5785,6 +6022,7 @@
             ]
           },
           {
+            "ref": "Martial Versatility|Fighter||4|TCE",
             "name": "Martial Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -5802,6 +6040,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Fighter||5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "PHB",
@@ -5812,6 +6051,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||6",
             "name": "Ability Score Improvement",
             "level": 6,
             "sourceCode": "PHB",
@@ -5822,6 +6062,7 @@
             ]
           },
           {
+            "ref": "Martial Archetype feature|Fighter||7",
             "name": "Martial Archetype feature",
             "level": 7,
             "sourceCode": "PHB",
@@ -5831,6 +6072,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -5841,6 +6083,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter||9",
             "name": "Indomitable",
             "level": 9,
             "sourceCode": "PHB",
@@ -5851,6 +6094,7 @@
             ]
           },
           {
+            "ref": "Martial Archetype feature|Fighter||10",
             "name": "Martial Archetype feature",
             "level": 10,
             "sourceCode": "PHB",
@@ -5860,6 +6104,7 @@
             ]
           },
           {
+            "ref": "Extra Attack (2)|Fighter||11",
             "name": "Extra Attack (2)",
             "level": 11,
             "sourceCode": "PHB",
@@ -5869,6 +6114,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -5879,6 +6125,7 @@
             ]
           },
           {
+            "ref": "Indomitable (two uses)|Fighter||13",
             "name": "Indomitable (two uses)",
             "level": 13,
             "sourceCode": "PHB",
@@ -5888,6 +6135,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||14",
             "name": "Ability Score Improvement",
             "level": 14,
             "sourceCode": "PHB",
@@ -5898,6 +6146,7 @@
             ]
           },
           {
+            "ref": "Martial Archetype feature|Fighter||15",
             "name": "Martial Archetype feature",
             "level": 15,
             "sourceCode": "PHB",
@@ -5907,6 +6156,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -5917,6 +6167,7 @@
             ]
           },
           {
+            "ref": "Action Surge (two uses)|Fighter||17",
             "name": "Action Surge (two uses)",
             "level": 17,
             "sourceCode": "PHB",
@@ -5926,6 +6177,7 @@
             ]
           },
           {
+            "ref": "Indomitable (three uses)|Fighter||17",
             "name": "Indomitable (three uses)",
             "level": 17,
             "sourceCode": "PHB",
@@ -5935,6 +6187,7 @@
             ]
           },
           {
+            "ref": "Martial Archetype feature|Fighter||18",
             "name": "Martial Archetype feature",
             "level": 18,
             "sourceCode": "PHB",
@@ -5944,6 +6197,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -5954,6 +6208,7 @@
             ]
           },
           {
+            "ref": "Extra Attack (3)|Fighter||20",
             "name": "Extra Attack (3)",
             "level": 20,
             "sourceCode": "PHB",
@@ -6165,6 +6420,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Fighting Style|Fighter|XPHB|1",
             "name": "Fighting Style",
             "level": 1,
             "sourceCode": "XPHB",
@@ -6175,6 +6431,7 @@
             ]
           },
           {
+            "ref": "Second Wind|Fighter|XPHB|1",
             "name": "Second Wind",
             "level": 1,
             "sourceCode": "XPHB",
@@ -6186,6 +6443,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Fighter|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -6196,6 +6454,7 @@
             ]
           },
           {
+            "ref": "Action Surge|Fighter|XPHB|2",
             "name": "Action Surge",
             "level": 2,
             "sourceCode": "XPHB",
@@ -6206,6 +6465,7 @@
             ]
           },
           {
+            "ref": "Tactical Mind|Fighter|XPHB|2",
             "name": "Tactical Mind",
             "level": 2,
             "sourceCode": "XPHB",
@@ -6215,6 +6475,7 @@
             ]
           },
           {
+            "ref": "Fighter Subclass|Fighter|XPHB|3",
             "name": "Fighter Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -6224,6 +6485,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -6233,6 +6495,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Fighter|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -6242,6 +6505,7 @@
             ]
           },
           {
+            "ref": "Tactical Shift|Fighter|XPHB|5",
             "name": "Tactical Shift",
             "level": 5,
             "sourceCode": "XPHB",
@@ -6251,6 +6515,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|6",
             "name": "Ability Score Improvement",
             "level": 6,
             "sourceCode": "XPHB",
@@ -6260,6 +6525,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -6269,6 +6535,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -6278,6 +6545,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|9",
             "name": "Indomitable",
             "level": 9,
             "sourceCode": "XPHB",
@@ -6288,6 +6556,7 @@
             ]
           },
           {
+            "ref": "Tactical Master|Fighter|XPHB|9",
             "name": "Tactical Master",
             "level": 9,
             "sourceCode": "XPHB",
@@ -6297,6 +6566,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -6306,6 +6576,7 @@
             ]
           },
           {
+            "ref": "Two Extra Attacks|Fighter|XPHB|11",
             "name": "Two Extra Attacks",
             "level": 11,
             "sourceCode": "XPHB",
@@ -6315,6 +6586,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -6324,6 +6596,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|13",
             "name": "Indomitable",
             "level": 13,
             "sourceCode": "XPHB",
@@ -6334,6 +6607,7 @@
             ]
           },
           {
+            "ref": "Studied Attacks|Fighter|XPHB|13",
             "name": "Studied Attacks",
             "level": 13,
             "sourceCode": "XPHB",
@@ -6343,6 +6617,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|14",
             "name": "Ability Score Improvement",
             "level": 14,
             "sourceCode": "XPHB",
@@ -6352,6 +6627,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -6361,6 +6637,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -6370,6 +6647,7 @@
             ]
           },
           {
+            "ref": "Action Surge|Fighter|XPHB|17",
             "name": "Action Surge",
             "level": 17,
             "sourceCode": "XPHB",
@@ -6380,6 +6658,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|17",
             "name": "Indomitable",
             "level": 17,
             "sourceCode": "XPHB",
@@ -6390,6 +6669,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|18",
             "name": "Subclass Feature",
             "level": 18,
             "sourceCode": "XPHB",
@@ -6399,6 +6679,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Fighter|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -6408,6 +6689,7 @@
             ]
           },
           {
+            "ref": "Three Extra Attacks|Fighter|XPHB|20",
             "name": "Three Extra Attacks",
             "level": 20,
             "sourceCode": "XPHB",
@@ -6571,6 +6853,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Unarmored Defense|Monk||1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "PHB",
@@ -6580,6 +6863,7 @@
             ]
           },
           {
+            "ref": "Martial Arts|Monk||1",
             "name": "Martial Arts",
             "level": 1,
             "sourceCode": "PHB",
@@ -6599,6 +6883,7 @@
             ]
           },
           {
+            "ref": "Ki|Monk||2",
             "name": "Ki",
             "level": 2,
             "sourceCode": "PHB",
@@ -6644,6 +6929,7 @@
             ]
           },
           {
+            "ref": "Dedicated Weapon|Monk||2|TCE",
             "name": "Dedicated Weapon",
             "level": 2,
             "sourceCode": "TCE",
@@ -6663,6 +6949,7 @@
             ]
           },
           {
+            "ref": "Unarmored Movement|Monk||2",
             "name": "Unarmored Movement",
             "level": 2,
             "sourceCode": "PHB",
@@ -6673,6 +6960,7 @@
             ]
           },
           {
+            "ref": "Deflect Missiles|Monk||3",
             "name": "Deflect Missiles",
             "level": 3,
             "sourceCode": "PHB",
@@ -6683,6 +6971,7 @@
             ]
           },
           {
+            "ref": "Monastic Tradition|Monk||3",
             "name": "Monastic Tradition",
             "level": 3,
             "sourceCode": "PHB",
@@ -6692,6 +6981,7 @@
             ]
           },
           {
+            "ref": "Ki-Fueled Attack|Monk||3|TCE",
             "name": "Ki-Fueled Attack",
             "level": 3,
             "sourceCode": "TCE",
@@ -6702,6 +6992,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -6712,6 +7003,7 @@
             ]
           },
           {
+            "ref": "Slow Fall|Monk||4",
             "name": "Slow Fall",
             "level": 4,
             "sourceCode": "PHB",
@@ -6721,6 +7013,7 @@
             ]
           },
           {
+            "ref": "Quickened Healing|Monk||4|TCE",
             "name": "Quickened Healing",
             "level": 4,
             "sourceCode": "TCE",
@@ -6731,6 +7024,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Monk||5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "PHB",
@@ -6740,6 +7034,7 @@
             ]
           },
           {
+            "ref": "Stunning Strike|Monk||5",
             "name": "Stunning Strike",
             "level": 5,
             "sourceCode": "PHB",
@@ -6749,6 +7044,7 @@
             ]
           },
           {
+            "ref": "Focused Aim|Monk||5|TCE",
             "name": "Focused Aim",
             "level": 5,
             "sourceCode": "TCE",
@@ -6759,6 +7055,7 @@
             ]
           },
           {
+            "ref": "Ki-Empowered Strikes|Monk||6",
             "name": "Ki-Empowered Strikes",
             "level": 6,
             "sourceCode": "PHB",
@@ -6768,6 +7065,7 @@
             ]
           },
           {
+            "ref": "Monastic Tradition feature|Monk||6",
             "name": "Monastic Tradition feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -6777,6 +7075,7 @@
             ]
           },
           {
+            "ref": "Evasion|Monk||7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "PHB",
@@ -6786,6 +7085,7 @@
             ]
           },
           {
+            "ref": "Stillness of Mind|Monk||7",
             "name": "Stillness of Mind",
             "level": 7,
             "sourceCode": "PHB",
@@ -6795,6 +7095,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -6805,6 +7106,7 @@
             ]
           },
           {
+            "ref": "Unarmored Movement improvement|Monk||9",
             "name": "Unarmored Movement improvement",
             "level": 9,
             "sourceCode": "PHB",
@@ -6814,6 +7116,7 @@
             ]
           },
           {
+            "ref": "Purity of Body|Monk||10",
             "name": "Purity of Body",
             "level": 10,
             "sourceCode": "PHB",
@@ -6823,6 +7126,7 @@
             ]
           },
           {
+            "ref": "Monastic Tradition feature|Monk||11",
             "name": "Monastic Tradition feature",
             "level": 11,
             "sourceCode": "PHB",
@@ -6832,6 +7136,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -6842,6 +7147,7 @@
             ]
           },
           {
+            "ref": "Tongue of the Sun and Moon|Monk||13",
             "name": "Tongue of the Sun and Moon",
             "level": 13,
             "sourceCode": "PHB",
@@ -6851,6 +7157,7 @@
             ]
           },
           {
+            "ref": "Diamond Soul|Monk||14",
             "name": "Diamond Soul",
             "level": 14,
             "sourceCode": "PHB",
@@ -6861,6 +7168,7 @@
             ]
           },
           {
+            "ref": "Timeless Body|Monk||15",
             "name": "Timeless Body",
             "level": 15,
             "sourceCode": "PHB",
@@ -6870,6 +7178,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -6880,6 +7189,7 @@
             ]
           },
           {
+            "ref": "Monastic Tradition feature|Monk||17",
             "name": "Monastic Tradition feature",
             "level": 17,
             "sourceCode": "PHB",
@@ -6889,6 +7199,7 @@
             ]
           },
           {
+            "ref": "Empty Body|Monk||18",
             "name": "Empty Body",
             "level": 18,
             "sourceCode": "PHB",
@@ -6899,6 +7210,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -6909,6 +7221,7 @@
             ]
           },
           {
+            "ref": "Perfect Self|Monk||20",
             "name": "Perfect Self",
             "level": 20,
             "sourceCode": "PHB",
@@ -7091,6 +7404,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Martial Arts|Monk|XPHB|1",
             "name": "Martial Arts",
             "level": 1,
             "sourceCode": "XPHB",
@@ -7134,6 +7448,7 @@
             ]
           },
           {
+            "ref": "Unarmored Defense|Monk|XPHB|1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "XPHB",
@@ -7143,6 +7458,7 @@
             ]
           },
           {
+            "ref": "Monk's Focus|Monk|XPHB|2",
             "name": "Monk's Focus",
             "level": 2,
             "sourceCode": "XPHB",
@@ -7181,6 +7497,7 @@
             ]
           },
           {
+            "ref": "Unarmored Movement|Monk|XPHB|2",
             "name": "Unarmored Movement",
             "level": 2,
             "sourceCode": "XPHB",
@@ -7190,6 +7507,7 @@
             ]
           },
           {
+            "ref": "Uncanny Metabolism|Monk|XPHB|2",
             "name": "Uncanny Metabolism",
             "level": 2,
             "sourceCode": "XPHB",
@@ -7200,6 +7518,7 @@
             ]
           },
           {
+            "ref": "Deflect Attacks|Monk|XPHB|3",
             "name": "Deflect Attacks",
             "level": 3,
             "sourceCode": "XPHB",
@@ -7210,6 +7529,7 @@
             ]
           },
           {
+            "ref": "Monk Subclass|Monk|XPHB|3",
             "name": "Monk Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -7219,6 +7539,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -7228,6 +7549,7 @@
             ]
           },
           {
+            "ref": "Slow Fall|Monk|XPHB|4",
             "name": "Slow Fall",
             "level": 4,
             "sourceCode": "XPHB",
@@ -7237,6 +7559,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Monk|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -7246,6 +7569,7 @@
             ]
           },
           {
+            "ref": "Stunning Strike|Monk|XPHB|5",
             "name": "Stunning Strike",
             "level": 5,
             "sourceCode": "XPHB",
@@ -7255,6 +7579,7 @@
             ]
           },
           {
+            "ref": "Empowered Strikes|Monk|XPHB|6",
             "name": "Empowered Strikes",
             "level": 6,
             "sourceCode": "XPHB",
@@ -7264,6 +7589,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -7273,6 +7599,7 @@
             ]
           },
           {
+            "ref": "Evasion|Monk|XPHB|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "XPHB",
@@ -7283,6 +7610,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -7292,6 +7620,7 @@
             ]
           },
           {
+            "ref": "Acrobatic Movement|Monk|XPHB|9",
             "name": "Acrobatic Movement",
             "level": 9,
             "sourceCode": "XPHB",
@@ -7301,6 +7630,7 @@
             ]
           },
           {
+            "ref": "Heightened Focus|Monk|XPHB|10",
             "name": "Heightened Focus",
             "level": 10,
             "sourceCode": "XPHB",
@@ -7337,6 +7667,7 @@
             ]
           },
           {
+            "ref": "Self-Restoration|Monk|XPHB|10",
             "name": "Self-Restoration",
             "level": 10,
             "sourceCode": "XPHB",
@@ -7347,6 +7678,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|11",
             "name": "Subclass Feature",
             "level": 11,
             "sourceCode": "XPHB",
@@ -7356,6 +7688,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -7365,6 +7698,7 @@
             ]
           },
           {
+            "ref": "Deflect Energy|Monk|XPHB|13",
             "name": "Deflect Energy",
             "level": 13,
             "sourceCode": "XPHB",
@@ -7374,6 +7708,7 @@
             ]
           },
           {
+            "ref": "Disciplined Survivor|Monk|XPHB|14",
             "name": "Disciplined Survivor",
             "level": 14,
             "sourceCode": "XPHB",
@@ -7384,6 +7719,7 @@
             ]
           },
           {
+            "ref": "Perfect Focus|Monk|XPHB|15",
             "name": "Perfect Focus",
             "level": 15,
             "sourceCode": "XPHB",
@@ -7393,6 +7729,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -7402,6 +7739,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|17",
             "name": "Subclass Feature",
             "level": 17,
             "sourceCode": "XPHB",
@@ -7411,6 +7749,7 @@
             ]
           },
           {
+            "ref": "Superior Defense|Monk|XPHB|18",
             "name": "Superior Defense",
             "level": 18,
             "sourceCode": "XPHB",
@@ -7420,6 +7759,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Monk|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -7429,6 +7769,7 @@
             ]
           },
           {
+            "ref": "Body and Mind|Monk|XPHB|20",
             "name": "Body and Mind",
             "level": 20,
             "sourceCode": "XPHB",
@@ -7586,6 +7927,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Psionics|Mystic|UATheMysticClass|1",
             "name": "Psionics",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -7655,6 +7997,7 @@
             ]
           },
           {
+            "ref": "Psionic Disciplines and Talents|Mystic|UATheMysticClass|1",
             "name": "Psionic Disciplines and Talents",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -7665,6 +8008,7 @@
             ]
           },
           {
+            "ref": "Using a Discipline|Mystic|UATheMysticClass|1",
             "name": "Using a Discipline",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -7743,6 +8087,7 @@
             ]
           },
           {
+            "ref": "Mystic Order|Mystic|UATheMysticClass|1",
             "name": "Mystic Order",
             "level": 1,
             "sourceCode": "UATheMysticClass",
@@ -7753,6 +8098,7 @@
             ]
           },
           {
+            "ref": "Mystical Recovery|Mystic|UATheMysticClass|2",
             "name": "Mystical Recovery",
             "level": 2,
             "sourceCode": "UATheMysticClass",
@@ -7763,6 +8109,7 @@
             ]
           },
           {
+            "ref": "Telepathy|Mystic|UATheMysticClass|2",
             "name": "Telepathy",
             "level": 2,
             "sourceCode": "UATheMysticClass",
@@ -7772,6 +8119,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|3",
             "name": "Mystic Order feature",
             "level": 3,
             "sourceCode": "UATheMysticClass",
@@ -7781,6 +8129,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "UATheMysticClass",
@@ -7790,6 +8139,7 @@
             ]
           },
           {
+            "ref": "Strength of Mind|Mystic|UATheMysticClass|4",
             "name": "Strength of Mind",
             "level": 4,
             "sourceCode": "UATheMysticClass",
@@ -7800,6 +8150,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|6",
             "name": "Mystic Order feature",
             "level": 6,
             "sourceCode": "UATheMysticClass",
@@ -7809,6 +8160,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "UATheMysticClass",
@@ -7818,6 +8170,7 @@
             ]
           },
           {
+            "ref": "Potent Psionics (1d8)|Mystic|UATheMysticClass|8",
             "name": "Potent Psionics (1d8)",
             "level": 8,
             "sourceCode": "UATheMysticClass",
@@ -7828,6 +8181,7 @@
             ]
           },
           {
+            "ref": "Consumptive Power|Mystic|UATheMysticClass|10",
             "name": "Consumptive Power",
             "level": 10,
             "sourceCode": "UATheMysticClass",
@@ -7838,6 +8192,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (1/Day)|Mystic|UATheMysticClass|11",
             "name": "Psionic Mastery (1/Day)",
             "level": 11,
             "sourceCode": "UATheMysticClass",
@@ -7850,6 +8205,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "UATheMysticClass",
@@ -7859,6 +8215,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (2/Day)|Mystic|UATheMysticClass|13",
             "name": "Psionic Mastery (2/Day)",
             "level": 13,
             "sourceCode": "UATheMysticClass",
@@ -7868,6 +8225,7 @@
             ]
           },
           {
+            "ref": "Mystic Order feature|Mystic|UATheMysticClass|14",
             "name": "Mystic Order feature",
             "level": 14,
             "sourceCode": "UATheMysticClass",
@@ -7877,6 +8235,7 @@
             ]
           },
           {
+            "ref": "Potent Psionics (2d8)|Mystic|UATheMysticClass|14",
             "name": "Potent Psionics (2d8)",
             "level": 14,
             "sourceCode": "UATheMysticClass",
@@ -7886,6 +8245,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (3/Day)|Mystic|UATheMysticClass|15",
             "name": "Psionic Mastery (3/Day)",
             "level": 15,
             "sourceCode": "UATheMysticClass",
@@ -7895,6 +8255,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "UATheMysticClass",
@@ -7904,6 +8265,7 @@
             ]
           },
           {
+            "ref": "Psionic Mastery (4/Day)|Mystic|UATheMysticClass|17",
             "name": "Psionic Mastery (4/Day)",
             "level": 17,
             "sourceCode": "UATheMysticClass",
@@ -7913,6 +8275,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Mystic|UATheMysticClass|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "UATheMysticClass",
@@ -7922,6 +8285,7 @@
             ]
           },
           {
+            "ref": "Psionic Body|Mystic|UATheMysticClass|20",
             "name": "Psionic Body",
             "level": 20,
             "sourceCode": "UATheMysticClass",
@@ -8109,6 +8473,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Divine Sense|Paladin||1",
             "name": "Divine Sense",
             "level": 1,
             "sourceCode": "PHB",
@@ -8119,6 +8484,7 @@
             ]
           },
           {
+            "ref": "Lay on Hands|Paladin||1",
             "name": "Lay on Hands",
             "level": 1,
             "sourceCode": "PHB",
@@ -8131,6 +8497,7 @@
             ]
           },
           {
+            "ref": "Divine Smite|Paladin||2",
             "name": "Divine Smite",
             "level": 2,
             "sourceCode": "PHB",
@@ -8140,6 +8507,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Paladin||2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "PHB",
@@ -8183,6 +8551,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Paladin||2",
             "name": "Spellcasting",
             "level": 2,
             "sourceCode": "PHB",
@@ -8230,6 +8599,7 @@
             ]
           },
           {
+            "ref": "Divine Health|Paladin||3",
             "name": "Divine Health",
             "level": 3,
             "sourceCode": "PHB",
@@ -8239,6 +8609,7 @@
             ]
           },
           {
+            "ref": "Sacred Oath|Paladin||3",
             "name": "Sacred Oath",
             "level": 3,
             "sourceCode": "PHB",
@@ -8283,6 +8654,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -8293,6 +8665,7 @@
             ]
           },
           {
+            "ref": "Martial Versatility|Paladin||4|TCE",
             "name": "Martial Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -8303,6 +8676,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Paladin||5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "PHB",
@@ -8312,6 +8686,7 @@
             ]
           },
           {
+            "ref": "Aura of Protection|Paladin||6",
             "name": "Aura of Protection",
             "level": 6,
             "sourceCode": "PHB",
@@ -8322,6 +8697,7 @@
             ]
           },
           {
+            "ref": "Sacred Oath feature|Paladin||7",
             "name": "Sacred Oath feature",
             "level": 7,
             "sourceCode": "PHB",
@@ -8331,6 +8707,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -8341,6 +8718,7 @@
             ]
           },
           {
+            "ref": "Aura of Courage|Paladin||10",
             "name": "Aura of Courage",
             "level": 10,
             "sourceCode": "PHB",
@@ -8351,6 +8729,7 @@
             ]
           },
           {
+            "ref": "Improved Divine Smite|Paladin||11",
             "name": "Improved Divine Smite",
             "level": 11,
             "sourceCode": "PHB",
@@ -8360,6 +8739,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -8370,6 +8750,7 @@
             ]
           },
           {
+            "ref": "Cleansing Touch|Paladin||14",
             "name": "Cleansing Touch",
             "level": 14,
             "sourceCode": "PHB",
@@ -8380,6 +8761,7 @@
             ]
           },
           {
+            "ref": "Sacred Oath feature|Paladin||15",
             "name": "Sacred Oath feature",
             "level": 15,
             "sourceCode": "PHB",
@@ -8389,6 +8771,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -8399,6 +8782,7 @@
             ]
           },
           {
+            "ref": "Aura improvements|Paladin||18",
             "name": "Aura improvements",
             "level": 18,
             "sourceCode": "PHB",
@@ -8408,6 +8792,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -8418,6 +8803,7 @@
             ]
           },
           {
+            "ref": "Sacred Oath feature|Paladin||20",
             "name": "Sacred Oath feature",
             "level": 20,
             "sourceCode": "PHB",
@@ -8616,6 +9002,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Lay on Hands|Paladin|XPHB|1",
             "name": "Lay on Hands",
             "level": 1,
             "sourceCode": "XPHB",
@@ -8627,6 +9014,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Paladin|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -8678,6 +9066,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Paladin|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -8688,6 +9077,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Paladin|XPHB|2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "XPHB",
@@ -8706,6 +9096,7 @@
             ]
           },
           {
+            "ref": "Paladin's Smite|Paladin|XPHB|2",
             "name": "Paladin's Smite",
             "level": 2,
             "sourceCode": "XPHB",
@@ -8715,6 +9106,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Paladin|XPHB|3",
             "name": "Channel Divinity",
             "level": 3,
             "sourceCode": "XPHB",
@@ -8738,6 +9130,7 @@
             ]
           },
           {
+            "ref": "Paladin Subclass|Paladin|XPHB|3",
             "name": "Paladin Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -8756,6 +9149,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -8765,6 +9159,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Paladin|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -8774,6 +9169,7 @@
             ]
           },
           {
+            "ref": "Faithful Steed|Paladin|XPHB|5",
             "name": "Faithful Steed",
             "level": 5,
             "sourceCode": "XPHB",
@@ -8784,6 +9180,7 @@
             ]
           },
           {
+            "ref": "Aura of Protection|Paladin|XPHB|6",
             "name": "Aura of Protection",
             "level": 6,
             "sourceCode": "XPHB",
@@ -8795,6 +9192,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -8804,6 +9202,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -8813,6 +9212,7 @@
             ]
           },
           {
+            "ref": "Abjure Foes|Paladin|XPHB|9",
             "name": "Abjure Foes",
             "level": 9,
             "sourceCode": "XPHB",
@@ -8822,6 +9222,7 @@
             ]
           },
           {
+            "ref": "Aura of Courage|Paladin|XPHB|10",
             "name": "Aura of Courage",
             "level": 10,
             "sourceCode": "XPHB",
@@ -8831,6 +9232,7 @@
             ]
           },
           {
+            "ref": "Radiant Strikes|Paladin|XPHB|11",
             "name": "Radiant Strikes",
             "level": 11,
             "sourceCode": "XPHB",
@@ -8840,6 +9242,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -8849,6 +9252,7 @@
             ]
           },
           {
+            "ref": "Restoring Touch|Paladin|XPHB|14",
             "name": "Restoring Touch",
             "level": 14,
             "sourceCode": "XPHB",
@@ -8858,6 +9262,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -8867,6 +9272,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -8876,6 +9282,7 @@
             ]
           },
           {
+            "ref": "Aura Expansion|Paladin|XPHB|18",
             "name": "Aura Expansion",
             "level": 18,
             "sourceCode": "XPHB",
@@ -8885,6 +9292,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Paladin|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -8894,6 +9302,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|20",
             "name": "Subclass Feature",
             "level": 20,
             "sourceCode": "XPHB",
@@ -9095,6 +9504,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Favored Enemy|Ranger||1",
             "name": "Favored Enemy",
             "level": 1,
             "sourceCode": "PHB",
@@ -9108,6 +9518,7 @@
             ]
           },
           {
+            "ref": "Favored Foe|Ranger||1|TCE",
             "name": "Favored Foe",
             "level": 1,
             "sourceCode": "TCE",
@@ -9121,6 +9532,7 @@
             ]
           },
           {
+            "ref": "Natural Explorer|Ranger||1",
             "name": "Natural Explorer",
             "level": 1,
             "sourceCode": "PHB",
@@ -9143,6 +9555,7 @@
             ]
           },
           {
+            "ref": "Deft Explorer|Ranger||1|TCE",
             "name": "Deft Explorer",
             "level": 1,
             "sourceCode": "TCE",
@@ -9161,6 +9574,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Ranger||2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "PHB",
@@ -9204,6 +9618,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Ranger||2",
             "name": "Spellcasting",
             "level": 2,
             "sourceCode": "PHB",
@@ -9251,6 +9666,7 @@
             ]
           },
           {
+            "ref": "Spellcasting Focus|Ranger||2|TCE",
             "name": "Spellcasting Focus",
             "level": 2,
             "sourceCode": "TCE",
@@ -9261,6 +9677,7 @@
             ]
           },
           {
+            "ref": "Ranger Archetype|Ranger||3",
             "name": "Ranger Archetype",
             "level": 3,
             "sourceCode": "PHB",
@@ -9270,6 +9687,7 @@
             ]
           },
           {
+            "ref": "Primeval Awareness|Ranger||3",
             "name": "Primeval Awareness",
             "level": 3,
             "sourceCode": "PHB",
@@ -9279,6 +9697,7 @@
             ]
           },
           {
+            "ref": "Primal Awareness|Ranger||3|TCE",
             "name": "Primal Awareness",
             "level": 3,
             "sourceCode": "TCE",
@@ -9324,6 +9743,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -9334,6 +9754,7 @@
             ]
           },
           {
+            "ref": "Martial Versatility|Ranger||4|TCE",
             "name": "Martial Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -9344,6 +9765,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Ranger||5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "PHB",
@@ -9353,6 +9775,7 @@
             ]
           },
           {
+            "ref": "Favored Enemy and Natural Explorer improvements|Ranger||6",
             "name": "Favored Enemy and Natural Explorer improvements",
             "level": 6,
             "sourceCode": "PHB",
@@ -9363,6 +9786,7 @@
             ]
           },
           {
+            "ref": "Deft Explorer Improvement|Ranger||6|TCE",
             "name": "Deft Explorer Improvement",
             "level": 6,
             "sourceCode": "TCE",
@@ -9379,6 +9803,7 @@
             ]
           },
           {
+            "ref": "Ranger Archetype feature|Ranger||7",
             "name": "Ranger Archetype feature",
             "level": 7,
             "sourceCode": "PHB",
@@ -9388,6 +9813,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -9398,6 +9824,7 @@
             ]
           },
           {
+            "ref": "Land's Stride|Ranger||8",
             "name": "Land's Stride",
             "level": 8,
             "sourceCode": "PHB",
@@ -9408,6 +9835,7 @@
             ]
           },
           {
+            "ref": "Hide in Plain Sight|Ranger||10",
             "name": "Hide in Plain Sight",
             "level": 10,
             "sourceCode": "PHB",
@@ -9418,6 +9846,7 @@
             ]
           },
           {
+            "ref": "Nature's Veil|Ranger||10|TCE",
             "name": "Nature's Veil",
             "level": 10,
             "sourceCode": "TCE",
@@ -9429,6 +9858,7 @@
             ]
           },
           {
+            "ref": "Natural Explorer improvement|Ranger||10",
             "name": "Natural Explorer improvement",
             "level": 10,
             "sourceCode": "PHB",
@@ -9438,6 +9868,7 @@
             ]
           },
           {
+            "ref": "Deft Explorer Improvement|Ranger||10|TCE",
             "name": "Deft Explorer Improvement",
             "level": 10,
             "sourceCode": "TCE",
@@ -9455,6 +9886,7 @@
             ]
           },
           {
+            "ref": "Ranger Archetype feature|Ranger||11",
             "name": "Ranger Archetype feature",
             "level": 11,
             "sourceCode": "PHB",
@@ -9464,6 +9896,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -9474,6 +9907,7 @@
             ]
           },
           {
+            "ref": "Vanish|Ranger||14",
             "name": "Vanish",
             "level": 14,
             "sourceCode": "PHB",
@@ -9483,6 +9917,7 @@
             ]
           },
           {
+            "ref": "Favored Enemy improvement|Ranger||14",
             "name": "Favored Enemy improvement",
             "level": 14,
             "sourceCode": "PHB",
@@ -9492,6 +9927,7 @@
             ]
           },
           {
+            "ref": "Ranger Archetype feature|Ranger||15",
             "name": "Ranger Archetype feature",
             "level": 15,
             "sourceCode": "PHB",
@@ -9501,6 +9937,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -9511,6 +9948,7 @@
             ]
           },
           {
+            "ref": "Feral Senses|Ranger||18",
             "name": "Feral Senses",
             "level": 18,
             "sourceCode": "PHB",
@@ -9520,6 +9958,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -9530,6 +9969,7 @@
             ]
           },
           {
+            "ref": "Foe Slayer|Ranger||20",
             "name": "Foe Slayer",
             "level": 20,
             "sourceCode": "PHB",
@@ -9734,6 +10174,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Ranger|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -9785,6 +10226,7 @@
             ]
           },
           {
+            "ref": "Favored Enemy|Ranger|XPHB|1",
             "name": "Favored Enemy",
             "level": 1,
             "sourceCode": "XPHB",
@@ -9795,6 +10237,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Ranger|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -9805,6 +10248,7 @@
             ]
           },
           {
+            "ref": "Deft Explorer|Ranger|XPHB|2",
             "name": "Deft Explorer",
             "level": 2,
             "sourceCode": "XPHB",
@@ -9833,6 +10277,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Ranger|XPHB|2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "XPHB",
@@ -9851,6 +10296,7 @@
             ]
           },
           {
+            "ref": "Ranger Subclass|Ranger|XPHB|3",
             "name": "Ranger Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -9860,6 +10306,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -9869,6 +10316,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Ranger|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -9878,6 +10326,7 @@
             ]
           },
           {
+            "ref": "Roving|Ranger|XPHB|6",
             "name": "Roving",
             "level": 6,
             "sourceCode": "XPHB",
@@ -9887,6 +10336,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -9896,6 +10346,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -9905,6 +10356,7 @@
             ]
           },
           {
+            "ref": "Expertise|Ranger|XPHB|9",
             "name": "Expertise",
             "level": 9,
             "sourceCode": "XPHB",
@@ -9914,6 +10366,7 @@
             ]
           },
           {
+            "ref": "Tireless|Ranger|XPHB|10",
             "name": "Tireless",
             "level": 10,
             "sourceCode": "XPHB",
@@ -9942,6 +10395,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|11",
             "name": "Subclass Feature",
             "level": 11,
             "sourceCode": "XPHB",
@@ -9951,6 +10405,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -9960,6 +10415,7 @@
             ]
           },
           {
+            "ref": "Relentless Hunter|Ranger|XPHB|13",
             "name": "Relentless Hunter",
             "level": 13,
             "sourceCode": "XPHB",
@@ -9969,6 +10425,7 @@
             ]
           },
           {
+            "ref": "Nature's Veil|Ranger|XPHB|14",
             "name": "Nature's Veil",
             "level": 14,
             "sourceCode": "XPHB",
@@ -9979,6 +10436,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -9988,6 +10446,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -9997,6 +10456,7 @@
             ]
           },
           {
+            "ref": "Precise Hunter|Ranger|XPHB|17",
             "name": "Precise Hunter",
             "level": 17,
             "sourceCode": "XPHB",
@@ -10006,6 +10466,7 @@
             ]
           },
           {
+            "ref": "Feral Senses|Ranger|XPHB|18",
             "name": "Feral Senses",
             "level": 18,
             "sourceCode": "XPHB",
@@ -10015,6 +10476,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Ranger|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -10024,6 +10486,7 @@
             ]
           },
           {
+            "ref": "Foe Slayer|Ranger|XPHB|20",
             "name": "Foe Slayer",
             "level": 20,
             "sourceCode": "XPHB",
@@ -10200,6 +10663,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Expertise|Rogue||1",
             "name": "Expertise",
             "level": 1,
             "sourceCode": "PHB",
@@ -10210,6 +10674,7 @@
             ]
           },
           {
+            "ref": "Sneak Attack|Rogue||1",
             "name": "Sneak Attack",
             "level": 1,
             "sourceCode": "PHB",
@@ -10221,6 +10686,7 @@
             ]
           },
           {
+            "ref": "Thieves' Cant|Rogue||1",
             "name": "Thieves' Cant",
             "level": 1,
             "sourceCode": "PHB",
@@ -10231,6 +10697,7 @@
             ]
           },
           {
+            "ref": "Cunning Action|Rogue||2",
             "name": "Cunning Action",
             "level": 2,
             "sourceCode": "PHB",
@@ -10240,6 +10707,7 @@
             ]
           },
           {
+            "ref": "Roguish Archetype|Rogue||3",
             "name": "Roguish Archetype",
             "level": 3,
             "sourceCode": "PHB",
@@ -10249,6 +10717,7 @@
             ]
           },
           {
+            "ref": "Steady Aim|Rogue||3|TCE",
             "name": "Steady Aim",
             "level": 3,
             "sourceCode": "TCE",
@@ -10259,6 +10728,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -10269,6 +10739,7 @@
             ]
           },
           {
+            "ref": "Uncanny Dodge|Rogue||5",
             "name": "Uncanny Dodge",
             "level": 5,
             "sourceCode": "PHB",
@@ -10278,6 +10749,7 @@
             ]
           },
           {
+            "ref": "Expertise|Rogue||6",
             "name": "Expertise",
             "level": 6,
             "sourceCode": "PHB",
@@ -10287,6 +10759,7 @@
             ]
           },
           {
+            "ref": "Evasion|Rogue||7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "PHB",
@@ -10296,6 +10769,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -10306,6 +10780,7 @@
             ]
           },
           {
+            "ref": "Roguish Archetype feature|Rogue||9",
             "name": "Roguish Archetype feature",
             "level": 9,
             "sourceCode": "PHB",
@@ -10315,6 +10790,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||10",
             "name": "Ability Score Improvement",
             "level": 10,
             "sourceCode": "PHB",
@@ -10325,6 +10801,7 @@
             ]
           },
           {
+            "ref": "Reliable Talent|Rogue||11",
             "name": "Reliable Talent",
             "level": 11,
             "sourceCode": "PHB",
@@ -10334,6 +10811,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -10344,6 +10822,7 @@
             ]
           },
           {
+            "ref": "Roguish Archetype feature|Rogue||13",
             "name": "Roguish Archetype feature",
             "level": 13,
             "sourceCode": "PHB",
@@ -10353,6 +10832,7 @@
             ]
           },
           {
+            "ref": "Blindsense|Rogue||14",
             "name": "Blindsense",
             "level": 14,
             "sourceCode": "PHB",
@@ -10362,6 +10842,7 @@
             ]
           },
           {
+            "ref": "Slippery Mind|Rogue||15",
             "name": "Slippery Mind",
             "level": 15,
             "sourceCode": "PHB",
@@ -10371,6 +10852,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -10381,6 +10863,7 @@
             ]
           },
           {
+            "ref": "Roguish Archetype feature|Rogue||17",
             "name": "Roguish Archetype feature",
             "level": 17,
             "sourceCode": "PHB",
@@ -10390,6 +10873,7 @@
             ]
           },
           {
+            "ref": "Elusive|Rogue||18",
             "name": "Elusive",
             "level": 18,
             "sourceCode": "PHB",
@@ -10399,6 +10883,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -10409,6 +10894,7 @@
             ]
           },
           {
+            "ref": "Stroke of Luck|Rogue||20",
             "name": "Stroke of Luck",
             "level": 20,
             "sourceCode": "PHB",
@@ -10602,6 +11088,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Expertise|Rogue|XPHB|1",
             "name": "Expertise",
             "level": 1,
             "sourceCode": "XPHB",
@@ -10612,6 +11099,7 @@
             ]
           },
           {
+            "ref": "Sneak Attack|Rogue|XPHB|1",
             "name": "Sneak Attack",
             "level": 1,
             "sourceCode": "XPHB",
@@ -10623,6 +11111,7 @@
             ]
           },
           {
+            "ref": "Thieves' Cant|Rogue|XPHB|1",
             "name": "Thieves' Cant",
             "level": 1,
             "sourceCode": "XPHB",
@@ -10632,6 +11121,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Rogue|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -10642,6 +11132,7 @@
             ]
           },
           {
+            "ref": "Cunning Action|Rogue|XPHB|2",
             "name": "Cunning Action",
             "level": 2,
             "sourceCode": "XPHB",
@@ -10651,6 +11142,7 @@
             ]
           },
           {
+            "ref": "Rogue Subclass|Rogue|XPHB|3",
             "name": "Rogue Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -10660,6 +11152,7 @@
             ]
           },
           {
+            "ref": "Steady Aim|Rogue|XPHB|3",
             "name": "Steady Aim",
             "level": 3,
             "sourceCode": "XPHB",
@@ -10669,6 +11162,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -10678,6 +11172,7 @@
             ]
           },
           {
+            "ref": "Cunning Strike|Rogue|XPHB|5",
             "name": "Cunning Strike",
             "level": 5,
             "sourceCode": "XPHB",
@@ -10715,6 +11210,7 @@
             ]
           },
           {
+            "ref": "Uncanny Dodge|Rogue|XPHB|5",
             "name": "Uncanny Dodge",
             "level": 5,
             "sourceCode": "XPHB",
@@ -10724,6 +11220,7 @@
             ]
           },
           {
+            "ref": "Expertise|Rogue|XPHB|6",
             "name": "Expertise",
             "level": 6,
             "sourceCode": "XPHB",
@@ -10733,6 +11230,7 @@
             ]
           },
           {
+            "ref": "Evasion|Rogue|XPHB|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "XPHB",
@@ -10742,6 +11240,7 @@
             ]
           },
           {
+            "ref": "Reliable Talent|Rogue|XPHB|7",
             "name": "Reliable Talent",
             "level": 7,
             "sourceCode": "XPHB",
@@ -10751,6 +11250,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -10760,6 +11260,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|9",
             "name": "Subclass Feature",
             "level": 9,
             "sourceCode": "XPHB",
@@ -10769,6 +11270,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|10",
             "name": "Ability Score Improvement",
             "level": 10,
             "sourceCode": "XPHB",
@@ -10778,6 +11280,7 @@
             ]
           },
           {
+            "ref": "Improved Cunning Strike|Rogue|XPHB|11",
             "name": "Improved Cunning Strike",
             "level": 11,
             "sourceCode": "XPHB",
@@ -10787,6 +11290,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -10796,6 +11300,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|13",
             "name": "Subclass Feature",
             "level": 13,
             "sourceCode": "XPHB",
@@ -10805,6 +11310,7 @@
             ]
           },
           {
+            "ref": "Devious Strikes|Rogue|XPHB|14",
             "name": "Devious Strikes",
             "level": 14,
             "sourceCode": "XPHB",
@@ -10840,6 +11346,7 @@
             ]
           },
           {
+            "ref": "Slippery Mind|Rogue|XPHB|15",
             "name": "Slippery Mind",
             "level": 15,
             "sourceCode": "XPHB",
@@ -10849,6 +11356,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -10858,6 +11366,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|17",
             "name": "Subclass Feature",
             "level": 17,
             "sourceCode": "XPHB",
@@ -10867,6 +11376,7 @@
             ]
           },
           {
+            "ref": "Elusive|Rogue|XPHB|18",
             "name": "Elusive",
             "level": 18,
             "sourceCode": "XPHB",
@@ -10876,6 +11386,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Rogue|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -10885,6 +11396,7 @@
             ]
           },
           {
+            "ref": "Stroke of Luck|Rogue|XPHB|20",
             "name": "Stroke of Luck",
             "level": 20,
             "sourceCode": "XPHB",
@@ -11094,6 +11606,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Sorcerer||1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "PHB",
@@ -11155,6 +11668,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Origin|Sorcerer||1",
             "name": "Sorcerous Origin",
             "level": 1,
             "sourceCode": "PHB",
@@ -11165,6 +11679,7 @@
             ]
           },
           {
+            "ref": "Font of Magic|Sorcerer||2",
             "name": "Font of Magic",
             "level": 2,
             "sourceCode": "PHB",
@@ -11236,6 +11751,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer||3",
             "name": "Metamagic",
             "level": 3,
             "sourceCode": "PHB",
@@ -11308,6 +11824,7 @@
             ]
           },
           {
+            "ref": "Metamagic Options|Sorcerer||3|TCE",
             "name": "Metamagic Options",
             "level": 3,
             "sourceCode": "TCE",
@@ -11337,6 +11854,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -11347,6 +11865,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Versatility|Sorcerer||4|TCE",
             "name": "Sorcerous Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -11364,6 +11883,7 @@
             ]
           },
           {
+            "ref": "Magical Guidance|Sorcerer||5|TCE",
             "name": "Magical Guidance",
             "level": 5,
             "sourceCode": "TCE",
@@ -11374,6 +11894,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Origin feature|Sorcerer||6",
             "name": "Sorcerous Origin feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -11383,6 +11904,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -11393,6 +11915,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer||10",
             "name": "Metamagic",
             "level": 10,
             "sourceCode": "PHB",
@@ -11402,6 +11925,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -11412,6 +11936,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Origin feature|Sorcerer||14",
             "name": "Sorcerous Origin feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -11421,6 +11946,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -11431,6 +11957,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer||17",
             "name": "Metamagic",
             "level": 17,
             "sourceCode": "PHB",
@@ -11440,6 +11967,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Origin feature|Sorcerer||18",
             "name": "Sorcerous Origin feature",
             "level": 18,
             "sourceCode": "PHB",
@@ -11449,6 +11977,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -11459,6 +11988,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Restoration|Sorcerer||20",
             "name": "Sorcerous Restoration",
             "level": 20,
             "sourceCode": "PHB",
@@ -11662,6 +12192,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Sorcerer|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -11721,6 +12252,7 @@
             ]
           },
           {
+            "ref": "Innate Sorcery|Sorcerer|XPHB|1",
             "name": "Innate Sorcery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -11738,6 +12270,7 @@
             ]
           },
           {
+            "ref": "Font of Magic|Sorcerer|XPHB|2",
             "name": "Font of Magic",
             "level": 2,
             "sourceCode": "XPHB",
@@ -11810,6 +12343,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|2",
             "name": "Metamagic",
             "level": 2,
             "sourceCode": "XPHB",
@@ -11821,6 +12355,7 @@
             ]
           },
           {
+            "ref": "Metamagic Options|Sorcerer|XPHB|2",
             "name": "Metamagic Options",
             "level": 2,
             "sourceCode": "XPHB",
@@ -11906,6 +12441,7 @@
             ]
           },
           {
+            "ref": "Sorcerer Subclass|Sorcerer|XPHB|3",
             "name": "Sorcerer Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -11915,6 +12451,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -11924,6 +12461,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Restoration|Sorcerer|XPHB|5",
             "name": "Sorcerous Restoration",
             "level": 5,
             "sourceCode": "XPHB",
@@ -11933,6 +12471,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -11942,6 +12481,7 @@
             ]
           },
           {
+            "ref": "Sorcery Incarnate|Sorcerer|XPHB|7",
             "name": "Sorcery Incarnate",
             "level": 7,
             "sourceCode": "XPHB",
@@ -11952,6 +12492,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -11961,6 +12502,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|10",
             "name": "Metamagic",
             "level": 10,
             "sourceCode": "XPHB",
@@ -11972,6 +12514,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -11981,6 +12524,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -11990,6 +12534,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -11999,6 +12544,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|17",
             "name": "Metamagic",
             "level": 17,
             "sourceCode": "XPHB",
@@ -12010,6 +12556,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|18",
             "name": "Subclass Feature",
             "level": 18,
             "sourceCode": "XPHB",
@@ -12019,6 +12566,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Sorcerer|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -12028,6 +12576,7 @@
             ]
           },
           {
+            "ref": "Arcane Apotheosis|Sorcerer|XPHB|20",
             "name": "Arcane Apotheosis",
             "level": 20,
             "sourceCode": "XPHB",
@@ -12128,6 +12677,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Spellcaster Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -12138,6 +12688,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Spellcaster Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -12150,6 +12701,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Spellcaster Sidekick|TCE|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "TCE",
@@ -12262,6 +12814,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -12273,6 +12826,7 @@
             ]
           },
           {
+            "ref": "Potent Cantrips|Spellcaster Sidekick|TCE|6",
             "name": "Potent Cantrips",
             "level": 6,
             "sourceCode": "TCE",
@@ -12283,6 +12837,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -12294,6 +12849,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -12305,6 +12861,7 @@
             ]
           },
           {
+            "ref": "Empowered Spells|Spellcaster Sidekick|TCE|14",
             "name": "Empowered Spells",
             "level": 14,
             "sourceCode": "TCE",
@@ -12315,6 +12872,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -12326,6 +12884,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|18",
             "name": "Ability Score Improvement",
             "level": 18,
             "sourceCode": "TCE",
@@ -12337,6 +12896,7 @@
             ]
           },
           {
+            "ref": "Focused Casting|Spellcaster Sidekick|TCE|20",
             "name": "Focused Casting",
             "level": 20,
             "sourceCode": "TCE",
@@ -12589,6 +13149,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Pact Magic|Warlock||1",
             "name": "Pact Magic",
             "level": 1,
             "sourceCode": "PHB",
@@ -12650,6 +13211,7 @@
             ]
           },
           {
+            "ref": "Otherworldly Patron|Warlock||1",
             "name": "Otherworldly Patron",
             "level": 1,
             "sourceCode": "PHB",
@@ -12659,6 +13221,7 @@
             ]
           },
           {
+            "ref": "Eldritch Invocations|Warlock||2",
             "name": "Eldritch Invocations",
             "level": 2,
             "sourceCode": "PHB",
@@ -12671,6 +13234,7 @@
             ]
           },
           {
+            "ref": "Pact Boon|Warlock||3",
             "name": "Pact Boon",
             "level": 3,
             "sourceCode": "PHB",
@@ -12702,6 +13266,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -12712,6 +13277,7 @@
             ]
           },
           {
+            "ref": "Eldritch Versatility|Warlock||4|TCE",
             "name": "Eldritch Versatility",
             "level": 4,
             "sourceCode": "TCE",
@@ -12731,6 +13297,7 @@
             ]
           },
           {
+            "ref": "Otherworldly Patron feature|Warlock||6",
             "name": "Otherworldly Patron feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -12740,6 +13307,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -12750,6 +13318,7 @@
             ]
           },
           {
+            "ref": "Otherworldly Patron feature|Warlock||10",
             "name": "Otherworldly Patron feature",
             "level": 10,
             "sourceCode": "PHB",
@@ -12759,6 +13328,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum (6th level)|Warlock||11",
             "name": "Mystic Arcanum (6th level)",
             "level": 11,
             "sourceCode": "PHB",
@@ -12770,6 +13340,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -12780,6 +13351,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum (7th level)|Warlock||13",
             "name": "Mystic Arcanum (7th level)",
             "level": 13,
             "sourceCode": "PHB",
@@ -12790,6 +13362,7 @@
             ]
           },
           {
+            "ref": "Otherworldly Patron feature|Warlock||14",
             "name": "Otherworldly Patron feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -12799,6 +13372,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum (8th level)|Warlock||15",
             "name": "Mystic Arcanum (8th level)",
             "level": 15,
             "sourceCode": "PHB",
@@ -12809,6 +13383,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -12819,6 +13394,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum (9th level)|Warlock||17",
             "name": "Mystic Arcanum (9th level)",
             "level": 17,
             "sourceCode": "PHB",
@@ -12829,6 +13405,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -12839,6 +13416,7 @@
             ]
           },
           {
+            "ref": "Eldritch Master|Warlock||20",
             "name": "Eldritch Master",
             "level": 20,
             "sourceCode": "PHB",
@@ -13082,6 +13660,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Eldritch Invocations|Warlock|XPHB|1",
             "name": "Eldritch Invocations",
             "level": 1,
             "sourceCode": "XPHB",
@@ -13112,6 +13691,7 @@
             ]
           },
           {
+            "ref": "Pact Magic|Warlock|XPHB|1",
             "name": "Pact Magic",
             "level": 1,
             "sourceCode": "XPHB",
@@ -13177,6 +13757,7 @@
             ]
           },
           {
+            "ref": "Eldritch Invocation Options|Warlock|XPHB|1",
             "name": "Eldritch Invocation Options",
             "level": 1,
             "sourceCode": "XPHB",
@@ -13388,6 +13969,7 @@
             ]
           },
           {
+            "ref": "Magical Cunning|Warlock|XPHB|2",
             "name": "Magical Cunning",
             "level": 2,
             "sourceCode": "XPHB",
@@ -13397,6 +13979,7 @@
             ]
           },
           {
+            "ref": "Warlock Subclass|Warlock|XPHB|3",
             "name": "Warlock Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -13406,6 +13989,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -13415,6 +13999,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Warlock|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -13424,6 +14009,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -13433,6 +14019,7 @@
             ]
           },
           {
+            "ref": "Contact Patron|Warlock|XPHB|9",
             "name": "Contact Patron",
             "level": 9,
             "sourceCode": "XPHB",
@@ -13443,6 +14030,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Warlock|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -13452,6 +14040,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum|Warlock|XPHB|11",
             "name": "Mystic Arcanum",
             "level": 11,
             "sourceCode": "XPHB",
@@ -13464,6 +14053,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -13473,6 +14063,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum|Warlock|XPHB|13",
             "name": "Mystic Arcanum",
             "level": 13,
             "sourceCode": "XPHB",
@@ -13482,6 +14073,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Warlock|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -13491,6 +14083,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum|Warlock|XPHB|15",
             "name": "Mystic Arcanum",
             "level": 15,
             "sourceCode": "XPHB",
@@ -13500,6 +14093,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warlock|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -13509,6 +14103,7 @@
             ]
           },
           {
+            "ref": "Mystic Arcanum|Warlock|XPHB|17",
             "name": "Mystic Arcanum",
             "level": 17,
             "sourceCode": "XPHB",
@@ -13518,6 +14113,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Warlock|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -13527,6 +14123,7 @@
             ]
           },
           {
+            "ref": "Eldritch Master|Warlock|XPHB|20",
             "name": "Eldritch Master",
             "level": 20,
             "sourceCode": "XPHB",
@@ -13592,6 +14189,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Warrior Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -13601,6 +14199,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Warrior Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -13613,6 +14212,7 @@
             ]
           },
           {
+            "ref": "Martial Role|Warrior Sidekick|TCE|1",
             "name": "Martial Role",
             "level": 1,
             "sourceCode": "TCE",
@@ -13639,6 +14239,7 @@
             ]
           },
           {
+            "ref": "Second Wind|Warrior Sidekick|TCE|2",
             "name": "Second Wind",
             "level": 2,
             "sourceCode": "TCE",
@@ -13650,6 +14251,7 @@
             ]
           },
           {
+            "ref": "Improved Critical|Warrior Sidekick|TCE|3",
             "name": "Improved Critical",
             "level": 3,
             "sourceCode": "TCE",
@@ -13660,6 +14262,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -13671,6 +14274,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Warrior Sidekick|TCE|6",
             "name": "Extra Attack",
             "level": 6,
             "sourceCode": "TCE",
@@ -13683,6 +14287,7 @@
             ]
           },
           {
+            "ref": "Battle Readiness|Warrior Sidekick|TCE|7",
             "name": "Battle Readiness",
             "level": 7,
             "sourceCode": "TCE",
@@ -13693,6 +14298,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -13704,6 +14310,7 @@
             ]
           },
           {
+            "ref": "Improved Defense|Warrior Sidekick|TCE|10",
             "name": "Improved Defense",
             "level": 10,
             "sourceCode": "TCE",
@@ -13714,6 +14321,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Warrior Sidekick|TCE|11",
             "name": "Indomitable",
             "level": 11,
             "sourceCode": "TCE",
@@ -13725,6 +14333,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -13736,6 +14345,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|14",
             "name": "Ability Score Improvement",
             "level": 14,
             "sourceCode": "TCE",
@@ -13747,6 +14357,7 @@
             ]
           },
           {
+            "ref": "Extra Attack Improvement|Warrior Sidekick|TCE|15",
             "name": "Extra Attack Improvement",
             "level": 15,
             "sourceCode": "TCE",
@@ -13759,6 +14370,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -13770,6 +14382,7 @@
             ]
           },
           {
+            "ref": "Indomitable Improvement|Warrior Sidekick|TCE|18",
             "name": "Indomitable Improvement",
             "level": 18,
             "sourceCode": "TCE",
@@ -13781,6 +14394,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Warrior Sidekick|TCE|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "TCE",
@@ -13792,6 +14406,7 @@
             ]
           },
           {
+            "ref": "Second Wind Improvement|Warrior Sidekick|TCE|20",
             "name": "Second Wind Improvement",
             "level": 20,
             "sourceCode": "TCE",
@@ -13958,6 +14573,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Arcane Recovery|Wizard||1",
             "name": "Arcane Recovery",
             "level": 1,
             "sourceCode": "PHB",
@@ -13968,6 +14584,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Wizard||1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "PHB",
@@ -14099,6 +14716,7 @@
             ]
           },
           {
+            "ref": "Arcane Tradition|Wizard||2",
             "name": "Arcane Tradition",
             "level": 2,
             "sourceCode": "PHB",
@@ -14108,6 +14726,7 @@
             ]
           },
           {
+            "ref": "Cantrip Formulas|Wizard||3|TCE",
             "name": "Cantrip Formulas",
             "level": 3,
             "sourceCode": "TCE",
@@ -14118,6 +14737,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard||4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "PHB",
@@ -14128,6 +14748,7 @@
             ]
           },
           {
+            "ref": "Arcane Tradition feature|Wizard||6",
             "name": "Arcane Tradition feature",
             "level": 6,
             "sourceCode": "PHB",
@@ -14137,6 +14758,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard||8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "PHB",
@@ -14147,6 +14769,7 @@
             ]
           },
           {
+            "ref": "Arcane Tradition feature|Wizard||10",
             "name": "Arcane Tradition feature",
             "level": 10,
             "sourceCode": "PHB",
@@ -14156,6 +14779,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard||12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "PHB",
@@ -14166,6 +14790,7 @@
             ]
           },
           {
+            "ref": "Arcane Tradition feature|Wizard||14",
             "name": "Arcane Tradition feature",
             "level": 14,
             "sourceCode": "PHB",
@@ -14175,6 +14800,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard||16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "PHB",
@@ -14185,6 +14811,7 @@
             ]
           },
           {
+            "ref": "Spell Mastery|Wizard||18",
             "name": "Spell Mastery",
             "level": 18,
             "sourceCode": "PHB",
@@ -14195,6 +14822,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard||19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "PHB",
@@ -14205,6 +14833,7 @@
             ]
           },
           {
+            "ref": "Signature Spells|Wizard||20",
             "name": "Signature Spells",
             "level": 20,
             "sourceCode": "PHB",
@@ -14398,6 +15027,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Wizard|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -14488,6 +15118,7 @@
             ]
           },
           {
+            "ref": "Ritual Adept|Wizard|XPHB|1",
             "name": "Ritual Adept",
             "level": 1,
             "sourceCode": "XPHB",
@@ -14497,6 +15128,7 @@
             ]
           },
           {
+            "ref": "Arcane Recovery|Wizard|XPHB|1",
             "name": "Arcane Recovery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -14507,6 +15139,7 @@
             ]
           },
           {
+            "ref": "Scholar|Wizard|XPHB|2",
             "name": "Scholar",
             "level": 2,
             "sourceCode": "XPHB",
@@ -14516,6 +15149,7 @@
             ]
           },
           {
+            "ref": "Wizard Subclass|Wizard|XPHB|3",
             "name": "Wizard Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -14525,6 +15159,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -14534,6 +15169,7 @@
             ]
           },
           {
+            "ref": "Memorize Spell|Wizard|XPHB|5",
             "name": "Memorize Spell",
             "level": 5,
             "sourceCode": "XPHB",
@@ -14543,6 +15179,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -14552,6 +15189,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -14561,6 +15199,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -14570,6 +15209,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -14579,6 +15219,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Wizard|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -14588,6 +15229,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Wizard|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -14597,6 +15239,7 @@
             ]
           },
           {
+            "ref": "Spell Mastery|Wizard|XPHB|18",
             "name": "Spell Mastery",
             "level": 18,
             "sourceCode": "XPHB",
@@ -14607,6 +15250,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Wizard|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -14616,6 +15260,7 @@
             ]
           },
           {
+            "ref": "Signature Spells|Wizard|XPHB|20",
             "name": "Signature Spells",
             "level": 20,
             "sourceCode": "XPHB",

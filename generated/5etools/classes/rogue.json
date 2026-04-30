@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "rogue",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "rogue|xphb",
@@ -199,6 +199,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Expertise|Rogue|XPHB|1",
             "name": "Expertise",
             "level": 1,
             "sourceCode": "XPHB",
@@ -209,6 +210,7 @@
             ]
           },
           {
+            "ref": "Sneak Attack|Rogue|XPHB|1",
             "name": "Sneak Attack",
             "level": 1,
             "sourceCode": "XPHB",
@@ -220,6 +222,7 @@
             ]
           },
           {
+            "ref": "Thieves' Cant|Rogue|XPHB|1",
             "name": "Thieves' Cant",
             "level": 1,
             "sourceCode": "XPHB",
@@ -229,6 +232,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Rogue|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -239,6 +243,7 @@
             ]
           },
           {
+            "ref": "Cunning Action|Rogue|XPHB|2",
             "name": "Cunning Action",
             "level": 2,
             "sourceCode": "XPHB",
@@ -248,6 +253,7 @@
             ]
           },
           {
+            "ref": "Rogue Subclass|Rogue|XPHB|3",
             "name": "Rogue Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -257,6 +263,7 @@
             ]
           },
           {
+            "ref": "Steady Aim|Rogue|XPHB|3",
             "name": "Steady Aim",
             "level": 3,
             "sourceCode": "XPHB",
@@ -266,6 +273,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -275,6 +283,7 @@
             ]
           },
           {
+            "ref": "Cunning Strike|Rogue|XPHB|5",
             "name": "Cunning Strike",
             "level": 5,
             "sourceCode": "XPHB",
@@ -312,6 +321,7 @@
             ]
           },
           {
+            "ref": "Uncanny Dodge|Rogue|XPHB|5",
             "name": "Uncanny Dodge",
             "level": 5,
             "sourceCode": "XPHB",
@@ -321,6 +331,7 @@
             ]
           },
           {
+            "ref": "Expertise|Rogue|XPHB|6",
             "name": "Expertise",
             "level": 6,
             "sourceCode": "XPHB",
@@ -330,6 +341,7 @@
             ]
           },
           {
+            "ref": "Evasion|Rogue|XPHB|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "XPHB",
@@ -339,6 +351,7 @@
             ]
           },
           {
+            "ref": "Reliable Talent|Rogue|XPHB|7",
             "name": "Reliable Talent",
             "level": 7,
             "sourceCode": "XPHB",
@@ -348,6 +361,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -357,6 +371,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|9",
             "name": "Subclass Feature",
             "level": 9,
             "sourceCode": "XPHB",
@@ -366,6 +381,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|10",
             "name": "Ability Score Improvement",
             "level": 10,
             "sourceCode": "XPHB",
@@ -375,6 +391,7 @@
             ]
           },
           {
+            "ref": "Improved Cunning Strike|Rogue|XPHB|11",
             "name": "Improved Cunning Strike",
             "level": 11,
             "sourceCode": "XPHB",
@@ -384,6 +401,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -393,6 +411,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|13",
             "name": "Subclass Feature",
             "level": 13,
             "sourceCode": "XPHB",
@@ -402,6 +421,7 @@
             ]
           },
           {
+            "ref": "Devious Strikes|Rogue|XPHB|14",
             "name": "Devious Strikes",
             "level": 14,
             "sourceCode": "XPHB",
@@ -437,6 +457,7 @@
             ]
           },
           {
+            "ref": "Slippery Mind|Rogue|XPHB|15",
             "name": "Slippery Mind",
             "level": 15,
             "sourceCode": "XPHB",
@@ -446,6 +467,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Rogue|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -455,6 +477,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Rogue|XPHB|17",
             "name": "Subclass Feature",
             "level": 17,
             "sourceCode": "XPHB",
@@ -464,6 +487,7 @@
             ]
           },
           {
+            "ref": "Elusive|Rogue|XPHB|18",
             "name": "Elusive",
             "level": 18,
             "sourceCode": "XPHB",
@@ -473,6 +497,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Rogue|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -482,6 +507,7 @@
             ]
           },
           {
+            "ref": "Stroke of Luck|Rogue|XPHB|20",
             "name": "Stroke of Luck",
             "level": 20,
             "sourceCode": "XPHB",
@@ -568,6 +594,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Arcane Trickster|Rogue|XPHB|Arcane Trickster|XPHB|3",
               "name": "Arcane Trickster",
               "level": 3,
               "sourceCode": "XPHB",
@@ -637,6 +664,7 @@
               ]
             },
             {
+              "ref": "Magical Ambush|Rogue|XPHB|Arcane Trickster|XPHB|9",
               "name": "Magical Ambush",
               "level": 9,
               "sourceCode": "XPHB",
@@ -646,6 +674,7 @@
               ]
             },
             {
+              "ref": "Versatile Trickster|Rogue|XPHB|Arcane Trickster|XPHB|13",
               "name": "Versatile Trickster",
               "level": 13,
               "sourceCode": "XPHB",
@@ -655,6 +684,7 @@
               ]
             },
             {
+              "ref": "Spell Thief|Rogue|XPHB|Arcane Trickster|XPHB|17",
               "name": "Spell Thief",
               "level": 17,
               "sourceCode": "XPHB",
@@ -699,6 +729,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Assassin|Rogue|XPHB|Assassin|XPHB|3",
               "name": "Assassin",
               "level": 3,
               "sourceCode": "XPHB",
@@ -742,6 +773,7 @@
               ]
             },
             {
+              "ref": "Infiltration Expertise|Rogue|XPHB|Assassin|XPHB|9",
               "name": "Infiltration Expertise",
               "level": 9,
               "sourceCode": "XPHB",
@@ -770,6 +802,7 @@
               ]
             },
             {
+              "ref": "Envenom Weapons|Rogue|XPHB|Assassin|XPHB|13",
               "name": "Envenom Weapons",
               "level": 13,
               "sourceCode": "XPHB",
@@ -779,6 +812,7 @@
               ]
             },
             {
+              "ref": "Death Strike|Rogue|XPHB|Assassin|XPHB|17",
               "name": "Death Strike",
               "level": 17,
               "sourceCode": "XPHB",
@@ -821,6 +855,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Inquisitive|Rogue||Inquisitive|XGE|3",
               "name": "Inquisitive",
               "level": 3,
               "sourceCode": "XGE",
@@ -852,6 +887,7 @@
               ]
             },
             {
+              "ref": "Steady Eye|Rogue||Inquisitive|XGE|9",
               "name": "Steady Eye",
               "level": 9,
               "sourceCode": "XGE",
@@ -861,6 +897,7 @@
               ]
             },
             {
+              "ref": "Unerring Eye|Rogue||Inquisitive|XGE|13",
               "name": "Unerring Eye",
               "level": 13,
               "sourceCode": "XGE",
@@ -871,6 +908,7 @@
               ]
             },
             {
+              "ref": "Eye for Weakness|Rogue||Inquisitive|XGE|17",
               "name": "Eye for Weakness",
               "level": 17,
               "sourceCode": "XGE",
@@ -913,6 +951,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Mastermind|Rogue||Mastermind|XGE|3",
               "name": "Mastermind",
               "level": 3,
               "sourceCode": "XGE",
@@ -937,6 +976,7 @@
               ]
             },
             {
+              "ref": "Insightful Manipulator|Rogue||Mastermind|XGE|9",
               "name": "Insightful Manipulator",
               "level": 9,
               "sourceCode": "XGE",
@@ -956,6 +996,7 @@
               ]
             },
             {
+              "ref": "Misdirection|Rogue||Mastermind|XGE|13",
               "name": "Misdirection",
               "level": 13,
               "sourceCode": "XGE",
@@ -965,6 +1006,7 @@
               ]
             },
             {
+              "ref": "Soul of Deceit|Rogue||Mastermind|XGE|17",
               "name": "Soul of Deceit",
               "level": 17,
               "sourceCode": "XGE",
@@ -1008,6 +1050,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Phantom|Rogue||Phantom|TCE|3",
               "name": "Phantom",
               "level": 3,
               "sourceCode": "TCE",
@@ -1036,6 +1079,7 @@
               ]
             },
             {
+              "ref": "Tokens of the Departed|Rogue||Phantom|TCE|9",
               "name": "Tokens of the Departed",
               "level": 9,
               "sourceCode": "TCE",
@@ -1055,6 +1099,7 @@
               ]
             },
             {
+              "ref": "Ghost Walk|Rogue||Phantom|TCE|13",
               "name": "Ghost Walk",
               "level": 13,
               "sourceCode": "TCE",
@@ -1066,6 +1111,7 @@
               ]
             },
             {
+              "ref": "Death's Friend|Rogue||Phantom|TCE|17",
               "name": "Death's Friend",
               "level": 17,
               "sourceCode": "TCE",
@@ -1116,6 +1162,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Scion of the Three|Rogue|XPHB|Scion of the Three|FRHoF|3|FRHoF",
               "name": "Scion of the Three",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -1172,6 +1219,7 @@
               ]
             },
             {
+              "ref": "Strike Fear|Rogue|XPHB|Scion of the Three|FRHoF|9|FRHoF",
               "name": "Strike Fear",
               "level": 9,
               "sourceCode": "FRHoF",
@@ -1190,6 +1238,7 @@
               ]
             },
             {
+              "ref": "Aura of Malevolence|Rogue|XPHB|Scion of the Three|FRHoF|13|FRHoF",
               "name": "Aura of Malevolence",
               "level": 13,
               "sourceCode": "FRHoF",
@@ -1199,6 +1248,7 @@
               ]
             },
             {
+              "ref": "Dread Incarnate|Rogue|XPHB|Scion of the Three|FRHoF|17|FRHoF",
               "name": "Dread Incarnate",
               "level": 17,
               "sourceCode": "FRHoF",
@@ -1257,6 +1307,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Scout|Rogue||Scout|XGE|3",
               "name": "Scout",
               "level": 3,
               "sourceCode": "XGE",
@@ -1280,6 +1331,7 @@
               ]
             },
             {
+              "ref": "Superior Mobility|Rogue||Scout|XGE|9",
               "name": "Superior Mobility",
               "level": 9,
               "sourceCode": "XGE",
@@ -1289,6 +1341,7 @@
               ]
             },
             {
+              "ref": "Ambush Master|Rogue||Scout|XGE|13",
               "name": "Ambush Master",
               "level": 13,
               "sourceCode": "XGE",
@@ -1299,6 +1352,7 @@
               ]
             },
             {
+              "ref": "Sudden Strike|Rogue||Scout|XGE|17",
               "name": "Sudden Strike",
               "level": 17,
               "sourceCode": "XGE",
@@ -1341,6 +1395,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Soulknife|Rogue|XPHB|Soulknife|XPHB|3",
               "name": "Soulknife",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1436,6 +1491,7 @@
               ]
             },
             {
+              "ref": "Soul Blades|Rogue|XPHB|Soulknife|XPHB|9",
               "name": "Soul Blades",
               "level": 9,
               "sourceCode": "XPHB",
@@ -1459,6 +1515,7 @@
               ]
             },
             {
+              "ref": "Psychic Veil|Rogue|XPHB|Soulknife|XPHB|13",
               "name": "Psychic Veil",
               "level": 13,
               "sourceCode": "XPHB",
@@ -1469,6 +1526,7 @@
               ]
             },
             {
+              "ref": "Rend Mind|Rogue|XPHB|Soulknife|XPHB|17",
               "name": "Rend Mind",
               "level": 17,
               "sourceCode": "XPHB",
@@ -1512,6 +1570,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Swashbuckler|Rogue||Swashbuckler|XGE|3",
               "name": "Swashbuckler",
               "level": 3,
               "sourceCode": "XGE",
@@ -1537,6 +1596,7 @@
               ]
             },
             {
+              "ref": "Panache|Rogue||Swashbuckler|XGE|9",
               "name": "Panache",
               "level": 9,
               "sourceCode": "XGE",
@@ -1548,6 +1608,7 @@
               ]
             },
             {
+              "ref": "Elegant Maneuver|Rogue||Swashbuckler|XGE|13",
               "name": "Elegant Maneuver",
               "level": 13,
               "sourceCode": "XGE",
@@ -1557,6 +1618,7 @@
               ]
             },
             {
+              "ref": "Master Duelist|Rogue||Swashbuckler|XGE|17",
               "name": "Master Duelist",
               "level": 17,
               "sourceCode": "XGE",
@@ -1599,6 +1661,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Thief|Rogue|XPHB|Thief|XPHB|3",
               "name": "Thief",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1661,6 +1724,7 @@
               ]
             },
             {
+              "ref": "Supreme Sneak|Rogue|XPHB|Thief|XPHB|9",
               "name": "Supreme Sneak",
               "level": 9,
               "sourceCode": "XPHB",
@@ -1682,6 +1746,7 @@
               ]
             },
             {
+              "ref": "Use Magic Device|Rogue|XPHB|Thief|XPHB|13",
               "name": "Use Magic Device",
               "level": 13,
               "sourceCode": "XPHB",
@@ -1712,6 +1777,7 @@
               ]
             },
             {
+              "ref": "Thief's Reflexes|Rogue|XPHB|Thief|XPHB|17",
               "name": "Thief's Reflexes",
               "level": 17,
               "sourceCode": "XPHB",

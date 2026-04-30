@@ -4,12 +4,15 @@ export type InlineTextToken = {
 };
 
 const REFERENCE_TAGS = new Set([
+  '5etools',
   'action',
   'book',
   'condition',
+  'creature',
   'feat',
   'filter',
   'item',
+  'itemmastery',
   'itemproperty',
   'language',
   'optfeature',
@@ -27,13 +30,17 @@ function normalizeWhitespace(value: string) {
   return value.replace(/\s+/g, ' ').trim();
 }
 
-function getTaggedDisplayText(payload: string) {
+function getTaggedDisplayText(tagName: string, payload: string) {
+  if (tagName.toLowerCase() === 'note' || payload.includes('{@')) {
+    return inlineTokensToText(parseInlineText(payload));
+  }
+
   return normalizeWhitespace(payload.split('|')[0] ?? '');
 }
 
 function createTaggedToken(tagName: string, payload: string): InlineTextToken | null {
   const normalizedTag = tagName.toLowerCase();
-  const displayText = getTaggedDisplayText(payload);
+  const displayText = getTaggedDisplayText(tagName, payload);
 
   if (!displayText) {
     return null;
@@ -69,7 +76,7 @@ export function parseInlineText(value: unknown): InlineTextToken[] {
   }
 
   const tokens: InlineTextToken[] = [];
-  const tagPattern = /\{@([a-zA-Z]+)\s+([^}]*)\}/g;
+  const tagPattern = /\{@([a-zA-Z0-9]+)\s+((?:[^{}]|\{@[a-zA-Z0-9]+\s+[^{}]*\})*)\}/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 

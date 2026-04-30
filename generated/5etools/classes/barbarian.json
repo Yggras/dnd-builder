@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "barbarian",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "barbarian|xphb",
@@ -165,6 +165,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Rage|Barbarian|XPHB|1",
             "name": "Rage",
             "level": 1,
             "sourceCode": "XPHB",
@@ -225,6 +226,7 @@
             ]
           },
           {
+            "ref": "Unarmored Defense|Barbarian|XPHB|1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "XPHB",
@@ -234,6 +236,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Barbarian|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -244,6 +247,7 @@
             ]
           },
           {
+            "ref": "Danger Sense|Barbarian|XPHB|2",
             "name": "Danger Sense",
             "level": 2,
             "sourceCode": "XPHB",
@@ -253,6 +257,7 @@
             ]
           },
           {
+            "ref": "Reckless Attack|Barbarian|XPHB|2",
             "name": "Reckless Attack",
             "level": 2,
             "sourceCode": "XPHB",
@@ -262,6 +267,7 @@
             ]
           },
           {
+            "ref": "Barbarian Subclass|Barbarian|XPHB|3",
             "name": "Barbarian Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -271,6 +277,7 @@
             ]
           },
           {
+            "ref": "Primal Knowledge|Barbarian|XPHB|3",
             "name": "Primal Knowledge",
             "level": 3,
             "sourceCode": "XPHB",
@@ -281,6 +288,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -290,6 +298,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Barbarian|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -299,6 +308,7 @@
             ]
           },
           {
+            "ref": "Fast Movement|Barbarian|XPHB|5",
             "name": "Fast Movement",
             "level": 5,
             "sourceCode": "XPHB",
@@ -308,6 +318,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -317,6 +328,7 @@
             ]
           },
           {
+            "ref": "Feral Instinct|Barbarian|XPHB|7",
             "name": "Feral Instinct",
             "level": 7,
             "sourceCode": "XPHB",
@@ -326,6 +338,7 @@
             ]
           },
           {
+            "ref": "Instinctive Pounce|Barbarian|XPHB|7",
             "name": "Instinctive Pounce",
             "level": 7,
             "sourceCode": "XPHB",
@@ -335,6 +348,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -344,6 +358,7 @@
             ]
           },
           {
+            "ref": "Brutal Strike|Barbarian|XPHB|9",
             "name": "Brutal Strike",
             "level": 9,
             "sourceCode": "XPHB",
@@ -372,6 +387,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -381,6 +397,7 @@
             ]
           },
           {
+            "ref": "Relentless Rage|Barbarian|XPHB|11",
             "name": "Relentless Rage",
             "level": 11,
             "sourceCode": "XPHB",
@@ -391,6 +408,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -400,6 +418,7 @@
             ]
           },
           {
+            "ref": "Improved Brutal Strike|Barbarian|XPHB|13",
             "name": "Improved Brutal Strike",
             "level": 13,
             "sourceCode": "XPHB",
@@ -428,6 +447,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Barbarian|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -437,6 +457,7 @@
             ]
           },
           {
+            "ref": "Persistent Rage|Barbarian|XPHB|15",
             "name": "Persistent Rage",
             "level": 15,
             "sourceCode": "XPHB",
@@ -447,6 +468,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Barbarian|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -456,6 +478,7 @@
             ]
           },
           {
+            "ref": "Improved Brutal Strike|Barbarian|XPHB|17",
             "name": "Improved Brutal Strike",
             "level": 17,
             "sourceCode": "XPHB",
@@ -465,6 +488,7 @@
             ]
           },
           {
+            "ref": "Indomitable Might|Barbarian|XPHB|18",
             "name": "Indomitable Might",
             "level": 18,
             "sourceCode": "XPHB",
@@ -474,6 +498,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Barbarian|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -483,6 +508,7 @@
             ]
           },
           {
+            "ref": "Primal Champion|Barbarian|XPHB|20",
             "name": "Primal Champion",
             "level": 20,
             "sourceCode": "XPHB",
@@ -526,6 +552,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Ancestral Guardian|Barbarian||Ancestral Guardian|XGE|3",
               "name": "Path of the Ancestral Guardian",
               "level": 3,
               "sourceCode": "XGE",
@@ -543,6 +570,7 @@
               ]
             },
             {
+              "ref": "Spirit Shield|Barbarian||Ancestral Guardian|XGE|6",
               "name": "Spirit Shield",
               "level": 6,
               "sourceCode": "XGE",
@@ -553,6 +581,7 @@
               ]
             },
             {
+              "ref": "Consult the Spirits|Barbarian||Ancestral Guardian|XGE|10",
               "name": "Consult the Spirits",
               "level": 10,
               "sourceCode": "XGE",
@@ -563,6 +592,7 @@
               ]
             },
             {
+              "ref": "Vengeful Ancestors|Barbarian||Ancestral Guardian|XGE|14",
               "name": "Vengeful Ancestors",
               "level": 14,
               "sourceCode": "XGE",
@@ -605,6 +635,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Battlerager|Barbarian||Battlerager|SCAG|3",
               "name": "Path of the Battlerager",
               "level": 3,
               "sourceCode": "SCAG",
@@ -631,6 +662,7 @@
               ]
             },
             {
+              "ref": "Reckless Abandon|Barbarian||Battlerager|SCAG|6",
               "name": "Reckless Abandon",
               "level": 6,
               "sourceCode": "SCAG",
@@ -640,6 +672,7 @@
               ]
             },
             {
+              "ref": "Battlerager Charge|Barbarian||Battlerager|SCAG|10",
               "name": "Battlerager Charge",
               "level": 10,
               "sourceCode": "SCAG",
@@ -649,6 +682,7 @@
               ]
             },
             {
+              "ref": "Spiked Retribution|Barbarian||Battlerager|SCAG|14",
               "name": "Spiked Retribution",
               "level": 14,
               "sourceCode": "SCAG",
@@ -691,6 +725,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Beast|Barbarian||Beast|TCE|3",
               "name": "Path of the Beast",
               "level": 3,
               "sourceCode": "TCE",
@@ -761,6 +796,7 @@
               ]
             },
             {
+              "ref": "Bestial Soul|Barbarian||Beast|TCE|6",
               "name": "Bestial Soul",
               "level": 6,
               "sourceCode": "TCE",
@@ -780,6 +816,7 @@
               ]
             },
             {
+              "ref": "Infectious Fury|Barbarian||Beast|TCE|10",
               "name": "Infectious Fury",
               "level": 10,
               "sourceCode": "TCE",
@@ -798,6 +835,7 @@
               ]
             },
             {
+              "ref": "Call the Hunt|Barbarian||Beast|TCE|14",
               "name": "Call the Hunt",
               "level": 14,
               "sourceCode": "TCE",
@@ -843,6 +881,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Berserker|Barbarian|XPHB|Berserker|XPHB|3",
               "name": "Path of the Berserker",
               "level": 3,
               "sourceCode": "XPHB",
@@ -860,6 +899,7 @@
               ]
             },
             {
+              "ref": "Mindless Rage|Barbarian|XPHB|Berserker|XPHB|6",
               "name": "Mindless Rage",
               "level": 6,
               "sourceCode": "XPHB",
@@ -869,6 +909,7 @@
               ]
             },
             {
+              "ref": "Retaliation|Barbarian|XPHB|Berserker|XPHB|10",
               "name": "Retaliation",
               "level": 10,
               "sourceCode": "XPHB",
@@ -878,6 +919,7 @@
               ]
             },
             {
+              "ref": "Intimidating Presence|Barbarian|XPHB|Berserker|XPHB|14",
               "name": "Intimidating Presence",
               "level": 14,
               "sourceCode": "XPHB",
@@ -921,6 +963,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Giant|Barbarian||Giant|BGG|3",
               "name": "Path of the Giant",
               "level": 3,
               "sourceCode": "BGG",
@@ -962,6 +1005,7 @@
               ]
             },
             {
+              "ref": "Elemental Cleaver|Barbarian||Giant|BGG|6",
               "name": "Elemental Cleaver",
               "level": 6,
               "sourceCode": "BGG",
@@ -974,6 +1018,7 @@
               ]
             },
             {
+              "ref": "Mighty Impel|Barbarian||Giant|BGG|10",
               "name": "Mighty Impel",
               "level": 10,
               "sourceCode": "BGG",
@@ -985,6 +1030,7 @@
               ]
             },
             {
+              "ref": "Demiurgic Colossus|Barbarian||Giant|BGG|14",
               "name": "Demiurgic Colossus",
               "level": 14,
               "sourceCode": "BGG",
@@ -1029,6 +1075,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Storm Herald|Barbarian||Storm Herald|XGE|3",
               "name": "Path of the Storm Herald",
               "level": 3,
               "sourceCode": "XGE",
@@ -1074,6 +1121,7 @@
               ]
             },
             {
+              "ref": "Storm Soul|Barbarian||Storm Herald|XGE|6",
               "name": "Storm Soul",
               "level": 6,
               "sourceCode": "XGE",
@@ -1109,6 +1157,7 @@
               ]
             },
             {
+              "ref": "Shielding Storm|Barbarian||Storm Herald|XGE|10",
               "name": "Shielding Storm",
               "level": 10,
               "sourceCode": "XGE",
@@ -1118,6 +1167,7 @@
               ]
             },
             {
+              "ref": "Raging Storm|Barbarian||Storm Herald|XGE|14",
               "name": "Raging Storm",
               "level": 14,
               "sourceCode": "XGE",
@@ -1186,6 +1236,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Totem Warrior|Barbarian||Totem Warrior||3",
               "name": "Path of the Totem Warrior",
               "level": 3,
               "sourceCode": "PHB",
@@ -1252,6 +1303,7 @@
               ]
             },
             {
+              "ref": "Aspect of the Beast|Barbarian||Totem Warrior||6",
               "name": "Aspect of the Beast",
               "level": 6,
               "sourceCode": "PHB",
@@ -1302,6 +1354,7 @@
               ]
             },
             {
+              "ref": "Spirit Walker|Barbarian||Totem Warrior||10",
               "name": "Spirit Walker",
               "level": 10,
               "sourceCode": "PHB",
@@ -1311,6 +1364,7 @@
               ]
             },
             {
+              "ref": "Totemic Attunement|Barbarian||Totem Warrior||14",
               "name": "Totemic Attunement",
               "level": 14,
               "sourceCode": "PHB",
@@ -1394,6 +1448,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Wild Heart|Barbarian|XPHB|Wild Heart|XPHB|3",
               "name": "Path of the Wild Heart",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1439,6 +1494,7 @@
               ]
             },
             {
+              "ref": "Aspect of the Wilds|Barbarian|XPHB|Wild Heart|XPHB|6",
               "name": "Aspect of the Wilds",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1469,6 +1525,7 @@
               ]
             },
             {
+              "ref": "Nature Speaker|Barbarian|XPHB|Wild Heart|XPHB|10",
               "name": "Nature Speaker",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1478,6 +1535,7 @@
               ]
             },
             {
+              "ref": "Power of the Wilds|Barbarian|XPHB|Wild Heart|XPHB|14",
               "name": "Power of the Wilds",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1541,6 +1599,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the World Tree|Barbarian|XPHB|World Tree|XPHB|3",
               "name": "Path of the World Tree",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1577,6 +1636,7 @@
               ]
             },
             {
+              "ref": "Branches of the Tree|Barbarian|XPHB|World Tree|XPHB|6",
               "name": "Branches of the Tree",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1586,6 +1646,7 @@
               ]
             },
             {
+              "ref": "Battering Roots|Barbarian|XPHB|World Tree|XPHB|10",
               "name": "Battering Roots",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1595,6 +1656,7 @@
               ]
             },
             {
+              "ref": "Travel Along the Tree|Barbarian|XPHB|World Tree|XPHB|14",
               "name": "Travel Along the Tree",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1638,6 +1700,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of the Zealot|Barbarian|XPHB|Zealot|XPHB|3",
               "name": "Path of the Zealot",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1664,6 +1727,7 @@
               ]
             },
             {
+              "ref": "Fanatical Focus|Barbarian|XPHB|Zealot|XPHB|6",
               "name": "Fanatical Focus",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1673,6 +1737,7 @@
               ]
             },
             {
+              "ref": "Zealous Presence|Barbarian|XPHB|Zealot|XPHB|10",
               "name": "Zealous Presence",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1683,6 +1748,7 @@
               ]
             },
             {
+              "ref": "Rage of the Gods|Barbarian|XPHB|Zealot|XPHB|14",
               "name": "Rage of the Gods",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1747,6 +1813,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Path of Wild Magic|Barbarian||Wild Magic|TCE|3",
               "name": "Path of Wild Magic",
               "level": 3,
               "sourceCode": "TCE",
@@ -1825,6 +1892,7 @@
               ]
             },
             {
+              "ref": "Bolstering Magic|Barbarian||Wild Magic|TCE|6",
               "name": "Bolstering Magic",
               "level": 6,
               "sourceCode": "TCE",
@@ -1843,6 +1911,7 @@
               ]
             },
             {
+              "ref": "Unstable Backlash|Barbarian||Wild Magic|TCE|10",
               "name": "Unstable Backlash",
               "level": 10,
               "sourceCode": "TCE",
@@ -1853,6 +1922,7 @@
               ]
             },
             {
+              "ref": "Controlled Surge|Barbarian||Wild Magic|TCE|14",
               "name": "Controlled Surge",
               "level": 14,
               "sourceCode": "TCE",

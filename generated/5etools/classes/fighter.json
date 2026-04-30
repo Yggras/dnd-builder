@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "fighter",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "fighter|xphb",
@@ -219,6 +219,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Fighting Style|Fighter|XPHB|1",
             "name": "Fighting Style",
             "level": 1,
             "sourceCode": "XPHB",
@@ -229,6 +230,7 @@
             ]
           },
           {
+            "ref": "Second Wind|Fighter|XPHB|1",
             "name": "Second Wind",
             "level": 1,
             "sourceCode": "XPHB",
@@ -240,6 +242,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Fighter|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -250,6 +253,7 @@
             ]
           },
           {
+            "ref": "Action Surge|Fighter|XPHB|2",
             "name": "Action Surge",
             "level": 2,
             "sourceCode": "XPHB",
@@ -260,6 +264,7 @@
             ]
           },
           {
+            "ref": "Tactical Mind|Fighter|XPHB|2",
             "name": "Tactical Mind",
             "level": 2,
             "sourceCode": "XPHB",
@@ -269,6 +274,7 @@
             ]
           },
           {
+            "ref": "Fighter Subclass|Fighter|XPHB|3",
             "name": "Fighter Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -278,6 +284,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -287,6 +294,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Fighter|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -296,6 +304,7 @@
             ]
           },
           {
+            "ref": "Tactical Shift|Fighter|XPHB|5",
             "name": "Tactical Shift",
             "level": 5,
             "sourceCode": "XPHB",
@@ -305,6 +314,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|6",
             "name": "Ability Score Improvement",
             "level": 6,
             "sourceCode": "XPHB",
@@ -314,6 +324,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -323,6 +334,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -332,6 +344,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|9",
             "name": "Indomitable",
             "level": 9,
             "sourceCode": "XPHB",
@@ -342,6 +355,7 @@
             ]
           },
           {
+            "ref": "Tactical Master|Fighter|XPHB|9",
             "name": "Tactical Master",
             "level": 9,
             "sourceCode": "XPHB",
@@ -351,6 +365,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -360,6 +375,7 @@
             ]
           },
           {
+            "ref": "Two Extra Attacks|Fighter|XPHB|11",
             "name": "Two Extra Attacks",
             "level": 11,
             "sourceCode": "XPHB",
@@ -369,6 +385,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -378,6 +395,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|13",
             "name": "Indomitable",
             "level": 13,
             "sourceCode": "XPHB",
@@ -388,6 +406,7 @@
             ]
           },
           {
+            "ref": "Studied Attacks|Fighter|XPHB|13",
             "name": "Studied Attacks",
             "level": 13,
             "sourceCode": "XPHB",
@@ -397,6 +416,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|14",
             "name": "Ability Score Improvement",
             "level": 14,
             "sourceCode": "XPHB",
@@ -406,6 +426,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -415,6 +436,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Fighter|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -424,6 +446,7 @@
             ]
           },
           {
+            "ref": "Action Surge|Fighter|XPHB|17",
             "name": "Action Surge",
             "level": 17,
             "sourceCode": "XPHB",
@@ -434,6 +457,7 @@
             ]
           },
           {
+            "ref": "Indomitable|Fighter|XPHB|17",
             "name": "Indomitable",
             "level": 17,
             "sourceCode": "XPHB",
@@ -444,6 +468,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Fighter|XPHB|18",
             "name": "Subclass Feature",
             "level": 18,
             "sourceCode": "XPHB",
@@ -453,6 +478,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Fighter|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -462,6 +488,7 @@
             ]
           },
           {
+            "ref": "Three Extra Attacks|Fighter|XPHB|20",
             "name": "Three Extra Attacks",
             "level": 20,
             "sourceCode": "XPHB",
@@ -509,6 +536,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Arcane Archer|Fighter||Arcane Archer|XGE|3",
               "name": "Arcane Archer",
               "level": 3,
               "sourceCode": "XGE",
@@ -587,6 +615,7 @@
               ]
             },
             {
+              "ref": "Magic Arrow|Fighter||Arcane Archer|XGE|7",
               "name": "Magic Arrow",
               "level": 7,
               "sourceCode": "XGE",
@@ -596,6 +625,7 @@
               ]
             },
             {
+              "ref": "Curving Shot|Fighter||Arcane Archer|XGE|7",
               "name": "Curving Shot",
               "level": 7,
               "sourceCode": "XGE",
@@ -605,6 +635,7 @@
               ]
             },
             {
+              "ref": "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|7",
               "name": "Additional Arcane Shot Option",
               "level": 7,
               "sourceCode": "XGE",
@@ -614,6 +645,7 @@
               ]
             },
             {
+              "ref": "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|10",
               "name": "Additional Arcane Shot Option",
               "level": 10,
               "sourceCode": "XGE",
@@ -623,6 +655,7 @@
               ]
             },
             {
+              "ref": "Ever-Ready Shot|Fighter||Arcane Archer|XGE|15",
               "name": "Ever-Ready Shot",
               "level": 15,
               "sourceCode": "XGE",
@@ -632,6 +665,7 @@
               ]
             },
             {
+              "ref": "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|15",
               "name": "Additional Arcane Shot Option",
               "level": 15,
               "sourceCode": "XGE",
@@ -641,6 +675,7 @@
               ]
             },
             {
+              "ref": "Additional Arcane Shot Option|Fighter||Arcane Archer|XGE|18",
               "name": "Additional Arcane Shot Option",
               "level": 18,
               "sourceCode": "XGE",
@@ -684,6 +719,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Banneret|Fighter|XPHB|Banneret|FRHoF|3|FRHoF",
               "name": "Banneret",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -730,6 +766,7 @@
               ]
             },
             {
+              "ref": "Team Tactics|Fighter|XPHB|Banneret|FRHoF|7|FRHoF",
               "name": "Team Tactics",
               "level": 7,
               "sourceCode": "FRHoF",
@@ -739,6 +776,7 @@
               ]
             },
             {
+              "ref": "Rallying Surge|Fighter|XPHB|Banneret|FRHoF|10|FRHoF",
               "name": "Rallying Surge",
               "level": 10,
               "sourceCode": "FRHoF",
@@ -762,6 +800,7 @@
               ]
             },
             {
+              "ref": "Shared Resilience|Fighter|XPHB|Banneret|FRHoF|15|FRHoF",
               "name": "Shared Resilience",
               "level": 15,
               "sourceCode": "FRHoF",
@@ -771,6 +810,7 @@
               ]
             },
             {
+              "ref": "Inspiring Commander|Fighter|XPHB|Banneret|FRHoF|18|FRHoF",
               "name": "Inspiring Commander",
               "level": 18,
               "sourceCode": "FRHoF",
@@ -828,6 +868,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Battle Master|Fighter|XPHB|Battle Master|XPHB|3",
               "name": "Battle Master",
               "level": 3,
               "sourceCode": "XPHB",
@@ -968,6 +1009,7 @@
               ]
             },
             {
+              "ref": "Know Your Enemy|Fighter|XPHB|Battle Master|XPHB|7",
               "name": "Know Your Enemy",
               "level": 7,
               "sourceCode": "XPHB",
@@ -978,6 +1020,7 @@
               ]
             },
             {
+              "ref": "Improved Combat Superiority|Fighter|XPHB|Battle Master|XPHB|10",
               "name": "Improved Combat Superiority",
               "level": 10,
               "sourceCode": "XPHB",
@@ -987,6 +1030,7 @@
               ]
             },
             {
+              "ref": "Relentless|Fighter|XPHB|Battle Master|XPHB|15",
               "name": "Relentless",
               "level": 15,
               "sourceCode": "XPHB",
@@ -996,6 +1040,7 @@
               ]
             },
             {
+              "ref": "Ultimate Combat Superiority|Fighter|XPHB|Battle Master|XPHB|18",
               "name": "Ultimate Combat Superiority",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1039,6 +1084,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Cavalier|Fighter||Cavalier|XGE|3",
               "name": "Cavalier",
               "level": 3,
               "sourceCode": "XGE",
@@ -1073,6 +1119,7 @@
               ]
             },
             {
+              "ref": "Warding Maneuver|Fighter||Cavalier|XGE|7",
               "name": "Warding Maneuver",
               "level": 7,
               "sourceCode": "XGE",
@@ -1083,6 +1130,7 @@
               ]
             },
             {
+              "ref": "Hold the Line|Fighter||Cavalier|XGE|10",
               "name": "Hold the Line",
               "level": 10,
               "sourceCode": "XGE",
@@ -1092,6 +1140,7 @@
               ]
             },
             {
+              "ref": "Ferocious Charger|Fighter||Cavalier|XGE|15",
               "name": "Ferocious Charger",
               "level": 15,
               "sourceCode": "XGE",
@@ -1101,6 +1150,7 @@
               ]
             },
             {
+              "ref": "Vigilant Defender|Fighter||Cavalier|XGE|18",
               "name": "Vigilant Defender",
               "level": 18,
               "sourceCode": "XGE",
@@ -1144,6 +1194,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Champion|Fighter|XPHB|Champion|XPHB|3",
               "name": "Champion",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1169,6 +1220,7 @@
               ]
             },
             {
+              "ref": "Additional Fighting Style|Fighter|XPHB|Champion|XPHB|7",
               "name": "Additional Fighting Style",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1178,6 +1230,7 @@
               ]
             },
             {
+              "ref": "Heroic Warrior|Fighter|XPHB|Champion|XPHB|10",
               "name": "Heroic Warrior",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1187,6 +1240,7 @@
               ]
             },
             {
+              "ref": "Superior Critical|Fighter|XPHB|Champion|XPHB|15",
               "name": "Superior Critical",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1196,6 +1250,7 @@
               ]
             },
             {
+              "ref": "Survivor|Fighter|XPHB|Champion|XPHB|18",
               "name": "Survivor",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1253,6 +1308,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Echo Knight|Fighter||Echo Knight|EGW|3",
               "name": "Echo Knight",
               "level": 3,
               "sourceCode": "EGW",
@@ -1289,6 +1345,7 @@
               ]
             },
             {
+              "ref": "Echo Avatar|Fighter||Echo Knight|EGW|7",
               "name": "Echo Avatar",
               "level": 7,
               "sourceCode": "EGW",
@@ -1299,6 +1356,7 @@
               ]
             },
             {
+              "ref": "Shadow Martyr|Fighter||Echo Knight|EGW|10",
               "name": "Shadow Martyr",
               "level": 10,
               "sourceCode": "EGW",
@@ -1310,6 +1368,7 @@
               ]
             },
             {
+              "ref": "Reclaim Potential|Fighter||Echo Knight|EGW|15",
               "name": "Reclaim Potential",
               "level": 15,
               "sourceCode": "EGW",
@@ -1321,6 +1380,7 @@
               ]
             },
             {
+              "ref": "Legion of One|Fighter||Echo Knight|EGW|18",
               "name": "Legion of One",
               "level": 18,
               "sourceCode": "EGW",
@@ -1408,6 +1468,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Eldritch Knight|Fighter|XPHB|Eldritch Knight|XPHB|3",
               "name": "Eldritch Knight",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1503,6 +1564,7 @@
               ]
             },
             {
+              "ref": "War Magic|Fighter|XPHB|Eldritch Knight|XPHB|7",
               "name": "War Magic",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1512,6 +1574,7 @@
               ]
             },
             {
+              "ref": "Eldritch Strike|Fighter|XPHB|Eldritch Knight|XPHB|10",
               "name": "Eldritch Strike",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1521,6 +1584,7 @@
               ]
             },
             {
+              "ref": "Arcane Charge|Fighter|XPHB|Eldritch Knight|XPHB|15",
               "name": "Arcane Charge",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1530,6 +1594,7 @@
               ]
             },
             {
+              "ref": "Improved War Magic|Fighter|XPHB|Eldritch Knight|XPHB|18",
               "name": "Improved War Magic",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1573,6 +1638,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Psi Warrior|Fighter|XPHB|Psi Warrior|XPHB|3",
               "name": "Psi Warrior",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1660,6 +1726,7 @@
               ]
             },
             {
+              "ref": "Telekinetic Adept|Fighter|XPHB|Psi Warrior|XPHB|7",
               "name": "Telekinetic Adept",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1683,6 +1750,7 @@
               ]
             },
             {
+              "ref": "Guarded Mind|Fighter|XPHB|Psi Warrior|XPHB|10",
               "name": "Guarded Mind",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1692,6 +1760,7 @@
               ]
             },
             {
+              "ref": "Bulwark of Force|Fighter|XPHB|Psi Warrior|XPHB|15",
               "name": "Bulwark of Force",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1702,6 +1771,7 @@
               ]
             },
             {
+              "ref": "Telekinetic Master|Fighter|XPHB|Psi Warrior|XPHB|18",
               "name": "Telekinetic Master",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1746,6 +1816,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Purple Dragon Knight (Banneret)|Fighter||Purple Dragon Knight (Banneret)|SCAG|3",
               "name": "Purple Dragon Knight (Banneret)",
               "level": 3,
               "sourceCode": "SCAG",
@@ -1773,6 +1844,7 @@
               ]
             },
             {
+              "ref": "Royal Envoy|Fighter||Purple Dragon Knight (Banneret)|SCAG|7",
               "name": "Royal Envoy",
               "level": 7,
               "sourceCode": "SCAG",
@@ -1784,6 +1856,7 @@
               ]
             },
             {
+              "ref": "Inspiring Surge|Fighter||Purple Dragon Knight (Banneret)|SCAG|10",
               "name": "Inspiring Surge",
               "level": 10,
               "sourceCode": "SCAG",
@@ -1794,6 +1867,7 @@
               ]
             },
             {
+              "ref": "Bulwark|Fighter||Purple Dragon Knight (Banneret)|SCAG|15",
               "name": "Bulwark",
               "level": 15,
               "sourceCode": "SCAG",
@@ -1803,6 +1877,7 @@
               ]
             },
             {
+              "ref": "Inspiring Surge|Fighter||Purple Dragon Knight (Banneret)|SCAG|18",
               "name": "Inspiring Surge",
               "level": 18,
               "sourceCode": "SCAG",
@@ -1849,6 +1924,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Rune Knight|Fighter||Rune Knight|TCE|3",
               "name": "Rune Knight",
               "level": 3,
               "sourceCode": "TCE",
@@ -1955,6 +2031,7 @@
               ]
             },
             {
+              "ref": "Runic Shield|Fighter||Rune Knight|TCE|7",
               "name": "Runic Shield",
               "level": 7,
               "sourceCode": "TCE",
@@ -1966,6 +2043,7 @@
               ]
             },
             {
+              "ref": "Additional Rune Known|Fighter||Rune Knight|TCE|7",
               "name": "Additional Rune Known",
               "level": 7,
               "sourceCode": "TCE",
@@ -1976,6 +2054,7 @@
               ]
             },
             {
+              "ref": "Great Stature|Fighter||Rune Knight|TCE|10",
               "name": "Great Stature",
               "level": 10,
               "sourceCode": "TCE",
@@ -1987,6 +2066,7 @@
               ]
             },
             {
+              "ref": "Additional Rune Known|Fighter||Rune Knight|TCE|10",
               "name": "Additional Rune Known",
               "level": 10,
               "sourceCode": "TCE",
@@ -1997,6 +2077,7 @@
               ]
             },
             {
+              "ref": "Master of Runes|Fighter||Rune Knight|TCE|15",
               "name": "Master of Runes",
               "level": 15,
               "sourceCode": "TCE",
@@ -2007,6 +2088,7 @@
               ]
             },
             {
+              "ref": "Additional Rune Known|Fighter||Rune Knight|TCE|15",
               "name": "Additional Rune Known",
               "level": 15,
               "sourceCode": "TCE",
@@ -2017,6 +2099,7 @@
               ]
             },
             {
+              "ref": "Runic Juggernaut|Fighter||Rune Knight|TCE|18",
               "name": "Runic Juggernaut",
               "level": 18,
               "sourceCode": "TCE",
@@ -2061,6 +2144,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Samurai|Fighter||Samurai|XGE|3",
               "name": "Samurai",
               "level": 3,
               "sourceCode": "XGE",
@@ -2085,6 +2169,7 @@
               ]
             },
             {
+              "ref": "Elegant Courtier|Fighter||Samurai|XGE|7",
               "name": "Elegant Courtier",
               "level": 7,
               "sourceCode": "XGE",
@@ -2095,6 +2180,7 @@
               ]
             },
             {
+              "ref": "Tireless Spirit|Fighter||Samurai|XGE|10",
               "name": "Tireless Spirit",
               "level": 10,
               "sourceCode": "XGE",
@@ -2104,6 +2190,7 @@
               ]
             },
             {
+              "ref": "Rapid Strike|Fighter||Samurai|XGE|15",
               "name": "Rapid Strike",
               "level": 15,
               "sourceCode": "XGE",
@@ -2113,6 +2200,7 @@
               ]
             },
             {
+              "ref": "Strength before Death|Fighter||Samurai|XGE|18",
               "name": "Strength before Death",
               "level": 18,
               "sourceCode": "XGE",

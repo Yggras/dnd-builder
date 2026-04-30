@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "druid",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "druid|xphb",
@@ -214,6 +214,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Druidic|Druid|XPHB|1",
             "name": "Druidic",
             "level": 1,
             "sourceCode": "XPHB",
@@ -224,6 +225,7 @@
             ]
           },
           {
+            "ref": "Primal Order|Druid|XPHB|1",
             "name": "Primal Order",
             "level": 1,
             "sourceCode": "XPHB",
@@ -258,6 +260,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Druid|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -318,6 +321,7 @@
             ]
           },
           {
+            "ref": "Wild Companion|Druid|XPHB|2",
             "name": "Wild Companion",
             "level": 2,
             "sourceCode": "XPHB",
@@ -328,6 +332,7 @@
             ]
           },
           {
+            "ref": "Wild Shape|Druid|XPHB|2",
             "name": "Wild Shape",
             "level": 2,
             "sourceCode": "XPHB",
@@ -435,6 +440,7 @@
             ]
           },
           {
+            "ref": "Druid Subclass|Druid|XPHB|3",
             "name": "Druid Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -444,6 +450,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -453,6 +460,7 @@
             ]
           },
           {
+            "ref": "Wild Resurgence|Druid|XPHB|5",
             "name": "Wild Resurgence",
             "level": 5,
             "sourceCode": "XPHB",
@@ -463,6 +471,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -472,6 +481,7 @@
             ]
           },
           {
+            "ref": "Elemental Fury|Druid|XPHB|7",
             "name": "Elemental Fury",
             "level": 7,
             "sourceCode": "XPHB",
@@ -506,6 +516,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -515,6 +526,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|10",
             "name": "Subclass Feature",
             "level": 10,
             "sourceCode": "XPHB",
@@ -524,6 +536,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -533,6 +546,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Druid|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -542,6 +556,7 @@
             ]
           },
           {
+            "ref": "Improved Elemental Fury|Druid|XPHB|15",
             "name": "Improved Elemental Fury",
             "level": 15,
             "sourceCode": "XPHB",
@@ -570,6 +585,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Druid|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -579,6 +595,7 @@
             ]
           },
           {
+            "ref": "Beast Spells|Druid|XPHB|18",
             "name": "Beast Spells",
             "level": 18,
             "sourceCode": "XPHB",
@@ -588,6 +605,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Druid|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -597,6 +615,7 @@
             ]
           },
           {
+            "ref": "Archdruid|Druid|XPHB|20",
             "name": "Archdruid",
             "level": 20,
             "sourceCode": "XPHB",
@@ -666,6 +685,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of Dreams|Druid|XPHB|Dreams|XGE|3",
               "name": "Circle of Dreams",
               "level": 3,
               "sourceCode": "XGE",
@@ -684,6 +704,7 @@
               ]
             },
             {
+              "ref": "Hearth of Moonlight and Shadow|Druid||Dreams|XGE|6",
               "name": "Hearth of Moonlight and Shadow",
               "level": 6,
               "sourceCode": "XGE",
@@ -695,6 +716,7 @@
               ]
             },
             {
+              "ref": "Hidden Paths|Druid||Dreams|XGE|10",
               "name": "Hidden Paths",
               "level": 10,
               "sourceCode": "XGE",
@@ -705,6 +727,7 @@
               ]
             },
             {
+              "ref": "Walker in Dreams|Druid||Dreams|XGE|14",
               "name": "Walker in Dreams",
               "level": 14,
               "sourceCode": "XGE",
@@ -750,6 +773,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of Spores|Druid|XPHB|Spores|TCE|3",
               "name": "Circle of Spores",
               "level": 3,
               "sourceCode": "TCE",
@@ -821,6 +845,7 @@
               ]
             },
             {
+              "ref": "Fungal Infestation|Druid||Spores|TCE|6",
               "name": "Fungal Infestation",
               "level": 6,
               "sourceCode": "TCE",
@@ -832,6 +857,7 @@
               ]
             },
             {
+              "ref": "Spreading Spores|Druid||Spores|TCE|10",
               "name": "Spreading Spores",
               "level": 10,
               "sourceCode": "TCE",
@@ -843,6 +869,7 @@
               ]
             },
             {
+              "ref": "Fungal Body|Druid||Spores|TCE|14",
               "name": "Fungal Body",
               "level": 14,
               "sourceCode": "TCE",
@@ -885,6 +912,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of Stars|Druid|XPHB|Stars|TCE|3",
               "name": "Circle of Stars",
               "level": 3,
               "sourceCode": "TCE",
@@ -982,6 +1010,7 @@
               ]
             },
             {
+              "ref": "Cosmic Omen|Druid||Stars|TCE|6",
               "name": "Cosmic Omen",
               "level": 6,
               "sourceCode": "TCE",
@@ -1009,6 +1038,7 @@
               ]
             },
             {
+              "ref": "Twinkling Constellations|Druid||Stars|TCE|10",
               "name": "Twinkling Constellations",
               "level": 10,
               "sourceCode": "TCE",
@@ -1020,6 +1050,7 @@
               ]
             },
             {
+              "ref": "Full of Stars|Druid||Stars|TCE|14",
               "name": "Full of Stars",
               "level": 14,
               "sourceCode": "TCE",
@@ -1063,6 +1094,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of the Land|Druid|XPHB|Land|XPHB|3",
               "name": "Circle of the Land",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1208,6 +1240,7 @@
               ]
             },
             {
+              "ref": "Natural Recovery|Druid|XPHB|Land|XPHB|6",
               "name": "Natural Recovery",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1218,6 +1251,7 @@
               ]
             },
             {
+              "ref": "Nature's Ward|Druid|XPHB|Land|XPHB|10",
               "name": "Nature's Ward",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1262,6 +1296,7 @@
               ]
             },
             {
+              "ref": "Nature's Sanctuary|Druid|XPHB|Land|XPHB|14",
               "name": "Nature's Sanctuary",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1305,6 +1340,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of the Moon|Druid|XPHB|Moon|XPHB|3",
               "name": "Circle of the Moon",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1387,6 +1423,7 @@
               ]
             },
             {
+              "ref": "Improved Circle Forms|Druid|XPHB|Moon|XPHB|6",
               "name": "Improved Circle Forms",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1415,6 +1452,7 @@
               ]
             },
             {
+              "ref": "Moonlight Step|Druid|XPHB|Moon|XPHB|10",
               "name": "Moonlight Step",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1425,6 +1463,7 @@
               ]
             },
             {
+              "ref": "Lunar Form|Druid|XPHB|Moon|XPHB|14",
               "name": "Lunar Form",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1486,6 +1525,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of the Sea|Druid|XPHB|Sea|XPHB|3",
               "name": "Circle of the Sea",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1541,6 +1581,7 @@
               ]
             },
             {
+              "ref": "Aquatic Affinity|Druid|XPHB|Sea|XPHB|6",
               "name": "Aquatic Affinity",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1551,6 +1592,7 @@
               ]
             },
             {
+              "ref": "Stormborn|Druid|XPHB|Sea|XPHB|10",
               "name": "Stormborn",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1574,6 +1616,7 @@
               ]
             },
             {
+              "ref": "Oceanic Gift|Druid|XPHB|Sea|XPHB|14",
               "name": "Oceanic Gift",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1617,6 +1660,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of the Shepherd|Druid|XPHB|Shepherd|XGE|3",
               "name": "Circle of the Shepherd",
               "level": 3,
               "sourceCode": "XGE",
@@ -1666,6 +1710,7 @@
               ]
             },
             {
+              "ref": "Mighty Summoner|Druid||Shepherd|XGE|6",
               "name": "Mighty Summoner",
               "level": 6,
               "sourceCode": "XGE",
@@ -1682,6 +1727,7 @@
               ]
             },
             {
+              "ref": "Guardian Spirit|Druid||Shepherd|XGE|10",
               "name": "Guardian Spirit",
               "level": 10,
               "sourceCode": "XGE",
@@ -1691,6 +1737,7 @@
               ]
             },
             {
+              "ref": "Faithful Summons|Druid||Shepherd|XGE|14",
               "name": "Faithful Summons",
               "level": 14,
               "sourceCode": "XGE",
@@ -1734,6 +1781,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of the Stars|Druid|XPHB|Stars|XPHB|3",
               "name": "Circle of the Stars",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1821,6 +1869,7 @@
               ]
             },
             {
+              "ref": "Cosmic Omen|Druid|XPHB|Stars|XPHB|6",
               "name": "Cosmic Omen",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1851,6 +1900,7 @@
               ]
             },
             {
+              "ref": "Twinkling Constellations|Druid|XPHB|Stars|XPHB|10",
               "name": "Twinkling Constellations",
               "level": 10,
               "sourceCode": "XPHB",
@@ -1861,6 +1911,7 @@
               ]
             },
             {
+              "ref": "Full of Stars|Druid|XPHB|Stars|XPHB|14",
               "name": "Full of Stars",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1903,6 +1954,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Circle of Wildfire|Druid|XPHB|Wildfire|TCE|3",
               "name": "Circle of Wildfire",
               "level": 3,
               "sourceCode": "TCE",
@@ -1967,6 +2019,7 @@
               ]
             },
             {
+              "ref": "Enhanced Bond|Druid||Wildfire|TCE|6",
               "name": "Enhanced Bond",
               "level": 6,
               "sourceCode": "TCE",
@@ -1978,6 +2031,7 @@
               ]
             },
             {
+              "ref": "Cauterizing Flames|Druid||Wildfire|TCE|10",
               "name": "Cauterizing Flames",
               "level": 10,
               "sourceCode": "TCE",
@@ -1989,6 +2043,7 @@
               ]
             },
             {
+              "ref": "Blazing Revival|Druid||Wildfire|TCE|14",
               "name": "Blazing Revival",
               "level": 14,
               "sourceCode": "TCE",

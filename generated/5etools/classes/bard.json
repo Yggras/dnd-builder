@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "bard",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "bard|xphb",
@@ -194,6 +194,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Bardic Inspiration|Bard|XPHB|1",
             "name": "Bardic Inspiration",
             "level": 1,
             "sourceCode": "XPHB",
@@ -230,6 +231,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Bard|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -290,6 +292,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard|XPHB|2",
             "name": "Expertise",
             "level": 2,
             "sourceCode": "XPHB",
@@ -300,6 +303,7 @@
             ]
           },
           {
+            "ref": "Jack of All Trades|Bard|XPHB|2",
             "name": "Jack of All Trades",
             "level": 2,
             "sourceCode": "XPHB",
@@ -318,6 +322,7 @@
             ]
           },
           {
+            "ref": "Bard Subclass|Bard|XPHB|3",
             "name": "Bard Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -327,6 +332,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -336,6 +342,7 @@
             ]
           },
           {
+            "ref": "Font of Inspiration|Bard|XPHB|5",
             "name": "Font of Inspiration",
             "level": 5,
             "sourceCode": "XPHB",
@@ -346,6 +353,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Bard|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -355,6 +363,7 @@
             ]
           },
           {
+            "ref": "Countercharm|Bard|XPHB|7",
             "name": "Countercharm",
             "level": 7,
             "sourceCode": "XPHB",
@@ -364,6 +373,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -373,6 +383,7 @@
             ]
           },
           {
+            "ref": "Expertise|Bard|XPHB|9",
             "name": "Expertise",
             "level": 9,
             "sourceCode": "XPHB",
@@ -382,6 +393,7 @@
             ]
           },
           {
+            "ref": "Magical Secrets|Bard|XPHB|10",
             "name": "Magical Secrets",
             "level": 10,
             "sourceCode": "XPHB",
@@ -391,6 +403,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -400,6 +413,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Bard|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -409,6 +423,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Bard|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -418,6 +433,7 @@
             ]
           },
           {
+            "ref": "Superior Inspiration|Bard|XPHB|18",
             "name": "Superior Inspiration",
             "level": 18,
             "sourceCode": "XPHB",
@@ -427,6 +443,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Bard|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -436,6 +453,7 @@
             ]
           },
           {
+            "ref": "Words of Creation|Bard|XPHB|20",
             "name": "Words of Creation",
             "level": 20,
             "sourceCode": "XPHB",
@@ -478,6 +496,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Creation|Bard||Creation|TCE|3",
               "name": "College of Creation",
               "level": 3,
               "sourceCode": "TCE",
@@ -529,6 +548,7 @@
               ]
             },
             {
+              "ref": "Animating Performance|Bard||Creation|TCE|6",
               "name": "Animating Performance",
               "level": 6,
               "sourceCode": "TCE",
@@ -542,6 +562,7 @@
               ]
             },
             {
+              "ref": "Creative Crescendo|Bard||Creation|TCE|14",
               "name": "Creative Crescendo",
               "level": 14,
               "sourceCode": "TCE",
@@ -586,6 +607,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Dance|Bard|XPHB|Dance|XPHB|3",
               "name": "College of Dance",
               "level": 3,
               "sourceCode": "XPHB",
@@ -631,6 +653,7 @@
               ]
             },
             {
+              "ref": "Inspiring Movement|Bard|XPHB|Dance|XPHB|6",
               "name": "Inspiring Movement",
               "level": 6,
               "sourceCode": "XPHB",
@@ -641,6 +664,7 @@
               ]
             },
             {
+              "ref": "Tandem Footwork|Bard|XPHB|Dance|XPHB|6",
               "name": "Tandem Footwork",
               "level": 6,
               "sourceCode": "XPHB",
@@ -650,6 +674,7 @@
               ]
             },
             {
+              "ref": "Leading Evasion|Bard|XPHB|Dance|XPHB|14",
               "name": "Leading Evasion",
               "level": 14,
               "sourceCode": "XPHB",
@@ -693,6 +718,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Eloquence|Bard||Eloquence|TCE|3",
               "name": "College of Eloquence",
               "level": 3,
               "sourceCode": "TCE",
@@ -718,6 +744,7 @@
               ]
             },
             {
+              "ref": "Unfailing Inspiration|Bard||Eloquence|TCE|6",
               "name": "Unfailing Inspiration",
               "level": 6,
               "sourceCode": "TCE",
@@ -728,6 +755,7 @@
               ]
             },
             {
+              "ref": "Universal Speech|Bard||Eloquence|TCE|6",
               "name": "Universal Speech",
               "level": 6,
               "sourceCode": "TCE",
@@ -739,6 +767,7 @@
               ]
             },
             {
+              "ref": "Infectious Inspiration|Bard||Eloquence|TCE|14",
               "name": "Infectious Inspiration",
               "level": 14,
               "sourceCode": "TCE",
@@ -782,6 +811,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Glamour|Bard|XPHB|Glamour|XPHB|3",
               "name": "College of Glamour",
               "level": 3,
               "sourceCode": "XPHB",
@@ -808,6 +838,7 @@
               ]
             },
             {
+              "ref": "Mantle of Majesty|Bard|XPHB|Glamour|XPHB|6",
               "name": "Mantle of Majesty",
               "level": 6,
               "sourceCode": "XPHB",
@@ -820,6 +851,7 @@
               ]
             },
             {
+              "ref": "Unbreakable Majesty|Bard|XPHB|Glamour|XPHB|14",
               "name": "Unbreakable Majesty",
               "level": 14,
               "sourceCode": "XPHB",
@@ -862,6 +894,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Lore|Bard|XPHB|Lore|XPHB|3",
               "name": "College of Lore",
               "level": 3,
               "sourceCode": "XPHB",
@@ -886,6 +919,7 @@
               ]
             },
             {
+              "ref": "Magical Discoveries|Bard|XPHB|Lore|XPHB|6",
               "name": "Magical Discoveries",
               "level": 6,
               "sourceCode": "XPHB",
@@ -896,6 +930,7 @@
               ]
             },
             {
+              "ref": "Peerless Skill|Bard|XPHB|Lore|XPHB|14",
               "name": "Peerless Skill",
               "level": 14,
               "sourceCode": "XPHB",
@@ -937,6 +972,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Spirits|Bard||Spirits|VRGR|3",
               "name": "College of Spirits",
               "level": 3,
               "sourceCode": "VRGR",
@@ -1041,6 +1077,7 @@
               ]
             },
             {
+              "ref": "Spirit Session|Bard||Spirits|VRGR|6",
               "name": "Spirit Session",
               "level": 6,
               "sourceCode": "VRGR",
@@ -1053,6 +1090,7 @@
               ]
             },
             {
+              "ref": "Mystical Connection|Bard||Spirits|VRGR|14",
               "name": "Mystical Connection",
               "level": 14,
               "sourceCode": "VRGR",
@@ -1102,6 +1140,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Swords|Bard||Swords|XGE|3",
               "name": "College of Swords",
               "level": 3,
               "sourceCode": "XGE",
@@ -1176,6 +1215,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Bard||Swords|XGE|6",
               "name": "Extra Attack",
               "level": 6,
               "sourceCode": "XGE",
@@ -1185,6 +1225,7 @@
               ]
             },
             {
+              "ref": "Master's Flourish|Bard||Swords|XGE|14",
               "name": "Master's Flourish",
               "level": 14,
               "sourceCode": "XGE",
@@ -1226,6 +1267,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of the Moon|Bard|XPHB|Moon|FRHoF|3|FRHoF",
               "name": "College of the Moon",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -1265,6 +1307,7 @@
               ]
             },
             {
+              "ref": "Blessing of Moonlight|Bard|XPHB|Moon|FRHoF|6|FRHoF",
               "name": "Blessing of Moonlight",
               "level": 6,
               "sourceCode": "FRHoF",
@@ -1276,6 +1319,7 @@
               ]
             },
             {
+              "ref": "Eventide's Splendor|Bard|XPHB|Moon|FRHoF|14|FRHoF",
               "name": "Eventide's Splendor",
               "level": 14,
               "sourceCode": "FRHoF",
@@ -1331,6 +1375,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Valor|Bard|XPHB|Valor|XPHB|3",
               "name": "College of Valor",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1370,6 +1415,7 @@
               ]
             },
             {
+              "ref": "Extra Attack|Bard|XPHB|Valor|XPHB|6",
               "name": "Extra Attack",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1380,6 +1426,7 @@
               ]
             },
             {
+              "ref": "Battle Magic|Bard|XPHB|Valor|XPHB|14",
               "name": "Battle Magic",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1421,6 +1468,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "College of Whispers|Bard||Whispers|XGE|3",
               "name": "College of Whispers",
               "level": 3,
               "sourceCode": "XGE",
@@ -1450,6 +1498,7 @@
               ]
             },
             {
+              "ref": "Mantle of Whispers|Bard||Whispers|XGE|6",
               "name": "Mantle of Whispers",
               "level": 6,
               "sourceCode": "XGE",
@@ -1463,6 +1512,7 @@
               ]
             },
             {
+              "ref": "Shadow Lore|Bard||Whispers|XGE|14",
               "name": "Shadow Lore",
               "level": 14,
               "sourceCode": "XGE",

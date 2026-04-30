@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "spellcaster-sidekick",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "spellcaster-sidekick|tce",
@@ -92,6 +92,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Spellcaster Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -102,6 +103,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Spellcaster Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -114,6 +116,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Spellcaster Sidekick|TCE|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "TCE",
@@ -226,6 +229,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -237,6 +241,7 @@
             ]
           },
           {
+            "ref": "Potent Cantrips|Spellcaster Sidekick|TCE|6",
             "name": "Potent Cantrips",
             "level": 6,
             "sourceCode": "TCE",
@@ -247,6 +252,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -258,6 +264,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -269,6 +276,7 @@
             ]
           },
           {
+            "ref": "Empowered Spells|Spellcaster Sidekick|TCE|14",
             "name": "Empowered Spells",
             "level": 14,
             "sourceCode": "TCE",
@@ -279,6 +287,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -290,6 +299,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Spellcaster Sidekick|TCE|18",
             "name": "Ability Score Improvement",
             "level": 18,
             "sourceCode": "TCE",
@@ -301,6 +311,7 @@
             ]
           },
           {
+            "ref": "Focused Casting|Spellcaster Sidekick|TCE|20",
             "name": "Focused Casting",
             "level": 20,
             "sourceCode": "TCE",

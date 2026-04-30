@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "monk",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "monk|xphb",
@@ -189,6 +189,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Martial Arts|Monk|XPHB|1",
             "name": "Martial Arts",
             "level": 1,
             "sourceCode": "XPHB",
@@ -232,6 +233,7 @@
             ]
           },
           {
+            "ref": "Unarmored Defense|Monk|XPHB|1",
             "name": "Unarmored Defense",
             "level": 1,
             "sourceCode": "XPHB",
@@ -241,6 +243,7 @@
             ]
           },
           {
+            "ref": "Monk's Focus|Monk|XPHB|2",
             "name": "Monk's Focus",
             "level": 2,
             "sourceCode": "XPHB",
@@ -279,6 +282,7 @@
             ]
           },
           {
+            "ref": "Unarmored Movement|Monk|XPHB|2",
             "name": "Unarmored Movement",
             "level": 2,
             "sourceCode": "XPHB",
@@ -288,6 +292,7 @@
             ]
           },
           {
+            "ref": "Uncanny Metabolism|Monk|XPHB|2",
             "name": "Uncanny Metabolism",
             "level": 2,
             "sourceCode": "XPHB",
@@ -298,6 +303,7 @@
             ]
           },
           {
+            "ref": "Deflect Attacks|Monk|XPHB|3",
             "name": "Deflect Attacks",
             "level": 3,
             "sourceCode": "XPHB",
@@ -308,6 +314,7 @@
             ]
           },
           {
+            "ref": "Monk Subclass|Monk|XPHB|3",
             "name": "Monk Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -317,6 +324,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -326,6 +334,7 @@
             ]
           },
           {
+            "ref": "Slow Fall|Monk|XPHB|4",
             "name": "Slow Fall",
             "level": 4,
             "sourceCode": "XPHB",
@@ -335,6 +344,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Monk|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -344,6 +354,7 @@
             ]
           },
           {
+            "ref": "Stunning Strike|Monk|XPHB|5",
             "name": "Stunning Strike",
             "level": 5,
             "sourceCode": "XPHB",
@@ -353,6 +364,7 @@
             ]
           },
           {
+            "ref": "Empowered Strikes|Monk|XPHB|6",
             "name": "Empowered Strikes",
             "level": 6,
             "sourceCode": "XPHB",
@@ -362,6 +374,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -371,6 +384,7 @@
             ]
           },
           {
+            "ref": "Evasion|Monk|XPHB|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "XPHB",
@@ -381,6 +395,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -390,6 +405,7 @@
             ]
           },
           {
+            "ref": "Acrobatic Movement|Monk|XPHB|9",
             "name": "Acrobatic Movement",
             "level": 9,
             "sourceCode": "XPHB",
@@ -399,6 +415,7 @@
             ]
           },
           {
+            "ref": "Heightened Focus|Monk|XPHB|10",
             "name": "Heightened Focus",
             "level": 10,
             "sourceCode": "XPHB",
@@ -435,6 +452,7 @@
             ]
           },
           {
+            "ref": "Self-Restoration|Monk|XPHB|10",
             "name": "Self-Restoration",
             "level": 10,
             "sourceCode": "XPHB",
@@ -445,6 +463,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|11",
             "name": "Subclass Feature",
             "level": 11,
             "sourceCode": "XPHB",
@@ -454,6 +473,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -463,6 +483,7 @@
             ]
           },
           {
+            "ref": "Deflect Energy|Monk|XPHB|13",
             "name": "Deflect Energy",
             "level": 13,
             "sourceCode": "XPHB",
@@ -472,6 +493,7 @@
             ]
           },
           {
+            "ref": "Disciplined Survivor|Monk|XPHB|14",
             "name": "Disciplined Survivor",
             "level": 14,
             "sourceCode": "XPHB",
@@ -482,6 +504,7 @@
             ]
           },
           {
+            "ref": "Perfect Focus|Monk|XPHB|15",
             "name": "Perfect Focus",
             "level": 15,
             "sourceCode": "XPHB",
@@ -491,6 +514,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Monk|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -500,6 +524,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Monk|XPHB|17",
             "name": "Subclass Feature",
             "level": 17,
             "sourceCode": "XPHB",
@@ -509,6 +534,7 @@
             ]
           },
           {
+            "ref": "Superior Defense|Monk|XPHB|18",
             "name": "Superior Defense",
             "level": 18,
             "sourceCode": "XPHB",
@@ -518,6 +544,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Monk|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -527,6 +554,7 @@
             ]
           },
           {
+            "ref": "Body and Mind|Monk|XPHB|20",
             "name": "Body and Mind",
             "level": 20,
             "sourceCode": "XPHB",
@@ -570,6 +598,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Warrior of Mercy|Monk|XPHB|Mercy|XPHB|3",
               "name": "Warrior of Mercy",
               "level": 3,
               "sourceCode": "XPHB",
@@ -601,6 +630,7 @@
               ]
             },
             {
+              "ref": "Physician's Touch|Monk|XPHB|Mercy|XPHB|6",
               "name": "Physician's Touch",
               "level": 6,
               "sourceCode": "XPHB",
@@ -629,6 +659,7 @@
               ]
             },
             {
+              "ref": "Flurry of Healing and Harm|Monk|XPHB|Mercy|XPHB|11",
               "name": "Flurry of Healing and Harm",
               "level": 11,
               "sourceCode": "XPHB",
@@ -640,6 +671,7 @@
               ]
             },
             {
+              "ref": "Hand of Ultimate Mercy|Monk|XPHB|Mercy|XPHB|17",
               "name": "Hand of Ultimate Mercy",
               "level": 17,
               "sourceCode": "XPHB",
@@ -683,6 +715,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Warrior of Shadow|Monk|XPHB|Shadow|XPHB|3",
               "name": "Warrior of Shadow",
               "level": 3,
               "sourceCode": "XPHB",
@@ -721,6 +754,7 @@
               ]
             },
             {
+              "ref": "Shadow Step|Monk|XPHB|Shadow|XPHB|6",
               "name": "Shadow Step",
               "level": 6,
               "sourceCode": "XPHB",
@@ -730,6 +764,7 @@
               ]
             },
             {
+              "ref": "Improved Shadow Step|Monk|XPHB|Shadow|XPHB|11",
               "name": "Improved Shadow Step",
               "level": 11,
               "sourceCode": "XPHB",
@@ -739,6 +774,7 @@
               ]
             },
             {
+              "ref": "Cloak of Shadows|Monk|XPHB|Shadow|XPHB|17",
               "name": "Cloak of Shadows",
               "level": 17,
               "sourceCode": "XPHB",
@@ -802,6 +838,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Warrior of the Elements|Monk|XPHB|Elements|XPHB|3",
               "name": "Warrior of the Elements",
               "level": 3,
               "sourceCode": "XPHB",
@@ -845,6 +882,7 @@
               ]
             },
             {
+              "ref": "Elemental Burst|Monk|XPHB|Elements|XPHB|6",
               "name": "Elemental Burst",
               "level": 6,
               "sourceCode": "XPHB",
@@ -855,6 +893,7 @@
               ]
             },
             {
+              "ref": "Stride of the Elements|Monk|XPHB|Elements|XPHB|11",
               "name": "Stride of the Elements",
               "level": 11,
               "sourceCode": "XPHB",
@@ -864,6 +903,7 @@
               ]
             },
             {
+              "ref": "Elemental Epitome|Monk|XPHB|Elements|XPHB|17",
               "name": "Elemental Epitome",
               "level": 17,
               "sourceCode": "XPHB",
@@ -927,6 +967,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Warrior of the Open Hand|Monk|XPHB|Open Hand|XPHB|3",
               "name": "Warrior of the Open Hand",
               "level": 3,
               "sourceCode": "XPHB",
@@ -965,6 +1006,7 @@
               ]
             },
             {
+              "ref": "Wholeness of Body|Monk|XPHB|Open Hand|XPHB|6",
               "name": "Wholeness of Body",
               "level": 6,
               "sourceCode": "XPHB",
@@ -975,6 +1017,7 @@
               ]
             },
             {
+              "ref": "Fleet Step|Monk|XPHB|Open Hand|XPHB|11",
               "name": "Fleet Step",
               "level": 11,
               "sourceCode": "XPHB",
@@ -984,6 +1027,7 @@
               ]
             },
             {
+              "ref": "Quivering Palm|Monk|XPHB|Open Hand|XPHB|17",
               "name": "Quivering Palm",
               "level": 17,
               "sourceCode": "XPHB",
@@ -1027,6 +1071,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of Mercy|Monk||Mercy|TCE|3",
               "name": "Way of Mercy",
               "level": 3,
               "sourceCode": "TCE",
@@ -1102,6 +1147,7 @@
               ]
             },
             {
+              "ref": "Physician's Touch|Monk||Mercy|TCE|6",
               "name": "Physician's Touch",
               "level": 6,
               "sourceCode": "TCE",
@@ -1114,6 +1160,7 @@
               ]
             },
             {
+              "ref": "Flurry of Healing and Harm|Monk||Mercy|TCE|11",
               "name": "Flurry of Healing and Harm",
               "level": 11,
               "sourceCode": "TCE",
@@ -1125,6 +1172,7 @@
               ]
             },
             {
+              "ref": "Hand of Ultimate Mercy|Monk||Mercy|TCE|17",
               "name": "Hand of Ultimate Mercy",
               "level": 17,
               "sourceCode": "TCE",
@@ -1169,6 +1217,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of Shadow|Monk||Shadow||3",
               "name": "Way of Shadow",
               "level": 3,
               "sourceCode": "PHB",
@@ -1185,6 +1234,7 @@
               ]
             },
             {
+              "ref": "Shadow Step|Monk||Shadow||6",
               "name": "Shadow Step",
               "level": 6,
               "sourceCode": "PHB",
@@ -1194,6 +1244,7 @@
               ]
             },
             {
+              "ref": "Cloak of Shadows|Monk||Shadow||11",
               "name": "Cloak of Shadows",
               "level": 11,
               "sourceCode": "PHB",
@@ -1203,6 +1254,7 @@
               ]
             },
             {
+              "ref": "Opportunist|Monk||Shadow||17",
               "name": "Opportunist",
               "level": 17,
               "sourceCode": "PHB",
@@ -1245,6 +1297,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Ascendant Dragon|Monk||Ascendant Dragon|FTD|3",
               "name": "Way of the Ascendant Dragon",
               "level": 3,
               "sourceCode": "FTD",
@@ -1332,6 +1385,7 @@
               ]
             },
             {
+              "ref": "Wings Unfurled|Monk||Ascendant Dragon|FTD|6",
               "name": "Wings Unfurled",
               "level": 6,
               "sourceCode": "FTD",
@@ -1343,6 +1397,7 @@
               ]
             },
             {
+              "ref": "Aspect of the Wyrm|Monk||Ascendant Dragon|FTD|11",
               "name": "Aspect of the Wyrm",
               "level": 11,
               "sourceCode": "FTD",
@@ -1370,6 +1425,7 @@
               ]
             },
             {
+              "ref": "Ascendant Aspect|Monk||Ascendant Dragon|FTD|17",
               "name": "Ascendant Aspect",
               "level": 17,
               "sourceCode": "FTD",
@@ -1434,6 +1490,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Astral Self|Monk||Astral Self|TCE|3",
               "name": "Way of the Astral Self",
               "level": 3,
               "sourceCode": "TCE",
@@ -1470,6 +1527,7 @@
               ]
             },
             {
+              "ref": "Visage of the Astral Self|Monk||Astral Self|TCE|6",
               "name": "Visage of the Astral Self",
               "level": 6,
               "sourceCode": "TCE",
@@ -1503,6 +1561,7 @@
               ]
             },
             {
+              "ref": "Body of the Astral Self|Monk||Astral Self|TCE|11",
               "name": "Body of the Astral Self",
               "level": 11,
               "sourceCode": "TCE",
@@ -1528,6 +1587,7 @@
               ]
             },
             {
+              "ref": "Awakened Astral Self|Monk||Astral Self|TCE|17",
               "name": "Awakened Astral Self",
               "level": 17,
               "sourceCode": "TCE",
@@ -1586,6 +1646,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Drunken Master|Monk||Drunken Master|XGE|3",
               "name": "Way of the Drunken Master",
               "level": 3,
               "sourceCode": "XGE",
@@ -1610,6 +1671,7 @@
               ]
             },
             {
+              "ref": "Tipsy Sway|Monk||Drunken Master|XGE|6",
               "name": "Tipsy Sway",
               "level": 6,
               "sourceCode": "XGE",
@@ -1638,6 +1700,7 @@
               ]
             },
             {
+              "ref": "Drunkard's Luck|Monk||Drunken Master|XGE|11",
               "name": "Drunkard's Luck",
               "level": 11,
               "sourceCode": "XGE",
@@ -1647,6 +1710,7 @@
               ]
             },
             {
+              "ref": "Intoxicated Frenzy|Monk||Drunken Master|XGE|17",
               "name": "Intoxicated Frenzy",
               "level": 17,
               "sourceCode": "XGE",
@@ -1689,6 +1753,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Four Elements|Monk||Four Elements||3",
               "name": "Way of the Four Elements",
               "level": 3,
               "sourceCode": "PHB",
@@ -1840,6 +1905,7 @@
               ]
             },
             {
+              "ref": "Extra Elemental Discipline|Monk||Four Elements||6",
               "name": "Extra Elemental Discipline",
               "level": 6,
               "sourceCode": "PHB",
@@ -1850,6 +1916,7 @@
               ]
             },
             {
+              "ref": "Extra Elemental Discipline|Monk||Four Elements||11",
               "name": "Extra Elemental Discipline",
               "level": 11,
               "sourceCode": "PHB",
@@ -1860,6 +1927,7 @@
               ]
             },
             {
+              "ref": "Extra Elemental Discipline|Monk||Four Elements||17",
               "name": "Extra Elemental Discipline",
               "level": 17,
               "sourceCode": "PHB",
@@ -1903,6 +1971,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Kensei|Monk||Kensei|XGE|3",
               "name": "Way of the Kensei",
               "level": 3,
               "sourceCode": "XGE",
@@ -1953,6 +2022,7 @@
               ]
             },
             {
+              "ref": "One with the Blade|Monk||Kensei|XGE|6",
               "name": "One with the Blade",
               "level": 6,
               "sourceCode": "XGE",
@@ -1976,6 +2046,7 @@
               ]
             },
             {
+              "ref": "Sharpen the Blade|Monk||Kensei|XGE|11",
               "name": "Sharpen the Blade",
               "level": 11,
               "sourceCode": "XGE",
@@ -1985,6 +2056,7 @@
               ]
             },
             {
+              "ref": "Unerring Accuracy|Monk||Kensei|XGE|17",
               "name": "Unerring Accuracy",
               "level": 17,
               "sourceCode": "XGE",
@@ -2027,6 +2099,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Long Death|Monk||Long Death|SCAG|3",
               "name": "Way of the Long Death",
               "level": 3,
               "sourceCode": "SCAG",
@@ -2043,6 +2116,7 @@
               ]
             },
             {
+              "ref": "Hour of Reaping|Monk||Long Death|SCAG|6",
               "name": "Hour of Reaping",
               "level": 6,
               "sourceCode": "SCAG",
@@ -2052,6 +2126,7 @@
               ]
             },
             {
+              "ref": "Mastery of Death|Monk||Long Death|SCAG|11",
               "name": "Mastery of Death",
               "level": 11,
               "sourceCode": "SCAG",
@@ -2061,6 +2136,7 @@
               ]
             },
             {
+              "ref": "Touch of the Long Death|Monk||Long Death|SCAG|17",
               "name": "Touch of the Long Death",
               "level": 17,
               "sourceCode": "SCAG",
@@ -2103,6 +2179,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Open Hand|Monk||Open Hand||3",
               "name": "Way of the Open Hand",
               "level": 3,
               "sourceCode": "PHB",
@@ -2127,6 +2204,7 @@
               ]
             },
             {
+              "ref": "Wholeness of Body|Monk||Open Hand||6",
               "name": "Wholeness of Body",
               "level": 6,
               "sourceCode": "PHB",
@@ -2136,6 +2214,7 @@
               ]
             },
             {
+              "ref": "Tranquility|Monk||Open Hand||11",
               "name": "Tranquility",
               "level": 11,
               "sourceCode": "PHB",
@@ -2145,6 +2224,7 @@
               ]
             },
             {
+              "ref": "Quivering Palm|Monk||Open Hand||17",
               "name": "Quivering Palm",
               "level": 17,
               "sourceCode": "PHB",
@@ -2188,6 +2268,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Way of the Sun Soul|Monk||Sun Soul|XGE|3",
               "name": "Way of the Sun Soul",
               "level": 3,
               "sourceCode": "XGE",
@@ -2206,6 +2287,7 @@
               ]
             },
             {
+              "ref": "Searing Arc Strike|Monk||Sun Soul|XGE|6",
               "name": "Searing Arc Strike",
               "level": 6,
               "sourceCode": "XGE",
@@ -2216,6 +2298,7 @@
               ]
             },
             {
+              "ref": "Searing Sunburst|Monk||Sun Soul|XGE|11",
               "name": "Searing Sunburst",
               "level": 11,
               "sourceCode": "XGE",
@@ -2227,6 +2310,7 @@
               ]
             },
             {
+              "ref": "Sun Shield|Monk||Sun Soul|XGE|17",
               "name": "Sun Shield",
               "level": 17,
               "sourceCode": "XGE",

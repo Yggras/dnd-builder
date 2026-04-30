@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "paladin",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "paladin|xphb",
@@ -205,6 +205,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Lay on Hands|Paladin|XPHB|1",
             "name": "Lay on Hands",
             "level": 1,
             "sourceCode": "XPHB",
@@ -216,6 +217,7 @@
             ]
           },
           {
+            "ref": "Spellcasting|Paladin|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -267,6 +269,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Paladin|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -277,6 +280,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Paladin|XPHB|2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "XPHB",
@@ -295,6 +299,7 @@
             ]
           },
           {
+            "ref": "Paladin's Smite|Paladin|XPHB|2",
             "name": "Paladin's Smite",
             "level": 2,
             "sourceCode": "XPHB",
@@ -304,6 +309,7 @@
             ]
           },
           {
+            "ref": "Channel Divinity|Paladin|XPHB|3",
             "name": "Channel Divinity",
             "level": 3,
             "sourceCode": "XPHB",
@@ -327,6 +333,7 @@
             ]
           },
           {
+            "ref": "Paladin Subclass|Paladin|XPHB|3",
             "name": "Paladin Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -345,6 +352,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -354,6 +362,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Paladin|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -363,6 +372,7 @@
             ]
           },
           {
+            "ref": "Faithful Steed|Paladin|XPHB|5",
             "name": "Faithful Steed",
             "level": 5,
             "sourceCode": "XPHB",
@@ -373,6 +383,7 @@
             ]
           },
           {
+            "ref": "Aura of Protection|Paladin|XPHB|6",
             "name": "Aura of Protection",
             "level": 6,
             "sourceCode": "XPHB",
@@ -384,6 +395,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -393,6 +405,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -402,6 +415,7 @@
             ]
           },
           {
+            "ref": "Abjure Foes|Paladin|XPHB|9",
             "name": "Abjure Foes",
             "level": 9,
             "sourceCode": "XPHB",
@@ -411,6 +425,7 @@
             ]
           },
           {
+            "ref": "Aura of Courage|Paladin|XPHB|10",
             "name": "Aura of Courage",
             "level": 10,
             "sourceCode": "XPHB",
@@ -420,6 +435,7 @@
             ]
           },
           {
+            "ref": "Radiant Strikes|Paladin|XPHB|11",
             "name": "Radiant Strikes",
             "level": 11,
             "sourceCode": "XPHB",
@@ -429,6 +445,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -438,6 +455,7 @@
             ]
           },
           {
+            "ref": "Restoring Touch|Paladin|XPHB|14",
             "name": "Restoring Touch",
             "level": 14,
             "sourceCode": "XPHB",
@@ -447,6 +465,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -456,6 +475,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Paladin|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -465,6 +485,7 @@
             ]
           },
           {
+            "ref": "Aura Expansion|Paladin|XPHB|18",
             "name": "Aura Expansion",
             "level": 18,
             "sourceCode": "XPHB",
@@ -474,6 +495,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Paladin|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -483,6 +505,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Paladin|XPHB|20",
             "name": "Subclass Feature",
             "level": 20,
             "sourceCode": "XPHB",
@@ -526,6 +549,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of Conquest|Paladin||Conquest|XGE|3",
               "name": "Oath of Conquest",
               "level": 3,
               "sourceCode": "XGE",
@@ -631,6 +655,7 @@
               ]
             },
             {
+              "ref": "Aura of Conquest|Paladin||Conquest|XGE|7",
               "name": "Aura of Conquest",
               "level": 7,
               "sourceCode": "XGE",
@@ -642,6 +667,7 @@
               ]
             },
             {
+              "ref": "Scornful Rebuke|Paladin||Conquest|XGE|15",
               "name": "Scornful Rebuke",
               "level": 15,
               "sourceCode": "XGE",
@@ -651,6 +677,7 @@
               ]
             },
             {
+              "ref": "Invincible Conqueror|Paladin||Conquest|XGE|20",
               "name": "Invincible Conqueror",
               "level": 20,
               "sourceCode": "XGE",
@@ -702,6 +729,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of Devotion|Paladin|XPHB|Devotion|XPHB|3",
               "name": "Oath of Devotion",
               "level": 3,
               "sourceCode": "XPHB",
@@ -772,6 +800,7 @@
               ]
             },
             {
+              "ref": "Aura of Devotion|Paladin|XPHB|Devotion|XPHB|7",
               "name": "Aura of Devotion",
               "level": 7,
               "sourceCode": "XPHB",
@@ -781,6 +810,7 @@
               ]
             },
             {
+              "ref": "Smite of Protection|Paladin|XPHB|Devotion|XPHB|15",
               "name": "Smite of Protection",
               "level": 15,
               "sourceCode": "XPHB",
@@ -790,6 +820,7 @@
               ]
             },
             {
+              "ref": "Holy Nimbus|Paladin|XPHB|Devotion|XPHB|20",
               "name": "Holy Nimbus",
               "level": 20,
               "sourceCode": "XPHB",
@@ -853,6 +884,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of Glory|Paladin|XPHB|Glory|XPHB|3",
               "name": "Oath of Glory",
               "level": 3,
               "sourceCode": "XPHB",
@@ -927,6 +959,7 @@
               ]
             },
             {
+              "ref": "Aura of Alacrity|Paladin|XPHB|Glory|XPHB|7",
               "name": "Aura of Alacrity",
               "level": 7,
               "sourceCode": "XPHB",
@@ -937,6 +970,7 @@
               ]
             },
             {
+              "ref": "Glorious Defense|Paladin|XPHB|Glory|XPHB|15",
               "name": "Glorious Defense",
               "level": 15,
               "sourceCode": "XPHB",
@@ -947,6 +981,7 @@
               ]
             },
             {
+              "ref": "Living Legend|Paladin|XPHB|Glory|XPHB|20",
               "name": "Living Legend",
               "level": 20,
               "sourceCode": "XPHB",
@@ -1010,6 +1045,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of Redemption|Paladin||Redemption|XGE|3",
               "name": "Oath of Redemption",
               "level": 3,
               "sourceCode": "XGE",
@@ -1137,6 +1173,7 @@
               ]
             },
             {
+              "ref": "Aura of the Guardian|Paladin||Redemption|XGE|7",
               "name": "Aura of the Guardian",
               "level": 7,
               "sourceCode": "XGE",
@@ -1147,6 +1184,7 @@
               ]
             },
             {
+              "ref": "Protective Spirit|Paladin||Redemption|XGE|15",
               "name": "Protective Spirit",
               "level": 15,
               "sourceCode": "XGE",
@@ -1156,6 +1194,7 @@
               ]
             },
             {
+              "ref": "Emissary of Redemption|Paladin||Redemption|XGE|20",
               "name": "Emissary of Redemption",
               "level": 20,
               "sourceCode": "XGE",
@@ -1206,6 +1245,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of the Ancients|Paladin|XPHB|Ancients|XPHB|3",
               "name": "Oath of the Ancients",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1273,6 +1313,7 @@
               ]
             },
             {
+              "ref": "Aura of Warding|Paladin|XPHB|Ancients|XPHB|7",
               "name": "Aura of Warding",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1282,6 +1323,7 @@
               ]
             },
             {
+              "ref": "Undying Sentinel|Paladin|XPHB|Ancients|XPHB|15",
               "name": "Undying Sentinel",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1292,6 +1334,7 @@
               ]
             },
             {
+              "ref": "Elder Champion|Paladin|XPHB|Ancients|XPHB|20",
               "name": "Elder Champion",
               "level": 20,
               "sourceCode": "XPHB",
@@ -1355,6 +1398,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of the Crown|Paladin||Crown|SCAG|3",
               "name": "Oath of the Crown",
               "level": 3,
               "sourceCode": "SCAG",
@@ -1481,6 +1525,7 @@
               ]
             },
             {
+              "ref": "Divine Allegiance|Paladin||Crown|SCAG|7",
               "name": "Divine Allegiance",
               "level": 7,
               "sourceCode": "SCAG",
@@ -1490,6 +1535,7 @@
               ]
             },
             {
+              "ref": "Unyielding Spirit|Paladin||Crown|SCAG|15",
               "name": "Unyielding Spirit",
               "level": 15,
               "sourceCode": "SCAG",
@@ -1499,6 +1545,7 @@
               ]
             },
             {
+              "ref": "Exalted Champion|Paladin||Crown|SCAG|20",
               "name": "Exalted Champion",
               "level": 20,
               "sourceCode": "SCAG",
@@ -1550,6 +1597,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of the Noble Genies|Paladin|XPHB|Noble Genies|FRHoF|3|FRHoF",
               "name": "Oath of the Noble Genies",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -1653,6 +1701,7 @@
               ]
             },
             {
+              "ref": "Aura of Elemental Shielding|Paladin|XPHB|Noble Genies|FRHoF|7|FRHoF",
               "name": "Aura of Elemental Shielding",
               "level": 7,
               "sourceCode": "FRHoF",
@@ -1663,6 +1712,7 @@
               ]
             },
             {
+              "ref": "Elemental Rebuke|Paladin|XPHB|Noble Genies|FRHoF|15|FRHoF",
               "name": "Elemental Rebuke",
               "level": 15,
               "sourceCode": "FRHoF",
@@ -1673,6 +1723,7 @@
               ]
             },
             {
+              "ref": "Noble Scion|Paladin|XPHB|Noble Genies|FRHoF|20|FRHoF",
               "name": "Noble Scion",
               "level": 20,
               "sourceCode": "FRHoF",
@@ -1731,6 +1782,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of the Watchers|Paladin||Watchers|TCE|3",
               "name": "Oath of the Watchers",
               "level": 3,
               "sourceCode": "TCE",
@@ -1834,6 +1886,7 @@
               ]
             },
             {
+              "ref": "Aura of the Sentinel|Paladin||Watchers|TCE|7",
               "name": "Aura of the Sentinel",
               "level": 7,
               "sourceCode": "TCE",
@@ -1845,6 +1898,7 @@
               ]
             },
             {
+              "ref": "Vigilant Rebuke|Paladin||Watchers|TCE|15",
               "name": "Vigilant Rebuke",
               "level": 15,
               "sourceCode": "TCE",
@@ -1855,6 +1909,7 @@
               ]
             },
             {
+              "ref": "Mortal Bulwark|Paladin||Watchers|TCE|20",
               "name": "Mortal Bulwark",
               "level": 20,
               "sourceCode": "TCE",
@@ -1907,6 +1962,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oath of Vengeance|Paladin|XPHB|Vengeance|XPHB|3",
               "name": "Oath of Vengeance",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1975,6 +2031,7 @@
               ]
             },
             {
+              "ref": "Relentless Avenger|Paladin|XPHB|Vengeance|XPHB|7",
               "name": "Relentless Avenger",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1984,6 +2041,7 @@
               ]
             },
             {
+              "ref": "Soul of Vengeance|Paladin|XPHB|Vengeance|XPHB|15",
               "name": "Soul of Vengeance",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1993,6 +2051,7 @@
               ]
             },
             {
+              "ref": "Avenging Angel|Paladin|XPHB|Vengeance|XPHB|20",
               "name": "Avenging Angel",
               "level": 20,
               "sourceCode": "XPHB",
@@ -2049,6 +2108,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Oathbreaker|Paladin||Oathbreaker|DMG|3",
               "name": "Oathbreaker",
               "level": 3,
               "sourceCode": "DMG",
@@ -2121,6 +2181,7 @@
               ]
             },
             {
+              "ref": "Aura of Hate|Paladin||Oathbreaker|DMG|7",
               "name": "Aura of Hate",
               "level": 7,
               "sourceCode": "DMG",
@@ -2131,6 +2192,7 @@
               ]
             },
             {
+              "ref": "Supernatural Resistance|Paladin||Oathbreaker|DMG|15",
               "name": "Supernatural Resistance",
               "level": 15,
               "sourceCode": "DMG",
@@ -2140,6 +2202,7 @@
               ]
             },
             {
+              "ref": "Dread Lord|Paladin||Oathbreaker|DMG|20",
               "name": "Dread Lord",
               "level": 20,
               "sourceCode": "DMG",

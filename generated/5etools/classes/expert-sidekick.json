@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "expert-sidekick",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "expert-sidekick|tce",
@@ -57,6 +57,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Sidekick Class|Expert Sidekick|TCE|1",
             "name": "Sidekick Class",
             "level": 1,
             "sourceCode": "TCE",
@@ -67,6 +68,7 @@
             ]
           },
           {
+            "ref": "Bonus Proficiencies|Expert Sidekick|TCE|1",
             "name": "Bonus Proficiencies",
             "level": 1,
             "sourceCode": "TCE",
@@ -78,6 +80,7 @@
             ]
           },
           {
+            "ref": "Helpful|Expert Sidekick|TCE|1",
             "name": "Helpful",
             "level": 1,
             "sourceCode": "TCE",
@@ -88,6 +91,7 @@
             ]
           },
           {
+            "ref": "Cunning Action|Expert Sidekick|TCE|2",
             "name": "Cunning Action",
             "level": 2,
             "sourceCode": "TCE",
@@ -98,6 +102,7 @@
             ]
           },
           {
+            "ref": "Expertise|Expert Sidekick|TCE|3",
             "name": "Expertise",
             "level": 3,
             "sourceCode": "TCE",
@@ -109,6 +114,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "TCE",
@@ -120,6 +126,7 @@
             ]
           },
           {
+            "ref": "Coordinated Strike|Expert Sidekick|TCE|6",
             "name": "Coordinated Strike",
             "level": 6,
             "sourceCode": "TCE",
@@ -130,6 +137,7 @@
             ]
           },
           {
+            "ref": "Evasion|Expert Sidekick|TCE|7",
             "name": "Evasion",
             "level": 7,
             "sourceCode": "TCE",
@@ -140,6 +148,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "TCE",
@@ -151,6 +160,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|10",
             "name": "Ability Score Improvement",
             "level": 10,
             "sourceCode": "TCE",
@@ -162,6 +172,7 @@
             ]
           },
           {
+            "ref": "Inspiring Help|Expert Sidekick|TCE|11",
             "name": "Inspiring Help",
             "level": 11,
             "sourceCode": "TCE",
@@ -173,6 +184,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "TCE",
@@ -184,6 +196,7 @@
             ]
           },
           {
+            "ref": "Reliable Talent|Expert Sidekick|TCE|14",
             "name": "Reliable Talent",
             "level": 14,
             "sourceCode": "TCE",
@@ -194,6 +207,7 @@
             ]
           },
           {
+            "ref": "Expertise|Expert Sidekick|TCE|15",
             "name": "Expertise",
             "level": 15,
             "sourceCode": "TCE",
@@ -204,6 +218,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "TCE",
@@ -215,6 +230,7 @@
             ]
           },
           {
+            "ref": "Sharp Mind|Expert Sidekick|TCE|18",
             "name": "Sharp Mind",
             "level": 18,
             "sourceCode": "TCE",
@@ -225,6 +241,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|19",
             "name": "Ability Score Improvement",
             "level": 19,
             "sourceCode": "TCE",
@@ -236,6 +253,7 @@
             ]
           },
           {
+            "ref": "Inspiring Help Improvement|Expert Sidekick|TCE|20",
             "name": "Inspiring Help Improvement",
             "level": 20,
             "sourceCode": "TCE",

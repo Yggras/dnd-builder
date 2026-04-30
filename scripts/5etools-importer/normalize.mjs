@@ -309,8 +309,9 @@ function expandFeatureEntryRefs(value, lookups, ownerRecord, depth = 0) {
   return nextRecord;
 }
 
-function normalizeFeatureDetail(record, lookups) {
+function normalizeFeatureDetail(record, lookups, ref) {
   return {
+    ref,
     name: record.name,
     level: record.level ?? null,
     sourceCode: record.source ?? null,
@@ -340,7 +341,7 @@ function attachClassFeatureDetails(featureRefs, ownerRecord, lookups) {
     const rawRef = parseFeatureValue(featureRef);
     const key = rawRef ? parseClassFeatureRef(rawRef, ownerRecord) : null;
     const record = key ? lookups.classFeatures.get(key) : null;
-    return record ? normalizeFeatureDetail(record, lookups) : null;
+    return record ? normalizeFeatureDetail(record, lookups, rawRef) : null;
   });
 }
 
@@ -349,8 +350,68 @@ function attachSubclassFeatureDetails(featureRefs, ownerRecord, lookups) {
     const rawRef = parseFeatureValue(featureRef);
     const key = rawRef ? parseSubclassFeatureRef(rawRef, ownerRecord) : null;
     const record = key ? lookups.subclassFeatures.get(key) : null;
-    return record ? normalizeFeatureDetail(record, lookups) : null;
+    return record ? normalizeFeatureDetail(record, lookups, rawRef) : null;
   });
+}
+
+function assertUniqueFeatureDetailRefs(ownerLabel, details, detailFieldName) {
+  const seen = new Map();
+
+  for (const detail of ensureArray(details)) {
+    if (!isSourceRecord(detail) || typeof detail.ref !== 'string' || !detail.ref) {
+      continue;
+    }
+
+    const previousName = seen.get(detail.ref);
+    if (previousName) {
+      throw new Error(`Duplicate ${detailFieldName} ref for ${ownerLabel}: ${detail.ref} (${previousName}, ${detail.name ?? 'unnamed'})`);
+    }
+
+    seen.set(detail.ref, detail.name ?? 'unnamed');
+  }
+}
+
+function reportUnmatchedFeatureDetails(records, featureFieldName, detailFieldName, ownerLabel) {
+  let totalRefs = 0;
+  let unmatchedRefs = 0;
+  const examples = [];
+
+  for (const record of records) {
+    const featureRefs = ensureArray(record.metadata?.[featureFieldName]).map(parseFeatureValue).filter(Boolean);
+    const detailRefs = new Set(
+      ensureArray(record.metadata?.[detailFieldName])
+        .filter((detail) => isSourceRecord(detail) && typeof detail.ref === 'string' && detail.ref)
+        .map((detail) => detail.ref),
+    );
+
+    totalRefs += featureRefs.length;
+
+    for (const featureRef of featureRefs) {
+      if (detailRefs.has(featureRef)) {
+        continue;
+      }
+
+      unmatchedRefs += 1;
+      if (examples.length < 5) {
+        examples.push(`${record.name}: ${featureRef}`);
+      }
+    }
+  }
+
+  if (unmatchedRefs > 0) {
+    console.warn(
+      `Unmatched ${ownerLabel} feature details: ${unmatchedRefs}/${totalRefs}` +
+        (examples.length > 0 ? `; examples: ${examples.join('; ')}` : ''),
+    );
+  }
+}
+
+function validateFeatureDetailRefs(records, featureFieldName, detailFieldName, ownerLabel) {
+  for (const record of records) {
+    assertUniqueFeatureDetailRefs(`${ownerLabel} ${record.name} (${record.id})`, record.metadata?.[detailFieldName], detailFieldName);
+  }
+
+  reportUnmatchedFeatureDetails(records, featureFieldName, detailFieldName, ownerLabel);
 }
 
 function buildSpellApplicabilityMetadata(record, { classes, subclasses, spellSourceLookup }) {
@@ -616,6 +677,9 @@ export function normalizeClasses(classRecords, subclassRecords, featureRecords =
     }),
     (record) => record.id,
   );
+
+  validateFeatureDetailRefs(normalizedClasses, 'classFeatures', 'classFeatureDetails', 'class');
+  validateFeatureDetailRefs(normalizedSubclasses, 'subclassFeatures', 'subclassFeatureDetails', 'subclass');
 
   return {
     classes: normalizedClasses,

@@ -4,6 +4,7 @@ import { cleanInlineText, parseInlineText, type InlineTextToken } from '@/featur
 import type { CompendiumEntry, ContentEntity } from '@/shared/types/domain';
 
 export type FeatureProgressionRow = {
+  ref: string;
   name: string;
   level: number | null;
   sourceCode: string | null;
@@ -12,6 +13,7 @@ export type FeatureProgressionRow = {
 };
 
 type FeatureDetailRecord = {
+  ref?: unknown;
   sourceCode?: unknown;
   entries?: unknown;
 };
@@ -51,6 +53,20 @@ function arrayOfStrings(value: unknown) {
 
 function featureDetailRecord(value: unknown): FeatureDetailRecord | null {
   return value && typeof value === 'object' && !Array.isArray(value) ? value as FeatureDetailRecord : null;
+}
+
+function mapFeatureDetailsByRef(values: unknown[]) {
+  const detailsByRef = new Map<string, FeatureDetailRecord>();
+
+  for (const value of values) {
+    const detail = featureDetailRecord(value);
+    const ref = stringValue(detail?.ref);
+    if (detail && ref && !detailsByRef.has(ref)) {
+      detailsByRef.set(ref, detail);
+    }
+  }
+
+  return detailsByRef;
 }
 
 function titleCase(value: string) {
@@ -218,6 +234,7 @@ function parseFeatureReference(value: unknown, detailValue?: unknown): FeaturePr
   const detailEntries = Array.isArray(detail?.entries) ? detail.entries : [];
 
   return {
+    ref: parsed.raw,
     name: parts[0] ?? cleanInlineText(parsed.raw),
     level: numericParts.length > 0 ? numericParts[numericParts.length - 1] : null,
     sourceCode: detailSourceCode ?? sourceCode,
@@ -236,8 +253,14 @@ function sortProgressionRows(rows: FeatureProgressionRow[]) {
 
 export function buildClassFeatureRows(classEntity: ContentEntity) {
   const details = Array.isArray(classEntity.metadata.classFeatureDetails) ? classEntity.metadata.classFeatureDetails : [];
+  const detailsByRef = mapFeatureDetailsByRef(details);
   const rows = Array.isArray(classEntity.metadata.classFeatures)
-    ? classEntity.metadata.classFeatures.map((feature, index) => parseFeatureReference(feature, details[index])).filter((row): row is FeatureProgressionRow => Boolean(row))
+    ? classEntity.metadata.classFeatures
+      .map((feature, index) => {
+        const parsed = parseFeatureValue(feature);
+        return parsed ? parseFeatureReference(feature, detailsByRef.get(parsed.raw) ?? details[index]) : null;
+      })
+      .filter((row): row is FeatureProgressionRow => Boolean(row))
     : [];
 
   return sortProgressionRows(rows);
@@ -245,8 +268,14 @@ export function buildClassFeatureRows(classEntity: ContentEntity) {
 
 export function buildSubclassFeatureRows(entry: CompendiumEntry) {
   const details = Array.isArray(entry.metadata.subclassFeatureDetails) ? entry.metadata.subclassFeatureDetails : [];
+  const detailsByRef = mapFeatureDetailsByRef(details);
   const rows = Array.isArray(entry.metadata.subclassFeatures)
-    ? entry.metadata.subclassFeatures.map((feature, index) => parseFeatureReference(feature, details[index])).filter((row): row is FeatureProgressionRow => Boolean(row))
+    ? entry.metadata.subclassFeatures
+      .map((feature, index) => {
+        const parsed = parseFeatureValue(feature);
+        return parsed ? parseFeatureReference(feature, detailsByRef.get(parsed.raw) ?? details[index]) : null;
+      })
+      .filter((row): row is FeatureProgressionRow => Boolean(row))
     : [];
 
   return sortProgressionRows(rows);

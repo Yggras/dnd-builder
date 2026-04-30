@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "sorcerer",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "sorcerer|xphb",
@@ -210,6 +210,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Sorcerer|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -269,6 +270,7 @@
             ]
           },
           {
+            "ref": "Innate Sorcery|Sorcerer|XPHB|1",
             "name": "Innate Sorcery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -286,6 +288,7 @@
             ]
           },
           {
+            "ref": "Font of Magic|Sorcerer|XPHB|2",
             "name": "Font of Magic",
             "level": 2,
             "sourceCode": "XPHB",
@@ -358,6 +361,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|2",
             "name": "Metamagic",
             "level": 2,
             "sourceCode": "XPHB",
@@ -369,6 +373,7 @@
             ]
           },
           {
+            "ref": "Metamagic Options|Sorcerer|XPHB|2",
             "name": "Metamagic Options",
             "level": 2,
             "sourceCode": "XPHB",
@@ -454,6 +459,7 @@
             ]
           },
           {
+            "ref": "Sorcerer Subclass|Sorcerer|XPHB|3",
             "name": "Sorcerer Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -463,6 +469,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -472,6 +479,7 @@
             ]
           },
           {
+            "ref": "Sorcerous Restoration|Sorcerer|XPHB|5",
             "name": "Sorcerous Restoration",
             "level": 5,
             "sourceCode": "XPHB",
@@ -481,6 +489,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|6",
             "name": "Subclass Feature",
             "level": 6,
             "sourceCode": "XPHB",
@@ -490,6 +499,7 @@
             ]
           },
           {
+            "ref": "Sorcery Incarnate|Sorcerer|XPHB|7",
             "name": "Sorcery Incarnate",
             "level": 7,
             "sourceCode": "XPHB",
@@ -500,6 +510,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -509,6 +520,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|10",
             "name": "Metamagic",
             "level": 10,
             "sourceCode": "XPHB",
@@ -520,6 +532,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -529,6 +542,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|14",
             "name": "Subclass Feature",
             "level": 14,
             "sourceCode": "XPHB",
@@ -538,6 +552,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Sorcerer|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -547,6 +562,7 @@
             ]
           },
           {
+            "ref": "Metamagic|Sorcerer|XPHB|17",
             "name": "Metamagic",
             "level": 17,
             "sourceCode": "XPHB",
@@ -558,6 +574,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Sorcerer|XPHB|18",
             "name": "Subclass Feature",
             "level": 18,
             "sourceCode": "XPHB",
@@ -567,6 +584,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Sorcerer|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -576,6 +594,7 @@
             ]
           },
           {
+            "ref": "Arcane Apotheosis|Sorcerer|XPHB|20",
             "name": "Arcane Apotheosis",
             "level": 20,
             "sourceCode": "XPHB",
@@ -620,6 +639,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Aberrant Mind|Sorcerer|XPHB|Aberrant Mind|TCE|3",
               "name": "Aberrant Mind",
               "level": 3,
               "sourceCode": "TCE",
@@ -720,6 +740,7 @@
               ]
             },
             {
+              "ref": "Psionic Sorcery|Sorcerer||Aberrant Mind|TCE|6",
               "name": "Psionic Sorcery",
               "level": 6,
               "sourceCode": "TCE",
@@ -731,6 +752,7 @@
               ]
             },
             {
+              "ref": "Psychic Defenses|Sorcerer||Aberrant Mind|TCE|6",
               "name": "Psychic Defenses",
               "level": 6,
               "sourceCode": "TCE",
@@ -741,6 +763,7 @@
               ]
             },
             {
+              "ref": "Revelation in Flesh|Sorcerer||Aberrant Mind|TCE|14",
               "name": "Revelation in Flesh",
               "level": 14,
               "sourceCode": "TCE",
@@ -760,6 +783,7 @@
               ]
             },
             {
+              "ref": "Warping Implosion|Sorcerer||Aberrant Mind|TCE|18",
               "name": "Warping Implosion",
               "level": 18,
               "sourceCode": "TCE",
@@ -805,6 +829,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Aberrant Sorcery|Sorcerer|XPHB|Aberrant|XPHB|3",
               "name": "Aberrant Sorcery",
               "level": 3,
               "sourceCode": "XPHB",
@@ -861,6 +886,7 @@
               ]
             },
             {
+              "ref": "Psionic Sorcery|Sorcerer|XPHB|Aberrant|XPHB|6",
               "name": "Psionic Sorcery",
               "level": 6,
               "sourceCode": "XPHB",
@@ -870,6 +896,7 @@
               ]
             },
             {
+              "ref": "Psychic Defenses|Sorcerer|XPHB|Aberrant|XPHB|6",
               "name": "Psychic Defenses",
               "level": 6,
               "sourceCode": "XPHB",
@@ -879,6 +906,7 @@
               ]
             },
             {
+              "ref": "Revelation in Flesh|Sorcerer|XPHB|Aberrant|XPHB|14",
               "name": "Revelation in Flesh",
               "level": 14,
               "sourceCode": "XPHB",
@@ -921,6 +949,7 @@
               ]
             },
             {
+              "ref": "Warping Implosion|Sorcerer|XPHB|Aberrant|XPHB|18",
               "name": "Warping Implosion",
               "level": 18,
               "sourceCode": "XPHB",
@@ -964,6 +993,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Clockwork Sorcery|Sorcerer|XPHB|Clockwork|XPHB|3",
               "name": "Clockwork Sorcery",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1058,6 +1088,7 @@
               ]
             },
             {
+              "ref": "Bastion of Law|Sorcerer|XPHB|Clockwork|XPHB|6",
               "name": "Bastion of Law",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1068,6 +1099,7 @@
               ]
             },
             {
+              "ref": "Trance of Order|Sorcerer|XPHB|Clockwork|XPHB|14",
               "name": "Trance of Order",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1078,6 +1110,7 @@
               ]
             },
             {
+              "ref": "Clockwork Cavalcade|Sorcerer|XPHB|Clockwork|XPHB|18",
               "name": "Clockwork Cavalcade",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1146,6 +1179,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Clockwork Soul|Sorcerer|XPHB|Clockwork Soul|TCE|3",
               "name": "Clockwork Soul",
               "level": 3,
               "sourceCode": "TCE",
@@ -1246,6 +1280,7 @@
               ]
             },
             {
+              "ref": "Bastion of Law|Sorcerer||Clockwork Soul|TCE|6",
               "name": "Bastion of Law",
               "level": 6,
               "sourceCode": "TCE",
@@ -1257,6 +1292,7 @@
               ]
             },
             {
+              "ref": "Trance of Order|Sorcerer||Clockwork Soul|TCE|14",
               "name": "Trance of Order",
               "level": 14,
               "sourceCode": "TCE",
@@ -1268,6 +1304,7 @@
               ]
             },
             {
+              "ref": "Clockwork Cavalcade|Sorcerer||Clockwork Soul|TCE|18",
               "name": "Clockwork Cavalcade",
               "level": 18,
               "sourceCode": "TCE",
@@ -1320,6 +1357,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Divine Soul|Sorcerer|XPHB|Divine Soul|XGE|3",
               "name": "Divine Soul",
               "level": 3,
               "sourceCode": "XGE",
@@ -1380,6 +1418,7 @@
               ]
             },
             {
+              "ref": "Empowered Healing|Sorcerer||Divine Soul|XGE|6",
               "name": "Empowered Healing",
               "level": 6,
               "sourceCode": "XGE",
@@ -1389,6 +1428,7 @@
               ]
             },
             {
+              "ref": "Otherworldly Wings|Sorcerer||Divine Soul|XGE|14",
               "name": "Otherworldly Wings",
               "level": 14,
               "sourceCode": "XGE",
@@ -1399,6 +1439,7 @@
               ]
             },
             {
+              "ref": "Unearthly Recovery|Sorcerer||Divine Soul|XGE|18",
               "name": "Unearthly Recovery",
               "level": 18,
               "sourceCode": "XGE",
@@ -1442,6 +1483,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Draconic Bloodline|Sorcerer|XPHB|Draconic||3",
               "name": "Draconic Bloodline",
               "level": 3,
               "sourceCode": "PHB",
@@ -1521,6 +1563,7 @@
               ]
             },
             {
+              "ref": "Elemental Affinity|Sorcerer||Draconic||6",
               "name": "Elemental Affinity",
               "level": 6,
               "sourceCode": "PHB",
@@ -1530,6 +1573,7 @@
               ]
             },
             {
+              "ref": "Dragon Wings|Sorcerer||Draconic||14",
               "name": "Dragon Wings",
               "level": 14,
               "sourceCode": "PHB",
@@ -1540,6 +1584,7 @@
               ]
             },
             {
+              "ref": "Draconic Presence|Sorcerer||Draconic||18",
               "name": "Draconic Presence",
               "level": 18,
               "sourceCode": "PHB",
@@ -1582,6 +1627,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Draconic Sorcery|Sorcerer|XPHB|Draconic|XPHB|3",
               "name": "Draconic Sorcery",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1637,6 +1683,7 @@
               ]
             },
             {
+              "ref": "Elemental Affinity|Sorcerer|XPHB|Draconic|XPHB|6",
               "name": "Elemental Affinity",
               "level": 6,
               "sourceCode": "XPHB",
@@ -1647,6 +1694,7 @@
               ]
             },
             {
+              "ref": "Dragon Wings|Sorcerer|XPHB|Draconic|XPHB|14",
               "name": "Dragon Wings",
               "level": 14,
               "sourceCode": "XPHB",
@@ -1657,6 +1705,7 @@
               ]
             },
             {
+              "ref": "Dragon Companion|Sorcerer|XPHB|Draconic|XPHB|18",
               "name": "Dragon Companion",
               "level": 18,
               "sourceCode": "XPHB",
@@ -1701,6 +1750,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Lunar Sorcery|Sorcerer|XPHB|Lunar|DSotDQ|3",
               "name": "Lunar Sorcery",
               "level": 3,
               "sourceCode": "DSotDQ",
@@ -1776,6 +1826,7 @@
               ]
             },
             {
+              "ref": "Lunar Boons|Sorcerer||Lunar|DSotDQ|6",
               "name": "Lunar Boons",
               "level": 6,
               "sourceCode": "DSotDQ",
@@ -1814,6 +1865,7 @@
               ]
             },
             {
+              "ref": "Waxing and Waning|Sorcerer||Lunar|DSotDQ|6",
               "name": "Waxing and Waning",
               "level": 6,
               "sourceCode": "DSotDQ",
@@ -1825,6 +1877,7 @@
               ]
             },
             {
+              "ref": "Lunar Empowerment|Sorcerer||Lunar|DSotDQ|14",
               "name": "Lunar Empowerment",
               "level": 14,
               "sourceCode": "DSotDQ",
@@ -1862,6 +1915,7 @@
               ]
             },
             {
+              "ref": "Lunar Phenomenon|Sorcerer||Lunar|DSotDQ|18",
               "name": "Lunar Phenomenon",
               "level": 18,
               "sourceCode": "DSotDQ",
@@ -1933,6 +1987,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Pyromancer (PSK)|Sorcerer|XPHB|Pyromancer (PSK)|PSK|3",
               "name": "Pyromancer (PSK)",
               "level": 3,
               "sourceCode": "PSK",
@@ -1949,6 +2004,7 @@
               ]
             },
             {
+              "ref": "Fire in the Veins|Sorcerer||Pyromancer (PSK)|PSK|6",
               "name": "Fire in the Veins",
               "level": 6,
               "sourceCode": "PSK",
@@ -1958,6 +2014,7 @@
               ]
             },
             {
+              "ref": "Pyromancer's Fury|Sorcerer||Pyromancer (PSK)|PSK|14",
               "name": "Pyromancer's Fury",
               "level": 14,
               "sourceCode": "PSK",
@@ -1967,6 +2024,7 @@
               ]
             },
             {
+              "ref": "Fiery Soul|Sorcerer||Pyromancer (PSK)|PSK|18",
               "name": "Fiery Soul",
               "level": 18,
               "sourceCode": "PSK",
@@ -2009,6 +2067,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Shadow Magic|Sorcerer|XPHB|Shadow|XGE|3",
               "name": "Shadow Magic",
               "level": 3,
               "sourceCode": "XGE",
@@ -2073,6 +2132,7 @@
               ]
             },
             {
+              "ref": "Hound of Ill Omen|Sorcerer||Shadow|XGE|6",
               "name": "Hound of Ill Omen",
               "level": 6,
               "sourceCode": "XGE",
@@ -2092,6 +2152,7 @@
               ]
             },
             {
+              "ref": "Shadow Walk|Sorcerer||Shadow|XGE|14",
               "name": "Shadow Walk",
               "level": 14,
               "sourceCode": "XGE",
@@ -2101,6 +2162,7 @@
               ]
             },
             {
+              "ref": "Umbral Form|Sorcerer||Shadow|XGE|18",
               "name": "Umbral Form",
               "level": 18,
               "sourceCode": "XGE",
@@ -2144,6 +2206,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Spellfire Sorcery|Sorcerer|XPHB|Spellfire|FRHoF|3|FRHoF",
               "name": "Spellfire Sorcery",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -2212,6 +2275,7 @@
               ]
             },
             {
+              "ref": "Absorb Spells|Sorcerer|XPHB|Spellfire|FRHoF|6|FRHoF",
               "name": "Absorb Spells",
               "level": 6,
               "sourceCode": "FRHoF",
@@ -2222,6 +2286,7 @@
               ]
             },
             {
+              "ref": "Honed Spellfire|Sorcerer|XPHB|Spellfire|FRHoF|14|FRHoF",
               "name": "Honed Spellfire",
               "level": 14,
               "sourceCode": "FRHoF",
@@ -2231,6 +2296,7 @@
               ]
             },
             {
+              "ref": "Crown of Spellfire|Sorcerer|XPHB|Spellfire|FRHoF|18|FRHoF",
               "name": "Crown of Spellfire",
               "level": 18,
               "sourceCode": "FRHoF",
@@ -2298,6 +2364,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Storm Sorcery|Sorcerer|XPHB|Storm|XGE|3",
               "name": "Storm Sorcery",
               "level": 3,
               "sourceCode": "XGE",
@@ -2322,6 +2389,7 @@
               ]
             },
             {
+              "ref": "Heart of the Storm|Sorcerer||Storm|XGE|6",
               "name": "Heart of the Storm",
               "level": 6,
               "sourceCode": "XGE",
@@ -2331,6 +2399,7 @@
               ]
             },
             {
+              "ref": "Storm Guide|Sorcerer||Storm|XGE|6",
               "name": "Storm Guide",
               "level": 6,
               "sourceCode": "XGE",
@@ -2342,6 +2411,7 @@
               ]
             },
             {
+              "ref": "Storm's Fury|Sorcerer||Storm|XGE|14",
               "name": "Storm's Fury",
               "level": 14,
               "sourceCode": "XGE",
@@ -2351,6 +2421,7 @@
               ]
             },
             {
+              "ref": "Wind Soul|Sorcerer||Storm|XGE|18",
               "name": "Wind Soul",
               "level": 18,
               "sourceCode": "XGE",
@@ -2394,6 +2465,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Wild Magic Sorcery|Sorcerer|XPHB|Wild Magic|XPHB|3",
               "name": "Wild Magic Sorcery",
               "level": 3,
               "sourceCode": "XPHB",
@@ -2539,6 +2611,7 @@
               ]
             },
             {
+              "ref": "Bend Luck|Sorcerer|XPHB|Wild Magic|XPHB|6",
               "name": "Bend Luck",
               "level": 6,
               "sourceCode": "XPHB",
@@ -2548,6 +2621,7 @@
               ]
             },
             {
+              "ref": "Controlled Chaos|Sorcerer|XPHB|Wild Magic|XPHB|14",
               "name": "Controlled Chaos",
               "level": 14,
               "sourceCode": "XPHB",
@@ -2557,6 +2631,7 @@
               ]
             },
             {
+              "ref": "Tamed Surge|Sorcerer|XPHB|Wild Magic|XPHB|18",
               "name": "Tamed Surge",
               "level": 18,
               "sourceCode": "XPHB",
@@ -2600,6 +2675,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Wild Magic|Sorcerer|XPHB|Wild||3",
               "name": "Wild Magic",
               "level": 3,
               "sourceCode": "PHB",
@@ -2847,6 +2923,7 @@
               ]
             },
             {
+              "ref": "Bend Luck|Sorcerer||Wild||6",
               "name": "Bend Luck",
               "level": 6,
               "sourceCode": "PHB",
@@ -2856,6 +2933,7 @@
               ]
             },
             {
+              "ref": "Controlled Chaos|Sorcerer||Wild||14",
               "name": "Controlled Chaos",
               "level": 14,
               "sourceCode": "PHB",
@@ -2865,6 +2943,7 @@
               ]
             },
             {
+              "ref": "Spell Bombardment|Sorcerer||Wild||18",
               "name": "Spell Bombardment",
               "level": 18,
               "sourceCode": "PHB",

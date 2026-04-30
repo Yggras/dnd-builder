@@ -33,7 +33,7 @@ export function FeatureProgressionList({ rows, emptyLabel = 'No feature progress
   return (
     <View style={styles.list}>
       {rows.map((row, index) => {
-        const rowKey = `${row.level ?? 'unknown'}:${row.name}:${row.sourceCode ?? 'unknown'}:${index}`;
+        const rowKey = `${row.ref}:${index}`;
         const hasDetails = row.detailEntries.length > 0;
         const isExpanded = expandedKeys.has(rowKey);
 

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-95363784833b901a",
+  "contentVersion": "schema1-8154637255b870fa",
   "entityType": "classes",
   "chunkId": "ranger",
-  "generatedAt": "2026-04-29T20:01:41.163Z",
+  "generatedAt": "2026-04-30T17:15:06.986Z",
   "records": {
     "class": {
       "id": "ranger|xphb",
@@ -210,6 +210,7 @@
         ],
         "classFeatureDetails": [
           {
+            "ref": "Spellcasting|Ranger|XPHB|1",
             "name": "Spellcasting",
             "level": 1,
             "sourceCode": "XPHB",
@@ -261,6 +262,7 @@
             ]
           },
           {
+            "ref": "Favored Enemy|Ranger|XPHB|1",
             "name": "Favored Enemy",
             "level": 1,
             "sourceCode": "XPHB",
@@ -271,6 +273,7 @@
             ]
           },
           {
+            "ref": "Weapon Mastery|Ranger|XPHB|1",
             "name": "Weapon Mastery",
             "level": 1,
             "sourceCode": "XPHB",
@@ -281,6 +284,7 @@
             ]
           },
           {
+            "ref": "Deft Explorer|Ranger|XPHB|2",
             "name": "Deft Explorer",
             "level": 2,
             "sourceCode": "XPHB",
@@ -309,6 +313,7 @@
             ]
           },
           {
+            "ref": "Fighting Style|Ranger|XPHB|2",
             "name": "Fighting Style",
             "level": 2,
             "sourceCode": "XPHB",
@@ -327,6 +332,7 @@
             ]
           },
           {
+            "ref": "Ranger Subclass|Ranger|XPHB|3",
             "name": "Ranger Subclass",
             "level": 3,
             "sourceCode": "XPHB",
@@ -336,6 +342,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|4",
             "name": "Ability Score Improvement",
             "level": 4,
             "sourceCode": "XPHB",
@@ -345,6 +352,7 @@
             ]
           },
           {
+            "ref": "Extra Attack|Ranger|XPHB|5",
             "name": "Extra Attack",
             "level": 5,
             "sourceCode": "XPHB",
@@ -354,6 +362,7 @@
             ]
           },
           {
+            "ref": "Roving|Ranger|XPHB|6",
             "name": "Roving",
             "level": 6,
             "sourceCode": "XPHB",
@@ -363,6 +372,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|7",
             "name": "Subclass Feature",
             "level": 7,
             "sourceCode": "XPHB",
@@ -372,6 +382,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|8",
             "name": "Ability Score Improvement",
             "level": 8,
             "sourceCode": "XPHB",
@@ -381,6 +392,7 @@
             ]
           },
           {
+            "ref": "Expertise|Ranger|XPHB|9",
             "name": "Expertise",
             "level": 9,
             "sourceCode": "XPHB",
@@ -390,6 +402,7 @@
             ]
           },
           {
+            "ref": "Tireless|Ranger|XPHB|10",
             "name": "Tireless",
             "level": 10,
             "sourceCode": "XPHB",
@@ -418,6 +431,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|11",
             "name": "Subclass Feature",
             "level": 11,
             "sourceCode": "XPHB",
@@ -427,6 +441,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|12",
             "name": "Ability Score Improvement",
             "level": 12,
             "sourceCode": "XPHB",
@@ -436,6 +451,7 @@
             ]
           },
           {
+            "ref": "Relentless Hunter|Ranger|XPHB|13",
             "name": "Relentless Hunter",
             "level": 13,
             "sourceCode": "XPHB",
@@ -445,6 +461,7 @@
             ]
           },
           {
+            "ref": "Nature's Veil|Ranger|XPHB|14",
             "name": "Nature's Veil",
             "level": 14,
             "sourceCode": "XPHB",
@@ -455,6 +472,7 @@
             ]
           },
           {
+            "ref": "Subclass Feature|Ranger|XPHB|15",
             "name": "Subclass Feature",
             "level": 15,
             "sourceCode": "XPHB",
@@ -464,6 +482,7 @@
             ]
           },
           {
+            "ref": "Ability Score Improvement|Ranger|XPHB|16",
             "name": "Ability Score Improvement",
             "level": 16,
             "sourceCode": "XPHB",
@@ -473,6 +492,7 @@
             ]
           },
           {
+            "ref": "Precise Hunter|Ranger|XPHB|17",
             "name": "Precise Hunter",
             "level": 17,
             "sourceCode": "XPHB",
@@ -482,6 +502,7 @@
             ]
           },
           {
+            "ref": "Feral Senses|Ranger|XPHB|18",
             "name": "Feral Senses",
             "level": 18,
             "sourceCode": "XPHB",
@@ -491,6 +512,7 @@
             ]
           },
           {
+            "ref": "Epic Boon|Ranger|XPHB|19",
             "name": "Epic Boon",
             "level": 19,
             "sourceCode": "XPHB",
@@ -500,6 +522,7 @@
             ]
           },
           {
+            "ref": "Foe Slayer|Ranger|XPHB|20",
             "name": "Foe Slayer",
             "level": 20,
             "sourceCode": "XPHB",
@@ -543,6 +566,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Beast Master|Ranger|XPHB|Beast Master|XPHB|3",
               "name": "Beast Master",
               "level": 3,
               "sourceCode": "XPHB",
@@ -581,6 +605,7 @@
               ]
             },
             {
+              "ref": "Exceptional Training|Ranger|XPHB|Beast Master|XPHB|7",
               "name": "Exceptional Training",
               "level": 7,
               "sourceCode": "XPHB",
@@ -591,6 +616,7 @@
               ]
             },
             {
+              "ref": "Bestial Fury|Ranger|XPHB|Beast Master|XPHB|11",
               "name": "Bestial Fury",
               "level": 11,
               "sourceCode": "XPHB",
@@ -601,6 +627,7 @@
               ]
             },
             {
+              "ref": "Share Spells|Ranger|XPHB|Beast Master|XPHB|15",
               "name": "Share Spells",
               "level": 15,
               "sourceCode": "XPHB",
@@ -643,6 +670,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Drakewarden|Ranger||Drakewarden|FTD|3",
               "name": "Drakewarden",
               "level": 3,
               "sourceCode": "FTD",
@@ -727,6 +755,7 @@
               ]
             },
             {
+              "ref": "Bond of Fang and Scale|Ranger||Drakewarden|FTD|7",
               "name": "Bond of Fang and Scale",
               "level": 7,
               "sourceCode": "FTD",
@@ -765,6 +794,7 @@
               ]
             },
             {
+              "ref": "Drake's Breath|Ranger||Drakewarden|FTD|11",
               "name": "Drake's Breath",
               "level": 11,
               "sourceCode": "FTD",
@@ -777,6 +807,7 @@
               ]
             },
             {
+              "ref": "Perfected Bond|Ranger||Drakewarden|FTD|15",
               "name": "Perfected Bond",
               "level": 15,
               "sourceCode": "FTD",
@@ -847,6 +878,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Fey Wanderer|Ranger|XPHB|Fey Wanderer|XPHB|3",
               "name": "Fey Wanderer",
               "level": 3,
               "sourceCode": "XPHB",
@@ -952,6 +984,7 @@
               ]
             },
             {
+              "ref": "Beguiling Twist|Ranger|XPHB|Fey Wanderer|XPHB|7",
               "name": "Beguiling Twist",
               "level": 7,
               "sourceCode": "XPHB",
@@ -962,6 +995,7 @@
               ]
             },
             {
+              "ref": "Fey Reinforcements|Ranger|XPHB|Fey Wanderer|XPHB|11",
               "name": "Fey Reinforcements",
               "level": 11,
               "sourceCode": "XPHB",
@@ -972,6 +1006,7 @@
               ]
             },
             {
+              "ref": "Misty Wanderer|Ranger|XPHB|Fey Wanderer|XPHB|15",
               "name": "Misty Wanderer",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1015,6 +1050,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Gloom Stalker|Ranger|XPHB|Gloom Stalker|XPHB|3",
               "name": "Gloom Stalker",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1102,6 +1138,7 @@
               ]
             },
             {
+              "ref": "Iron Mind|Ranger|XPHB|Gloom Stalker|XPHB|7",
               "name": "Iron Mind",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1111,6 +1148,7 @@
               ]
             },
             {
+              "ref": "Stalker's Flurry|Ranger|XPHB|Gloom Stalker|XPHB|11",
               "name": "Stalker's Flurry",
               "level": 11,
               "sourceCode": "XPHB",
@@ -1134,6 +1172,7 @@
               ]
             },
             {
+              "ref": "Shadowy Dodge|Ranger|XPHB|Gloom Stalker|XPHB|15",
               "name": "Shadowy Dodge",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1176,6 +1215,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Horizon Walker|Ranger||Horizon Walker|XGE|3",
               "name": "Horizon Walker",
               "level": 3,
               "sourceCode": "XGE",
@@ -1243,6 +1283,7 @@
               ]
             },
             {
+              "ref": "Ethereal Step|Ranger||Horizon Walker|XGE|7",
               "name": "Ethereal Step",
               "level": 7,
               "sourceCode": "XGE",
@@ -1253,6 +1294,7 @@
               ]
             },
             {
+              "ref": "Distant Strike|Ranger||Horizon Walker|XGE|11",
               "name": "Distant Strike",
               "level": 11,
               "sourceCode": "XGE",
@@ -1263,6 +1305,7 @@
               ]
             },
             {
+              "ref": "Spectral Defense|Ranger||Horizon Walker|XGE|15",
               "name": "Spectral Defense",
               "level": 15,
               "sourceCode": "XGE",
@@ -1305,6 +1348,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Hunter|Ranger|XPHB|Hunter|XPHB|3",
               "name": "Hunter",
               "level": 3,
               "sourceCode": "XPHB",
@@ -1348,6 +1392,7 @@
               ]
             },
             {
+              "ref": "Defensive Tactics|Ranger|XPHB|Hunter|XPHB|7",
               "name": "Defensive Tactics",
               "level": 7,
               "sourceCode": "XPHB",
@@ -1376,6 +1421,7 @@
               ]
             },
             {
+              "ref": "Superior Hunter's Prey|Ranger|XPHB|Hunter|XPHB|11",
               "name": "Superior Hunter's Prey",
               "level": 11,
               "sourceCode": "XPHB",
@@ -1385,6 +1431,7 @@
               ]
             },
             {
+              "ref": "Superior Hunter's Defense|Ranger|XPHB|Hunter|XPHB|15",
               "name": "Superior Hunter's Defense",
               "level": 15,
               "sourceCode": "XPHB",
@@ -1427,6 +1474,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Monster Slayer|Ranger||Monster Slayer|XGE|3",
               "name": "Monster Slayer",
               "level": 3,
               "sourceCode": "XGE",
@@ -1493,6 +1541,7 @@
               ]
             },
             {
+              "ref": "Supernatural Defense|Ranger||Monster Slayer|XGE|7",
               "name": "Supernatural Defense",
               "level": 7,
               "sourceCode": "XGE",
@@ -1502,6 +1551,7 @@
               ]
             },
             {
+              "ref": "Magic-User's Nemesis|Ranger||Monster Slayer|XGE|11",
               "name": "Magic-User's Nemesis",
               "level": 11,
               "sourceCode": "XGE",
@@ -1512,6 +1562,7 @@
               ]
             },
             {
+              "ref": "Slayer's Counter|Ranger||Monster Slayer|XGE|15",
               "name": "Slayer's Counter",
               "level": 15,
               "sourceCode": "XGE",
@@ -1554,6 +1605,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Swarmkeeper|Ranger||Swarmkeeper|TCE|3",
               "name": "Swarmkeeper",
               "level": 3,
               "sourceCode": "TCE",
@@ -1661,6 +1713,7 @@
               ]
             },
             {
+              "ref": "Writhing Tide|Ranger||Swarmkeeper|TCE|7",
               "name": "Writhing Tide",
               "level": 7,
               "sourceCode": "TCE",
@@ -1672,6 +1725,7 @@
               ]
             },
             {
+              "ref": "Mighty Swarm|Ranger||Swarmkeeper|TCE|11",
               "name": "Mighty Swarm",
               "level": 11,
               "sourceCode": "TCE",
@@ -1690,6 +1744,7 @@
               ]
             },
             {
+              "ref": "Swarming Dispersal|Ranger||Swarmkeeper|TCE|15",
               "name": "Swarming Dispersal",
               "level": 15,
               "sourceCode": "TCE",
@@ -1734,6 +1789,7 @@
           ],
           "subclassFeatureDetails": [
             {
+              "ref": "Winter Walker|Ranger|XPHB|Winter Walker|FRHoF|3|FRHoF",
               "name": "Winter Walker",
               "level": 3,
               "sourceCode": "FRHoF",
@@ -1823,6 +1879,7 @@
               ]
             },
             {
+              "ref": "Fortifying Soul|Ranger|XPHB|Winter Walker|FRHoF|7|FRHoF",
               "name": "Fortifying Soul",
               "level": 7,
               "sourceCode": "FRHoF",
@@ -1833,6 +1890,7 @@
               ]
             },
             {
+              "ref": "Chilling Retribution|Ranger|XPHB|Winter Walker|FRHoF|11|FRHoF",
               "name": "Chilling Retribution",
               "level": 11,
               "sourceCode": "FRHoF",
@@ -1843,6 +1901,7 @@
               ]
             },
             {
+              "ref": "Frozen Haunt|Ranger|XPHB|Winter Walker|FRHoF|15|FRHoF",
               "name": "Frozen Haunt",
               "level": 15,
               "sourceCode": "FRHoF",
