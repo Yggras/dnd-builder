@@ -55,7 +55,180 @@ function arrayOfStrings(value: unknown) {
 }
 
 function titleCase(value: string) {
-  return value.replace(/\b\w/g, (character) => character.toUpperCase());
+  return value.replace(/[-_]/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function formatCountLabel(count: number) {
+  return count === 1 ? '1 choice' : `${count} choices`;
+}
+
+function formatAbilityKey(value: string) {
+  return ABILITY_LABELS[value.toLowerCase()] ?? titleCase(value);
+}
+
+function formatAbilityMetadata(value: unknown) {
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  const bonuses: string[] = [];
+  const choices = new Set<string>();
+  let choiceCount: number | null = null;
+
+  for (const entry of value) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      continue;
+    }
+
+    const record = entry as Record<string, unknown>;
+    const choose = record.choose;
+    if (choose && typeof choose === 'object' && !Array.isArray(choose)) {
+      const chooseRecord = choose as Record<string, unknown>;
+      const weighted = chooseRecord.weighted;
+      const from: unknown[] = Array.isArray(chooseRecord.from)
+        ? chooseRecord.from
+        : weighted && typeof weighted === 'object' && !Array.isArray(weighted) && Array.isArray((weighted as Record<string, unknown>).from)
+          ? (weighted as Record<string, unknown>).from as unknown[]
+          : [];
+
+      for (const ability of from) {
+        if (typeof ability === 'string') {
+          choices.add(formatAbilityKey(ability));
+        }
+      }
+
+      const count = numberValue(chooseRecord.count);
+      if (count != null) {
+        choiceCount = Math.max(choiceCount ?? 0, count);
+      }
+      continue;
+    }
+
+    for (const [ability, amount] of Object.entries(record)) {
+      if (typeof amount === 'number' && amount !== 0) {
+        bonuses.push(`${formatAbilityKey(ability)} ${amount > 0 ? '+' : ''}${amount}`);
+      } else if (amount === true) {
+        choices.add(formatAbilityKey(ability));
+      }
+    }
+  }
+
+  const parts = [...bonuses];
+  if (choices.size > 0) {
+    const prefix = choiceCount == null ? 'Choose from' : `Choose ${formatCountLabel(choiceCount)} from`;
+    parts.push(`${prefix} ${[...choices].join(', ')}`);
+  }
+
+  return parts.length > 0 ? parts.join('; ') : null;
+}
+
+function formatObjectChoiceList(value: unknown) {
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  const entries: string[] = [];
+
+  for (const entry of value) {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      continue;
+    }
+
+    for (const [key, enabled] of Object.entries(entry as Record<string, unknown>)) {
+      if (enabled === true) {
+        entries.push(formatMetadataKey(key));
+      } else if (typeof enabled === 'number' && enabled > 0) {
+        entries.push(`${formatMetadataKey(key)} (${formatCountLabel(enabled)})`);
+      }
+    }
+  }
+
+  return entries.length > 0 ? uniqueStrings(entries).join(', ') : null;
+}
+
+function formatMetadataKey(value: string) {
+  switch (value) {
+    case 'any':
+      return 'Any';
+    case 'anyStandard':
+      return 'Any standard';
+    default:
+      return titleCase(value);
+  }
+}
+
+function uniqueStrings(values: string[]) {
+  return [...new Set(values.filter((value) => value.trim().length > 0))];
+}
+
+function formatSize(value: unknown) {
+  const labels: Record<string, string> = {
+    F: 'Fine',
+    D: 'Diminutive',
+    T: 'Tiny',
+    S: 'Small',
+    M: 'Medium',
+    L: 'Large',
+    H: 'Huge',
+    G: 'Gargantuan',
+    V: 'Varies',
+  };
+  const sizes = arrayOfStrings(value).map((size) => labels[size] ?? size);
+  return sizes.length > 0 ? sizes.join(' or ') : null;
+}
+
+function formatSpeed(value: unknown) {
+  if (typeof value === 'number') {
+    return `${value} ft.`;
+  }
+
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return null;
+  }
+
+  const parts = Object.entries(value as Record<string, unknown>).flatMap(([mode, speed]) => {
+    if (typeof speed === 'number') {
+      return [`${titleCase(mode)} ${speed} ft.`];
+    }
+
+    if (speed === true && mode !== 'walk') {
+      return [`${titleCase(mode)} equal to walking speed`];
+    }
+
+    return [];
+  });
+
+  return parts.length > 0 ? parts.join(', ') : null;
+}
+
+function formatDarkvision(value: unknown) {
+  if (typeof value === 'number') {
+    return `${value} ft.`;
+  }
+
+  return value === true ? 'Yes' : null;
+}
+
+function formatFeatType(entry: CompendiumEntry) {
+  const category = stringValue(entry.metadata.category);
+  const featureTypes = arrayOfStrings(entry.metadata.featureType);
+
+  if (category === 'FS' || featureTypes.some((featureType) => featureType.startsWith('FS'))) {
+    return 'Fighting Style';
+  }
+
+  switch (category) {
+    case 'O':
+      return 'Origin';
+    case 'G':
+      return 'General';
+    case 'EB':
+      return 'Epic Boon';
+    case 'D':
+      return 'Dragonmark';
+    default:
+      return category ? titleCase(category) : 'Other';
+  }
 }
 
 function formatDistance(distance: Record<string, unknown> | null) {
@@ -291,6 +464,51 @@ export function buildItemFacts(entry: CompendiumEntry): DetailFact[] {
     armorClass != null ? { label: 'AC', value: String(armorClass) } : null,
     properties ? { label: 'Properties', value: properties } : null,
     attunement ? { label: 'Attunement', value: attunement } : null,
+  ]);
+}
+
+export function buildFeatFacts(entry: CompendiumEntry): DetailFact[] {
+  const ability = formatAbilityMetadata(entry.metadata.ability);
+
+  return compactFacts([
+    { label: 'Type', value: formatFeatType(entry) },
+    ability ? { label: 'Ability', value: ability } : null,
+    ...buildSourceFacts(entry),
+  ]);
+}
+
+export function buildSpeciesFacts(entry: CompendiumEntry): DetailFact[] {
+  const size = formatSize(entry.metadata.size);
+  const speed = formatSpeed(entry.metadata.speed);
+  const creatureTypes = arrayOfStrings(entry.metadata.creatureTypes).map(titleCase).join(', ');
+  const darkvision = formatDarkvision(entry.metadata.darkvision);
+  const traits = arrayOfStrings(entry.metadata.traits).map(cleanInlineText).join(', ');
+  const ability = formatAbilityMetadata(entry.metadata.ability);
+
+  return compactFacts([
+    size ? { label: 'Size', value: size } : null,
+    speed ? { label: 'Speed', value: speed } : null,
+    creatureTypes ? { label: 'Creature Type', value: creatureTypes } : null,
+    darkvision ? { label: 'Darkvision', value: darkvision } : null,
+    traits ? { label: 'Traits', value: traits } : null,
+    ability ? { label: 'Ability', value: ability } : null,
+    ...buildSourceFacts(entry),
+  ]);
+}
+
+export function buildBackgroundFacts(entry: CompendiumEntry, resolvedFeatNames: string[] = []): DetailFact[] {
+  const ability = formatAbilityMetadata(entry.metadata.ability);
+  const skills = formatObjectChoiceList(entry.metadata.skillProficiencies);
+  const tools = formatObjectChoiceList(entry.metadata.toolProficiencies);
+  const languages = formatObjectChoiceList(entry.metadata.languageProficiencies);
+
+  return compactFacts([
+    ability ? { label: 'Ability Scores', value: ability } : null,
+    resolvedFeatNames.length > 0 ? { label: 'Granted Feat', value: resolvedFeatNames.join(', ') } : null,
+    skills ? { label: 'Skills', value: skills } : null,
+    tools ? { label: 'Tools', value: tools } : null,
+    languages ? { label: 'Languages', value: languages } : null,
+    ...buildSourceFacts(entry),
   ]);
 }
 

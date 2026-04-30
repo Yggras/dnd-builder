@@ -1,8 +1,11 @@
 import { useLocalSearchParams } from 'expo-router';
 
+import { BackgroundDetailView } from '@/features/compendium/components/BackgroundDetailView';
+import { FeatDetailView } from '@/features/compendium/components/FeatDetailView';
 import { GenericCompendiumDetailView } from '@/features/compendium/components/GenericCompendiumDetailView';
 import { ItemDetailView } from '@/features/compendium/components/ItemDetailView';
 import { SpellDetailView } from '@/features/compendium/components/SpellDetailView';
+import { SpeciesDetailView } from '@/features/compendium/components/SpeciesDetailView';
 import { SubclassDetailView } from '@/features/compendium/components/SubclassDetailView';
 import { useCompendiumEntry } from '@/features/compendium/hooks/useCompendiumEntry';
 import { ErrorState } from '@/shared/ui/ErrorState';
@@ -31,7 +34,10 @@ export function CompendiumDetailScreen() {
       {entry.entryType === 'spell' ? <SpellDetailView entry={entry} /> : null}
       {entry.entryType === 'item' ? <ItemDetailView entry={entry} /> : null}
       {entry.entryType === 'subclass' ? <SubclassDetailView entry={entry} /> : null}
-      {entry.entryType !== 'spell' && entry.entryType !== 'item' && entry.entryType !== 'subclass' ? <GenericCompendiumDetailView entry={entry} /> : null}
+      {entry.entryType === 'feat' ? <FeatDetailView entry={entry} /> : null}
+      {entry.entryType === 'species' ? <SpeciesDetailView entry={entry} /> : null}
+      {entry.entryType === 'background' ? <BackgroundDetailView entry={entry} /> : null}
+      {!['spell', 'item', 'subclass', 'feat', 'species', 'background'].includes(entry.entryType) ? <GenericCompendiumDetailView entry={entry} /> : null}
     </Screen>
   );
 }
