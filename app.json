@@ -17,6 +17,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.yggras.dndbuilder",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -35,7 +36,12 @@
       "expo-sqlite"
     ],
     "extra": {
-      "projectName": "dnd-builder"
-    }
+      "projectName": "dnd-builder",
+      "router": {},
+      "eas": {
+        "projectId": "2c02d864-4ef5-4116-af4a-5a9282f6fe7a"
+      }
+    },
+    "owner": "yggrass-organization"
   }
 }

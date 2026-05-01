@@ -10,8 +10,14 @@ const envSchema = z.object({
   EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
 });
 
+const processEnvValues = {
+  EXPO_PUBLIC_APP_ENV: process.env.EXPO_PUBLIC_APP_ENV,
+  EXPO_PUBLIC_SUPABASE_URL: process.env.EXPO_PUBLIC_SUPABASE_URL,
+  EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+};
+
 function readEnvValue(key: keyof z.infer<typeof envSchema>) {
-  const processValue = process.env[key];
+  const processValue = processEnvValues[key];
 
   if (processValue) {
     return processValue;
