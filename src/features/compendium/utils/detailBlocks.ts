@@ -94,10 +94,27 @@ function createFallbackBlock(value: unknown): DetailRenderBlock | null {
   return text ? { kind: 'fallbackText', text } : null;
 }
 
+function formatListItemText(value: unknown) {
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return String(value);
+  }
+
+  if (!isRecord(value)) {
+    return extractReadableText(value);
+  }
+
+  const name = typeof value.name === 'string' ? cleanInlineText(value.name) : '';
+  if (typeof value.entry === 'string') {
+    return [name, value.entry].filter(Boolean).join(' ');
+  }
+
+  return extractReadableText(value);
+}
+
 function parseList(record: SourceRecord): DetailRenderBlock | null {
   const rawItems = Array.isArray(record.items) ? record.items : [];
   const items = rawItems
-    .map((item) => parseInlineText(typeof item === 'string' ? item : extractReadableText(item)))
+    .map((item) => parseInlineText(formatListItemText(item)))
     .filter((tokens) => tokens.length > 0);
 
   return items.length > 0 ? { kind: 'list', items } : null;
