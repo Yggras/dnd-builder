@@ -46,6 +46,14 @@ function extractBackgroundEquipmentSummary(entries) {
   return null;
 }
 
+function backgroundLookupKey(record) {
+  return canonicalId([record.name, record.source]);
+}
+
+function createBackgroundFluffLookup(records) {
+  return new Map(records.map((record) => [backgroundLookupKey(record), record]));
+}
+
 function createBaseRecord(kind, record, id) {
   const text = extractText(record.entries ?? record.entry ?? []);
   const searchText = [record.name, record.source, text].filter(Boolean).join(' ');
@@ -698,14 +706,25 @@ export function normalizeFeats(records) {
   );
 }
 
-export function normalizeBackgrounds(records) {
+export function normalizeBackgrounds(records, fluffRecords = []) {
+  const fluffByBackground = createBackgroundFluffLookup(fluffRecords);
+
   return stableSortBy(
     records.map((record) => {
       const id = canonicalId([record.name, record.source, 'background']);
       const featIds = extractBackgroundFeatIds(record.feats);
+      const baseRecord = createBaseRecord('background', record, id);
+      const fluffRecord = fluffByBackground.get(backgroundLookupKey(record));
+      const descriptionEntries = fluffRecord ? ensureArray(fluffRecord.entries) : [];
+      const descriptionText = extractText(descriptionEntries);
 
       return {
-        ...createBaseRecord('background', record, id),
+        ...baseRecord,
+        searchText: [baseRecord.searchText, descriptionText].filter(Boolean).join(' '),
+        renderPayload: {
+          ...baseRecord.renderPayload,
+          ...(descriptionEntries.length > 0 ? { descriptionEntries } : {}),
+        },
         metadata: {
           ability: record.ability ?? [],
           featIds,
@@ -716,6 +735,7 @@ export function normalizeBackgrounds(records) {
           startingEquipment: record.startingEquipment ?? [],
           equipmentSummary: extractBackgroundEquipmentSummary(record.entries),
           fromFeature: record.fromFeature ?? null,
+          descriptionText: descriptionText || null,
           entriesText: extractText(record.entries ?? []),
         },
       };

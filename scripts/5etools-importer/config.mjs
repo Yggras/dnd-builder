@@ -9,6 +9,7 @@ export const SOURCE_FILES = {
   races: 'data/races.json',
   classIndex: 'data/class/index.json',
   backgrounds: 'data/backgrounds.json',
+  backgroundFluff: 'data/fluff-backgrounds.json',
   feats: 'data/feats.json',
   optionalFeatures: 'data/optionalfeatures.json',
   spellsIndex: 'data/spells/index.json',

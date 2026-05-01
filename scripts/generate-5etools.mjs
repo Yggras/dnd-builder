@@ -68,6 +68,7 @@ async function loadRawSources() {
     races,
     classIndex,
     backgrounds,
+    backgroundFluff,
     feats,
     optionalFeatures,
     spellsIndex,
@@ -81,6 +82,7 @@ async function loadRawSources() {
     fetchJson(SOURCE_FILES.races),
     fetchJson(SOURCE_FILES.classIndex),
     fetchJson(SOURCE_FILES.backgrounds),
+    fetchJson(SOURCE_FILES.backgroundFluff),
     fetchJson(SOURCE_FILES.feats),
     fetchJson(SOURCE_FILES.optionalFeatures),
     fetchJson(SOURCE_FILES.spellsIndex),
@@ -99,6 +101,7 @@ async function loadRawSources() {
     races,
     classFiles,
     backgrounds,
+    backgroundFluff,
     feats,
     optionalFeatures,
     spellFiles,
@@ -124,6 +127,7 @@ async function main() {
   const resolvedClassFeatures = resolveCollection(rawClassFeatures, selectFeatureCopyKey);
   const resolvedSubclassFeatures = resolveCollection(rawSubclassFeatures, selectFeatureCopyKey);
   const resolvedBackgrounds = resolveCollection(rawSources.backgrounds.background ?? [], selectCopyKey);
+  const resolvedBackgroundFluff = resolveCollection(rawSources.backgroundFluff.backgroundFluff ?? [], selectCopyKey);
   const resolvedFeats = resolveCollection(rawSources.feats.feat ?? [], selectCopyKey);
   const resolvedOptionalFeatures = resolveCollection(rawSources.optionalFeatures.optionalfeature ?? [], selectCopyKey);
   const resolvedSpells = flattenSpellFiles(rawSources.spellFiles);
@@ -137,7 +141,7 @@ async function main() {
     classFeatures: resolvedClassFeatures,
     subclassFeatures: resolvedSubclassFeatures,
   });
-  const backgrounds = normalizeBackgrounds(resolvedBackgrounds);
+  const backgrounds = normalizeBackgrounds(resolvedBackgrounds, resolvedBackgroundFluff);
   const feats = normalizeFeats(resolvedFeats);
   const optionalFeatures = normalizeOptionalFeatures(resolvedOptionalFeatures);
   const spells = normalizeSpells(resolvedSpells, {

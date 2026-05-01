@@ -8,62 +8,29 @@ import { DetailSection } from '@/features/compendium/components/DetailSection';
 import { RenderBlockList } from '@/features/compendium/components/RenderBlockList';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { ContentService } from '@/features/content/services/ContentService';
-import { buildRenderBlocks, type DetailRenderBlock } from '@/features/compendium/utils/detailBlocks';
+import { buildRenderBlocks, buildRenderBlocksFromEntries, type DetailRenderBlock } from '@/features/compendium/utils/detailBlocks';
 import { buildBackgroundFacts, getEntityIdsFromMetadata, sortEntityNames } from '@/features/compendium/utils/detailFacts';
 import { parseInlineText } from '@/features/compendium/utils/inlineText';
 import { queryKeys } from '@/shared/query/keys';
 import type { CompendiumEntry } from '@/shared/types/domain';
 
 const contentService = new ContentService(new SQLiteContentRepository());
-type SourceRecord = Record<string, unknown>;
 
 interface BackgroundDetailViewProps {
   entry: CompendiumEntry;
 }
 
-function isRecord(value: unknown): value is SourceRecord {
-  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
-}
-
-function getRenderEntries(entry: CompendiumEntry) {
-  return Array.isArray(entry.renderPayload?.entries) ? entry.renderPayload.entries : [];
-}
-
-function findFirstProseEntry(value: unknown): string | null {
-  if (typeof value === 'string') {
-    return value.trim() || null;
-  }
-
-  if (Array.isArray(value)) {
-    for (const entry of value) {
-      const prose = findFirstProseEntry(entry);
-      if (prose) {
-        return prose;
-      }
-    }
-
-    return null;
-  }
-
-  if (!isRecord(value)) {
-    return null;
-  }
-
-  if (value.type === 'list' || value.type === 'table') {
-    return null;
-  }
-
-  if (typeof value.entry === 'string' && value.entry.trim()) {
-    return value.entry.trim();
-  }
-
-  return Array.isArray(value.entries) ? findFirstProseEntry(value.entries) : null;
-}
-
 function buildOverviewBlocks(entry: CompendiumEntry): DetailRenderBlock[] {
-  const prose = findFirstProseEntry(getRenderEntries(entry));
-  const overviewText = prose ?? entry.summary;
-  const tokens = overviewText ? parseInlineText(overviewText) : [];
+  const descriptionEntries = entry.renderPayload?.descriptionEntries;
+  if (Array.isArray(descriptionEntries)) {
+    const blocks = buildRenderBlocksFromEntries(descriptionEntries);
+    if (blocks.length > 0) {
+      return blocks;
+    }
+  }
+
+  const descriptionText = typeof entry.metadata.descriptionText === 'string' ? entry.metadata.descriptionText : null;
+  const tokens = descriptionText ? parseInlineText(descriptionText) : [];
 
   return tokens.length > 0 ? [{ kind: 'paragraph', tokens }] : [];
 }
