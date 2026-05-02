@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "schema1-1595a4d90e336432",
+  "entityType": "classes",
+  "chunkId": "expert-sidekick-tce",
+  "generatedAt": "2026-05-02T08:27:08.178Z",
+  "records": {
+    "class": {
+      "id": "expert-sidekick|tce",
+      "kind": "class",
+      "name": "Expert Sidekick",
+      "sourceCode": "TCE",
+      "sourceName": "TCE",
+      "rulesEdition": "2024",
+      "isPrimary2024": false,
+      "isLegacy": false,
+      "isSelectableInBuilder": true,
+      "summary": null,
+      "searchText": "Expert Sidekick TCE",
+      "renderPayload": {
+        "entries": []
+      },
+      "subclassIds": [],
+      "metadata": {
+        "primaryAbility": [],
+        "hitDie": null,
+        "proficiency": [],
+        "spellcastingAbility": null,
+        "casterProgression": null,
+        "cantripProgression": [],
+        "preparedSpellsProgression": [],
+        "spellsKnownProgression": [],
+        "spellsKnownProgressionFixedByLevel": {},
+        "startingProficiencies": {},
+        "startingEquipment": {},
+        "featProgression": [],
+        "optionalfeatureProgression": [],
+        "classFeatures": [
+          "Sidekick Class|Expert Sidekick|TCE|1",
+          "Bonus Proficiencies|Expert Sidekick|TCE|1",
+          "Helpful|Expert Sidekick|TCE|1",
+          "Cunning Action|Expert Sidekick|TCE|2",
+          "Expertise|Expert Sidekick|TCE|3",
+          "Ability Score Improvement|Expert Sidekick|TCE|4",
+          "Coordinated Strike|Expert Sidekick|TCE|6",
+          "Evasion|Expert Sidekick|TCE|7",
+          "Ability Score Improvement|Expert Sidekick|TCE|8",
+          "Ability Score Improvement|Expert Sidekick|TCE|10",
+          "Inspiring Help|Expert Sidekick|TCE|11",
+          "Ability Score Improvement|Expert Sidekick|TCE|12",
+          "Reliable Talent|Expert Sidekick|TCE|14",
+          "Expertise|Expert Sidekick|TCE|15",
+          "Ability Score Improvement|Expert Sidekick|TCE|16",
+          "Sharp Mind|Expert Sidekick|TCE|18",
+          "Ability Score Improvement|Expert Sidekick|TCE|19",
+          "Inspiring Help Improvement|Expert Sidekick|TCE|20"
+        ],
+        "classFeatureDetails": [
+          {
+            "ref": "Sidekick Class|Expert Sidekick|TCE|1",
+            "name": "Sidekick Class",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "To gain the Expert class, a creature must have at least one language in its stat block that it can speak.",
+              "{@note Note: this class is intended for NPC {@variantrule sidekicks|tce}.}"
+            ]
+          },
+          {
+            "ref": "Bonus Proficiencies|Expert Sidekick|TCE|1",
+            "name": "Bonus Proficiencies",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 1st-level Expert feature}",
+              "The sidekick gains proficiency in one saving throw of your choice: Dexterity, Intelligence, or Charisma.",
+              "In addition, the sidekick gains proficiency in five skills of your choice, and it gains proficiency with light armor. If it is a humanoid or has a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} in its stat block, it also gains proficiency with all simple weapons and with two tools of your choice."
+            ]
+          },
+          {
+            "ref": "Helpful|Expert Sidekick|TCE|1",
+            "name": "Helpful",
+            "level": 1,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 1st-level Expert feature}",
+              "The sidekick is adept at giving well-timed assistance; the sidekick can take the {@action Help} action as a bonus action."
+            ]
+          },
+          {
+            "ref": "Cunning Action|Expert Sidekick|TCE|2",
+            "name": "Cunning Action",
+            "level": 2,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 2nd-level Expert feature}",
+              "The sidekick's agility or quick thinking allows it to act speedily. On its turn in combat, it can take the {@action Dash}, {@action Disengage}, or {@action Hide} action as a bonus action."
+            ]
+          },
+          {
+            "ref": "Expertise|Expert Sidekick|TCE|3",
+            "name": "Expertise",
+            "level": 3,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 3rd-level Expert feature}",
+              "Choose two of the sidekick's skill proficiencies. The sidekick's proficiency bonus is doubled for any ability check it makes that uses any of the chosen proficiencies.",
+              "At 15th level, choose two more of the sidekick's skill proficiencies to gain this benefit."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|4",
+            "name": "Ability Score Improvement",
+            "level": 4,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 4th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Coordinated Strike|Expert Sidekick|TCE|6",
+            "name": "Coordinated Strike",
+            "level": 6,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 6th-level Expert feature}",
+              "The sidekick is adept at fighting in concert with a companion. When the sidekick uses its Helpful feature to aid an ally in attacking a creature, that target can be up to 30 feet away from the sidekick, and the sidekick can deal an extra {@damage 2d6} damage to it the next time the sidekick hits it with an attack roll before the end of the current turn. The extra damage is the same type of damage dealt by the attack."
+            ]
+          },
+          {
+            "ref": "Evasion|Expert Sidekick|TCE|7",
+            "name": "Evasion",
+            "level": 7,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 7th-level Expert feature}",
+              "Because of extraordinary good luck, the sidekick is skilled at avoiding danger. When the sidekick is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it failed. The sidekick doesn't benefit from this feature while {@condition incapacitated}."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|8",
+            "name": "Ability Score Improvement",
+            "level": 8,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 8th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|10",
+            "name": "Ability Score Improvement",
+            "level": 10,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 10th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Inspiring Help|Expert Sidekick|TCE|11",
+            "name": "Inspiring Help",
+            "level": 11,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 11th-level Expert feature}",
+              "When the sidekick takes the {@action Help} action, the creature who receives the help also gains a {@dice 1d6} bonus to the {@dice d20} roll. If that roll is an attack roll, the creature can forgo adding the bonus to it, and then if the attack hits, the creature can add the bonus to the attack's damage roll against one target.",
+              "At 20th level, the bonus increases to {@dice 2d6}."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|12",
+            "name": "Ability Score Improvement",
+            "level": 12,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 12th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Reliable Talent|Expert Sidekick|TCE|14",
+            "name": "Reliable Talent",
+            "level": 14,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 14th-level Expert feature}",
+              "The sidekick has refined its skills to an exceptional degree. Whenever the sidekick makes an ability check that includes its whole proficiency bonus, it can treat a {@dice d20} roll of 9 or lower as a 10."
+            ]
+          },
+          {
+            "ref": "Expertise|Expert Sidekick|TCE|15",
+            "name": "Expertise",
+            "level": 15,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 15th-level Expert feature}",
+              "Choose two of the sidekick's skill proficiencies. The sidekick's proficiency bonus is doubled for any ability check it makes that uses any of the chosen proficiencies."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|16",
+            "name": "Ability Score Improvement",
+            "level": 16,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 16th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Sharp Mind|Expert Sidekick|TCE|18",
+            "name": "Sharp Mind",
+            "level": 18,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 18th-level Expert feature}",
+              "The sidekick gains proficiency in one of the following saving throws of your choice: Intelligence, Wisdom, or Charisma."
+            ]
+          },
+          {
+            "ref": "Ability Score Improvement|Expert Sidekick|TCE|19",
+            "name": "Ability Score Improvement",
+            "level": 19,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 19th-level Expert feature}",
+              "At 4th level and again at 8th, 10th, 12th, 16th, and 19th level, the sidekick increases one ability score of your choice by 2, or the sidekick increases two ability scores of your choice by 1. The sidekick can't increase an ability score above 20 using this feature.",
+              "If your DM allows the use of feats, the sidekick may instead take a {@5etools feat|feats.html}."
+            ]
+          },
+          {
+            "ref": "Inspiring Help Improvement|Expert Sidekick|TCE|20",
+            "name": "Inspiring Help Improvement",
+            "level": 20,
+            "sourceCode": "TCE",
+            "page": 142,
+            "entries": [
+              "{@i 20th-level Expert feature}",
+              "At 20th level, the bonus dice granted by the sidekick's Inspiring Help increases to {@dice 2d6}."
+            ]
+          }
+        ],
+        "additionalSpellIds": []
+      }
+    },
+    "subclasses": []
+  }
+}

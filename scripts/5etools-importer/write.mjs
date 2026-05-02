@@ -67,35 +67,8 @@ function splitByPredicate(records, predicate) {
   };
 }
 
-function selectPreferredRecord(records) {
-  return [...records].sort((left, right) => {
-    if (left.isPrimary2024 !== right.isPrimary2024) {
-      return left.isPrimary2024 ? -1 : 1;
-    }
-
-    if (left.isSelectableInBuilder !== right.isSelectableInBuilder) {
-      return left.isSelectableInBuilder ? -1 : 1;
-    }
-
-    return left.id.localeCompare(right.id);
-  })[0];
-}
-
-function selectPreferredSubclasses(subclasses) {
-  const subclassesByName = subclasses.reduce((map, record) => {
-    const key = record.name.toLowerCase();
-    if (!map.has(key)) {
-      map.set(key, []);
-    }
-
-    map.get(key).push(record);
-    return map;
-  }, new Map());
-
-  return stableSortBy(
-    [...subclassesByName.values()].map((records) => selectPreferredRecord(records)),
-    (record) => record.id,
-  );
+function toChunkId(value) {
+  return value.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
 function chunkFeats(records) {
@@ -189,30 +162,17 @@ export async function writeGeneratedContent(entityGroups) {
     legacy: speciesSplit.secondary,
   };
 
-  const classesByName = entityGroups.classes.reduce((map, record) => {
-    const key = record.name.toLowerCase();
-    if (!map.has(key)) {
-      map.set(key, []);
-    }
-
-    map.get(key).push(record);
-    return map;
-  }, new Map());
-
   const classChunks = Object.fromEntries(
-    [...classesByName.entries()].map(([nameKey, records]) => {
-      const selectedClass = selectPreferredRecord(records);
-
-      return [
-        nameKey.replace(/[^a-z0-9]+/g, '-'),
-        {
-          class: selectedClass,
-          subclasses: selectPreferredSubclasses(
-            entityGroups.subclasses.filter((subclass) => subclass.classId === selectedClass.id),
-          ),
-        },
-      ];
-    }),
+    entityGroups.classes.map((classRecord) => [
+      toChunkId(classRecord.id),
+      {
+        class: classRecord,
+        subclasses: stableSortBy(
+          entityGroups.subclasses.filter((subclass) => subclass.classId === classRecord.id),
+          (subclass) => subclass.id,
+        ),
+      },
+    ]),
   );
   const featChunks = chunkFeats(entityGroups.feats);
   const backgroundChunks = {

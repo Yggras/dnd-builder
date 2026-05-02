@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "generate:5etools": "node scripts/generate-5etools.mjs"
+    "generate:5etools": "node scripts/generate-5etools.mjs",
+    "audit:5etools": "node scripts/audit-5etools.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",

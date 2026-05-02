@@ -1,23 +1,36 @@
 import bundledContentIndex from '../../../../generated/5etools/content-index.json';
 import actions_all from '../../../../generated/5etools/actions/all.json';
 import backgrounds_all from '../../../../generated/5etools/backgrounds/all.json';
-import classes_artificer from '../../../../generated/5etools/classes/artificer.json';
-import classes_barbarian from '../../../../generated/5etools/classes/barbarian.json';
-import classes_bard from '../../../../generated/5etools/classes/bard.json';
-import classes_cleric from '../../../../generated/5etools/classes/cleric.json';
-import classes_druid from '../../../../generated/5etools/classes/druid.json';
-import classes_expert_sidekick from '../../../../generated/5etools/classes/expert-sidekick.json';
-import classes_fighter from '../../../../generated/5etools/classes/fighter.json';
-import classes_monk from '../../../../generated/5etools/classes/monk.json';
-import classes_mystic from '../../../../generated/5etools/classes/mystic.json';
-import classes_paladin from '../../../../generated/5etools/classes/paladin.json';
-import classes_ranger from '../../../../generated/5etools/classes/ranger.json';
-import classes_rogue from '../../../../generated/5etools/classes/rogue.json';
-import classes_sorcerer from '../../../../generated/5etools/classes/sorcerer.json';
-import classes_spellcaster_sidekick from '../../../../generated/5etools/classes/spellcaster-sidekick.json';
-import classes_warlock from '../../../../generated/5etools/classes/warlock.json';
-import classes_warrior_sidekick from '../../../../generated/5etools/classes/warrior-sidekick.json';
-import classes_wizard from '../../../../generated/5etools/classes/wizard.json';
+import classes_artificer_efa from '../../../../generated/5etools/classes/artificer-efa.json';
+import classes_artificer_tce from '../../../../generated/5etools/classes/artificer-tce.json';
+import classes_barbarian_phb from '../../../../generated/5etools/classes/barbarian-phb.json';
+import classes_barbarian_xphb from '../../../../generated/5etools/classes/barbarian-xphb.json';
+import classes_bard_phb from '../../../../generated/5etools/classes/bard-phb.json';
+import classes_bard_xphb from '../../../../generated/5etools/classes/bard-xphb.json';
+import classes_cleric_phb from '../../../../generated/5etools/classes/cleric-phb.json';
+import classes_cleric_xphb from '../../../../generated/5etools/classes/cleric-xphb.json';
+import classes_druid_phb from '../../../../generated/5etools/classes/druid-phb.json';
+import classes_druid_xphb from '../../../../generated/5etools/classes/druid-xphb.json';
+import classes_expert_sidekick_tce from '../../../../generated/5etools/classes/expert-sidekick-tce.json';
+import classes_fighter_phb from '../../../../generated/5etools/classes/fighter-phb.json';
+import classes_fighter_xphb from '../../../../generated/5etools/classes/fighter-xphb.json';
+import classes_monk_phb from '../../../../generated/5etools/classes/monk-phb.json';
+import classes_monk_xphb from '../../../../generated/5etools/classes/monk-xphb.json';
+import classes_mystic_uathemysticclass from '../../../../generated/5etools/classes/mystic-uathemysticclass.json';
+import classes_paladin_phb from '../../../../generated/5etools/classes/paladin-phb.json';
+import classes_paladin_xphb from '../../../../generated/5etools/classes/paladin-xphb.json';
+import classes_ranger_phb from '../../../../generated/5etools/classes/ranger-phb.json';
+import classes_ranger_xphb from '../../../../generated/5etools/classes/ranger-xphb.json';
+import classes_rogue_phb from '../../../../generated/5etools/classes/rogue-phb.json';
+import classes_rogue_xphb from '../../../../generated/5etools/classes/rogue-xphb.json';
+import classes_sorcerer_phb from '../../../../generated/5etools/classes/sorcerer-phb.json';
+import classes_sorcerer_xphb from '../../../../generated/5etools/classes/sorcerer-xphb.json';
+import classes_spellcaster_sidekick_tce from '../../../../generated/5etools/classes/spellcaster-sidekick-tce.json';
+import classes_warlock_phb from '../../../../generated/5etools/classes/warlock-phb.json';
+import classes_warlock_xphb from '../../../../generated/5etools/classes/warlock-xphb.json';
+import classes_warrior_sidekick_tce from '../../../../generated/5etools/classes/warrior-sidekick-tce.json';
+import classes_wizard_phb from '../../../../generated/5etools/classes/wizard-phb.json';
+import classes_wizard_xphb from '../../../../generated/5etools/classes/wizard-xphb.json';
 import compendium_actions from '../../../../generated/5etools/compendium/actions.json';
 import compendium_backgrounds from '../../../../generated/5etools/compendium/backgrounds.json';
 import compendium_classes from '../../../../generated/5etools/compendium/classes.json';
@@ -59,23 +72,36 @@ export const bundledContentManifest = bundledContentIndex;
 export const bundledContentChunks = {
   'generated/5etools/actions/all.json': actions_all,
   'generated/5etools/backgrounds/all.json': backgrounds_all,
-  'generated/5etools/classes/artificer.json': classes_artificer,
-  'generated/5etools/classes/barbarian.json': classes_barbarian,
-  'generated/5etools/classes/bard.json': classes_bard,
-  'generated/5etools/classes/cleric.json': classes_cleric,
-  'generated/5etools/classes/druid.json': classes_druid,
-  'generated/5etools/classes/expert-sidekick.json': classes_expert_sidekick,
-  'generated/5etools/classes/fighter.json': classes_fighter,
-  'generated/5etools/classes/monk.json': classes_monk,
-  'generated/5etools/classes/mystic.json': classes_mystic,
-  'generated/5etools/classes/paladin.json': classes_paladin,
-  'generated/5etools/classes/ranger.json': classes_ranger,
-  'generated/5etools/classes/rogue.json': classes_rogue,
-  'generated/5etools/classes/sorcerer.json': classes_sorcerer,
-  'generated/5etools/classes/spellcaster-sidekick.json': classes_spellcaster_sidekick,
-  'generated/5etools/classes/warlock.json': classes_warlock,
-  'generated/5etools/classes/warrior-sidekick.json': classes_warrior_sidekick,
-  'generated/5etools/classes/wizard.json': classes_wizard,
+  'generated/5etools/classes/artificer-efa.json': classes_artificer_efa,
+  'generated/5etools/classes/artificer-tce.json': classes_artificer_tce,
+  'generated/5etools/classes/barbarian-phb.json': classes_barbarian_phb,
+  'generated/5etools/classes/barbarian-xphb.json': classes_barbarian_xphb,
+  'generated/5etools/classes/bard-phb.json': classes_bard_phb,
+  'generated/5etools/classes/bard-xphb.json': classes_bard_xphb,
+  'generated/5etools/classes/cleric-phb.json': classes_cleric_phb,
+  'generated/5etools/classes/cleric-xphb.json': classes_cleric_xphb,
+  'generated/5etools/classes/druid-phb.json': classes_druid_phb,
+  'generated/5etools/classes/druid-xphb.json': classes_druid_xphb,
+  'generated/5etools/classes/expert-sidekick-tce.json': classes_expert_sidekick_tce,
+  'generated/5etools/classes/fighter-phb.json': classes_fighter_phb,
+  'generated/5etools/classes/fighter-xphb.json': classes_fighter_xphb,
+  'generated/5etools/classes/monk-phb.json': classes_monk_phb,
+  'generated/5etools/classes/monk-xphb.json': classes_monk_xphb,
+  'generated/5etools/classes/mystic-uathemysticclass.json': classes_mystic_uathemysticclass,
+  'generated/5etools/classes/paladin-phb.json': classes_paladin_phb,
+  'generated/5etools/classes/paladin-xphb.json': classes_paladin_xphb,
+  'generated/5etools/classes/ranger-phb.json': classes_ranger_phb,
+  'generated/5etools/classes/ranger-xphb.json': classes_ranger_xphb,
+  'generated/5etools/classes/rogue-phb.json': classes_rogue_phb,
+  'generated/5etools/classes/rogue-xphb.json': classes_rogue_xphb,
+  'generated/5etools/classes/sorcerer-phb.json': classes_sorcerer_phb,
+  'generated/5etools/classes/sorcerer-xphb.json': classes_sorcerer_xphb,
+  'generated/5etools/classes/spellcaster-sidekick-tce.json': classes_spellcaster_sidekick_tce,
+  'generated/5etools/classes/warlock-phb.json': classes_warlock_phb,
+  'generated/5etools/classes/warlock-xphb.json': classes_warlock_xphb,
+  'generated/5etools/classes/warrior-sidekick-tce.json': classes_warrior_sidekick_tce,
+  'generated/5etools/classes/wizard-phb.json': classes_wizard_phb,
+  'generated/5etools/classes/wizard-xphb.json': classes_wizard_xphb,
   'generated/5etools/compendium/actions.json': compendium_actions,
   'generated/5etools/compendium/backgrounds.json': compendium_backgrounds,
   'generated/5etools/compendium/classes.json': compendium_classes,

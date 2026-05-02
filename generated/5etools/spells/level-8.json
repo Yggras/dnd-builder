@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-cd9bcdaf6d59804c",
+  "contentVersion": "schema1-1595a4d90e336432",
   "entityType": "spells",
   "chunkId": "level-8",
-  "generatedAt": "2026-05-01T13:54:05.030Z",
+  "generatedAt": "2026-05-02T08:27:08.178Z",
   "records": [
     {
       "id": "abi-dalzim-s-horrid-wilting|xge|spell",
