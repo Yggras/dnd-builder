@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { RichTextLine } from '@/features/compendium/components/RichTextLine';
 import type { DetailFact } from '@/features/compendium/utils/detailFacts';
+import { useInlineTokenReferenceTargets } from '@/features/compendium/utils/inlineReferences';
 import { theme } from '@/shared/ui/theme';
 
 interface DetailFactGridProps {
@@ -8,6 +10,9 @@ interface DetailFactGridProps {
 }
 
 export function DetailFactGrid({ facts }: DetailFactGridProps) {
+  const tokenLines = facts.flatMap((fact) => (fact.tokens ? [fact.tokens] : []));
+  const referenceTargets = useInlineTokenReferenceTargets(tokenLines);
+
   if (facts.length === 0) {
     return null;
   }
@@ -15,9 +20,13 @@ export function DetailFactGrid({ facts }: DetailFactGridProps) {
   return (
     <View style={styles.grid}>
       {facts.map((fact) => (
-        <View key={`${fact.label}:${fact.value}`} style={styles.factCard}>
+        <View key={`${fact.label}:${fact.value ?? fact.tokens?.map((token) => token.text).join('')}`} style={styles.factCard}>
           <Text style={styles.factLabel}>{fact.label}</Text>
-          <Text style={styles.factValue}>{fact.value}</Text>
+          {fact.tokens ? (
+            <RichTextLine referenceTargets={referenceTargets} tokens={fact.tokens} variant="fact" />
+          ) : (
+            <Text style={styles.factValue}>{fact.value}</Text>
+          )}
         </View>
       ))}
     </View>

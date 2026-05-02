@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-eeccf9424c74d50a",
-  "generatedAt": "2026-05-02T08:51:07.439Z",
+  "contentVersion": "schema1-552748cd72fe54dc",
+  "generatedAt": "2026-05-02T17:26:03.437Z",
   "sourceRepository": "5etools-mirror-3/5etools-src",
   "sourceRef": "main",
   "chunkCount": 67,
@@ -16,9 +16,9 @@
     "items": 2647,
     "conditions": 30,
     "actions": 48,
-    "variantRules": 230,
+    "variantRules": 264,
     "choiceGrants": 46,
-    "compendiumEntries": 5028
+    "compendiumEntries": 5062
   },
   "chunks": [
     {
@@ -277,7 +277,7 @@
       "entityType": "compendium",
       "chunkId": "variantRules",
       "filePath": "generated/5etools/compendium/variantRules.json",
-      "recordCount": 230
+      "recordCount": 264
     },
     {
       "entityType": "conditions",
@@ -421,7 +421,7 @@
       "entityType": "variant-rules",
       "chunkId": "all",
       "filePath": "generated/5etools/variant-rules/all.json",
-      "recordCount": 230
+      "recordCount": 264
     }
   ]
 }

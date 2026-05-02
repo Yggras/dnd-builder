@@ -9,6 +9,7 @@ import {
   normalizeConditions,
   normalizeFeats,
   normalizeItems,
+  normalizeItemRules,
   normalizeOptionalFeatures,
   normalizeSpecies,
   normalizeSpells,
@@ -61,6 +62,11 @@ function validateGrants(choiceGrants) {
       throw new Error(`Choice grant missing category filter: ${grant.id}`);
     }
   }
+}
+
+function mergeUniqueById(records) {
+  return [...new Map(records.map((record) => [record.id, record])).values()]
+    .sort((left, right) => left.id.localeCompare(right.id));
 }
 
 async function loadRawSources() {
@@ -149,10 +155,13 @@ async function main() {
     subclasses,
     spellSourceLookup: rawSources.spellSourceLookup,
   });
-  const items = normalizeItems(resolvedItems);
+  const items = normalizeItems(resolvedItems, { itemProperties: rawSources.itemsBase.itemProperty ?? [] });
   const conditions = normalizeConditions(resolvedConditions);
   const actions = normalizeActions(resolvedActions);
-  const variantRules = normalizeVariantRules(resolvedVariantRules);
+  const variantRules = mergeUniqueById([
+    ...normalizeVariantRules(resolvedVariantRules),
+    ...normalizeItemRules(rawSources.itemsBase.itemProperty ?? [], rawSources.itemsBase.itemMastery ?? []),
+  ]);
   const choiceGrants = normalizeChoiceGrants({ classes, subclasses, feats, optionalFeatures });
   const compendiumEntries = normalizeCompendiumEntries({
     species,

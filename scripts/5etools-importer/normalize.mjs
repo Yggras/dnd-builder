@@ -799,12 +799,107 @@ export function normalizeSpells(records, context) {
   );
 }
 
-export function normalizeItems(records) {
+function getItemPropertyDisplayName(record) {
+  const firstEntry = ensureArray(record.entries)[0];
+  return typeof firstEntry?.name === 'string' && firstEntry.name.trim().length > 0
+    ? firstEntry.name
+    : record.name ?? record.abbreviation;
+}
+
+function createItemPropertyLookup(records) {
+  return new Map(
+    records
+      .filter((record) => typeof record.abbreviation === 'string' && typeof record.source === 'string')
+      .map((record) => [`${normalizeLookupKey(record.abbreviation)}::${normalizeLookupKey(record.source)}`, getItemPropertyDisplayName(record)]),
+  );
+}
+
+function parseItemRuleRef(value, fallbackSource) {
+  const [name, sourceCode = fallbackSource] = splitUidParts(value);
+  return name ? { name, sourceCode } : null;
+}
+
+function normalizeItemPropertyRefs(refs, fallbackSource, propertyLookup) {
+  return ensureArray(refs)
+    .map((ref) => {
+      if (typeof ref !== 'string') {
+        return null;
+      }
+
+      const parsed = parseItemRuleRef(ref, fallbackSource);
+      if (!parsed) {
+        return null;
+      }
+
+      const name = propertyLookup.get(`${normalizeLookupKey(parsed.name)}::${normalizeLookupKey(parsed.sourceCode)}`) ?? parsed.name;
+      return {
+        ref,
+        abbreviation: parsed.name,
+        sourceCode: parsed.sourceCode,
+        name,
+      };
+    })
+    .filter(Boolean);
+}
+
+function normalizeItemMasteryRefs(refs, fallbackSource) {
+  return ensureArray(refs)
+    .map((ref) => {
+      if (typeof ref !== 'string') {
+        return null;
+      }
+
+      const parsed = parseItemRuleRef(ref, fallbackSource);
+      return parsed ? { ref, name: parsed.name, sourceCode: parsed.sourceCode } : null;
+    })
+    .filter(Boolean);
+}
+
+function normalizeItemRuleRecord(record, ruleSubtype) {
+  const normalized = {
+    ...createBaseRecord('variantrule', record, canonicalId([record.name, record.source, 'variantrule'])),
+    isSelectableInBuilder: false,
+    metadata: {
+      ruleSubtype,
+      abbreviation: record.abbreviation ?? null,
+      entriesText: extractText(record.entries ?? []),
+    },
+  };
+
+  return normalized;
+}
+
+export function normalizeItemRules(itemProperties = [], itemMasteries = []) {
+  const propertyRules = itemProperties
+    .map((record) => ({ ...record, name: getItemPropertyDisplayName(record) }))
+    .filter((record) => typeof record.name === 'string' && record.name.length > 0)
+    .map((record) => normalizeItemRuleRecord(record, 'itemProperty'));
+  const masteryRules = itemMasteries
+    .filter((record) => typeof record.name === 'string' && record.name.length > 0)
+    .map((record) => normalizeItemRuleRecord(record, 'itemMastery'));
+
+  return stableSortBy([...propertyRules, ...masteryRules], (record) => record.id);
+}
+
+export function normalizeItems(records, context = {}) {
+  const propertyLookup = createItemPropertyLookup(context.itemProperties ?? []);
+
   return stableSortBy(
     records.map((record) => {
       const id = canonicalId([record.name, record.source, 'item']);
+      const baseRecord = createBaseRecord('item', record, id);
+      const propertyDetails = normalizeItemPropertyRefs(record.property, record.source, propertyLookup);
+      const masteryDetails = normalizeItemMasteryRefs(record.mastery, record.source);
+      const range = typeof record.range === 'string' && record.range.length > 0 ? record.range : null;
+      const searchAdditions = [
+        range ? `${range} ft` : null,
+        propertyDetails.map((property) => property.name).join(' '),
+        masteryDetails.map((mastery) => mastery.name).join(' '),
+      ].filter(Boolean);
+
       return {
-        ...createBaseRecord('item', record, id),
+        ...baseRecord,
+        searchText: [baseRecord.searchText, ...searchAdditions].filter(Boolean).join(' '),
         metadata: {
           type: record.type ?? null,
           typeAlt: record.typeAlt ?? null,
@@ -815,6 +910,10 @@ export function normalizeItems(records) {
           weaponCategory: record.weaponCategory ?? null,
           damage: record.dmg1 ?? null,
           damageType: record.dmgType ?? null,
+          range,
+          mastery: record.mastery ?? [],
+          propertyDetails,
+          masteryDetails,
           armorClass: record.ac ?? null,
           property: record.property ?? [],
           entriesText: extractText(record.entries ?? []),

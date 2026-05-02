@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-eeccf9424c74d50a",
+  "contentVersion": "schema1-552748cd72fe54dc",
   "entityType": "variant-rules",
   "chunkId": "all",
-  "generatedAt": "2026-05-02T08:51:07.439Z",
+  "generatedAt": "2026-05-02T17:26:03.437Z",
   "records": [
     {
       "id": "ability-check|xphb|variantrule",
@@ -352,6 +352,124 @@
       },
       "metadata": {
         "entriesText": "You might decide to grant one of the following rewards to a 20th-level character, instead of awarding an epic boon. These two options can be awarded to a character more than once. Ability Score Improvement The character can increase one ability score by 2 or increase two ability scores by 1 each. The ability score can now be increased above 20, up to a maximum of 30. New Feat The character gains a new feat chosen by the player, but subject to your approval."
+      }
+    },
+    {
+      "id": "ammunition|dmg|variantrule",
+      "kind": "variantrule",
+      "name": "Ammunition",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. D...",
+      "searchText": "Ammunition DMG Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. The ammunition of a firearm is destroyed upon use. If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Ammunition",
+            "entries": [
+              "You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. The ammunition of a firearm is destroyed upon use.",
+              "If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "AF",
+        "entriesText": "Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. The ammunition of a firearm is destroyed upon use. If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way."
+      }
+    },
+    {
+      "id": "ammunition|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Ammunition",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. D...",
+      "searchText": "Ammunition PHB Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield. If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Ammunition",
+            "entries": [
+              "You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.",
+              "If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "A",
+        "entriesText": "Ammunition You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. Loading a one-handed weapon requires a free hand. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield. If you use a weapon that has the ammunition property to make a melee attack, you treat the weapon as an improvised weapon. A sling must be loaded to deal any damage when used in this way."
+      }
+    },
+    {
+      "id": "ammunition|xdmg|variantrule",
+      "kind": "variantrule",
+      "name": "Ammunition",
+      "sourceCode": "XDMG",
+      "sourceName": "XDMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Ammunition Firearm Bullets are destroyed upon use in a modern firearm. Futuristic firearms use Energy Cells that become depleted but could possibly be recharged with the proper equipment, at the GM's discretion.",
+      "searchText": "Ammunition XDMG Ammunition Firearm Bullets are destroyed upon use in a modern firearm. Futuristic firearms use Energy Cells that become depleted but could possibly be recharged with the proper equipment, at the GM's discretion.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Ammunition",
+            "entries": [
+              "Firearm Bullets are destroyed upon use in a modern firearm. Futuristic firearms use Energy Cells that become depleted but could possibly be recharged with the proper equipment, at the GM's discretion."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "AF",
+        "entriesText": "Ammunition Firearm Bullets are destroyed upon use in a modern firearm. Futuristic firearms use Energy Cells that become depleted but could possibly be recharged with the proper equipment, at the GM's discretion."
+      }
+    },
+    {
+      "id": "ammunition|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Ammunition",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Ammunition You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon's range. Each attack e...",
+      "searchText": "Ammunition XPHB Ammunition You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon's range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Ammunition",
+            "entries": [
+              "You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon's range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "A",
+        "entriesText": "Ammunition You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon's range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost."
       }
     },
     {
@@ -733,6 +851,64 @@
       }
     },
     {
+      "id": "burst-fire|dmg|variantrule",
+      "kind": "variantrule",
+      "name": "Burst Fire",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Burst Fire A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a 15 Dexterity saving...",
+      "searchText": "Burst Fire DMG Burst Fire A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a 15 Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Burst Fire",
+            "entries": [
+              "A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a {@dc 15} Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "BF",
+        "entriesText": "Burst Fire A weapon that has the burst fire property can make a single-target attack, or it can spray a 10-foot-cube area within normal range with shots. Each creature in the area must succeed on a 15 Dexterity saving throw or take the weapon's normal damage. This action uses ten pieces of ammunition."
+      }
+    },
+    {
+      "id": "burst-fire|xdmg|variantrule",
+      "kind": "variantrule",
+      "name": "Burst Fire",
+      "sourceCode": "XDMG",
+      "sourceName": "XDMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Burst Fire As an action, you can expend 10 pieces of a Burst Fire weapon's ammunition to spray shots in a 10-foot Cube [Area of Effect] within the weapon's normal range. Each creature in that area must succeed on a 15...",
+      "searchText": "Burst Fire XDMG Burst Fire As an action, you can expend 10 pieces of a Burst Fire weapon's ammunition to spray shots in a 10-foot Cube [Area of Effect] within the weapon's normal range. Each creature in that area must succeed on a 15 Dexterity saving throw or take damage. Roll the weapon's damage once, and apply it to each creature that failed the save.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Burst Fire",
+            "entries": [
+              "As an action, you can expend 10 pieces of a Burst Fire weapon's ammunition to spray shots in a 10-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} within the weapon's normal range. Each creature in that area must succeed on a {@dc 15} Dexterity saving throw or take damage. Roll the weapon's damage once, and apply it to each creature that failed the save."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "BF",
+        "entriesText": "Burst Fire As an action, you can expend 10 pieces of a Burst Fire weapon's ammunition to spray shots in a 10-foot Cube [Area of Effect] within the weapon's normal range. Each creature in that area must succeed on a 15 Dexterity saving throw or take damage. Roll the weapon's damage once, and apply it to each creature that failed the save."
+      }
+    },
+    {
       "id": "campaign|xphb|variantrule",
       "kind": "variantrule",
       "name": "Campaign",
@@ -877,6 +1053,29 @@
       },
       "metadata": {
         "entriesText": "A character sheet is a paper or digital record that you use to track your character's information."
+      }
+    },
+    {
+      "id": "cleave|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Cleave",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the sec...",
+      "searchText": "Cleave XPHB If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
       }
     },
     {
@@ -6838,6 +7037,64 @@
       }
     },
     {
+      "id": "finesse|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Finesse",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Finesse When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.",
+      "searchText": "Finesse PHB Finesse When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Finesse",
+            "entries": [
+              "When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "F",
+        "entriesText": "Finesse When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+      }
+    },
+    {
+      "id": "finesse|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Finesse",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Finesse When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.",
+      "searchText": "Finesse XPHB Finesse When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Finesse",
+            "entries": [
+              "When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "F",
+        "entriesText": "Finesse When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+      }
+    },
+    {
       "id": "firearms|dmg|variantrule",
       "kind": "variantrule",
       "name": "Firearms",
@@ -7046,6 +7303,29 @@
       }
     },
     {
+      "id": "graze|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Graze",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the da...",
+      "searchText": "Graze XPHB If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier.",
+      "renderPayload": {
+        "entries": [
+          "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."
+      }
+    },
+    {
       "id": "haunted-traps|vrgr|variantrule",
       "kind": "variantrule",
       "name": "Haunted Traps",
@@ -7207,6 +7487,64 @@
       },
       "metadata": {
         "entriesText": "You have the Blinded condition while trying to see something in a Heavily Obscured space."
+      }
+    },
+    {
+      "id": "heavy|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Heavy",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Heavy Creatures that are Small or Tiny have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small or Tiny creature to use effectively.",
+      "searchText": "Heavy PHB Heavy Creatures that are Small or Tiny have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small or Tiny creature to use effectively.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Heavy",
+            "entries": [
+              "Creatures that are Small or Tiny have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small or Tiny creature to use effectively."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "H",
+        "entriesText": "Heavy Creatures that are Small or Tiny have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small or Tiny creature to use effectively."
+      }
+    },
+    {
+      "id": "heavy|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Heavy",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Heavy You have Disadvantage on attack rolls with a Heavy weapon if it's a Melee weapon and your Strength score isn't at least 13 or if it's a Ranged weapon and your Dexterity score isn't at least 13.",
+      "searchText": "Heavy XPHB Heavy You have Disadvantage on attack rolls with a Heavy weapon if it's a Melee weapon and your Strength score isn't at least 13 or if it's a Ranged weapon and your Dexterity score isn't at least 13.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Heavy",
+            "entries": [
+              "You have {@variantrule Disadvantage|XPHB} on attack rolls with a Heavy weapon if it's a Melee weapon and your Strength score isn't at least 13 or if it's a Ranged weapon and your Dexterity score isn't at least 13."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "H",
+        "entriesText": "Heavy You have Disadvantage on attack rolls with a Heavy weapon if it's a Melee weapon and your Strength score isn't at least 13 or if it's a Ranged weapon and your Dexterity score isn't at least 13."
       }
     },
     {
@@ -8095,6 +8433,64 @@
       }
     },
     {
+      "id": "light|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Light",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Light A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons.",
+      "searchText": "Light PHB Light A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Light",
+            "entries": [
+              "A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "L",
+        "entriesText": "Light A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons."
+      }
+    },
+    {
+      "id": "light|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Light",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Light When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon,...",
+      "searchText": "Light XPHB Light When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don't add your ability modifier to the extra attack's damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don't add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Light",
+            "entries": [
+              "When you take the {@action Attack|XPHB} action on your turn and attack with a Light weapon, you can make one extra attack as a {@variantrule Bonus Action|XPHB} later on the same turn. That extra attack must be made with a different Light weapon, and you don't add your ability modifier to the extra attack's damage unless that modifier is negative. For example, you can attack with a {@item Shortsword|XPHB} in one hand and a {@item Dagger|XPHB} in the other using the {@action Attack|XPHB} action and a {@variantrule Bonus Action|XPHB}, but you don't add your Strength or Dexterity modifier to the damage roll of the {@variantrule Bonus Action|XPHB} unless that modifier is negative."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "L",
+        "entriesText": "Light When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don't add your ability modifier to the extra attack's damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don't add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative."
+      }
+    },
+    {
       "id": "lightly-obscured|xphb|variantrule",
       "kind": "variantrule",
       "name": "Lightly Obscured",
@@ -8135,6 +8531,64 @@
       },
       "metadata": {
         "entriesText": "A Line is an area of effect that extends from a point of origin in a straight path along its length and covers an area defined by its width. The effect that creates a Line specifies its length and width. A Line's point of origin isn't included in the area of effect unless its creator decides otherwise."
+      }
+    },
+    {
+      "id": "loading|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Loading",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Loading Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can nor...",
+      "searchText": "Loading PHB Loading Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Loading",
+            "entries": [
+              "Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "LD",
+        "entriesText": "Loading Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make."
+      }
+    },
+    {
+      "id": "loading|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Loading",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Loading You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.",
+      "searchText": "Loading XPHB Loading You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Loading",
+            "entries": [
+              "You can fire only one piece of ammunition from a Loading weapon when you use an action, a {@variantrule Bonus Action|XPHB}, or a {@variantrule Reaction|XPHB} to fire it, regardless of the number of attacks you can normally make."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "LD",
+        "entriesText": "Loading You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make."
       }
     },
     {
@@ -10316,6 +10770,29 @@
       }
     },
     {
+      "id": "nick|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Nick",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn.",
+      "searchText": "Nick XPHB When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn.",
+      "renderPayload": {
+        "entries": [
+          "When you make the extra attack of the Light property, you can make it as part of the {@action Attack|XPHB} action instead of as a {@variantrule Bonus Action|XPHB}. You can make this extra attack only once per turn."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+      }
+    },
+    {
       "id": "nonplayer-character|xphb|variantrule",
       "kind": "variantrule",
       "name": "Nonplayer Character",
@@ -12136,6 +12613,29 @@
       }
     },
     {
+      "id": "push|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Push",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller.",
+      "searchText": "Push XPHB If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+      }
+    },
+    {
       "id": "random-ships|gos|variantrule",
       "kind": "variantrule",
       "name": "Random Ships",
@@ -12852,6 +13352,64 @@
       }
     },
     {
+      "id": "reach|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Reach",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Reach This weapon adds 5 feet to your reach when you attack with it. This property also determines your reach for opportunity attacks with a reach weapon.",
+      "searchText": "Reach PHB Reach This weapon adds 5 feet to your reach when you attack with it. This property also determines your reach for opportunity attacks with a reach weapon.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Reach",
+            "entries": [
+              "This weapon adds 5 feet to your reach when you attack with it. This property also determines your reach for opportunity attacks with a reach weapon."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "R",
+        "entriesText": "Reach This weapon adds 5 feet to your reach when you attack with it. This property also determines your reach for opportunity attacks with a reach weapon."
+      }
+    },
+    {
+      "id": "reach|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Reach",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Reach A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attack with it.",
+      "searchText": "Reach XPHB Reach A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attack with it.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Reach",
+            "entries": [
+              "A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for {@action Opportunity Attack|XPHB|Opportunity Attacks} with it."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "R",
+        "entriesText": "Reach A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attack with it."
+      }
+    },
+    {
       "id": "reaction|xphb|variantrule",
       "kind": "variantrule",
       "name": "Reaction",
@@ -12870,6 +13428,64 @@
       },
       "metadata": {
         "entriesText": "A Reaction is a special action taken in response to a trigger defined in the Reaction's description. You can take a Reaction on another creature's turn, and if you take it on your turn, you can do so even if you also take an action, a Bonus Action, or both. Once you take a Reaction, you can't take another one until the start of your next turn. The Opportunity Attack is a Reaction available to all creatures."
+      }
+    },
+    {
+      "id": "reload|dmg|variantrule",
+      "kind": "variantrule",
+      "name": "Reload",
+      "sourceCode": "DMG",
+      "sourceName": "DMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Reload A limited number of shots can be made with a weapon that has the reload property. A character must then reload it using an action or a bonus action (the character's choice).",
+      "searchText": "Reload DMG Reload A limited number of shots can be made with a weapon that has the reload property. A character must then reload it using an action or a bonus action (the character's choice).",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Reload",
+            "entries": [
+              "A limited number of shots can be made with a weapon that has the reload property. A character must then reload it using an action or a bonus action (the character's choice)."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "RLD",
+        "entriesText": "Reload A limited number of shots can be made with a weapon that has the reload property. A character must then reload it using an action or a bonus action (the character's choice)."
+      }
+    },
+    {
+      "id": "reload|xdmg|variantrule",
+      "kind": "variantrule",
+      "name": "Reload",
+      "sourceCode": "XDMG",
+      "sourceName": "XDMG",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Reload You can make a limited number of shots with a Reload weapon. You must then reload the weapon as an action or a Bonus Action.",
+      "searchText": "Reload XDMG Reload You can make a limited number of shots with a Reload weapon. You must then reload the weapon as an action or a Bonus Action.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Reload",
+            "entries": [
+              "You can make a limited number of shots with a Reload weapon. You must then reload the weapon as an action or a {@variantrule Bonus Action|XPHB}."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "RLD",
+        "entriesText": "Reload You can make a limited number of shots with a Reload weapon. You must then reload the weapon as an action or a Bonus Action."
       }
     },
     {
@@ -13118,6 +13734,29 @@
       },
       "metadata": {
         "entriesText": "Whenever you divide or multiply a number in the game, round down if you end up with a fraction, even if the fraction is one-half or greater. Some rules make an exception and tell you to round up."
+      }
+    },
+    {
+      "id": "sap|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Sap",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.",
+      "searchText": "Sap XPHB If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with this weapon, that creature has {@variantrule Disadvantage|XPHB} on its next attack roll before the start of your next turn."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
       }
     },
     {
@@ -14616,6 +15255,50 @@
       }
     },
     {
+      "id": "slow|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Slow",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed...",
+      "searchText": "Slow XPHB If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn't exceed 10 feet.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with this weapon and deal damage to it, you can reduce its {@variantrule Speed|XPHB} by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the {@variantrule Speed|XPHB} reduction doesn't exceed 10 feet."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn't exceed 10 feet."
+      }
+    },
+    {
+      "id": "special|phb|variantrule",
+      "kind": "variantrule",
+      "name": "special",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": null,
+      "searchText": "special PHB",
+      "renderPayload": {
+        "entries": []
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "S",
+        "entriesText": ""
+      }
+    },
+    {
       "id": "speed|xphb|variantrule",
       "kind": "variantrule",
       "name": "Speed",
@@ -15724,6 +16407,64 @@
       },
       "metadata": {
         "entriesText": "Temporary Hit Points are granted by certain effects and act as a buffer against losing real Hit Points."
+      }
+    },
+    {
+      "id": "thrown|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Thrown",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Thrown If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use...",
+      "searchText": "Thrown PHB Thrown If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Thrown",
+            "entries": [
+              "If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "T",
+        "entriesText": "Thrown If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property."
+      }
+    },
+    {
+      "id": "thrown|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Thrown",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Thrown If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the...",
+      "searchText": "Thrown XPHB Thrown If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Thrown",
+            "entries": [
+              "If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "T",
+        "entriesText": "Thrown If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon."
       }
     },
     {
@@ -17485,6 +18226,29 @@
       }
     },
     {
+      "id": "topple|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Topple",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (8 plus the ability modifier used to make the attack roll and your Proficiency). On a failed save, the creature ha...",
+      "searchText": "Topple XPHB If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (8 plus the ability modifier used to make the attack roll and your Proficiency). On a failed save, the creature has the Prone condition.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw ({@dc 8} plus the ability modifier used to make the attack roll and your {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, the creature has the {@condition Prone|XPHB} condition."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (8 plus the ability modifier used to make the attack roll and your Proficiency). On a failed save, the creature has the Prone condition."
+      }
+    },
+    {
       "id": "travel-at-sea|gos|variantrule",
       "kind": "variantrule",
       "name": "Travel at Sea",
@@ -18155,6 +18919,64 @@
       }
     },
     {
+      "id": "two-handed|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Two-Handed",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Two-Handed This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it.",
+      "searchText": "Two-Handed PHB Two-Handed This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Two-Handed",
+            "entries": [
+              "This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "2H",
+        "entriesText": "Two-Handed This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it."
+      }
+    },
+    {
+      "id": "two-handed|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Two-Handed",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Two-Handed A Two-Handed weapon requires two hands when you attack with it.",
+      "searchText": "Two-Handed XPHB Two-Handed A Two-Handed weapon requires two hands when you attack with it.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Two-Handed",
+            "entries": [
+              "A Two-Handed weapon requires two hands when you attack with it."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "2H",
+        "entriesText": "Two-Handed A Two-Handed weapon requires two hands when you attack with it."
+      }
+    },
+    {
       "id": "tying-knots|xge|variantrule",
       "kind": "variantrule",
       "name": "Tying Knots",
@@ -18244,6 +19066,117 @@
       },
       "metadata": {
         "entriesText": "A space is unoccupied if no creatures are in it and it isn't completely filled by objects."
+      }
+    },
+    {
+      "id": "versatile|phb|variantrule",
+      "kind": "variantrule",
+      "name": "Versatile",
+      "sourceCode": "PHB",
+      "sourceName": "PHB",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Versatile This weapon can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.",
+      "searchText": "Versatile PHB Versatile This weapon can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Versatile",
+            "entries": [
+              "This weapon can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "V",
+        "entriesText": "Versatile This weapon can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack."
+      }
+    },
+    {
+      "id": "versatile|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Versatile",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "Versatile A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.",
+      "searchText": "Versatile XPHB Versatile A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Versatile",
+            "entries": [
+              "A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "V",
+        "entriesText": "Versatile A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+      }
+    },
+    {
+      "id": "vestige-of-divergence|egw|variantrule",
+      "kind": "variantrule",
+      "name": "Vestige of Divergence",
+      "sourceCode": "EGW",
+      "sourceName": "EGW",
+      "rulesEdition": "2014",
+      "isPrimary2024": false,
+      "isLegacy": true,
+      "isSelectableInBuilder": false,
+      "summary": "Vestige of Divergence This item is a Vestige of Divergence, see Vestiges of Divergence for more information.",
+      "searchText": "Vestige of Divergence EGW Vestige of Divergence This item is a Vestige of Divergence, see Vestiges of Divergence for more information.",
+      "renderPayload": {
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Vestige of Divergence",
+            "page": 200,
+            "entries": [
+              "{@note This item is a Vestige of Divergence, see {@book Vestiges of Divergence|EGW|7|Vestiges of Divergence} for more information.}"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemProperty",
+        "abbreviation": "Vst",
+        "entriesText": "Vestige of Divergence This item is a Vestige of Divergence, see Vestiges of Divergence for more information."
+      }
+    },
+    {
+      "id": "vex|xphb|variantrule",
+      "kind": "variantrule",
+      "name": "Vex",
+      "sourceCode": "XPHB",
+      "sourceName": "XPHB",
+      "rulesEdition": "2024",
+      "isPrimary2024": true,
+      "isLegacy": false,
+      "isSelectableInBuilder": false,
+      "summary": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.",
+      "searchText": "Vex XPHB If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn.",
+      "renderPayload": {
+        "entries": [
+          "If you hit a creature with this weapon and deal damage to the creature, you have {@variantrule Advantage|XPHB} on your next attack roll against that creature before the end of your next turn."
+        ]
+      },
+      "metadata": {
+        "ruleSubtype": "itemMastery",
+        "abbreviation": null,
+        "entriesText": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
       }
     },
     {

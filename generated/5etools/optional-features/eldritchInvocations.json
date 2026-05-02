@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-eeccf9424c74d50a",
+  "contentVersion": "schema1-552748cd72fe54dc",
   "entityType": "optional-features",
   "chunkId": "eldritchInvocations",
-  "generatedAt": "2026-05-02T08:51:07.439Z",
+  "generatedAt": "2026-05-02T17:26:03.437Z",
   "records": [
     {
       "id": "agonizing-blast|phb|optionalfeature",

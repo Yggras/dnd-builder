@@ -49,6 +49,8 @@ const NAVIGABLE_REFERENCE_TAGS: Record<string, InlineReferenceEntityType> = {
   condition: 'condition',
   feat: 'feat',
   item: 'item',
+  itemmastery: 'variantrule',
+  itemproperty: 'variantrule',
   optfeature: 'optionalfeature',
   spell: 'spell',
   variantrule: 'variantrule',
@@ -63,7 +65,8 @@ function getTaggedDisplayText(tagName: string, payload: string) {
     return inlineTokensToText(parseInlineText(payload));
   }
 
-  return normalizeWhitespace(payload.split('|')[0] ?? '');
+  const parts = payload.split('|');
+  return normalizeWhitespace(parts[2] ?? parts[0] ?? '');
 }
 
 function createReferenceKey(entityType: InlineReferenceEntityType, name: string, sourceCode: string | null) {
@@ -78,7 +81,8 @@ function createInlineReference(tagName: string, payload: string): InlineReferenc
   }
 
   const [rawName, rawSource] = payload.split('|').map((part) => normalizeWhitespace(part));
-  const name = rawName ?? '';
+  const displayText = getTaggedDisplayText(tagName, payload);
+  const name = normalizedTag === 'itemproperty' || normalizedTag === 'itemmastery' ? displayText : rawName ?? '';
   const sourceCode = rawSource || null;
   if (!name) {
     return undefined;

@@ -14,6 +14,8 @@ This audit covers only 5eTools categories that the app currently imports. When a
 | optional features | `data/optionalfeatures.json` |
 | spells | `data/spells/index.json`, indexed `data/spells/*.json`, `data/generated/gendata-spell-source-lookup.json` |
 | items | `data/items-base.json`, `data/items.json` |
+| item properties | `data/items-base.json` `itemProperty`, generated as `variantrule` records |
+| item masteries | `data/items-base.json` `itemMastery`, generated as `variantrule` records |
 | conditions | `data/conditionsdiseases.json` |
 | actions | `data/actions.json` |
 | variant rules | `data/variantrules.json` |

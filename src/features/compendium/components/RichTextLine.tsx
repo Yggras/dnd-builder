@@ -9,7 +9,7 @@ import { theme } from '@/shared/ui/theme';
 interface RichTextLineProps {
   tokens: InlineTextToken[];
   referenceTargets?: InlineReferenceTargets;
-  variant?: 'body' | 'summary' | 'table';
+  variant?: 'body' | 'summary' | 'table' | 'fact';
 }
 
 export function RichTextLine({ tokens, referenceTargets = {}, variant = 'body' }: RichTextLineProps) {
@@ -49,6 +49,11 @@ const styles = StyleSheet.create({
   table: {
     fontSize: 13,
     lineHeight: 18,
+  },
+  fact: {
+    fontSize: 14,
+    fontWeight: '700',
+    lineHeight: 20,
   },
   text: {
     color: theme.colors.textSecondary,

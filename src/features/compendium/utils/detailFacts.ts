@@ -9,11 +9,12 @@ import {
   getSpellSchoolLabel,
   isMagicItem,
 } from '@/features/compendium/utils/catalog';
-import { cleanInlineText } from '@/features/compendium/utils/inlineText';
+import { cleanInlineText, parseInlineText, type InlineTextToken } from '@/features/compendium/utils/inlineText';
 
 export type DetailFact = {
   label: string;
-  value: string;
+  value?: string;
+  tokens?: InlineTextToken[];
 };
 
 const ABILITY_LABELS: Record<string, string> = {
@@ -39,7 +40,7 @@ const ITEM_PROPERTY_LABELS: Record<string, string> = {
 };
 
 function compactFacts(facts: Array<DetailFact | null>) {
-  return facts.filter((fact): fact is DetailFact => Boolean(fact?.value));
+  return facts.filter((fact): fact is DetailFact => Boolean(fact?.value || fact?.tokens?.length));
 }
 
 function stringValue(value: unknown) {
@@ -52,6 +53,10 @@ function numberValue(value: unknown) {
 
 function arrayOfStrings(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === 'string' && entry.length > 0) : [];
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
 function titleCase(value: string) {
@@ -417,6 +422,76 @@ function detectAttunement(entry: CompendiumEntry) {
   return null;
 }
 
+type ItemRuleDetail = {
+  name: string;
+  sourceCode: string;
+  abbreviation?: string;
+};
+
+function parseItemRuleRef(value: string, fallbackSource: string) {
+  const [name, sourceCode = fallbackSource] = value.split('|').map((part) => part.trim()).filter(Boolean);
+  return name ? { name, sourceCode } : null;
+}
+
+function getRuleDetailsFromMetadata(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.flatMap((entry): ItemRuleDetail[] => {
+    if (!isRecord(entry)) {
+      return [];
+    }
+
+    const name = stringValue(entry.name);
+    const sourceCode = stringValue(entry.sourceCode);
+    const abbreviation = stringValue(entry.abbreviation) ?? undefined;
+
+    return name && sourceCode ? [{ name, sourceCode, abbreviation }] : [];
+  });
+}
+
+function getPropertyDetails(entry: CompendiumEntry) {
+  const details = getRuleDetailsFromMetadata(entry.metadata.propertyDetails);
+  if (details.length > 0) {
+    return details;
+  }
+
+  return arrayOfStrings(entry.metadata.property).flatMap((property): ItemRuleDetail[] => {
+    const parsed = parseItemRuleRef(property, entry.sourceCode);
+    if (!parsed) {
+      return [];
+    }
+
+    return [{
+      name: ITEM_PROPERTY_LABELS[parsed.name] ?? parsed.name,
+      sourceCode: parsed.sourceCode,
+      abbreviation: parsed.name,
+    }];
+  });
+}
+
+function getMasteryDetails(entry: CompendiumEntry) {
+  const details = getRuleDetailsFromMetadata(entry.metadata.masteryDetails);
+  if (details.length > 0) {
+    return details;
+  }
+
+  return arrayOfStrings(entry.metadata.mastery).flatMap((mastery): ItemRuleDetail[] => {
+    const parsed = parseItemRuleRef(mastery, entry.sourceCode);
+    return parsed ? [{ name: parsed.name, sourceCode: parsed.sourceCode }] : [];
+  });
+}
+
+function buildRuleFactTokens(details: ItemRuleDetail[], tagName: 'itemProperty' | 'itemMastery') {
+  return parseInlineText(details.map((detail) => `{@${tagName} ${detail.name}|${detail.sourceCode}}`).join(', '));
+}
+
+function formatWeaponRange(value: unknown) {
+  const range = stringValue(value);
+  return range ? `${range} ft.` : null;
+}
+
 function createEntityFromEntry(entry: CompendiumEntry): ContentEntity {
   return {
     id: entry.entityId ?? entry.id,
@@ -447,8 +522,14 @@ export function buildItemFacts(entry: CompendiumEntry): DetailFact[] {
   const weaponCategory = stringValue(entry.metadata.weaponCategory);
   const damage = stringValue(entry.metadata.damage);
   const damageType = getDamageTypeLabel(entry.metadata.damageType);
+  const range = formatWeaponRange(entry.metadata.range);
   const armorClass = numberValue(entry.metadata.armorClass);
-  const properties = arrayOfStrings(entry.metadata.property).map((property) => ITEM_PROPERTY_LABELS[property] ?? property).join(', ');
+  const propertyDetails = getPropertyDetails(entry);
+  const propertyValue = propertyDetails.map((property) => property.name).join(', ');
+  const propertyTokens = propertyDetails.length > 0 ? buildRuleFactTokens(propertyDetails, 'itemProperty') : [];
+  const masteryDetails = getMasteryDetails(entry);
+  const masteryValue = masteryDetails.map((mastery) => mastery.name).join(', ');
+  const masteryTokens = masteryDetails.length > 0 ? buildRuleFactTokens(masteryDetails, 'itemMastery') : [];
   const armorType = getArmorTypeLabel(itemEntity);
   const attunement = detectAttunement(entry);
 
@@ -461,8 +542,10 @@ export function buildItemFacts(entry: CompendiumEntry): DetailFact[] {
     weaponCategory ? { label: 'Weapon', value: titleCase(weaponCategory) } : null,
     armorType ? { label: 'Armor', value: armorType } : null,
     damage ? { label: 'Damage', value: damageType ? `${damage} ${damageType}` : damage } : null,
+    range ? { label: 'Range', value: range } : null,
     armorClass != null ? { label: 'AC', value: String(armorClass) } : null,
-    properties ? { label: 'Properties', value: properties } : null,
+    propertyValue ? { label: 'Properties', value: propertyValue, tokens: propertyTokens } : null,
+    masteryValue ? { label: 'Weapon Mastery', value: masteryValue, tokens: masteryTokens } : null,
     attunement ? { label: 'Attunement', value: attunement } : null,
   ]);
 }

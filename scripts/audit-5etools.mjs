@@ -12,6 +12,7 @@ import {
   normalizeConditions,
   normalizeFeats,
   normalizeItems,
+  normalizeItemRules,
   normalizeOptionalFeatures,
   normalizeSpecies,
   normalizeSpells,
@@ -81,6 +82,11 @@ function flattenSpellFiles(spellFileMap) {
 
 function flattenItemFiles(itemsBase, items) {
   return [...(itemsBase.baseitem ?? itemsBase.item ?? []), ...(items.item ?? [])];
+}
+
+function mergeUniqueById(records) {
+  return [...new Map(records.map((record) => [record.id, record])).values()]
+    .sort((left, right) => left.id.localeCompare(right.id));
 }
 
 function createEditionMarker(category, record, id) {
@@ -223,10 +229,13 @@ function normalizeSources(rawSources) {
     subclasses,
     spellSourceLookup: rawSources.spellSourceLookup,
   });
-  const items = normalizeItems(resolvedItems);
+  const items = normalizeItems(resolvedItems, { itemProperties: rawSources.itemsBase.itemProperty ?? [] });
   const conditions = normalizeConditions(resolvedConditions);
   const actions = normalizeActions(resolvedActions);
-  const variantRules = normalizeVariantRules(resolvedVariantRules);
+  const variantRules = mergeUniqueById([
+    ...normalizeVariantRules(resolvedVariantRules),
+    ...normalizeItemRules(rawSources.itemsBase.itemProperty ?? [], rawSources.itemsBase.itemMastery ?? []),
+  ]);
   const choiceGrants = normalizeChoiceGrants({ classes, subclasses, feats, optionalFeatures });
   const compendiumEntries = normalizeCompendiumEntries({
     species,
@@ -607,6 +616,91 @@ function compareEditionClassification({ failures, editionMarkers, generatedEntit
   }
 }
 
+function assertRuleEntry(failures, generatedEntityMap, name, sourceCode) {
+  const id = canonicalId([name, sourceCode, 'variantrule']);
+  const record = generatedEntityMap.get(id);
+  if (!record) {
+    recordFailure(failures, `missing generated rule entry ${name} [${sourceCode}] (${id})`);
+    return;
+  }
+
+  if (record.entityType && record.entityType !== 'variantrule') {
+    recordFailure(failures, `${name} [${sourceCode}] generated with unexpected entity type ${record.entityType}`);
+  }
+}
+
+function assertIncludesAll(failures, values, expected, label) {
+  const missing = expected.filter((value) => !values.includes(value));
+  if (missing.length > 0) {
+    recordFailure(failures, `${label} missing expected values: ${missing.join(', ')}`);
+  }
+}
+
+function assertWeaponMetadata(failures, generatedEntityMap, { id, label, range, properties, mastery }) {
+  const record = generatedEntityMap.get(id);
+  if (!record) {
+    recordFailure(failures, `${label} was not found in generated content entities`);
+    return;
+  }
+
+  if (range != null && record.metadata?.range !== range) {
+    recordFailure(failures, `${label} expected range ${range}; got ${record.metadata?.range ?? 'missing'}`);
+  }
+
+  assertIncludesAll(failures, Array.isArray(record.metadata?.property) ? record.metadata.property : [], properties, `${label} properties`);
+  assertIncludesAll(failures, Array.isArray(record.metadata?.mastery) ? record.metadata.mastery : [], mastery, `${label} mastery`);
+
+  const propertyNames = Array.isArray(record.metadata?.propertyDetails)
+    ? record.metadata.propertyDetails.map((property) => property?.name).filter(Boolean)
+    : [];
+  const masteryNames = Array.isArray(record.metadata?.masteryDetails)
+    ? record.metadata.masteryDetails.map((itemMastery) => itemMastery?.name).filter(Boolean)
+    : [];
+
+  if (properties.length > 0 && propertyNames.length === 0) {
+    recordFailure(failures, `${label} has raw properties but no readable propertyDetails`);
+  }
+  if (mastery.length > 0 && masteryNames.length === 0) {
+    recordFailure(failures, `${label} has raw mastery but no readable masteryDetails`);
+  }
+}
+
+function compareWeaponItemFacts({ failures, generatedEntityMap }) {
+  printHeading('Weapon Item Facts');
+
+  for (const name of ['Cleave', 'Graze', 'Nick', 'Push', 'Sap', 'Slow', 'Topple', 'Vex']) {
+    assertRuleEntry(failures, generatedEntityMap, name, 'XPHB');
+  }
+
+  for (const name of ['Ammunition', 'Finesse', 'Heavy', 'Light', 'Thrown', 'Two-Handed', 'Versatile']) {
+    assertRuleEntry(failures, generatedEntityMap, name, 'XPHB');
+  }
+
+  assertWeaponMetadata(failures, generatedEntityMap, {
+    id: 'dagger|xphb|item',
+    label: 'Dagger [XPHB]',
+    range: '20/60',
+    properties: ['F|XPHB', 'L|XPHB', 'T|XPHB'],
+    mastery: ['Nick|XPHB'],
+  });
+  assertWeaponMetadata(failures, generatedEntityMap, {
+    id: 'longbow|xphb|item',
+    label: 'Longbow [XPHB]',
+    range: '150/600',
+    properties: ['A|XPHB', 'H|XPHB', '2H|XPHB'],
+    mastery: ['Slow|XPHB'],
+  });
+  assertWeaponMetadata(failures, generatedEntityMap, {
+    id: 'greatsword|xphb|item',
+    label: 'Greatsword [XPHB]',
+    range: null,
+    properties: ['H|XPHB', '2H|XPHB'],
+    mastery: ['Graze|XPHB'],
+  });
+
+  recordPass('checked representative weapon range, property, and mastery metadata');
+}
+
 async function reportOutOfScopeDataFiles() {
   printHeading('Out Of Scope 5eTools Data Files');
 
@@ -658,6 +752,7 @@ async function main() {
   compareCompendiumCounts({ failures, normalized, chunks });
   compareClassReachability({ failures, normalized, chunks });
   compareEditionClassification({ failures, editionMarkers, generatedEntityMap });
+  compareWeaponItemFacts({ failures, generatedEntityMap });
   await reportOutOfScopeDataFiles();
 
   printHeading('Audit Result');
