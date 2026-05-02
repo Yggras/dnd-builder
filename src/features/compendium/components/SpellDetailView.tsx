@@ -9,8 +9,9 @@ import { DetailSection } from '@/features/compendium/components/DetailSection';
 import { RenderBlockList } from '@/features/compendium/components/RenderBlockList';
 import { SQLiteContentRepository } from '@/features/content/adapters/SQLiteContentRepository';
 import { ContentService } from '@/features/content/services/ContentService';
-import { buildRenderBlocks } from '@/features/compendium/utils/detailBlocks';
+import { buildRenderBlocks, buildRenderBlocksFromEntries, type DetailRenderBlock } from '@/features/compendium/utils/detailBlocks';
 import { buildSourceFacts, buildSpellFacts, getEntityIdsFromMetadata, sortEntityNames } from '@/features/compendium/utils/detailFacts';
+import { parseInlineText } from '@/features/compendium/utils/inlineText';
 import { queryKeys } from '@/shared/query/keys';
 import type { CompendiumEntry } from '@/shared/types/domain';
 import { theme } from '@/shared/ui/theme';
@@ -19,6 +20,41 @@ const contentService = new ContentService(new SQLiteContentRepository());
 
 interface SpellDetailViewProps {
   entry: CompendiumEntry;
+}
+
+function withScalingIncrementDisplay(value: unknown): unknown {
+  if (typeof value === 'string') {
+    return value.replace(
+      /\{@(scaledice|scaledamage)\s+([^}|]+)(?:\|[^}|]*)?(?:\|([^}]*))?\}/gi,
+      (_match, tagName: string, baseValue: string, incrementValue: string | undefined) =>
+        `{@${tagName.toLowerCase() === 'scaledamage' ? 'damage' : 'dice'} ${incrementValue || baseValue}}`,
+    );
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(withScalingIncrementDisplay);
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, entryValue]) => [key, withScalingIncrementDisplay(entryValue)]));
+  }
+
+  return value;
+}
+
+function buildHigherLevelBlocks(entry: CompendiumEntry): DetailRenderBlock[] {
+  const higherLevelEntries = entry.renderPayload?.entriesHigherLevel;
+  if (Array.isArray(higherLevelEntries)) {
+    const blocks = buildRenderBlocksFromEntries(withScalingIncrementDisplay(higherLevelEntries) as unknown[]);
+    if (blocks.length > 0) {
+      return blocks;
+    }
+  }
+
+  const higherLevelText = typeof entry.metadata.higherLevelText === 'string' ? entry.metadata.higherLevelText : null;
+  const tokens = higherLevelText ? parseInlineText(higherLevelText) : [];
+
+  return tokens.length > 0 ? [{ kind: 'paragraph', tokens }] : [];
 }
 
 export function SpellDetailView({ entry }: SpellDetailViewProps) {
@@ -34,6 +70,7 @@ export function SpellDetailView({ entry }: SpellDetailViewProps) {
 
   const classNames = sortEntityNames((availabilityQuery.data ?? []).filter((entity) => entity.entityType === 'class')).map((entity) => entity.name);
   const subclassNames = sortEntityNames((availabilityQuery.data ?? []).filter((entity) => entity.entityType === 'subclass')).map((entity) => entity.name);
+  const higherLevelBlocks = useMemo(() => buildHigherLevelBlocks(entry), [entry]);
 
   return (
     <>
@@ -62,6 +99,11 @@ export function SpellDetailView({ entry }: SpellDetailViewProps) {
       <DetailSection title="Details">
         <RenderBlockList blocks={buildRenderBlocks(entry)} referenceContext={{ sourceCode: entry.sourceCode }} />
       </DetailSection>
+      {higherLevelBlocks.length > 0 ? (
+        <DetailSection title="Higher-Level Casting">
+          <RenderBlockList blocks={higherLevelBlocks} referenceContext={{ sourceCode: entry.sourceCode }} />
+        </DetailSection>
+      ) : null}
     </>
   );
 }

@@ -66,6 +66,8 @@ const DEFAULT_FILTERS: CompendiumFilters = {
   armorTypes: [],
   damageTypes: [],
   spellLevels: [],
+  spellClasses: [],
+  spellDamageTypes: [],
   spellSchools: [],
   spellRoles: [],
   spellRitual: 'all',
@@ -218,7 +220,7 @@ export function getDamageTypeLabel(value: unknown) {
     return null;
   }
 
-  return DAMAGE_TYPE_LABELS[value] ?? value;
+  return DAMAGE_TYPE_LABELS[value] ?? value.replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
 export function getRarityLabel(value: unknown) {

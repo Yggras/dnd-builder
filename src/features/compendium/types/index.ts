@@ -25,6 +25,8 @@ export interface CompendiumFilters {
   armorTypes: string[];
   damageTypes: string[];
   spellLevels: number[];
+  spellClasses: string[];
+  spellDamageTypes: string[];
   spellSchools: string[];
   spellRoles: string[];
   spellRitual: 'all' | 'yes' | 'no';

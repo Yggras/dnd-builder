@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-4184aaf29df63771",
+  "contentVersion": "schema1-cd9bcdaf6d59804c",
   "entityType": "classes",
   "chunkId": "warlock",
-  "generatedAt": "2026-05-01T13:26:03.621Z",
+  "generatedAt": "2026-05-01T13:54:05.030Z",
   "records": {
     "class": {
       "id": "warlock|xphb",

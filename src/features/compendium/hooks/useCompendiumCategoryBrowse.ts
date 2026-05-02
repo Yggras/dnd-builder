@@ -32,6 +32,10 @@ function isNonEmptyString(value: unknown): value is string {
   return typeof value === 'string' && value.length > 0;
 }
 
+function metadataStrings(value: unknown) {
+  return Array.isArray(value) ? value.filter(isNonEmptyString) : [];
+}
+
 function toggleValue(values: string[], value: string) {
   return values.includes(value) ? values.filter((entry) => entry !== value) : [...values, value];
 }
@@ -138,6 +142,8 @@ function buildFilterSections(category: CompendiumCategory, entries: ContentEntit
     const schools = Array.from(
       new Set(entries.map((entry) => getSpellSchoolLabel(entry.metadata.school)).filter((value): value is string => Boolean(value))),
     ).sort();
+    const spellClasses = Array.from(new Set(entries.flatMap((entry) => metadataStrings(entry.metadata.classNames)))).sort();
+    const damageTypes = Array.from(new Set(entries.flatMap((entry) => metadataStrings(entry.metadata.damageTypes)))).sort();
     const roles = Array.from(new Set(entries.flatMap(getSpellRoleTags))).sort();
 
     return [
@@ -146,6 +152,18 @@ function buildFilterSections(category: CompendiumCategory, entries: ContentEntit
         title: 'Level',
         type: 'multi',
         options: levels.map((value) => ({ value: String(value), label: value === 0 ? 'Cantrip' : `Level ${value}` })),
+      },
+      {
+        key: 'spellClasses',
+        title: 'Class',
+        type: 'multi',
+        options: spellClasses.map((value) => ({ value, label: value })),
+      },
+      {
+        key: 'spellDamageTypes',
+        title: 'Damage Type',
+        type: 'multi',
+        options: damageTypes.map((value) => ({ value, label: getDamageTypeLabel(value) ?? value })),
       },
       {
         key: 'spellSchools',
@@ -230,6 +248,12 @@ function buildActiveChips(category: CompendiumCategory, filters: ReturnType<type
     for (const level of filters.spellLevels) {
       chips.push({ key: `spellLevels:${level}`, label: level === 0 ? 'Cantrip' : `Level ${level}` });
     }
+    for (const spellClass of filters.spellClasses) {
+      chips.push({ key: `spellClasses:${spellClass}`, label: spellClass });
+    }
+    for (const damageType of filters.spellDamageTypes) {
+      chips.push({ key: `spellDamageTypes:${damageType}`, label: getDamageTypeLabel(damageType) ?? damageType });
+    }
     for (const school of filters.spellSchools) {
       chips.push({ key: `spellSchools:${school}`, label: school });
     }
@@ -290,12 +314,16 @@ function applyFilters(category: CompendiumCategory, entries: ContentEntity[], qu
     if (category === 'spells') {
       const level = Number(entry.metadata.level ?? -1);
       const school = getSpellSchoolLabel(entry.metadata.school);
+      const spellClasses = metadataStrings(entry.metadata.classNames);
+      const damageTypes = metadataStrings(entry.metadata.damageTypes);
       const roleTags = getSpellRoleTags(entry);
       const ritual = Boolean(entry.metadata.ritual);
       const concentration = spellHasConcentration(entry);
 
       return (
         (filters.spellLevels.length === 0 || filters.spellLevels.includes(level)) &&
+        (filters.spellClasses.length === 0 || filters.spellClasses.some((spellClass) => spellClasses.includes(spellClass))) &&
+        (filters.spellDamageTypes.length === 0 || filters.spellDamageTypes.some((damageType) => damageTypes.includes(damageType))) &&
         (filters.spellSchools.length === 0 || (school != null && filters.spellSchools.includes(school))) &&
         (filters.spellRoles.length === 0 || filters.spellRoles.some((role) => roleTags.includes(role))) &&
         (filters.spellRitual === 'all' || ritual === (filters.spellRitual === 'yes')) &&
@@ -387,6 +415,10 @@ function removeChip(filters: ReturnType<typeof createDefaultCompendiumFilters>, 
       return { ...filters, damageTypes: filters.damageTypes.filter((value) => value !== rawValue) };
     case 'spellLevels':
       return { ...filters, spellLevels: filters.spellLevels.filter((value) => String(value) !== rawValue) };
+    case 'spellClasses':
+      return { ...filters, spellClasses: filters.spellClasses.filter((value) => value !== rawValue) };
+    case 'spellDamageTypes':
+      return { ...filters, spellDamageTypes: filters.spellDamageTypes.filter((value) => value !== rawValue) };
     case 'spellSchools':
       return { ...filters, spellSchools: filters.spellSchools.filter((value) => value !== rawValue) };
     case 'spellRoles':
@@ -475,6 +507,10 @@ export function useCompendiumCategoryBrowse(category: CompendiumCategory): Categ
                 ? current.spellLevels.filter((entry) => entry !== Number(value))
                 : [...current.spellLevels, Number(value)],
             };
+          case 'spellClasses':
+            return { ...current, spellClasses: toggleValue(current.spellClasses, value) };
+          case 'spellDamageTypes':
+            return { ...current, spellDamageTypes: toggleValue(current.spellDamageTypes, value) };
           case 'spellSchools':
             return { ...current, spellSchools: toggleValue(current.spellSchools, value) };
           case 'spellRoles':

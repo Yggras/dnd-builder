@@ -755,17 +755,31 @@ export function normalizeOptionalFeatures(records) {
 }
 
 export function normalizeSpells(records, context) {
+  const classNamesById = new Map(context.classes.map((classRecord) => [classRecord.id, classRecord.name]));
+
   return stableSortBy(
     records.map((record) => {
       const id = canonicalId([record.name, record.source, 'spell']);
       const applicability = buildSpellApplicabilityMetadata(record, context);
+      const baseRecord = createBaseRecord('spell', record, id);
+      const higherLevelEntries = ensureArray(record.entriesHigherLevel);
+      const higherLevelText = extractText(higherLevelEntries, { scaledTagMode: 'increment' });
+      const classNames = unique(applicability.classIds.map((classId) => classNamesById.get(classId))).sort();
+      const damageTypes = unique(ensureArray(record.damageInflict).filter((value) => typeof value === 'string')).sort();
+
       return {
-        ...createBaseRecord('spell', record, id),
+        ...baseRecord,
+        searchText: [baseRecord.searchText, higherLevelText].filter(Boolean).join(' '),
+        renderPayload: {
+          ...baseRecord.renderPayload,
+          ...(higherLevelEntries.length > 0 ? { entriesHigherLevel: higherLevelEntries } : {}),
+        },
         metadata: {
           level: record.level ?? 0,
           school: record.school ?? null,
           classes: record.classes ?? {},
           classIds: applicability.classIds,
+          classNames,
           subclassIds: applicability.subclassIds,
           duration: record.duration ?? [],
           range: record.range ?? null,
@@ -773,6 +787,8 @@ export function normalizeSpells(records, context) {
           ritual: Boolean(record.meta?.ritual),
           concentration: ensureArray(record.duration).some((duration) => Boolean(duration?.concentration)),
           roleTags: deriveSpellRoleTags(record),
+          damageTypes,
+          higherLevelText: higherLevelText || null,
           entriesText: extractText(record.entries ?? []),
         },
       };

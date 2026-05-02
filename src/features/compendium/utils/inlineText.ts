@@ -42,7 +42,7 @@ const REFERENCE_TAGS = new Set([
   'variantrule',
 ]);
 
-const DICE_TAGS = new Set(['chance', 'damage', 'dc', 'dice']);
+const DICE_TAGS = new Set(['chance', 'damage', 'dc', 'dice', 'scaledamage', 'scaledice']);
 
 const NAVIGABLE_REFERENCE_TAGS: Record<string, InlineReferenceEntityType> = {
   action: 'action',

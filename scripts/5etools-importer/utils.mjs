@@ -52,9 +52,14 @@ export function summarizeText(text, maxLength = 220) {
   return `${normalized.slice(0, maxLength - 3).trimEnd()}...`;
 }
 
-export function strip5eTags(text) {
+export function strip5eTags(text, options = {}) {
+  const scaledTagMode = options.scaledTagMode ?? 'base';
+
   return String(text ?? '')
     .replace(/\{@(?:filter|book|quickref|variantrule|optfeature|action|condition|sense|skill|itemProperty|status|language|item|spell|feat)\s+([^}|]+)(?:\|[^}]*)?\}/gi, '$1')
+    .replace(/\{@(?:scaledice|scaledamage)\s+([^}|]+)(?:\|[^}|]*)?(?:\|([^}]*))?\}/gi, (_match, baseValue, incrementValue) =>
+      scaledTagMode === 'increment' && incrementValue ? incrementValue : baseValue,
+    )
     .replace(/\{@(?:dice|damage|dc|chance)\s+([^}|]+)(?:\|[^}]*)?\}/gi, '$1')
     .replace(/\{@i\s+([^}]*)\}/gi, '$1')
     .replace(/\{@b\s+([^}]*)\}/gi, '$1')
@@ -64,44 +69,44 @@ export function strip5eTags(text) {
     .trim();
 }
 
-export function extractText(value) {
+export function extractText(value, options = {}) {
   if (value == null) {
     return '';
   }
 
   if (typeof value === 'string') {
-    return strip5eTags(value);
+    return strip5eTags(value, options);
   }
 
   if (Array.isArray(value)) {
-    return value.map((entry) => extractText(entry)).filter(Boolean).join(' ');
+    return value.map((entry) => extractText(entry, options)).filter(Boolean).join(' ');
   }
 
   if (typeof value === 'object') {
     const parts = [];
 
     if (typeof value.name === 'string') {
-      parts.push(strip5eTags(value.name));
+      parts.push(strip5eTags(value.name, options));
     }
 
     if (typeof value.entry === 'string') {
-      parts.push(strip5eTags(value.entry));
+      parts.push(strip5eTags(value.entry, options));
     }
 
     if (value.entries) {
-      parts.push(extractText(value.entries));
+      parts.push(extractText(value.entries, options));
     }
 
     if (value.items) {
-      parts.push(extractText(value.items));
+      parts.push(extractText(value.items, options));
     }
 
     if (value.rows) {
-      parts.push(extractText(value.rows));
+      parts.push(extractText(value.rows, options));
     }
 
     if (value.tables) {
-      parts.push(extractText(value.tables));
+      parts.push(extractText(value.tables, options));
     }
 
     return parts.filter(Boolean).join(' ');
