@@ -18,6 +18,7 @@ import {
   normalizeVariantRules,
 } from './5etools-importer/normalize.mjs';
 import { resolveCollection } from './5etools-importer/resolve.mjs';
+import { canonicalId } from './5etools-importer/utils.mjs';
 
 const GENERATED_ROOT = path.join(process.cwd(), 'generated', '5etools');
 const CONTENT_INDEX_PATH = path.join(GENERATED_ROOT, 'content-index.json');
@@ -80,6 +81,44 @@ function flattenSpellFiles(spellFileMap) {
 
 function flattenItemFiles(itemsBase, items) {
   return [...(itemsBase.baseitem ?? itemsBase.item ?? []), ...(items.item ?? [])];
+}
+
+function createEditionMarker(category, record, id) {
+  return {
+    category,
+    id,
+    name: record.name,
+    source: record.source,
+    edition: record.edition,
+  };
+}
+
+function createEditionMarkers({
+  resolvedSpecies,
+  resolvedClasses,
+  resolvedSubclasses,
+  resolvedBackgrounds,
+  resolvedFeats,
+  resolvedOptionalFeatures,
+  resolvedSpells,
+  resolvedItems,
+  resolvedConditions,
+  resolvedActions,
+  resolvedVariantRules,
+}) {
+  return [
+    ...resolvedSpecies.map((record) => createEditionMarker('species', record, canonicalId([record.name, record.source, 'species']))),
+    ...resolvedClasses.map((record) => createEditionMarker('class', record, canonicalId([record.name, record.source]))),
+    ...resolvedSubclasses.map((record) => createEditionMarker('subclass', record, canonicalId([record.name, record.source, 'subclass', record.className, record.classSource]))),
+    ...resolvedBackgrounds.map((record) => createEditionMarker('background', record, canonicalId([record.name, record.source, 'background']))),
+    ...resolvedFeats.map((record) => createEditionMarker('feat', record, canonicalId([record.name, record.source, 'feat']))),
+    ...resolvedOptionalFeatures.map((record) => createEditionMarker('optionalfeature', record, canonicalId([record.name, record.source, 'optionalfeature']))),
+    ...resolvedSpells.map((record) => createEditionMarker('spell', record, canonicalId([record.name, record.source, 'spell']))),
+    ...resolvedItems.map((record) => createEditionMarker('item', record, canonicalId([record.name, record.source, 'item']))),
+    ...resolvedConditions.map((record) => createEditionMarker('condition', record, canonicalId([record.name, record.source, 'condition']))),
+    ...resolvedActions.map((record) => createEditionMarker('action', record, canonicalId([record.name, record.source, 'action']))),
+    ...resolvedVariantRules.map((record) => createEditionMarker('variantrule', record, canonicalId([record.name, record.source, 'variantrule']))),
+  ].filter((marker) => marker.edition === 'classic' || marker.edition === 'one');
 }
 
 async function readJson(filePath) {
@@ -232,6 +271,19 @@ function normalizeSources(rawSources) {
       choiceGrants,
       compendiumEntries,
     },
+    editionMarkers: createEditionMarkers({
+      resolvedSpecies,
+      resolvedClasses,
+      resolvedSubclasses,
+      resolvedBackgrounds,
+      resolvedFeats,
+      resolvedOptionalFeatures,
+      resolvedSpells,
+      resolvedItems,
+      resolvedConditions,
+      resolvedActions,
+      resolvedVariantRules,
+    }),
   };
 }
 
@@ -310,6 +362,23 @@ function countGeneratedEntities(chunks) {
   }
 
   return counts;
+}
+
+function createGeneratedContentEntityMap(chunks) {
+  const records = [];
+
+  for (const { manifestChunk, chunk } of chunks) {
+    if (manifestChunk.entityType === 'classes') {
+      if (chunk.records?.class) {
+        records.push(chunk.records.class);
+      }
+      records.push(...(chunk.records?.subclasses ?? []));
+    } else if (manifestChunk.entityType !== 'compendium' && manifestChunk.entityType !== 'grants') {
+      records.push(...chunk.records);
+    }
+  }
+
+  return new Map(records.map((record) => [record.id, record]));
 }
 
 function compareCounts({ failures, normalized, manifest, generatedCounts }) {
@@ -455,6 +524,89 @@ function compareClassReachability({ failures, normalized, chunks }) {
   }
 }
 
+function assertTargetRecord(failures, generatedEntityMap, { id, label, rulesEdition, isLegacy, isSelectableInBuilder }) {
+  const record = generatedEntityMap.get(id);
+  if (!record) {
+    recordFailure(failures, `${label} was not found in generated content entities`);
+    return;
+  }
+
+  if (record.rulesEdition !== rulesEdition || record.isLegacy !== isLegacy || record.isSelectableInBuilder !== isSelectableInBuilder) {
+    recordFailure(
+      failures,
+      `${label} expected rulesEdition=${rulesEdition} isLegacy=${isLegacy} isSelectableInBuilder=${isSelectableInBuilder}; got rulesEdition=${record.rulesEdition} isLegacy=${record.isLegacy} isSelectableInBuilder=${record.isSelectableInBuilder}`,
+    );
+  }
+}
+
+function compareEditionClassification({ failures, editionMarkers, generatedEntityMap }) {
+  printHeading('Edition Classification');
+  const classicMarkers = editionMarkers.filter((marker) => marker.edition === 'classic');
+  const oneMarkers = editionMarkers.filter((marker) => marker.edition === 'one');
+  const classicFailures = [];
+  const oneFailures = [];
+
+  for (const marker of classicMarkers) {
+    const record = generatedEntityMap.get(marker.id);
+    if (!record) {
+      continue;
+    }
+    if (record.rulesEdition === '2024' || record.isLegacy !== true) {
+      classicFailures.push({ ...marker, generatedRulesEdition: record.rulesEdition, generatedIsLegacy: record.isLegacy });
+    }
+  }
+
+  for (const marker of oneMarkers) {
+    const record = generatedEntityMap.get(marker.id);
+    if (!record) {
+      continue;
+    }
+    if (record.rulesEdition !== '2024' || record.isLegacy !== false) {
+      oneFailures.push({ ...marker, generatedRulesEdition: record.rulesEdition, generatedIsLegacy: record.isLegacy });
+    }
+  }
+
+  console.table([
+    { rawEdition: 'classic', checked: classicMarkers.length, failures: classicFailures.length },
+    { rawEdition: 'one', checked: oneMarkers.length, failures: oneFailures.length },
+  ]);
+
+  if (classicFailures.length > 0) {
+    recordFailure(failures, `${classicFailures.length} raw classic records generated as non-legacy content`);
+    console.table(classicFailures.slice(0, 20));
+  }
+  if (oneFailures.length > 0) {
+    recordFailure(failures, `${oneFailures.length} raw one records did not generate as 2024 content`);
+    console.table(oneFailures.slice(0, 20));
+  }
+
+  assertTargetRecord(failures, generatedEntityMap, {
+    id: 'artificer|tce',
+    label: 'Artificer [TCE]',
+    rulesEdition: '2014',
+    isLegacy: true,
+    isSelectableInBuilder: true,
+  });
+  assertTargetRecord(failures, generatedEntityMap, {
+    id: 'artificer|efa',
+    label: 'Artificer [EFA]',
+    rulesEdition: '2024',
+    isLegacy: false,
+    isSelectableInBuilder: true,
+  });
+  assertTargetRecord(failures, generatedEntityMap, {
+    id: 'cartographer|efa|subclass|artificer|efa',
+    label: 'Cartographer [EFA]',
+    rulesEdition: '2024',
+    isLegacy: false,
+    isSelectableInBuilder: true,
+  });
+
+  if (classicFailures.length === 0 && oneFailures.length === 0) {
+    recordPass('raw edition markers match generated edition flags');
+  }
+}
+
 async function reportOutOfScopeDataFiles() {
   printHeading('Out Of Scope 5eTools Data Files');
 
@@ -495,15 +647,17 @@ async function main() {
   console.log(`Source base URL: ${SOURCE_BASE_URL}`);
 
   const rawSources = await loadRawSources();
-  const { normalized } = normalizeSources(rawSources);
+  const { normalized, editionMarkers } = normalizeSources(rawSources);
   const manifest = await readJson(CONTENT_INDEX_PATH);
   const chunks = await readManifestChunks(manifest);
   const generatedCounts = countGeneratedEntities(chunks);
+  const generatedEntityMap = createGeneratedContentEntityMap(chunks);
 
   compareCounts({ failures, normalized, manifest, generatedCounts });
   compareChunkRecordCounts({ failures, chunks });
   compareCompendiumCounts({ failures, normalized, chunks });
   compareClassReachability({ failures, normalized, chunks });
+  compareEditionClassification({ failures, editionMarkers, generatedEntityMap });
   await reportOutOfScopeDataFiles();
 
   printHeading('Audit Result');

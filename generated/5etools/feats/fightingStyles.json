@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-1595a4d90e336432",
+  "contentVersion": "schema1-eeccf9424c74d50a",
   "entityType": "feats",
   "chunkId": "fightingStyles",
-  "generatedAt": "2026-05-02T08:27:08.178Z",
+  "generatedAt": "2026-05-02T08:51:07.439Z",
   "records": [
     {
       "id": "archery|xphb|feat",

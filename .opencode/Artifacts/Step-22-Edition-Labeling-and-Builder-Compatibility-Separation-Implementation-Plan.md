@@ -52,7 +52,7 @@ Recommended rules:
 - `record.edition === 'one'` -> `rulesEdition: '2024'`, `isLegacy: false`
 - `record.basicRules2024` -> `rulesEdition: '2024'`, `isLegacy: false`
 - `record.srd52` -> `rulesEdition: '2024'`, `isLegacy: false`
-- primary 2024 source fallback, currently `XPHB` -> `rulesEdition: '2024'`, `isLegacy: false`
+- primary 2024 source fallback, currently `XPHB` and `EFA` -> `rulesEdition: '2024'`, `isLegacy: false`
 - `record.edition === 'classic'` -> `rulesEdition: '2014'`, `isLegacy: true`
 - otherwise -> `rulesEdition: '2014'`, `isLegacy: true`
 

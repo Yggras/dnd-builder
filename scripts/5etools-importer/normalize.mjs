@@ -5,7 +5,8 @@ import {
   extractText,
   featIdFromUid,
   getSourceName,
-  is2024CompatibleRecord,
+  isActual2024Record,
+  isBuilderSelectableRecord,
   isPrimary2024Record,
   optionalFeatureIdFromUid,
   progressionToLevelCounts,
@@ -58,7 +59,8 @@ function createBaseRecord(kind, record, id) {
   const text = extractText(record.entries ?? record.entry ?? []);
   const searchText = [record.name, record.source, text].filter(Boolean).join(' ');
   const isPrimary2024 = isPrimary2024Record(record, PRIMARY_2024_SOURCES);
-  const is2024Compatible = is2024CompatibleRecord(record, PRIMARY_2024_SOURCES, COMPATIBLE_2024_SOURCES);
+  const isActual2024 = isActual2024Record(record, PRIMARY_2024_SOURCES);
+  const isSelectableInBuilder = isBuilderSelectableRecord(record, PRIMARY_2024_SOURCES, COMPATIBLE_2024_SOURCES);
 
   return {
     id,
@@ -66,10 +68,10 @@ function createBaseRecord(kind, record, id) {
     name: record.name,
     sourceCode: record.source,
     sourceName: getSourceName(record.source),
-    rulesEdition: is2024Compatible ? '2024' : 'legacy',
+    rulesEdition: isActual2024 ? '2024' : '2014',
     isPrimary2024,
-    isLegacy: !is2024Compatible,
-    isSelectableInBuilder: is2024Compatible,
+    isLegacy: !isActual2024,
+    isSelectableInBuilder,
     summary: summarizeText(text),
     searchText,
     renderPayload: {

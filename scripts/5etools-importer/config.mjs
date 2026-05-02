@@ -21,7 +21,7 @@ export const SOURCE_FILES = {
   variantRules: 'data/variantrules.json',
 };
 
-export const PRIMARY_2024_SOURCES = new Set(['XPHB']);
+export const PRIMARY_2024_SOURCES = new Set(['XPHB', 'EFA']);
 
 export const COMPATIBLE_2024_SOURCES = new Set(['FRHoF', 'XGE', 'TCE', 'FTD', 'BMT', 'AAG', 'SCC', 'EGW']);
 
