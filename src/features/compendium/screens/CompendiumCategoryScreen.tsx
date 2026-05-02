@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlatList, Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
@@ -192,7 +192,7 @@ export function CompendiumCategoryScreen() {
                 <Text style={styles.sheetCloseLabel}>Done</Text>
               </Pressable>
             </View>
-            <View style={styles.sheetSections}>
+            <ScrollView contentContainerStyle={styles.sheetSections} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
               {browse.filterSections.map((section) => (
                 <View key={section.key} style={styles.sheetSection}>
                   <Text style={styles.sectionLabel}>{section.title}</Text>
@@ -227,7 +227,7 @@ export function CompendiumCategoryScreen() {
                   </View>
                 </View>
               ))}
-            </View>
+            </ScrollView>
           </Pressable>
         </Pressable>
       </Modal>

@@ -47,23 +47,22 @@ function matchesQuery(entity: ContentEntity, query: string) {
 function buildFilterSections(category: CompendiumCategory, entries: ContentEntity[], filters: ReturnType<typeof createDefaultCompendiumFilters>): FilterSection[] {
   const sourceOptions = Array.from(new Map(entries.map((entry) => [entry.sourceCode, { value: entry.sourceCode, label: entry.sourceCode }])).values())
     .sort((left, right) => left.label.localeCompare(right.label));
-  const baseSections: FilterSection[] = [
-    {
-      key: 'editions',
-      title: 'Edition',
-      type: 'multi',
-      options: [
-        { label: '2024', value: '2024' },
-        { label: '2014', value: '2014' },
-      ],
-    },
-    {
-      key: 'sourceCodes',
-      title: 'Source',
-      type: 'multi',
-      options: sourceOptions,
-    },
-  ];
+  const editionSection: FilterSection = {
+    key: 'editions',
+    title: 'Edition',
+    type: 'multi',
+    options: [
+      { label: '2024', value: '2024' },
+      { label: '2014', value: '2014' },
+    ],
+  };
+  const sourceSection: FilterSection = {
+    key: 'sourceCodes',
+    title: 'Source',
+    type: 'multi',
+    options: sourceOptions,
+  };
+  const baseSections: FilterSection[] = [editionSection, sourceSection];
 
   if (category === 'feats') {
     const featTypes = Array.from(new Set(entries.map(getFeatTypeLabel))).sort();
@@ -147,23 +146,12 @@ function buildFilterSections(category: CompendiumCategory, entries: ContentEntit
     const roles = Array.from(new Set(entries.flatMap(getSpellRoleTags))).sort();
 
     return [
+      editionSection,
       {
         key: 'spellLevels',
         title: 'Level',
         type: 'multi',
         options: levels.map((value) => ({ value: String(value), label: value === 0 ? 'Cantrip' : `Level ${value}` })),
-      },
-      {
-        key: 'spellClasses',
-        title: 'Class',
-        type: 'multi',
-        options: spellClasses.map((value) => ({ value, label: value })),
-      },
-      {
-        key: 'spellDamageTypes',
-        title: 'Damage Type',
-        type: 'multi',
-        options: damageTypes.map((value) => ({ value, label: getDamageTypeLabel(value) ?? value })),
       },
       {
         key: 'spellSchools',
@@ -176,6 +164,18 @@ function buildFilterSections(category: CompendiumCategory, entries: ContentEntit
         title: 'Role',
         type: 'multi',
         options: roles.map((value) => ({ value, label: value })),
+      },
+      {
+        key: 'spellClasses',
+        title: 'Class',
+        type: 'multi',
+        options: spellClasses.map((value) => ({ value, label: value })),
+      },
+      {
+        key: 'spellDamageTypes',
+        title: 'Damage Type',
+        type: 'multi',
+        options: damageTypes.map((value) => ({ value, label: getDamageTypeLabel(value) ?? value })),
       },
       {
         key: 'spellRitual',
@@ -199,7 +199,7 @@ function buildFilterSections(category: CompendiumCategory, entries: ContentEntit
         ],
         value: filters.spellConcentration,
       },
-      ...baseSections,
+      sourceSection,
     ];
   }
 
