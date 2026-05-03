@@ -326,9 +326,7 @@ Keep this list current as implementation progresses.
 
 Near-term candidates:
 - Finish Step 23 builder stabilization acceptance by running manual smoke checks.
-- Split `CharacterBuilderScreen.tsx` into smaller step components.
-- Introduce a builder controller/orchestration hook to centralize mutation handlers and derived selectors.
-- Convert builder UI into a true active-step wizard with previous/next navigation and per-step completion/issue state.
+- Convert builder UI into a true active-step wizard with previous/next navigation and per-step completion/issue state (Step 25).
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
 

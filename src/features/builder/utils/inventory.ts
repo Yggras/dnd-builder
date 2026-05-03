@@ -14,7 +14,7 @@ interface StartingEquipmentSource {
   entries: unknown[];
 }
 
-interface StartingEquipmentOptionGroup {
+export interface StartingEquipmentOptionGroup {
   sourceType: 'class' | 'background';
   sourceId: string;
   title: string;

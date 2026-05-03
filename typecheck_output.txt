@@ -1,0 +1,8 @@
+src/features/builder/hooks/useBuilderController.ts(6,15): error TS2300: Duplicate identifier 'BuilderStep'.
+src/features/builder/hooks/useBuilderController.ts(7,15): error TS2300: Duplicate identifier 'BuilderStep'.
+src/features/builder/hooks/useBuilderController.ts(85,9): error TS2322: Type 'Record<string, readonly ChoiceGrant[]>' is not assignable to type 'Record<string, ChoiceGrant[]>'.
+  'string' index signatures are incompatible.
+    The type 'readonly ChoiceGrant[]' is 'readonly' and cannot be assigned to the mutable type 'ChoiceGrant[]'.
+src/features/builder/hooks/useBuilderController.ts(86,9): error TS2322: Type 'Record<string, readonly ContentEntity[]>' is not assignable to type 'Record<string, ContentEntity[]>'.
+  'string' index signatures are incompatible.
+    The type 'readonly ContentEntity[]' is 'readonly' and cannot be assigned to the mutable type 'ContentEntity[]'.
