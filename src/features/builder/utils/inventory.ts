@@ -4,6 +4,7 @@ import type {
   BuilderIssue,
   BuilderStartingEquipmentChoice,
 } from '@/features/builder/types';
+import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ContentEntity } from '@/shared/types/domain';
 
 interface StartingEquipmentSource {
@@ -30,6 +31,12 @@ interface SeedPreview {
   currency: BuilderDraftPayload['inventoryStep']['startingCurrency'];
   unresolved: string[];
   issues: BuilderIssue[];
+}
+
+interface ReconcileInventoryOptions {
+  payload: BuilderDraftPayload;
+  classEntitiesById: Record<string, ContentEntity>;
+  backgroundEntitiesById: Record<string, ContentEntity>;
 }
 
 function toTitleCase(value: string) {
@@ -193,6 +200,74 @@ export function getStartingEquipmentSources(payload: BuilderDraftPayload, classE
   return sources;
 }
 
+export function getStartingEquipmentReviewKey(
+  payload: BuilderDraftPayload,
+  classEntitiesById: Record<string, ContentEntity>,
+  backgroundEntitiesById: Record<string, ContentEntity>,
+) {
+  const sources = getStartingEquipmentSources(payload, classEntitiesById, backgroundEntitiesById);
+
+  if (sources.length === 0) {
+    return null;
+  }
+
+  return sources
+    .map((source) => `${source.sourceType}:${source.sourceId}:${source.entries.length}`)
+    .sort()
+    .join('|');
+}
+
+function hasStartingEquipmentState(payload: BuilderDraftPayload) {
+  const currency = payload.inventoryStep.startingCurrency;
+
+  return (
+    payload.inventoryStep.entries.some((entry) => entry.source === 'starting-equipment') ||
+    payload.inventoryStep.selectedStartingEquipment.length > 0 ||
+    payload.inventoryStep.unresolvedStartingGear.length > 0 ||
+    currency.cp > 0 ||
+    currency.sp > 0 ||
+    currency.gp > 0
+  );
+}
+
+function buildStartingEquipmentReviewIssue(currentReviewKey: string | null): BuilderIssue {
+  return {
+    id: 'inventory-starting-equipment-review',
+    category: 'checklist',
+    step: 'inventory',
+    summary: 'Starting equipment needs review.',
+    detail: currentReviewKey
+      ? 'Class or background choices changed after starting equipment was last reviewed. Reseed or review inventory before completing the build.'
+      : 'Current class or background choices no longer provide the same starting equipment context. Review inventory before completing the build.',
+    affectsCompletion: true,
+    resolvedByOverride: false,
+  };
+}
+
+export function reconcileInventoryPayload({
+  payload,
+  classEntitiesById,
+  backgroundEntitiesById,
+}: ReconcileInventoryOptions) {
+  const currentReviewKey = getStartingEquipmentReviewKey(payload, classEntitiesById, backgroundEntitiesById);
+  const previousReviewKey = payload.inventoryStep.startingEquipmentReviewKey ?? null;
+  const needsReview = currentReviewKey !== previousReviewKey && (currentReviewKey != null || hasStartingEquipmentState(payload));
+  const preservedIssues = payload.review.issues.filter((issue) => issue.step !== 'inventory' || issue.id !== 'inventory-starting-equipment-review');
+  const nextIssues = sortBuilderIssues(needsReview ? [...preservedIssues, buildStartingEquipmentReviewIssue(currentReviewKey)] : preservedIssues);
+
+  return {
+    ...payload,
+    inventoryStep: {
+      ...payload.inventoryStep,
+      startingEquipmentReviewKey: previousReviewKey,
+    },
+    review: {
+      ...payload.review,
+      issues: nextIssues,
+    },
+  } satisfies BuilderDraftPayload;
+}
+
 export function getStartingEquipmentOptionGroups(
   payload: BuilderDraftPayload,
   classEntitiesById: Record<string, ContentEntity>,
@@ -237,6 +312,7 @@ export function seedStartingEquipment(
   itemEntitiesById: Record<string, ContentEntity>,
 ) {
   const sources = getStartingEquipmentSources(payload, classEntitiesById, backgroundEntitiesById);
+  const startingEquipmentReviewKey = getStartingEquipmentReviewKey(payload, classEntitiesById, backgroundEntitiesById);
   const preview: SeedPreview = {
     entries: [],
     currency: { cp: 0, sp: 0, gp: 0 },
@@ -337,12 +413,13 @@ export function seedStartingEquipment(
         ...payload.inventoryStep,
         entries: mergedEntries,
         selectedStartingEquipment: normalizedSelections,
+        startingEquipmentReviewKey,
         startingCurrency: preview.currency,
         unresolvedStartingGear: preview.unresolved,
       },
       review: {
         ...payload.review,
-        issues: [...preservedIssues, ...preview.issues],
+        issues: sortBuilderIssues([...preservedIssues, ...preview.issues]),
       },
     } satisfies BuilderDraftPayload,
     summary:

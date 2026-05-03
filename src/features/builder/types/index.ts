@@ -144,6 +144,7 @@ export interface BuilderDraftPayload {
   inventoryStep: {
     entries: BuilderInventoryEntry[];
     selectedStartingEquipment: BuilderStartingEquipmentChoice[];
+    startingEquipmentReviewKey: string | null;
     startingCurrency: BuilderCurrencyState;
     unresolvedStartingGear: string[];
   };
@@ -285,6 +286,7 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
     inventoryStep: {
       entries: [],
       selectedStartingEquipment: [],
+      startingEquipmentReviewKey: null,
       startingCurrency: {
         cp: 0,
         sp: 0,

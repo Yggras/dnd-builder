@@ -3,11 +3,16 @@ import { useEffect, useMemo, type Dispatch, type SetStateAction } from 'react';
 import { BuilderService } from '@/features/builder/services/BuilderService';
 import type { BuilderCharacterBuild, BuilderDraftPayload, BuilderValidationSummary } from '@/features/builder/types';
 import { reconcileClassStepPayload } from '@/features/builder/utils/classStep';
+import { reconcileInventoryPayload } from '@/features/builder/utils/inventory';
 import { reconcileOriginAndAbilitiesPayload } from '@/features/builder/utils/originAndAbilities';
 import { deriveSourceSummary, mergeReviewIssues, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 
 const builderService = new BuilderService();
+
+function getBuildStateAfterReconciliation(build: BuilderCharacterBuild, issues: BuilderDraftPayload['review']['issues']) {
+  return build.buildState === 'complete' && !builderService.canComplete(issues) ? 'draft' : build.buildState;
+}
 
 type UseBuilderReconciliationOptions = {
   allEntitiesById: Record<string, ContentEntity>;
@@ -51,23 +56,48 @@ export function useBuilderReconciliation({
       return;
     }
 
-    const { payload: reconciledPayload } = reconcileClassStepPayload({
+    const { payload: preflightPayload } = reconcileClassStepPayload({
       payload: draftBuild.payload,
       classEntitiesById,
       grantsByClassId,
       grantOptionsByGrantId,
     });
+    const preflightBuildState = getBuildStateAfterReconciliation(draftBuild, preflightPayload.review.issues);
 
-    const currentIssuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
-
-    if (currentIssuesSnapshot === nextIssuesSnapshot) {
+    if (
+      JSON.stringify(draftBuild.payload.classStep) === JSON.stringify(preflightPayload.classStep) &&
+      JSON.stringify(draftBuild.payload.review.issues) === JSON.stringify(preflightPayload.review.issues) &&
+      draftBuild.buildState === preflightBuildState
+    ) {
       return;
     }
 
-    setDraftBuild({
-      ...draftBuild,
-      payload: reconciledPayload,
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) {
+        return currentBuild;
+      }
+
+      const { payload: reconciledPayload } = reconcileClassStepPayload({
+        payload: currentBuild.payload,
+        classEntitiesById,
+        grantsByClassId,
+        grantOptionsByGrantId,
+      });
+
+      const currentClassSnapshot = JSON.stringify(currentBuild.payload.classStep);
+      const nextClassSnapshot = JSON.stringify(reconciledPayload.classStep);
+      const currentIssuesSnapshot = JSON.stringify(currentBuild.payload.review.issues);
+      const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
+
+      if (currentClassSnapshot === nextClassSnapshot && currentIssuesSnapshot === nextIssuesSnapshot) {
+        return currentBuild;
+      }
+
+      return {
+        ...currentBuild,
+        buildState: getBuildStateAfterReconciliation(currentBuild, reconciledPayload.review.issues),
+        payload: reconciledPayload,
+      };
     });
   }, [draftBuild, classesLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId, setDraftBuild]);
 
@@ -76,35 +106,61 @@ export function useBuilderReconciliation({
       return;
     }
 
-    const { payload: reconciledPayload } = reconcileOriginAndAbilitiesPayload({
+    const { payload: preflightPayload } = reconcileOriginAndAbilitiesPayload({
       payload: draftBuild.payload,
       classEntitiesById,
       speciesEntitiesById,
       backgroundEntitiesById,
       featEntitiesById,
     });
-
-    const currentIssuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
-    const currentAbilitySnapshot = JSON.stringify(draftBuild.payload.abilityPointsStep);
-    const nextAbilitySnapshot = JSON.stringify(reconciledPayload.abilityPointsStep);
-    const currentSpeciesSnapshot = JSON.stringify(draftBuild.payload.speciesStep);
-    const nextSpeciesSnapshot = JSON.stringify(reconciledPayload.speciesStep);
-    const currentBackgroundSnapshot = JSON.stringify(draftBuild.payload.backgroundStep);
-    const nextBackgroundSnapshot = JSON.stringify(reconciledPayload.backgroundStep);
+    const preflightBuildState = getBuildStateAfterReconciliation(draftBuild, preflightPayload.review.issues);
 
     if (
-      currentIssuesSnapshot === nextIssuesSnapshot &&
-      currentAbilitySnapshot === nextAbilitySnapshot &&
-      currentSpeciesSnapshot === nextSpeciesSnapshot &&
-      currentBackgroundSnapshot === nextBackgroundSnapshot
+      JSON.stringify(draftBuild.payload.review.issues) === JSON.stringify(preflightPayload.review.issues) &&
+      JSON.stringify(draftBuild.payload.abilityPointsStep) === JSON.stringify(preflightPayload.abilityPointsStep) &&
+      JSON.stringify(draftBuild.payload.speciesStep) === JSON.stringify(preflightPayload.speciesStep) &&
+      JSON.stringify(draftBuild.payload.backgroundStep) === JSON.stringify(preflightPayload.backgroundStep) &&
+      draftBuild.buildState === preflightBuildState
     ) {
       return;
     }
 
-    setDraftBuild({
-      ...draftBuild,
-      payload: reconciledPayload,
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) {
+        return currentBuild;
+      }
+
+      const { payload: reconciledPayload } = reconcileOriginAndAbilitiesPayload({
+        payload: currentBuild.payload,
+        classEntitiesById,
+        speciesEntitiesById,
+        backgroundEntitiesById,
+        featEntitiesById,
+      });
+
+      const currentIssuesSnapshot = JSON.stringify(currentBuild.payload.review.issues);
+      const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
+      const currentAbilitySnapshot = JSON.stringify(currentBuild.payload.abilityPointsStep);
+      const nextAbilitySnapshot = JSON.stringify(reconciledPayload.abilityPointsStep);
+      const currentSpeciesSnapshot = JSON.stringify(currentBuild.payload.speciesStep);
+      const nextSpeciesSnapshot = JSON.stringify(reconciledPayload.speciesStep);
+      const currentBackgroundSnapshot = JSON.stringify(currentBuild.payload.backgroundStep);
+      const nextBackgroundSnapshot = JSON.stringify(reconciledPayload.backgroundStep);
+
+      if (
+        currentIssuesSnapshot === nextIssuesSnapshot &&
+        currentAbilitySnapshot === nextAbilitySnapshot &&
+        currentSpeciesSnapshot === nextSpeciesSnapshot &&
+        currentBackgroundSnapshot === nextBackgroundSnapshot
+      ) {
+        return currentBuild;
+      }
+
+      return {
+        ...currentBuild,
+        buildState: getBuildStateAfterReconciliation(currentBuild, reconciledPayload.review.issues),
+        payload: reconciledPayload,
+      };
     });
   }, [
     draftBuild,
@@ -120,46 +176,124 @@ export function useBuilderReconciliation({
   ]);
 
   useEffect(() => {
+    if (!draftBuild || classesLoading || backgroundsLoading) {
+      return;
+    }
+
+    const preflightPayload = reconcileInventoryPayload({
+      payload: draftBuild.payload,
+      classEntitiesById,
+      backgroundEntitiesById,
+    });
+    const preflightBuildState = getBuildStateAfterReconciliation(draftBuild, preflightPayload.review.issues);
+
+    if (
+      JSON.stringify(draftBuild.payload.inventoryStep) === JSON.stringify(preflightPayload.inventoryStep) &&
+      JSON.stringify(draftBuild.payload.review.issues) === JSON.stringify(preflightPayload.review.issues) &&
+      draftBuild.buildState === preflightBuildState
+    ) {
+      return;
+    }
+
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) {
+        return currentBuild;
+      }
+
+      const reconciledPayload = reconcileInventoryPayload({
+        payload: currentBuild.payload,
+        classEntitiesById,
+        backgroundEntitiesById,
+      });
+      const currentInventorySnapshot = JSON.stringify(currentBuild.payload.inventoryStep);
+      const nextInventorySnapshot = JSON.stringify(reconciledPayload.inventoryStep);
+      const currentIssuesSnapshot = JSON.stringify(currentBuild.payload.review.issues);
+      const nextIssuesSnapshot = JSON.stringify(reconciledPayload.review.issues);
+
+      if (currentInventorySnapshot === nextInventorySnapshot && currentIssuesSnapshot === nextIssuesSnapshot) {
+        return currentBuild;
+      }
+
+      return {
+        ...currentBuild,
+        buildState: getBuildStateAfterReconciliation(currentBuild, reconciledPayload.review.issues),
+        payload: reconciledPayload,
+      };
+    });
+  }, [
+    draftBuild,
+    classesLoading,
+    backgroundsLoading,
+    classEntitiesById,
+    backgroundEntitiesById,
+    setDraftBuild,
+  ]);
+
+  useEffect(() => {
     if (!draftBuild || allSpellsLoading) {
       return;
     }
 
-    const spellSummary = summarizeSpellcasting(
+    const preflightSpellSummary = summarizeSpellcasting(
       draftBuild.payload,
       classEntitiesById,
       subclassEntitiesById,
       spellEntitiesById,
     );
-    const nextIssues = mergeReviewIssues(draftBuild.payload, spellSummary.issues);
-    const nextSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
-    const issuesSnapshot = JSON.stringify(draftBuild.payload.review.issues);
-    const nextIssuesSnapshot = JSON.stringify(nextIssues);
-    const sourceSummarySnapshot = JSON.stringify(draftBuild.payload.review.sourceSummary);
-    const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
+    const preflightIssues = mergeReviewIssues(draftBuild.payload, preflightSpellSummary.issues);
+    const preflightSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
+    const preflightBuildState = draftBuild.buildState === 'complete' && builderService.canComplete(preflightIssues) ? 'complete' : 'draft';
 
-    if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
-      if (draftBuild.buildState === 'complete' && builderService.canComplete(draftBuild.payload.review.issues) === false) {
-        setDraftBuild({
-          ...draftBuild,
-          buildState: 'draft',
-        });
-      }
-
+    if (
+      JSON.stringify(draftBuild.payload.review.issues) === JSON.stringify(preflightIssues) &&
+      JSON.stringify(draftBuild.payload.review.sourceSummary) === JSON.stringify(preflightSourceSummary) &&
+      draftBuild.buildState === preflightBuildState
+    ) {
       return;
     }
 
-    const nextPayload: BuilderDraftPayload = {
-      ...draftBuild.payload,
-      review: {
-        issues: nextIssues,
-        sourceSummary: nextSourceSummary,
-      },
-    };
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) {
+        return currentBuild;
+      }
 
-    setDraftBuild({
-      ...draftBuild,
-      buildState: draftBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
-      payload: nextPayload,
+      const spellSummary = summarizeSpellcasting(
+        currentBuild.payload,
+        classEntitiesById,
+        subclassEntitiesById,
+        spellEntitiesById,
+      );
+      const nextIssues = mergeReviewIssues(currentBuild.payload, spellSummary.issues);
+      const nextSourceSummary = deriveSourceSummary(currentBuild.payload, allEntitiesById);
+      const issuesSnapshot = JSON.stringify(currentBuild.payload.review.issues);
+      const nextIssuesSnapshot = JSON.stringify(nextIssues);
+      const sourceSummarySnapshot = JSON.stringify(currentBuild.payload.review.sourceSummary);
+      const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
+
+      if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
+        if (currentBuild.buildState === 'complete' && builderService.canComplete(currentBuild.payload.review.issues) === false) {
+          return {
+            ...currentBuild,
+            buildState: 'draft',
+          };
+        }
+
+        return currentBuild;
+      }
+
+      const nextPayload: BuilderDraftPayload = {
+        ...currentBuild.payload,
+        review: {
+          issues: nextIssues,
+          sourceSummary: nextSourceSummary,
+        },
+      };
+
+      return {
+        ...currentBuild,
+        buildState: currentBuild.buildState === 'complete' && builderService.canComplete(nextIssues) ? 'complete' : 'draft',
+        payload: nextPayload,
+      };
     });
   }, [
     allSpellsLoading,

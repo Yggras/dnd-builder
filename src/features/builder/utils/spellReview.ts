@@ -1,4 +1,5 @@
 import type { BuilderDraftPayload, BuilderIssue, BuilderSourceSummary } from '@/features/builder/types';
+import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ContentEntity } from '@/shared/types/domain';
 
 interface SpellcastingSummary {
@@ -327,5 +328,5 @@ export function deriveSourceSummary(
 
 export function mergeReviewIssues(payload: BuilderDraftPayload, nextIssues: BuilderIssue[]) {
   const preservedIssues = payload.review.issues.filter((issue) => !['spells', 'review'].includes(issue.step));
-  return [...preservedIssues, ...nextIssues];
+  return sortBuilderIssues([...preservedIssues, ...nextIssues]);
 }

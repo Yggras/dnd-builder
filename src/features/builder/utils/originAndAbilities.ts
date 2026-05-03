@@ -5,6 +5,7 @@ import type {
   BuilderIssue,
   BuilderOriginAbilityPackageSelection,
 } from '@/features/builder/types';
+import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ContentEntity } from '@/shared/types/domain';
 
 type AbilityKey = 'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha';
@@ -345,7 +346,7 @@ export function countAvailableAsiPoints(payload: BuilderDraftPayload, classEntit
 
 function mergeStepIssues(payload: BuilderDraftPayload, nextIssues: BuilderIssue[], steps: Array<BuilderIssue['step']>) {
   const preservedIssues = payload.review.issues.filter((issue) => !steps.includes(issue.step));
-  return [...preservedIssues, ...nextIssues];
+  return sortBuilderIssues([...preservedIssues, ...nextIssues]);
 }
 
 export function reconcileOriginAndAbilitiesPayload({

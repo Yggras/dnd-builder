@@ -45,6 +45,22 @@ function formatStepLabel(step: BuilderStep) {
   return step.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
+function getSaveStatusText(saveStatus: 'saved' | 'dirty' | 'saving' | 'error', isCompletingBuild: boolean, saveError: Error | null) {
+  if (isCompletingBuild || saveStatus === 'saving') {
+    return 'Saving...';
+  }
+
+  if (saveStatus === 'dirty') {
+    return 'Unsaved changes';
+  }
+
+  if (saveStatus === 'error') {
+    return saveError?.message ?? 'Autosave failed';
+  }
+
+  return 'Autosave ready';
+}
+
 function getSelectedOriginPackageId(
   requirement: NormalizedAbilityRequirement,
   packageSelections: BuilderDraftPayload['abilityPointsStep']['originAbilityPackageSelections'],
@@ -76,7 +92,9 @@ export function CharacterBuilderScreen() {
   const {
     draftBuild,
     isCompletingBuild,
-    lastSavedSnapshot,
+    saveBuildNow,
+    saveError,
+    saveStatus,
     setDraftBuild,
     setIsCompletingBuild,
   } = useBuilderDraftState({ data, saveBuildMutation });
@@ -684,14 +702,19 @@ export function CharacterBuilderScreen() {
     });
   };
 
-  const completeBuild = () => {
+  const completeBuild = async () => {
     if (!validationSummary?.canComplete) {
       setCompletionMessage('Resolve all blockers and checklist items before completing the build.');
       return;
     }
 
-    if (saveBuildMutation.isPending) {
+    if (saveStatus === 'saving' || saveBuildMutation.isPending) {
       setCompletionMessage('Wait for the current save to finish before completing the build.');
+      return;
+    }
+
+    if (saveStatus === 'error') {
+      setCompletionMessage(saveError?.message ?? 'Resolve the current save issue before completing the build.');
       return;
     }
 
@@ -708,22 +731,18 @@ export function CharacterBuilderScreen() {
       },
     };
 
-    const completedSnapshot = JSON.stringify(completedBuild);
-    lastSavedSnapshot.current = completedSnapshot;
     setIsCompletingBuild(true);
     setDraftBuild(completedBuild);
     setCompletionMessage(null);
-    saveBuildMutation.mutate(completedBuild, {
-      onSuccess: () => {
-        setIsCompletingBuild(false);
-        router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
-      },
-      onError: () => {
-        lastSavedSnapshot.current = null;
-        setIsCompletingBuild(false);
-        setCompletionMessage('Unable to save the completed build. Resolve the save issue and try again.');
-      },
-    });
+
+    try {
+      await saveBuildNow(completedBuild);
+      setIsCompletingBuild(false);
+      router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
+    } catch {
+      setIsCompletingBuild(false);
+      setCompletionMessage('Unable to save the completed build. Resolve the save issue and try again.');
+    }
   };
 
   return (
@@ -741,7 +760,9 @@ export function CharacterBuilderScreen() {
               {draftBuild.buildState === 'complete' ? 'Complete' : 'Draft'}
             </Text>
           </View>
-          <Text style={styles.statusText}>{isCompletingBuild || saveBuildMutation.isPending ? 'Saving...' : 'Autosave ready'}</Text>
+          <Text style={[styles.statusText, saveStatus === 'error' && styles.statusTextError]}>
+            {getSaveStatusText(saveStatus, isCompletingBuild, saveError)}
+          </Text>
         </View>
       </View>
 
@@ -1362,7 +1383,7 @@ export function CharacterBuilderScreen() {
         onCompleteBuild={completeBuild}
         payload={payload}
         reviewIssueGroups={reviewIssueGroups}
-        saveIsPending={saveBuildMutation.isPending}
+        saveIsPending={saveStatus === 'saving' || saveBuildMutation.isPending || saveStatus === 'error'}
         validationSummary={validationSummary}
       />
     </Screen>
@@ -1422,6 +1443,9 @@ const styles = StyleSheet.create({
   statusText: {
     color: theme.colors.textMuted,
     ...typography.meta,
+  },
+  statusTextError: {
+    color: theme.colors.danger,
   },
   section: {
     backgroundColor: theme.colors.surface,

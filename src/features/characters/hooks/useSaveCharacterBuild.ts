@@ -15,9 +15,15 @@ export function useSaveCharacterBuild() {
     onSuccess: async (savedBuild) => {
       const character = await characterService.getCharacter(savedBuild.characterId);
 
-      queryClient.setQueryData(queryKeys.character(savedBuild.characterId), {
-        character,
-        build: savedBuild,
+      queryClient.setQueryData<{ character: Awaited<ReturnType<typeof characterService.getCharacter>>; build: CharacterBuild }>(queryKeys.character(savedBuild.characterId), (existing) => {
+        if (existing?.build && existing.build.revision > savedBuild.revision) {
+          return existing;
+        }
+
+        return {
+          character,
+          build: savedBuild,
+        };
       });
       queryClient.invalidateQueries({ queryKey: queryKeys.characters });
     },

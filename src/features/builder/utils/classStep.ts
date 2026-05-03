@@ -1,4 +1,5 @@
 import type { BuilderDraftPayload, BuilderFeatureChoiceSelection, BuilderIssue } from '@/features/builder/types';
+import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 
 interface ReconcileClassStepOptions {
@@ -131,7 +132,7 @@ function buildMulticlassIssue(classEntity: ContentEntity, summary: string): Buil
 
 function mergeStepIssues(payload: BuilderDraftPayload, nextIssues: BuilderIssue[]) {
   const preservedIssues = payload.review.issues.filter((issue) => issue.step !== 'class');
-  return [...preservedIssues, ...nextIssues];
+  return sortBuilderIssues([...preservedIssues, ...nextIssues]);
 }
 
 export function reconcileClassStepPayload({

@@ -251,13 +251,30 @@ export class SQLiteCharacterRepository implements CharacterRepository {
       throw new Error('Character not found for build save.');
     }
 
-    const timestamp = new Date().toISOString();
-    const characterName = deriveCharacterName(build, existingCharacter.name);
-    const characterLevel = deriveCharacterLevel(build, existingCharacter.level);
-    const nextRevision = build.revision + 1;
-    const completionUpdatedAt = build.buildState === 'complete' ? timestamp : null;
+    let savedBuild: CharacterBuild | null = null;
 
     await database.withExclusiveTransactionAsync(async (transaction) => {
+      const currentBuildRow = await transaction.getFirstAsync<CharacterBuildRow>(
+        `SELECT *
+         FROM character_builds
+         WHERE character_id = ?`,
+        build.characterId,
+      );
+
+      if (!currentBuildRow) {
+        throw new Error('Character build not found for save.');
+      }
+
+      if (build.revision < currentBuildRow.revision) {
+        throw new Error('Stale character build save rejected.');
+      }
+
+      const timestamp = new Date().toISOString();
+      const characterName = deriveCharacterName(build, existingCharacter.name);
+      const characterLevel = deriveCharacterLevel(build, existingCharacter.level);
+      const nextRevision = currentBuildRow.revision + 1;
+      const completionUpdatedAt = build.buildState === 'complete' ? timestamp : null;
+
       await transaction.runAsync(
         `UPDATE characters
          SET name = ?, level = ?, updated_at = ?
@@ -285,13 +302,19 @@ export class SQLiteCharacterRepository implements CharacterRepository {
         timestamp,
         build.characterId,
       );
+
+      savedBuild = {
+        ...build,
+        revision: nextRevision,
+        completionUpdatedAt,
+        updatedAt: timestamp,
+      };
     });
 
-    return {
-      ...build,
-      revision: nextRevision,
-      completionUpdatedAt,
-      updatedAt: timestamp,
-    };
+    if (!savedBuild) {
+      throw new Error('Character build save failed.');
+    }
+
+    return savedBuild;
   }
 }

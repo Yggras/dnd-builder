@@ -1,4 +1,4 @@
-import type { BuilderIssue } from '@/features/builder/types';
+import { builderStepOrder, type BuilderIssue, type BuilderIssueCategory } from '@/features/builder/types';
 import type { ContentEntity } from '@/shared/types/domain';
 
 type BuilderEntityIndexInput = {
@@ -17,6 +17,29 @@ export type BuilderIssueGroup = {
   title: string;
   issues: BuilderIssue[];
 };
+
+const ISSUE_CATEGORY_ORDER: Record<BuilderIssueCategory, number> = {
+  blocker: 0,
+  checklist: 1,
+  override: 2,
+  notice: 3,
+};
+
+function getStepOrder(step: BuilderIssue['step']) {
+  const index = builderStepOrder.indexOf(step);
+  return index === -1 ? 999 : index;
+}
+
+export function sortBuilderIssues(issues: readonly BuilderIssue[]) {
+  return [...issues].sort((left, right) => {
+    return (
+      getStepOrder(left.step) - getStepOrder(right.step) ||
+      ISSUE_CATEGORY_ORDER[left.category] - ISSUE_CATEGORY_ORDER[right.category] ||
+      left.id.localeCompare(right.id) ||
+      left.summary.localeCompare(right.summary)
+    );
+  });
+}
 
 export function buildBuilderEntityIndex({
   classEntitiesById,
@@ -41,26 +64,27 @@ export function buildBuilderEntityIndex({
 }
 
 export function getBuilderIssueGroups(issues: readonly BuilderIssue[]): BuilderIssueGroup[] {
+  const sortedIssues = sortBuilderIssues(issues);
   const groups: BuilderIssueGroup[] = [
     {
       key: 'blocker',
       title: 'Blockers',
-      issues: issues.filter((issue) => issue.category === 'blocker' && !issue.resolvedByOverride),
+      issues: sortedIssues.filter((issue) => issue.category === 'blocker' && !issue.resolvedByOverride),
     },
     {
       key: 'checklist',
       title: 'Checklist',
-      issues: issues.filter((issue) => issue.category === 'checklist' && !issue.resolvedByOverride),
+      issues: sortedIssues.filter((issue) => issue.category === 'checklist' && !issue.resolvedByOverride),
     },
     {
       key: 'notice',
       title: 'Notices',
-      issues: issues.filter((issue) => issue.category === 'notice'),
+      issues: sortedIssues.filter((issue) => issue.category === 'notice'),
     },
     {
       key: 'override',
       title: 'Overrides',
-      issues: issues.filter((issue) => issue.category === 'override' || issue.resolvedByOverride),
+      issues: sortedIssues.filter((issue) => issue.category === 'override' || issue.resolvedByOverride),
     },
   ];
 
