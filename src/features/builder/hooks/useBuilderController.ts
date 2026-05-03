@@ -15,6 +15,30 @@ import { getStartingEquipmentOptionGroups, seedStartingEquipment } from '@/featu
 import { getBuilderIssueGroups } from '@/features/builder/utils/review';
 import { summarizeSpellcasting } from '@/features/builder/utils/spellReview';
 
+export type BuilderWizardPhaseId = 'class' | 'origin' | 'abilities' | 'inventory' | 'basics' | 'review';
+
+export interface BuilderWizardPhase {
+  id: BuilderWizardPhaseId;
+  label: string;
+  steps: BuilderStep[];
+}
+
+export const WIZARD_PHASES: BuilderWizardPhase[] = [
+  { id: 'class', label: 'Class & Spells', steps: ['class', 'spells'] },
+  { id: 'origin', label: 'Origin', steps: ['species', 'background'] },
+  { id: 'abilities', label: 'Abilities', steps: ['ability-points'] },
+  { id: 'inventory', label: 'Inventory', steps: ['inventory'] },
+  { id: 'basics', label: 'Basics', steps: ['characteristics', 'notes'] },
+  { id: 'review', label: 'Review', steps: ['review'] },
+];
+
+export function getPhaseForStep(step: BuilderStep): BuilderWizardPhaseId {
+  const phase = WIZARD_PHASES.find((p) => p.steps.includes(step));
+  return phase?.id ?? 'class';
+}
+
+export type WizardPhaseStatus = 'complete' | 'warning' | 'error';
+
 function buildClassAllocationId() {
   return typeof crypto !== 'undefined' && 'randomUUID' in crypto
     ? crypto.randomUUID()
@@ -633,6 +657,50 @@ export function useBuilderController({
   
   const startingEquipmentOptionGroups = payload ? getStartingEquipmentOptionGroups(payload, classEntitiesById, backgroundEntitiesById) : [];
 
+  const activePhaseId = payload ? getPhaseForStep(draftBuild!.currentStep) : 'class';
+  const activePhaseIndex = WIZARD_PHASES.findIndex((p) => p.id === activePhaseId);
+
+  const goToNextPhase = () => {
+    if (activePhaseIndex >= 0 && activePhaseIndex < WIZARD_PHASES.length - 1) {
+      const nextPhase = WIZARD_PHASES[activePhaseIndex + 1];
+      if (nextPhase && nextPhase.steps[0]) {
+        updateCurrentStep(nextPhase.steps[0]);
+      }
+    }
+  };
+
+  const goToPreviousPhase = () => {
+    if (activePhaseIndex > 0) {
+      const prevPhase = WIZARD_PHASES[activePhaseIndex - 1];
+      if (prevPhase && prevPhase.steps[0]) {
+        updateCurrentStep(prevPhase.steps[0]);
+      }
+    }
+  };
+
+  const goToPhase = (phaseId: BuilderWizardPhaseId) => {
+    const targetPhase = WIZARD_PHASES.find((p) => p.id === phaseId);
+    if (targetPhase && targetPhase.steps[0]) {
+      updateCurrentStep(targetPhase.steps[0]);
+    }
+  };
+
+  const getPhaseStatus = (phaseId: BuilderWizardPhaseId): WizardPhaseStatus => {
+    if (!payload) return 'complete';
+    const phase = WIZARD_PHASES.find((p) => p.id === phaseId);
+    if (!phase) return 'complete';
+
+    const phaseIssues = payload.review.issues.filter((issue) => phase.steps.includes(issue.step));
+    
+    if (phaseIssues.some((issue) => issue.category === 'blocker')) {
+      return 'error';
+    }
+    if (phaseIssues.length > 0) {
+      return 'warning';
+    }
+    return 'complete';
+  };
+
   return {
     classImpactSummary,
     originImpactSummary,
@@ -653,7 +721,13 @@ export function useBuilderController({
     visibleSpellResults,
     reviewIssueGroups,
     startingEquipmentOptionGroups,
+    activePhaseId,
+    activePhaseIndex,
+    getPhaseStatus,
 
+    goToNextPhase,
+    goToPreviousPhase,
+    goToPhase,
     updateCurrentStep,
     applyClassPayloadChange,
     applyOriginPayloadChange,

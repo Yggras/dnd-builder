@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { BuilderService } from '@/features/builder/services/BuilderService';
 import { BuilderReviewSection } from '@/features/builder/components/BuilderReviewSection';
 import { BuilderSpellsSection } from '@/features/builder/components/BuilderSpellsSection';
@@ -10,7 +11,10 @@ import { BuilderStepOrigin } from '@/features/builder/components/BuilderStepOrig
 import { BuilderStepAbilityPoints } from '@/features/builder/components/BuilderStepAbilityPoints';
 import { BuilderStepInventory } from '@/features/builder/components/BuilderStepInventory';
 import { BuilderStepBasics } from '@/features/builder/components/BuilderStepBasics';
-import { useBuilderController } from '@/features/builder/hooks/useBuilderController';
+import { BuilderWizardStepper } from '@/features/builder/components/BuilderWizardStepper';
+import { BuilderWizardNavigation } from '@/features/builder/components/BuilderWizardNavigation';
+import { BuilderWizardSlide } from '@/features/builder/components/BuilderWizardSlide';
+import { useBuilderController, WIZARD_PHASES } from '@/features/builder/hooks/useBuilderController';
 import { useBuilderReconciliation } from '@/features/builder/hooks/useBuilderReconciliation';
 import { useBuilderDraftState } from '@/features/builder/hooks/useBuilderDraftState';
 import { useCharacterBuilderContent } from '@/features/builder/hooks/useCharacterBuilderContent';
@@ -56,6 +60,7 @@ export function CharacterBuilderScreen() {
   const [inventorySearch, setInventorySearch] = useState('');
   const [spellSearch, setSpellSearch] = useState('');
   const [completionMessage, setCompletionMessage] = useState<string | null>(null);
+  const [isBuildSuccess, setIsBuildSuccess] = useState(false);
 
   const {
     draftBuild,
@@ -214,179 +219,201 @@ export function CharacterBuilderScreen() {
     try {
       await saveBuildNow(completedBuild);
       setIsCompletingBuild(false);
-      router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
+      setIsBuildSuccess(true);
+      
+      setTimeout(() => {
+        router.push(`/(app)/characters/${encodeURIComponent(characterId)}/preview` as never);
+      }, 600);
     } catch {
       setIsCompletingBuild(false);
       setCompletionMessage('Unable to save the completed build. Resolve the save issue and try again.');
     }
   };
 
-  return (
-    <Screen contentContainerStyle={styles.container}>
-      <View style={styles.headerCard}>
-        <Text style={styles.eyebrow}>Character Builder</Text>
-        <Text style={styles.title}>{payload.characteristicsStep.name || data.character.name}</Text>
-        <Text style={styles.subtitle}>
-          This guided draft wizard resumes saved progress, autosaves locally, and keeps class, spells, origin, inventory, and review state aligned as the build evolves.
-        </Text>
+  const renderActivePhase = () => {
+    switch (controller.activePhaseId) {
+      case 'class':
+        return (
+          <>
+            <BuilderStepClass
+              addClassAllocation={controller.addClassAllocation}
+              applicableGrants={applicableGrants}
+              availableClasses={controller.availableClasses}
+              classEntitiesById={classEntitiesById}
+              classImpactSummary={controller.classImpactSummary}
+              grantOptionsByGrantId={grantOptionsByGrantId}
+              payload={payload}
+              removeAllocation={controller.removeAllocation}
+              subclassesByClassId={subclassesByClassId}
+              totalAllocatedLevel={controller.totalAllocatedLevel}
+              updateAllocation={controller.updateAllocation}
+              updateFeatureSelection={controller.updateFeatureSelection}
+            />
+            <BuilderSpellsSection
+              onSpellSearchChange={setSpellSearch}
+              payload={payload}
+              selectedCantripCount={controller.selectedCantripCount}
+              selectedKnownLeveledCount={controller.selectedKnownLeveledCount}
+              selectedPreparedCount={controller.selectedPreparedCount}
+              spellSearch={spellSearch}
+              spellSummary={controller.spellSummary!}
+              updateKnownSpellSelection={controller.updateKnownSpellSelection}
+              updatePreparedSpellSelection={controller.updatePreparedSpellSelection}
+              updateSpellExceptionNotes={controller.updateSpellExceptionNotes}
+              visibleSpellResults={controller.visibleSpellResults}
+            />
+          </>
+        );
+      case 'origin':
+        return (
+          <BuilderStepOrigin
+            applyOriginPayloadChange={controller.applyOriginPayloadChange}
+            availableBackgrounds={backgroundsQuery.data ?? []}
+            availableSpecies={speciesQuery.data ?? []}
+            backgroundEntitiesById={backgroundEntitiesById}
+            featEntitiesById={featEntitiesById}
+            originImpactSummary={controller.originImpactSummary}
+            payload={payload}
+            selectedBackground={controller.selectedBackground}
+            selectedSpecies={controller.selectedSpecies}
+            speciesEntitiesById={speciesEntitiesById}
+            updateGrantedFeatSelection={controller.updateGrantedFeatSelection}
+          />
+        );
+      case 'abilities':
+        return (
+          <BuilderStepAbilityPoints
+            availableAsiPoints={controller.availableAsiPoints}
+            originAbilityPackageSelections={controller.originAbilityPackageSelections}
+            originAbilityRequirements={controller.originAbilityRequirements}
+            payload={payload}
+            spentAsiPoints={controller.spentAsiPoints}
+            updateAsiPoint={controller.updateAsiPoint}
+            updateBaseAbilityScore={controller.updateBaseAbilityScore}
+            updateOriginAbilityPackageSelection={controller.updateOriginAbilityPackageSelection}
+            updateOriginAbilitySelection={controller.updateOriginAbilitySelection}
+          />
+        );
+      case 'inventory':
+        return (
+          <BuilderStepInventory
+            addManualItem={controller.addManualItem}
+            applyInventorySeed={controller.applyInventorySeed}
+            inventoryImpactSummary={controller.inventoryImpactSummary}
+            inventorySearch={inventorySearch}
+            itemEntitiesById={itemEntitiesById}
+            itemSearchResults={itemSearchResults}
+            payload={payload}
+            setInventorySearch={setInventorySearch}
+            startingEquipmentOptionGroups={controller.startingEquipmentOptionGroups}
+            updateInventoryEntry={controller.updateInventoryEntry}
+            updateStartingEquipmentChoice={controller.updateStartingEquipmentChoice}
+          />
+        );
+      case 'basics':
+        return (
+          <BuilderStepBasics
+            payload={payload}
+            updateCharacterName={controller.updateCharacterName}
+            updateNotes={controller.updateNotes}
+          />
+        );
+      case 'review':
+        return (
+          <BuilderReviewSection
+            completionMessage={completionMessage}
+            formatStepLabel={formatStepLabel}
+            isCompletingBuild={isCompletingBuild}
+            onCompleteBuild={completeBuild}
+            payload={payload}
+            reviewIssueGroups={controller.reviewIssueGroups}
+            saveIsPending={saveStatus === 'saving' || saveBuildMutation.isPending || saveStatus === 'error'}
+            validationSummary={validationSummary}
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
-        <View style={styles.statusRow}>
+  return (
+    <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={styles.wrapper}>
+      <View pointerEvents="none" style={styles.backdrop} />
+
+      <View style={styles.headerCompact}>
+        <View style={styles.headerTitleRow}>
+          <Text style={styles.title} numberOfLines={1}>
+            {payload.characteristicsStep.name || data.character.name}
+          </Text>
           <View style={[styles.statusBadge, draftBuild.buildState === 'complete' && styles.completeBadge]}>
             <Text style={[styles.statusBadgeLabel, draftBuild.buildState === 'complete' && styles.completeBadgeLabel]}>
               {draftBuild.buildState === 'complete' ? 'Complete' : 'Draft'}
             </Text>
           </View>
-          <Text style={[styles.statusText, saveStatus === 'error' && styles.statusTextError]}>
-            {getSaveStatusText(saveStatus, isCompletingBuild, saveError)}
-          </Text>
         </View>
+        <Text style={[styles.statusText, saveStatus === 'error' && styles.statusTextError]}>
+          {getSaveStatusText(saveStatus, isCompletingBuild, saveError)}
+        </Text>
       </View>
 
-      <BuilderStepOrigin
-        applyOriginPayloadChange={controller.applyOriginPayloadChange}
-        availableBackgrounds={backgroundsQuery.data ?? []}
-        availableSpecies={speciesQuery.data ?? []}
-        backgroundEntitiesById={backgroundEntitiesById}
-        featEntitiesById={featEntitiesById}
-        originImpactSummary={controller.originImpactSummary}
-        payload={payload}
-        selectedBackground={controller.selectedBackground}
-        selectedSpecies={controller.selectedSpecies}
-        speciesEntitiesById={speciesEntitiesById}
-        updateGrantedFeatSelection={controller.updateGrantedFeatSelection}
+      <BuilderWizardStepper
+        activePhaseId={controller.activePhaseId}
+        getPhaseStatus={controller.getPhaseStatus}
+        onPhaseSelect={controller.goToPhase}
       />
 
-      <BuilderStepAbilityPoints
-        availableAsiPoints={controller.availableAsiPoints}
-        originAbilityPackageSelections={controller.originAbilityPackageSelections}
-        originAbilityRequirements={controller.originAbilityRequirements}
-        payload={payload}
-        spentAsiPoints={controller.spentAsiPoints}
-        updateAsiPoint={controller.updateAsiPoint}
-        updateBaseAbilityScore={controller.updateBaseAbilityScore}
-        updateOriginAbilityPackageSelection={controller.updateOriginAbilityPackageSelection}
-        updateOriginAbilitySelection={controller.updateOriginAbilitySelection}
-      />
+      <ScrollView contentContainerStyle={styles.scrollContent} contentInsetAdjustmentBehavior="automatic">
+        <BuilderWizardSlide activePhaseId={controller.activePhaseId} activePhaseIndex={controller.activePhaseIndex}>
+          {renderActivePhase()}
+        </BuilderWizardSlide>
+      </ScrollView>
 
-      <BuilderStepInventory
-        addManualItem={controller.addManualItem}
-        applyInventorySeed={controller.applyInventorySeed}
-        inventoryImpactSummary={controller.inventoryImpactSummary}
-        inventorySearch={inventorySearch}
-        itemEntitiesById={itemEntitiesById}
-        itemSearchResults={itemSearchResults}
-        payload={payload}
-        setInventorySearch={setInventorySearch}
-        startingEquipmentOptionGroups={controller.startingEquipmentOptionGroups}
-        updateInventoryEntry={controller.updateInventoryEntry}
-        updateStartingEquipmentChoice={controller.updateStartingEquipmentChoice}
-      />
-
-      <BuilderStepClass
-        addClassAllocation={controller.addClassAllocation}
-        applicableGrants={applicableGrants}
-        availableClasses={controller.availableClasses}
-        classEntitiesById={classEntitiesById}
-        classImpactSummary={controller.classImpactSummary}
-        grantOptionsByGrantId={grantOptionsByGrantId}
-        payload={payload}
-        removeAllocation={controller.removeAllocation}
-        subclassesByClassId={subclassesByClassId}
-        totalAllocatedLevel={controller.totalAllocatedLevel}
-        updateAllocation={controller.updateAllocation}
-        updateFeatureSelection={controller.updateFeatureSelection}
-      />
-
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Step navigation</Text>
-        <View style={styles.stepGrid}>
-          {builderService.steps.map((step) => {
-            const isActive = step === draftBuild.currentStep;
-
-            return (
-              <Pressable
-                accessibilityRole="button"
-                key={step}
-                onPress={() => controller.updateCurrentStep(step)}
-                style={({ pressed }) => [styles.stepChip, isActive && styles.stepChipActive, pressed && styles.stepChipPressed]}
-              >
-                <Text style={[styles.stepChipLabel, isActive && styles.stepChipLabelActive]}>{formatStepLabel(step)}</Text>
-              </Pressable>
-            );
-          })}
-        </View>
-      </View>
-
-      <BuilderSpellsSection
-        onSpellSearchChange={setSpellSearch}
-        payload={payload}
-        selectedCantripCount={controller.selectedCantripCount}
-        selectedKnownLeveledCount={controller.selectedKnownLeveledCount}
-        selectedPreparedCount={controller.selectedPreparedCount}
-        spellSearch={spellSearch}
-        spellSummary={controller.spellSummary!}
-        updateKnownSpellSelection={controller.updateKnownSpellSelection}
-        updatePreparedSpellSelection={controller.updatePreparedSpellSelection}
-        updateSpellExceptionNotes={controller.updateSpellExceptionNotes}
-        visibleSpellResults={controller.visibleSpellResults}
-      />
-
-      <BuilderStepBasics
-        payload={payload}
-        updateCharacterName={controller.updateCharacterName}
-        updateNotes={controller.updateNotes}
-      />
-
-      <BuilderReviewSection
-        completionMessage={completionMessage}
-        formatStepLabel={formatStepLabel}
+      <BuilderWizardNavigation
+        activePhaseIndex={controller.activePhaseIndex}
+        totalPhases={WIZARD_PHASES.length}
+        canComplete={validationSummary?.canComplete ?? false}
         isCompletingBuild={isCompletingBuild}
+        isBuildSuccess={isBuildSuccess}
+        goToPreviousPhase={controller.goToPreviousPhase}
+        goToNextPhase={controller.goToNextPhase}
         onCompleteBuild={completeBuild}
-        payload={payload}
-        reviewIssueGroups={controller.reviewIssueGroups}
-        saveIsPending={saveStatus === 'saving' || saveBuildMutation.isPending || saveStatus === 'error'}
-        validationSummary={validationSummary}
       />
-    </Screen>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    gap: theme.spacing.xl,
+  wrapper: {
+    backgroundColor: theme.colors.background,
+    flex: 1,
   },
-  headerCard: {
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.lg,
-    borderWidth: 1,
-    gap: theme.spacing.sm,
-    padding: theme.spacing.lg,
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: theme.colors.backgroundDeep,
   },
-  eyebrow: {
-    color: theme.colors.accentPrimarySoft,
-    ...typography.eyebrow,
+  headerCompact: {
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.lg,
+    paddingBottom: theme.spacing.sm,
+  },
+  headerTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: theme.spacing.md,
   },
   title: {
     color: theme.colors.textPrimary,
     ...typography.titleLg,
-  },
-  subtitle: {
-    color: theme.colors.textSecondary,
-    ...typography.bodySm,
-  },
-  statusRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: theme.spacing.sm,
+    flexShrink: 1,
   },
   statusBadge: {
     backgroundColor: theme.colors.surfaceAccent,
     borderColor: theme.colors.borderSubtle,
     borderRadius: theme.radii.pill,
     borderWidth: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   completeBadge: {
     backgroundColor: theme.colors.accentSuccess,
@@ -394,7 +421,7 @@ const styles = StyleSheet.create({
   },
   statusBadgeLabel: {
     color: theme.colors.textSecondary,
-    ...typography.meta,
+    fontSize: 10,
     fontWeight: '700',
     textTransform: 'uppercase',
   },
@@ -404,49 +431,16 @@ const styles = StyleSheet.create({
   statusText: {
     color: theme.colors.textMuted,
     ...typography.meta,
+    marginTop: 4,
   },
   statusTextError: {
     color: theme.colors.danger,
   },
-  section: {
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.md,
-    borderWidth: 1,
-    gap: theme.spacing.md,
-    padding: theme.spacing.lg,
-  },
-  sectionTitle: {
-    color: theme.colors.textPrimary,
-    ...typography.sectionTitle,
-  },
-  stepGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing.sm,
-  },
-  stepChip: {
-    backgroundColor: theme.colors.surfaceAccent,
-    borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.pill,
-    minHeight: 40,
-    justifyContent: 'center',
-    paddingHorizontal: theme.spacing.md,
-    borderWidth: 1,
-  },
-  stepChipActive: {
-    backgroundColor: theme.colors.accentPrimaryDeep,
-    borderColor: theme.colors.accentPrimary,
-  },
-  stepChipPressed: {
-    borderColor: theme.colors.accentPrimary,
-  },
-  stepChipLabel: {
-    color: theme.colors.textSecondary,
-    ...typography.meta,
-    fontWeight: '700',
-  },
-  stepChipLabelActive: {
-    color: theme.colors.accentPrimarySoft,
+  scrollContent: {
+    flexGrow: 1,
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.lg,
+    paddingBottom: theme.spacing.xxl,
+    gap: theme.spacing.xl,
   },
 });
