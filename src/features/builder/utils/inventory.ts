@@ -251,9 +251,33 @@ export function reconcileInventoryPayload({
 }: ReconcileInventoryOptions) {
   const currentReviewKey = getStartingEquipmentReviewKey(payload, classEntitiesById, backgroundEntitiesById);
   const previousReviewKey = payload.inventoryStep.startingEquipmentReviewKey ?? null;
-  const needsReview = currentReviewKey !== previousReviewKey && (currentReviewKey != null || hasStartingEquipmentState(payload));
-  const preservedIssues = payload.review.issues.filter((issue) => issue.step !== 'inventory' || issue.id !== 'inventory-starting-equipment-review');
-  const nextIssues = sortBuilderIssues(needsReview ? [...preservedIssues, buildStartingEquipmentReviewIssue(currentReviewKey)] : preservedIssues);
+  const needsReview =
+    currentReviewKey !== previousReviewKey && (currentReviewKey != null || hasStartingEquipmentState(payload));
+
+  const contextDependentIssueIds = [
+    'inventory-starting-equipment-review',
+    'inventory-unresolved-starting-gear',
+    'inventory-multiclass-starting-gear',
+  ];
+
+  const preservedIssues = payload.review.issues.filter((issue) => {
+    if (issue.step !== 'inventory') {
+      return true;
+    }
+    // Always filter out the review issue so we can re-add it below if needsReview is true
+    if (issue.id === 'inventory-starting-equipment-review') {
+      return false;
+    }
+    // If we need review, old unresolved or multiclass notices are stale
+    if (needsReview && contextDependentIssueIds.includes(issue.id)) {
+      return false;
+    }
+    return true;
+  });
+
+  const nextIssues = sortBuilderIssues(
+    needsReview ? [...preservedIssues, buildStartingEquipmentReviewIssue(currentReviewKey)] : preservedIssues,
+  );
 
   return {
     ...payload,

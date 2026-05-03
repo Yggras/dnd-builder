@@ -285,8 +285,6 @@ Key files:
 Known builder gaps:
 - `CharacterBuilderScreen.tsx` is still large and renders most sections at once; it is not yet a true active-step wizard.
 - Several handlers in `CharacterBuilderScreen.tsx` still use captured `draftBuild` / `payload` with direct object setters, which remains a stale-state risk during rapid edits or reconciliation.
-- `builderCapabilityAuditBaseline` is stale and should be aligned with current implementation reality.
-- Inventory reconciliation preserves most existing inventory issues wholesale; stale inventory issues can survive context changes until reseed.
 - There is no separate `review without reseed` action for starting equipment context.
 - Manual Step 23 builder smoke checks are still needed.
 - Content loading in the builder is eager for all items and all spells; later performance work should make these more on-demand.
@@ -312,7 +310,7 @@ Key files:
 - Step 21 import coverage audit and class variant reachability: implemented; only historical pre-fix baseline audit remains unchecked.
 - Step 22 edition labeling and builder compatibility separation: implemented.
 - Step 23 weapon item facts/range/properties/mastery links: implemented.
-- Step 23 builder stabilization: mostly implemented; remaining unchecked items are inventory issue validity and manual smoke checks.
+- Step 23 builder stabilization: implemented; remaining unchecked items are manual smoke checks.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -327,10 +325,9 @@ Key files:
 Keep this list current as implementation progresses.
 
 Near-term candidates:
-- Finish Step 23 builder stabilization acceptance by running manual smoke checks and fixing stale inventory issue preservation.
+- Finish Step 23 builder stabilization acceptance by running manual smoke checks.
 - Split `CharacterBuilderScreen.tsx` into smaller step components.
 - Introduce a builder controller/orchestration hook to centralize mutation handlers and derived selectors.
-- Update `builderCapabilityAuditBaseline` to match current implementation.
 - Convert builder UI into a true active-step wizard with previous/next navigation and per-step completion/issue state.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
