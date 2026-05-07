@@ -1,40 +1,41 @@
 # Step 25: Wizard UX Transformation - Execution Steps
 
 ## Phase 1: Controller & Logic Enhancements
-- [ ] Update `useBuilderController.ts`:
-    - [ ] Define the 6 logical phases (`class`, `origin`, `abilities`, `inventory`, `basics`, `review`) and map internal steps to them.
-    - [ ] Add `activePhase` state and navigation helpers (`goToPhase`, `nextPhase`, `prevPhase`).
-    - [ ] Implement `getPhaseStatus(phaseId)`:
-        - `complete`: No issues associated with steps in this phase.
-        - `error`: At least one 'blocker' issue in this phase.
-        - `warning`: Only 'checklist' or 'notice' issues in this phase.
-        - `incomplete`: No selections made yet (optional).
+- [x] Update `useBuilderController.ts`:
+    - [x] Define the 6 logical phases (`class`, `origin`, `abilities`, `inventory`, `basics`, `review`) and map internal steps to them.
+    - [x] Add active phase derivation and navigation helpers (`goToPhase`, `goToNextPhase`, `goToPreviousPhase`).
+    - [x] Implement `getPhaseStatus(phaseId)`:
+        - `OK`: No unresolved issues associated with the phase.
+        - `Fix`: At least one unresolved blocker or checklist issue in this phase.
+        - `Need`: Only non-blocking notice issues in this phase.
+        - `Review`: Aggregates all wizard issues, not only issues attached to the `review` step.
 
 ## Phase 2: Wizard UI Components
-- [ ] Create `BuilderWizardStepper.tsx`:
-    - [ ] Horizontal scrollable container for the 6 phases.
-    - [ ] Active phase indicator (e.g., accent bottom bar).
-    - [ ] Status icons for each phase (Check, Warning, Error).
-- [ ] Create `BuilderWizardNavigation.tsx`:
-    - [ ] Sticky bottom bar with "Back" and "Next" buttons.
-    - [ ] Handle "Next" -> "Finish Build" transition on the last phase.
-- [ ] Create `BuilderWizardSlide.tsx`:
-    - [ ] Layout wrapper using `Animated.View` for horizontal transitions.
-    - [ ] Logic to determine slide direction based on phase index change.
+- [x] Create `BuilderWizardStepper.tsx`:
+    - [x] Horizontal scrollable container for the 6 phases.
+    - [x] Active phase indicator.
+    - [x] Accessible status indicators for `OK`, `Need`, and `Fix` states.
+- [x] Create `BuilderWizardNavigation.tsx`:
+    - [x] Sticky bottom bar with "Back" and "Next" buttons.
+    - [x] Handle "Next" -> "Finish Build" transition on the last phase.
+- [x] Create `BuilderWizardSlide.tsx`:
+    - [x] Layout wrapper using `Animated.View` for horizontal transitions.
+    - [x] Logic to determine slide direction based on phase index change.
 
 ## Phase 3: Screen Orchestration
-- [ ] Modify `CharacterBuilderScreen.tsx`:
-    - [ ] Move minimalist header (Character Name, Save Status) to a thin fixed bar.
-    - [ ] Replace sequential component rendering with a phase-based `switch`.
-    - [ ] Integrate `BuilderWizardStepper` at the top and `BuilderWizardNavigation` at the bottom.
-    - [ ] Ensure `BuilderSpellsSection` is correctly integrated into the `Class` phase or its own sub-phase if needed (decided: part of Class phase).
+- [x] Modify `CharacterBuilderScreen.tsx`:
+    - [x] Move minimalist header (Character Name, Save Status) to a compact top bar.
+    - [x] Replace sequential component rendering with a phase-based `switch`.
+    - [x] Integrate `BuilderWizardStepper` at the top and `BuilderWizardNavigation` at the bottom.
+    - [x] Ensure `BuilderSpellsSection` is correctly integrated into the `Class` phase or its own sub-phase if needed (decided: part of Class phase).
 
 ## Phase 4: Polish & Success Moment
-- [ ] Implement Success Feedback:
-    - [ ] Add a simple animation (e.g., Lottie or a burst effect) when "Finish Build" is clicked.
-    - [ ] Ensure smooth transition to the character preview screen.
+- [x] Implement Success Feedback:
+    - [x] Add a simple animated success confirmation when "Finish Build" succeeds.
+    - [x] Ensure smooth transition to the character preview screen.
 
 ## Phase 5: Verification
-- [ ] `npm run typecheck`.
-- [ ] Manual smoke test: Complete a character from scratch using the new Wizard flow.
+- [x] `npm run typecheck`.
+- [x] Manual smoke test: Complete a character from scratch using the new Wizard flow.
+- [ ] Focused follow-up check: Verify `OK` / `Need` / `Fix` status labels and Review issue aggregation after smoke-test feedback fix.
 - [ ] Verify that step/phase state persists across app reloads.

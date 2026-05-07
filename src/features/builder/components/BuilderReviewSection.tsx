@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import type { BuilderDraftPayload, BuilderValidationSummary } from '@/features/builder/types';
 import type { BuilderIssueGroup } from '@/features/builder/utils/review';
@@ -7,10 +7,7 @@ import { theme, typography } from '@/shared/ui/theme';
 
 type BuilderReviewSectionProps = {
   completionMessage: string | null;
-  isCompletingBuild: boolean;
-  onCompleteBuild: () => void;
   reviewIssueGroups: BuilderIssueGroup[];
-  saveIsPending: boolean;
   validationSummary: BuilderValidationSummary | null;
   payload: BuilderDraftPayload;
   formatStepLabel: (step: BuilderStep) => string;
@@ -19,11 +16,8 @@ type BuilderReviewSectionProps = {
 export function BuilderReviewSection({
   completionMessage,
   formatStepLabel,
-  isCompletingBuild,
-  onCompleteBuild,
   payload,
   reviewIssueGroups,
-  saveIsPending,
   validationSummary,
 }: BuilderReviewSectionProps) {
   return (
@@ -87,45 +81,11 @@ export function BuilderReviewSection({
       ) : null}
 
       {completionMessage ? <Text style={styles.emptyHint}>{completionMessage}</Text> : null}
-
-      <Pressable
-        accessibilityRole="button"
-        disabled={!validationSummary?.canComplete || isCompletingBuild || saveIsPending}
-        onPress={onCompleteBuild}
-        style={({ pressed }) => [
-          styles.completeButton,
-          pressed && styles.addClassButtonPressed,
-          (!validationSummary?.canComplete || isCompletingBuild || saveIsPending) && styles.addClassButtonDisabled,
-        ]}
-      >
-        <Text style={styles.addClassButtonLabel}>{isCompletingBuild ? 'Completing...' : 'Complete Character'}</Text>
-      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  addClassButtonDisabled: {
-    opacity: 0.45,
-  },
-  addClassButtonLabel: {
-    color: theme.colors.textPrimary,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  addClassButtonPressed: {
-    opacity: 0.85,
-  },
-  completeButton: {
-    alignItems: 'center',
-    backgroundColor: theme.colors.accentPrimary,
-    borderColor: theme.colors.accentPrimarySoft,
-    borderRadius: theme.radii.sm,
-    borderWidth: 1,
-    justifyContent: 'center',
-    minHeight: 48,
-    paddingHorizontal: theme.spacing.lg,
-  },
   emptyHint: {
     color: theme.colors.textMuted,
     ...typography.bodySm,

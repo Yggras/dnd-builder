@@ -27,11 +27,11 @@
 - Current state: `character_builds` stores `build_state`, `current_step`, `revision`, timestamps, and full JSON payload. Roster labels still derive class/species information from payload.
 - Impact: Roster and resume summaries still depend on payload parsing unless more explicit columns or denormalized summary fields are added.
 
-### Step 9a: Stale Capability Audit Baseline
+### Step 9a: Capability Audit Baseline Reconciled
 - Artifact: `.opencode/Artifacts/Step-9a-Builder-State-Model-and-Capability-Audit-Execution-Steps.md`
-- Finding: `builderCapabilityAuditBaseline` is stale.
-- Current state: It still marks some areas as missing or launch-blocking even though later implementation added multiclass allocation, characteristics/notes state, review/completion gating, and spell support.
-- Impact: The audit baseline should be reconciled with current implementation before it is used for planning.
+- Finding from 2026-05-03: `builderCapabilityAuditBaseline` was stale.
+- Current state as of 2026-05-07: `builderCapabilityAuditBaseline` now reflects implemented builder support for multiclass allocation, class-owned feature choices, strict spell selection, characteristics/notes state, and review/completion gating.
+- Impact: This is no longer a source-confirmed implementation gap.
 
 ### Step 9b: Roster Labels Parse Payload
 - Artifact: `.opencode/Artifacts/Step-9b-My-Characters-Roster-and-Builder-Shell-Execution-Steps.md`
@@ -106,6 +106,12 @@
 - Artifact: `.opencode/Artifacts/Step-23-Builder-Stabilization-Execution-Steps.md`
 - Finding: Manual smoke checks for rapid edits, class/subclass cleanup, inventory reseeding, and complete-to-draft regression have not been verified in this audit.
 - Impact: Run these in the app before declaring the stabilization work fully accepted.
+
+### Step 25 Wizard Manual Verification Still Needed
+- Artifact: `.opencode/Artifacts/Step-25-Wizard-UX-Transformation-Execution-Steps.md`
+- Finding: Source implementation is present and `npm run typecheck` passes. Initial manual wizard smoke verification was completed and found status-label feedback: `Start` was unnecessary, and Review could show `OK` while other phases needed fixes.
+- Current state: Source changes simplified statuses to `OK` / `Need` / `Fix` and made Review aggregate all wizard issues.
+- Impact: Run focused status regression and active step/phase reload persistence checks before declaring Step 25 fully accepted.
 
 ### Older Manual Verification Sections
 - Artifacts: Steps 5d, 9f, 10, 11, 12, 13, 14, 15, 15a, 16, 17, 18, 19, 19a, and 20.

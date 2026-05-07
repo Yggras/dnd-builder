@@ -2,6 +2,18 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { WIZARD_PHASES, type BuilderWizardPhaseId, type WizardPhaseStatus } from '@/features/builder/hooks/useBuilderController';
 import { theme, typography } from '@/shared/ui/theme';
 
+const statusLabels: Record<WizardPhaseStatus, string> = {
+  complete: 'OK',
+  warning: 'Need',
+  error: 'Fix',
+};
+
+const statusAccessibilityLabels: Record<WizardPhaseStatus, string> = {
+  complete: 'complete',
+  warning: 'needs review',
+  error: 'has blockers',
+};
+
 interface BuilderWizardStepperProps {
   activePhaseId: BuilderWizardPhaseId;
   getPhaseStatus: (phaseId: BuilderWizardPhaseId) => WizardPhaseStatus;
@@ -15,9 +27,16 @@ export function BuilderWizardStepper({ activePhaseId, getPhaseStatus, onPhaseSel
         {WIZARD_PHASES.map((phase) => {
           const isActive = phase.id === activePhaseId;
           const status = getPhaseStatus(phase.id);
+          const statusStyle =
+            status === 'complete'
+              ? styles.statusComplete
+              : status === 'warning'
+                ? styles.statusWarning
+                : styles.statusError;
 
           return (
             <Pressable
+              accessibilityLabel={`${phase.label}, ${statusAccessibilityLabels[status]}`}
               accessibilityRole="button"
               key={phase.id}
               onPress={() => onPhaseSelect(phase.id)}
@@ -25,9 +44,9 @@ export function BuilderWizardStepper({ activePhaseId, getPhaseStatus, onPhaseSel
             >
               <View style={styles.phaseLabelContainer}>
                 <Text style={[styles.phaseLabel, isActive && styles.phaseLabelActive]}>{phase.label}</Text>
-                {status === 'complete' && <View style={[styles.statusIndicator, styles.statusComplete]} />}
-                {status === 'warning' && <View style={[styles.statusIndicator, styles.statusWarning]} />}
-                {status === 'error' && <View style={[styles.statusIndicator, styles.statusError]} />}
+                <View style={[styles.statusIndicator, statusStyle]}>
+                  <Text style={styles.statusIndicatorLabel}>{statusLabels[status]}</Text>
+                </View>
               </View>
             </Pressable>
           );
@@ -78,9 +97,11 @@ const styles = StyleSheet.create({
     color: theme.colors.accentPrimarySoft,
   },
   statusIndicator: {
-    borderRadius: 4,
-    height: 8,
-    width: 8,
+    alignItems: 'center',
+    borderRadius: theme.radii.pill,
+    minWidth: 30,
+    paddingHorizontal: 6,
+    paddingVertical: 3,
   },
   statusComplete: {
     backgroundColor: theme.colors.accentSuccess,
@@ -90,5 +111,11 @@ const styles = StyleSheet.create({
   },
   statusError: {
     backgroundColor: theme.colors.danger,
+  },
+  statusIndicatorLabel: {
+    color: theme.colors.backgroundDeep,
+    fontSize: 10,
+    fontWeight: '800',
+    textTransform: 'uppercase',
   },
 });

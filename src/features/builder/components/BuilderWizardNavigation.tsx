@@ -1,4 +1,6 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef } from 'react';
+
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderWizardNavigationProps {
@@ -24,9 +26,29 @@ export function BuilderWizardNavigation({
 }: BuilderWizardNavigationProps) {
   const isFirstPhase = activePhaseIndex === 0;
   const isLastPhase = activePhaseIndex === totalPhases - 1;
+  const isFinishDisabled = !canComplete || isCompletingBuild || Boolean(isBuildSuccess);
+  const successOpacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (!isBuildSuccess) {
+      successOpacity.setValue(0);
+      return;
+    }
+
+    Animated.timing(successOpacity, {
+      toValue: 1,
+      duration: 220,
+      useNativeDriver: true,
+    }).start();
+  }, [isBuildSuccess, successOpacity]);
 
   return (
     <View style={styles.container}>
+      {isBuildSuccess ? (
+        <Animated.View style={[styles.successPanel, { opacity: successOpacity }]}>
+          <Text style={styles.successText}>Build saved. Opening preview...</Text>
+        </Animated.View>
+      ) : null}
       <View style={styles.buttonRow}>
         <View style={styles.buttonContainer}>
           {!isFirstPhase && (
@@ -44,13 +66,13 @@ export function BuilderWizardNavigation({
           {isLastPhase ? (
             <Pressable
               accessibilityRole="button"
-              disabled={!canComplete || isCompletingBuild}
+              disabled={isFinishDisabled}
               onPress={onCompleteBuild}
               style={({ pressed }) => [
                 styles.nextButton,
                 styles.finishButton,
                 pressed && styles.finishButtonPressed,
-                (!canComplete || isCompletingBuild || isBuildSuccess) && styles.nextButtonDisabled,
+                isFinishDisabled && styles.nextButtonDisabled,
               ]}
             >
               <Text style={styles.finishButtonLabel}>
@@ -138,6 +160,21 @@ const styles = StyleSheet.create({
   finishButtonLabel: {
     color: theme.colors.backgroundDeep,
     fontSize: 16,
+    fontWeight: '700',
+  },
+  successPanel: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.accentSuccess,
+    borderColor: theme.colors.accentSuccessSoft,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    marginBottom: theme.spacing.md,
+    paddingHorizontal: theme.spacing.md,
+    paddingVertical: theme.spacing.sm,
+  },
+  successText: {
+    color: theme.colors.backgroundDeep,
+    ...typography.bodySm,
     fontWeight: '700',
   },
 });

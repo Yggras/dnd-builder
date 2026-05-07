@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BuilderService } from '@/features/builder/services/BuilderService';
 import { BuilderReviewSection } from '@/features/builder/components/BuilderReviewSection';
 import { BuilderSpellsSection } from '@/features/builder/components/BuilderSpellsSection';
 import { BuilderStepClass } from '@/features/builder/components/BuilderStepClass';
@@ -24,11 +23,8 @@ import { useCharacterRecord } from '@/features/characters/hooks/useCharacterReco
 import { useSaveCharacterBuild } from '@/features/characters/hooks/useSaveCharacterBuild';
 import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
-import { Screen } from '@/shared/ui/Screen';
 import type { BuilderStep } from '@/shared/types/domain';
 import { theme, typography } from '@/shared/ui/theme';
-
-const builderService = new BuilderService();
 
 function formatStepLabel(step: BuilderStep) {
   return step.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
@@ -323,11 +319,8 @@ export function CharacterBuilderScreen() {
           <BuilderReviewSection
             completionMessage={completionMessage}
             formatStepLabel={formatStepLabel}
-            isCompletingBuild={isCompletingBuild}
-            onCompleteBuild={completeBuild}
             payload={payload}
             reviewIssueGroups={controller.reviewIssueGroups}
-            saveIsPending={saveStatus === 'saving' || saveBuildMutation.isPending || saveStatus === 'error'}
             validationSummary={validationSummary}
           />
         );

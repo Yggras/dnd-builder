@@ -45,6 +45,22 @@ function buildClassAllocationId() {
     : `allocation-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function getStatusForIssues(issues: BuilderDraftPayload['review']['issues']): WizardPhaseStatus {
+  if (
+    issues.some(
+      (issue) => !issue.resolvedByOverride && (issue.category === 'blocker' || issue.category === 'checklist'),
+    )
+  ) {
+    return 'error';
+  }
+
+  if (issues.some((issue) => issue.category === 'notice')) {
+    return 'warning';
+  }
+
+  return 'complete';
+}
+
 export function getSelectedOriginPackageId(
   requirement: NormalizedAbilityRequirement,
   packageSelections: BuilderDraftPayload['abilityPointsStep']['originAbilityPackageSelections'],
@@ -687,18 +703,15 @@ export function useBuilderController({
 
   const getPhaseStatus = (phaseId: BuilderWizardPhaseId): WizardPhaseStatus => {
     if (!payload) return 'complete';
+    if (phaseId === 'review') {
+      return getStatusForIssues(payload.review.issues);
+    }
+
     const phase = WIZARD_PHASES.find((p) => p.id === phaseId);
     if (!phase) return 'complete';
 
     const phaseIssues = payload.review.issues.filter((issue) => phase.steps.includes(issue.step));
-    
-    if (phaseIssues.some((issue) => issue.category === 'blocker')) {
-      return 'error';
-    }
-    if (phaseIssues.length > 0) {
-      return 'warning';
-    }
-    return 'complete';
+    return getStatusForIssues(phaseIssues);
   };
 
   return {

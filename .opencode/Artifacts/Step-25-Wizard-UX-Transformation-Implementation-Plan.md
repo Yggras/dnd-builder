@@ -25,6 +25,27 @@ The goal is to transform the monolithic builder into a premium, focused Wizard U
 
 ## Proposed Changes
 
+## Implementation Status
+
+Source implementation is complete as of 2026-05-07.
+
+- `useBuilderController.ts` defines the six wizard phases, derives the active phase from `currentStep`, exposes Back/Next/direct phase navigation, and returns phase statuses as `OK`, `Need`, or `Fix`.
+- Phase status policy: `Fix` means unresolved blockers/checklist items, `Need` means non-blocking notices only, and `OK` means no unresolved issues. Review aggregates all wizard issues rather than only issues attached to the `review` step.
+- `CharacterBuilderScreen.tsx` renders only the active phase through a phase switch and wires the top stepper, slide wrapper, and bottom navigation.
+- `BuilderWizardStepper.tsx`, `BuilderWizardNavigation.tsx`, and `BuilderWizardSlide.tsx` are implemented.
+- The Review phase no longer has a second completion button; final completion is handled by the bottom wizard action.
+- Completion shows animated success feedback before navigating to preview.
+
+Smoke-test feedback addressed:
+
+- Removed the `Start` status after manual review; the stepper now uses only `OK`, `Need`, and `Fix`.
+- Fixed Review status so it reflects issues anywhere in the wizard.
+
+Remaining acceptance work:
+
+- Focused manual check: verify simplified status labels and Review aggregation after the follow-up change.
+- Manual reload check: verify the active step/phase persists as expected across app reloads.
+
 ### Controller & Logic
 
 #### [MODIFY] [useBuilderController.ts](file:///home/yggras/Development/dnd/dnd-builder/src/features/builder/hooks/useBuilderController.ts)

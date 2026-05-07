@@ -25,7 +25,7 @@ After each completed feature or implementation step:
 - Backend direction: Supabase for auth/database/realtime; only auth is substantially wired in the client today.
 - Local-first storage: SQLite on native via Expo SQLite.
 - Content model: pre-generated, bundled 5e-compatible content from a curated 5etools-style pipeline.
-- Current development focus: character builder stabilization and next builder UX/maintainability chunks.
+- Current development focus: character builder wizard verification, content-loading performance, and preview/roster polish.
 
 ## Verification Commands
 Use `npm`, not `pnpm` or `yarn`.
@@ -34,9 +34,9 @@ Current verification commands:
 - `npm run typecheck`
 - `npm run audit:5etools`
 
-Current status as of 2026-05-03:
-- `npm run typecheck` passes.
-- `npm run audit:5etools` passes.
+Current status as of 2026-05-07:
+- `npm run typecheck` passes after Step 25 wizard documentation/UI reconciliation and status-label simplification.
+- `npm run audit:5etools` last passed as of 2026-05-03 and was not rerun for the Step 25 UI/docs pass.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
 Do not run `npm run generate:5etools` casually. It rewrites generated content and stamps generated timestamps.
@@ -265,6 +265,9 @@ Implemented:
 - Inventory reconciliation flags stale starting equipment context after class/background changes.
 - Review section groups blockers, checklist items, notices, and overrides.
 - Completion routes to a lightweight preview.
+- Builder now renders as a six-phase active-step wizard: Class & Spells, Origin, Abilities, Inventory, Basics, Review.
+- Wizard navigation supports direct phase jumps, Back/Next movement, a bottom Finish Build action, horizontal slide/fade transitions, accessible `OK` / `Need` / `Fix` phase status indicators, and animated success feedback before preview navigation.
+- Review phase status aggregates all wizard issues: `Fix` for unresolved blocker/checklist issues anywhere, `Need` for non-blocking notices, and `OK` only when the build has no unresolved notices or completion-affecting issues.
 
 Key files:
 - `src/features/builder/types/index.ts`
@@ -273,7 +276,16 @@ Key files:
 - `src/features/builder/screens/CharacterPreviewScreen.tsx`
 - `src/features/builder/hooks/useBuilderDraftState.ts`
 - `src/features/builder/hooks/useBuilderReconciliation.ts`
+- `src/features/builder/hooks/useBuilderController.ts`
 - `src/features/builder/hooks/useCharacterBuilderContent.ts`
+- `src/features/builder/components/BuilderWizardStepper.tsx`
+- `src/features/builder/components/BuilderWizardNavigation.tsx`
+- `src/features/builder/components/BuilderWizardSlide.tsx`
+- `src/features/builder/components/BuilderStepClass.tsx`
+- `src/features/builder/components/BuilderStepOrigin.tsx`
+- `src/features/builder/components/BuilderStepAbilityPoints.tsx`
+- `src/features/builder/components/BuilderStepInventory.tsx`
+- `src/features/builder/components/BuilderStepBasics.tsx`
 - `src/features/builder/components/BuilderSpellsSection.tsx`
 - `src/features/builder/components/BuilderReviewSection.tsx`
 - `src/features/builder/utils/classStep.ts`
@@ -283,10 +295,12 @@ Key files:
 - `src/features/builder/utils/review.ts`
 
 Known builder gaps:
-- `CharacterBuilderScreen.tsx` is still large and renders most sections at once; it is not yet a true active-step wizard.
-- Several handlers in `CharacterBuilderScreen.tsx` still use captured `draftBuild` / `payload` with direct object setters, which remains a stale-state risk during rapid edits or reconciliation.
+- `CharacterBuilderScreen.tsx` is now phase-driven but still owns route loading/error handling, completion orchestration, search state, and phase rendering; future maintainability work can continue reducing orchestration weight.
+- Several handlers in `useBuilderController.ts` still build next payloads from captured `payload` before applying functional state updates, which remains a stale-state risk during rapid edits or reconciliation.
 - There is no separate `review without reseed` action for starting equipment context.
 - Manual Step 23 builder smoke checks are still needed.
+- Initial Step 25 wizard smoke check was run manually; feedback found that `Start` was unnecessary and Review could show `OK` while earlier phases needed fixes. Source changes now simplify statuses to `OK` / `Need` / `Fix` and make Review aggregate global issue state.
+- Focused Step 25 follow-up verification is still needed for simplified status accuracy, completion success feedback, and reload persistence.
 - Content loading in the builder is eager for all items and all spells; later performance work should make these more on-demand.
 - Override workflow is not yet a full advanced, explicit, per-issue workflow with required reasons.
 
@@ -311,6 +325,7 @@ Key files:
 - Step 22 edition labeling and builder compatibility separation: implemented.
 - Step 23 weapon item facts/range/properties/mastery links: implemented.
 - Step 23 builder stabilization: implemented; remaining unchecked items are manual smoke checks.
+- Step 25 wizard UX transformation: source-implemented; initial manual smoke check completed with status feedback addressed in source. Remaining unchecked items are focused status regression, completion feedback, and reload persistence verification.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -326,6 +341,7 @@ Keep this list current as implementation progresses.
 
 Near-term candidates:
 - Finish Step 23 builder stabilization acceptance by running manual smoke checks.
+- Finish Step 25 wizard acceptance by running focused simplified-status, completion-feedback, and reload-persistence verification.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
 

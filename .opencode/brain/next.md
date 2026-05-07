@@ -37,21 +37,24 @@
 
 ## Chunk 3: Wizard UX
 
-- Make the builder behave like a real step wizard.
-  - Render only the active step instead of rendering most sections at once.
-  - Add previous/next navigation based on the agreed step order.
-  - Keep direct step navigation available for resuming drafts, but make current progress obvious.
-  - Show per-step completion or issue status in the step navigation.
+- Source-implemented as Step 25; manual acceptance remains.
+  - The builder now renders one active wizard phase at a time.
+  - The implemented phase order is Class & Spells, Origin, Abilities, Inventory, Basics, Review.
+  - Previous/next navigation and direct phase jumps are available.
+  - Phase navigation shows accessible `OK`, `Need`, and `Fix` status indicators.
+  - `Fix` means an unresolved blocker/checklist item affects the phase; `Need` means only non-blocking notices remain; `OK` means no unresolved issues are associated with the phase.
+  - Review status aggregates all wizard issues instead of only review-owned issues.
+  - Initial manual smoke check is complete; focused follow-up verification is still needed for simplified status accuracy, completion success feedback, and reload persistence.
 
 - Improve mobile ergonomics for heavy steps.
   - Keep long choice lists searchable and filtered.
   - Avoid giant unstructured chip walls where selection sets are large.
   - Make selected values and unresolved requirements visible near the action that resolves them.
 
-- Complete Characteristics and Notes as separate steps.
-  - Expose name, age, alignment, and appearance in the Characteristics step.
-  - Keep Notes as optional freeform content that never blocks completion.
-  - Stop presenting both steps together as a generic draft basics section.
+- Basics is currently grouped by the Step 25 UX plan.
+  - Name and optional notes are exposed in the Basics phase.
+  - Notes remain optional freeform content and do not block completion.
+  - Age, alignment, and appearance are still represented in state but are not yet fully elevated in the Basics UI.
 
 ## Chunk 4: Validation And Review Model
 
