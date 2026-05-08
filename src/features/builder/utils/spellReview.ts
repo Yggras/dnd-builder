@@ -2,8 +2,11 @@ import type { BuilderDraftPayload, BuilderIssue, BuilderSourceSummary } from '@/
 import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ContentEntity } from '@/shared/types/domain';
 
+export type SpellWorkflowType = 'none' | 'known' | 'prepared' | 'known-prepared' | 'unsupported';
+
 interface SpellcastingSummary {
   isCaster: boolean;
+  workflow: SpellWorkflowType;
   cantripLimit: number;
   knownSpellLimit: number;
   preparedSpellLimit: number;
@@ -39,6 +42,10 @@ function getProgressionValue(progression: readonly number[], level: number) {
   }
 
   return typeof progression[level - 1] === 'number' ? progression[level - 1] : 0;
+}
+
+function hasProgressionValues(progression: readonly number[]) {
+  return progression.some((value) => value > 0);
 }
 
 function hasSpellcastingProfile(profile: SpellcastingProfile) {
@@ -130,6 +137,7 @@ export function summarizeSpellcasting(
   if (!isCaster) {
     return {
       isCaster: false,
+      workflow: 'none',
       cantripLimit: 0,
       knownSpellLimit: 0,
       preparedSpellLimit: 0,
@@ -163,6 +171,27 @@ export function summarizeSpellcasting(
   );
   const usesKnownSpells = knownSpellLimit > 0;
   const usesPreparedSpells = preparedSpellLimit > 0;
+  const hasKnownWorkflow = casterAllocations.some((allocation) => {
+    const profile = getAllocationSpellcastingProfile(allocation, classEntitiesById, subclassEntitiesById);
+    return hasProgressionValues(profile.spellsKnownProgression);
+  });
+  const hasPreparedWorkflow = casterAllocations.some((allocation) => {
+    const profile = getAllocationSpellcastingProfile(allocation, classEntitiesById, subclassEntitiesById);
+    return hasProgressionValues(profile.preparedSpellsProgression);
+  });
+  const hasCantripWorkflow = casterAllocations.some((allocation) => {
+    const profile = getAllocationSpellcastingProfile(allocation, classEntitiesById, subclassEntitiesById);
+    return hasProgressionValues(profile.cantripProgression);
+  });
+  const workflow: SpellWorkflowType = hasKnownWorkflow && hasPreparedWorkflow
+    ? 'known-prepared'
+    : hasKnownWorkflow
+      ? 'known'
+      : hasPreparedWorkflow
+        ? 'prepared'
+        : hasCantripWorkflow
+          ? 'known'
+          : 'unsupported';
 
   const applicableSpellIds = Array.from(
     new Set(
@@ -288,6 +317,7 @@ export function summarizeSpellcasting(
 
   return {
     isCaster,
+    workflow,
     cantripLimit,
     knownSpellLimit,
     preparedSpellLimit,

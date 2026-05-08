@@ -251,12 +251,12 @@ export function CharacterBuilderScreen() {
               selectedCantripCount={controller.selectedCantripCount}
               selectedKnownLeveledCount={controller.selectedKnownLeveledCount}
               selectedPreparedCount={controller.selectedPreparedCount}
+              spellEntitiesById={spellEntitiesById}
               spellSearch={spellSearch}
               spellSummary={controller.spellSummary!}
               updateKnownSpellSelection={controller.updateKnownSpellSelection}
               updatePreparedSpellSelection={controller.updatePreparedSpellSelection}
               updateSpellExceptionNotes={controller.updateSpellExceptionNotes}
-              visibleSpellResults={controller.visibleSpellResults}
             />
           </>
         );
