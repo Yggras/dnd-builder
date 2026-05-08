@@ -77,8 +77,9 @@ export function CharacterPreviewScreen() {
     'None selected',
   );
   const inventoryEntries = Array.isArray(payload.inventoryStep?.entries) ? payload.inventoryStep.entries : [];
-  const preparedSpellCount = Array.isArray(payload.spellsStep?.preparedSpellIds) ? payload.spellsStep.preparedSpellIds.length : 0;
-  const selectedSpellCount = Array.isArray(payload.spellsStep?.selectedSpellIds) ? payload.spellsStep.selectedSpellIds.length : 0;
+  const spellSelections = Array.isArray(payload.spellsStep?.selections) ? payload.spellsStep.selections : [];
+  const preparedSpellCount = spellSelections.filter((selection) => selection.selectionType === 'prepared').length;
+  const selectedSpellCount = spellSelections.filter((selection) => selection.selectionType === 'cantrip' || selection.selectionType === 'known').length;
   const spellExceptionCount = Array.isArray(payload.spellsStep?.manualExceptionNotes) ? payload.spellsStep.manualExceptionNotes.length : 0;
   const equippedItemCount = inventoryEntries.filter((entry: { equipped?: unknown }) => entry.equipped === true).length;
   const attunedItemCount = inventoryEntries.filter((entry: { attuned?: unknown }) => entry.attuned === true).length;

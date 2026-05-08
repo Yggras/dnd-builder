@@ -5,18 +5,22 @@ import { theme } from '@/shared/ui/theme';
 
 interface BuilderSpellCardProps {
   spell: ContentEntity;
+  sourceLabel?: string | null;
   stateLabel?: string | null;
   onPress: () => void;
 }
 
-export function BuilderSpellCard({ spell, stateLabel, onPress }: BuilderSpellCardProps) {
+export function BuilderSpellCard({ spell, sourceLabel, stateLabel, onPress }: BuilderSpellCardProps) {
   return (
     <Pressable
       accessibilityRole="button"
       onPress={onPress}
       style={({ pressed }) => [styles.card, stateLabel && styles.cardSelected, pressed && styles.cardPressed]}
     >
-      <Text style={[styles.title, stateLabel && styles.titleSelected]}>{spell.name}</Text>
+      <View style={styles.titleBlock}>
+        <Text style={[styles.title, stateLabel && styles.titleSelected]}>{spell.name}</Text>
+        {sourceLabel ? <Text style={styles.sourceLabel}>{sourceLabel}</Text> : null}
+      </View>
       {stateLabel ? (
         <View style={styles.badge}>
           <Text style={styles.badgeLabel}>{stateLabel}</Text>
@@ -45,11 +49,19 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.accentPrimaryDeep,
     borderColor: theme.colors.accentPrimary,
   },
+  titleBlock: {
+    flex: 1,
+    gap: 3,
+  },
   title: {
     color: theme.colors.textPrimary,
-    flex: 1,
     fontSize: 15,
     fontWeight: '800',
+  },
+  sourceLabel: {
+    color: theme.colors.textMuted,
+    fontSize: 12,
+    fontWeight: '700',
   },
   titleSelected: {
     color: theme.colors.accentPrimarySoft,

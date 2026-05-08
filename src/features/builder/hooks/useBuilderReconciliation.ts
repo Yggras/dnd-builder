@@ -5,7 +5,7 @@ import type { BuilderCharacterBuild, BuilderDraftPayload, BuilderValidationSumma
 import { reconcileClassStepPayload } from '@/features/builder/utils/classStep';
 import { reconcileInventoryPayload } from '@/features/builder/utils/inventory';
 import { reconcileOriginAndAbilitiesPayload } from '@/features/builder/utils/originAndAbilities';
-import { deriveSourceSummary, mergeReviewIssues, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
+import { deriveSourceSummary, mergeReviewIssues, reconcileSpellSelectionPayload, summarizeSpellcasting } from '@/features/builder/utils/spellReview';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 
 const builderService = new BuilderService();
@@ -234,17 +234,24 @@ export function useBuilderReconciliation({
       return;
     }
 
-    const preflightSpellSummary = summarizeSpellcasting(
+    const preflightSpellPayload = reconcileSpellSelectionPayload(
       draftBuild.payload,
       classEntitiesById,
       subclassEntitiesById,
       spellEntitiesById,
     );
-    const preflightIssues = mergeReviewIssues(draftBuild.payload, preflightSpellSummary.issues);
-    const preflightSourceSummary = deriveSourceSummary(draftBuild.payload, allEntitiesById);
+    const preflightSpellSummary = summarizeSpellcasting(
+      preflightSpellPayload,
+      classEntitiesById,
+      subclassEntitiesById,
+      spellEntitiesById,
+    );
+    const preflightIssues = mergeReviewIssues(preflightSpellPayload, preflightSpellSummary.issues);
+    const preflightSourceSummary = deriveSourceSummary(preflightSpellPayload, allEntitiesById);
     const preflightBuildState = draftBuild.buildState === 'complete' && builderService.canComplete(preflightIssues) ? 'complete' : 'draft';
 
     if (
+      JSON.stringify(draftBuild.payload.spellsStep) === JSON.stringify(preflightSpellPayload.spellsStep) &&
       JSON.stringify(draftBuild.payload.review.issues) === JSON.stringify(preflightIssues) &&
       JSON.stringify(draftBuild.payload.review.sourceSummary) === JSON.stringify(preflightSourceSummary) &&
       draftBuild.buildState === preflightBuildState
@@ -257,20 +264,28 @@ export function useBuilderReconciliation({
         return currentBuild;
       }
 
-      const spellSummary = summarizeSpellcasting(
+      const reconciledSpellPayload = reconcileSpellSelectionPayload(
         currentBuild.payload,
         classEntitiesById,
         subclassEntitiesById,
         spellEntitiesById,
       );
-      const nextIssues = mergeReviewIssues(currentBuild.payload, spellSummary.issues);
-      const nextSourceSummary = deriveSourceSummary(currentBuild.payload, allEntitiesById);
+      const spellSummary = summarizeSpellcasting(
+        reconciledSpellPayload,
+        classEntitiesById,
+        subclassEntitiesById,
+        spellEntitiesById,
+      );
+      const nextIssues = mergeReviewIssues(reconciledSpellPayload, spellSummary.issues);
+      const nextSourceSummary = deriveSourceSummary(reconciledSpellPayload, allEntitiesById);
+      const spellsSnapshot = JSON.stringify(currentBuild.payload.spellsStep);
+      const nextSpellsSnapshot = JSON.stringify(reconciledSpellPayload.spellsStep);
       const issuesSnapshot = JSON.stringify(currentBuild.payload.review.issues);
       const nextIssuesSnapshot = JSON.stringify(nextIssues);
       const sourceSummarySnapshot = JSON.stringify(currentBuild.payload.review.sourceSummary);
       const nextSourceSummarySnapshot = JSON.stringify(nextSourceSummary);
 
-      if (issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
+      if (spellsSnapshot === nextSpellsSnapshot && issuesSnapshot === nextIssuesSnapshot && sourceSummarySnapshot === nextSourceSummarySnapshot) {
         if (currentBuild.buildState === 'complete' && builderService.canComplete(currentBuild.payload.review.issues) === false) {
           return {
             ...currentBuild,
@@ -282,7 +297,7 @@ export function useBuilderReconciliation({
       }
 
       const nextPayload: BuilderDraftPayload = {
-        ...currentBuild.payload,
+        ...reconciledSpellPayload,
         review: {
           issues: nextIssues,
           sourceSummary: nextSourceSummary,

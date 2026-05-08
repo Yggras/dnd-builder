@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type {
   BuilderCharacterBuild,
   BuilderDraftPayload,
+  BuilderSpellSelection,
 } from '@/features/builder/types';
 import type { BuilderStep, ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 import { reconcileClassStepPayload } from '@/features/builder/utils/classStep';
@@ -43,6 +44,12 @@ function buildClassAllocationId() {
   return typeof crypto !== 'undefined' && 'randomUUID' in crypto
     ? crypto.randomUUID()
     : `allocation-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function buildSpellSelectionId() {
+  return typeof crypto !== 'undefined' && 'randomUUID' in crypto
+    ? crypto.randomUUID()
+    : `spell-selection-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 function getStatusForIssues(issues: BuilderDraftPayload['review']['issues']): WizardPhaseStatus {
@@ -542,15 +549,35 @@ export function useBuilderController({
 
   const spellSummary = payload ? summarizeSpellcasting(payload, classEntitiesById, subclassEntitiesById, spellEntitiesById) : null;
 
-  const updateKnownSpellSelection = (spellId: string) => {
+  const updateKnownSpellSelection = (spellId: string, classAllocationId: string) => {
     setDraftBuild((currentBuild) => {
-      if (!currentBuild) return currentBuild;
+      if (!currentBuild || !spellSummary) return currentBuild;
 
-      const isSelected = currentBuild.payload.spellsStep.selectedSpellIds.includes(spellId);
-      const nextSelectedSpellIds = isSelected
-        ? currentBuild.payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
-        : [...currentBuild.payload.spellsStep.selectedSpellIds, spellId];
+      const source = spellSummary.sources.find((entry) => entry.allocationId === classAllocationId);
+      if (!source) return currentBuild;
+
+      const spellSelections = Array.isArray(currentBuild.payload.spellsStep.selections) ? currentBuild.payload.spellsStep.selections : [];
       const spellLevel = Number(spellEntitiesById[spellId]?.metadata.level ?? 0);
+      const selectionType = spellLevel === 0 ? 'cantrip' : 'known';
+      const isSelected = spellSelections.some(
+        (selection) => selection.spellId === spellId && selection.classAllocationId === classAllocationId && selection.selectionType === selectionType,
+      );
+      const nextSelections = isSelected
+        ? spellSelections.filter(
+            (selection) =>
+              !(selection.spellId === spellId && selection.classAllocationId === classAllocationId && (selection.selectionType === selectionType || selection.selectionType === 'prepared')),
+          )
+        : [
+            ...spellSelections,
+            {
+              id: buildSpellSelectionId(),
+              spellId,
+              classAllocationId,
+              classId: source.classId,
+              subclassId: source.subclassId,
+              selectionType,
+            } satisfies BuilderSpellSelection,
+          ];
 
       return {
         ...currentBuild,
@@ -560,18 +587,14 @@ export function useBuilderController({
           ...currentBuild.payload,
           spellsStep: {
             ...currentBuild.payload.spellsStep,
-            selectedSpellIds: nextSelectedSpellIds,
-            preparedSpellIds:
-              spellLevel > 0 && isSelected
-                ? currentBuild.payload.spellsStep.preparedSpellIds.filter((preparedSpellId) => preparedSpellId !== spellId)
-                : currentBuild.payload.spellsStep.preparedSpellIds,
+            selections: nextSelections,
           },
         },
       };
     });
   };
 
-  const updatePreparedSpellSelection = (spellId: string) => {
+  const updatePreparedSpellSelection = (spellId: string, classAllocationId: string) => {
     if (Number(spellEntitiesById[spellId]?.metadata.level ?? 0) === 0) {
       return;
     }
@@ -579,15 +602,35 @@ export function useBuilderController({
     setDraftBuild((currentBuild) => {
       if (!currentBuild || !spellSummary) return currentBuild;
 
-      const isPrepared = currentBuild.payload.spellsStep.preparedSpellIds.includes(spellId);
+      const source = spellSummary.sources.find((entry) => entry.allocationId === classAllocationId);
+      if (!source) return currentBuild;
+
+      const spellSelections = Array.isArray(currentBuild.payload.spellsStep.selections) ? currentBuild.payload.spellsStep.selections : [];
+
+      if (source.workflow === 'known-prepared' && !spellSelections.some(
+        (selection) => selection.spellId === spellId && selection.classAllocationId === classAllocationId && selection.selectionType === 'known',
+      )) {
+        return currentBuild;
+      }
+
+      const isPrepared = spellSelections.some(
+        (selection) => selection.spellId === spellId && selection.classAllocationId === classAllocationId && selection.selectionType === 'prepared',
+      );
       const nextPreparedSpellIds = isPrepared
-        ? currentBuild.payload.spellsStep.preparedSpellIds.filter((preparedSpellId) => preparedSpellId !== spellId)
-        : [...currentBuild.payload.spellsStep.preparedSpellIds, spellId];
-      const nextSelectedSpellIds = isPrepared
-        ? spellSummary.usesKnownSpells
-          ? currentBuild.payload.spellsStep.selectedSpellIds
-          : currentBuild.payload.spellsStep.selectedSpellIds.filter((selectedSpellId) => selectedSpellId !== spellId)
-        : Array.from(new Set([...currentBuild.payload.spellsStep.selectedSpellIds, spellId]));
+        ? spellSelections.filter(
+            (selection) => !(selection.spellId === spellId && selection.classAllocationId === classAllocationId && selection.selectionType === 'prepared'),
+          )
+        : [
+            ...spellSelections,
+            {
+              id: buildSpellSelectionId(),
+              spellId,
+              classAllocationId,
+              classId: source.classId,
+              subclassId: source.subclassId,
+              selectionType: 'prepared',
+            } satisfies BuilderSpellSelection,
+          ];
 
       return {
         ...currentBuild,
@@ -597,8 +640,7 @@ export function useBuilderController({
           ...currentBuild.payload,
           spellsStep: {
             ...currentBuild.payload.spellsStep,
-            selectedSpellIds: nextSelectedSpellIds,
-            preparedSpellIds: nextPreparedSpellIds,
+            selections: nextPreparedSpellIds,
           },
         },
       };
@@ -653,15 +695,10 @@ export function useBuilderController({
     (requirement): requirement is NormalizedAbilityRequirement => Boolean(requirement),
   );
 
-  const selectedCantripCount = payload?.spellsStep.selectedSpellIds.filter(
-    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 99) === 0,
-  ).length ?? 0;
-  const selectedKnownLeveledCount = payload?.spellsStep.selectedSpellIds.filter(
-    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0,
-  ).length ?? 0;
-  const selectedPreparedCount = payload?.spellsStep.preparedSpellIds.filter(
-    (spellId) => Number(spellEntitiesById[spellId]?.metadata.level ?? 0) > 0,
-  ).length ?? 0;
+  const spellSelections = Array.isArray(payload?.spellsStep.selections) ? payload.spellsStep.selections : [];
+  const selectedCantripCount = spellSelections.filter((selection) => selection.selectionType === 'cantrip').length;
+  const selectedKnownLeveledCount = spellSelections.filter((selection) => selection.selectionType === 'known').length;
+  const selectedPreparedCount = spellSelections.filter((selection) => selection.selectionType === 'prepared').length;
 
   const visibleSpellResults = Object.values(spellEntitiesById)
     .filter((spell) => spellSummary?.applicableSpellIds.includes(spell.id))

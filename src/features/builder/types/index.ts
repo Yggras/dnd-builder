@@ -30,9 +30,19 @@ export interface BuilderFeatureChoiceSelection {
   selectedOptionIds: string[];
 }
 
+export type BuilderSpellSelectionType = 'cantrip' | 'known' | 'prepared';
+
+export interface BuilderSpellSelection {
+  id: string;
+  spellId: string;
+  classAllocationId: string;
+  classId: string;
+  subclassId: string | null;
+  selectionType: BuilderSpellSelectionType;
+}
+
 export interface BuilderSpellSelectionState {
-  selectedSpellIds: string[];
-  preparedSpellIds: string[];
+  selections: BuilderSpellSelection[];
   manualExceptionNotes: string[];
 }
 
@@ -262,8 +272,7 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
       featureChoices: [],
     },
     spellsStep: {
-      selectedSpellIds: [],
-      preparedSpellIds: [],
+      selections: [],
       manualExceptionNotes: [],
     },
     speciesStep: {

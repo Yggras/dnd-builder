@@ -35,7 +35,7 @@ Current verification commands:
 - `npm run audit:5etools`
 
 Current status as of 2026-05-08:
-- `npm run typecheck` passes after spell casting-time normalization and generated content refresh.
+- `npm run typecheck` passes after character deletion and class-specific spell selection changes.
 - `npm run audit:5etools` passes after spell casting-time normalization and generated content refresh.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
@@ -208,6 +208,8 @@ Implemented:
 - Characters are global player-owned records, not campaign-owned records.
 - New character flow creates a draft character and `character_build`.
 - Owned character roster exists with loading, empty, error, draft/complete states, and navigation into builder/preview.
+- Owned character roster supports deleting local characters through an explicit confirmation panel.
+- Character deletion removes local campaign assignment/status/snapshot rows, the character build, and the character record.
 - Character build saves update character name and level from builder payload.
 - Character build save path has local stale-revision protection.
 
@@ -217,6 +219,7 @@ Key files:
 - `src/features/characters/hooks/useOwnedCharacters.ts`
 - `src/features/characters/hooks/useCharacterRecord.ts`
 - `src/features/characters/hooks/useCreateCharacterDraft.ts`
+- `src/features/characters/hooks/useDeleteCharacter.ts`
 - `src/features/characters/hooks/useSaveCharacterBuild.ts`
 - `src/features/characters/adapters/SQLiteCharacterRepository.ts`
 - `src/features/characters/services/CharacterService.ts`
@@ -260,7 +263,10 @@ Implemented:
 - Class allocations support multiclass allocation, class levels, subclass timing, and class-owned feature choices.
 - Species/background selection exists with deterministic applied summaries and granted-feat follow-up choices.
 - Ability score UI supports manual base score entry, origin ability packages, and ASI point controls.
-- Spell step supports selected/known/prepared spell state, strict overfill/max-level checks, applicable spell filtering, and manual exception notes.
+- Spell step uses source-owned spell selections tied to class allocation IDs, class IDs, subclass IDs, and selection type (`cantrip`, `known`, or `prepared`).
+- Spell step supports class-specific cantrip/known/prepared state, strict per-class allocation overfill/max-level checks, applicable spell filtering, and manual exception notes.
+- Multiclass spell choices preserve class source identity so shared spells can be selected as separate class-owned spells and spellcasting ability can be derived per source.
+- Spell reconciliation removes spell selections tied to removed/changed class allocations, invalid subclass/class lists, invalid workflows, or spells above that source's maximum spell level.
 - Inventory step supports starting equipment option choices, seeding canonical items/currency/unresolved gear, adding canonical items, editing quantity/equipped/attuned, and preserving manual items on reseed.
 - Inventory reconciliation flags stale starting equipment context after class/background changes.
 - Review section groups blockers, checklist items, notices, and overrides.
@@ -271,7 +277,7 @@ Implemented:
 - Step 26a class-selection UX is source-implemented: empty Class & Spells builds show class name/edition cards immediately, class cards open in-builder detail sheets before selection, selected classes render as summary cards with name/edition/status/level steppers, `Add another class` reveals an inline card picker, and class removal always uses an impact confirmation sheet.
 - Class detail sheets include source/edition/spellcasting badges, relevant support warnings, expanded rules snapshots, compact key-level previews, short summaries, `Choose this class`, and `Open in Compendium` actions.
 - Step 26b subclass and feature-choice UX is source-implemented: subclass cards live inside their owning class section, locked subclass cards open read-only detail sheets, subclass selection/removal happens from detail sheets, class-owned feature grants are grouped inside owning class sections, feature option rows open detail sheets before selection, feature over-selection is disabled in the detail sheet, and unsupported grants render inline Fix cards with class compendium access.
-- Step 26c spell UX is source-implemented: spellcasting summaries classify the UI workflow as none/known/prepared/known-prepared/unsupported, spell choices render in task tabs, Cantrips shows eligible cantrips, Known and Prepared show selected spells, Browse handles eligible leveled spell discovery with search and level filters, compact spell cards open detail sheets, and spell detail sheets provide rules snapshots, spell text, contextual actions, compendium access, and disabled helper text at limits.
+- Step 26c spell UX is source-implemented and then updated for class-specific spell ownership: spellcasting summaries classify the UI workflow as none/known/prepared/known-prepared/unsupported, spell choices render in task tabs, Cantrips shows eligible cantrips per class source, Known and Prepared show selected source-owned spells, Browse handles eligible leveled spell discovery with search and level filters, compact spell cards show source class/casting ability, and spell detail sheets provide source/ability facts, rules snapshots, spell text, contextual actions, compendium access, and disabled helper text at per-source limits.
 
 Key files:
 - `src/features/builder/types/index.ts`
@@ -321,6 +327,7 @@ Known builder gaps:
 - Override workflow is not yet a full advanced, explicit, per-issue workflow with required reasons.
 - Step 26a intentionally defers automatic return-context restoration from compendium navigation and automatic reopening of the originating builder detail sheet after returning.
 - Step 26c does not add a replace-flow UI when spell limits are reached; users must remove an existing cantrip/known/prepared spell first.
+- Existing saved drafts with the older global spell ID payload are not migrated; this is intentional for current single-user development and those old spell selections normalize away.
 
 ## UI And Design System
 Implemented:
@@ -347,6 +354,8 @@ Key files:
 - Step 26a class cards and class detail sheets: source-implemented; manual smoke checks remain needed for empty class-card selection, sheet behavior, selected class level caps, add-another-class flow, compendium navigation, removal confirmation, and missing metadata display.
 - Step 26b subclass cards and feature choice pickers: source-implemented; manual smoke checks remain needed for locked subclass previews, subclass selection/removal sheet behavior, feature group progress/issues, feature detail selection/removal, feature limit prevention, and unsupported grant cards.
 - Step 26c spell tabs and spell detail sheets: source-implemented; manual smoke checks remain needed for non-caster/unsupported states, known/prepared/known-prepared tab sets, browse search/level filters, contextual add/prepare/remove actions, and spell limit helper text.
+- Character deletion: source-implemented and typechecked; manual smoke check remains needed for deleting a roster character on device.
+- Class-specific spell ownership: source-implemented and typechecked; manual smoke checks remain needed for multiclass shared spells, per-class casting ability labels, class removal cleanup, subclass change cleanup, and per-source limit helpers.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -363,6 +372,8 @@ Keep this list current as implementation progresses.
 Near-term candidates:
 - Finish Step 23 builder stabilization acceptance by running manual smoke checks.
 - Finish Step 25 wizard acceptance by running focused simplified-status, completion-feedback, and reload-persistence verification.
+- Smoke check character deletion on native SQLite.
+- Smoke check class-specific spell ownership in a multiclass caster build.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
 

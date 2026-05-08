@@ -95,7 +95,7 @@ function getGrantIssues(payload: BuilderDraftPayload, grantId: string) {
 }
 
 function hasSubclassDependentSelections(payload: BuilderDraftPayload) {
-  return payload.spellsStep.selectedSpellIds.length > 0 || payload.spellsStep.preparedSpellIds.length > 0;
+  return Array.isArray(payload.spellsStep.selections) && payload.spellsStep.selections.length > 0;
 }
 
 function buildSubclassChangeImpacts() {

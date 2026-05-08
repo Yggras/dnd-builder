@@ -14,6 +14,8 @@ type SpellActionLabel = 'Add Cantrip' | 'Add Known' | 'Prepare' | 'Remove';
 interface BuilderSpellDetailSheetProps {
   visible: boolean;
   spell: ContentEntity | null;
+  sourceLabel?: string | null;
+  spellcastingAbility?: string | null;
   actionLabel: SpellActionLabel | null;
   actionDisabled?: boolean;
   helperText?: string | null;
@@ -140,12 +142,14 @@ function formatCastingTime(value: unknown) {
   }).filter(Boolean).join(', ');
 }
 
-function buildSpellFacts(spell: ContentEntity) {
+function buildSpellFacts(spell: ContentEntity, sourceLabel?: string | null, spellcastingAbility?: string | null) {
   const level = Number(spell.metadata.level ?? 0);
   const duration = formatDuration(spell.metadata.duration);
   const concentration = Boolean(spell.metadata.concentration) || duration?.toLowerCase().includes('concentration');
 
   return [
+    { label: 'Spell Source', value: sourceLabel ?? 'Not selected' },
+    { label: 'Spellcasting Ability', value: spellcastingAbility ? spellcastingAbility.toUpperCase() : 'Unknown' },
     { label: 'Level', value: level === 0 ? 'Cantrip' : `Level ${level}` },
     { label: 'School', value: getSpellSchoolLabel(spell.metadata.school) ?? 'Unknown' },
     { label: 'Casting Time', value: formatCastingTime(spell.metadata.time) || 'Unknown' },
@@ -183,6 +187,8 @@ function buildHigherLevelBlocks(spell: ContentEntity): DetailRenderBlock[] {
 export function BuilderSpellDetailSheet({
   visible,
   spell,
+  sourceLabel,
+  spellcastingAbility,
   actionLabel,
   actionDisabled = false,
   helperText,
@@ -190,7 +196,7 @@ export function BuilderSpellDetailSheet({
   onPrimaryAction,
   onOpenCompendium,
 }: BuilderSpellDetailSheetProps) {
-  const facts = spell ? buildSpellFacts(spell) : [];
+  const facts = spell ? buildSpellFacts(spell, sourceLabel, spellcastingAbility) : [];
   const spellBlocks = spell ? buildSpellBlocks(spell) : [];
   const higherLevelBlocks = spell ? buildHigherLevelBlocks(spell) : [];
 
