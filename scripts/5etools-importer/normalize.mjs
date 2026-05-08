@@ -783,6 +783,7 @@ export function normalizeSpells(records, context) {
           classIds: applicability.classIds,
           classNames,
           subclassIds: applicability.subclassIds,
+          time: record.time ?? [],
           duration: record.duration ?? [],
           range: record.range ?? null,
           components: record.components ?? {},

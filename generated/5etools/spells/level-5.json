@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-552748cd72fe54dc",
+  "contentVersion": "schema1-2477fa0f18ae5135",
   "entityType": "spells",
   "chunkId": "level-5",
-  "generatedAt": "2026-05-02T17:26:03.437Z",
+  "generatedAt": "2026-05-08T17:57:18.153Z",
   "records": [
     {
       "id": "alustriel-s-mooncloak|frhof|spell",
@@ -61,6 +61,12 @@
         ],
         "subclassIds": [
           "abjurer|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -208,6 +214,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -288,6 +300,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -353,6 +371,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -413,6 +437,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -476,6 +506,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 8,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -538,6 +574,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 8,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -600,6 +642,12 @@
         ],
         "subclassIds": [
           "battle-smith|tce|subclass|artificer|tce"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
         ],
         "duration": [
           {
@@ -664,6 +712,13 @@
         "subclassIds": [
           "battle-smith|tce|subclass|artificer|tce",
           "battle-smith|efa|subclass|artificer|efa"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus",
+            "condition": "which you take immediately after hitting a creature with a Melee weapon or an {@variantrule Unarmed Strike|XPHB}"
+          }
         ],
         "duration": [
           {
@@ -767,6 +822,12 @@
         ],
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -885,6 +946,12 @@
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -949,6 +1016,12 @@
           "Paladin"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1018,6 +1091,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb",
           "abjurer|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1093,6 +1172,12 @@
         ],
         "subclassIds": [
           "alchemist|tce|subclass|artificer|tce"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1172,6 +1257,12 @@
           "alchemist|tce|subclass|artificer|tce",
           "alchemist|efa|subclass|artificer|efa"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1248,6 +1339,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1316,6 +1413,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1379,6 +1482,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1441,6 +1550,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -1514,6 +1629,12 @@
         "subclassIds": [
           "artillerist|tce|subclass|artificer|tce",
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1590,6 +1711,12 @@
           "winter-walker|frhof|subclass|ranger|xphb",
           "evoker|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1662,6 +1789,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1737,6 +1870,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1803,6 +1942,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1858,6 +2003,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1924,6 +2075,12 @@
         "subclassIds": [
           "diviner|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1986,6 +2143,12 @@
         ],
         "subclassIds": [
           "diviner|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -2097,6 +2260,12 @@
           "oathbreaker|dmg|subclass|paladin|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2164,6 +2333,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "oathbreaker|dmg|subclass|paladin|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2243,6 +2418,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2309,6 +2490,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2418,6 +2605,12 @@
         "subclassIds": [
           "illusionist|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "special"
@@ -2523,6 +2716,12 @@
         "subclassIds": [
           "illusionist|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "special"
@@ -2585,6 +2784,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2646,6 +2851,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb",
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2712,6 +2923,12 @@
           "Paladin"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2770,6 +2987,12 @@
           "Paladin"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2848,6 +3071,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2929,6 +3158,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3009,6 +3244,12 @@
           "oathbreaker|dmg|subclass|paladin|phb",
           "oathbreaker|dmg|subclass|paladin|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3088,6 +3329,12 @@
           "oathbreaker|dmg|subclass|paladin|phb",
           "oathbreaker|dmg|subclass|paladin|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3158,6 +3405,12 @@
         "subclassIds": [
           "illusionist|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3225,6 +3478,12 @@
         ],
         "subclassIds": [
           "illusionist|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -3295,6 +3554,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3353,6 +3618,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3421,6 +3692,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3491,6 +3768,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3572,6 +3855,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -3656,6 +3945,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3734,6 +4029,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "clockwork-soul|tce|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3816,6 +4117,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "clockwork-soul|tce|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3949,6 +4256,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 24,
+            "unit": "hour"
+          }
         ],
         "duration": [
           {
@@ -4108,6 +4421,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 24,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -4192,6 +4511,12 @@
           "monster-slayer|xge|subclass|ranger|phb",
           "monster-slayer|xge|subclass|ranger|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4271,6 +4596,12 @@
           "monster-slayer|xge|subclass|ranger|phb",
           "monster-slayer|xge|subclass|ranger|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4332,6 +4663,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4391,6 +4728,12 @@
         "classNames": [],
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -4461,6 +4804,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4546,6 +4895,12 @@
           "swarmkeeper|tce|subclass|ranger|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4628,6 +4983,12 @@
           "swarmkeeper|tce|subclass|ranger|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4705,6 +5066,12 @@
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4779,6 +5146,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "diviner|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 10,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4847,6 +5220,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "diviner|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 10,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4901,6 +5280,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4982,6 +5367,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5055,6 +5446,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5117,6 +5514,12 @@
         "subclassIds": [
           "fey-wanderer|tce|subclass|ranger|phb",
           "illusionist|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5186,6 +5589,12 @@
           "fey-wanderer|tce|subclass|ranger|phb",
           "fey-wanderer|xphb|subclass|ranger|xphb",
           "illusionist|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5261,6 +5670,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5337,6 +5752,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5395,6 +5816,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5455,6 +5882,12 @@
         ],
         "subclassIds": [
           "armorer|tce|subclass|artificer|tce"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5518,6 +5951,12 @@
         "subclassIds": [
           "armorer|tce|subclass|artificer|tce",
           "armorer|efa|subclass|artificer|efa"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5597,6 +6036,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb",
           "abjurer|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
         ],
         "duration": [
           {
@@ -5685,6 +6130,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "abjurer|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -5761,6 +6212,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5831,6 +6288,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5892,6 +6355,12 @@
         "subclassIds": [
           "aberrant-mind|tce|subclass|sorcerer|phb",
           "diviner|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5957,6 +6426,12 @@
         "subclassIds": [
           "aberrant-mind|tce|subclass|sorcerer|phb",
           "diviner|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -6176,6 +6651,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -6288,6 +6769,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "hour"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -6412,6 +6899,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb",
           "diviner|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 10,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -6542,6 +7035,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "diviner|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 10,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6614,6 +7113,12 @@
           "gloom-stalker|xge|subclass|ranger|phb",
           "illusionist|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6684,6 +7189,12 @@
           "gloom-stalker|xphb|subclass|ranger|xphb",
           "illusionist|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6740,6 +7251,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6837,6 +7354,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -6904,6 +7427,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -6967,6 +7496,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -7035,6 +7570,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -7115,6 +7656,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7184,6 +7731,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7257,6 +7810,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7321,6 +7880,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7380,6 +7945,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7439,6 +8010,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -7502,6 +8079,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -7580,6 +8163,12 @@
         "subclassIds": [
           "psi-warrior|tce|subclass|fighter|phb",
           "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -7664,6 +8253,12 @@
           "aberrant-mind|tce|subclass|sorcerer|phb",
           "psi-warrior|xphb|subclass|fighter|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7733,6 +8328,12 @@
         "subclassIds": [
           "horizon-walker|xge|subclass|ranger|phb",
           "horizon-walker|xge|subclass|ranger|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
         ],
         "duration": [
           {
@@ -7809,6 +8410,12 @@
           "horizon-walker|xge|subclass|ranger|phb",
           "horizon-walker|xge|subclass|ranger|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7877,6 +8484,13 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "reaction",
+            "condition": "taken when a creature you can see makes an attack roll or starts to cast a spell"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -7947,6 +8561,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "permanent",
@@ -8013,6 +8633,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -8074,6 +8700,12 @@
           "Ranger"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -8137,6 +8769,12 @@
           "artillerist|tce|subclass|artificer|tce",
           "clockwork-soul|tce|subclass|sorcerer|phb",
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -8208,6 +8846,12 @@
           "artillerist|efa|subclass|artificer|efa",
           "clockwork-soul|tce|subclass|sorcerer|phb",
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -8281,6 +8925,12 @@
         "classNames": [],
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -8359,6 +9009,12 @@
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -8432,6 +9088,12 @@
         ],
         "subclassIds": [
           "evoker|xphb|subclass|wizard|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -8518,6 +9180,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -8584,6 +9252,12 @@
           "Wizard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",

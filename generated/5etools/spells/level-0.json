@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-552748cd72fe54dc",
+  "contentVersion": "schema1-2477fa0f18ae5135",
   "entityType": "spells",
   "chunkId": "level-0",
-  "generatedAt": "2026-05-02T17:26:03.437Z",
+  "generatedAt": "2026-05-08T17:57:18.153Z",
   "records": [
     {
       "id": "acid-splash|phb|spell",
@@ -42,6 +42,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -118,6 +124,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -186,6 +198,12 @@
           "abjurer|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -257,6 +275,12 @@
           "abjurer|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -333,6 +357,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -406,6 +436,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -489,6 +525,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -556,6 +598,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -618,6 +666,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -694,6 +748,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -767,6 +827,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -838,6 +904,12 @@
         "subclassIds": [
           "arcane-archer|xge|subclass|fighter|phb",
           "arcane-archer|xge|subclass|fighter|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -924,6 +996,12 @@
           "arcane-archer|xge|subclass|fighter|phb",
           "arcane-archer|xge|subclass|fighter|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -979,6 +1057,12 @@
           "Warlock"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1045,6 +1129,12 @@
           "Warlock"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1147,6 +1237,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1199,6 +1295,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1266,6 +1368,12 @@
           "evoker|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1342,6 +1450,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1408,6 +1522,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1481,6 +1601,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1544,6 +1670,12 @@
           "evoker|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1620,6 +1752,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1686,6 +1824,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -1750,6 +1894,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|phb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1818,6 +1968,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -1873,6 +2029,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -1948,6 +2110,12 @@
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2021,6 +2189,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2096,6 +2270,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2168,6 +2348,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "swarmkeeper|tce|subclass|ranger|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2245,6 +2431,12 @@
           "swarmkeeper|tce|subclass|ranger|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2300,6 +2492,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2377,6 +2575,12 @@
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2447,6 +2651,12 @@
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "minute"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2512,6 +2722,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2589,6 +2805,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2651,6 +2873,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb",
           "aberrant-mind|tce|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2729,6 +2957,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -2798,6 +3032,12 @@
           "illusionist|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -2885,6 +3125,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -2952,6 +3198,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3027,6 +3279,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3106,6 +3364,12 @@
           "arcane-trickster|xphb|subclass|rogue|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3189,6 +3453,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-archer|xge|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3306,6 +3576,12 @@
           "arcane-archer|xge|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3361,6 +3637,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3417,6 +3699,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3486,6 +3774,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3555,6 +3849,12 @@
           "evoker|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3632,6 +3932,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3695,6 +4001,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3762,6 +4074,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -3823,6 +4141,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -3893,6 +4217,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -3947,6 +4277,12 @@
         "classIds": [],
         "classNames": [],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4014,6 +4350,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4075,6 +4417,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4143,6 +4491,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "bonus"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4213,6 +4567,12 @@
           "evoker|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -4289,6 +4649,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4354,6 +4720,12 @@
           "Sorcerer"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4420,6 +4792,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -4490,6 +4868,12 @@
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4555,6 +4939,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4627,6 +5017,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4698,6 +5094,12 @@
           "divine-soul|xge|subclass|sorcerer|phb",
           "drakewarden|ftd|subclass|ranger|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -4804,6 +5206,12 @@
           "drakewarden|ftd|subclass|ranger|xphb",
           "divine-soul|xge|subclass|sorcerer|xphb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "timed",
@@ -4864,6 +5272,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4933,6 +5347,12 @@
           "Druid"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -4993,6 +5413,12 @@
           "evoker|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5074,6 +5500,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5133,6 +5565,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5210,6 +5648,12 @@
           "arcane-trickster|phb|subclass|rogue|phb",
           "divine-soul|xge|subclass|sorcerer|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5277,6 +5721,12 @@
           "diviner|xphb|subclass|wizard|xphb",
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5360,6 +5810,12 @@
           "eldritch-knight|phb|subclass|fighter|phb",
           "arcane-trickster|phb|subclass|rogue|phb"
         ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5419,6 +5875,12 @@
           "Bard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5485,6 +5947,12 @@
           "Bard"
         ],
         "subclassIds": [],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
+        ],
         "duration": [
           {
             "type": "instant"
@@ -5541,6 +6009,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {
@@ -5609,6 +6083,12 @@
         "subclassIds": [
           "divine-soul|xge|subclass|sorcerer|xphb",
           "divine-soul|xge|subclass|sorcerer|phb"
+        ],
+        "time": [
+          {
+            "number": 1,
+            "unit": "action"
+          }
         ],
         "duration": [
           {

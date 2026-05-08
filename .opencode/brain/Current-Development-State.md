@@ -35,8 +35,8 @@ Current verification commands:
 - `npm run audit:5etools`
 
 Current status as of 2026-05-08:
-- `npm run typecheck` passes after Step 26c spell-tab and spell-detail implementation.
-- `npm run audit:5etools` last passed as of 2026-05-03 and was not rerun for the Step 25 UI/docs pass.
+- `npm run typecheck` passes after spell casting-time normalization and generated content refresh.
+- `npm run audit:5etools` passes after spell casting-time normalization and generated content refresh.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
 Do not run `npm run generate:5etools` casually. It rewrites generated content and stamps generated timestamps.
@@ -113,6 +113,7 @@ Implemented:
 - Native bootstrap seeds generated chunks into SQLite and skips reseed when content version matches.
 - Content versioning is automatic/deterministic from generated content, not a manual version bump.
 - Audit script validates generated coverage and selected content-policy rules.
+- Spell casting time is normalized into spell metadata as `metadata.time` for builder and compendium spell detail facts.
 
 Supported generated content:
 - Builder-ready/reference content: classes, subclasses, species, backgrounds, feats, spells, items, optional features.
@@ -198,7 +199,6 @@ Known compendium gaps:
 - The app has an `Items` category with mundane/magic filtering, not separate top-level `Equipment` and `Magic Items` categories.
 - There is no single authoritative category registry; category behavior is split across catalog and browse utilities.
 - Most category filtering/sorting is done in JavaScript after broad repository reads rather than directly in SQLite.
-- Spell detail facts attempt to read `metadata.time`, but spell normalization does not currently persist spell casting time.
 - Background equipment summary is not elevated into the background fact grid.
 - Inline reference links are underlined but do not have explicit pressed-state feedback.
 - Spell filter order differs from one historical execution plan; functionality exists.
