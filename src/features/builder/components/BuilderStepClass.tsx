@@ -4,15 +4,16 @@ import { useRouter } from 'expo-router';
 
 import { BuilderClassCard } from '@/features/builder/components/BuilderClassCard';
 import { BuilderClassDetailSheet } from '@/features/builder/components/BuilderClassDetailSheet';
+import { BuilderFeatureChoiceGroup } from '@/features/builder/components/BuilderFeatureChoiceGroup';
+import { BuilderFeatureOptionDetailSheet } from '@/features/builder/components/BuilderFeatureOptionDetailSheet';
 import { BuilderImpactConfirmationSheet } from '@/features/builder/components/BuilderImpactConfirmationSheet';
+import { BuilderSubclassCard } from '@/features/builder/components/BuilderSubclassCard';
+import { BuilderSubclassDetailSheet } from '@/features/builder/components/BuilderSubclassDetailSheet';
 import type { BuilderDraftPayload } from '@/features/builder/types';
 import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
+import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
-import {
-  getGrantSelectionCount,
-  getGrantTitle,
-  getSubclassUnlockLevel,
-} from '@/features/builder/utils/classStep';
+import { getSubclassUnlockLevel } from '@/features/builder/utils/classStep';
 import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderStepClassProps {
@@ -32,6 +33,25 @@ interface BuilderStepClassProps {
   removeAllocation: (allocationId: string) => void;
   updateFeatureSelection: (grantId: string, optionId: string, count: number) => void;
 }
+
+type SubclassDetailTarget = {
+  allocationId: string;
+  subclassId: string;
+};
+
+type SubclassChangeTarget = {
+  allocationId: string;
+  subclassId: string | null;
+};
+
+type FeatureOptionDetailTarget = {
+  grantId: string;
+  optionId: string;
+};
+
+type DecisionItem =
+  | { kind: 'subclass'; level: number }
+  | { kind: 'grant'; level: number; grant: ChoiceGrant };
 
 function getAllocationStatusLabel(payload: BuilderDraftPayload, allocation: BuilderDraftPayload['classStep']['allocations'][number]) {
   const allocationIssues = payload.review.issues.filter(
@@ -64,6 +84,24 @@ function buildRemovalImpacts(allocation: BuilderDraftPayload['classStep']['alloc
   return impacts;
 }
 
+function getSubclassIssues(payload: BuilderDraftPayload, allocationId: string) {
+  return payload.review.issues.filter((issue) => issue.step === 'class' && !issue.resolvedByOverride && issue.id === `subclass-required-${allocationId}`);
+}
+
+function getGrantIssues(payload: BuilderDraftPayload, grantId: string) {
+  return payload.review.issues.filter(
+    (issue) => issue.step === 'class' && !issue.resolvedByOverride && (issue.id === `grant-options-${grantId}` || issue.id === `grant-selection-${grantId}`),
+  );
+}
+
+function hasSubclassDependentSelections(payload: BuilderDraftPayload) {
+  return payload.spellsStep.selectedSpellIds.length > 0 || payload.spellsStep.preparedSpellIds.length > 0;
+}
+
+function buildSubclassChangeImpacts() {
+  return ['Existing spell selections may need review after this subclass change.'];
+}
+
 export function BuilderStepClass({
   payload,
   classEntitiesById,
@@ -81,15 +119,34 @@ export function BuilderStepClass({
   const router = useRouter();
   const [showClassPicker, setShowClassPicker] = useState(false);
   const [detailClassId, setDetailClassId] = useState<string | null>(null);
+  const [detailSubclass, setDetailSubclass] = useState<SubclassDetailTarget | null>(null);
+  const [detailFeatureOption, setDetailFeatureOption] = useState<FeatureOptionDetailTarget | null>(null);
   const [pendingRemoveAllocationId, setPendingRemoveAllocationId] = useState<string | null>(null);
+  const [pendingSubclassChange, setPendingSubclassChange] = useState<SubclassChangeTarget | null>(null);
   const hasSelectedClass = payload.classStep.allocations.length > 0;
   const detailClass = detailClassId ? classEntitiesById[detailClassId] ?? availableClasses.find((entry) => entry.id === detailClassId) ?? null : null;
   const detailClassIsSelected = Boolean(detailClassId && payload.classStep.allocations.some((allocation) => allocation.classId === detailClassId));
+  const detailSubclassAllocation = detailSubclass ? payload.classStep.allocations.find((allocation) => allocation.id === detailSubclass.allocationId) ?? null : null;
+  const detailSubclassEntity = detailSubclassAllocation && detailSubclass ? (subclassesByClassId[detailSubclassAllocation.classId] ?? []).find((subclass) => subclass.id === detailSubclass.subclassId) ?? null : null;
+  const detailSubclassUnlockLevel = detailSubclassAllocation ? getSubclassUnlockLevel(classEntitiesById[detailSubclassAllocation.classId]) : null;
+  const detailSubclassIsLocked = detailSubclassAllocation ? detailSubclassUnlockLevel != null && detailSubclassAllocation.level < detailSubclassUnlockLevel : false;
+  const detailSubclassIsSelected = Boolean(detailSubclassAllocation && detailSubclassEntity && detailSubclassAllocation.subclassId === detailSubclassEntity.id);
+  const detailGrant = detailFeatureOption ? applicableGrants.find((grant) => grant.id === detailFeatureOption.grantId) ?? null : null;
+  const detailGrantOptions = detailGrant ? grantOptionsByGrantId[detailGrant.id] ?? [] : [];
+  const detailFeatureOptionEntity = detailFeatureOption ? detailGrantOptions.find((option) => option.id === detailFeatureOption.optionId) ?? null : null;
+  const detailSelectedOptionIds = detailGrant ? payload.classStep.featureChoices.find((selection) => selection.grantId === detailGrant.id)?.selectedOptionIds ?? [] : [];
+  const detailFeatureIsSelected = detailFeatureOptionEntity ? detailSelectedOptionIds.includes(detailFeatureOptionEntity.id) : false;
+  const detailFeatureIsFull = detailGrant ? detailSelectedOptionIds.length >= detailGrant.count : false;
+  const detailSelectedOptionNames = detailSelectedOptionIds.map((optionId) => detailGrantOptions.find((option) => option.id === optionId)?.name ?? optionId);
   const pendingRemoveAllocation = payload.classStep.allocations.find((allocation) => allocation.id === pendingRemoveAllocationId) ?? null;
   const pendingRemoveClass = pendingRemoveAllocation ? classEntitiesById[pendingRemoveAllocation.classId] : undefined;
 
   const openCompendiumForClass = (classEntity: ContentEntity) => {
     router.push(`/(app)/compendium/class/${encodeURIComponent(classEntity.id)}` as never);
+  };
+
+  const openCompendiumForEntity = (entity: ContentEntity) => {
+    router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(entity.id))}` as never);
   };
 
   const renderClassPicker = (classes: readonly ContentEntity[]) => (
@@ -123,6 +180,40 @@ export function BuilderStepClass({
     setShowClassPicker(false);
   };
 
+  const applySubclassChange = (change: SubclassChangeTarget) => {
+    updateAllocation(change.allocationId, (current) => ({ ...current, subclassId: change.subclassId }));
+    setDetailSubclass(null);
+  };
+
+  const requestSubclassChange = (change: SubclassChangeTarget) => {
+    const allocation = payload.classStep.allocations.find((entry) => entry.id === change.allocationId);
+    const changesExistingSubclass = Boolean(allocation?.subclassId && allocation.subclassId !== change.subclassId);
+
+    if (changesExistingSubclass && hasSubclassDependentSelections(payload)) {
+      setPendingSubclassChange(change);
+      return;
+    }
+
+    applySubclassChange(change);
+  };
+
+  const confirmSubclassChange = () => {
+    if (pendingSubclassChange) {
+      applySubclassChange(pendingSubclassChange);
+    }
+
+    setPendingSubclassChange(null);
+  };
+
+  const chooseFeatureOption = () => {
+    if (!detailGrant || !detailFeatureOptionEntity || (!detailFeatureIsSelected && detailFeatureIsFull)) {
+      return;
+    }
+
+    updateFeatureSelection(detailGrant.id, detailFeatureOptionEntity.id, detailGrant.count);
+    setDetailFeatureOption(null);
+  };
+
   return (
     <View style={styles.section}>
       {!hasSelectedClass ? renderClassPicker(availableClasses) : null}
@@ -141,8 +232,13 @@ export function BuilderStepClass({
               const classEntity = classEntitiesById[allocation.classId];
               const subclassOptions = allocation.classId ? subclassesByClassId[allocation.classId] ?? [] : [];
               const subclassUnlockLevel = classEntity ? getSubclassUnlockLevel(classEntity) : null;
-              const canChooseSubclass = subclassUnlockLevel == null ? subclassOptions.length > 0 : allocation.level >= subclassUnlockLevel;
+              const subclassDecisionLevel = subclassUnlockLevel ?? 3;
               const statusLabel = getAllocationStatusLabel(payload, allocation);
+              const classGrants = applicableGrants.filter((grant) => grant.sourceId === allocation.classId);
+              const decisionItems: DecisionItem[] = [
+                ...classGrants.map((grant): DecisionItem => ({ kind: 'grant', level: grant.atLevel, grant })),
+                ...(subclassOptions.length > 0 ? [{ kind: 'subclass' as const, level: subclassDecisionLevel }] : []),
+              ].sort((left, right) => left.level - right.level || (left.kind === 'subclass' ? -1 : 1));
 
               return (
                 <View key={allocation.id} style={styles.allocationCard}>
@@ -208,27 +304,57 @@ export function BuilderStepClass({
                     </Pressable>
                   </View>
 
-                  {subclassOptions.length > 0 && canChooseSubclass ? (
-                    <View style={styles.optionBlock}>
-                      <Text style={styles.optionBlockLabel}>Subclass</Text>
-                      <View style={styles.optionChipWrap}>
-                        {subclassOptions.map((subclass) => {
-                          const isSelected = allocation.subclassId === subclass.id;
+                  {decisionItems.length > 0 ? (
+                    <View style={styles.decisionList}>
+                      {decisionItems.map((decision) => {
+                        if (decision.kind === 'subclass') {
+                          const subclassIssues = getSubclassIssues(payload, allocation.id);
+                          const isLocked = allocation.level < decision.level;
+
                           return (
-                            <Pressable
-                              accessibilityRole="button"
-                              key={subclass.id}
-                              onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, subclassId: isSelected ? null : subclass.id }))}
-                              style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                            >
-                              <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{subclass.name}</Text>
-                            </Pressable>
+                            <View key={`subclass-${allocation.id}`} style={styles.decisionBlock}>
+                              <View style={styles.decisionHeader}>
+                                <Text style={styles.decisionTitle}>Subclass</Text>
+                                <Text style={styles.decisionMeta}>Level {decision.level}</Text>
+                              </View>
+                              {subclassIssues.length > 0 ? (
+                                <View style={styles.issueList}>
+                                  {subclassIssues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
+                                </View>
+                              ) : null}
+                              <View style={styles.subclassCardList}>
+                                {subclassOptions.map((subclass) => (
+                                  <BuilderSubclassCard
+                                    key={subclass.id}
+                                    subclass={subclass}
+                                    isLocked={isLocked}
+                                    isSelected={allocation.subclassId === subclass.id}
+                                    unlockLevel={decision.level}
+                                    onPress={() => setDetailSubclass({ allocationId: allocation.id, subclassId: subclass.id })}
+                                  />
+                                ))}
+                              </View>
+                            </View>
                           );
-                        })}
-                      </View>
+                        }
+
+                        const selectedOptionIds = payload.classStep.featureChoices.find((selection) => selection.grantId === decision.grant.id)?.selectedOptionIds ?? [];
+                        const options = grantOptionsByGrantId[decision.grant.id] ?? [];
+                        const grantIssues = getGrantIssues(payload, decision.grant.id);
+
+                        return (
+                          <BuilderFeatureChoiceGroup
+                            key={decision.grant.id}
+                            grant={decision.grant}
+                            options={options}
+                            selectedOptionIds={selectedOptionIds}
+                            issues={grantIssues}
+                            onOpenOption={(option) => setDetailFeatureOption({ grantId: decision.grant.id, optionId: option.id })}
+                            onOpenClassCompendium={() => classEntity ? openCompendiumForClass(classEntity) : undefined}
+                          />
+                        );
+                      })}
                     </View>
-                  ) : subclassOptions.length > 0 ? (
-                    <Text style={styles.lockedHint}>Subclass selection unlocks when this class reaches the qualifying level.</Text>
                   ) : null}
                 </View>
               );
@@ -254,42 +380,6 @@ export function BuilderStepClass({
         </>
       ) : null}
 
-      {applicableGrants.length > 0 ? (
-        <View style={styles.featureChoiceSection}>
-          <Text style={styles.sectionTitle}>Class-owned feature choices</Text>
-          {applicableGrants.map((grant) => {
-            const selectedOptionIds = payload.classStep.featureChoices.find((selection) => selection.grantId === grant.id)?.selectedOptionIds ?? [];
-            const options = grantOptionsByGrantId[grant.id] ?? [];
-
-            return (
-              <View key={grant.id} style={styles.featureChoiceCard}>
-                <Text style={styles.featureChoiceTitle}>{getGrantTitle(grant)}</Text>
-                <Text style={styles.featureChoiceMeta}>
-                  Choose {getGrantSelectionCount(grant)} {grant.chooseKind === 'feat' ? 'feat option' : 'optional feature'}
-                </Text>
-                <View style={styles.optionChipWrap}>
-                  {options.map((option) => {
-                    const isSelected = selectedOptionIds.includes(option.id);
-
-                    return (
-                      <Pressable
-                        accessibilityRole="button"
-                        key={option.id}
-                        onPress={() => updateFeatureSelection(grant.id, option.id, grant.count)}
-                        style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                      >
-                        <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{option.name}</Text>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-                {options.length === 0 ? <Text style={styles.emptyHint}>No structured builder options were found for this grant yet.</Text> : null}
-              </View>
-            );
-          })}
-        </View>
-      ) : null}
-
       <BuilderClassDetailSheet
         classEntity={detailClass}
         isSelected={detailClassIsSelected}
@@ -297,6 +387,31 @@ export function BuilderStepClass({
         onClose={() => setDetailClassId(null)}
         onOpenCompendium={() => detailClass ? openCompendiumForClass(detailClass) : undefined}
         visible={Boolean(detailClass)}
+      />
+
+      <BuilderSubclassDetailSheet
+        subclass={detailSubclassEntity}
+        isLocked={detailSubclassIsLocked}
+        isSelected={detailSubclassIsSelected}
+        unlockLevel={detailSubclassUnlockLevel}
+        onChoose={() => detailSubclassAllocation && detailSubclassEntity ? requestSubclassChange({ allocationId: detailSubclassAllocation.id, subclassId: detailSubclassEntity.id }) : undefined}
+        onRemove={() => detailSubclassAllocation ? requestSubclassChange({ allocationId: detailSubclassAllocation.id, subclassId: null }) : undefined}
+        onClose={() => setDetailSubclass(null)}
+        onOpenCompendium={() => detailSubclassEntity ? openCompendiumForEntity(detailSubclassEntity) : undefined}
+        visible={Boolean(detailSubclassEntity)}
+      />
+
+      <BuilderFeatureOptionDetailSheet
+        grant={detailGrant}
+        option={detailFeatureOptionEntity}
+        isSelected={detailFeatureIsSelected}
+        isFull={detailFeatureIsFull}
+        selectedOptionNames={detailSelectedOptionNames}
+        onChoose={chooseFeatureOption}
+        onRemove={chooseFeatureOption}
+        onClose={() => setDetailFeatureOption(null)}
+        onOpenCompendium={() => detailFeatureOptionEntity ? openCompendiumForEntity(detailFeatureOptionEntity) : undefined}
+        visible={Boolean(detailFeatureOptionEntity && detailGrant)}
       />
 
       <BuilderImpactConfirmationSheet
@@ -307,6 +422,16 @@ export function BuilderStepClass({
         onConfirm={confirmRemoveClass}
         title="Remove class?"
         visible={Boolean(pendingRemoveAllocation)}
+      />
+
+      <BuilderImpactConfirmationSheet
+        confirmLabel="Confirm subclass change"
+        impacts={buildSubclassChangeImpacts()}
+        message="Changing this subclass may affect spell options tied to the current build."
+        onCancel={() => setPendingSubclassChange(null)}
+        onConfirm={confirmSubclassChange}
+        title="Change subclass?"
+        visible={Boolean(pendingSubclassChange)}
       />
     </View>
   );
@@ -514,46 +639,42 @@ const styles = StyleSheet.create({
     ...typography.meta,
     fontWeight: '700',
   },
-  optionBlock: {
-    gap: theme.spacing.sm,
+  decisionList: {
+    gap: theme.spacing.md,
   },
-  optionBlockLabel: {
-    color: theme.colors.textPrimary,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  optionChipWrap: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing.sm,
-  },
-  optionChip: {
+  decisionBlock: {
     backgroundColor: theme.colors.surface,
     borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.pill,
+    borderRadius: theme.radii.md,
     borderWidth: 1,
-    minHeight: 40,
-    justifyContent: 'center',
-    paddingHorizontal: theme.spacing.md,
+    gap: theme.spacing.sm,
+    padding: theme.spacing.md,
   },
-  optionChipActive: {
-    backgroundColor: theme.colors.accentPrimaryDeep,
-    borderColor: theme.colors.accentPrimary,
+  decisionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'space-between',
   },
-  optionChipPressed: {
-    borderColor: theme.colors.accentPrimary,
+  decisionTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 15,
+    fontWeight: '800',
   },
-  optionChipLabel: {
-    color: theme.colors.textSecondary,
+  decisionMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
+  issueList: {
+    gap: theme.spacing.xs,
+  },
+  issueText: {
+    color: theme.colors.accentLegacySoft,
     ...typography.meta,
     fontWeight: '700',
   },
-  optionChipLabelActive: {
-    color: theme.colors.accentPrimarySoft,
-  },
-  lockedHint: {
-    color: theme.colors.textMuted,
-    ...typography.meta,
+  subclassCardList: {
+    gap: theme.spacing.sm,
   },
   addClassArea: {
     gap: theme.spacing.sm,
@@ -579,26 +700,6 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     fontSize: 14,
     fontWeight: '700',
-  },
-  featureChoiceSection: {
-    gap: theme.spacing.md,
-  },
-  featureChoiceCard: {
-    backgroundColor: theme.colors.surfaceAccent,
-    borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.md,
-    borderWidth: 1,
-    gap: theme.spacing.sm,
-    padding: theme.spacing.md,
-  },
-  featureChoiceTitle: {
-    color: theme.colors.textPrimary,
-    fontSize: 15,
-    fontWeight: '700',
-  },
-  featureChoiceMeta: {
-    color: theme.colors.textMuted,
-    ...typography.meta,
   },
   emptyHint: {
     color: theme.colors.accentLegacySoft,
