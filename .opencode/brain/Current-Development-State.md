@@ -264,7 +264,7 @@ Implemented:
 - Class step supports allocation-scoped starting skill proficiency choices derived from class `metadata.startingProficiencies.skills`.
 - Class step supports allocation-scoped Ability Score Improvement feature instances derived from `Ability Score Improvement|...|<level>` class feature refs.
 - Each ASI feature instance can be set to `Ability Increase` or `Feat`; only `Ability Increase` contributes 2 points to the Ability Points phase.
-- ASI feat mode uses builder-selectable General feats, excluding the dedicated `Ability Score Improvement` feat because the builder models that path through `Ability Increase` mode.
+- ASI feat mode uses full-catalog Origin and General feats, excluding the dedicated `Ability Score Improvement` feat because the builder models that path through `Ability Increase` mode.
 - Class feature reconciliation clears skill/ASI/Feat selections when classes are removed, levels drop below feature requirements, or selected feat options become invalid.
 - Species/background selection exists with deterministic applied summaries and granted-feat follow-up choices.
 - Ability score UI supports manual base score entry, origin ability packages, and ASI point controls.
@@ -283,7 +283,7 @@ Implemented:
 - Class detail sheets include source/edition/spellcasting badges, relevant support warnings, expanded rules snapshots, compact key-level previews, short summaries, `Choose this class`, and `Open in Compendium` actions.
 - Step 26b subclass and feature-choice UX is source-implemented: subclass cards live inside their owning class section, locked subclass cards open read-only detail sheets, subclass selection/removal happens from detail sheets, class-owned feature grants are grouped inside owning class sections, feature option rows open detail sheets before selection, feature over-selection is disabled in the detail sheet, and unsupported grants render inline Fix cards with class compendium access.
 - Step 26c spell UX is source-implemented and then updated for class-specific spell ownership: spellcasting summaries classify the UI workflow as none/known/prepared/known-prepared/unsupported, spell choices render in task tabs, Cantrips shows eligible cantrips per class source, Known and Prepared show selected source-owned spells, Browse handles eligible leveled spell discovery with search and level filters, compact spell cards show source class/casting ability, and spell detail sheets provide source/ability facts, rules snapshots, spell text, contextual actions, compendium access, and disabled helper text at per-source limits.
-- Step 27 class feature coverage is source-implemented for starting skill proficiencies and ASI/Feat choices: Sorcerer level 1 skill choices are modeled, ASI feature instances require an explicit Ability Increase or Feat decision, selected ASI feats contribute to source summary/preview, and existing Metamagic/subclass behavior remains on the existing class flow.
+- Step 27 class feature coverage is source-implemented for starting skill proficiencies and ASI/Feat choices: Sorcerer level 1 skill choices are modeled, ASI feature instances require an explicit Ability Increase or Feat decision, selected ASI feats contribute to source summary/preview, class decisions render in level order, ASI feat rows open detail sheets before selection, ASI feat rows show source/edition/type metadata, and existing Metamagic/subclass behavior remains on the existing class flow.
 
 Key files:
 - `src/features/builder/types/index.ts`
@@ -337,7 +337,7 @@ Known builder gaps:
 - Step 27 intentionally applies starting class skill choices to every selected class allocation; first-class multiclass starting-proficiency rules are still deferred.
 - Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.
 - Tool, language, weapon mastery, expertise, and other non-skill class feature choices are still not modeled unless already covered by existing `choice_grants`.
-- ASI feat prerequisite enforcement is deferred; the first pass shows builder-selectable General feats.
+- ASI feat prerequisite enforcement is deferred; the current ASI picker shows full-catalog Origin and General feats.
 
 ## UI And Design System
 Implemented:

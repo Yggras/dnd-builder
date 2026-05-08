@@ -23,6 +23,15 @@ export class ContentService {
     return this.repository.listFeats(categoryTag, true);
   }
 
+  async listAsiFeats() {
+    const feats = await this.repository.listFeats(undefined, false);
+    return feats.filter(
+      (feat) =>
+        (feat.categoryTags.includes('O') || feat.categoryTags.includes('G')) &&
+        feat.name !== 'Ability Score Improvement',
+    );
+  }
+
   listOptionalFeatures(featureType?: string) {
     return this.repository.listOptionalFeatures(featureType, true);
   }

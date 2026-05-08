@@ -10,10 +10,12 @@ import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderFeatureOptionDetailSheetProps {
   visible: boolean;
-  grant: ChoiceGrant | null;
+  grant?: ChoiceGrant | null;
+  contextLabel?: string | null;
   option: ContentEntity | null;
   isSelected: boolean;
   isFull: boolean;
+  primaryChooseLabel?: string;
   selectedOptionNames: readonly string[];
   onClose: () => void;
   onChoose: () => void;
@@ -40,10 +42,12 @@ function buildOptionBlocks(option: ContentEntity): DetailRenderBlock[] {
 
 export function BuilderFeatureOptionDetailSheet({
   visible,
-  grant,
+  grant = null,
+  contextLabel,
   option,
   isSelected,
   isFull,
+  primaryChooseLabel = 'Choose option',
   selectedOptionNames,
   onClose,
   onChoose,
@@ -57,17 +61,17 @@ export function BuilderFeatureOptionDetailSheet({
 
   return (
     <BuilderChoiceSheet
-      visible={visible && Boolean(option && grant)}
+      visible={visible && Boolean(option && (grant || contextLabel))}
       title={option?.name ?? 'Feature option'}
-      subtitle={grant ? getGrantTitle(grant) : 'Feature choice'}
+      subtitle={grant ? getGrantTitle(grant) : contextLabel ?? 'Feature choice'}
       onClose={onClose}
       helperText={disabledHelper}
       primaryAction={isSelected
         ? { label: 'Remove selection', onPress: onRemove, destructive: true }
-        : { label: 'Choose option', onPress: onChoose, disabled: isFull }}
+        : { label: primaryChooseLabel, onPress: onChoose, disabled: isFull }}
       secondaryAction={{ label: 'Open in Compendium', onPress: onOpenCompendium }}
     >
-      {option && grant ? (
+      {option && (grant || contextLabel) ? (
         <>
           <View style={styles.badgeRow}>
             <View style={styles.sourceBadge}>
@@ -85,7 +89,9 @@ export function BuilderFeatureOptionDetailSheet({
 
           <View style={styles.contextCard}>
             <Text style={styles.contextTitle}>Grant Context</Text>
-            <Text style={styles.contextText}>This satisfies {getGrantTitle(grant)}, choose {grant.count}.</Text>
+            <Text style={styles.contextText}>
+              {grant ? `This satisfies ${getGrantTitle(grant)}, choose ${grant.count}.` : `This satisfies ${contextLabel}.`}
+            </Text>
           </View>
         </>
       ) : null}

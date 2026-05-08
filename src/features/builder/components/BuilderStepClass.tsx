@@ -58,9 +58,40 @@ type FeatureOptionDetailTarget = {
   optionId: string;
 };
 
+type AsiFeatDetailTarget = {
+  requirementId: string;
+  featId: string;
+};
+
 type DecisionItem =
+  | { kind: 'skill-proficiency'; level: number; requirementId: string }
+  | { kind: 'asi-feat'; level: number; requirementId: string }
   | { kind: 'subclass'; level: number }
   | { kind: 'grant'; level: number; grant: ChoiceGrant };
+
+const DECISION_KIND_ORDER: Record<DecisionItem['kind'], number> = {
+  'skill-proficiency': 0,
+  subclass: 1,
+  grant: 2,
+  'asi-feat': 3,
+};
+
+const FEAT_TYPE_LABELS: Record<string, string> = {
+  EB: 'Boon',
+  G: 'General',
+  O: 'Origin',
+};
+
+function getFeatTypeLabel(feat: ContentEntity) {
+  const category = feat.categoryTags.find((tag) => FEAT_TYPE_LABELS[tag]) ??
+    (typeof feat.metadata.category === 'string' ? feat.metadata.category : null);
+
+  return category ? FEAT_TYPE_LABELS[category] ?? category : 'Feat';
+}
+
+function getFeatOptionMeta(feat: ContentEntity) {
+  return [feat.sourceCode, getClassEditionBadge(feat), getFeatTypeLabel(feat)].filter(Boolean).join(' • ');
+}
 
 function getAllocationStatusLabel(payload: BuilderDraftPayload, allocation: BuilderDraftPayload['classStep']['allocations'][number]) {
   const allocationIssues = payload.review.issues.filter(
@@ -152,6 +183,7 @@ export function BuilderStepClass({
   const [detailClassId, setDetailClassId] = useState<string | null>(null);
   const [detailSubclass, setDetailSubclass] = useState<SubclassDetailTarget | null>(null);
   const [detailFeatureOption, setDetailFeatureOption] = useState<FeatureOptionDetailTarget | null>(null);
+  const [detailAsiFeat, setDetailAsiFeat] = useState<AsiFeatDetailTarget | null>(null);
   const [pendingRemoveAllocationId, setPendingRemoveAllocationId] = useState<string | null>(null);
   const [pendingSubclassChange, setPendingSubclassChange] = useState<SubclassChangeTarget | null>(null);
   const hasSelectedClass = payload.classStep.allocations.length > 0;
@@ -169,6 +201,10 @@ export function BuilderStepClass({
   const detailFeatureIsSelected = detailFeatureOptionEntity ? detailSelectedOptionIds.includes(detailFeatureOptionEntity.id) : false;
   const detailFeatureIsFull = detailGrant ? detailSelectedOptionIds.length >= detailGrant.count : false;
   const detailSelectedOptionNames = detailSelectedOptionIds.map((optionId) => detailGrantOptions.find((option) => option.id === optionId)?.name ?? optionId);
+  const detailAsiFeatRequirement = detailAsiFeat ? classFeatureRequirements.asiFeatChoices.find((requirement) => requirement.id === detailAsiFeat.requirementId) ?? null : null;
+  const detailAsiFeatEntity = detailAsiFeat ? asiFeatOptions.find((feat) => feat.id === detailAsiFeat.featId) ?? null : null;
+  const detailAsiFeatSelection = detailAsiFeat ? payload.classStep.asiFeatChoices.find((selection) => selection.requirementId === detailAsiFeat.requirementId) ?? null : null;
+  const detailAsiFeatIsSelected = Boolean(detailAsiFeatEntity && detailAsiFeatSelection?.selectedFeatId === detailAsiFeatEntity.id);
   const pendingRemoveAllocation = payload.classStep.allocations.find((allocation) => allocation.id === pendingRemoveAllocationId) ?? null;
   const pendingRemoveClass = pendingRemoveAllocation ? classEntitiesById[pendingRemoveAllocation.classId] : undefined;
 
@@ -245,6 +281,15 @@ export function BuilderStepClass({
     setDetailFeatureOption(null);
   };
 
+  const chooseAsiFeatOption = () => {
+    if (!detailAsiFeatRequirement || !detailAsiFeatEntity) {
+      return;
+    }
+
+    updateClassAsiFeatSelection(detailAsiFeatRequirement.id, detailAsiFeatEntity.id);
+    setDetailAsiFeat(null);
+  };
+
   return (
     <View style={styles.section}>
       {!hasSelectedClass ? renderClassPicker(availableClasses) : null}
@@ -271,9 +316,11 @@ export function BuilderStepClass({
               const skillSelections = Array.isArray(payload.classStep.skillProficiencies) ? payload.classStep.skillProficiencies : [];
               const asiFeatSelections = Array.isArray(payload.classStep.asiFeatChoices) ? payload.classStep.asiFeatChoices : [];
               const decisionItems: DecisionItem[] = [
+                ...skillRequirements.map((requirement): DecisionItem => ({ kind: 'skill-proficiency', level: requirement.level, requirementId: requirement.id })),
                 ...classGrants.map((grant): DecisionItem => ({ kind: 'grant', level: grant.atLevel, grant })),
                 ...(subclassOptions.length > 0 ? [{ kind: 'subclass' as const, level: subclassDecisionLevel }] : []),
-              ].sort((left, right) => left.level - right.level || (left.kind === 'subclass' ? -1 : 1));
+                ...asiFeatRequirements.map((requirement): DecisionItem => ({ kind: 'asi-feat', level: requirement.level, requirementId: requirement.id })),
+              ].sort((left, right) => left.level - right.level || DECISION_KIND_ORDER[left.kind] - DECISION_KIND_ORDER[right.kind]);
 
               return (
                 <View key={allocation.id} style={styles.allocationCard}>
@@ -339,125 +386,60 @@ export function BuilderStepClass({
                     </Pressable>
                   </View>
 
-                  {skillRequirements.length > 0 || asiFeatRequirements.length > 0 ? (
+                  {decisionItems.length > 0 ? (
                     <View style={styles.decisionList}>
-                      {skillRequirements.map((requirement) => {
-                        const selection = skillSelections.find((candidate) => candidate.requirementId === requirement.id);
-                        const selectedSkills = selection?.selectedSkills ?? [];
-                        const issues = getSkillRequirementIssues(payload, requirement.id);
-                        const status = getDecisionStatus(issues);
+                      {decisionItems.map((decision) => {
+                        if (decision.kind === 'skill-proficiency') {
+                          const requirement = skillRequirements.find((entry) => entry.id === decision.requirementId);
+                          if (!requirement) return null;
 
-                        return (
-                          <View key={requirement.id} style={styles.decisionBlock}>
-                            <View style={styles.decisionHeader}>
-                              <View style={styles.decisionHeaderCopy}>
-                                <Text style={styles.decisionTitle}>Skill Proficiencies</Text>
-                                <Text style={styles.decisionMeta}>Level {requirement.level} • {selectedSkills.length}/{requirement.count} selected</Text>
-                              </View>
-                              <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
-                                <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
-                              </View>
-                            </View>
-                            {issues.length > 0 ? (
-                              <View style={styles.issueList}>
-                                {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
-                              </View>
-                            ) : null}
-                            <View style={styles.optionChipWrap}>
-                              {requirement.options.map((skill) => {
-                                const isSelected = selectedSkills.includes(skill);
-                                const isFull = selectedSkills.length >= requirement.count;
-                                return (
-                                  <Pressable
-                                    accessibilityRole="button"
-                                    disabled={!isSelected && isFull}
-                                    key={skill}
-                                    onPress={() => toggleClassSkillProficiency(requirement.id, skill)}
-                                    style={({ pressed }) => [
-                                      styles.optionChip,
-                                      isSelected && styles.optionChipActive,
-                                      !isSelected && isFull && styles.optionChipDisabled,
-                                      pressed && styles.optionChipPressed,
-                                    ]}
-                                  >
-                                    <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{formatSkillLabel(skill)}</Text>
-                                  </Pressable>
-                                );
-                              })}
-                            </View>
-                          </View>
-                        );
-                      })}
+                          const selection = skillSelections.find((candidate) => candidate.requirementId === requirement.id);
+                          const selectedSkills = selection?.selectedSkills ?? [];
+                          const issues = getSkillRequirementIssues(payload, requirement.id);
+                          const status = getDecisionStatus(issues);
 
-                      {asiFeatRequirements.map((requirement) => {
-                        const selection = asiFeatSelections.find((candidate) => candidate.requirementId === requirement.id);
-                        const selectedFeat = selection?.selectedFeatId ? asiFeatOptions.find((feat) => feat.id === selection.selectedFeatId) ?? null : null;
-                        const issues = getAsiFeatRequirementIssues(payload, requirement.id);
-                        const status = getDecisionStatus(issues);
-
-                        return (
-                          <View key={requirement.id} style={styles.decisionBlock}>
-                            <View style={styles.decisionHeader}>
-                              <View style={styles.decisionHeaderCopy}>
-                                <Text style={styles.decisionTitle}>Ability Score Improvement</Text>
-                                <Text style={styles.decisionMeta}>Level {requirement.level}</Text>
+                          return (
+                            <View key={requirement.id} style={styles.decisionBlock}>
+                              <View style={styles.decisionHeader}>
+                                <View style={styles.decisionHeaderCopy}>
+                                  <Text style={styles.decisionTitle}>Skill Proficiencies</Text>
+                                  <Text style={styles.decisionMeta}>Level {requirement.level} • {selectedSkills.length}/{requirement.count} selected</Text>
+                                </View>
+                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                  <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
+                                </View>
                               </View>
-                              <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
-                                <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
-                              </View>
-                            </View>
-                            {issues.length > 0 ? (
-                              <View style={styles.issueList}>
-                                {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
-                              </View>
-                            ) : null}
-                            <View style={styles.optionChipWrap}>
-                              <Pressable
-                                accessibilityRole="button"
-                                onPress={() => updateClassAsiFeatMode(requirement.id, 'asi')}
-                                style={({ pressed }) => [styles.optionChip, selection?.mode === 'asi' && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                              >
-                                <Text style={[styles.optionChipLabel, selection?.mode === 'asi' && styles.optionChipLabelActive]}>Ability Increase</Text>
-                              </Pressable>
-                              <Pressable
-                                accessibilityRole="button"
-                                onPress={() => updateClassAsiFeatMode(requirement.id, 'feat')}
-                                style={({ pressed }) => [styles.optionChip, selection?.mode === 'feat' && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                              >
-                                <Text style={[styles.optionChipLabel, selection?.mode === 'feat' && styles.optionChipLabelActive]}>Feat</Text>
-                              </Pressable>
-                            </View>
-                            {selection?.mode === 'asi' ? (
-                              <Text style={styles.decisionHelp}>This feature contributes 2 points in the Ability Points phase.</Text>
-                            ) : null}
-                            {selection?.mode === 'feat' ? (
-                              <View style={styles.featOptionList}>
-                                {selectedFeat ? <Text style={styles.decisionHelp}>Selected feat: {selectedFeat.name}</Text> : null}
-                                {asiFeatOptions.map((feat) => {
-                                  const isSelected = selection.selectedFeatId === feat.id;
+                              {issues.length > 0 ? (
+                                <View style={styles.issueList}>
+                                  {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
+                                </View>
+                              ) : null}
+                              <View style={styles.optionChipWrap}>
+                                {requirement.options.map((skill) => {
+                                  const isSelected = selectedSkills.includes(skill);
+                                  const isFull = selectedSkills.length >= requirement.count;
                                   return (
                                     <Pressable
                                       accessibilityRole="button"
-                                      key={feat.id}
-                                      onPress={() => updateClassAsiFeatSelection(requirement.id, feat.id)}
-                                      style={({ pressed }) => [styles.featOptionRow, isSelected && styles.featOptionRowActive, pressed && styles.featOptionRowPressed]}
+                                      disabled={!isSelected && isFull}
+                                      key={skill}
+                                      onPress={() => toggleClassSkillProficiency(requirement.id, skill)}
+                                      style={({ pressed }) => [
+                                        styles.optionChip,
+                                        isSelected && styles.optionChipActive,
+                                        !isSelected && isFull && styles.optionChipDisabled,
+                                        pressed && styles.optionChipPressed,
+                                      ]}
                                     >
-                                      <Text style={[styles.featOptionTitle, isSelected && styles.featOptionTitleActive]}>{feat.name}</Text>
-                                      <Text style={styles.featOptionMeta}>{feat.sourceCode}</Text>
+                                      <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{formatSkillLabel(skill)}</Text>
                                     </Pressable>
                                   );
                                 })}
                               </View>
-                            ) : null}
-                          </View>
-                        );
-                      })}
-                    </View>
-                  ) : null}
+                            </View>
+                          );
+                        }
 
-                  {decisionItems.length > 0 ? (
-                    <View style={styles.decisionList}>
-                      {decisionItems.map((decision) => {
                         if (decision.kind === 'subclass') {
                           const subclassIssues = getSubclassIssues(payload, allocation.id);
                           const isLocked = allocation.level < decision.level;
@@ -485,6 +467,73 @@ export function BuilderStepClass({
                                   />
                                 ))}
                               </View>
+                            </View>
+                          );
+                        }
+
+                        if (decision.kind === 'asi-feat') {
+                          const requirement = asiFeatRequirements.find((entry) => entry.id === decision.requirementId);
+                          if (!requirement) return null;
+
+                          const selection = asiFeatSelections.find((candidate) => candidate.requirementId === requirement.id);
+                          const selectedFeat = selection?.selectedFeatId ? asiFeatOptions.find((feat) => feat.id === selection.selectedFeatId) ?? null : null;
+                          const issues = getAsiFeatRequirementIssues(payload, requirement.id);
+                          const status = getDecisionStatus(issues);
+
+                          return (
+                            <View key={requirement.id} style={styles.decisionBlock}>
+                              <View style={styles.decisionHeader}>
+                                <View style={styles.decisionHeaderCopy}>
+                                  <Text style={styles.decisionTitle}>Ability Score Improvement</Text>
+                                  <Text style={styles.decisionMeta}>Level {requirement.level}</Text>
+                                </View>
+                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                  <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
+                                </View>
+                              </View>
+                              {issues.length > 0 ? (
+                                <View style={styles.issueList}>
+                                  {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
+                                </View>
+                              ) : null}
+                              <View style={styles.optionChipWrap}>
+                                <Pressable
+                                  accessibilityRole="button"
+                                  onPress={() => updateClassAsiFeatMode(requirement.id, 'asi')}
+                                  style={({ pressed }) => [styles.optionChip, selection?.mode === 'asi' && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                                >
+                                  <Text style={[styles.optionChipLabel, selection?.mode === 'asi' && styles.optionChipLabelActive]}>Ability Increase</Text>
+                                </Pressable>
+                                <Pressable
+                                  accessibilityRole="button"
+                                  onPress={() => updateClassAsiFeatMode(requirement.id, 'feat')}
+                                  style={({ pressed }) => [styles.optionChip, selection?.mode === 'feat' && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                                >
+                                  <Text style={[styles.optionChipLabel, selection?.mode === 'feat' && styles.optionChipLabelActive]}>Feat</Text>
+                                </Pressable>
+                              </View>
+                              {selection?.mode === 'asi' ? (
+                                <Text style={styles.decisionHelp}>This feature contributes 2 points in the Ability Points phase.</Text>
+                              ) : null}
+                              {selection?.mode === 'feat' ? (
+                                <View style={styles.featOptionList}>
+                                  {selectedFeat ? <Text style={styles.decisionHelp}>Selected feat: {selectedFeat.name}</Text> : null}
+                                  {asiFeatOptions.map((feat) => {
+                                    const isSelected = selection.selectedFeatId === feat.id;
+                                    return (
+                                      <Pressable
+                                        accessibilityRole="button"
+                                        key={feat.id}
+                                        onPress={() => setDetailAsiFeat({ requirementId: requirement.id, featId: feat.id })}
+                                        style={({ pressed }) => [styles.featOptionRow, isSelected && styles.featOptionRowActive, pressed && styles.featOptionRowPressed]}
+                                      >
+                                        <Text style={[styles.featOptionTitle, isSelected && styles.featOptionTitleActive]}>{feat.name}</Text>
+                                        <Text style={styles.featOptionMeta}>{getFeatOptionMeta(feat)}</Text>
+                                      </Pressable>
+                                    );
+                                  })}
+                                </View>
+                              ) : null}
                             </View>
                           );
                         }
@@ -563,6 +612,20 @@ export function BuilderStepClass({
         onClose={() => setDetailFeatureOption(null)}
         onOpenCompendium={() => detailFeatureOptionEntity ? openCompendiumForEntity(detailFeatureOptionEntity) : undefined}
         visible={Boolean(detailFeatureOptionEntity && detailGrant)}
+      />
+
+      <BuilderFeatureOptionDetailSheet
+        contextLabel={detailAsiFeatRequirement ? `Ability Score Improvement level ${detailAsiFeatRequirement.level}` : 'Ability Score Improvement'}
+        option={detailAsiFeatEntity}
+        isSelected={detailAsiFeatIsSelected}
+        isFull={false}
+        primaryChooseLabel="Choose feat"
+        selectedOptionNames={detailAsiFeatEntity ? [detailAsiFeatEntity.name] : []}
+        onChoose={chooseAsiFeatOption}
+        onRemove={chooseAsiFeatOption}
+        onClose={() => setDetailAsiFeat(null)}
+        onOpenCompendium={() => detailAsiFeatEntity ? openCompendiumForEntity(detailAsiFeatEntity) : undefined}
+        visible={Boolean(detailAsiFeatEntity && detailAsiFeatRequirement)}
       />
 
       <BuilderImpactConfirmationSheet

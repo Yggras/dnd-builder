@@ -18,6 +18,7 @@ type UseBuilderReconciliationOptions = {
   allEntitiesById: Record<string, ContentEntity>;
   allSpellsLoading: boolean;
   asiFeatOptions: ContentEntity[];
+  asiFeatsLoading: boolean;
   backgroundEntitiesById: Record<string, ContentEntity>;
   backgroundsLoading: boolean;
   classEntitiesById: Record<string, ContentEntity>;
@@ -38,6 +39,7 @@ export function useBuilderReconciliation({
   allEntitiesById,
   allSpellsLoading,
   asiFeatOptions,
+  asiFeatsLoading,
   backgroundEntitiesById,
   backgroundsLoading,
   classEntitiesById,
@@ -59,7 +61,7 @@ export function useBuilderReconciliation({
   );
 
   useEffect(() => {
-    if (!draftBuild || classesLoading) {
+    if (!draftBuild || classesLoading || asiFeatsLoading) {
       return;
     }
 
@@ -108,7 +110,7 @@ export function useBuilderReconciliation({
         payload: reconciledPayload,
       };
     });
-  }, [draftBuild, classesLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId, asiFeatOptionsById, setDraftBuild]);
+  }, [draftBuild, classesLoading, asiFeatsLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId, asiFeatOptionsById, setDraftBuild]);
 
   useEffect(() => {
     if (!draftBuild || classesLoading || speciesLoading || backgroundsLoading || featsLoading) {

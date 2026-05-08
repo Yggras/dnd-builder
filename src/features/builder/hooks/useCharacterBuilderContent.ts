@@ -32,6 +32,10 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
     queryKey: ['builder', 'feats', 'all'],
     queryFn: () => contentService.listFeats(undefined),
   });
+  const asiFeatsQuery = useQuery({
+    queryKey: ['builder', 'feats', 'asi'],
+    queryFn: () => contentService.listAsiFeats(),
+  });
   const allItemsQuery = useQuery({
     queryKey: ['builder', 'items', 'all'],
     queryFn: () => contentService.listItems({ query: '' }),
@@ -85,6 +89,10 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
   const featEntitiesById = useMemo(
     () => Object.fromEntries((featsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
     [featsQuery.data],
+  );
+  const asiFeatEntitiesById = useMemo(
+    () => Object.fromEntries((asiFeatsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
+    [asiFeatsQuery.data],
   );
   const itemEntitiesById = useMemo(
     () => Object.fromEntries((allItemsQuery.data ?? []).map((entity) => [entity.id, entity])) as Record<string, ContentEntity>,
@@ -186,10 +194,7 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
     ) as Record<string, ContentEntity[]>;
   }, [applicableGrants, featOptionsByCategory, optionalFeatureOptionsByCategory]);
 
-  const asiFeatOptions = useMemo(
-    () => (featsQuery.data ?? []).filter((feat) => feat.categoryTags.includes('G') && feat.name !== 'Ability Score Improvement'),
-    [featsQuery.data],
-  );
+  const asiFeatOptions = useMemo(() => asiFeatsQuery.data ?? [], [asiFeatsQuery.data]);
 
   const allEntitiesById = useMemo(
     () =>
@@ -197,7 +202,7 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
         classEntitiesById,
         speciesEntitiesById,
         backgroundEntitiesById,
-        featEntitiesById,
+        featEntitiesById: { ...featEntitiesById, ...asiFeatEntitiesById },
         itemEntitiesById,
         spellEntitiesById,
         subclassEntitiesById,
@@ -205,6 +210,7 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
       }),
     [
       backgroundEntitiesById,
+      asiFeatEntitiesById,
       classEntitiesById,
       featEntitiesById,
       grantOptionsByGrantId,
@@ -219,6 +225,7 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
     allItemsQuery,
     allSpellsQuery,
     allEntitiesById,
+    asiFeatsQuery,
     applicableGrants,
     asiFeatOptions,
     backgroundEntitiesById,
