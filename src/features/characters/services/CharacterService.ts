@@ -24,4 +24,8 @@ export class CharacterService {
   saveBuild(build: CharacterBuild) {
     return this.repository.saveBuild(build);
   }
+
+  deleteCharacter(characterId: string) {
+    return this.repository.deleteCharacter(characterId);
+  }
 }

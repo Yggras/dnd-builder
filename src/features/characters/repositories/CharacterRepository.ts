@@ -13,4 +13,5 @@ export interface CharacterRepository {
   getBuild: (characterId: string) => Promise<CharacterBuild | null>;
   createDraft: (input: CreateCharacterDraftInput) => Promise<{ character: Character; build: CharacterBuild }>;
   saveBuild: (build: CharacterBuild) => Promise<CharacterBuild>;
+  deleteCharacter: (characterId: string) => Promise<void>;
 }

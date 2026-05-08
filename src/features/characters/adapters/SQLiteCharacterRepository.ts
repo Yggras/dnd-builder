@@ -317,4 +317,44 @@ export class SQLiteCharacterRepository implements CharacterRepository {
 
     return savedBuild;
   }
+
+  async deleteCharacter(characterId: string) {
+    const database = await getDatabase();
+
+    await database.withExclusiveTransactionAsync(async (transaction) => {
+      await transaction.runAsync(
+        `DELETE FROM campaign_character_statuses
+         WHERE campaign_character_id IN (
+           SELECT id
+           FROM campaign_characters
+           WHERE character_id = ?
+         )`,
+        characterId,
+      );
+      await transaction.runAsync(
+        `DELETE FROM campaign_character_snapshots
+         WHERE campaign_character_id IN (
+           SELECT id
+           FROM campaign_characters
+           WHERE character_id = ?
+         )`,
+        characterId,
+      );
+      await transaction.runAsync(
+        `DELETE FROM campaign_characters
+         WHERE character_id = ?`,
+        characterId,
+      );
+      await transaction.runAsync(
+        `DELETE FROM character_builds
+         WHERE character_id = ?`,
+        characterId,
+      );
+      await transaction.runAsync(
+        `DELETE FROM characters
+         WHERE id = ?`,
+        characterId,
+      );
+    });
+  }
 }
