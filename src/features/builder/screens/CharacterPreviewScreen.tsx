@@ -73,6 +73,9 @@ export function CharacterPreviewScreen() {
       ...(Array.isArray(payload.classStep?.featureChoices)
         ? payload.classStep.featureChoices.flatMap((selection: { selectedOptionIds?: string[] }) => selection.selectedOptionIds ?? [])
         : []),
+      ...(Array.isArray(payload.classStep?.asiFeatChoices)
+        ? payload.classStep.asiFeatChoices.map((selection: { selectedFeatId?: string | null }) => selection.selectedFeatId)
+        : []),
     ],
     'None selected',
   );

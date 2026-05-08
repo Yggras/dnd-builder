@@ -35,7 +35,7 @@ Current verification commands:
 - `npm run audit:5etools`
 
 Current status as of 2026-05-08:
-- `npm run typecheck` passes after character deletion and class-specific spell selection changes.
+- `npm run typecheck` passes after Step 27 class starting proficiency and ASI/Feat source changes.
 - `npm run audit:5etools` passes after spell casting-time normalization and generated content refresh.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
@@ -261,6 +261,11 @@ Implemented:
 - Reconciliation effects use functional updates for class, origin/abilities, inventory, and spell/source summaries.
 - Completed builds regress to draft when reconciliation introduces unresolved blocking/checklist issues.
 - Class allocations support multiclass allocation, class levels, subclass timing, and class-owned feature choices.
+- Class step supports allocation-scoped starting skill proficiency choices derived from class `metadata.startingProficiencies.skills`.
+- Class step supports allocation-scoped Ability Score Improvement feature instances derived from `Ability Score Improvement|...|<level>` class feature refs.
+- Each ASI feature instance can be set to `Ability Increase` or `Feat`; only `Ability Increase` contributes 2 points to the Ability Points phase.
+- ASI feat mode uses builder-selectable General feats, excluding the dedicated `Ability Score Improvement` feat because the builder models that path through `Ability Increase` mode.
+- Class feature reconciliation clears skill/ASI/Feat selections when classes are removed, levels drop below feature requirements, or selected feat options become invalid.
 - Species/background selection exists with deterministic applied summaries and granted-feat follow-up choices.
 - Ability score UI supports manual base score entry, origin ability packages, and ASI point controls.
 - Spell step uses source-owned spell selections tied to class allocation IDs, class IDs, subclass IDs, and selection type (`cantrip`, `known`, or `prepared`).
@@ -278,6 +283,7 @@ Implemented:
 - Class detail sheets include source/edition/spellcasting badges, relevant support warnings, expanded rules snapshots, compact key-level previews, short summaries, `Choose this class`, and `Open in Compendium` actions.
 - Step 26b subclass and feature-choice UX is source-implemented: subclass cards live inside their owning class section, locked subclass cards open read-only detail sheets, subclass selection/removal happens from detail sheets, class-owned feature grants are grouped inside owning class sections, feature option rows open detail sheets before selection, feature over-selection is disabled in the detail sheet, and unsupported grants render inline Fix cards with class compendium access.
 - Step 26c spell UX is source-implemented and then updated for class-specific spell ownership: spellcasting summaries classify the UI workflow as none/known/prepared/known-prepared/unsupported, spell choices render in task tabs, Cantrips shows eligible cantrips per class source, Known and Prepared show selected source-owned spells, Browse handles eligible leveled spell discovery with search and level filters, compact spell cards show source class/casting ability, and spell detail sheets provide source/ability facts, rules snapshots, spell text, contextual actions, compendium access, and disabled helper text at per-source limits.
+- Step 27 class feature coverage is source-implemented for starting skill proficiencies and ASI/Feat choices: Sorcerer level 1 skill choices are modeled, ASI feature instances require an explicit Ability Increase or Feat decision, selected ASI feats contribute to source summary/preview, and existing Metamagic/subclass behavior remains on the existing class flow.
 
 Key files:
 - `src/features/builder/types/index.ts`
@@ -328,6 +334,10 @@ Known builder gaps:
 - Step 26a intentionally defers automatic return-context restoration from compendium navigation and automatic reopening of the originating builder detail sheet after returning.
 - Step 26c does not add a replace-flow UI when spell limits are reached; users must remove an existing cantrip/known/prepared spell first.
 - Existing saved drafts with the older global spell ID payload are not migrated; this is intentional for current single-user development and those old spell selections normalize away.
+- Step 27 intentionally applies starting class skill choices to every selected class allocation; first-class multiclass starting-proficiency rules are still deferred.
+- Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.
+- Tool, language, weapon mastery, expertise, and other non-skill class feature choices are still not modeled unless already covered by existing `choice_grants`.
+- ASI feat prerequisite enforcement is deferred; the first pass shows builder-selectable General feats.
 
 ## UI And Design System
 Implemented:
@@ -356,6 +366,7 @@ Key files:
 - Step 26c spell tabs and spell detail sheets: source-implemented; manual smoke checks remain needed for non-caster/unsupported states, known/prepared/known-prepared tab sets, browse search/level filters, contextual add/prepare/remove actions, and spell limit helper text.
 - Character deletion: source-implemented and typechecked; manual smoke check remains needed for deleting a roster character on device.
 - Class-specific spell ownership: source-implemented and typechecked; manual smoke checks remain needed for multiclass shared spells, per-class casting ability labels, class removal cleanup, subclass change cleanup, and per-source limit helpers.
+- Step 27 class starting proficiencies and ASI/Feat choices: source-implemented and typechecked; manual smoke checks remain needed for Sorcerer level 1 skill choices, Sorcerer level 4 ASI/Feat mode, ASI point availability changes, feat selection, and class removal/level-drop cleanup.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -374,6 +385,7 @@ Near-term candidates:
 - Finish Step 25 wizard acceptance by running focused simplified-status, completion-feedback, and reload-persistence verification.
 - Smoke check character deletion on native SQLite.
 - Smoke check class-specific spell ownership in a multiclass caster build.
+- Smoke check Step 27 with Sorcerer levels 1-4.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
 

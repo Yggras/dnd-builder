@@ -186,6 +186,11 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
     ) as Record<string, ContentEntity[]>;
   }, [applicableGrants, featOptionsByCategory, optionalFeatureOptionsByCategory]);
 
+  const asiFeatOptions = useMemo(
+    () => (featsQuery.data ?? []).filter((feat) => feat.categoryTags.includes('G') && feat.name !== 'Ability Score Improvement'),
+    [featsQuery.data],
+  );
+
   const allEntitiesById = useMemo(
     () =>
       buildBuilderEntityIndex({
@@ -215,6 +220,7 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
     allSpellsQuery,
     allEntitiesById,
     applicableGrants,
+    asiFeatOptions,
     backgroundEntitiesById,
     backgroundsQuery,
     classEntitiesById,

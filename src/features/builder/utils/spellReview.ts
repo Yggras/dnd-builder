@@ -450,6 +450,9 @@ export function deriveSourceSummary(
     ...payload.speciesStep.grantedFeatSelections.map((selection) => selection.selectedFeatId),
     ...payload.backgroundStep.grantedFeatSelections.map((selection) => selection.selectedFeatId),
     ...payload.classStep.featureChoices.flatMap((selection) => selection.selectedOptionIds),
+    ...(Array.isArray(payload.classStep.asiFeatChoices)
+      ? payload.classStep.asiFeatChoices.map((selection) => selection.selectedFeatId)
+      : []),
     ...(Array.isArray(payload.spellsStep.selections) ? payload.spellsStep.selections.map((selection) => selection.spellId) : []),
     ...payload.inventoryStep.entries.map((entry) => entry.itemId),
   ].filter((value): value is string => typeof value === 'string' && value.length > 0);

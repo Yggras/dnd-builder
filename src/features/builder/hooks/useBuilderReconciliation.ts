@@ -17,6 +17,7 @@ function getBuildStateAfterReconciliation(build: BuilderCharacterBuild, issues: 
 type UseBuilderReconciliationOptions = {
   allEntitiesById: Record<string, ContentEntity>;
   allSpellsLoading: boolean;
+  asiFeatOptions: ContentEntity[];
   backgroundEntitiesById: Record<string, ContentEntity>;
   backgroundsLoading: boolean;
   classEntitiesById: Record<string, ContentEntity>;
@@ -36,6 +37,7 @@ type UseBuilderReconciliationOptions = {
 export function useBuilderReconciliation({
   allEntitiesById,
   allSpellsLoading,
+  asiFeatOptions,
   backgroundEntitiesById,
   backgroundsLoading,
   classEntitiesById,
@@ -51,6 +53,11 @@ export function useBuilderReconciliation({
   spellEntitiesById,
   subclassEntitiesById,
 }: UseBuilderReconciliationOptions) {
+  const asiFeatOptionsById = useMemo(
+    () => Object.fromEntries(asiFeatOptions.map((option) => [option.id, option])) as Record<string, ContentEntity>,
+    [asiFeatOptions],
+  );
+
   useEffect(() => {
     if (!draftBuild || classesLoading) {
       return;
@@ -61,6 +68,7 @@ export function useBuilderReconciliation({
       classEntitiesById,
       grantsByClassId,
       grantOptionsByGrantId,
+      asiFeatOptionsById,
     });
     const preflightBuildState = getBuildStateAfterReconciliation(draftBuild, preflightPayload.review.issues);
 
@@ -82,6 +90,7 @@ export function useBuilderReconciliation({
         classEntitiesById,
         grantsByClassId,
         grantOptionsByGrantId,
+        asiFeatOptionsById,
       });
 
       const currentClassSnapshot = JSON.stringify(currentBuild.payload.classStep);
@@ -99,7 +108,7 @@ export function useBuilderReconciliation({
         payload: reconciledPayload,
       };
     });
-  }, [draftBuild, classesLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId, setDraftBuild]);
+  }, [draftBuild, classesLoading, classEntitiesById, grantsByClassId, grantOptionsByGrantId, asiFeatOptionsById, setDraftBuild]);
 
   useEffect(() => {
     if (!draftBuild || classesLoading || speciesLoading || backgroundsLoading || featsLoading) {

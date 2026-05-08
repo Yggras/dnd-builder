@@ -1,4 +1,10 @@
-import type { BuilderDraftPayload, BuilderFeatureChoiceSelection, BuilderIssue } from '@/features/builder/types';
+import type {
+  BuilderClassAsiFeatChoiceSelection,
+  BuilderClassSkillProficiencySelection,
+  BuilderDraftPayload,
+  BuilderFeatureChoiceSelection,
+  BuilderIssue,
+} from '@/features/builder/types';
 import { sortBuilderIssues } from '@/features/builder/utils/review';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 
@@ -7,6 +13,7 @@ interface ReconcileClassStepOptions {
   classEntitiesById: Record<string, ContentEntity>;
   grantsByClassId: Record<string, ChoiceGrant[]>;
   grantOptionsByGrantId: Record<string, ContentEntity[]>;
+  asiFeatOptionsById?: Record<string, ContentEntity>;
 }
 
 interface ReconcileClassStepResult {
@@ -15,6 +22,54 @@ interface ReconcileClassStepResult {
 }
 
 type AbilityKey = 'str' | 'dex' | 'con' | 'int' | 'wis' | 'cha';
+
+export interface ClassSkillProficiencyRequirement {
+  id: string;
+  classAllocationId: string;
+  classId: string;
+  className: string;
+  level: number;
+  count: number;
+  options: string[];
+}
+
+export interface ClassAsiFeatRequirement {
+  id: string;
+  classAllocationId: string;
+  classId: string;
+  className: string;
+  level: number;
+}
+
+export interface ClassFeatureRequirements {
+  skillProficiencies: ClassSkillProficiencyRequirement[];
+  asiFeatChoices: ClassAsiFeatRequirement[];
+}
+
+const SKILL_LABELS: Record<string, string> = {
+  acrobatics: 'Acrobatics',
+  animalHandling: 'Animal Handling',
+  arcana: 'Arcana',
+  athletics: 'Athletics',
+  deception: 'Deception',
+  history: 'History',
+  insight: 'Insight',
+  intimidation: 'Intimidation',
+  investigation: 'Investigation',
+  medicine: 'Medicine',
+  nature: 'Nature',
+  perception: 'Perception',
+  performance: 'Performance',
+  persuasion: 'Persuasion',
+  religion: 'Religion',
+  sleightOfHand: 'Sleight of Hand',
+  stealth: 'Stealth',
+  survival: 'Survival',
+};
+
+export function formatSkillLabel(skill: string) {
+  return SKILL_LABELS[skill] ?? skill.replace(/([A-Z])/g, ' $1').replace(/[-_]/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
+}
 
 function getBuilderAbilityScores(payload: BuilderDraftPayload) {
   return payload.abilityPointsStep.scores as Partial<Record<AbilityKey, number>>;
@@ -40,6 +95,123 @@ function getClassPrimaryAbilityCombos(classEntity: ContentEntity) {
     .filter((entry) => entry.length > 0);
 }
 
+function getClassFeatureRef(value: unknown) {
+  if (typeof value === 'string') {
+    return value;
+  }
+
+  if (value && typeof value === 'object') {
+    const classFeature = (value as { classFeature?: unknown }).classFeature;
+    return typeof classFeature === 'string' ? classFeature : null;
+  }
+
+  return null;
+}
+
+function parseFeatureLevel(featureRef: string) {
+  const levelToken = featureRef.split('|').at(-1);
+  const parsedLevel = levelToken ? Number.parseInt(levelToken, 10) : Number.NaN;
+  return Number.isFinite(parsedLevel) ? parsedLevel : null;
+}
+
+function getStartingSkillRequirements(
+  allocation: BuilderDraftPayload['classStep']['allocations'][number],
+  classEntity: ContentEntity,
+) {
+  const startingProficiencies = classEntity.metadata.startingProficiencies;
+  const skills = startingProficiencies && typeof startingProficiencies === 'object'
+    ? (startingProficiencies as { skills?: unknown }).skills
+    : null;
+
+  if (!Array.isArray(skills)) {
+    return [] as ClassSkillProficiencyRequirement[];
+  }
+
+  return skills.flatMap((entry, index): ClassSkillProficiencyRequirement[] => {
+    if (!entry || typeof entry !== 'object') {
+      return [];
+    }
+
+    const choose = (entry as { choose?: unknown }).choose;
+    if (!choose || typeof choose !== 'object') {
+      return [];
+    }
+
+    const options = Array.isArray((choose as { from?: unknown }).from)
+      ? (choose as { from: unknown[] }).from.filter((skill): skill is string => typeof skill === 'string' && skill.length > 0)
+      : [];
+    const count = typeof (choose as { count?: unknown }).count === 'number' ? (choose as { count: number }).count : 1;
+
+    if (options.length === 0 || count <= 0) {
+      return [];
+    }
+
+    return [{
+      id: `${allocation.id}:skill-proficiency:${index}`,
+      classAllocationId: allocation.id,
+      classId: allocation.classId,
+      className: classEntity.name,
+      level: 1,
+      count,
+      options,
+    }];
+  });
+}
+
+function getAsiFeatRequirements(
+  allocation: BuilderDraftPayload['classStep']['allocations'][number],
+  classEntity: ContentEntity,
+) {
+  const classFeatures = classEntity.metadata.classFeatures;
+
+  if (!Array.isArray(classFeatures)) {
+    return [] as ClassAsiFeatRequirement[];
+  }
+
+  return classFeatures.flatMap((feature, index): ClassAsiFeatRequirement[] => {
+    const featureRef = getClassFeatureRef(feature);
+    if (!featureRef?.startsWith('Ability Score Improvement|')) {
+      return [];
+    }
+
+    const level = parseFeatureLevel(featureRef);
+    if (level == null || level > allocation.level) {
+      return [];
+    }
+
+    return [{
+      id: `${allocation.id}:asi-feat:${level}:${index}`,
+      classAllocationId: allocation.id,
+      classId: allocation.classId,
+      className: classEntity.name,
+      level,
+    }];
+  });
+}
+
+export function deriveClassFeatureRequirements(
+  payload: BuilderDraftPayload,
+  classEntitiesById: Record<string, ContentEntity>,
+): ClassFeatureRequirements {
+  const skillProficiencies: ClassSkillProficiencyRequirement[] = [];
+  const asiFeatChoices: ClassAsiFeatRequirement[] = [];
+
+  for (const allocation of payload.classStep.allocations) {
+    const classEntity = classEntitiesById[allocation.classId];
+    if (!classEntity) {
+      continue;
+    }
+
+    skillProficiencies.push(...getStartingSkillRequirements(allocation, classEntity));
+    asiFeatChoices.push(...getAsiFeatRequirements(allocation, classEntity));
+  }
+
+  return {
+    skillProficiencies,
+    asiFeatChoices,
+  };
+}
+
 export function getSubclassUnlockLevel(classEntity: ContentEntity) {
   const classFeatures = classEntity.metadata.classFeatures;
 
@@ -60,8 +232,7 @@ export function getSubclassUnlockLevel(classEntity: ContentEntity) {
       continue;
     }
 
-    const levelToken = maybeSubclassFeature.classFeature.split('|').at(-1);
-    const parsedLevel = levelToken ? Number.parseInt(levelToken, 10) : Number.NaN;
+    const parsedLevel = parseFeatureLevel(maybeSubclassFeature.classFeature) ?? Number.NaN;
 
     if (Number.isFinite(parsedLevel)) {
       unlockLevel = unlockLevel == null ? parsedLevel : Math.min(unlockLevel, parsedLevel);
@@ -118,6 +289,78 @@ function sanitizeFeatureChoices(
   };
 }
 
+function sanitizeSkillProficiencySelections(
+  selections: BuilderClassSkillProficiencySelection[],
+  requirements: ClassSkillProficiencyRequirement[],
+) {
+  const requirementsById = Object.fromEntries(requirements.map((requirement) => [requirement.id, requirement]));
+  let removedSelectionCount = 0;
+
+  const sanitizedSelections = selections.flatMap((selection): BuilderClassSkillProficiencySelection[] => {
+    const requirement = requirementsById[selection.requirementId];
+    if (!requirement || selection.classAllocationId !== requirement.classAllocationId || selection.classId !== requirement.classId) {
+      removedSelectionCount += selection.selectedSkills.length || 1;
+      return [];
+    }
+
+    const validOptions = new Set(requirement.options);
+    const selectedSkills = Array.from(new Set(selection.selectedSkills.filter((skill) => validOptions.has(skill)))).slice(
+      0,
+      requirement.count,
+    );
+
+    removedSelectionCount += selection.selectedSkills.length - selectedSkills.length;
+
+    return selectedSkills.length > 0
+      ? [{ ...selection, selectedSkills }]
+      : [];
+  });
+
+  return {
+    sanitizedSelections,
+    removedSelectionCount,
+  };
+}
+
+function sanitizeAsiFeatChoiceSelections(
+  selections: BuilderClassAsiFeatChoiceSelection[],
+  requirements: ClassAsiFeatRequirement[],
+  asiFeatOptionsById: Record<string, ContentEntity>,
+) {
+  const requirementsById = Object.fromEntries(requirements.map((requirement) => [requirement.id, requirement]));
+  let removedSelectionCount = 0;
+
+  const sanitizedSelections = selections.flatMap((selection): BuilderClassAsiFeatChoiceSelection[] => {
+    const requirement = requirementsById[selection.requirementId];
+    if (!requirement || selection.classAllocationId !== requirement.classAllocationId || selection.classId !== requirement.classId) {
+      removedSelectionCount += selection.mode || selection.selectedFeatId ? 1 : 0;
+      return [];
+    }
+
+    if (selection.mode !== 'asi' && selection.mode !== 'feat') {
+      return [];
+    }
+
+    const selectedFeatId = selection.mode === 'feat' && selection.selectedFeatId && asiFeatOptionsById[selection.selectedFeatId]
+      ? selection.selectedFeatId
+      : null;
+
+    if (selection.mode === 'feat' && selection.selectedFeatId && !selectedFeatId) {
+      removedSelectionCount += 1;
+    }
+
+    return [{
+      ...selection,
+      selectedFeatId,
+    }];
+  });
+
+  return {
+    sanitizedSelections,
+    removedSelectionCount,
+  };
+}
+
 function buildMulticlassIssue(classEntity: ContentEntity, summary: string): BuilderIssue {
   return {
     id: `multiclass-${classEntity.id}`,
@@ -140,6 +383,7 @@ export function reconcileClassStepPayload({
   classEntitiesById,
   grantsByClassId,
   grantOptionsByGrantId,
+  asiFeatOptionsById = {},
 }: ReconcileClassStepOptions): ReconcileClassStepResult {
   let clearedSubclassCount = 0;
 
@@ -175,7 +419,9 @@ export function reconcileClassStepPayload({
     classStep: {
       ...payload.classStep,
       allocations: sanitizedAllocations,
-      featureChoices: payload.classStep.featureChoices,
+      featureChoices: Array.isArray(payload.classStep.featureChoices) ? payload.classStep.featureChoices : [],
+      skillProficiencies: Array.isArray(payload.classStep.skillProficiencies) ? payload.classStep.skillProficiencies : [],
+      asiFeatChoices: Array.isArray(payload.classStep.asiFeatChoices) ? payload.classStep.asiFeatChoices : [],
     },
   };
 
@@ -184,13 +430,25 @@ export function reconcileClassStepPayload({
   const duplicateClassIds = new Set<string>();
   const seenClassIds = new Set<string>();
   const applicableGrants = getApplicableGrants(nextPayload, grantsByClassId);
+  const classFeatureRequirements = deriveClassFeatureRequirements(nextPayload, classEntitiesById);
   const { sanitizedSelections, removedSelectionCount } = sanitizeFeatureChoices(
     nextPayload.classStep.featureChoices,
     applicableGrants,
     grantOptionsByGrantId,
   );
+  const { sanitizedSelections: sanitizedSkillSelections, removedSelectionCount: removedSkillSelectionCount } = sanitizeSkillProficiencySelections(
+    nextPayload.classStep.skillProficiencies,
+    classFeatureRequirements.skillProficiencies,
+  );
+  const { sanitizedSelections: sanitizedAsiFeatSelections, removedSelectionCount: removedAsiFeatSelectionCount } = sanitizeAsiFeatChoiceSelections(
+    nextPayload.classStep.asiFeatChoices,
+    classFeatureRequirements.asiFeatChoices,
+    asiFeatOptionsById,
+  );
 
   nextPayload.classStep.featureChoices = sanitizedSelections;
+  nextPayload.classStep.skillProficiencies = sanitizedSkillSelections;
+  nextPayload.classStep.asiFeatChoices = sanitizedAsiFeatSelections;
 
   if (nextPayload.classStep.allocations.length === 0) {
     issues.push({
@@ -359,6 +617,51 @@ export function reconcileClassStepPayload({
     }
   }
 
+  for (const requirement of classFeatureRequirements.skillProficiencies) {
+    const selectedSkills = sanitizedSkillSelections.find((selection) => selection.requirementId === requirement.id)?.selectedSkills ?? [];
+
+    if (selectedSkills.length < requirement.count) {
+      issues.push({
+        id: `class-skill-proficiency-${requirement.id}`,
+        category: 'checklist',
+        step: 'class',
+        summary: `${requirement.className} needs ${requirement.count} skill proficienc${requirement.count === 1 ? 'y' : 'ies'}.`,
+        detail: `Choose ${requirement.count} skill${requirement.count === 1 ? '' : 's'} from ${requirement.options.map(formatSkillLabel).join(', ')}.`,
+        affectsCompletion: true,
+        resolvedByOverride: false,
+      });
+    }
+  }
+
+  for (const requirement of classFeatureRequirements.asiFeatChoices) {
+    const selection = sanitizedAsiFeatSelections.find((candidate) => candidate.requirementId === requirement.id);
+
+    if (!selection?.mode) {
+      issues.push({
+        id: `class-asi-feat-mode-${requirement.id}`,
+        category: 'checklist',
+        step: 'class',
+        summary: `${requirement.className} level ${requirement.level} needs an ASI or feat choice.`,
+        detail: 'Choose whether this Ability Score Improvement grants ability points or a feat.',
+        affectsCompletion: true,
+        resolvedByOverride: false,
+      });
+      continue;
+    }
+
+    if (selection.mode === 'feat' && !selection.selectedFeatId) {
+      issues.push({
+        id: `class-asi-feat-selection-${requirement.id}`,
+        category: 'checklist',
+        step: 'class',
+        summary: `${requirement.className} level ${requirement.level} needs a feat selected.`,
+        detail: 'Choose one eligible General feat for this Ability Score Improvement feature.',
+        affectsCompletion: true,
+        resolvedByOverride: false,
+      });
+    }
+  }
+
   nextPayload.review = {
     ...nextPayload.review,
     issues: mergeStepIssues(nextPayload, issues),
@@ -367,6 +670,8 @@ export function reconcileClassStepPayload({
   const impactParts = [
     clearedSubclassCount > 0 ? `${clearedSubclassCount} subclass selection${clearedSubclassCount === 1 ? '' : 's'} cleared` : null,
     removedSelectionCount > 0 ? `${removedSelectionCount} class feature selection${removedSelectionCount === 1 ? '' : 's'} cleared` : null,
+    removedSkillSelectionCount > 0 ? `${removedSkillSelectionCount} skill selection${removedSkillSelectionCount === 1 ? '' : 's'} cleared` : null,
+    removedAsiFeatSelectionCount > 0 ? `${removedAsiFeatSelectionCount} ASI/feat selection${removedAsiFeatSelectionCount === 1 ? '' : 's'} cleared` : null,
   ].filter(Boolean);
 
   return {

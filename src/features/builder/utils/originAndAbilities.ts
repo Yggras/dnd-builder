@@ -317,31 +317,10 @@ function reconcileGrantedFeatSelections(
   };
 }
 
-export function countAvailableAsiPoints(payload: BuilderDraftPayload, classEntitiesById: Record<string, ContentEntity>) {
-  let asiCount = 0;
-
-  for (const allocation of payload.classStep.allocations) {
-    const classEntity = classEntitiesById[allocation.classId];
-
-    if (!classEntity || !Array.isArray(classEntity.metadata.classFeatures)) {
-      continue;
-    }
-
-    for (const classFeature of classEntity.metadata.classFeatures) {
-      if (typeof classFeature !== 'string' || !classFeature.startsWith('Ability Score Improvement|')) {
-        continue;
-      }
-
-      const levelToken = classFeature.split('|').at(-1);
-      const featureLevel = levelToken ? Number.parseInt(levelToken, 10) : Number.NaN;
-
-      if (Number.isFinite(featureLevel) && featureLevel <= allocation.level) {
-        asiCount += 1;
-      }
-    }
-  }
-
-  return asiCount * 2;
+export function countAvailableAsiPoints(payload: BuilderDraftPayload, _classEntitiesById?: Record<string, ContentEntity>) {
+  return (Array.isArray(payload.classStep.asiFeatChoices) ? payload.classStep.asiFeatChoices : [])
+    .filter((selection) => selection.mode === 'asi')
+    .length * 2;
 }
 
 function mergeStepIssues(payload: BuilderDraftPayload, nextIssues: BuilderIssue[], steps: Array<BuilderIssue['step']>) {

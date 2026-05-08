@@ -5,7 +5,7 @@ import type {
   BuilderSpellSelection,
 } from '@/features/builder/types';
 import type { BuilderStep, ChoiceGrant, ContentEntity } from '@/shared/types/domain';
-import { reconcileClassStepPayload } from '@/features/builder/utils/classStep';
+import { deriveClassFeatureRequirements, reconcileClassStepPayload } from '@/features/builder/utils/classStep';
 import {
   countAvailableAsiPoints,
   normalizeAbilityChoices,
@@ -87,6 +87,7 @@ interface UseBuilderControllerProps {
   draftBuild: BuilderCharacterBuild | null;
   setDraftBuild: React.Dispatch<React.SetStateAction<BuilderCharacterBuild | null>>;
   allEntitiesById: Record<string, ContentEntity>;
+  asiFeatOptions: ContentEntity[];
   classEntitiesById: Record<string, ContentEntity>;
   speciesEntitiesById: Record<string, ContentEntity>;
   backgroundEntitiesById: Record<string, ContentEntity>;
@@ -104,6 +105,7 @@ export function useBuilderController({
   draftBuild,
   setDraftBuild,
   allEntitiesById,
+  asiFeatOptions,
   classEntitiesById,
   speciesEntitiesById,
   backgroundEntitiesById,
@@ -121,6 +123,7 @@ export function useBuilderController({
   const [inventoryImpactSummary, setInventoryImpactSummary] = useState<string | null>(null);
 
   const payload = draftBuild?.payload;
+  const asiFeatOptionsById = Object.fromEntries(asiFeatOptions.map((option) => [option.id, option])) as Record<string, ContentEntity>;
 
   const applyClassPayloadChange = (nextPayload: BuilderDraftPayload) => {
     setDraftBuild((currentBuild) => {
@@ -130,6 +133,7 @@ export function useBuilderController({
         classEntitiesById,
         grantsByClassId,
         grantOptionsByGrantId,
+        asiFeatOptionsById,
       });
 
       setClassImpactSummary(impactSummary);
@@ -263,6 +267,157 @@ export function useBuilderController({
           },
         ].filter((selection) => selection.selectedOptionIds.length > 0),
       },
+    });
+  };
+
+  const toggleClassSkillProficiency = (requirementId: string, skill: string) => {
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) return currentBuild;
+
+      const requirements = deriveClassFeatureRequirements(currentBuild.payload, classEntitiesById);
+      const requirement = requirements.skillProficiencies.find((entry) => entry.id === requirementId);
+      if (!requirement || !requirement.options.includes(skill)) return currentBuild;
+
+      const currentSelections = Array.isArray(currentBuild.payload.classStep.skillProficiencies)
+        ? currentBuild.payload.classStep.skillProficiencies
+        : [];
+      const existingSelection = currentSelections.find((selection) => selection.requirementId === requirementId);
+      const existingSkills = existingSelection?.selectedSkills ?? [];
+      const isSelected = existingSkills.includes(skill);
+      const nextSelectedSkills = isSelected
+        ? existingSkills.filter((selectedSkill) => selectedSkill !== skill)
+        : existingSkills.length < requirement.count
+          ? [...existingSkills, skill]
+          : existingSkills;
+
+      const nextPayload: BuilderDraftPayload = {
+        ...currentBuild.payload,
+        classStep: {
+          ...currentBuild.payload.classStep,
+          skillProficiencies: [
+            ...currentSelections.filter((selection) => selection.requirementId !== requirementId),
+            ...(nextSelectedSkills.length > 0
+              ? [{
+                  requirementId,
+                  classAllocationId: requirement.classAllocationId,
+                  classId: requirement.classId,
+                  selectedSkills: nextSelectedSkills,
+                }]
+              : []),
+          ],
+        },
+      };
+      const { payload: reconciledPayload, impactSummary } = reconcileClassStepPayload({
+        payload: nextPayload,
+        classEntitiesById,
+        grantsByClassId,
+        grantOptionsByGrantId,
+        asiFeatOptionsById,
+      });
+
+      setClassImpactSummary(impactSummary);
+
+      return {
+        ...currentBuild,
+        currentStep: 'class',
+        buildState: 'draft',
+        payload: reconciledPayload,
+      };
+    });
+  };
+
+  const updateClassAsiFeatMode = (requirementId: string, mode: 'asi' | 'feat') => {
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild) return currentBuild;
+
+      const requirements = deriveClassFeatureRequirements(currentBuild.payload, classEntitiesById);
+      const requirement = requirements.asiFeatChoices.find((entry) => entry.id === requirementId);
+      if (!requirement) return currentBuild;
+
+      const currentSelections = Array.isArray(currentBuild.payload.classStep.asiFeatChoices)
+        ? currentBuild.payload.classStep.asiFeatChoices
+        : [];
+      const existingSelection = currentSelections.find((selection) => selection.requirementId === requirementId);
+      const nextPayload: BuilderDraftPayload = {
+        ...currentBuild.payload,
+        classStep: {
+          ...currentBuild.payload.classStep,
+          asiFeatChoices: [
+            ...currentSelections.filter((selection) => selection.requirementId !== requirementId),
+            {
+              requirementId,
+              classAllocationId: requirement.classAllocationId,
+              classId: requirement.classId,
+              mode,
+              selectedFeatId: mode === 'feat' ? existingSelection?.selectedFeatId ?? null : null,
+            },
+          ],
+        },
+      };
+      const { payload: reconciledPayload, impactSummary } = reconcileClassStepPayload({
+        payload: nextPayload,
+        classEntitiesById,
+        grantsByClassId,
+        grantOptionsByGrantId,
+        asiFeatOptionsById,
+      });
+
+      setClassImpactSummary(impactSummary);
+
+      return {
+        ...currentBuild,
+        currentStep: 'class',
+        buildState: 'draft',
+        payload: reconciledPayload,
+      };
+    });
+  };
+
+  const updateClassAsiFeatSelection = (requirementId: string, featId: string) => {
+    setDraftBuild((currentBuild) => {
+      if (!currentBuild || !asiFeatOptionsById[featId]) return currentBuild;
+
+      const requirements = deriveClassFeatureRequirements(currentBuild.payload, classEntitiesById);
+      const requirement = requirements.asiFeatChoices.find((entry) => entry.id === requirementId);
+      if (!requirement) return currentBuild;
+
+      const currentSelections = Array.isArray(currentBuild.payload.classStep.asiFeatChoices)
+        ? currentBuild.payload.classStep.asiFeatChoices
+        : [];
+      const existingSelection = currentSelections.find((selection) => selection.requirementId === requirementId);
+      const nextSelectedFeatId = existingSelection?.selectedFeatId === featId ? null : featId;
+      const nextPayload: BuilderDraftPayload = {
+        ...currentBuild.payload,
+        classStep: {
+          ...currentBuild.payload.classStep,
+          asiFeatChoices: [
+            ...currentSelections.filter((selection) => selection.requirementId !== requirementId),
+            {
+              requirementId,
+              classAllocationId: requirement.classAllocationId,
+              classId: requirement.classId,
+              mode: 'feat',
+              selectedFeatId: nextSelectedFeatId,
+            },
+          ],
+        },
+      };
+      const { payload: reconciledPayload, impactSummary } = reconcileClassStepPayload({
+        payload: nextPayload,
+        classEntitiesById,
+        grantsByClassId,
+        grantOptionsByGrantId,
+        asiFeatOptionsById,
+      });
+
+      setClassImpactSummary(impactSummary);
+
+      return {
+        ...currentBuild,
+        currentStep: 'class',
+        buildState: 'draft',
+        payload: reconciledPayload,
+      };
     });
   };
 
@@ -676,6 +831,7 @@ export function useBuilderController({
 
   // Derived state that drives the UI
   const totalAllocatedLevel = payload ? payload.classStep.allocations.reduce((sum, allocation) => sum + allocation.level, 0) : 0;
+  const classFeatureRequirements = payload ? deriveClassFeatureRequirements(payload, classEntitiesById) : { skillProficiencies: [], asiFeatChoices: [] };
   
   const availableClasses = payload 
     ? allClasses.filter((classEntity) => !payload.classStep.allocations.some((allocation) => allocation.classId === classEntity.id))
@@ -757,7 +913,9 @@ export function useBuilderController({
     inventoryImpactSummary,
     clearImpactSummaries,
     totalAllocatedLevel,
+    asiFeatOptions,
     availableClasses,
+    classFeatureRequirements,
     selectedSpecies,
     selectedBackground,
     originAbilityPackageSelections,
@@ -787,6 +945,9 @@ export function useBuilderController({
     updateAllocation,
     removeAllocation,
     updateFeatureSelection,
+    toggleClassSkillProficiency,
+    updateClassAsiFeatMode,
+    updateClassAsiFeatSelection,
     updateOriginAbilitySelection,
     updateOriginAbilityPackageSelection,
     updateGrantedFeatSelection,

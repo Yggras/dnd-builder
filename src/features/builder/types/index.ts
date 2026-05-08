@@ -30,6 +30,21 @@ export interface BuilderFeatureChoiceSelection {
   selectedOptionIds: string[];
 }
 
+export interface BuilderClassSkillProficiencySelection {
+  requirementId: string;
+  classAllocationId: string;
+  classId: string;
+  selectedSkills: string[];
+}
+
+export interface BuilderClassAsiFeatChoiceSelection {
+  requirementId: string;
+  classAllocationId: string;
+  classId: string;
+  mode: 'asi' | 'feat' | null;
+  selectedFeatId: string | null;
+}
+
 export type BuilderSpellSelectionType = 'cantrip' | 'known' | 'prepared';
 
 export interface BuilderSpellSelection {
@@ -138,6 +153,8 @@ export interface BuilderDraftPayload {
   classStep: {
     allocations: BuilderClassAllocation[];
     featureChoices: BuilderFeatureChoiceSelection[];
+    skillProficiencies: BuilderClassSkillProficiencySelection[];
+    asiFeatChoices: BuilderClassAsiFeatChoiceSelection[];
   };
   spellsStep: BuilderSpellSelectionState;
   speciesStep: {
@@ -270,6 +287,8 @@ export function createEmptyBuilderDraftPayload(characterName: string): BuilderDr
     classStep: {
       allocations: [],
       featureChoices: [],
+      skillProficiencies: [],
+      asiFeatChoices: [],
     },
     spellsStep: {
       selections: [],

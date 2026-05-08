@@ -73,6 +73,7 @@ export function CharacterBuilderScreen() {
     allSpellsQuery,
     allEntitiesById,
     applicableGrants,
+    asiFeatOptions,
     backgroundEntitiesById,
     backgroundsQuery,
     classEntitiesById,
@@ -93,6 +94,7 @@ export function CharacterBuilderScreen() {
   const validationSummary = useBuilderReconciliation({
     allEntitiesById,
     allSpellsLoading: allSpellsQuery.isLoading,
+    asiFeatOptions,
     backgroundEntitiesById,
     backgroundsLoading: backgroundsQuery.isLoading,
     classEntitiesById,
@@ -113,6 +115,7 @@ export function CharacterBuilderScreen() {
     draftBuild,
     setDraftBuild,
     allEntitiesById,
+    asiFeatOptions,
     classEntitiesById,
     speciesEntitiesById,
     backgroundEntitiesById,
@@ -234,7 +237,9 @@ export function CharacterBuilderScreen() {
             <BuilderStepClass
               addClassAllocation={controller.addClassAllocation}
               applicableGrants={applicableGrants}
+              asiFeatOptions={controller.asiFeatOptions}
               availableClasses={controller.availableClasses}
+              classFeatureRequirements={controller.classFeatureRequirements}
               classEntitiesById={classEntitiesById}
               classImpactSummary={controller.classImpactSummary}
               grantOptionsByGrantId={grantOptionsByGrantId}
@@ -242,6 +247,9 @@ export function CharacterBuilderScreen() {
               removeAllocation={controller.removeAllocation}
               subclassesByClassId={subclassesByClassId}
               totalAllocatedLevel={controller.totalAllocatedLevel}
+              toggleClassSkillProficiency={controller.toggleClassSkillProficiency}
+              updateClassAsiFeatMode={controller.updateClassAsiFeatMode}
+              updateClassAsiFeatSelection={controller.updateClassAsiFeatSelection}
               updateAllocation={controller.updateAllocation}
               updateFeatureSelection={controller.updateFeatureSelection}
             />

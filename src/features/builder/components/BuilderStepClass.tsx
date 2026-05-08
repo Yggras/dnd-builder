@@ -13,7 +13,11 @@ import type { BuilderDraftPayload } from '@/features/builder/types';
 import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
 import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
-import { getSubclassUnlockLevel } from '@/features/builder/utils/classStep';
+import {
+  formatSkillLabel,
+  getSubclassUnlockLevel,
+  type ClassFeatureRequirements,
+} from '@/features/builder/utils/classStep';
 import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderStepClassProps {
@@ -21,7 +25,9 @@ interface BuilderStepClassProps {
   classEntitiesById: Record<string, ContentEntity>;
   subclassesByClassId: Record<string, readonly ContentEntity[]>;
   applicableGrants: readonly ChoiceGrant[];
+  asiFeatOptions: readonly ContentEntity[];
   grantOptionsByGrantId: Record<string, readonly ContentEntity[]>;
+  classFeatureRequirements: ClassFeatureRequirements;
   availableClasses: readonly ContentEntity[];
   totalAllocatedLevel: number;
   classImpactSummary: string | null;
@@ -32,6 +38,9 @@ interface BuilderStepClassProps {
   ) => void;
   removeAllocation: (allocationId: string) => void;
   updateFeatureSelection: (grantId: string, optionId: string, count: number) => void;
+  toggleClassSkillProficiency: (requirementId: string, skill: string) => void;
+  updateClassAsiFeatMode: (requirementId: string, mode: 'asi' | 'feat') => void;
+  updateClassAsiFeatSelection: (requirementId: string, featId: string) => void;
 }
 
 type SubclassDetailTarget = {
@@ -94,6 +103,23 @@ function getGrantIssues(payload: BuilderDraftPayload, grantId: string) {
   );
 }
 
+function getSkillRequirementIssues(payload: BuilderDraftPayload, requirementId: string) {
+  return payload.review.issues.filter((issue) => issue.step === 'class' && !issue.resolvedByOverride && issue.id === `class-skill-proficiency-${requirementId}`);
+}
+
+function getAsiFeatRequirementIssues(payload: BuilderDraftPayload, requirementId: string) {
+  return payload.review.issues.filter(
+    (issue) =>
+      issue.step === 'class' &&
+      !issue.resolvedByOverride &&
+      (issue.id === `class-asi-feat-mode-${requirementId}` || issue.id === `class-asi-feat-selection-${requirementId}`),
+  );
+}
+
+function getDecisionStatus(issues: readonly { category: string }[]) {
+  return issues.some((issue) => issue.category === 'blocker' || issue.category === 'checklist') ? 'Fix' : 'OK';
+}
+
 function hasSubclassDependentSelections(payload: BuilderDraftPayload) {
   return Array.isArray(payload.spellsStep.selections) && payload.spellsStep.selections.length > 0;
 }
@@ -107,7 +133,9 @@ export function BuilderStepClass({
   classEntitiesById,
   subclassesByClassId,
   applicableGrants,
+  asiFeatOptions,
   grantOptionsByGrantId,
+  classFeatureRequirements,
   availableClasses,
   totalAllocatedLevel,
   classImpactSummary,
@@ -115,6 +143,9 @@ export function BuilderStepClass({
   updateAllocation,
   removeAllocation,
   updateFeatureSelection,
+  toggleClassSkillProficiency,
+  updateClassAsiFeatMode,
+  updateClassAsiFeatSelection,
 }: BuilderStepClassProps) {
   const router = useRouter();
   const [showClassPicker, setShowClassPicker] = useState(false);
@@ -235,6 +266,10 @@ export function BuilderStepClass({
               const subclassDecisionLevel = subclassUnlockLevel ?? 3;
               const statusLabel = getAllocationStatusLabel(payload, allocation);
               const classGrants = applicableGrants.filter((grant) => grant.sourceId === allocation.classId);
+              const skillRequirements = classFeatureRequirements.skillProficiencies.filter((requirement) => requirement.classAllocationId === allocation.id);
+              const asiFeatRequirements = classFeatureRequirements.asiFeatChoices.filter((requirement) => requirement.classAllocationId === allocation.id);
+              const skillSelections = Array.isArray(payload.classStep.skillProficiencies) ? payload.classStep.skillProficiencies : [];
+              const asiFeatSelections = Array.isArray(payload.classStep.asiFeatChoices) ? payload.classStep.asiFeatChoices : [];
               const decisionItems: DecisionItem[] = [
                 ...classGrants.map((grant): DecisionItem => ({ kind: 'grant', level: grant.atLevel, grant })),
                 ...(subclassOptions.length > 0 ? [{ kind: 'subclass' as const, level: subclassDecisionLevel }] : []),
@@ -303,6 +338,122 @@ export function BuilderStepClass({
                       <Text style={styles.removeButtonLabel}>Remove</Text>
                     </Pressable>
                   </View>
+
+                  {skillRequirements.length > 0 || asiFeatRequirements.length > 0 ? (
+                    <View style={styles.decisionList}>
+                      {skillRequirements.map((requirement) => {
+                        const selection = skillSelections.find((candidate) => candidate.requirementId === requirement.id);
+                        const selectedSkills = selection?.selectedSkills ?? [];
+                        const issues = getSkillRequirementIssues(payload, requirement.id);
+                        const status = getDecisionStatus(issues);
+
+                        return (
+                          <View key={requirement.id} style={styles.decisionBlock}>
+                            <View style={styles.decisionHeader}>
+                              <View style={styles.decisionHeaderCopy}>
+                                <Text style={styles.decisionTitle}>Skill Proficiencies</Text>
+                                <Text style={styles.decisionMeta}>Level {requirement.level} • {selectedSkills.length}/{requirement.count} selected</Text>
+                              </View>
+                              <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
+                              </View>
+                            </View>
+                            {issues.length > 0 ? (
+                              <View style={styles.issueList}>
+                                {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
+                              </View>
+                            ) : null}
+                            <View style={styles.optionChipWrap}>
+                              {requirement.options.map((skill) => {
+                                const isSelected = selectedSkills.includes(skill);
+                                const isFull = selectedSkills.length >= requirement.count;
+                                return (
+                                  <Pressable
+                                    accessibilityRole="button"
+                                    disabled={!isSelected && isFull}
+                                    key={skill}
+                                    onPress={() => toggleClassSkillProficiency(requirement.id, skill)}
+                                    style={({ pressed }) => [
+                                      styles.optionChip,
+                                      isSelected && styles.optionChipActive,
+                                      !isSelected && isFull && styles.optionChipDisabled,
+                                      pressed && styles.optionChipPressed,
+                                    ]}
+                                  >
+                                    <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{formatSkillLabel(skill)}</Text>
+                                  </Pressable>
+                                );
+                              })}
+                            </View>
+                          </View>
+                        );
+                      })}
+
+                      {asiFeatRequirements.map((requirement) => {
+                        const selection = asiFeatSelections.find((candidate) => candidate.requirementId === requirement.id);
+                        const selectedFeat = selection?.selectedFeatId ? asiFeatOptions.find((feat) => feat.id === selection.selectedFeatId) ?? null : null;
+                        const issues = getAsiFeatRequirementIssues(payload, requirement.id);
+                        const status = getDecisionStatus(issues);
+
+                        return (
+                          <View key={requirement.id} style={styles.decisionBlock}>
+                            <View style={styles.decisionHeader}>
+                              <View style={styles.decisionHeaderCopy}>
+                                <Text style={styles.decisionTitle}>Ability Score Improvement</Text>
+                                <Text style={styles.decisionMeta}>Level {requirement.level}</Text>
+                              </View>
+                              <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
+                              </View>
+                            </View>
+                            {issues.length > 0 ? (
+                              <View style={styles.issueList}>
+                                {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
+                              </View>
+                            ) : null}
+                            <View style={styles.optionChipWrap}>
+                              <Pressable
+                                accessibilityRole="button"
+                                onPress={() => updateClassAsiFeatMode(requirement.id, 'asi')}
+                                style={({ pressed }) => [styles.optionChip, selection?.mode === 'asi' && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                              >
+                                <Text style={[styles.optionChipLabel, selection?.mode === 'asi' && styles.optionChipLabelActive]}>Ability Increase</Text>
+                              </Pressable>
+                              <Pressable
+                                accessibilityRole="button"
+                                onPress={() => updateClassAsiFeatMode(requirement.id, 'feat')}
+                                style={({ pressed }) => [styles.optionChip, selection?.mode === 'feat' && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                              >
+                                <Text style={[styles.optionChipLabel, selection?.mode === 'feat' && styles.optionChipLabelActive]}>Feat</Text>
+                              </Pressable>
+                            </View>
+                            {selection?.mode === 'asi' ? (
+                              <Text style={styles.decisionHelp}>This feature contributes 2 points in the Ability Points phase.</Text>
+                            ) : null}
+                            {selection?.mode === 'feat' ? (
+                              <View style={styles.featOptionList}>
+                                {selectedFeat ? <Text style={styles.decisionHelp}>Selected feat: {selectedFeat.name}</Text> : null}
+                                {asiFeatOptions.map((feat) => {
+                                  const isSelected = selection.selectedFeatId === feat.id;
+                                  return (
+                                    <Pressable
+                                      accessibilityRole="button"
+                                      key={feat.id}
+                                      onPress={() => updateClassAsiFeatSelection(requirement.id, feat.id)}
+                                      style={({ pressed }) => [styles.featOptionRow, isSelected && styles.featOptionRowActive, pressed && styles.featOptionRowPressed]}
+                                    >
+                                      <Text style={[styles.featOptionTitle, isSelected && styles.featOptionTitleActive]}>{feat.name}</Text>
+                                      <Text style={styles.featOptionMeta}>{feat.sourceCode}</Text>
+                                    </Pressable>
+                                  );
+                                })}
+                              </View>
+                            ) : null}
+                          </View>
+                        );
+                      })}
+                    </View>
+                  ) : null}
 
                   {decisionItems.length > 0 ? (
                     <View style={styles.decisionList}>
@@ -656,6 +807,10 @@ const styles = StyleSheet.create({
     gap: theme.spacing.sm,
     justifyContent: 'space-between',
   },
+  decisionHeaderCopy: {
+    flex: 1,
+    gap: 3,
+  },
   decisionTitle: {
     color: theme.colors.textPrimary,
     fontSize: 15,
@@ -664,6 +819,10 @@ const styles = StyleSheet.create({
   decisionMeta: {
     color: theme.colors.textMuted,
     ...typography.meta,
+  },
+  decisionHelp: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
   },
   issueList: {
     gap: theme.spacing.xs,
@@ -675,6 +834,68 @@ const styles = StyleSheet.create({
   },
   subclassCardList: {
     gap: theme.spacing.sm,
+  },
+  optionChipWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  optionChip: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.pill,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 40,
+    paddingHorizontal: theme.spacing.md,
+  },
+  optionChipActive: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderColor: theme.colors.accentPrimary,
+  },
+  optionChipDisabled: {
+    opacity: 0.45,
+  },
+  optionChipPressed: {
+    borderColor: theme.colors.accentPrimary,
+  },
+  optionChipLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '800',
+  },
+  optionChipLabelActive: {
+    color: theme.colors.accentPrimarySoft,
+  },
+  featOptionList: {
+    gap: theme.spacing.sm,
+  },
+  featOptionRow: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: 4,
+    padding: theme.spacing.sm,
+  },
+  featOptionRowActive: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderColor: theme.colors.accentPrimary,
+  },
+  featOptionRowPressed: {
+    borderColor: theme.colors.accentPrimary,
+  },
+  featOptionTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  featOptionTitleActive: {
+    color: theme.colors.accentPrimarySoft,
+  },
+  featOptionMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
   },
   addClassArea: {
     gap: theme.spacing.sm,
