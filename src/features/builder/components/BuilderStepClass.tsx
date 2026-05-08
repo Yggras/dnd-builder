@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+
+import { BuilderClassCard } from '@/features/builder/components/BuilderClassCard';
+import { BuilderClassDetailSheet } from '@/features/builder/components/BuilderClassDetailSheet';
+import { BuilderImpactConfirmationSheet } from '@/features/builder/components/BuilderImpactConfirmationSheet';
 import type { BuilderDraftPayload } from '@/features/builder/types';
+import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 import {
   getGrantSelectionCount,
   getGrantTitle,
   getSubclassUnlockLevel,
-  getSubclassUnlockLabel,
 } from '@/features/builder/utils/classStep';
 import { theme, typography } from '@/shared/ui/theme';
 
@@ -28,6 +33,37 @@ interface BuilderStepClassProps {
   updateFeatureSelection: (grantId: string, optionId: string, count: number) => void;
 }
 
+function getAllocationStatusLabel(payload: BuilderDraftPayload, allocation: BuilderDraftPayload['classStep']['allocations'][number]) {
+  const allocationIssues = payload.review.issues.filter(
+    (issue) =>
+      issue.step === 'class' &&
+      !issue.resolvedByOverride &&
+      (issue.id.includes(allocation.id) || issue.id.includes(allocation.classId) || issue.id === 'duplicate-class-allocations'),
+  );
+
+  if (allocationIssues.some((issue) => issue.category === 'blocker' || issue.category === 'checklist')) {
+    return 'Fix';
+  }
+
+  if (allocationIssues.some((issue) => issue.category === 'notice')) {
+    return 'Need';
+  }
+
+  return 'OK';
+}
+
+function buildRemovalImpacts(allocation: BuilderDraftPayload['classStep']['allocations'][number], classEntity?: ContentEntity) {
+  const impacts = [`${classEntity?.name ?? 'This class'} will be removed from the build.`];
+
+  if (allocation.subclassId) {
+    impacts.push('Subclass selection will be cleared.');
+  }
+
+  impacts.push('Class-owned feature choices and spell selections will be reconciled after removal.');
+
+  return impacts;
+}
+
 export function BuilderStepClass({
   payload,
   classEntitiesById,
@@ -42,128 +78,181 @@ export function BuilderStepClass({
   removeAllocation,
   updateFeatureSelection,
 }: BuilderStepClassProps) {
+  const router = useRouter();
   const [showClassPicker, setShowClassPicker] = useState(false);
+  const [detailClassId, setDetailClassId] = useState<string | null>(null);
+  const [pendingRemoveAllocationId, setPendingRemoveAllocationId] = useState<string | null>(null);
+  const hasSelectedClass = payload.classStep.allocations.length > 0;
+  const detailClass = detailClassId ? classEntitiesById[detailClassId] ?? availableClasses.find((entry) => entry.id === detailClassId) ?? null : null;
+  const detailClassIsSelected = Boolean(detailClassId && payload.classStep.allocations.some((allocation) => allocation.classId === detailClassId));
+  const pendingRemoveAllocation = payload.classStep.allocations.find((allocation) => allocation.id === pendingRemoveAllocationId) ?? null;
+  const pendingRemoveClass = pendingRemoveAllocation ? classEntitiesById[pendingRemoveAllocation.classId] : undefined;
+
+  const openCompendiumForClass = (classEntity: ContentEntity) => {
+    router.push(`/(app)/compendium/class/${encodeURIComponent(classEntity.id)}` as never);
+  };
+
+  const renderClassPicker = (classes: readonly ContentEntity[]) => (
+    <View style={styles.classCardList}>
+      {classes.map((classEntity) => (
+        <BuilderClassCard key={classEntity.id} classEntity={classEntity} onPress={() => setDetailClassId(classEntity.id)} />
+      ))}
+      {classes.length === 0 ? <Text style={styles.emptyHint}>No additional builder-selectable classes are available.</Text> : null}
+    </View>
+  );
+
+  const confirmClassChoice = () => {
+    if (!detailClass || detailClassIsSelected) {
+      setDetailClassId(null);
+      return;
+    }
+
+    addClassAllocation(detailClass.id);
+    setShowClassPicker(false);
+    setDetailClassId(null);
+  };
+
+  const confirmRemoveClass = () => {
+    if (!pendingRemoveAllocation) {
+      setPendingRemoveAllocationId(null);
+      return;
+    }
+
+    removeAllocation(pendingRemoveAllocation.id);
+    setPendingRemoveAllocationId(null);
+    setShowClassPicker(false);
+  };
 
   return (
     <View style={styles.section}>
-      <View style={styles.sectionHeaderRow}>
-        <Text style={styles.sectionTitle}>Class step</Text>
-        <Text style={styles.sectionMeta}>Total level {totalAllocatedLevel}</Text>
-      </View>
+      {!hasSelectedClass ? renderClassPicker(availableClasses) : null}
 
-      <Text style={styles.sectionBodyText}>
-        Class is the structural anchor of the build. Configure allocations, subclass timing, and class-owned feature choices here.
-      </Text>
-
-      {classImpactSummary ? <Text style={styles.impactBanner}>{classImpactSummary}</Text> : null}
-
-      <View style={styles.allocationList}>
-        {payload.classStep.allocations.map((allocation) => {
-          const classEntity = classEntitiesById[allocation.classId];
-          const subclassOptions = allocation.classId ? subclassesByClassId[allocation.classId] ?? [] : [];
-          const subclassUnlockLabel = classEntity ? getSubclassUnlockLabel(classEntity) : null;
-          const subclassUnlockLevel = classEntity ? getSubclassUnlockLevel(classEntity) : null;
-          const canChooseSubclass = subclassUnlockLevel == null ? subclassOptions.length > 0 : allocation.level >= subclassUnlockLevel;
-
-          return (
-            <View key={allocation.id} style={styles.allocationCard}>
-              <View style={styles.allocationHeader}>
-                <View style={styles.allocationHeading}>
-                  <Text style={styles.allocationTitle}>{classEntity?.name ?? 'Unknown class'}</Text>
-                  <Text style={styles.allocationMeta}>{subclassUnlockLabel ?? 'No structured subclass timing found'}</Text>
-                </View>
-
-                <Pressable
-                  accessibilityRole="button"
-                  disabled={payload.classStep.allocations.length === 1}
-                  onPress={() => removeAllocation(allocation.id)}
-                  style={({ pressed }) => [styles.removeButton, pressed && styles.removeButtonPressed, payload.classStep.allocations.length === 1 && styles.removeButtonDisabled]}
-                >
-                  <Text style={styles.removeButtonLabel}>Remove</Text>
-                </Pressable>
-              </View>
-
-              <View style={styles.levelControls}>
-                <Pressable
-                  accessibilityRole="button"
-                  disabled={allocation.level <= 1}
-                  onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, level: Math.max(1, current.level - 1) }))}
-                  style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed, allocation.level <= 1 && styles.levelButtonDisabled]}
-                >
-                  <Text style={styles.levelButtonLabel}>-</Text>
-                </Pressable>
-                <View style={styles.levelBadge}>
-                  <Text style={styles.levelBadgeLabel}>Level {allocation.level}</Text>
-                </View>
-                <Pressable
-                  accessibilityRole="button"
-                  disabled={totalAllocatedLevel >= 20}
-                  onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, level: current.level + 1 }))}
-                  style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed, totalAllocatedLevel >= 20 && styles.levelButtonDisabled]}
-                >
-                  <Text style={styles.levelButtonLabel}>+</Text>
-                </Pressable>
-              </View>
-
-              {subclassOptions.length > 0 && canChooseSubclass ? (
-                <View style={styles.optionBlock}>
-                  <Text style={styles.optionBlockLabel}>Subclass</Text>
-                  <View style={styles.optionChipWrap}>
-                    {subclassOptions.map((subclass) => {
-                      const isSelected = allocation.subclassId === subclass.id;
-                      return (
-                        <Pressable
-                          accessibilityRole="button"
-                          key={subclass.id}
-                          onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, subclassId: isSelected ? null : subclass.id }))}
-                          style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
-                        >
-                          <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{subclass.name}</Text>
-                        </Pressable>
-                      );
-                    })}
-                  </View>
-                </View>
-              ) : subclassOptions.length > 0 ? (
-                <Text style={styles.lockedHint}>Subclass selection unlocks when this class reaches the qualifying level.</Text>
-              ) : null}
-            </View>
-          );
-        })}
-      </View>
-
-      <View style={styles.addClassArea}>
-        <Pressable
-          accessibilityRole="button"
-          disabled={totalAllocatedLevel >= 20}
-          onPress={() => setShowClassPicker((current) => !current)}
-          style={({ pressed }) => [
-            styles.addClassButton,
-            pressed && styles.addClassButtonPressed,
-            totalAllocatedLevel >= 20 && styles.addClassButtonDisabled,
-          ]}
-        >
-          <Text style={styles.addClassButtonLabel}>{showClassPicker ? 'Hide class options' : 'Add Class'}</Text>
-        </Pressable>
-
-        {showClassPicker ? (
-          <View style={styles.optionChipWrap}>
-            {availableClasses.map((classEntity) => (
-              <Pressable
-                accessibilityRole="button"
-                key={classEntity.id}
-                onPress={() => {
-                  addClassAllocation(classEntity.id);
-                  setShowClassPicker(false);
-                }}
-                style={({ pressed }) => [styles.optionChip, pressed && styles.optionChipPressed]}
-              >
-                <Text style={styles.optionChipLabel}>{classEntity.name}</Text>
-              </Pressable>
-            ))}
+      {hasSelectedClass ? (
+        <>
+          <View style={styles.sectionHeaderRow}>
+            <Text style={styles.sectionTitle}>Selected classes</Text>
+            <Text style={styles.sectionMeta}>Total level {totalAllocatedLevel}</Text>
           </View>
-        ) : null}
-      </View>
+
+          {classImpactSummary ? <Text style={styles.impactBanner}>{classImpactSummary}</Text> : null}
+
+          <View style={styles.allocationList}>
+            {payload.classStep.allocations.map((allocation) => {
+              const classEntity = classEntitiesById[allocation.classId];
+              const subclassOptions = allocation.classId ? subclassesByClassId[allocation.classId] ?? [] : [];
+              const subclassUnlockLevel = classEntity ? getSubclassUnlockLevel(classEntity) : null;
+              const canChooseSubclass = subclassUnlockLevel == null ? subclassOptions.length > 0 : allocation.level >= subclassUnlockLevel;
+              const statusLabel = getAllocationStatusLabel(payload, allocation);
+
+              return (
+                <View key={allocation.id} style={styles.allocationCard}>
+                  <View style={styles.allocationHeader}>
+                    <View style={styles.allocationHeading}>
+                      <View style={styles.allocationTitleRow}>
+                        <Text style={styles.allocationTitle}>{classEntity?.name ?? 'Unknown class'}</Text>
+                        <View style={[styles.statusBadge, statusLabel === 'Fix' && styles.statusBadgeFix, statusLabel === 'Need' && styles.statusBadgeNeed]}>
+                          <Text style={[styles.statusBadgeLabel, statusLabel === 'Fix' && styles.statusBadgeLabelFix]}>{statusLabel}</Text>
+                        </View>
+                      </View>
+                      {classEntity ? (
+                        <View style={styles.badgeRow}>
+                          <View style={[styles.editionBadge, classEntity.isLegacy && styles.legacyBadge]}>
+                            <Text style={[styles.editionBadgeLabel, classEntity.isLegacy && styles.legacyBadgeLabel]}>{getClassEditionBadge(classEntity)}</Text>
+                          </View>
+                        </View>
+                      ) : null}
+                    </View>
+                  </View>
+
+                  <View style={styles.levelControlBlock}>
+                    <View style={styles.levelControls}>
+                      <Pressable
+                        accessibilityRole="button"
+                        disabled={allocation.level <= 1}
+                        onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, level: Math.max(1, current.level - 1) }))}
+                        style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed, allocation.level <= 1 && styles.levelButtonDisabled]}
+                      >
+                        <Text style={styles.levelButtonLabel}>-</Text>
+                      </Pressable>
+                      <View style={styles.levelBadge}>
+                        <Text style={styles.levelBadgeLabel}>Level {allocation.level}</Text>
+                      </View>
+                      <Pressable
+                        accessibilityRole="button"
+                        disabled={totalAllocatedLevel >= 20}
+                        onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, level: current.level + 1 }))}
+                        style={({ pressed }) => [styles.levelButton, pressed && styles.levelButtonPressed, totalAllocatedLevel >= 20 && styles.levelButtonDisabled]}
+                      >
+                        <Text style={styles.levelButtonLabel}>+</Text>
+                      </Pressable>
+                    </View>
+                    <Text style={styles.levelHelp}>Combined class levels cannot exceed 20. Level changes can unlock or clear class decisions.</Text>
+                  </View>
+
+                  <View style={styles.summaryActionRow}>
+                    {classEntity ? (
+                      <Pressable
+                        accessibilityRole="button"
+                        onPress={() => setDetailClassId(classEntity.id)}
+                        style={({ pressed }) => [styles.secondaryActionButton, pressed && styles.secondaryActionButtonPressed]}
+                      >
+                        <Text style={styles.secondaryActionLabel}>Details</Text>
+                      </Pressable>
+                    ) : null}
+                    <Pressable
+                      accessibilityRole="button"
+                      onPress={() => setPendingRemoveAllocationId(allocation.id)}
+                      style={({ pressed }) => [styles.removeButton, pressed && styles.removeButtonPressed]}
+                    >
+                      <Text style={styles.removeButtonLabel}>Remove</Text>
+                    </Pressable>
+                  </View>
+
+                  {subclassOptions.length > 0 && canChooseSubclass ? (
+                    <View style={styles.optionBlock}>
+                      <Text style={styles.optionBlockLabel}>Subclass</Text>
+                      <View style={styles.optionChipWrap}>
+                        {subclassOptions.map((subclass) => {
+                          const isSelected = allocation.subclassId === subclass.id;
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              key={subclass.id}
+                              onPress={() => updateAllocation(allocation.id, (current) => ({ ...current, subclassId: isSelected ? null : subclass.id }))}
+                              style={({ pressed }) => [styles.optionChip, isSelected && styles.optionChipActive, pressed && styles.optionChipPressed]}
+                            >
+                              <Text style={[styles.optionChipLabel, isSelected && styles.optionChipLabelActive]}>{subclass.name}</Text>
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    </View>
+                  ) : subclassOptions.length > 0 ? (
+                    <Text style={styles.lockedHint}>Subclass selection unlocks when this class reaches the qualifying level.</Text>
+                  ) : null}
+                </View>
+              );
+            })}
+          </View>
+
+          <View style={styles.addClassArea}>
+            <Pressable
+              accessibilityRole="button"
+              disabled={totalAllocatedLevel >= 20}
+              onPress={() => setShowClassPicker((current) => !current)}
+              style={({ pressed }) => [
+                styles.addClassButton,
+                pressed && styles.addClassButtonPressed,
+                totalAllocatedLevel >= 20 && styles.addClassButtonDisabled,
+              ]}
+            >
+              <Text style={styles.addClassButtonLabel}>{showClassPicker ? 'Hide class options' : 'Add another class'}</Text>
+            </Pressable>
+
+            {showClassPicker ? renderClassPicker(availableClasses) : null}
+          </View>
+        </>
+      ) : null}
 
       {applicableGrants.length > 0 ? (
         <View style={styles.featureChoiceSection}>
@@ -200,6 +289,25 @@ export function BuilderStepClass({
           })}
         </View>
       ) : null}
+
+      <BuilderClassDetailSheet
+        classEntity={detailClass}
+        isSelected={detailClassIsSelected}
+        onChoose={confirmClassChoice}
+        onClose={() => setDetailClassId(null)}
+        onOpenCompendium={() => detailClass ? openCompendiumForClass(detailClass) : undefined}
+        visible={Boolean(detailClass)}
+      />
+
+      <BuilderImpactConfirmationSheet
+        confirmLabel="Remove class"
+        impacts={pendingRemoveAllocation ? buildRemovalImpacts(pendingRemoveAllocation, pendingRemoveClass) : []}
+        message="Removing a class can change level totals and invalidate related choices. You can add classes again afterward."
+        onCancel={() => setPendingRemoveAllocationId(null)}
+        onConfirm={confirmRemoveClass}
+        title="Remove class?"
+        visible={Boolean(pendingRemoveAllocation)}
+      />
     </View>
   );
 }
@@ -212,6 +320,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     gap: theme.spacing.md,
     padding: theme.spacing.lg,
+  },
+  classCardList: {
+    gap: theme.spacing.md,
   },
   sectionTitle: {
     color: theme.colors.textPrimary,
@@ -228,10 +339,6 @@ const styles = StyleSheet.create({
     ...typography.meta,
     fontWeight: '700',
     textTransform: 'uppercase',
-  },
-  sectionBodyText: {
-    color: theme.colors.textSecondary,
-    ...typography.bodySm,
   },
   impactBanner: {
     backgroundColor: theme.colors.surfaceAccent,
@@ -255,49 +362,81 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
   },
   allocationHeader: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     gap: theme.spacing.md,
   },
   allocationHeading: {
-    flex: 1,
-    gap: 4,
+    gap: theme.spacing.sm,
+  },
+  allocationTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'space-between',
   },
   allocationTitle: {
     color: theme.colors.textPrimary,
-    fontSize: 16,
-    fontWeight: '700',
+    flex: 1,
+    fontSize: 18,
+    fontWeight: '800',
   },
-  allocationMeta: {
-    color: theme.colors.textMuted,
-    ...typography.meta,
-  },
-  removeButton: {
+  badgeRow: {
     alignItems: 'center',
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.borderSubtle,
-    borderRadius: theme.radii.sm,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.xs,
+  },
+  editionBadge: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderRadius: theme.radii.pill,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+  },
+  editionBadgeLabel: {
+    color: theme.colors.accentPrimarySoft,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  legacyBadge: {
+    backgroundColor: theme.colors.accentLegacy,
+  },
+  legacyBadgeLabel: {
+    color: theme.colors.accentLegacySoft,
+  },
+  statusBadge: {
+    backgroundColor: theme.colors.surfaceSuccess,
+    borderColor: theme.colors.accentSuccess,
+    borderRadius: theme.radii.pill,
     borderWidth: 1,
-    justifyContent: 'center',
-    minHeight: 38,
-    paddingHorizontal: theme.spacing.md,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
-  removeButtonPressed: {
-    borderColor: theme.colors.accentPrimary,
+  statusBadgeFix: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.danger,
   },
-  removeButtonDisabled: {
-    opacity: 0.5,
+  statusBadgeNeed: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.accentLegacy,
   },
-  removeButtonLabel: {
-    color: theme.colors.textSecondary,
-    ...typography.meta,
-    fontWeight: '700',
+  statusBadgeLabel: {
+    color: theme.colors.accentSuccessSoft,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  statusBadgeLabelFix: {
+    color: theme.colors.danger,
+  },
+  levelControlBlock: {
+    gap: theme.spacing.xs,
   },
   levelControls: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: theme.spacing.sm,
+  },
+  levelHelp: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
   },
   levelButton: {
     alignItems: 'center',
@@ -332,6 +471,47 @@ const styles = StyleSheet.create({
   levelBadgeLabel: {
     color: theme.colors.textPrimary,
     fontSize: 14,
+    fontWeight: '700',
+  },
+  summaryActionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  secondaryActionButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    minHeight: 40,
+    justifyContent: 'center',
+    paddingHorizontal: theme.spacing.md,
+  },
+  secondaryActionButtonPressed: {
+    borderColor: theme.colors.accentPrimary,
+  },
+  secondaryActionLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '800',
+  },
+  removeButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 40,
+    paddingHorizontal: theme.spacing.md,
+  },
+  removeButtonPressed: {
+    borderColor: theme.colors.danger,
+  },
+  removeButtonLabel: {
+    color: theme.colors.danger,
+    ...typography.meta,
     fontWeight: '700',
   },
   optionBlock: {
@@ -381,8 +561,8 @@ const styles = StyleSheet.create({
   addClassButton: {
     alignItems: 'center',
     alignSelf: 'flex-start',
-    backgroundColor: theme.colors.accentPrimary,
-    borderColor: theme.colors.accentPrimarySoft,
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
     borderRadius: theme.radii.sm,
     borderWidth: 1,
     justifyContent: 'center',
@@ -390,11 +570,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.md,
   },
   addClassButtonPressed: {
-    backgroundColor: theme.colors.borderAccent,
+    borderColor: theme.colors.accentPrimary,
   },
   addClassButtonDisabled: {
-    backgroundColor: theme.colors.borderStrong,
-    borderColor: theme.colors.borderStrong,
+    opacity: 0.5,
   },
   addClassButtonLabel: {
     color: theme.colors.textPrimary,

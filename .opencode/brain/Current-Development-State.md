@@ -34,8 +34,8 @@ Current verification commands:
 - `npm run typecheck`
 - `npm run audit:5etools`
 
-Current status as of 2026-05-07:
-- `npm run typecheck` passes after Step 25 wizard documentation/UI reconciliation and status-label simplification.
+Current status as of 2026-05-08:
+- `npm run typecheck` passes after Step 26a class-card/detail-sheet implementation.
 - `npm run audit:5etools` last passed as of 2026-05-03 and was not rerun for the Step 25 UI/docs pass.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
@@ -268,6 +268,8 @@ Implemented:
 - Builder now renders as a six-phase active-step wizard: Class & Spells, Origin, Abilities, Inventory, Basics, Review.
 - Wizard navigation supports direct phase jumps, Back/Next movement, a bottom Finish Build action, horizontal slide/fade transitions, accessible `OK` / `Need` / `Fix` phase status indicators, and animated success feedback before preview navigation.
 - Review phase status aggregates all wizard issues: `Fix` for unresolved blocker/checklist issues anywhere, `Need` for non-blocking notices, and `OK` only when the build has no unresolved notices or completion-affecting issues.
+- Step 26a class-selection UX is source-implemented: empty Class & Spells builds show rules-first class cards immediately, class cards open in-builder detail sheets before selection, selected classes render as summary cards with facts/status/level steppers, `Add another class` reveals an inline card picker, and class removal always uses an impact confirmation sheet.
+- Class detail sheets include source/edition/spellcasting badges, relevant support warnings, expanded rules snapshots, compact key-level previews, short summaries, `Choose this class`, and `Open in Compendium` actions.
 
 Key files:
 - `src/features/builder/types/index.ts`
@@ -282,6 +284,10 @@ Key files:
 - `src/features/builder/components/BuilderWizardNavigation.tsx`
 - `src/features/builder/components/BuilderWizardSlide.tsx`
 - `src/features/builder/components/BuilderStepClass.tsx`
+- `src/features/builder/components/BuilderChoiceSheet.tsx`
+- `src/features/builder/components/BuilderClassCard.tsx`
+- `src/features/builder/components/BuilderClassDetailSheet.tsx`
+- `src/features/builder/components/BuilderImpactConfirmationSheet.tsx`
 - `src/features/builder/components/BuilderStepOrigin.tsx`
 - `src/features/builder/components/BuilderStepAbilityPoints.tsx`
 - `src/features/builder/components/BuilderStepInventory.tsx`
@@ -289,6 +295,7 @@ Key files:
 - `src/features/builder/components/BuilderSpellsSection.tsx`
 - `src/features/builder/components/BuilderReviewSection.tsx`
 - `src/features/builder/utils/classStep.ts`
+- `src/features/builder/utils/classMetadata.ts`
 - `src/features/builder/utils/originAndAbilities.ts`
 - `src/features/builder/utils/spellReview.ts`
 - `src/features/builder/utils/inventory.ts`
@@ -303,6 +310,8 @@ Known builder gaps:
 - Focused Step 25 follow-up verification is still needed for simplified status accuracy, completion success feedback, and reload persistence.
 - Content loading in the builder is eager for all items and all spells; later performance work should make these more on-demand.
 - Override workflow is not yet a full advanced, explicit, per-issue workflow with required reasons.
+- Step 26a intentionally defers automatic return-context restoration from compendium navigation and automatic reopening of the originating builder detail sheet after returning.
+- Step 26b/26c remain incomplete: subclass cards, feature-option detail pickers, spell workflow tabs, and spell detail sheets are not yet implemented. Existing subclass/feature/spell selection behavior remains in place until those steps replace it.
 
 ## UI And Design System
 Implemented:
@@ -326,6 +335,7 @@ Key files:
 - Step 23 weapon item facts/range/properties/mastery links: implemented.
 - Step 23 builder stabilization: implemented; remaining unchecked items are manual smoke checks.
 - Step 25 wizard UX transformation: source-implemented; initial manual smoke check completed with status feedback addressed in source. Remaining unchecked items are focused status regression, completion feedback, and reload persistence verification.
+- Step 26a class cards and class detail sheets: source-implemented; manual smoke checks remain needed for empty class-card selection, sheet behavior, selected class level caps, add-another-class flow, compendium navigation, removal confirmation, and missing metadata display.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
