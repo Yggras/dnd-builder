@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-2477fa0f18ae5135",
+  "contentVersion": "schema1-5f0b4d03c4eff8ae",
   "entityType": "classes",
   "chunkId": "mystic-uathemysticclass",
-  "generatedAt": "2026-05-08T17:57:18.153Z",
+  "generatedAt": "2026-05-09T18:56:49.881Z",
   "records": {
     "class": {
       "id": "mystic|uathemysticclass",

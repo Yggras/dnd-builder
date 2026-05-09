@@ -289,11 +289,15 @@ Class-related feature choices should be strictly guided.
 
 The user does not want these reduced to a later freeform review screen.
 
-This includes things like:
-- fighting styles
-- invocations
-- maneuvers
-- similar optional feature choices
+This includes:
+- **Expertise**: Dynamically surfaced for classes that grant it, allowing selection from currently proficient skills.
+- **Inline Options**: Features like "Divine Order" or "Primal Order" where the choice is defined inside the class feature itself.
+- **Optional Features**: Fighting styles, invocations, maneuvers, and similar choices modeled as external selectable entities.
+
+### Extraction Logic
+The builder surfaces these choices by extracting them as `ChoiceGrant` records during the 5etools import process.
+- **Dynamic Extraction**: The importer scans class feature details for `type: options` blocks and specific patterns like "Expertise".
+- **Grant-Driven UI**: The UI renders these as guided decision blocks within the Class step, ensuring they are resolved before the build is complete.
 
 ### Placement
 These choices should live inside the class step, not in a separate feature step.

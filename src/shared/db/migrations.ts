@@ -113,6 +113,20 @@ const migrations: Migration[] = [
       });
     },
   },
+  {
+    version: 4,
+    name: 'add_choice_grant_feature_columns',
+    migrate: async (database) => {
+      await database.withExclusiveTransactionAsync(async (transaction) => {
+        await transaction.execAsync(
+          'ALTER TABLE choice_grants ADD COLUMN feature_label TEXT;',
+        );
+        await transaction.execAsync(
+          'ALTER TABLE choice_grants ADD COLUMN options TEXT;',
+        );
+      });
+    },
+  },
 ];
 
 export async function runLocalMigrations(database: SQLite.SQLiteDatabase) {

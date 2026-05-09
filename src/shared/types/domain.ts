@@ -14,7 +14,7 @@ export type ContentEntityType =
   | 'action'
   | 'variantrule';
 export type ChoiceGrantSourceType = 'class' | 'subclass' | 'feat' | 'optionalfeature';
-export type ChoiceGrantKind = 'feat' | 'optionalfeature';
+export type ChoiceGrantKind = 'feat' | 'optionalfeature' | 'classFeatureOption' | 'expertise';
 export type BuilderState = 'draft' | 'complete';
 export type BuilderStep =
   | 'class'
@@ -155,14 +155,21 @@ export interface ContentEntity {
   updatedAt: string;
 }
 
+export interface ChoiceGrantOption {
+  name: string;
+  description: string;
+}
+
 export interface ChoiceGrant {
   id: string;
   sourceType: ChoiceGrantSourceType;
   sourceId: string;
   sourceName: string;
+  featureLabel?: string;
   atLevel: number;
   chooseKind: ChoiceGrantKind;
   categoryFilter: string[];
+  options?: ChoiceGrantOption[];
   count: number;
   visibility: 'builder' | 'compendium-only';
 }

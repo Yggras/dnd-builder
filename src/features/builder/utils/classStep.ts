@@ -681,7 +681,7 @@ export function reconcileClassStepPayload({
 }
 
 export function getGrantTitle(grant: ChoiceGrant) {
-  return `${grant.sourceName} level ${grant.atLevel}`;
+  return grant.featureLabel ?? `${grant.sourceName} level ${grant.atLevel}`;
 }
 
 export function getGrantSelectionCount(grant: ChoiceGrant) {

@@ -56,9 +56,11 @@ interface GeneratedChoiceGrantRecord {
   sourceType: string;
   sourceId: string;
   sourceName: string;
+  featureLabel?: string;
   atLevel: number;
   chooseKind: string;
   categoryFilter: string[];
+  options?: { name: string; description: string }[];
   count: number;
   visibility: 'builder' | 'compendium-only';
 }
@@ -197,19 +199,23 @@ async function insertChoiceGrant(database: SqlExecutor, record: GeneratedChoiceG
        source_type,
        source_id,
        source_name,
+       feature_label,
        at_level,
        choose_kind,
        category_filter,
+       options,
        count,
        visibility
-     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     record.id,
     record.sourceType,
     record.sourceId,
     record.sourceName,
+    record.featureLabel ?? null,
     record.atLevel,
     record.chooseKind,
     JSON.stringify(record.categoryFilter),
+    record.options && record.options.length > 0 ? JSON.stringify(record.options) : null,
     record.count,
     record.visibility,
   );

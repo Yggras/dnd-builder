@@ -294,15 +294,27 @@ Represents rules reference text that should be searchable in the compendium.
 | `rule_category` | string | Optional grouping |
 | `mechanical_summary` | string[] | Short bullet summaries |
 
-## `table`
-Represents displayable rules/reference tables.
+## `choice_grant`
+Represents a selectable choice granted by a class, subclass, feat, or other content. This is a builder-specific projection stored as a canonical record to drive guided selection.
 
 ### Required fields
 | Field | Type | Notes |
 |---|---|---|
-| `columns` | string[] | Display column labels |
-| `rows` | jsonb | Table row data |
-| `table_group` | string \| null | For grouping in compendium |
+| `id` | string | App-owned ID |
+| `source_type` | enum | `class`, `subclass`, `feat`, `optional_feature` |
+| `source_id` | string | Canonical ID of the grantor |
+| `source_name` | string | Denormalized display name of the grantor |
+| `at_level` | integer | Level at which the choice is granted |
+| `choose_kind` | enum | `feat`, `optionalfeature`, `classFeatureOption`, `expertise` |
+| `category_filter` | string[] | Tags to filter selectable entities |
+| `count` | integer | Number of selections allowed |
+| `visibility` | enum | `builder` or `compendium-only` |
+
+### Optional fields
+| Field | Type | Notes |
+|---|---|---|
+| `feature_label` | string | Override display name for the choice (e.g. "Divine Order") |
+| `options` | jsonb | Inline options for `classFeatureOption` kinds (name, description) |
 
 ## Builder Projection Models
 Builder projections are derived from canonical records and optimized for selection screens.

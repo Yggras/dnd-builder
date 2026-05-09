@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-2477fa0f18ae5135",
-  "generatedAt": "2026-05-08T17:57:18.153Z",
+  "contentVersion": "schema1-5f0b4d03c4eff8ae",
+  "generatedAt": "2026-05-09T18:56:49.881Z",
   "sourceRepository": "5etools-mirror-3/5etools-src",
   "sourceRef": "main",
   "chunkCount": 67,
@@ -17,7 +17,7 @@
     "conditions": 30,
     "actions": 48,
     "variantRules": 264,
-    "choiceGrants": 46,
+    "choiceGrants": 60,
     "compendiumEntries": 5062
   },
   "chunks": [
@@ -319,7 +319,7 @@
       "entityType": "grants",
       "chunkId": "all",
       "filePath": "generated/5etools/grants/all.json",
-      "recordCount": 46
+      "recordCount": 60
     },
     {
       "entityType": "items",

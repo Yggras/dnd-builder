@@ -949,6 +949,104 @@ export function normalizeVariantRules(records) {
   return stableSortBy(records.map((record) => normalizeReferenceOnlyRecord('variantrule', record)), (record) => record.id);
 }
 
+function findOptionsBlocks(entries) {
+  const results = [];
+
+  for (const entry of ensureArray(entries)) {
+    if (!entry || typeof entry !== 'object') {
+      continue;
+    }
+
+    if (entry.type === 'options' && Array.isArray(entry.entries) && typeof entry.count === 'number') {
+      results.push(entry);
+      continue;
+    }
+
+    if (Array.isArray(entry.entries)) {
+      results.push(...findOptionsBlocks(entry.entries));
+    }
+
+    if (Array.isArray(entry.items)) {
+      results.push(...findOptionsBlocks(entry.items));
+    }
+  }
+
+  return results;
+}
+
+function extractInlineOptionDetails(optionsBlock) {
+  return ensureArray(optionsBlock.entries)
+    .filter((entry) => entry && typeof entry === 'object' && typeof entry.name === 'string')
+    .map((entry) => ({
+      name: entry.name,
+      description: summarizeText(extractText(entry.entries ?? []), 200),
+    }));
+}
+
+function extractClassFeatureGrants(classes) {
+  const grants = [];
+
+  for (const classRecord of classes) {
+    const featureDetails = ensureArray(classRecord.metadata?.classFeatureDetails);
+
+    for (const detail of featureDetails) {
+      if (!detail || typeof detail !== 'object' || !detail.name || detail.level == null) {
+        continue;
+      }
+
+      // Skip features the builder already handles through other mechanisms
+      if (detail.name.startsWith('Ability Score Improvement')) {
+        continue;
+      }
+
+      // Expertise features → expertise grant
+      if (detail.name === 'Expertise') {
+        grants.push({
+          id: canonicalId([classRecord.id, 'expertise', 'expertise', detail.level]),
+          sourceType: 'class',
+          sourceId: classRecord.id,
+          sourceName: classRecord.name,
+          featureLabel: `Expertise (${classRecord.name})`,
+          atLevel: detail.level,
+          chooseKind: 'expertise',
+          categoryFilter: [],
+          options: [],
+          count: 2,
+          visibility: classRecord.isSelectableInBuilder ? 'builder' : 'compendium-only',
+        });
+        continue;
+      }
+
+      // Features with inline options blocks → classFeatureOption grant
+      const optionsBlocks = findOptionsBlocks(detail.entries ?? []);
+
+      for (const optionsBlock of optionsBlocks) {
+        const inlineOptions = extractInlineOptionDetails(optionsBlock);
+
+        if (inlineOptions.length < 2) {
+          continue;
+        }
+
+        grants.push({
+          id: canonicalId([classRecord.id, detail.name, 'classFeatureOption', detail.level]),
+          sourceType: 'class',
+          sourceId: classRecord.id,
+          sourceName: classRecord.name,
+          featureLabel: `${detail.name} (${classRecord.name})`,
+          atLevel: detail.level,
+          chooseKind: 'classFeatureOption',
+          categoryFilter: inlineOptions.map((option) => option.name),
+          options: inlineOptions,
+          count: optionsBlock.count,
+          visibility: classRecord.isSelectableInBuilder ? 'builder' : 'compendium-only',
+        });
+      }
+    }
+  }
+
+  return grants;
+}
+
 function extractProgressionGrants(records, sourceType, fieldName, chooseKind, categoryField) {
   const grants = [];
 
@@ -982,6 +1080,7 @@ export function normalizeChoiceGrants({ classes, subclasses, feats, optionalFeat
       ...extractProgressionGrants(subclasses, 'subclass', 'optionalfeatureProgression', 'optionalfeature', 'featureType'),
       ...extractProgressionGrants(feats, 'feat', 'featProgression', 'feat', 'category'),
       ...extractProgressionGrants(optionalFeatures, 'optionalfeature', 'featProgression', 'feat', 'category'),
+      ...extractClassFeatureGrants(classes),
     ],
     (record) => record.id,
   );

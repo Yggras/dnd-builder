@@ -48,9 +48,11 @@ interface ChoiceGrantRow {
   source_type: ChoiceGrant['sourceType'];
   source_id: string;
   source_name: string;
+  feature_label: string | null;
   at_level: number;
   choose_kind: ChoiceGrant['chooseKind'];
   category_filter: string;
+  options: string | null;
   count: number;
   visibility: ChoiceGrant['visibility'];
 }
@@ -121,7 +123,7 @@ function mapCompendiumEntry(row: CompendiumEntryRow): CompendiumEntry {
 }
 
 function mapChoiceGrant(row: ChoiceGrantRow): ChoiceGrant {
-  return {
+  const grant: ChoiceGrant = {
     id: row.id,
     sourceType: row.source_type,
     sourceId: row.source_id,
@@ -132,6 +134,17 @@ function mapChoiceGrant(row: ChoiceGrantRow): ChoiceGrant {
     count: row.count,
     visibility: row.visibility,
   };
+
+  if (row.feature_label) {
+    grant.featureLabel = row.feature_label;
+  }
+
+  const parsedOptions = parseJson<ChoiceGrant['options']>(row.options, undefined);
+  if (parsedOptions && parsedOptions.length > 0) {
+    grant.options = parsedOptions;
+  }
+
+  return grant;
 }
 
 function matchesSelectableFilter(entity: ContentEntity, onlySelectableInBuilder: boolean) {

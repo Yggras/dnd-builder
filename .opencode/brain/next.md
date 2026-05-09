@@ -92,6 +92,8 @@
   - Improve spell-step UX with clearer inline limit/error messages, better per-source helper text, and stronger compendium return-context behavior.
 
 - Improve class-owned feature choices.
+  - **Implemented**: Importer-driven dynamic extraction of Expertise and inline feature options (Divine Order, Primal Order, etc.) into `ChoiceGrant` records.
+  - **Implemented**: Runtime resolution in `useCharacterBuilderContent.ts` for dynamic skill pools and inline options.
   - Keep feature choices inside the Class step.
   - Make unsupported or incomplete choice grants explicit checklist items.
   - Preserve selected choices only while they remain legal for the current class allocation.

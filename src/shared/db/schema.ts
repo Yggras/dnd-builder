@@ -93,9 +93,11 @@ export const schemaStatements = [
      source_type TEXT NOT NULL,
      source_id TEXT NOT NULL,
      source_name TEXT NOT NULL,
+     feature_label TEXT,
      at_level INTEGER NOT NULL,
      choose_kind TEXT NOT NULL,
      category_filter TEXT NOT NULL,
+     options TEXT,
      count INTEGER NOT NULL,
      visibility TEXT NOT NULL
    )`,

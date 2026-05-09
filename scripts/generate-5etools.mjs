@@ -57,8 +57,10 @@ function validateUnique(records, label) {
 }
 
 function validateGrants(choiceGrants) {
+  const DYNAMIC_KINDS = new Set(['expertise', 'classFeatureOption']);
+
   for (const grant of choiceGrants) {
-    if (!grant.categoryFilter.length) {
+    if (!DYNAMIC_KINDS.has(grant.chooseKind) && !grant.categoryFilter.length) {
       throw new Error(`Choice grant missing category filter: ${grant.id}`);
     }
   }

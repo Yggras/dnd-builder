@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-2477fa0f18ae5135",
+  "contentVersion": "schema1-5f0b4d03c4eff8ae",
   "entityType": "grants",
   "chunkId": "all",
-  "generatedAt": "2026-05-08T17:57:18.153Z",
+  "generatedAt": "2026-05-09T18:56:49.881Z",
   "records": [
     {
       "id": "artificer-efa|epic-boon|feat|19",
@@ -97,6 +97,32 @@
       "visibility": "builder"
     },
     {
+      "id": "bard-phb|expertise|expertise|10",
+      "sourceType": "class",
+      "sourceId": "bard|phb",
+      "sourceName": "Bard",
+      "featureLabel": "Expertise (Bard)",
+      "atLevel": 10,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "bard-phb|expertise|expertise|3",
+      "sourceType": "class",
+      "sourceId": "bard|phb",
+      "sourceName": "Bard",
+      "featureLabel": "Expertise (Bard)",
+      "atLevel": 3,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
       "id": "bard-xphb|epic-boon|feat|19",
       "sourceType": "class",
       "sourceId": "bard|xphb",
@@ -105,6 +131,57 @@
       "chooseKind": "feat",
       "categoryFilter": [
         "EB"
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "bard-xphb|expertise|expertise|2",
+      "sourceType": "class",
+      "sourceId": "bard|xphb",
+      "sourceName": "Bard",
+      "featureLabel": "Expertise (Bard)",
+      "atLevel": 2,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "bard-xphb|expertise|expertise|9",
+      "sourceType": "class",
+      "sourceId": "bard|xphb",
+      "sourceName": "Bard",
+      "featureLabel": "Expertise (Bard)",
+      "atLevel": 9,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "cleric-xphb|divine-order|classfeatureoption|1",
+      "sourceType": "class",
+      "sourceId": "cleric|xphb",
+      "sourceName": "Cleric",
+      "featureLabel": "Divine Order (Cleric)",
+      "atLevel": 1,
+      "chooseKind": "classFeatureOption",
+      "categoryFilter": [
+        "Protector",
+        "Thaumaturge"
+      ],
+      "options": [
+        {
+          "name": "Protector",
+          "description": "Trained for battle, you gain proficiency with Martial weapons and training with Heavy armor."
+        },
+        {
+          "name": "Thaumaturge",
+          "description": "You know one extra cantrip from the Cleric spell list. In addition, your mystical connection to the divine gives you a bonus to your Intelligence (Arcana or Religion) checks. The bonus equals your..."
+        }
       ],
       "count": 1,
       "visibility": "builder"
@@ -123,6 +200,31 @@
       "visibility": "builder"
     },
     {
+      "id": "druid-xphb|elemental-fury|classfeatureoption|7",
+      "sourceType": "class",
+      "sourceId": "druid|xphb",
+      "sourceName": "Druid",
+      "featureLabel": "Elemental Fury (Druid)",
+      "atLevel": 7,
+      "chooseKind": "classFeatureOption",
+      "categoryFilter": [
+        "Potent Spellcasting",
+        "Primal Strike"
+      ],
+      "options": [
+        {
+          "name": "Potent Spellcasting",
+          "description": "Add your Wisdom modifier to the damage you deal with any Druid cantrip."
+        },
+        {
+          "name": "Primal Strike",
+          "description": "Once on each of your turns when you hit a creature with an attack roll using a weapon or a Beast form's attack in Wild Shape, you can cause the target to take an extra 1d8 Cold, Fire, Lightning, or..."
+        }
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
       "id": "druid-xphb|epic-boon|feat|19",
       "sourceType": "class",
       "sourceId": "druid|xphb",
@@ -133,6 +235,57 @@
         "EB"
       ],
       "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "druid-xphb|primal-order|classfeatureoption|1",
+      "sourceType": "class",
+      "sourceId": "druid|xphb",
+      "sourceName": "Druid",
+      "featureLabel": "Primal Order (Druid)",
+      "atLevel": 1,
+      "chooseKind": "classFeatureOption",
+      "categoryFilter": [
+        "Magician",
+        "Warden"
+      ],
+      "options": [
+        {
+          "name": "Magician",
+          "description": "You know one extra cantrip from the Druid spell list. In addition, your mystical connection to nature gives you a bonus to your Intelligence (Arcana or Nature) checks. The bonus equals your Wisdom..."
+        },
+        {
+          "name": "Warden",
+          "description": "Trained for battle, you gain proficiency with Martial weapons and training with Medium armor."
+        }
+      ],
+      "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "expert-sidekick-tce|expertise|expertise|15",
+      "sourceType": "class",
+      "sourceId": "expert-sidekick|tce",
+      "sourceName": "Expert Sidekick",
+      "featureLabel": "Expertise (Expert Sidekick)",
+      "atLevel": 15,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "expert-sidekick-tce|expertise|expertise|3",
+      "sourceType": "class",
+      "sourceId": "expert-sidekick|tce",
+      "sourceName": "Expert Sidekick",
+      "featureLabel": "Expertise (Expert Sidekick)",
+      "atLevel": 3,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
       "visibility": "builder"
     },
     {
@@ -254,6 +407,19 @@
       "visibility": "builder"
     },
     {
+      "id": "ranger-xphb|expertise|expertise|9",
+      "sourceType": "class",
+      "sourceId": "ranger|xphb",
+      "sourceName": "Ranger",
+      "featureLabel": "Expertise (Ranger)",
+      "atLevel": 9,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
       "id": "ranger-xphb|fighting-style|feat|2",
       "sourceType": "class",
       "sourceId": "ranger|xphb",
@@ -268,6 +434,32 @@
       "visibility": "builder"
     },
     {
+      "id": "rogue-phb|expertise|expertise|1",
+      "sourceType": "class",
+      "sourceId": "rogue|phb",
+      "sourceName": "Rogue",
+      "featureLabel": "Expertise (Rogue)",
+      "atLevel": 1,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
+      "id": "rogue-phb|expertise|expertise|6",
+      "sourceType": "class",
+      "sourceId": "rogue|phb",
+      "sourceName": "Rogue",
+      "featureLabel": "Expertise (Rogue)",
+      "atLevel": 6,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "compendium-only"
+    },
+    {
       "id": "rogue-xphb|epic-boon|feat|19",
       "sourceType": "class",
       "sourceId": "rogue|xphb",
@@ -278,6 +470,32 @@
         "EB"
       ],
       "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "rogue-xphb|expertise|expertise|1",
+      "sourceType": "class",
+      "sourceId": "rogue|xphb",
+      "sourceName": "Rogue",
+      "featureLabel": "Expertise (Rogue)",
+      "atLevel": 1,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "rogue-xphb|expertise|expertise|6",
+      "sourceType": "class",
+      "sourceId": "rogue|xphb",
+      "sourceName": "Rogue",
+      "featureLabel": "Expertise (Rogue)",
+      "atLevel": 6,
+      "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
       "visibility": "builder"
     },
     {

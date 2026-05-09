@@ -347,7 +347,7 @@ Known builder gaps:
 - Existing saved drafts with the older global spell ID payload are not migrated; this is intentional for current single-user development and those old spell selections normalize away.
 - Step 27 intentionally applies starting class skill choices to every selected class allocation; first-class multiclass starting-proficiency rules are still deferred.
 - Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.
-- Tool, language, weapon mastery, expertise, and other non-skill class feature choices are still not modeled unless already covered by existing `choice_grants`.
+- Tool, language, weapon mastery, and other non-skill class feature choices are still not modeled unless already covered by existing `choice_grants` (Expertise and inline options like Divine Order are now implemented).
 - ASI feat prerequisite enforcement is deferred; the current ASI picker shows full-catalog Origin and General feats.
 - Feat-granted spells, feat-owned spellcasting ability choices, and non-ability feat follow-up behavior are still not modeled beyond the new feat-owned ability bonus flow.
 
@@ -367,6 +367,20 @@ Key files:
 - `src/shared/ui/EmptyState.tsx`
 - `src/shared/ui/FeaturePlaceholder.tsx`
 
+## Choice Grant Extraction Logic
+Implemented:
+- 5etools importer (`normalize.mjs`) dynamically extracts class-owned choices into `ChoiceGrant` records.
+- Supported kinds: `expertise` (for Rogue/Bard/Ranger Expertise) and `classFeatureOption` (for inline choices like Divine Order, Primal Order, Elemental Fury).
+- Importer uses `featureLabel` and `options` fields to preserve source-specific choice identity.
+- Runtime resolution in `useCharacterBuilderContent.ts` generates synthetic `ContentEntity` options for expertise (derived from proficient skills) and class feature options (embedded in the grant).
+
+Key files:
+- `scripts/5etools-importer/normalize.mjs`
+- `src/shared/types/domain.ts`
+- `src/shared/db/schema.ts`
+- `src/shared/db/migrations.ts`
+- `src/features/builder/hooks/useCharacterBuilderContent.ts`
+
 ## Important Historical Artifact Status
 - Step 21 import coverage audit and class variant reachability: implemented; only historical pre-fix baseline audit remains unchecked.
 - Step 22 edition labeling and builder compatibility separation: implemented.
@@ -380,6 +394,7 @@ Key files:
 - Class-specific spell ownership: source-implemented and typechecked; manual smoke checks remain needed for multiclass shared spells, per-class casting ability labels, class removal cleanup, subclass change cleanup, and per-source limit helpers.
 - Step 27 class starting proficiencies and ASI/Feat choices: source-implemented and typechecked; manual smoke checks remain needed for Sorcerer level 1 skill choices, Sorcerer level 4 ASI/Feat mode, ASI point availability changes, feat selection, and class removal/level-drop cleanup.
 - Step 28 feat-granted ability score bonuses and choice follow-ups: source-implemented and typechecked; manual smoke checks remain needed for deterministic feat bonuses such as `Actor`, choice feats such as `Fey Touched`, feat removal cleanup, and ASI-feat integration.
+- Class-owned feature choices (Expertise, Order): source-implemented and typechecked via importer extraction logic.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -403,6 +418,7 @@ Near-term candidates:
 - Smoke check class-specific spell ownership in a multiclass caster build.
 - Smoke check Step 27 with Sorcerer levels 1-4.
 - Smoke check Step 28 with deterministic and choice-based feat bonuses.
+- Smoke check Class-owned feature choices (Expertise, Order) on device.
 - Polish the `Class & Spells` phase with inline spell issues, clearer disabled-state helper text, and compendium return-context restoration.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.

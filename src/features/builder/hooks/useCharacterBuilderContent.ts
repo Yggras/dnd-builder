@@ -186,13 +186,148 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
   const grantOptionsByGrantId = useMemo(() => {
     return Object.fromEntries(
       applicableGrants.map((grant) => {
+        if (grant.chooseKind === 'classFeatureOption' && grant.options && grant.options.length > 0) {
+          const syntheticOptions: ContentEntity[] = grant.options.map((option) => ({
+            id: `${grant.id}::${option.name}`,
+            entityType: 'optionalfeature' as const,
+            parentEntityId: null,
+            name: option.name,
+            sourceCode: '',
+            sourceName: grant.sourceName,
+            rulesEdition: '2024' as const,
+            isLegacy: false,
+            isPrimary2024: true,
+            isSelectableInBuilder: true,
+            searchText: option.name,
+            summary: option.description || null,
+            categoryTags: [],
+            metadata: {},
+            renderPayload: null,
+            updatedAt: '',
+          }));
+          return [grant.id, syntheticOptions];
+        }
+
+        if (grant.chooseKind === 'expertise') {
+          const allocation = draftBuild?.payload.classStep.allocations.find(
+            (alloc) => alloc.classId === grant.sourceId,
+          );
+          if (!allocation) {
+            return [grant.id, []];
+          }
+
+          const classEntity = classEntitiesById[allocation.classId];
+          const startingProficiencies = classEntity?.metadata.startingProficiencies;
+          const skillEntries = startingProficiencies && typeof startingProficiencies === 'object'
+            ? (startingProficiencies as { skills?: unknown }).skills
+            : null;
+
+          const classSkillOptions = new Set<string>();
+          if (Array.isArray(skillEntries)) {
+            for (const entry of skillEntries) {
+              if (entry && typeof entry === 'object') {
+                const choose = (entry as { choose?: { from?: unknown[] } }).choose;
+                if (choose && Array.isArray(choose.from)) {
+                  for (const skill of choose.from) {
+                    if (typeof skill === 'string') {
+                      classSkillOptions.add(skill);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          const selectedClassSkills = new Set(
+            (draftBuild?.payload.classStep.skillProficiencies ?? [])
+              .filter((sel) => sel.classId === allocation.classId)
+              .flatMap((sel) => sel.selectedSkills),
+          );
+
+          const backgroundId = draftBuild?.payload.backgroundStep.backgroundId;
+          const backgroundEntity = backgroundId ? backgroundEntitiesById[backgroundId] : null;
+          const backgroundSkills = new Set<string>();
+          if (backgroundEntity) {
+            const bgSkillProfs = backgroundEntity.metadata.skillProficiencies;
+            if (Array.isArray(bgSkillProfs)) {
+              for (const entry of bgSkillProfs) {
+                if (entry && typeof entry === 'object') {
+                  for (const [skill, value] of Object.entries(entry as Record<string, unknown>)) {
+                    if (value === true && skill !== 'choose') {
+                      backgroundSkills.add(skill);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          const proficientSkills = new Set([...selectedClassSkills, ...backgroundSkills]);
+
+          const alreadyExpertiseGrantIds = applicableGrants
+            .filter((g) => g.chooseKind === 'expertise' && g.sourceId === grant.sourceId && g.id !== grant.id && g.atLevel < grant.atLevel);
+          const alreadyExpertiseSkills = new Set(
+            alreadyExpertiseGrantIds.flatMap((g) => {
+              const selection = draftBuild?.payload.classStep.featureChoices.find((sel) => sel.grantId === g.id);
+              return (selection?.selectedOptionIds ?? []).map((optionId) => {
+                const parts = optionId.split('::');
+                return parts[parts.length - 1] ?? '';
+              });
+            }),
+          );
+
+          const SKILL_LABELS: Record<string, string> = {
+            acrobatics: 'Acrobatics',
+            animalHandling: 'Animal Handling',
+            arcana: 'Arcana',
+            athletics: 'Athletics',
+            deception: 'Deception',
+            history: 'History',
+            insight: 'Insight',
+            intimidation: 'Intimidation',
+            investigation: 'Investigation',
+            medicine: 'Medicine',
+            nature: 'Nature',
+            perception: 'Perception',
+            performance: 'Performance',
+            persuasion: 'Persuasion',
+            religion: 'Religion',
+            sleightOfHand: 'Sleight of Hand',
+            stealth: 'Stealth',
+            survival: 'Survival',
+          };
+
+          const syntheticOptions: ContentEntity[] = Array.from(proficientSkills)
+            .filter((skill) => !alreadyExpertiseSkills.has(skill))
+            .sort()
+            .map((skill) => ({
+              id: `${grant.id}::${skill}`,
+              entityType: 'optionalfeature' as const,
+              parentEntityId: null,
+              name: SKILL_LABELS[skill] ?? skill,
+              sourceCode: '',
+              sourceName: grant.sourceName,
+              rulesEdition: '2024' as const,
+              isLegacy: false,
+              isPrimary2024: true,
+              isSelectableInBuilder: true,
+              searchText: skill,
+              summary: `Gain Expertise in ${SKILL_LABELS[skill] ?? skill}`,
+              categoryTags: [],
+              metadata: {},
+              renderPayload: null,
+              updatedAt: '',
+            }));
+          return [grant.id, syntheticOptions];
+        }
+
         const sourceMap = grant.chooseKind === 'feat' ? featOptionsByCategory : optionalFeatureOptionsByCategory;
         const options = grant.categoryFilter.flatMap((categoryFilter) => sourceMap[categoryFilter] ?? []);
         const dedupedOptions = Array.from(new Map(options.map((option) => [option.id, option])).values());
         return [grant.id, dedupedOptions];
       }),
     ) as Record<string, ContentEntity[]>;
-  }, [applicableGrants, featOptionsByCategory, optionalFeatureOptionsByCategory]);
+  }, [applicableGrants, featOptionsByCategory, optionalFeatureOptionsByCategory, draftBuild, classEntitiesById, backgroundEntitiesById]);
 
   const asiFeatOptions = useMemo(() => asiFeatsQuery.data ?? [], [asiFeatsQuery.data]);
 
