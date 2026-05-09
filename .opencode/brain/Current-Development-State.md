@@ -274,8 +274,10 @@ Implemented:
 - Spell step uses source-owned spell selections tied to class allocation IDs, class IDs, subclass IDs, and selection type (`cantrip`, `known`, or `prepared`).
 - Spell step supports class-specific cantrip/known/prepared state, strict per-class allocation overfill/max-level checks, applicable spell filtering, and manual exception notes.
 - Spell step now surfaces inline issue banners for active spell problems, renders per-source spellcasting summary cards for multiclass clarity, and uses more directive tab/empty-state helper copy.
+- Spell tabs and spell header now avoid misleading global aggregate counters and instead lean on per-source spellcasting summary cards for source-owned counts.
 - Multiclass spell choices preserve class source identity so shared spells can be selected as separate class-owned spells and spellcasting ability can be derived per source.
 - Spell reconciliation removes spell selections tied to removed/changed class allocations, invalid subclass/class lists, invalid workflows, or spells above that source's maximum spell level.
+- Builder-originated compendium navigation for class, subclass, feature-option, ASI-feat, and spell detail sheets now carries return context and can return directly to the builder while reopening the originating sheet.
 - Inventory step supports starting equipment option choices, seeding canonical items/currency/unresolved gear, adding canonical items, editing quantity/equipped/attuned, and preserving manual items on reseed.
 - Inventory reconciliation flags stale starting equipment context after class/background changes.
 - Review section groups blockers, checklist items, notices, and overrides.
@@ -318,6 +320,7 @@ Key files:
 - `src/features/builder/components/BuilderSpellsSection.tsx`
 - `src/features/builder/components/BuilderSpellCard.tsx`
 - `src/features/builder/components/BuilderSpellDetailSheet.tsx`
+- `src/features/builder/utils/compendiumReturn.ts`
 - `src/features/builder/components/BuilderReviewSection.tsx`
 - `src/features/builder/utils/classStep.ts`
 - `src/features/builder/utils/classMetadata.ts`
@@ -325,6 +328,8 @@ Key files:
 - `src/features/builder/utils/spellReview.ts`
 - `src/features/builder/utils/inventory.ts`
 - `src/features/builder/utils/review.ts`
+- `src/features/compendium/screens/CompendiumClassScreen.tsx`
+- `src/features/compendium/screens/CompendiumDetailScreen.tsx`
 
 Known builder gaps:
 - `CharacterBuilderScreen.tsx` is now phase-driven but still owns route loading/error handling, completion orchestration, search state, and phase rendering; future maintainability work can continue reducing orchestration weight.
@@ -335,9 +340,8 @@ Known builder gaps:
 - Focused Step 25 follow-up verification is still needed for simplified status accuracy, completion success feedback, and reload persistence.
 - Content loading in the builder is eager for all items and all spells; later performance work should make these more on-demand.
 - Override workflow is not yet a full advanced, explicit, per-issue workflow with required reasons.
-- Step 26a intentionally defers automatic return-context restoration from compendium navigation and automatic reopening of the originating builder detail sheet after returning.
 - Step 26c does not add a replace-flow UI when spell limits are reached; users must remove an existing cantrip/known/prepared spell first.
-- Spell tabs still use global aggregate counters even though selection limits are enforced per class source; the new per-source summary cards reduce but do not eliminate this multiclass UX mismatch.
+- Builder-compendium return context currently restores explicit builder-sheet returns through dedicated return actions; generic in-compendium browsing beyond those explicit return flows can still leave the builder context behind.
 - Existing saved drafts with the older global spell ID payload are not migrated; this is intentional for current single-user development and those old spell selections normalize away.
 - Step 27 intentionally applies starting class skill choices to every selected class allocation; first-class multiclass starting-proficiency rules are still deferred.
 - Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.

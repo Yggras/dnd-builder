@@ -3,6 +3,7 @@ import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-na
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
+import { buildBuilderReturnRoute, buildCompendiumReturnQuery, parseBuilderCompendiumReturnContext } from '@/features/builder/utils/compendiumReturn';
 import { DetailFactGrid } from '@/features/compendium/components/DetailFactGrid';
 import { DetailSection } from '@/features/compendium/components/DetailSection';
 import { FeatureProgressionList } from '@/features/compendium/components/FeatureProgressionList';
@@ -41,8 +42,9 @@ function StartingEquipmentLines({ lines, sourceCode }: StartingEquipmentLinesPro
 
 export function CompendiumClassScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ classId?: string | string[] }>();
+  const params = useLocalSearchParams() as Record<string, string | string[] | undefined>;
   const classId = Array.isArray(params.classId) ? params.classId[0] : params.classId ?? '';
+  const returnContext = parseBuilderCompendiumReturnContext(params);
   const [query, setQuery] = useState('');
   const { classEntity, subclasses, error, isFetching, isLoading } = useCompendiumClassDetails(classId);
 
@@ -69,6 +71,15 @@ export function CompendiumClassScreen() {
   return (
     <Screen contentContainerStyle={styles.contentContainer}>
       <View style={styles.header}>
+        {returnContext ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.replace(buildBuilderReturnRoute(returnContext) as never)}
+            style={({ pressed }) => [styles.returnButton, pressed && styles.returnButtonPressed]}
+          >
+            <Text style={styles.returnButtonLabel}>Return to Builder</Text>
+          </Pressable>
+        ) : null}
         <Text style={styles.eyebrow}>Class Library</Text>
         <Text style={styles.title}>{classEntity.name}</Text>
         <View style={styles.metaRow}>
@@ -126,7 +137,7 @@ export function CompendiumClassScreen() {
           renderItem={({ item: entry }) => (
             <Pressable
               accessibilityRole="button"
-              onPress={() => router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(entry.id))}`)}
+              onPress={() => router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(entry.id))}${returnContext ? buildCompendiumReturnQuery(returnContext) : ''}` as never)}
               style={({ pressed }) => [styles.resultRow, pressed && styles.resultRowPressed]}
             >
               <View style={styles.resultTopRow}>
@@ -164,6 +175,25 @@ const styles = StyleSheet.create({
   },
   header: {
     gap: theme.spacing.sm,
+  },
+  returnButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 42,
+    paddingHorizontal: theme.spacing.md,
+  },
+  returnButtonPressed: {
+    borderColor: theme.colors.accentPrimary,
+  },
+  returnButtonLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '800',
   },
   eyebrow: {
     color: theme.colors.accentPrimarySoft,

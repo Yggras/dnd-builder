@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -18,6 +18,7 @@ import { useBuilderReconciliation } from '@/features/builder/hooks/useBuilderRec
 import { useBuilderDraftState } from '@/features/builder/hooks/useBuilderDraftState';
 import { useCharacterBuilderContent } from '@/features/builder/hooks/useCharacterBuilderContent';
 import type { BuilderCharacterBuild } from '@/features/builder/types';
+import { parseBuilderCompendiumReturnContext } from '@/features/builder/utils/compendiumReturn';
 import { deriveSourceSummary } from '@/features/builder/utils/spellReview';
 import { useCharacterRecord } from '@/features/characters/hooks/useCharacterRecord';
 import { useSaveCharacterBuild } from '@/features/characters/hooks/useSaveCharacterBuild';
@@ -48,7 +49,7 @@ function getSaveStatusText(saveStatus: 'saved' | 'dirty' | 'saving' | 'error', i
 
 export function CharacterBuilderScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ characterId?: string | string[] }>();
+  const params = useLocalSearchParams() as Record<string, string | string[] | undefined>;
   const characterId = Array.isArray(params.characterId) ? params.characterId[0] : params.characterId ?? '';
   const { data, error, isLoading } = useCharacterRecord(characterId);
   const saveBuildMutation = useSaveCharacterBuild();
@@ -57,6 +58,7 @@ export function CharacterBuilderScreen() {
   const [spellSearch, setSpellSearch] = useState('');
   const [completionMessage, setCompletionMessage] = useState<string | null>(null);
   const [isBuildSuccess, setIsBuildSuccess] = useState(false);
+  const [pendingReturnContext, setPendingReturnContext] = useState(() => parseBuilderCompendiumReturnContext(params));
 
   const {
     draftBuild,
@@ -130,6 +132,16 @@ export function CharacterBuilderScreen() {
     availableClasses: classesQuery.data ?? [],
     spellSearch,
   });
+
+  useEffect(() => {
+    if (!draftBuild || !pendingReturnContext) {
+      return;
+    }
+
+    if (controller.activePhaseId !== pendingReturnContext.phaseId) {
+      controller.goToPhase(pendingReturnContext.phaseId);
+    }
+  }, [controller, draftBuild, pendingReturnContext]);
 
   if (isLoading) {
     return <LoadingState label="Loading builder draft..." />;
@@ -244,9 +256,12 @@ export function CharacterBuilderScreen() {
               classFeatureRequirements={controller.classFeatureRequirements}
               classEntitiesById={classEntitiesById}
               classImpactSummary={controller.classImpactSummary}
+              characterId={characterId}
               grantOptionsByGrantId={grantOptionsByGrantId}
+              onConsumeReturnContext={() => setPendingReturnContext(null)}
               payload={payload}
               removeAllocation={controller.removeAllocation}
+              returnContext={pendingReturnContext}
               subclassesByClassId={subclassesByClassId}
               totalAllocatedLevel={controller.totalAllocatedLevel}
               toggleClassSkillProficiency={controller.toggleClassSkillProficiency}
@@ -256,11 +271,11 @@ export function CharacterBuilderScreen() {
               updateFeatureSelection={controller.updateFeatureSelection}
             />
             <BuilderSpellsSection
+              characterId={characterId}
+              onConsumeReturnContext={() => setPendingReturnContext(null)}
               onSpellSearchChange={setSpellSearch}
               payload={payload}
-              selectedCantripCount={controller.selectedCantripCount}
-              selectedKnownLeveledCount={controller.selectedKnownLeveledCount}
-              selectedPreparedCount={controller.selectedPreparedCount}
+              returnContext={pendingReturnContext}
               spellEntitiesById={spellEntitiesById}
               spellSearch={spellSearch}
               spellSummary={controller.spellSummary!}

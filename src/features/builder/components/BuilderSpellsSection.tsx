@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { BuilderSpellCard } from '@/features/builder/components/BuilderSpellCard';
 import { BuilderSpellDetailSheet } from '@/features/builder/components/BuilderSpellDetailSheet';
 import type { BuilderDraftPayload, BuilderIssue } from '@/features/builder/types';
+import {
+  buildCompendiumReturnQuery,
+  type BuilderCompendiumReturnContext,
+} from '@/features/builder/utils/compendiumReturn';
 import { summarizeSpellcasting, type SpellWorkflowType, type SpellcastingSourceSummary } from '@/features/builder/utils/spellReview';
 import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ContentEntity } from '@/shared/types/domain';
@@ -23,10 +27,10 @@ type SpellListItem = {
 };
 
 type BuilderSpellsSectionProps = {
+  characterId: string;
   payload: BuilderDraftPayload;
-  selectedCantripCount: number;
-  selectedKnownLeveledCount: number;
-  selectedPreparedCount: number;
+  returnContext: BuilderCompendiumReturnContext | null;
+  onConsumeReturnContext: () => void;
   spellEntitiesById: Record<string, ContentEntity>;
   spellSearch: string;
   spellSummary: ReturnType<typeof summarizeSpellcasting>;
@@ -71,14 +75,14 @@ function getSelectionStateLabel(payload: BuilderDraftPayload, spell: ContentEnti
   return null;
 }
 
-function getTabLabel(tab: SpellTab, selectedCantripCount: number, selectedKnownLeveledCount: number, selectedPreparedCount: number, spellSummary: ReturnType<typeof summarizeSpellcasting>) {
+function getTabLabel(tab: SpellTab) {
   switch (tab) {
     case 'cantrips':
-      return `Cantrips ${selectedCantripCount}/${spellSummary.cantripLimit}`;
+      return 'Cantrips by Source';
     case 'known':
-      return `Known ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}`;
+      return 'Known by Source';
     case 'prepared':
-      return `Prepared ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}`;
+      return 'Prepared by Source';
     case 'browse':
       return 'Browse';
   }
@@ -151,10 +155,10 @@ function getTabGuidance(activeTab: SpellTab) {
 }
 
 export function BuilderSpellsSection({
+  characterId,
   payload,
-  selectedCantripCount,
-  selectedKnownLeveledCount,
-  selectedPreparedCount,
+  returnContext,
+  onConsumeReturnContext,
   spellEntitiesById,
   spellSearch,
   spellSummary,
@@ -177,6 +181,23 @@ export function BuilderSpellsSection({
   );
   const activeTabIssues = blockingIssues.filter((issue) => issueMatchesActiveTab(issue, normalizedActiveTab));
   const overrideIssues = spellSummary.issues.filter((issue) => issue.category === 'override' || issue.resolvedByOverride);
+
+  useEffect(() => {
+    if (
+      !returnContext ||
+      returnContext.phaseId !== 'class' ||
+      returnContext.sheet !== 'spell' ||
+      !returnContext.spellId ||
+      !returnContext.allocationId ||
+      !spellEntitiesById[returnContext.spellId] ||
+      !spellSummary.sources.some((source) => source.allocationId === returnContext.allocationId)
+    ) {
+      return;
+    }
+
+    setDetailTarget({ spellId: returnContext.spellId, classAllocationId: returnContext.allocationId });
+    onConsumeReturnContext();
+  }, [onConsumeReturnContext, returnContext, spellEntitiesById, spellSummary.sources]);
 
   const sourceSpellItems = spellSummary.sources.flatMap((source) =>
     source.applicableSpellIds
@@ -301,7 +322,7 @@ export function BuilderSpellsSection({
 
   const renderSpellList = (items: SpellListItem[], emptyMessage: string, guidance: string) => (
     <View style={styles.spellList}>
-      <Text style={styles.tabGuidance}>{guidance}</Text>
+      {guidance ? <Text style={styles.tabGuidance}>{guidance}</Text> : null}
       {items.length > 0 ? items.map((item) => (
         <BuilderSpellCard key={item.key} spell={item.spell} sourceLabel={item.sourceLabel} stateLabel={item.stateLabel} onPress={() => setDetailTarget({ spellId: item.spell.id, classAllocationId: item.source.allocationId })} />
       )) : <Text style={styles.emptyText}>{emptyMessage}</Text>}
@@ -316,11 +337,7 @@ export function BuilderSpellsSection({
         <Text style={styles.sectionTitle}>Spells</Text>
         <Text style={styles.sectionMeta}>
           {spellSummary.isCaster
-            ? [
-                `Cantrips ${selectedCantripCount}/${spellSummary.cantripLimit}`,
-                spellSummary.usesKnownSpells || spellSummary.workflow === 'known' || spellSummary.workflow === 'known-prepared' ? `Known ${selectedKnownLeveledCount}/${spellSummary.knownSpellLimit}` : null,
-                spellSummary.usesPreparedSpells || spellSummary.workflow === 'prepared' || spellSummary.workflow === 'known-prepared' ? `Prepared ${selectedPreparedCount}/${spellSummary.preparedSpellLimit}` : null,
-              ].filter(Boolean).join(' • ')
+            ? `${spellSummary.sources.length} source${spellSummary.sources.length === 1 ? '' : 's'} tracked`
             : 'No spellcasting'}
         </Text>
       </View>
@@ -377,7 +394,7 @@ export function BuilderSpellsSection({
                   onPress={() => setActiveTab(tab)}
                   style={({ pressed }) => [styles.tabButton, isActive && styles.tabButtonActive, pressed && styles.tabButtonPressed]}
                 >
-                  <Text style={[styles.tabButtonLabel, isActive && styles.tabButtonLabelActive]}>{getTabLabel(tab, selectedCantripCount, selectedKnownLeveledCount, selectedPreparedCount, spellSummary)}</Text>
+                  <Text style={[styles.tabButtonLabel, isActive && styles.tabButtonLabelActive]}>{getTabLabel(tab)}</Text>
                 </Pressable>
               );
             })}
@@ -456,7 +473,13 @@ export function BuilderSpellsSection({
         helperText={action.helper}
         onClose={() => setDetailTarget(null)}
         onPrimaryAction={() => detailSpell ? applySpellAction(detailSpell, detailSource, action.target) : undefined}
-        onOpenCompendium={() => detailSpell ? router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(detailSpell.id))}` as never) : undefined}
+        onOpenCompendium={() => detailSpell && detailSource ? router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(detailSpell.id))}${buildCompendiumReturnQuery({
+          characterId,
+          phaseId: 'class',
+          sheet: 'spell',
+          spellId: detailSpell.id,
+          allocationId: detailSource.allocationId,
+        })}` as never) : undefined}
         visible={Boolean(detailSpell)}
       />
     </View>

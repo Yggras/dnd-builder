@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
@@ -11,6 +11,10 @@ import { BuilderSubclassCard } from '@/features/builder/components/BuilderSubcla
 import { BuilderSubclassDetailSheet } from '@/features/builder/components/BuilderSubclassDetailSheet';
 import type { BuilderDraftPayload } from '@/features/builder/types';
 import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
+import {
+  buildCompendiumReturnQuery,
+  type BuilderCompendiumReturnContext,
+} from '@/features/builder/utils/compendiumReturn';
 import { getFeatAbilityFollowUpText } from '@/features/builder/utils/originAndAbilities';
 import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
@@ -22,6 +26,7 @@ import {
 import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderStepClassProps {
+  characterId: string;
   payload: BuilderDraftPayload;
   classEntitiesById: Record<string, ContentEntity>;
   subclassesByClassId: Record<string, readonly ContentEntity[]>;
@@ -32,6 +37,8 @@ interface BuilderStepClassProps {
   availableClasses: readonly ContentEntity[];
   totalAllocatedLevel: number;
   classImpactSummary: string | null;
+  returnContext: BuilderCompendiumReturnContext | null;
+  onConsumeReturnContext: () => void;
   addClassAllocation: (classId: string) => void;
   updateAllocation: (
     allocationId: string,
@@ -161,6 +168,7 @@ function buildSubclassChangeImpacts() {
 }
 
 export function BuilderStepClass({
+  characterId,
   payload,
   classEntitiesById,
   subclassesByClassId,
@@ -171,6 +179,8 @@ export function BuilderStepClass({
   availableClasses,
   totalAllocatedLevel,
   classImpactSummary,
+  returnContext,
+  onConsumeReturnContext,
   addClassAllocation,
   updateAllocation,
   removeAllocation,
@@ -209,12 +219,46 @@ export function BuilderStepClass({
   const pendingRemoveAllocation = payload.classStep.allocations.find((allocation) => allocation.id === pendingRemoveAllocationId) ?? null;
   const pendingRemoveClass = pendingRemoveAllocation ? classEntitiesById[pendingRemoveAllocation.classId] : undefined;
 
+  useEffect(() => {
+    if (!returnContext || returnContext.phaseId !== 'class') {
+      return;
+    }
+
+    if (returnContext.sheet === 'class' && returnContext.classId) {
+      setDetailClassId(returnContext.classId);
+      onConsumeReturnContext();
+      return;
+    }
+
+    if (returnContext.sheet === 'subclass' && returnContext.allocationId && returnContext.subclassId) {
+      setDetailSubclass({ allocationId: returnContext.allocationId, subclassId: returnContext.subclassId });
+      onConsumeReturnContext();
+      return;
+    }
+
+    if (returnContext.sheet === 'feature' && returnContext.grantId && returnContext.optionId) {
+      setDetailFeatureOption({ grantId: returnContext.grantId, optionId: returnContext.optionId });
+      onConsumeReturnContext();
+      return;
+    }
+
+    if (returnContext.sheet === 'asi-feat' && returnContext.requirementId && returnContext.featId) {
+      setDetailAsiFeat({ requirementId: returnContext.requirementId, featId: returnContext.featId });
+      onConsumeReturnContext();
+    }
+  }, [onConsumeReturnContext, returnContext]);
+
   const openCompendiumForClass = (classEntity: ContentEntity) => {
-    router.push(`/(app)/compendium/class/${encodeURIComponent(classEntity.id)}` as never);
+    router.push(`/(app)/compendium/class/${encodeURIComponent(classEntity.id)}${buildCompendiumReturnQuery({
+      characterId,
+      phaseId: 'class',
+      sheet: 'class',
+      classId: classEntity.id,
+    })}` as never);
   };
 
-  const openCompendiumForEntity = (entity: ContentEntity) => {
-    router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(entity.id))}` as never);
+  const openCompendiumForEntity = (entity: ContentEntity, context: BuilderCompendiumReturnContext) => {
+    router.push(`/(app)/compendium/${encodeURIComponent(getCompendiumEntryIdFromEntityId(entity.id))}${buildCompendiumReturnQuery(context)}` as never);
   };
 
   const renderClassPicker = (classes: readonly ContentEntity[]) => (
@@ -600,7 +644,13 @@ export function BuilderStepClass({
         onChoose={() => detailSubclassAllocation && detailSubclassEntity ? requestSubclassChange({ allocationId: detailSubclassAllocation.id, subclassId: detailSubclassEntity.id }) : undefined}
         onRemove={() => detailSubclassAllocation ? requestSubclassChange({ allocationId: detailSubclassAllocation.id, subclassId: null }) : undefined}
         onClose={() => setDetailSubclass(null)}
-        onOpenCompendium={() => detailSubclassEntity ? openCompendiumForEntity(detailSubclassEntity) : undefined}
+        onOpenCompendium={() => detailSubclassEntity && detailSubclassAllocation ? openCompendiumForEntity(detailSubclassEntity, {
+          characterId,
+          phaseId: 'class',
+          sheet: 'subclass',
+          allocationId: detailSubclassAllocation.id,
+          subclassId: detailSubclassEntity.id,
+        }) : undefined}
         visible={Boolean(detailSubclassEntity)}
       />
 
@@ -613,7 +663,13 @@ export function BuilderStepClass({
         onChoose={chooseFeatureOption}
         onRemove={chooseFeatureOption}
         onClose={() => setDetailFeatureOption(null)}
-        onOpenCompendium={() => detailFeatureOptionEntity ? openCompendiumForEntity(detailFeatureOptionEntity) : undefined}
+        onOpenCompendium={() => detailFeatureOptionEntity && detailGrant ? openCompendiumForEntity(detailFeatureOptionEntity, {
+          characterId,
+          phaseId: 'class',
+          sheet: 'feature',
+          grantId: detailGrant.id,
+          optionId: detailFeatureOptionEntity.id,
+        }) : undefined}
         visible={Boolean(detailFeatureOptionEntity && detailGrant)}
       />
 
@@ -627,7 +683,13 @@ export function BuilderStepClass({
         onChoose={chooseAsiFeatOption}
         onRemove={chooseAsiFeatOption}
         onClose={() => setDetailAsiFeat(null)}
-        onOpenCompendium={() => detailAsiFeatEntity ? openCompendiumForEntity(detailAsiFeatEntity) : undefined}
+        onOpenCompendium={() => detailAsiFeatEntity && detailAsiFeatRequirement ? openCompendiumForEntity(detailAsiFeatEntity, {
+          characterId,
+          phaseId: 'class',
+          sheet: 'asi-feat',
+          requirementId: detailAsiFeatRequirement.id,
+          featId: detailAsiFeatEntity.id,
+        }) : undefined}
         visible={Boolean(detailAsiFeatEntity && detailAsiFeatRequirement)}
       />
 
