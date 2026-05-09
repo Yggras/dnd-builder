@@ -208,6 +208,47 @@ export function useCharacterBuilderContent({ draftBuild, inventorySearch }: UseC
           return [grant.id, syntheticOptions];
         }
 
+        if (grant.chooseKind === 'weaponMastery') {
+          const weaponsWithMastery = (allItemsQuery.data ?? []).filter((item) => {
+            const metadata = item.metadata as any;
+            return (
+              metadata.weaponCategory &&
+              metadata.rarity === 'none' &&
+              Array.isArray(metadata.mastery) &&
+              metadata.mastery.length > 0
+            );
+          });
+
+          const syntheticOptions: ContentEntity[] = weaponsWithMastery.map((weapon) => {
+            const metadata = weapon.metadata as any;
+            let masteryRef = metadata.mastery?.[0];
+            if (masteryRef && typeof masteryRef === 'object' && masteryRef.uid) {
+              masteryRef = masteryRef.uid;
+            }
+            const masteryLabel = (typeof masteryRef === 'string' ? masteryRef.split('|')[0] : '');
+            return {
+              id: `${grant.id}::${weapon.id}`,
+              entityType: 'item' as const,
+              parentEntityId: null,
+              name: weapon.name,
+              sourceCode: weapon.sourceCode,
+              sourceName: weapon.sourceName,
+              rulesEdition: weapon.rulesEdition,
+              isLegacy: weapon.isLegacy,
+              isPrimary2024: weapon.isPrimary2024,
+              isSelectableInBuilder: true,
+              searchText: `${weapon.name} ${masteryLabel}`,
+              summary: masteryLabel ? `Mastery: ${masteryLabel}` : null,
+              categoryTags: [],
+              metadata: {},
+              renderPayload: null,
+              updatedAt: '',
+            };
+          });
+
+          return [grant.id, syntheticOptions];
+        }
+
         if (grant.chooseKind === 'expertise') {
           const allocation = draftBuild?.payload.classStep.allocations.find(
             (alloc) => alloc.classId === grant.sourceId,

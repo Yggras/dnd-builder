@@ -14,7 +14,12 @@ export type ContentEntityType =
   | 'action'
   | 'variantrule';
 export type ChoiceGrantSourceType = 'class' | 'subclass' | 'feat' | 'optionalfeature';
-export type ChoiceGrantKind = 'feat' | 'optionalfeature' | 'classFeatureOption' | 'expertise';
+export type ChoiceGrantKind =
+  | 'feat'
+  | 'optionalfeature'
+  | 'classFeatureOption'
+  | 'expertise'
+  | 'weaponMastery';
 export type BuilderState = 'draft' | 'complete';
 export type BuilderStep =
   | 'class'

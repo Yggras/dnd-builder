@@ -370,9 +370,9 @@ Key files:
 ## Choice Grant Extraction Logic
 Implemented:
 - 5etools importer (`normalize.mjs`) dynamically extracts class-owned choices into `ChoiceGrant` records.
-- Supported kinds: `expertise` (for Rogue/Bard/Ranger Expertise) and `classFeatureOption` (for inline choices like Divine Order, Primal Order, Elemental Fury).
+- Supported kinds: `expertise` (for Rogue/Bard/Ranger Expertise), `classFeatureOption` (for inline choices like Divine Order, Primal Order, Elemental Fury), and `weaponMastery` (for Fighter, Barbarian, Paladin, Ranger, Rogue Weapon Mastery).
 - Importer uses `featureLabel` and `options` fields to preserve source-specific choice identity.
-- Runtime resolution in `useCharacterBuilderContent.ts` generates synthetic `ContentEntity` options for expertise (derived from proficient skills) and class feature options (embedded in the grant).
+- Runtime resolution in `useCharacterBuilderContent.ts` generates synthetic `ContentEntity` options for expertise (derived from proficient skills), class feature options (embedded in the grant), and weapon mastery (derived from mundane weapons with mastery properties).
 
 Key files:
 - `scripts/5etools-importer/normalize.mjs`
@@ -394,7 +394,7 @@ Key files:
 - Class-specific spell ownership: source-implemented and typechecked; manual smoke checks remain needed for multiclass shared spells, per-class casting ability labels, class removal cleanup, subclass change cleanup, and per-source limit helpers.
 - Step 27 class starting proficiencies and ASI/Feat choices: source-implemented and typechecked; manual smoke checks remain needed for Sorcerer level 1 skill choices, Sorcerer level 4 ASI/Feat mode, ASI point availability changes, feat selection, and class removal/level-drop cleanup.
 - Step 28 feat-granted ability score bonuses and choice follow-ups: source-implemented and typechecked; manual smoke checks remain needed for deterministic feat bonuses such as `Actor`, choice feats such as `Fey Touched`, feat removal cleanup, and ASI-feat integration.
-- Class-owned feature choices (Expertise, Order): source-implemented and typechecked via importer extraction logic.
+- Class-owned feature choices (Expertise, Order, Weapon Mastery): source-implemented and typechecked via importer extraction logic.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally

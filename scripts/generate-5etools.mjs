@@ -57,7 +57,7 @@ function validateUnique(records, label) {
 }
 
 function validateGrants(choiceGrants) {
-  const DYNAMIC_KINDS = new Set(['expertise', 'classFeatureOption']);
+  const DYNAMIC_KINDS = new Set(['expertise', 'classFeatureOption', 'weaponMastery']);
 
   for (const grant of choiceGrants) {
     if (!DYNAMIC_KINDS.has(grant.chooseKind) && !grant.categoryFilter.length) {

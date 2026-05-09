@@ -983,6 +983,40 @@ function extractInlineOptionDetails(optionsBlock) {
     }));
 }
 
+function extractWeaponMasteryGrants(classRecord, detail) {
+  const countsByClass = {
+    'Fighter': { 1: 3, 10: 4, 16: 5 },
+    'Barbarian': { 1: 2, 4: 3, 10: 4 },
+    'Paladin': { 1: 2 },
+    'Ranger': { 1: 2 },
+    'Rogue': { 1: 2 },
+  };
+
+  const classCounts = countsByClass[classRecord.name];
+  if (!classCounts) {
+    return [];
+  }
+
+  const count = classCounts[detail.level];
+  if (!count) {
+    return [];
+  }
+
+  return [{
+    id: canonicalId([classRecord.id, 'weaponMastery', detail.level]),
+    sourceType: 'class',
+    sourceId: classRecord.id,
+    sourceName: classRecord.name,
+    featureLabel: `Weapon Mastery (${count} weapons)`,
+    atLevel: detail.level,
+    chooseKind: 'weaponMastery',
+    categoryFilter: [],
+    options: [],
+    count,
+    visibility: classRecord.isSelectableInBuilder ? 'builder' : 'compendium-only',
+  }];
+}
+
 function extractClassFeatureGrants(classes) {
   const grants = [];
 
@@ -1015,6 +1049,15 @@ function extractClassFeatureGrants(classes) {
           visibility: classRecord.isSelectableInBuilder ? 'builder' : 'compendium-only',
         });
         continue;
+      }
+
+      // Weapon Mastery features → weaponMastery grant
+      if (detail.name === 'Weapon Mastery') {
+        const masteryGrants = extractWeaponMasteryGrants(classRecord, detail);
+        if (masteryGrants.length > 0) {
+          grants.push(...masteryGrants);
+          continue;
+        }
       }
 
       // Features with inline options blocks → classFeatureOption grant

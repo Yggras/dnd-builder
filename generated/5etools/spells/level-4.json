@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-5f0b4d03c4eff8ae",
+  "contentVersion": "schema1-1c05eca775190c0a",
   "entityType": "spells",
   "chunkId": "level-4",
-  "generatedAt": "2026-05-09T18:56:49.881Z",
+  "generatedAt": "2026-05-09T19:53:38.753Z",
   "records": [
     {
       "id": "arcane-eye|phb|spell",

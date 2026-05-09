@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "schema1-5f0b4d03c4eff8ae",
+  "contentVersion": "schema1-1c05eca775190c0a",
   "entityType": "grants",
   "chunkId": "all",
-  "generatedAt": "2026-05-09T18:56:49.881Z",
+  "generatedAt": "2026-05-09T19:53:38.753Z",
   "records": [
     {
       "id": "artificer-efa|epic-boon|feat|19",
@@ -94,6 +94,19 @@
         "EB"
       ],
       "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "barbarian-xphb|weaponmastery|1",
+      "sourceType": "class",
+      "sourceId": "barbarian|xphb",
+      "sourceName": "Barbarian",
+      "featureLabel": "Weapon Mastery (2 weapons)",
+      "atLevel": 1,
+      "chooseKind": "weaponMastery",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
       "visibility": "builder"
     },
     {
@@ -328,6 +341,19 @@
       "visibility": "builder"
     },
     {
+      "id": "fighter-xphb|weaponmastery|1",
+      "sourceType": "class",
+      "sourceId": "fighter|xphb",
+      "sourceName": "Fighter",
+      "featureLabel": "Weapon Mastery (3 weapons)",
+      "atLevel": 1,
+      "chooseKind": "weaponMastery",
+      "categoryFilter": [],
+      "options": [],
+      "count": 3,
+      "visibility": "builder"
+    },
+    {
       "id": "monk-xphb|epic-boon|feat|19",
       "sourceType": "class",
       "sourceId": "monk|xphb",
@@ -381,6 +407,19 @@
       "visibility": "builder"
     },
     {
+      "id": "paladin-xphb|weaponmastery|1",
+      "sourceType": "class",
+      "sourceId": "paladin|xphb",
+      "sourceName": "Paladin",
+      "featureLabel": "Weapon Mastery (2 weapons)",
+      "atLevel": 1,
+      "chooseKind": "weaponMastery",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
       "id": "ranger-phb|fighting-style|optionalfeature|2",
       "sourceType": "class",
       "sourceId": "ranger|phb",
@@ -431,6 +470,19 @@
         "FS:R"
       ],
       "count": 1,
+      "visibility": "builder"
+    },
+    {
+      "id": "ranger-xphb|weaponmastery|1",
+      "sourceType": "class",
+      "sourceId": "ranger|xphb",
+      "sourceName": "Ranger",
+      "featureLabel": "Weapon Mastery (2 weapons)",
+      "atLevel": 1,
+      "chooseKind": "weaponMastery",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
       "visibility": "builder"
     },
     {
@@ -493,6 +545,19 @@
       "featureLabel": "Expertise (Rogue)",
       "atLevel": 6,
       "chooseKind": "expertise",
+      "categoryFilter": [],
+      "options": [],
+      "count": 2,
+      "visibility": "builder"
+    },
+    {
+      "id": "rogue-xphb|weaponmastery|1",
+      "sourceType": "class",
+      "sourceId": "rogue|xphb",
+      "sourceName": "Rogue",
+      "featureLabel": "Weapon Mastery (2 weapons)",
+      "atLevel": 1,
+      "chooseKind": "weaponMastery",
       "categoryFilter": [],
       "options": [],
       "count": 2,
