@@ -66,8 +66,10 @@ export interface BuilderGrantedFeatSelection {
   selectedFeatId: string | null;
 }
 
+export type BuilderAbilityBonusSourceType = 'species' | 'background' | 'feat' | 'asi';
+
 export interface BuilderAbilityBonusSelection {
-  sourceType: 'species' | 'background' | 'asi';
+  sourceType: BuilderAbilityBonusSourceType;
   sourceId: string;
   ability: string;
   amount: number;
@@ -76,7 +78,7 @@ export interface BuilderAbilityBonusSelection {
 }
 
 export interface BuilderOriginAbilityPackageSelection {
-  sourceType: 'species' | 'background';
+  sourceType: 'species' | 'background' | 'feat';
   sourceId: string;
   packageId: string;
 }

@@ -8,6 +8,7 @@ import type { BuilderStep, ChoiceGrant, ContentEntity } from '@/shared/types/dom
 import { deriveClassFeatureRequirements, reconcileClassStepPayload } from '@/features/builder/utils/classStep';
 import {
   countAvailableAsiPoints,
+  deriveSelectedFeatAbilityRequirements,
   normalizeAbilityChoices,
   type NormalizedAbilityRequirement,
   reconcileOriginAndAbilitiesPayload,
@@ -422,7 +423,7 @@ export function useBuilderController({
   };
 
   const updateOriginAbilitySelection = (
-    sourceType: 'species' | 'background',
+    sourceType: 'species' | 'background' | 'feat',
     sourceId: string,
     packageId: string,
     choiceGroupId: string,
@@ -472,7 +473,7 @@ export function useBuilderController({
   };
 
   const updateOriginAbilityPackageSelection = (
-    sourceType: 'species' | 'background',
+    sourceType: 'species' | 'background' | 'feat',
     sourceId: string,
     packageId: string,
   ) => {
@@ -841,13 +842,22 @@ export function useBuilderController({
   const selectedBackground = payload?.backgroundStep.backgroundId ? backgroundEntitiesById[payload.backgroundStep.backgroundId] : null;
   
   const speciesAbilityRequirements = selectedSpecies
-    ? normalizeAbilityChoices('species', selectedSpecies.id, selectedSpecies.metadata.ability)
+    ? normalizeAbilityChoices('species', selectedSpecies.id, selectedSpecies.metadata.ability, {
+        title: 'Species ability bonuses',
+        contextLabel: selectedSpecies.name,
+      })
     : null;
   const backgroundAbilityRequirements = selectedBackground
-    ? normalizeAbilityChoices('background', selectedBackground.id, selectedBackground.metadata.ability)
+    ? normalizeAbilityChoices('background', selectedBackground.id, selectedBackground.metadata.ability, {
+        title: 'Background ability bonuses',
+        contextLabel: selectedBackground.name,
+      })
     : null;
+  const featAbilityRequirements = payload
+    ? deriveSelectedFeatAbilityRequirements(payload, classEntitiesById, featEntitiesById)
+    : [];
   const originAbilityPackageSelections = payload?.abilityPointsStep.originAbilityPackageSelections ?? [];
-  const originAbilityRequirements = [speciesAbilityRequirements, backgroundAbilityRequirements].filter(
+  const abilityRequirements = [speciesAbilityRequirements, backgroundAbilityRequirements, ...featAbilityRequirements].filter(
     (requirement): requirement is NormalizedAbilityRequirement => Boolean(requirement),
   );
 
@@ -919,7 +929,7 @@ export function useBuilderController({
     selectedSpecies,
     selectedBackground,
     originAbilityPackageSelections,
-    originAbilityRequirements,
+    abilityRequirements,
     availableAsiPoints,
     spentAsiPoints,
     spellSummary,

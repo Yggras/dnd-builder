@@ -5,6 +5,7 @@ import { RenderBlockList } from '@/features/compendium/components/RenderBlockLis
 import { buildRenderBlocksFromEntries, type DetailRenderBlock } from '@/features/compendium/utils/detailBlocks';
 import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
 import { getGrantTitle } from '@/features/builder/utils/classStep';
+import { normalizeAbilityChoices, summarizeAbilityRequirement } from '@/features/builder/utils/originAndAbilities';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 import { theme, typography } from '@/shared/ui/theme';
 
@@ -40,6 +41,24 @@ function buildOptionBlocks(option: ContentEntity): DetailRenderBlock[] {
   return fallback ? [{ kind: 'fallbackText', text: fallback }] : [];
 }
 
+function buildFeatFactRows(option: ContentEntity) {
+  if (option.entityType !== 'feat') {
+    return [] as Array<{ label: string; value: string }>;
+  }
+
+  const abilityRequirement = normalizeAbilityChoices('feat', option.id, option.metadata.ability, {
+    title: option.name,
+  });
+  const abilitySummary = summarizeAbilityRequirement(abilityRequirement).join(' ');
+
+  return [
+    {
+      label: 'Ability Bonus',
+      value: abilitySummary || 'None structured',
+    },
+  ];
+}
+
 export function BuilderFeatureOptionDetailSheet({
   visible,
   grant = null,
@@ -55,6 +74,7 @@ export function BuilderFeatureOptionDetailSheet({
   onOpenCompendium,
 }: BuilderFeatureOptionDetailSheetProps) {
   const blocks = option ? buildOptionBlocks(option) : [];
+  const featFacts = option ? buildFeatFactRows(option) : [];
   const disabledHelper = !isSelected && isFull
     ? `Selection limit reached. Remove ${selectedOptionNames.join(', ')} before choosing another option.`
     : null;
@@ -81,6 +101,20 @@ export function BuilderFeatureOptionDetailSheet({
               <Text style={[styles.editionBadgeLabel, option.isLegacy && styles.legacyBadgeLabel]}>{getClassEditionBadge(option)}</Text>
             </View>
           </View>
+
+          {featFacts.length > 0 ? (
+            <View style={styles.sectionBlock}>
+              <Text style={styles.sectionTitle}>Feat Facts</Text>
+              <View style={styles.factGrid}>
+                {featFacts.map((fact) => (
+                  <View key={fact.label} style={styles.factItem}>
+                    <Text style={styles.factLabel}>{fact.label}</Text>
+                    <Text style={styles.factValue}>{fact.value}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          ) : null}
 
           <View style={styles.sectionBlock}>
             <Text style={styles.sectionTitle}>Rules</Text>
@@ -142,6 +176,35 @@ const styles = StyleSheet.create({
   sectionTitle: {
     color: theme.colors.textPrimary,
     ...typography.sectionTitle,
+  },
+  factGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  factItem: {
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    flexBasis: '47%',
+    flexGrow: 1,
+    gap: 3,
+    minWidth: 140,
+    padding: theme.spacing.sm,
+  },
+  factLabel: {
+    color: theme.colors.textFaint,
+    fontSize: 11,
+    fontWeight: '800',
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
+  },
+  factValue: {
+    color: theme.colors.textSecondary,
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
   },
   emptyText: {
     color: theme.colors.textMuted,

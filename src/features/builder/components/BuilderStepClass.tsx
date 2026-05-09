@@ -11,6 +11,7 @@ import { BuilderSubclassCard } from '@/features/builder/components/BuilderSubcla
 import { BuilderSubclassDetailSheet } from '@/features/builder/components/BuilderSubclassDetailSheet';
 import type { BuilderDraftPayload } from '@/features/builder/types';
 import { getClassEditionBadge } from '@/features/builder/utils/classMetadata';
+import { getFeatAbilityFollowUpText } from '@/features/builder/utils/originAndAbilities';
 import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ChoiceGrant, ContentEntity } from '@/shared/types/domain';
 import {
@@ -477,6 +478,7 @@ export function BuilderStepClass({
 
                           const selection = asiFeatSelections.find((candidate) => candidate.requirementId === requirement.id);
                           const selectedFeat = selection?.selectedFeatId ? asiFeatOptions.find((feat) => feat.id === selection.selectedFeatId) ?? null : null;
+                          const selectedFeatFollowUpText = selectedFeat ? getFeatAbilityFollowUpText(selectedFeat) : null;
                           const issues = getAsiFeatRequirementIssues(payload, requirement.id);
                           const status = getDecisionStatus(issues);
 
@@ -518,6 +520,7 @@ export function BuilderStepClass({
                               {selection?.mode === 'feat' ? (
                                 <View style={styles.featOptionList}>
                                   {selectedFeat ? <Text style={styles.decisionHelp}>Selected feat: {selectedFeat.name}</Text> : null}
+                                  {selectedFeatFollowUpText ? <Text style={styles.decisionHelp}>{selectedFeatFollowUpText}</Text> : null}
                                   {asiFeatOptions.map((feat) => {
                                     const isSelected = selection.selectedFeatId === feat.id;
                                     return (

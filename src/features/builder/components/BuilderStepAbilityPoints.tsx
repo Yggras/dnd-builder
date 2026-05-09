@@ -1,20 +1,20 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { BuilderDraftPayload } from '@/features/builder/types';
-import type { NormalizedAbilityRequirement } from '@/features/builder/utils/originAndAbilities';
+import { summarizeAbilityRequirement, type NormalizedAbilityRequirement } from '@/features/builder/utils/originAndAbilities';
 import { getSelectedOriginPackageId } from '@/features/builder/hooks/useBuilderController';
 import { theme, typography } from '@/shared/ui/theme';
 
 interface BuilderStepAbilityPointsProps {
   payload: BuilderDraftPayload;
-  originAbilityRequirements: readonly NormalizedAbilityRequirement[];
+  abilityRequirements: readonly NormalizedAbilityRequirement[];
   originAbilityPackageSelections: BuilderDraftPayload['abilityPointsStep']['originAbilityPackageSelections'];
   availableAsiPoints: number;
   spentAsiPoints: number;
   updateBaseAbilityScore: (ability: string, value: string) => void;
   updateAsiPoint: (ability: string, delta: number) => void;
-  updateOriginAbilityPackageSelection: (sourceType: 'species' | 'background', sourceId: string, packageId: string) => void;
+  updateOriginAbilityPackageSelection: (sourceType: 'species' | 'background' | 'feat', sourceId: string, packageId: string) => void;
   updateOriginAbilitySelection: (
-    sourceType: 'species' | 'background',
+    sourceType: 'species' | 'background' | 'feat',
     sourceId: string,
     packageId: string,
     choiceGroupId: string,
@@ -26,7 +26,7 @@ interface BuilderStepAbilityPointsProps {
 
 export function BuilderStepAbilityPoints({
   payload,
-  originAbilityRequirements,
+  abilityRequirements,
   originAbilityPackageSelections,
   availableAsiPoints,
   spentAsiPoints,
@@ -86,19 +86,19 @@ export function BuilderStepAbilityPoints({
         ASI points available: {availableAsiPoints}. Spent: {spentAsiPoints}.
       </Text>
 
-      {originAbilityRequirements.map((requirement) => {
+      {abilityRequirements.map((requirement) => {
         if (requirement.packages.length === 0) {
           return null;
         }
 
         const selectedPackageId = getSelectedOriginPackageId(requirement, originAbilityPackageSelections ?? []);
         const activePackage = requirement.packages.find((abilityPackage) => abilityPackage.id === selectedPackageId) ?? null;
+        const summaryLines = activePackage ? summarizeAbilityRequirement({ ...requirement, packages: [activePackage] }) : summarizeAbilityRequirement(requirement);
 
         return (
           <View key={`${requirement.sourceType}-${requirement.sourceId}`} style={styles.optionBlock}>
-            <Text style={styles.optionBlockLabel}>
-              {requirement.sourceType === 'species' ? 'Species' : 'Background'} ability bonuses
-            </Text>
+            <Text style={styles.optionBlockLabel}>{requirement.title}</Text>
+            {requirement.contextLabel ? <Text style={styles.optionBlockMeta}>{requirement.contextLabel}</Text> : null}
 
             {requirement.packages.length > 1 ? (
               <View style={styles.fieldGroup}>
@@ -131,6 +131,16 @@ export function BuilderStepAbilityPoints({
                     );
                   })}
                 </View>
+              </View>
+            ) : null}
+
+            {summaryLines.length > 0 ? (
+              <View style={styles.summaryList}>
+                {summaryLines.map((summaryLine) => (
+                  <Text key={summaryLine} style={styles.summaryListItem}>
+                    {summaryLine}
+                  </Text>
+                ))}
               </View>
             ) : null}
 
@@ -296,6 +306,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
   },
+  optionBlockMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
   fieldGroup: {
     gap: theme.spacing.sm,
   },
@@ -335,5 +349,12 @@ const styles = StyleSheet.create({
   },
   optionChipLabelActive: {
     color: theme.colors.accentPrimarySoft,
+  },
+  summaryList: {
+    gap: 6,
+  },
+  summaryListItem: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
   },
 });

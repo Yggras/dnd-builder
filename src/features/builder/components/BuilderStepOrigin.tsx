@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { BuilderDraftPayload } from '@/features/builder/types';
+import { getFeatAbilityFollowUpText } from '@/features/builder/utils/originAndAbilities';
 import type { ContentEntity } from '@/shared/types/domain';
 import { theme, typography } from '@/shared/ui/theme';
 
@@ -28,6 +29,21 @@ export function BuilderStepOrigin({
   applyOriginPayloadChange,
   updateGrantedFeatSelection,
 }: BuilderStepOriginProps) {
+  const selectedSpeciesGrantedFeat = selectedSpecies
+    ? payload.speciesStep.grantedFeatSelections
+        .map((selection) => selection.selectedFeatId)
+        .find((featId): featId is string => typeof featId === 'string' && Boolean(featEntitiesById[featId]))
+    : null;
+  const selectedBackgroundGrantedFeat = selectedBackground
+    ? payload.backgroundStep.grantedFeatSelections
+        .map((selection) => selection.selectedFeatId)
+        .find((featId): featId is string => typeof featId === 'string' && Boolean(featEntitiesById[featId]))
+    : null;
+  const selectedSpeciesGrantedFeatEntity = selectedSpeciesGrantedFeat ? featEntitiesById[selectedSpeciesGrantedFeat] : null;
+  const selectedBackgroundGrantedFeatEntity = selectedBackgroundGrantedFeat ? featEntitiesById[selectedBackgroundGrantedFeat] : null;
+  const selectedSpeciesGrantedFeatText = selectedSpeciesGrantedFeatEntity ? getFeatAbilityFollowUpText(selectedSpeciesGrantedFeatEntity) : null;
+  const selectedBackgroundGrantedFeatText = selectedBackgroundGrantedFeatEntity ? getFeatAbilityFollowUpText(selectedBackgroundGrantedFeatEntity) : null;
+
   return (
     <View style={styles.section}>
       <View style={styles.sectionHeaderRow}>
@@ -69,6 +85,12 @@ export function BuilderStepOrigin({
                 {summaryEntry}
               </Text>
             ))}
+            {selectedSpeciesGrantedFeatEntity ? (
+              <Text style={styles.summaryListItem}>Feat: {selectedSpeciesGrantedFeatEntity.name}</Text>
+            ) : null}
+            {selectedSpeciesGrantedFeatText ? (
+              <Text style={styles.summaryListItem}>{selectedSpeciesGrantedFeatText}</Text>
+            ) : null}
           </View>
         ) : null}
       </View>
@@ -105,6 +127,12 @@ export function BuilderStepOrigin({
                 {summaryEntry}
               </Text>
             ))}
+            {selectedBackgroundGrantedFeatEntity ? (
+              <Text style={styles.summaryListItem}>Feat: {selectedBackgroundGrantedFeatEntity.name}</Text>
+            ) : null}
+            {selectedBackgroundGrantedFeatText ? (
+              <Text style={styles.summaryListItem}>{selectedBackgroundGrantedFeatText}</Text>
+            ) : null}
           </View>
         ) : null}
       </View>

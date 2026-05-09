@@ -34,8 +34,8 @@ Current verification commands:
 - `npm run typecheck`
 - `npm run audit:5etools`
 
-Current status as of 2026-05-08:
-- `npm run typecheck` passes after Step 27 class starting proficiency and ASI/Feat source changes.
+Current status as of 2026-05-09:
+- `npm run typecheck` passes after Step 28 feat-granted ability-score bonus follow-up changes.
 - `npm run audit:5etools` passes after spell casting-time normalization and generated content refresh.
 - The 5etools audit reports 8 unmatched subclass feature details out of 1332 as a non-failing diagnostic.
 
@@ -265,9 +265,12 @@ Implemented:
 - Class step supports allocation-scoped Ability Score Improvement feature instances derived from `Ability Score Improvement|...|<level>` class feature refs.
 - Each ASI feature instance can be set to `Ability Increase` or `Feat`; only `Ability Increase` contributes 2 points to the Ability Points phase.
 - ASI feat mode uses full-catalog Origin and General feats, excluding the dedicated `Ability Score Improvement` feat because the builder models that path through `Ability Increase` mode.
+- Selected feats now contribute feat-owned ability bonuses in the Ability Points phase when normalized feat `metadata.ability` is available.
+- Deterministic feat bonuses such as `Actor` auto-apply to final scores, and open feat bonus choices such as `Fey Touched` create explicit Ability Points follow-up choices and completion-blocking checklist issues until resolved.
 - Class feature reconciliation clears skill/ASI/Feat selections when classes are removed, levels drop below feature requirements, or selected feat options become invalid.
 - Species/background selection exists with deterministic applied summaries and granted-feat follow-up choices.
 - Ability score UI supports manual base score entry, origin ability packages, and ASI point controls.
+- Ability score UI now also renders feat-owned bonus summaries and feat-owned ability choice chips in the Ability Points phase.
 - Spell step uses source-owned spell selections tied to class allocation IDs, class IDs, subclass IDs, and selection type (`cantrip`, `known`, or `prepared`).
 - Spell step supports class-specific cantrip/known/prepared state, strict per-class allocation overfill/max-level checks, applicable spell filtering, and manual exception notes.
 - Multiclass spell choices preserve class source identity so shared spells can be selected as separate class-owned spells and spellcasting ability can be derived per source.
@@ -338,6 +341,7 @@ Known builder gaps:
 - Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.
 - Tool, language, weapon mastery, expertise, and other non-skill class feature choices are still not modeled unless already covered by existing `choice_grants`.
 - ASI feat prerequisite enforcement is deferred; the current ASI picker shows full-catalog Origin and General feats.
+- Feat-granted spells, feat-owned spellcasting ability choices, and non-ability feat follow-up behavior are still not modeled beyond the new feat-owned ability bonus flow.
 
 ## UI And Design System
 Implemented:
@@ -367,6 +371,7 @@ Key files:
 - Character deletion: source-implemented and typechecked; manual smoke check remains needed for deleting a roster character on device.
 - Class-specific spell ownership: source-implemented and typechecked; manual smoke checks remain needed for multiclass shared spells, per-class casting ability labels, class removal cleanup, subclass change cleanup, and per-source limit helpers.
 - Step 27 class starting proficiencies and ASI/Feat choices: source-implemented and typechecked; manual smoke checks remain needed for Sorcerer level 1 skill choices, Sorcerer level 4 ASI/Feat mode, ASI point availability changes, feat selection, and class removal/level-drop cleanup.
+- Step 28 feat-granted ability score bonuses and choice follow-ups: source-implemented and typechecked; manual smoke checks remain needed for deterministic feat bonuses such as `Actor`, choice feats such as `Fey Touched`, feat removal cleanup, and ASI-feat integration.
 - Full execution-step gap audit is documented in `.opencode/brain/Execution-Step-Implementation-Gaps.md`.
 
 ## Do Not Rebuild Accidentally
@@ -389,6 +394,7 @@ Near-term candidates:
 - Smoke check character deletion on native SQLite.
 - Smoke check class-specific spell ownership in a multiclass caster build.
 - Smoke check Step 27 with Sorcerer levels 1-4.
+- Smoke check Step 28 with deterministic and choice-based feat bonuses.
 - Polish the `Class & Spells` phase with inline spell issues, clearer disabled-state helper text, and compendium return-context restoration.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.

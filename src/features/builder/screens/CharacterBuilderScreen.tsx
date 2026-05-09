@@ -288,13 +288,13 @@ export function CharacterBuilderScreen() {
         );
       case 'abilities':
         return (
-          <BuilderStepAbilityPoints
-            availableAsiPoints={controller.availableAsiPoints}
-            originAbilityPackageSelections={controller.originAbilityPackageSelections}
-            originAbilityRequirements={controller.originAbilityRequirements}
-            payload={payload}
-            spentAsiPoints={controller.spentAsiPoints}
-            updateAsiPoint={controller.updateAsiPoint}
+            <BuilderStepAbilityPoints
+              availableAsiPoints={controller.availableAsiPoints}
+              abilityRequirements={controller.abilityRequirements}
+              originAbilityPackageSelections={controller.originAbilityPackageSelections}
+              payload={payload}
+              spentAsiPoints={controller.spentAsiPoints}
+              updateAsiPoint={controller.updateAsiPoint}
             updateBaseAbilityScore={controller.updateBaseAbilityScore}
             updateOriginAbilityPackageSelection={controller.updateOriginAbilityPackageSelection}
             updateOriginAbilitySelection={controller.updateOriginAbilitySelection}
