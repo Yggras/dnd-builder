@@ -374,6 +374,9 @@ Key files:
 - Do not add user-facing homebrew/import workflows for v1.
 - Do not add custom/manual inventory items for v1; inventory items should reference canonical content.
 - Do not add a global top-level `Subclasses` compendium category unless product direction changes; subclass discovery is class-scoped.
+- Do not expand unselected class cards into dense rules-snapshot mini cards unless product direction changes again.
+- Do not add a sticky Class & Spells summary bar unless product direction changes again.
+- Do not introduce direct class replacement in the builder; class edits should remain remove-plus-add.
 - Do not assume `npm run web` validates native SQLite seeding/persistence.
 - Do not run generated content regeneration unless the task requires content pipeline changes.
 
@@ -386,6 +389,7 @@ Near-term candidates:
 - Smoke check character deletion on native SQLite.
 - Smoke check class-specific spell ownership in a multiclass caster build.
 - Smoke check Step 27 with Sorcerer levels 1-4.
+- Polish the `Class & Spells` phase with inline spell issues, clearer disabled-state helper text, and compendium return-context restoration.
 - Reduce eager builder content loading for spells and items.
 - Make preview and roster labels content-backed.
 

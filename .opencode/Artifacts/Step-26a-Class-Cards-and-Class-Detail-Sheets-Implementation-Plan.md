@@ -67,24 +67,14 @@ Render compact class cards for unselected classes.
 
 Card header:
 - class name
-- small source badge
-- small edition badge
-- small spellcasting/non-spellcasting badge
-
-Mandatory facts:
-- hit die
-- primary abilities
-- saving throw proficiencies
-- armor proficiencies
-- weapon proficiencies
-- spellcasting status
+- small edition badge when helpful
 
 Behavior:
 - tapping the card opens the class detail sheet
 - no direct select button on compact card
 - no beginner hint sentence on the compact card
 - no subclass unlock timing on the compact card
-- missing metadata should show `Unknown` or `Not structured yet`
+- keep the compact card intentionally minimal rather than turning it into a rules snapshot
 - no search/filtering in this first class-card implementation
 
 ### Class Detail Sheet
@@ -98,8 +88,7 @@ Content order:
 3. Expanded `Rules Snapshot`.
 4. Compact `Key Levels` preview.
 5. Short class excerpt or summary if available.
-6. Optional impact preview when changing/replacing an existing class.
-7. Sticky footer actions.
+6. Sticky footer actions.
 
 Expanded rules snapshot:
 - hit die
@@ -115,7 +104,7 @@ Expanded rules snapshot:
 
 Footer actions:
 - unselected class: primary `Choose this class`, secondary `Open in Compendium`
-- selected class: selected-state actions such as `Change Class`, `Remove`, or `Close` as appropriate
+- selected class: selected-state actions such as `Remove` or `Close` as appropriate
 
 Do not add a beginner-explanation section in this pass.
 
@@ -128,7 +117,7 @@ Required foundation behavior:
 - each selected class appears as a selected summary section/card
 - level controls use plus/minus stepper around `Level X`
 - show current class name, level, source/edition, and local `OK` / `Need` / `Fix` state where available
-- provide actions for details/change/remove where applicable
+- provide actions for details/remove where applicable
 - show inline impact banner after level changes when reconciliation reports changes
 
 Step 26a only needs the class-level selected summary foundation. Step 26b will fill in subclass and feature decision content inside each section.
@@ -148,10 +137,10 @@ After at least one class is selected:
 - auto-close the picker after a class is added
 - preserve chosen order for selected classes
 
-### Class Change Impact Confirmation
+### Class Removal Impact Confirmation
 
 #### [NEW] BuilderImpactConfirmationSheet.tsx or equivalent
-Use the shared sheet shell for class change confirmations.
+Use the shared sheet shell for class removal confirmations.
 
 Behavior:
 - use confirmation sheet, not native alert
@@ -159,7 +148,7 @@ Behavior:
 - examples: `Subclass will be cleared`, `2 feature choices need review`, `3 spells may be invalid`
 - footer actions: `Cancel` and `Confirm`
 
-In Step 26a, implement enough confirmation scaffolding for class replacement/removal if the UI exposes class change. Step 26b/26c may expand affected summaries once subclass/features/spells are redesigned.
+In Step 26a, implement enough confirmation scaffolding for class removal. Step 26b/26c may expand affected summaries once subclass/features/spells are redesigned.
 
 ## Data And Metadata Notes
 Prefer existing `ContentEntity` fields and metadata. Do not change generated content in this step.
@@ -193,8 +182,7 @@ If a field cannot be found reliably, display `Unknown` / `Not structured yet` ra
   - `Add another class` reveals inline class cards excluding selected classes
   - adding another class auto-closes picker and preserves selected order
   - class detail `Open in Compendium` navigates and can return to builder context
-  - class change/remove confirmation appears when dependent choices may be affected
-  - missing metadata appears as `Unknown` / `Not structured yet`
+  - class remove confirmation appears when dependent choices may be affected
 
 ## Documentation Updates After Implementation
 Update `.opencode/brain/Current-Development-State.md` after implementation with:

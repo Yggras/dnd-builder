@@ -50,6 +50,8 @@
   - Keep long choice lists searchable and filtered.
   - Avoid giant unstructured chip walls where selection sets are large.
   - Make selected values and unresolved requirements visible near the action that resolves them.
+  - For the `Class & Spells` phase, keep unselected class cards concise, keep spell constraints visible inline, and avoid adding a sticky summary bar.
+  - Keep class editing as remove-plus-add rather than introducing direct class replacement.
 
 - Basics is currently grouped by the Step 25 UX plan.
   - Name and optional notes are exposed in the Basics phase.
@@ -87,6 +89,7 @@
   - Keep strict known, prepared, cantrip, and max spell level limits.
   - Preserve multiclass spell rules as a day-one requirement.
   - Keep manual exceptions for ritual/book/list edge cases without weakening normal strict validation.
+  - Improve spell-step UX with clearer inline limit/error messages, better per-source helper text, and stronger compendium return-context behavior.
 
 - Improve class-owned feature choices.
   - Keep feature choices inside the Class step.

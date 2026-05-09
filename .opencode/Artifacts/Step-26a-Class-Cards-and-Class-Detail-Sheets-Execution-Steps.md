@@ -16,9 +16,8 @@
 
 ## Phase 3: Class Cards
 - [ ] Create class card component for unselected classes.
-- [ ] Render class name plus source, edition, and spellcasting badges.
-- [ ] Render mandatory facts: hit die, primary abilities, saving throws, armor, weapons, spellcasting.
-- [ ] Show missing facts explicitly as `Unknown` or `Not structured yet`.
+- [ ] Render a concise class-card header with class name and minimal badges.
+- [ ] Keep unselected class cards intentionally minimal rather than rendering rules facts on the card.
 - [ ] Ensure tapping a class card opens details rather than selecting directly.
 - [ ] Remove direct class-selection chips from the class picker path.
 
@@ -32,7 +31,7 @@
 - [ ] Add `Choose this class` primary action for unselected classes.
 - [ ] Add `Open in Compendium` secondary action.
 - [ ] Auto-close sheet after choosing a class.
-- [ ] Support selected-state actions for already selected classes where applicable.
+- [ ] Support selected-state `Remove` / `Close` actions for already selected classes where applicable.
 
 ## Phase 5: Selected Class Summary Foundation
 - [ ] Replace selected class allocation presentation with selected summary card/section foundation.
@@ -52,7 +51,7 @@
 - [ ] Preserve chosen order for selected class sections.
 
 ## Phase 7: Impact Confirmation Scaffold
-- [ ] Add confirmation sheet pattern for class change/removal impact.
+- [ ] Add confirmation sheet pattern for class removal impact.
 - [ ] Show affected summary counts/categories when available.
 - [ ] Include `Cancel` and `Confirm` actions.
 - [ ] Avoid native alert dialogs.
@@ -64,5 +63,4 @@
 - [ ] Manually verify `Open in Compendium` route and builder return context.
 - [ ] Manually verify selected class level changes and total level cap.
 - [ ] Manually verify `Add another class` inline picker behavior.
-- [ ] Manually verify missing metadata display.
 - [ ] Update `.opencode/brain/Current-Development-State.md` with Step 26a results.

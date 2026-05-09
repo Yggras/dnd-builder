@@ -38,33 +38,19 @@ Inline issue placement:
 - Do not add a top-level Class & Spells issue summary in the first implementation.
 
 ### Class Cards
-- Class cards should prioritize a rules snapshot.
+- Class cards should stay intentionally minimal.
 - Cards should be minimal and should not become dense beginner essays.
 - Tapping a class card should open a detail bottom sheet.
-- The card itself should be enough to scan, but not expected to explain the full class.
+- The card itself only needs to be enough to scan the class list; it is not expected to explain the class.
 - Compact class cards should not include plain-language beginner hint sentences.
 - Class cards should not show subclass unlock timing because 2024 subclasses are always level 3.
-- Missing or unstructured metadata should be shown explicitly as `Unknown` or `Not structured yet`, not hidden.
 - No search or filtering is needed for class cards in the first implementation because the class list is small.
 - Class cards do not need an explicit `View details` hint; tapping the card consistently opens details.
+- Do not expand unselected class cards into mini fact sheets.
 
 Expected class-card header:
 - class name
-- small source badge
-- small edition badge
-- small spellcasting/non-spellcasting badge
-
-Mandatory class-card facts:
-- hit die
-- primary abilities
-- saving throw proficiencies
-- armor proficiencies
-- weapon proficiencies
-- spellcasting status
-
-Armor and weapon proficiencies should be shown as grouped short text, for example:
-- `Armor: Light, Medium`
-- `Weapons: Simple, Martial`
+- small edition badge when helpful
 
 ### Class Detail
 - Class details should open in an in-builder bottom sheet.
@@ -73,13 +59,11 @@ Armor and weapon proficiencies should be shown as grouped short text, for exampl
 - Detail copy should be rules-first rather than beginner-explanation-first.
 - Do not include a beginner-explanation section in the first pass.
 - Class selection should happen from the detail bottom sheet, not directly from the compact card.
-- Changing an already selected class to another class should require an impact confirmation if subclass, feature, or spell selections may be cleared or invalidated.
 - The bottom-sheet header should emphasize class name plus badges.
 - The first content section after the header should be `Rules Snapshot`.
 - Source/edition/support warnings should appear only when relevant.
 - Missing structured metadata should appear inline as `Unknown` or `Not structured yet`.
-- Impact preview should appear only when replacing or changing an existing class, not for the first class selection.
-- If the detail sheet is opened for an already selected class, the primary actions should change to selected-state actions such as `Change Class`, `Remove`, or `Close` instead of showing the normal `Choose this class` CTA.
+- If the detail sheet is opened for an already selected class, the primary actions should change to selected-state actions such as `Remove` or `Close` instead of showing the normal `Choose this class` CTA.
 - On mobile, the bottom sheet should be large, roughly 80-90% height, with internal scrolling.
 
 Expected class-detail header:
@@ -106,8 +90,7 @@ Expected class-detail content order:
 3. Expanded `Rules Snapshot`.
 4. Compact `Key Levels` preview.
 5. Short class excerpt or summary if available.
-6. Optional impact preview when changing/replacing an existing class.
-7. Sticky footer actions.
+6. Sticky footer actions.
 
 Expected key-level preview:
 - show only compact, decision-relevant level highlights
@@ -117,12 +100,12 @@ Expected key-level preview:
 
 Expected sticky footer actions:
 - primary: `Choose this class` for unselected classes
-- primary selected-state actions: `Change Class`, `Remove`, or `Close` as appropriate
+- primary selected-state actions: `Remove` or `Close` as appropriate
 - secondary: `Open in Compendium`
 
 ### Selected Class Summary
 - Once a class is selected, it should appear as a selected summary card at the top of the phase.
-- The selected summary card should show current level controls, current `OK` / `Need` / `Fix` state, and actions for details/change/remove where applicable.
+- The selected summary card should show current level controls, current `OK` / `Need` / `Fix` state, and actions for details/remove where applicable.
 - Level controls should use a plus/minus stepper around `Level X`.
 - Level controls should include a short explanation of total level constraints and the impact of changing level.
 - When a level change introduces new obligations or unlocks, show an inline change banner near the selected class summary card.
@@ -360,7 +343,7 @@ Spell action limits:
 
 ### Spell Limits
 - Spell overfill should be prevented where the builder can reliably enforce the limit.
-- Once a cantrip, known-spell, or prepared-spell limit is reached, additional selections should be disabled or routed into a replace flow rather than allowing an avoidable `Fix` state.
+- Once a cantrip, known-spell, or prepared-spell limit is reached, additional selections should be disabled rather than allowing an avoidable `Fix` state.
 - The UI should explain why another spell cannot be selected.
 
 ### Compendium Integration
@@ -380,14 +363,8 @@ Spell action limits:
   - spell-limit issues should appear near the relevant spell tab/count/action
 
 ### Selection Summary
-- A compact summary bar should stay visible while browsing long Class & Spells content.
-- The summary should help the user keep context while scrolling.
-
-Expected summary direction:
-- selected class and level
-- subclass status
-- spell counts if applicable
-- current `OK` / `Need` / `Fix` state for this phase
+- Do not add a sticky or persistent Class & Spells summary bar.
+- Keep context inside the selected class sections and spell subpanel instead of introducing a separate summary surface.
 
 ### Recommendations Policy
 - Do not add strong class or spell recommendations yet.
@@ -430,7 +407,7 @@ Impact confirmations:
 
 ## Implementation Implications
 - Replace class/subclass chips with richer cards.
-- Replace unselected class chips with compact rules-snapshot class cards.
+- Replace unselected class chips with compact minimal class cards.
 - Add selected class summary cards with level steppers and impact banners.
 - Show the class picker directly only for empty builds; after the first class, move it behind `Add another class`.
 - Render multiclass builds as stacked selected class sections in chosen order.
@@ -440,8 +417,7 @@ Impact confirmations:
 - Introduce reusable builder choice detail bottom sheets or equivalent focused overlays.
 - Prefer a shared bottom-sheet shell for all Class & Spells details and impact confirmations.
 - Add `Choose` and `Open in Compendium` actions to class, subclass, feature, and spell details.
-- Add impact confirmation before changing a selected class when dependent choices may be cleared or invalidated.
-- Show missing class metadata as explicit unknown/unsupported text on cards rather than silently omitting facts.
+- Keep class editing as remove-plus-add rather than introducing a direct class replacement flow.
 - Replace class-owned feature chips with grant-source grouped compact pickers.
 - Add feature option detail bottom sheets with rules text first, grant context after rules, and sticky choose/remove actions.
 - Prevent feature-choice over-selection and explain limit conflicts inline.
@@ -453,11 +429,10 @@ Impact confirmations:
 
 ## Open Follow-Up Decisions
 - Exact bottom-sheet content structure for class, subclass, feature, and spell details.
-- Whether spell overfill should offer a replace flow immediately or simply disable new choices with explanation.
 - How builder-originated compendium navigation should preserve return position and builder context.
 - How to implement automatic reopening of the original detail sheet after returning from compendium.
 - Whether bottom sheet bodies should reuse compendium renderer components or only curated builder summaries plus facts.
 - Exact layout and wording for the selected class summary card.
-- Exact confirmation copy for class changes that clear or invalidate dependent choices.
+- Exact confirmation copy for class removal and subclass changes that clear or invalidate dependent choices.
 - Exact visual layout for feature-choice group headers and unsupported grant `Fix` cards.
 - Exact visual treatment for stacked multiclass selected class sections.
