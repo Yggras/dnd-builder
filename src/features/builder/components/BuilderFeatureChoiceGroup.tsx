@@ -11,6 +11,8 @@ interface BuilderFeatureChoiceGroupProps {
   options: readonly ContentEntity[];
   selectedOptionIds: readonly string[];
   issues: readonly BuilderIssue[];
+  collapsed?: boolean;
+  onToggleCollapsed?: () => void;
   onOpenOption: (option: ContentEntity) => void;
   onOpenClassCompendium: () => void;
 }
@@ -32,6 +34,8 @@ export function BuilderFeatureChoiceGroup({
   options,
   selectedOptionIds,
   issues,
+  collapsed = false,
+  onToggleCollapsed,
   onOpenOption,
   onOpenClassCompendium,
 }: BuilderFeatureChoiceGroupProps) {
@@ -49,7 +53,17 @@ export function BuilderFeatureChoiceGroup({
         </View>
       </View>
 
-      {issues.length > 0 ? (
+      {onToggleCollapsed ? (
+        <Pressable
+          accessibilityRole="button"
+          onPress={onToggleCollapsed}
+          style={({ pressed }) => [styles.expandButton, pressed && styles.expandButtonPressed]}
+        >
+          <Text style={styles.expandButtonLabel}>{collapsed ? 'Show details' : 'Hide details'}</Text>
+        </Pressable>
+      ) : null}
+
+      {!collapsed && issues.length > 0 ? (
         <View style={styles.issueList}>
           {issues.map((issue) => (
             <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>
@@ -57,7 +71,7 @@ export function BuilderFeatureChoiceGroup({
         </View>
       ) : null}
 
-      {options.length > 0 ? (
+      {!collapsed && options.length > 0 ? (
         <View style={styles.optionList}>
           {options.map((option) => (
             <BuilderFeatureOptionRow
@@ -68,7 +82,7 @@ export function BuilderFeatureChoiceGroup({
             />
           ))}
         </View>
-      ) : (
+      ) : !collapsed ? (
         <View style={styles.unsupportedCard}>
           <Text style={styles.unsupportedTitle}>No structured builder options yet</Text>
           <Text style={styles.unsupportedText}>This feature grant exists, but its selectable options are not structured for the builder yet.</Text>
@@ -80,7 +94,7 @@ export function BuilderFeatureChoiceGroup({
             <Text style={styles.compendiumButtonLabel}>Open in Compendium</Text>
           </Pressable>
         </View>
-      )}
+      ) : null}
     </View>
   );
 }
@@ -144,6 +158,17 @@ const styles = StyleSheet.create({
     color: theme.colors.accentLegacySoft,
     ...typography.meta,
     fontWeight: '700',
+  },
+  expandButton: {
+    alignSelf: 'flex-start',
+  },
+  expandButtonPressed: {
+    opacity: 0.85,
+  },
+  expandButtonLabel: {
+    color: theme.colors.accentPrimarySoft,
+    ...typography.meta,
+    fontWeight: '800',
   },
   optionList: {
     gap: theme.spacing.sm,

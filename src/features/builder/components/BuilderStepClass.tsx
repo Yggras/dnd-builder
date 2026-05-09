@@ -156,7 +156,15 @@ function getAsiFeatRequirementIssues(payload: BuilderDraftPayload, requirementId
 }
 
 function getDecisionStatus(issues: readonly { category: string }[]) {
-  return issues.some((issue) => issue.category === 'blocker' || issue.category === 'checklist') ? 'Fix' : 'OK';
+  if (issues.some((issue) => issue.category === 'blocker' || issue.category === 'checklist')) {
+    return 'Fix';
+  }
+
+  if (issues.some((issue) => issue.category === 'notice')) {
+    return 'Need';
+  }
+
+  return 'OK';
 }
 
 function hasSubclassDependentSelections(payload: BuilderDraftPayload) {
@@ -197,6 +205,7 @@ export function BuilderStepClass({
   const [detailAsiFeat, setDetailAsiFeat] = useState<AsiFeatDetailTarget | null>(null);
   const [pendingRemoveAllocationId, setPendingRemoveAllocationId] = useState<string | null>(null);
   const [pendingSubclassChange, setPendingSubclassChange] = useState<SubclassChangeTarget | null>(null);
+  const [sectionExpandedByKey, setSectionExpandedByKey] = useState<Record<string, boolean>>({});
   const hasSelectedClass = payload.classStep.allocations.length > 0;
   const detailClass = detailClassId ? classEntitiesById[detailClassId] ?? availableClasses.find((entry) => entry.id === detailClassId) ?? null : null;
   const detailClassIsSelected = Boolean(detailClassId && payload.classStep.allocations.some((allocation) => allocation.classId === detailClassId));
@@ -247,6 +256,45 @@ export function BuilderStepClass({
       onConsumeReturnContext();
     }
   }, [onConsumeReturnContext, returnContext]);
+
+  useEffect(() => {
+    const validSectionKeys = new Set<string>();
+
+    for (const allocation of payload.classStep.allocations) {
+      const subclassOptions = allocation.classId ? subclassesByClassId[allocation.classId] ?? [] : [];
+      if (subclassOptions.length > 0) {
+        validSectionKeys.add(`subclass:${allocation.id}`);
+      }
+
+      for (const requirement of classFeatureRequirements.skillProficiencies.filter((entry) => entry.classAllocationId === allocation.id)) {
+        validSectionKeys.add(`skill:${requirement.id}`);
+      }
+
+      for (const requirement of classFeatureRequirements.asiFeatChoices.filter((entry) => entry.classAllocationId === allocation.id)) {
+        validSectionKeys.add(`asi:${requirement.id}`);
+      }
+
+      for (const grant of applicableGrants.filter((entry) => entry.sourceId === allocation.classId)) {
+        validSectionKeys.add(`grant:${grant.id}`);
+      }
+    }
+
+    setSectionExpandedByKey((currentState) => {
+      const nextEntries = Object.entries(currentState).filter(([key]) => validSectionKeys.has(key));
+      if (nextEntries.length === Object.keys(currentState).length) {
+        return currentState;
+      }
+
+      return Object.fromEntries(nextEntries);
+    });
+  }, [applicableGrants, classFeatureRequirements, payload.classStep.allocations, subclassesByClassId]);
+
+  const toggleSectionExpanded = (sectionKey: string, defaultExpanded: boolean) => {
+    setSectionExpandedByKey((currentState) => ({
+      ...currentState,
+      [sectionKey]: !(currentState[sectionKey] ?? defaultExpanded),
+    }));
+  };
 
   const openCompendiumForClass = (classEntity: ContentEntity) => {
     router.push(`/(app)/compendium/class/${encodeURIComponent(classEntity.id)}${buildCompendiumReturnQuery({
@@ -442,6 +490,8 @@ export function BuilderStepClass({
                           const selectedSkills = selection?.selectedSkills ?? [];
                           const issues = getSkillRequirementIssues(payload, requirement.id);
                           const status = getDecisionStatus(issues);
+                          const sectionKey = `skill:${requirement.id}`;
+                          const isExpanded = sectionExpandedByKey[sectionKey] ?? (status === 'Fix');
 
                           return (
                             <View key={requirement.id} style={styles.decisionBlock}>
@@ -450,16 +500,24 @@ export function BuilderStepClass({
                                   <Text style={styles.decisionTitle}>Skill Proficiencies</Text>
                                   <Text style={styles.decisionMeta}>Level {requirement.level} • {selectedSkills.length}/{requirement.count} selected</Text>
                                 </View>
-                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix, status === 'Need' && styles.statusBadgeNeed]}>
                                   <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
                                 </View>
                               </View>
-                              {issues.length > 0 ? (
+                              <Pressable
+                                accessibilityRole="button"
+                                onPress={() => toggleSectionExpanded(sectionKey, status === 'Fix')}
+                                style={({ pressed }) => [styles.expandButton, pressed && styles.expandButtonPressed]}
+                              >
+                                <Text style={styles.expandButtonLabel}>{isExpanded ? 'Hide details' : 'Show details'}</Text>
+                              </Pressable>
+                              {isExpanded && issues.length > 0 ? (
                                 <View style={styles.issueList}>
                                   {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
                                 </View>
                               ) : null}
-                              <View style={styles.optionChipWrap}>
+                              {isExpanded ? (
+                                <View style={styles.optionChipWrap}>
                                 {requirement.options.map((skill) => {
                                   const isSelected = selectedSkills.includes(skill);
                                   const isFull = selectedSkills.length >= requirement.count;
@@ -480,7 +538,8 @@ export function BuilderStepClass({
                                     </Pressable>
                                   );
                                 })}
-                              </View>
+                                </View>
+                              ) : null}
                             </View>
                           );
                         }
@@ -488,19 +547,36 @@ export function BuilderStepClass({
                         if (decision.kind === 'subclass') {
                           const subclassIssues = getSubclassIssues(payload, allocation.id);
                           const isLocked = allocation.level < decision.level;
+                          const status = getDecisionStatus(subclassIssues);
+                          const selectedSubclass = allocation.subclassId ? subclassesByClassId[allocation.classId]?.find((subclass) => subclass.id === allocation.subclassId) ?? null : null;
+                          const sectionKey = `subclass:${allocation.id}`;
+                          const isExpanded = sectionExpandedByKey[sectionKey] ?? (status === 'Fix');
 
                           return (
                             <View key={`subclass-${allocation.id}`} style={styles.decisionBlock}>
                               <View style={styles.decisionHeader}>
-                                <Text style={styles.decisionTitle}>Subclass</Text>
-                                <Text style={styles.decisionMeta}>Level {decision.level}</Text>
+                                <View style={styles.decisionHeaderCopy}>
+                                  <Text style={styles.decisionTitle}>Subclass</Text>
+                                  <Text style={styles.decisionMeta}>Level {decision.level} • {selectedSubclass ? selectedSubclass.name : isLocked ? 'Locked' : 'Not selected'}</Text>
+                                </View>
+                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix, status === 'Need' && styles.statusBadgeNeed]}>
+                                  <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
+                                </View>
                               </View>
-                              {subclassIssues.length > 0 ? (
+                              <Pressable
+                                accessibilityRole="button"
+                                onPress={() => toggleSectionExpanded(sectionKey, status === 'Fix')}
+                                style={({ pressed }) => [styles.expandButton, pressed && styles.expandButtonPressed]}
+                              >
+                                <Text style={styles.expandButtonLabel}>{isExpanded ? 'Hide details' : 'Show details'}</Text>
+                              </Pressable>
+                              {isExpanded && subclassIssues.length > 0 ? (
                                 <View style={styles.issueList}>
                                   {subclassIssues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
                                 </View>
                               ) : null}
-                              <View style={styles.subclassCardList}>
+                              {isExpanded ? (
+                                <View style={styles.subclassCardList}>
                                 {subclassOptions.map((subclass) => (
                                   <BuilderSubclassCard
                                     key={subclass.id}
@@ -511,7 +587,8 @@ export function BuilderStepClass({
                                     onPress={() => setDetailSubclass({ allocationId: allocation.id, subclassId: subclass.id })}
                                   />
                                 ))}
-                              </View>
+                                </View>
+                              ) : null}
                             </View>
                           );
                         }
@@ -525,23 +602,39 @@ export function BuilderStepClass({
                           const selectedFeatFollowUpText = selectedFeat ? getFeatAbilityFollowUpText(selectedFeat) : null;
                           const issues = getAsiFeatRequirementIssues(payload, requirement.id);
                           const status = getDecisionStatus(issues);
+                          const sectionKey = `asi:${requirement.id}`;
+                          const isExpanded = sectionExpandedByKey[sectionKey] ?? (status === 'Fix');
+                          const modeSummary = selection?.mode === 'asi'
+                            ? 'Ability Increase'
+                            : selection?.mode === 'feat'
+                              ? selectedFeat ? `Feat: ${selectedFeat.name}` : 'Feat choice required'
+                              : 'Choice required';
 
                           return (
                             <View key={requirement.id} style={styles.decisionBlock}>
                               <View style={styles.decisionHeader}>
                                 <View style={styles.decisionHeaderCopy}>
                                   <Text style={styles.decisionTitle}>Ability Score Improvement</Text>
-                                  <Text style={styles.decisionMeta}>Level {requirement.level}</Text>
+                                  <Text style={styles.decisionMeta}>Level {requirement.level} • {modeSummary}</Text>
                                 </View>
-                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix]}>
+                                <View style={[styles.statusBadge, status === 'Fix' && styles.statusBadgeFix, status === 'Need' && styles.statusBadgeNeed]}>
                                   <Text style={[styles.statusBadgeLabel, status === 'Fix' && styles.statusBadgeLabelFix]}>{status}</Text>
                                 </View>
                               </View>
-                              {issues.length > 0 ? (
+                              <Pressable
+                                accessibilityRole="button"
+                                onPress={() => toggleSectionExpanded(sectionKey, status === 'Fix')}
+                                style={({ pressed }) => [styles.expandButton, pressed && styles.expandButtonPressed]}
+                              >
+                                <Text style={styles.expandButtonLabel}>{isExpanded ? 'Hide details' : 'Show details'}</Text>
+                              </Pressable>
+                              {isExpanded && issues.length > 0 ? (
                                 <View style={styles.issueList}>
                                   {issues.map((issue) => <Text key={issue.id} style={styles.issueText}>{issue.summary}</Text>)}
                                 </View>
                               ) : null}
+                              {isExpanded ? (
+                                <>
                               <View style={styles.optionChipWrap}>
                                 <Pressable
                                   accessibilityRole="button"
@@ -581,6 +674,8 @@ export function BuilderStepClass({
                                   })}
                                 </View>
                               ) : null}
+                                </>
+                              ) : null}
                             </View>
                           );
                         }
@@ -588,12 +683,17 @@ export function BuilderStepClass({
                         const selectedOptionIds = payload.classStep.featureChoices.find((selection) => selection.grantId === decision.grant.id)?.selectedOptionIds ?? [];
                         const options = grantOptionsByGrantId[decision.grant.id] ?? [];
                         const grantIssues = getGrantIssues(payload, decision.grant.id);
+                        const featureStatus = getDecisionStatus(grantIssues);
+                        const sectionKey = `grant:${decision.grant.id}`;
+                        const isExpanded = sectionExpandedByKey[sectionKey] ?? (featureStatus === 'Fix');
 
                         return (
                           <BuilderFeatureChoiceGroup
+                            collapsed={!isExpanded}
                             key={decision.grant.id}
                             grant={decision.grant}
                             options={options}
+                            onToggleCollapsed={() => toggleSectionExpanded(sectionKey, featureStatus === 'Fix')}
                             selectedOptionIds={selectedOptionIds}
                             issues={grantIssues}
                             onOpenOption={(option) => setDetailFeatureOption({ grantId: decision.grant.id, optionId: option.id })}
@@ -959,6 +1059,17 @@ const styles = StyleSheet.create({
     color: theme.colors.accentLegacySoft,
     ...typography.meta,
     fontWeight: '700',
+  },
+  expandButton: {
+    alignSelf: 'flex-start',
+  },
+  expandButtonPressed: {
+    opacity: 0.85,
+  },
+  expandButtonLabel: {
+    color: theme.colors.accentPrimarySoft,
+    ...typography.meta,
+    fontWeight: '800',
   },
   subclassCardList: {
     gap: theme.spacing.sm,

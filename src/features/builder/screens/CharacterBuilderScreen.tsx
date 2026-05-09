@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BuilderReviewSection } from '@/features/builder/components/BuilderReviewSection';
 import { BuilderSpellsSection } from '@/features/builder/components/BuilderSpellsSection';
@@ -26,6 +26,8 @@ import { ErrorState } from '@/shared/ui/ErrorState';
 import { LoadingState } from '@/shared/ui/LoadingState';
 import type { BuilderStep } from '@/shared/types/domain';
 import { theme, typography } from '@/shared/ui/theme';
+
+type ClassPhaseSubview = 'classes' | 'spells';
 
 function formatStepLabel(step: BuilderStep) {
   return step.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
@@ -59,6 +61,7 @@ export function CharacterBuilderScreen() {
   const [completionMessage, setCompletionMessage] = useState<string | null>(null);
   const [isBuildSuccess, setIsBuildSuccess] = useState(false);
   const [pendingReturnContext, setPendingReturnContext] = useState(() => parseBuilderCompendiumReturnContext(params));
+  const [classPhaseSubview, setClassPhaseSubview] = useState<ClassPhaseSubview>('classes');
 
   const {
     draftBuild,
@@ -140,6 +143,10 @@ export function CharacterBuilderScreen() {
 
     if (controller.activePhaseId !== pendingReturnContext.phaseId) {
       controller.goToPhase(pendingReturnContext.phaseId);
+    }
+
+    if (pendingReturnContext.phaseId === 'class') {
+      setClassPhaseSubview(pendingReturnContext.sheet === 'spell' ? 'spells' : 'classes');
     }
   }, [controller, draftBuild, pendingReturnContext]);
 
@@ -248,41 +255,61 @@ export function CharacterBuilderScreen() {
       case 'class':
         return (
           <>
-            <BuilderStepClass
-              addClassAllocation={controller.addClassAllocation}
-              applicableGrants={applicableGrants}
-              asiFeatOptions={controller.asiFeatOptions}
-              availableClasses={controller.availableClasses}
-              classFeatureRequirements={controller.classFeatureRequirements}
-              classEntitiesById={classEntitiesById}
-              classImpactSummary={controller.classImpactSummary}
-              characterId={characterId}
-              grantOptionsByGrantId={grantOptionsByGrantId}
-              onConsumeReturnContext={() => setPendingReturnContext(null)}
-              payload={payload}
-              removeAllocation={controller.removeAllocation}
-              returnContext={pendingReturnContext}
-              subclassesByClassId={subclassesByClassId}
-              totalAllocatedLevel={controller.totalAllocatedLevel}
-              toggleClassSkillProficiency={controller.toggleClassSkillProficiency}
-              updateClassAsiFeatMode={controller.updateClassAsiFeatMode}
-              updateClassAsiFeatSelection={controller.updateClassAsiFeatSelection}
-              updateAllocation={controller.updateAllocation}
-              updateFeatureSelection={controller.updateFeatureSelection}
-            />
-            <BuilderSpellsSection
-              characterId={characterId}
-              onConsumeReturnContext={() => setPendingReturnContext(null)}
-              onSpellSearchChange={setSpellSearch}
-              payload={payload}
-              returnContext={pendingReturnContext}
-              spellEntitiesById={spellEntitiesById}
-              spellSearch={spellSearch}
-              spellSummary={controller.spellSummary!}
-              updateKnownSpellSelection={controller.updateKnownSpellSelection}
-              updatePreparedSpellSelection={controller.updatePreparedSpellSelection}
-              updateSpellExceptionNotes={controller.updateSpellExceptionNotes}
-            />
+            <View style={styles.phaseSubviewBar}>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setClassPhaseSubview('classes')}
+                style={({ pressed }) => [styles.phaseSubviewButton, classPhaseSubview === 'classes' && styles.phaseSubviewButtonActive, pressed && styles.phaseSubviewButtonPressed]}
+              >
+                <Text style={[styles.phaseSubviewLabel, classPhaseSubview === 'classes' && styles.phaseSubviewLabelActive]}>Classes</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setClassPhaseSubview('spells')}
+                style={({ pressed }) => [styles.phaseSubviewButton, classPhaseSubview === 'spells' && styles.phaseSubviewButtonActive, pressed && styles.phaseSubviewButtonPressed]}
+              >
+                <Text style={[styles.phaseSubviewLabel, classPhaseSubview === 'spells' && styles.phaseSubviewLabelActive]}>Spells</Text>
+              </Pressable>
+            </View>
+
+            {classPhaseSubview === 'classes' ? (
+              <BuilderStepClass
+                addClassAllocation={controller.addClassAllocation}
+                applicableGrants={applicableGrants}
+                asiFeatOptions={controller.asiFeatOptions}
+                availableClasses={controller.availableClasses}
+                classFeatureRequirements={controller.classFeatureRequirements}
+                classEntitiesById={classEntitiesById}
+                classImpactSummary={controller.classImpactSummary}
+                characterId={characterId}
+                grantOptionsByGrantId={grantOptionsByGrantId}
+                onConsumeReturnContext={() => setPendingReturnContext(null)}
+                payload={payload}
+                removeAllocation={controller.removeAllocation}
+                returnContext={pendingReturnContext}
+                subclassesByClassId={subclassesByClassId}
+                totalAllocatedLevel={controller.totalAllocatedLevel}
+                toggleClassSkillProficiency={controller.toggleClassSkillProficiency}
+                updateClassAsiFeatMode={controller.updateClassAsiFeatMode}
+                updateClassAsiFeatSelection={controller.updateClassAsiFeatSelection}
+                updateAllocation={controller.updateAllocation}
+                updateFeatureSelection={controller.updateFeatureSelection}
+              />
+            ) : (
+              <BuilderSpellsSection
+                characterId={characterId}
+                onConsumeReturnContext={() => setPendingReturnContext(null)}
+                onSpellSearchChange={setSpellSearch}
+                payload={payload}
+                returnContext={pendingReturnContext}
+                spellEntitiesById={spellEntitiesById}
+                spellSearch={spellSearch}
+                spellSummary={controller.spellSummary!}
+                updateKnownSpellSelection={controller.updateKnownSpellSelection}
+                updatePreparedSpellSelection={controller.updatePreparedSpellSelection}
+                updateSpellExceptionNotes={controller.updateSpellExceptionNotes}
+              />
+            )}
           </>
         );
       case 'origin':
@@ -460,5 +487,40 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.lg,
     paddingBottom: theme.spacing.xxl,
     gap: theme.spacing.xl,
+  },
+  phaseSubviewBar: {
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    padding: theme.spacing.sm,
+  },
+  phaseSubviewButton: {
+    alignItems: 'center',
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.pill,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 42,
+    paddingHorizontal: theme.spacing.md,
+  },
+  phaseSubviewButtonActive: {
+    backgroundColor: theme.colors.accentPrimaryDeep,
+    borderColor: theme.colors.accentPrimary,
+  },
+  phaseSubviewButtonPressed: {
+    borderColor: theme.colors.accentPrimary,
+  },
+  phaseSubviewLabel: {
+    color: theme.colors.textSecondary,
+    ...typography.meta,
+    fontWeight: '800',
+  },
+  phaseSubviewLabelActive: {
+    color: theme.colors.accentPrimarySoft,
   },
 });
