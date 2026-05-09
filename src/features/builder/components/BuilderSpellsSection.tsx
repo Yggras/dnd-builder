@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 
 import { BuilderSpellCard } from '@/features/builder/components/BuilderSpellCard';
 import { BuilderSpellDetailSheet } from '@/features/builder/components/BuilderSpellDetailSheet';
-import type { BuilderDraftPayload } from '@/features/builder/types';
+import type { BuilderDraftPayload, BuilderIssue } from '@/features/builder/types';
 import { summarizeSpellcasting, type SpellWorkflowType, type SpellcastingSourceSummary } from '@/features/builder/utils/spellReview';
 import { getCompendiumEntryIdFromEntityId } from '@/features/compendium/utils/catalog';
 import type { ContentEntity } from '@/shared/types/domain';
@@ -84,6 +84,72 @@ function getTabLabel(tab: SpellTab, selectedCantripCount: number, selectedKnownL
   }
 }
 
+function getWorkflowLabel(workflow: SpellWorkflowType) {
+  switch (workflow) {
+    case 'known':
+      return 'Known Spells';
+    case 'prepared':
+      return 'Prepared Spells';
+    case 'known-prepared':
+      return 'Known + Prepared';
+    case 'unsupported':
+      return 'Needs Review';
+    default:
+      return 'No Spellcasting';
+  }
+}
+
+function getIssueSourceAllocationId(issue: BuilderIssue) {
+  const prefixes = ['spell-cantrip-overfill-', 'spell-known-overfill-', 'spell-prepared-overfill-'];
+  const matchingPrefix = prefixes.find((prefix) => issue.id.startsWith(prefix));
+  return matchingPrefix ? issue.id.slice(matchingPrefix.length) : null;
+}
+
+function getSourceStatus(issues: readonly BuilderIssue[]) {
+  if (issues.some((issue) => issue.category === 'blocker' || issue.category === 'checklist')) {
+    return 'Fix';
+  }
+
+  if (issues.some((issue) => issue.category === 'notice')) {
+    return 'Need';
+  }
+
+  return 'OK';
+}
+
+function issueMatchesActiveTab(issue: BuilderIssue, activeTab: SpellTab) {
+  if (issue.id.startsWith('spell-cantrip-overfill-')) {
+    return activeTab === 'cantrips';
+  }
+
+  if (issue.id.startsWith('spell-known-overfill-')) {
+    return activeTab === 'known' || activeTab === 'browse';
+  }
+
+  if (issue.id.startsWith('spell-prepared-overfill-') || issue.id === 'spell-prepared-not-known') {
+    return activeTab === 'prepared' || activeTab === 'browse';
+  }
+
+  if (issue.id === 'spell-max-level' || issue.id === 'spell-invalid-selection') {
+    return true;
+  }
+
+  return activeTab === 'browse';
+}
+
+function getTabGuidance(activeTab: SpellTab) {
+  switch (activeTab) {
+    case 'cantrips':
+      return 'Choose cantrips here for each spellcasting source. Leveled spells stay in Browse, Known, or Prepared.';
+    case 'known':
+      return 'Known spells stay tied to their class source. Remove one from a full source before adding another.';
+    case 'prepared':
+      return 'Prepared spells stay tied to their class source. For known-plus-prepared casters, prepare only spells already tracked as known.';
+    case 'browse':
+      return 'Browse shows only eligible leveled spells for the current build. Cantrips stay in the Cantrips tab.';
+  }
+}
+
 export function BuilderSpellsSection({
   payload,
   selectedCantripCount,
@@ -106,6 +172,11 @@ export function BuilderSpellsSection({
   const detailSpell = detailTarget ? spellEntitiesById[detailTarget.spellId] ?? null : null;
   const detailSource = detailTarget ? spellSummary.sources.find((source) => source.allocationId === detailTarget.classAllocationId) ?? null : null;
   const spellSelections = Array.isArray(payload.spellsStep.selections) ? payload.spellsStep.selections : [];
+  const blockingIssues = spellSummary.issues.filter(
+    (issue) => !issue.resolvedByOverride && (issue.category === 'blocker' || issue.category === 'checklist' || issue.category === 'notice'),
+  );
+  const activeTabIssues = blockingIssues.filter((issue) => issueMatchesActiveTab(issue, normalizedActiveTab));
+  const overrideIssues = spellSummary.issues.filter((issue) => issue.category === 'override' || issue.resolvedByOverride);
 
   const sourceSpellItems = spellSummary.sources.flatMap((source) =>
     source.applicableSpellIds
@@ -147,6 +218,18 @@ export function BuilderSpellsSection({
   const getSourceSelectionCount = (source: SpellcastingSourceSummary, selectionType: 'cantrip' | 'known' | 'prepared') => {
     return spellSelections.filter((selection) => selection.classAllocationId === source.allocationId && selection.selectionType === selectionType).length;
   };
+
+  const sourceGuides = spellSummary.sources.map((source) => {
+    const sourceIssues = blockingIssues.filter((issue) => getIssueSourceAllocationId(issue) === source.allocationId);
+    return {
+      source,
+      status: getSourceStatus(sourceIssues),
+      cantripCount: getSourceSelectionCount(source, 'cantrip'),
+      knownCount: getSourceSelectionCount(source, 'known'),
+      preparedCount: getSourceSelectionCount(source, 'prepared'),
+      issues: sourceIssues,
+    };
+  });
 
   const getActionForSpell = (spell: ContentEntity, source: SpellcastingSourceSummary | null): { label: SpellActionLabel | null; target: SpellActionTarget | null; disabled: boolean; helper: string | null } => {
     if (!source) return { label: null, target: null, disabled: false, helper: null };
@@ -216,8 +299,9 @@ export function BuilderSpellsSection({
     setDetailTarget(null);
   };
 
-  const renderSpellList = (items: SpellListItem[], emptyMessage: string) => (
+  const renderSpellList = (items: SpellListItem[], emptyMessage: string, guidance: string) => (
     <View style={styles.spellList}>
+      <Text style={styles.tabGuidance}>{guidance}</Text>
       {items.length > 0 ? items.map((item) => (
         <BuilderSpellCard key={item.key} spell={item.spell} sourceLabel={item.sourceLabel} stateLabel={item.stateLabel} onPress={() => setDetailTarget({ spellId: item.spell.id, classAllocationId: item.source.allocationId })} />
       )) : <Text style={styles.emptyText}>{emptyMessage}</Text>}
@@ -246,11 +330,42 @@ export function BuilderSpellsSection({
       ) : spellSummary.workflow === 'unsupported' ? (
         <View style={styles.unsupportedCard}>
           <Text style={styles.unsupportedTitle}>Spellcasting workflow needs review</Text>
-          <Text style={styles.unsupportedText}>This build has spellcasting metadata, but the builder cannot confidently model known/prepared spell choices yet.</Text>
+          <Text style={styles.unsupportedText}>This build has spellcasting metadata, but the builder cannot confidently model the right known/prepared workflow yet. Review the spell choices later if this class gains more structured support.</Text>
         </View>
       ) : (
         <>
           <Text style={styles.sectionBodyText}>Select eligible spells by class source. Spell save DC and attack modifiers use the source class ability.</Text>
+
+          {sourceGuides.length > 0 ? (
+            <View style={styles.sourceGuideList}>
+              {sourceGuides.map(({ source, status, cantripCount, knownCount, preparedCount, issues }) => (
+                <View key={source.allocationId} style={styles.sourceGuideCard}>
+                  <View style={styles.sourceGuideHeader}>
+                    <View style={styles.sourceGuideHeaderCopy}>
+                      <Text style={styles.sourceGuideTitle}>{formatSourceLabel(source)}</Text>
+                      <Text style={styles.sourceGuideMeta}>{getWorkflowLabel(source.workflow)}</Text>
+                    </View>
+                    <View style={[styles.sourceStatusBadge, status === 'Fix' && styles.sourceStatusBadgeFix, status === 'Need' && styles.sourceStatusBadgeNeed]}>
+                      <Text style={[styles.sourceStatusLabel, status === 'Fix' && styles.sourceStatusLabelFix]}>{status}</Text>
+                    </View>
+                  </View>
+                  <View style={styles.sourceFactList}>
+                    {source.cantripLimit > 0 ? <Text style={styles.sourceFact}>Cantrips {cantripCount}/{source.cantripLimit}</Text> : null}
+                    {source.usesKnownSpells ? <Text style={styles.sourceFact}>Known {knownCount}/{source.knownSpellLimit}</Text> : null}
+                    {source.usesPreparedSpells ? <Text style={styles.sourceFact}>Prepared {preparedCount}/{source.preparedSpellLimit}</Text> : null}
+                    {source.maxSpellLevel > 0 ? <Text style={styles.sourceFact}>Leveled spells up to {source.maxSpellLevel}</Text> : null}
+                  </View>
+                  {issues.length > 0 ? (
+                    <View style={styles.sourceIssueList}>
+                      {issues.map((issue) => (
+                        <Text key={issue.id} style={styles.sourceIssueText}>{issue.summary}</Text>
+                      ))}
+                    </View>
+                  ) : null}
+                </View>
+              ))}
+            </View>
+          ) : null}
 
           <View style={styles.tabRow}>
             {tabs.map((tab) => {
@@ -268,11 +383,23 @@ export function BuilderSpellsSection({
             })}
           </View>
 
-          {normalizedActiveTab === 'cantrips' ? renderSpellList(eligibleCantrips, 'No eligible cantrips are available for this build.') : null}
-          {normalizedActiveTab === 'known' ? renderSpellList(selectedKnownSpellItems, 'No known spells selected. Browse eligible spells to add known spells.') : null}
-          {normalizedActiveTab === 'prepared' ? renderSpellList(selectedPreparedSpellItems, 'No prepared spells selected. Browse eligible spells to prepare spells.') : null}
+          {activeTabIssues.length > 0 ? (
+            <View style={styles.issueList}>
+              {activeTabIssues.map((issue) => (
+                <View key={issue.id} style={[styles.issueCard, issue.category === 'notice' ? styles.issueCardNeed : styles.issueCardFix]}>
+                  <Text style={[styles.issueTitle, issue.category === 'notice' ? styles.issueTitleNeed : styles.issueTitleFix]}>{issue.summary}</Text>
+                  <Text style={styles.issueDetail}>{issue.detail}</Text>
+                </View>
+              ))}
+            </View>
+          ) : null}
+
+          {normalizedActiveTab === 'cantrips' ? renderSpellList(eligibleCantrips, 'No eligible cantrips are available for this build.', getTabGuidance('cantrips')) : null}
+          {normalizedActiveTab === 'known' ? renderSpellList(selectedKnownSpellItems, 'No known spells selected. Browse eligible spells to add known spells for the relevant class source.', getTabGuidance('known')) : null}
+          {normalizedActiveTab === 'prepared' ? renderSpellList(selectedPreparedSpellItems, 'No prepared spells selected. Browse eligible spells to prepare spells for the relevant class source.', getTabGuidance('prepared')) : null}
           {normalizedActiveTab === 'browse' ? (
             <View style={styles.browseBlock}>
+              <Text style={styles.tabGuidance}>{getTabGuidance('browse')}</Text>
               <TextInput
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -292,7 +419,16 @@ export function BuilderSpellsSection({
                   </Pressable>
                 ))}
               </View>
-              {renderSpellList(browseSpellItems, 'No eligible leveled spells matched your filters.')}
+              {renderSpellList(browseSpellItems, 'No eligible leveled spells matched your filters. Clear the level filter or search to broaden the results.', '')}
+            </View>
+          ) : null}
+
+          {overrideIssues.length > 0 ? (
+            <View style={styles.overrideCard}>
+              <Text style={styles.overrideTitle}>Manual spell notes are active</Text>
+              {overrideIssues.map((issue) => (
+                <Text key={issue.id} style={styles.overrideText}>{issue.summary}{issue.detail ? ` ${issue.detail}` : ''}</Text>
+              ))}
             </View>
           ) : null}
 
@@ -409,11 +545,117 @@ const styles = StyleSheet.create({
   tabButtonLabelActive: {
     color: theme.colors.accentPrimarySoft,
   },
+  sourceGuideList: {
+    gap: theme.spacing.sm,
+  },
+  sourceGuideCard: {
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderSubtle,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: theme.spacing.sm,
+    padding: theme.spacing.md,
+  },
+  sourceGuideHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'space-between',
+  },
+  sourceGuideHeaderCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  sourceGuideTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  sourceGuideMeta: {
+    color: theme.colors.textMuted,
+    ...typography.meta,
+  },
+  sourceStatusBadge: {
+    backgroundColor: theme.colors.surfaceSuccess,
+    borderColor: theme.colors.accentSuccess,
+    borderRadius: theme.radii.pill,
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  sourceStatusBadgeFix: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.danger,
+  },
+  sourceStatusBadgeNeed: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.accentLegacy,
+  },
+  sourceStatusLabel: {
+    color: theme.colors.accentSuccessSoft,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  sourceStatusLabelFix: {
+    color: theme.colors.danger,
+  },
+  sourceFactList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  sourceFact: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  sourceIssueList: {
+    gap: 4,
+  },
+  sourceIssueText: {
+    color: theme.colors.accentLegacySoft,
+    ...typography.meta,
+    fontWeight: '700',
+  },
   spellList: {
     gap: theme.spacing.sm,
   },
+  tabGuidance: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
   emptyText: {
     color: theme.colors.textMuted,
+    ...typography.bodySm,
+  },
+  issueList: {
+    gap: theme.spacing.sm,
+  },
+  issueCard: {
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: 4,
+    padding: theme.spacing.md,
+  },
+  issueCardFix: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.danger,
+  },
+  issueCardNeed: {
+    backgroundColor: theme.colors.surfaceAccent,
+    borderColor: theme.colors.accentLegacy,
+  },
+  issueTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  issueTitleFix: {
+    color: theme.colors.danger,
+  },
+  issueTitleNeed: {
+    color: theme.colors.accentLegacySoft,
+  },
+  issueDetail: {
+    color: theme.colors.textSecondary,
     ...typography.bodySm,
   },
   levelFilterRow: {
@@ -458,6 +700,23 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   unsupportedText: {
+    color: theme.colors.textSecondary,
+    ...typography.bodySm,
+  },
+  overrideCard: {
+    backgroundColor: theme.colors.surfaceElevated,
+    borderColor: theme.colors.borderStrong,
+    borderRadius: theme.radii.sm,
+    borderWidth: 1,
+    gap: theme.spacing.xs,
+    padding: theme.spacing.md,
+  },
+  overrideTitle: {
+    color: theme.colors.textPrimary,
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  overrideText: {
     color: theme.colors.textSecondary,
     ...typography.bodySm,
   },

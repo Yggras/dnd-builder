@@ -273,6 +273,7 @@ Implemented:
 - Ability score UI now also renders feat-owned bonus summaries and feat-owned ability choice chips in the Ability Points phase.
 - Spell step uses source-owned spell selections tied to class allocation IDs, class IDs, subclass IDs, and selection type (`cantrip`, `known`, or `prepared`).
 - Spell step supports class-specific cantrip/known/prepared state, strict per-class allocation overfill/max-level checks, applicable spell filtering, and manual exception notes.
+- Spell step now surfaces inline issue banners for active spell problems, renders per-source spellcasting summary cards for multiclass clarity, and uses more directive tab/empty-state helper copy.
 - Multiclass spell choices preserve class source identity so shared spells can be selected as separate class-owned spells and spellcasting ability can be derived per source.
 - Spell reconciliation removes spell selections tied to removed/changed class allocations, invalid subclass/class lists, invalid workflows, or spells above that source's maximum spell level.
 - Inventory step supports starting equipment option choices, seeding canonical items/currency/unresolved gear, adding canonical items, editing quantity/equipped/attuned, and preserving manual items on reseed.
@@ -336,6 +337,7 @@ Known builder gaps:
 - Override workflow is not yet a full advanced, explicit, per-issue workflow with required reasons.
 - Step 26a intentionally defers automatic return-context restoration from compendium navigation and automatic reopening of the originating builder detail sheet after returning.
 - Step 26c does not add a replace-flow UI when spell limits are reached; users must remove an existing cantrip/known/prepared spell first.
+- Spell tabs still use global aggregate counters even though selection limits are enforced per class source; the new per-source summary cards reduce but do not eliminate this multiclass UX mismatch.
 - Existing saved drafts with the older global spell ID payload are not migrated; this is intentional for current single-user development and those old spell selections normalize away.
 - Step 27 intentionally applies starting class skill choices to every selected class allocation; first-class multiclass starting-proficiency rules are still deferred.
 - Duplicate proficiencies across class/species/background are allowed for now; replacement rules are not modeled.
